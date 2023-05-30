@@ -157,14 +157,14 @@ impl PnpObject {
     pub fn Type(&self) -> ::windows_core::Result<PnpObjectType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PnpObjectType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -173,7 +173,7 @@ impl PnpObject {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -188,7 +188,7 @@ impl PnpObject {
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<PnpObject>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateFromIdAsync)(::windows_core::Interface::as_raw(this), r#type, ::core::mem::transmute_copy(id), requestedproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -199,7 +199,7 @@ impl PnpObject {
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindAllAsync)(::windows_core::Interface::as_raw(this), r#type, requestedproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -210,7 +210,7 @@ impl PnpObject {
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindAllAsyncAqsFilter)(::windows_core::Interface::as_raw(this), r#type, requestedproperties.try_into_param()?.abi(), ::core::mem::transmute_copy(aqsfilter), &mut result__).from_abi(result__)
         })
     }
@@ -221,7 +221,7 @@ impl PnpObject {
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PnpObjectWatcher>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWatcher)(::windows_core::Interface::as_raw(this), r#type, requestedproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -232,7 +232,7 @@ impl PnpObject {
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPnpObjectStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PnpObjectWatcher>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWatcherAqsFilter)(::windows_core::Interface::as_raw(this), r#type, requestedproperties.try_into_param()?.abi(), ::core::mem::transmute_copy(aqsfilter), &mut result__).from_abi(result__)
         })
     }
@@ -284,7 +284,7 @@ impl PnpObjectCollection {
     pub fn First(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterator<PnpObject>> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::Collections::IIterable<PnpObject>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IIterator<PnpObject>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -293,7 +293,7 @@ impl PnpObjectCollection {
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<PnpObject> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PnpObject>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
@@ -302,7 +302,7 @@ impl PnpObjectCollection {
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -311,7 +311,7 @@ impl PnpObjectCollection {
     pub fn IndexOf(&self, value: &PnpObject, index: &mut u32) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), index, &mut result__).from_abi(result__)
         }
     }
@@ -320,7 +320,7 @@ impl PnpObjectCollection {
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<PnpObject>]) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }
@@ -394,14 +394,14 @@ impl PnpObjectUpdate {
     pub fn Type(&self) -> ::windows_core::Result<PnpObjectType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PnpObjectType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -410,7 +410,7 @@ impl PnpObjectUpdate {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -455,7 +455,7 @@ impl PnpObjectWatcher {
     pub fn Added(&self, handler: &super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObject>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Added)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -470,7 +470,7 @@ impl PnpObjectWatcher {
     pub fn Updated(&self, handler: &super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObjectUpdate>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Updated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -485,7 +485,7 @@ impl PnpObjectWatcher {
     pub fn Removed(&self, handler: &super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObjectUpdate>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Removed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -500,7 +500,7 @@ impl PnpObjectWatcher {
     pub fn EnumerationCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnumerationCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -515,7 +515,7 @@ impl PnpObjectWatcher {
     pub fn Stopped(&self, handler: &super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Stopped)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -528,7 +528,7 @@ impl PnpObjectWatcher {
     pub fn Status(&self) -> ::windows_core::Result<super::DeviceWatcherStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::DeviceWatcherStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

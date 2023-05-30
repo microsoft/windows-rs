@@ -116,7 +116,7 @@ pub struct IDtcLuRecovery_Vtbl {
 pub struct IDtcLuRecoveryFactory(::windows_core::IUnknown);
 impl IDtcLuRecoveryFactory {
     pub unsafe fn Create(&self, puclupair: &[u8]) -> ::windows_core::Result<IDtcLuRecovery> {
-        let mut result__ = ::windows_core::zeroed::<IDtcLuRecovery>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(puclupair.as_ptr()), puclupair.len() as _, &mut result__).from_abi(result__)
     }
 }
@@ -318,7 +318,7 @@ pub struct IDtcLuRecoveryInitiatedByDtcTransWork_Vtbl {
 pub struct IDtcLuRecoveryInitiatedByLu(::windows_core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLu {
     pub unsafe fn GetObjectToHandleWorkFromLu(&self) -> ::windows_core::Result<IDtcLuRecoveryInitiatedByLuWork> {
-        let mut result__ = ::windows_core::zeroed::<IDtcLuRecoveryInitiatedByLuWork>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetObjectToHandleWorkFromLu)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -774,7 +774,7 @@ impl IDtcNetworkAccessConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAnyNetworkAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -788,7 +788,7 @@ impl IDtcNetworkAccessConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNetworkAdministrationAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -802,7 +802,7 @@ impl IDtcNetworkAccessConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNetworkTransactionAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -816,7 +816,7 @@ impl IDtcNetworkAccessConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkClientAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNetworkClientAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -830,7 +830,7 @@ impl IDtcNetworkAccessConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNetworkTIPAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -844,7 +844,7 @@ impl IDtcNetworkAccessConfig {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXAAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetXAAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -943,7 +943,7 @@ impl IDtcNetworkAccessConfig2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAnyNetworkAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -957,7 +957,7 @@ impl IDtcNetworkAccessConfig2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNetworkAdministrationAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -971,7 +971,7 @@ impl IDtcNetworkAccessConfig2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNetworkTransactionAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -985,7 +985,7 @@ impl IDtcNetworkAccessConfig2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkClientAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNetworkClientAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -999,7 +999,7 @@ impl IDtcNetworkAccessConfig2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNetworkTIPAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1013,7 +1013,7 @@ impl IDtcNetworkAccessConfig2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXAAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetXAAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1030,13 +1030,13 @@ impl IDtcNetworkAccessConfig2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNetworkInboundAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNetworkOutboundAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1056,7 +1056,7 @@ impl IDtcNetworkAccessConfig2 {
         (::windows_core::Interface::vtable(self).SetNetworkOutboundAccess)(::windows_core::Interface::as_raw(self), boutbound.into_param().abi()).ok()
     }
     pub unsafe fn GetAuthenticationLevel(&self) -> ::windows_core::Result<AUTHENTICATION_LEVEL> {
-        let mut result__ = ::windows_core::zeroed::<AUTHENTICATION_LEVEL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAuthenticationLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows_core::Result<()> {
@@ -1116,7 +1116,7 @@ impl IDtcNetworkAccessConfig3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetAnyNetworkAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1130,7 +1130,7 @@ impl IDtcNetworkAccessConfig3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetNetworkAdministrationAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1144,7 +1144,7 @@ impl IDtcNetworkAccessConfig3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetNetworkTransactionAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1158,7 +1158,7 @@ impl IDtcNetworkAccessConfig3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkClientAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetNetworkClientAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1172,7 +1172,7 @@ impl IDtcNetworkAccessConfig3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetNetworkTIPAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1186,7 +1186,7 @@ impl IDtcNetworkAccessConfig3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXAAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetXAAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1203,13 +1203,13 @@ impl IDtcNetworkAccessConfig3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNetworkInboundAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetNetworkOutboundAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1229,7 +1229,7 @@ impl IDtcNetworkAccessConfig3 {
         (::windows_core::Interface::vtable(self).base__.SetNetworkOutboundAccess)(::windows_core::Interface::as_raw(self), boutbound.into_param().abi()).ok()
     }
     pub unsafe fn GetAuthenticationLevel(&self) -> ::windows_core::Result<AUTHENTICATION_LEVEL> {
-        let mut result__ = ::windows_core::zeroed::<AUTHENTICATION_LEVEL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAuthenticationLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows_core::Result<()> {
@@ -1238,7 +1238,7 @@ impl IDtcNetworkAccessConfig3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLUAccess(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLUAccess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1398,7 +1398,7 @@ impl IDtcToXaHelperSinglePipe {
         P0: ::windows_core::IntoParam<ITransaction>,
         P1: ::windows_core::IntoParam<ITransactionResourceAsync>,
     {
-        let mut result__ = ::windows_core::zeroed::<ITransactionEnlistmentAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnlistWithRM)(::windows_core::Interface::as_raw(self), dwrmcookie, i_pitransaction.into_param().abi(), i_pitransres.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1542,7 +1542,7 @@ impl IKernelTransaction {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHandle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1665,7 +1665,7 @@ pub struct IPrepareInfo_Vtbl {
 pub struct IPrepareInfo2(::windows_core::IUnknown);
 impl IPrepareInfo2 {
     pub unsafe fn GetPrepareInfoSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPrepareInfoSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPrepareInfo(&self, pprepinfo: &mut [u8]) -> ::windows_core::Result<()> {
@@ -1765,7 +1765,7 @@ impl IResourceManager {
         (::windows_core::Interface::vtable(self).Enlist)(::windows_core::Interface::as_raw(self), ptransaction.into_param().abi(), pres.into_param().abi(), puow, pisolevel, ::core::mem::transmute(ppenlist)).ok()
     }
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows_core::Result<XACTSTAT> {
-        let mut result__ = ::windows_core::zeroed::<XACTSTAT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Reenlist)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows_core::Result<()> {
@@ -1819,7 +1819,7 @@ impl IResourceManager2 {
         (::windows_core::Interface::vtable(self).base__.Enlist)(::windows_core::Interface::as_raw(self), ptransaction.into_param().abi(), pres.into_param().abi(), puow, pisolevel, ::core::mem::transmute(ppenlist)).ok()
     }
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows_core::Result<XACTSTAT> {
-        let mut result__ = ::windows_core::zeroed::<XACTSTAT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Reenlist)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows_core::Result<()> {
@@ -1836,7 +1836,7 @@ impl IResourceManager2 {
         (::windows_core::Interface::vtable(self).Enlist2)(::windows_core::Interface::as_raw(self), ptransaction.into_param().abi(), presasync.into_param().abi(), puow, pisolevel, pxid, ::core::mem::transmute(ppenlist)).ok()
     }
     pub unsafe fn Reenlist2(&self, pxid: *const XID, dwtimeout: u32) -> ::windows_core::Result<XACTSTAT> {
-        let mut result__ = ::windows_core::zeroed::<XACTSTAT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Reenlist2)(::windows_core::Interface::as_raw(self), pxid, dwtimeout, &mut result__).from_abi(result__)
     }
 }
@@ -1879,7 +1879,7 @@ impl IResourceManagerFactory {
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
         P1: ::windows_core::IntoParam<IResourceManagerSink>,
     {
-        let mut result__ = ::windows_core::zeroed::<IResourceManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), pguidrm, pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -1921,7 +1921,7 @@ impl IResourceManagerFactory2 {
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
         P1: ::windows_core::IntoParam<IResourceManagerSink>,
     {
-        let mut result__ = ::windows_core::zeroed::<IResourceManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Create)(::windows_core::Interface::as_raw(self), pguidrm, pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateEx<P0, P1>(&self, pguidrm: *const ::windows_core::GUID, pszrmname: P0, piresmgrsink: P1, riidrequested: *const ::windows_core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -1973,7 +1973,7 @@ impl IResourceManagerRejoinable {
         (::windows_core::Interface::vtable(self).base__.base__.Enlist)(::windows_core::Interface::as_raw(self), ptransaction.into_param().abi(), pres.into_param().abi(), puow, pisolevel, ::core::mem::transmute(ppenlist)).ok()
     }
     pub unsafe fn Reenlist(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows_core::Result<XACTSTAT> {
-        let mut result__ = ::windows_core::zeroed::<XACTSTAT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Reenlist)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReenlistmentComplete(&self) -> ::windows_core::Result<()> {
@@ -1990,11 +1990,11 @@ impl IResourceManagerRejoinable {
         (::windows_core::Interface::vtable(self).base__.Enlist2)(::windows_core::Interface::as_raw(self), ptransaction.into_param().abi(), presasync.into_param().abi(), puow, pisolevel, pxid, ::core::mem::transmute(ppenlist)).ok()
     }
     pub unsafe fn Reenlist2(&self, pxid: *const XID, dwtimeout: u32) -> ::windows_core::Result<XACTSTAT> {
-        let mut result__ = ::windows_core::zeroed::<XACTSTAT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Reenlist2)(::windows_core::Interface::as_raw(self), pxid, dwtimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn Rejoin(&self, pprepinfo: &[u8], ltimeout: u32) -> ::windows_core::Result<XACTSTAT> {
-        let mut result__ = ::windows_core::zeroed::<XACTSTAT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Rejoin)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pprepinfo.as_ptr()), pprepinfo.len() as _, ltimeout, &mut result__).from_abi(result__)
     }
 }
@@ -2069,18 +2069,18 @@ pub struct IResourceManagerSink_Vtbl {
 pub struct ITipHelper(::windows_core::IUnknown);
 impl ITipHelper {
     pub unsafe fn Pull(&self, i_psztxurl: *const u8) -> ::windows_core::Result<ITransaction> {
-        let mut result__ = ::windows_core::zeroed::<ITransaction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Pull)(::windows_core::Interface::as_raw(self), i_psztxurl, &mut result__).from_abi(result__)
     }
     pub unsafe fn PullAsync<P0>(&self, i_psztxurl: *const u8, i_ptippullsink: P0) -> ::windows_core::Result<ITransaction>
     where
         P0: ::windows_core::IntoParam<ITipPullSink>,
     {
-        let mut result__ = ::windows_core::zeroed::<ITransaction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PullAsync)(::windows_core::Interface::as_raw(self), i_psztxurl, i_ptippullsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocalTmUrl(&self) -> ::windows_core::Result<*mut u8> {
-        let mut result__ = ::windows_core::zeroed::<*mut u8>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocalTmUrl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2157,11 +2157,11 @@ pub struct ITipPullSink_Vtbl {
 pub struct ITipTransaction(::windows_core::IUnknown);
 impl ITipTransaction {
     pub unsafe fn Push(&self, i_pszremotetmurl: *const u8) -> ::windows_core::Result<::windows_core::PSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Push)(::windows_core::Interface::as_raw(self), i_pszremotetmurl, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTransactionUrl(&self) -> ::windows_core::Result<::windows_core::PSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTransactionUrl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2200,7 +2200,7 @@ pub struct ITipTransaction_Vtbl {
 pub struct ITmNodeName(::windows_core::IUnknown);
 impl ITmNodeName {
     pub unsafe fn GetNodeNameSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNodeNameSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNodeName(&self, cbnodenamebuffersize: u32, pnodenamebuffer: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
@@ -2324,7 +2324,7 @@ impl ITransaction2 {
         (::windows_core::Interface::vtable(self).base__.base__.GetTransactionInfo)(::windows_core::Interface::as_raw(self), pinfo).ok()
     }
     pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows_core::Result<ITransaction> {
-        let mut result__ = ::windows_core::zeroed::<ITransaction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CloneWithCommitDisabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTransactionInfo2(&self, pinfo: *mut XACTTRANSINFO) -> ::windows_core::Result<()> {
@@ -2385,7 +2385,7 @@ impl ITransactionCloner {
         (::windows_core::Interface::vtable(self).base__.GetTransactionInfo)(::windows_core::Interface::as_raw(self), pinfo).ok()
     }
     pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows_core::Result<ITransaction> {
-        let mut result__ = ::windows_core::zeroed::<ITransaction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CloneWithCommitDisabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2423,7 +2423,7 @@ pub struct ITransactionCloner_Vtbl {
 pub struct ITransactionDispenser(::windows_core::IUnknown);
 impl ITransactionDispenser {
     pub unsafe fn GetOptionsObject(&self) -> ::windows_core::Result<ITransactionOptions> {
-        let mut result__ = ::windows_core::zeroed::<ITransactionOptions>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOptionsObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn BeginTransaction<P0, P1>(&self, punkouter: P0, isolevel: i32, isoflags: u32, poptions: P1) -> ::windows_core::Result<ITransaction>
@@ -2431,7 +2431,7 @@ impl ITransactionDispenser {
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
         P1: ::windows_core::IntoParam<ITransactionOptions>,
     {
-        let mut result__ = ::windows_core::zeroed::<ITransaction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BeginTransaction)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), isolevel, isoflags, poptions.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -2526,7 +2526,7 @@ impl ITransactionExport {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Export)(::windows_core::Interface::as_raw(self), punktransaction.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTransactionCookie<P0>(&self, punktransaction: P0, rgbtransactioncookie: &mut [u8], pcbused: *mut u32) -> ::windows_core::Result<()>
@@ -2571,11 +2571,11 @@ pub struct ITransactionExport_Vtbl {
 pub struct ITransactionExportFactory(::windows_core::IUnknown);
 impl ITransactionExportFactory {
     pub unsafe fn GetRemoteClassId(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRemoteClassId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Create(&self, rgbwhereabouts: &[u8]) -> ::windows_core::Result<ITransactionExport> {
-        let mut result__ = ::windows_core::zeroed::<ITransactionExport>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), rgbwhereabouts.len() as _, ::core::mem::transmute(rgbwhereabouts.as_ptr()), &mut result__).from_abi(result__)
     }
 }
@@ -2655,7 +2655,7 @@ pub struct ITransactionImport_Vtbl {
 pub struct ITransactionImportWhereabouts(::windows_core::IUnknown);
 impl ITransactionImportWhereabouts {
     pub unsafe fn GetWhereaboutsSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetWhereaboutsSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetWhereabouts(&self, rgbwhereabouts: &mut [u8], pcbused: *mut u32) -> ::windows_core::Result<()> {
@@ -2893,7 +2893,7 @@ impl ITransactionPhase0EnlistmentAsync {
         (::windows_core::Interface::vtable(self).Unenlist)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetTransaction(&self) -> ::windows_core::Result<ITransaction> {
-        let mut result__ = ::windows_core::zeroed::<ITransaction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTransaction)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2938,7 +2938,7 @@ impl ITransactionPhase0Factory {
     where
         P0: ::windows_core::IntoParam<ITransactionPhase0NotifyAsync>,
     {
-        let mut result__ = ::windows_core::zeroed::<ITransactionPhase0EnlistmentAsync>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), pphase0notify.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -3025,11 +3025,11 @@ pub struct ITransactionPhase0NotifyAsync_Vtbl {
 pub struct ITransactionReceiver(::windows_core::IUnknown);
 impl ITransactionReceiver {
     pub unsafe fn UnmarshalPropagationToken(&self, rgbtoken: &[u8]) -> ::windows_core::Result<ITransaction> {
-        let mut result__ = ::windows_core::zeroed::<ITransaction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UnmarshalPropagationToken)(::windows_core::Interface::as_raw(self), rgbtoken.len() as _, ::core::mem::transmute(rgbtoken.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetReturnTokenSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnTokenSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MarshalReturnToken(&self, rgbreturntoken: &mut [u8], pcbused: *mut u32) -> ::windows_core::Result<()> {
@@ -3076,7 +3076,7 @@ pub struct ITransactionReceiver_Vtbl {
 pub struct ITransactionReceiverFactory(::windows_core::IUnknown);
 impl ITransactionReceiverFactory {
     pub unsafe fn Create(&self) -> ::windows_core::Result<ITransactionReceiver> {
-        let mut result__ = ::windows_core::zeroed::<ITransactionReceiver>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3254,7 +3254,7 @@ impl ITransactionTransmitter {
         (::windows_core::Interface::vtable(self).Set)(::windows_core::Interface::as_raw(self), ptransaction.into_param().abi()).ok()
     }
     pub unsafe fn GetPropagationTokenSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPropagationTokenSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MarshalPropagationToken(&self, rgbtoken: &mut [u8], pcbused: *mut u32) -> ::windows_core::Result<()> {
@@ -3305,7 +3305,7 @@ pub struct ITransactionTransmitter_Vtbl {
 pub struct ITransactionTransmitterFactory(::windows_core::IUnknown);
 impl ITransactionTransmitterFactory {
     pub unsafe fn Create(&self) -> ::windows_core::Result<ITransactionTransmitter> {
-        let mut result__ = ::windows_core::zeroed::<ITransactionTransmitter>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3384,7 +3384,7 @@ impl ITransactionVoterFactory2 {
         P0: ::windows_core::IntoParam<ITransaction>,
         P1: ::windows_core::IntoParam<ITransactionVoterNotifyAsync2>,
     {
-        let mut result__ = ::windows_core::zeroed::<ITransactionVoterBallotAsync2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Create)(::windows_core::Interface::as_raw(self), ptransaction.into_param().abi(), pvoternotify.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -3562,7 +3562,7 @@ pub struct IXAObtainRMInfo_Vtbl {
 pub struct IXATransLookup(::windows_core::IUnknown);
 impl IXATransLookup {
     pub unsafe fn Lookup(&self) -> ::windows_core::Result<ITransaction> {
-        let mut result__ = ::windows_core::zeroed::<ITransaction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Lookup)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3600,7 +3600,7 @@ pub struct IXATransLookup_Vtbl {
 pub struct IXATransLookup2(::windows_core::IUnknown);
 impl IXATransLookup2 {
     pub unsafe fn Lookup(&self, pxid: *const XID) -> ::windows_core::Result<ITransaction> {
-        let mut result__ = ::windows_core::zeroed::<ITransaction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Lookup)(::windows_core::Interface::as_raw(self), pxid, &mut result__).from_abi(result__)
     }
 }

@@ -919,7 +919,7 @@ impl BarcodeScannerDisableScannerRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportCompletedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -928,7 +928,7 @@ impl BarcodeScannerDisableScannerRequest {
     pub fn ReportFailedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -937,7 +937,7 @@ impl BarcodeScannerDisableScannerRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerDisableScannerRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAsync)(::windows_core::Interface::as_raw(this), reason, &mut result__).from_abi(result__)
         }
     }
@@ -946,7 +946,7 @@ impl BarcodeScannerDisableScannerRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerDisableScannerRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAndDescriptionAsync)(::windows_core::Interface::as_raw(this), reason, ::core::mem::transmute_copy(failedreasondescription), &mut result__).from_abi(result__)
         }
     }
@@ -989,7 +989,7 @@ impl BarcodeScannerDisableScannerRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<BarcodeScannerDisableScannerRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BarcodeScannerDisableScannerRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -998,7 +998,7 @@ impl BarcodeScannerDisableScannerRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1043,7 +1043,7 @@ impl BarcodeScannerEnableScannerRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportCompletedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1052,7 +1052,7 @@ impl BarcodeScannerEnableScannerRequest {
     pub fn ReportFailedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1061,7 +1061,7 @@ impl BarcodeScannerEnableScannerRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerEnableScannerRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAsync)(::windows_core::Interface::as_raw(this), reason, &mut result__).from_abi(result__)
         }
     }
@@ -1070,7 +1070,7 @@ impl BarcodeScannerEnableScannerRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerEnableScannerRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAndDescriptionAsync)(::windows_core::Interface::as_raw(this), reason, ::core::mem::transmute_copy(failedreasondescription), &mut result__).from_abi(result__)
         }
     }
@@ -1113,7 +1113,7 @@ impl BarcodeScannerEnableScannerRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<BarcodeScannerEnableScannerRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BarcodeScannerEnableScannerRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1122,7 +1122,7 @@ impl BarcodeScannerEnableScannerRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1167,7 +1167,7 @@ impl BarcodeScannerFrameReader {
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1176,7 +1176,7 @@ impl BarcodeScannerFrameReader {
     pub fn StopAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StopAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1185,14 +1185,14 @@ impl BarcodeScannerFrameReader {
     pub fn TryAcquireLatestFrameAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerVideoFrame>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerVideoFrame>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryAcquireLatestFrameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Connection(&self) -> ::windows_core::Result<BarcodeScannerProviderConnection> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BarcodeScannerProviderConnection>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Connection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1201,7 +1201,7 @@ impl BarcodeScannerFrameReader {
     pub fn FrameArrived(&self, handler: &super::super::super::Foundation::TypedEventHandler<BarcodeScannerFrameReader, BarcodeScannerFrameReaderFrameArrivedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameArrived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1260,7 +1260,7 @@ impl BarcodeScannerFrameReaderFrameArrivedEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1303,7 +1303,7 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
     pub fn Symbology(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Symbology)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1312,7 +1312,7 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
     pub fn ReportCompletedAsync(&self, attributes: &super::BarcodeSymbologyAttributes) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportCompletedAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(attributes), &mut result__).from_abi(result__)
         }
     }
@@ -1321,7 +1321,7 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
     pub fn ReportFailedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1330,7 +1330,7 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerGetSymbologyAttributesRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAsync)(::windows_core::Interface::as_raw(this), reason, &mut result__).from_abi(result__)
         }
     }
@@ -1339,7 +1339,7 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerGetSymbologyAttributesRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAndDescriptionAsync)(::windows_core::Interface::as_raw(this), reason, ::core::mem::transmute_copy(failedreasondescription), &mut result__).from_abi(result__)
         }
     }
@@ -1382,7 +1382,7 @@ impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<BarcodeScannerGetSymbologyAttributesRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BarcodeScannerGetSymbologyAttributesRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1391,7 +1391,7 @@ impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1436,7 +1436,7 @@ impl BarcodeScannerHideVideoPreviewRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportCompletedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1445,7 +1445,7 @@ impl BarcodeScannerHideVideoPreviewRequest {
     pub fn ReportFailedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1454,7 +1454,7 @@ impl BarcodeScannerHideVideoPreviewRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerHideVideoPreviewRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAsync)(::windows_core::Interface::as_raw(this), reason, &mut result__).from_abi(result__)
         }
     }
@@ -1463,7 +1463,7 @@ impl BarcodeScannerHideVideoPreviewRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerHideVideoPreviewRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAndDescriptionAsync)(::windows_core::Interface::as_raw(this), reason, ::core::mem::transmute_copy(failedreasondescription), &mut result__).from_abi(result__)
         }
     }
@@ -1506,7 +1506,7 @@ impl BarcodeScannerHideVideoPreviewRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<BarcodeScannerHideVideoPreviewRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BarcodeScannerHideVideoPreviewRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1515,7 +1515,7 @@ impl BarcodeScannerHideVideoPreviewRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1558,14 +1558,14 @@ impl BarcodeScannerProviderConnection {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VideoDeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoDeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1574,14 +1574,14 @@ impl BarcodeScannerProviderConnection {
     pub fn SupportedSymbologies(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVector<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedSymbologies)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CompanyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CompanyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1592,7 +1592,7 @@ impl BarcodeScannerProviderConnection {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1603,7 +1603,7 @@ impl BarcodeScannerProviderConnection {
     pub fn Version(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Version)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1620,7 +1620,7 @@ impl BarcodeScannerProviderConnection {
     pub fn ReportScannedDataAsync(&self, report: &super::BarcodeScannerReport) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportScannedDataAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(report), &mut result__).from_abi(result__)
         }
     }
@@ -1629,7 +1629,7 @@ impl BarcodeScannerProviderConnection {
     pub fn ReportTriggerStateAsync(&self, state: BarcodeScannerTriggerState) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportTriggerStateAsync)(::windows_core::Interface::as_raw(this), state, &mut result__).from_abi(result__)
         }
     }
@@ -1638,7 +1638,7 @@ impl BarcodeScannerProviderConnection {
     pub fn ReportErrorAsync(&self, errordata: &super::UnifiedPosErrorData) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportErrorAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(errordata), &mut result__).from_abi(result__)
         }
     }
@@ -1647,7 +1647,7 @@ impl BarcodeScannerProviderConnection {
     pub fn ReportErrorAsyncWithScanReport(&self, errordata: &super::UnifiedPosErrorData, isretriable: bool, scanreport: &super::BarcodeScannerReport) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportErrorAsyncWithScanReport)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(errordata), isretriable, ::core::mem::transmute_copy(scanreport), &mut result__).from_abi(result__)
         }
     }
@@ -1656,7 +1656,7 @@ impl BarcodeScannerProviderConnection {
     pub fn EnableScannerRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerEnableScannerRequestEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnableScannerRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1671,7 +1671,7 @@ impl BarcodeScannerProviderConnection {
     pub fn DisableScannerRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerDisableScannerRequestEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisableScannerRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1686,7 +1686,7 @@ impl BarcodeScannerProviderConnection {
     pub fn SetActiveSymbologiesRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetActiveSymbologiesRequestEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetActiveSymbologiesRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1701,7 +1701,7 @@ impl BarcodeScannerProviderConnection {
     pub fn StartSoftwareTriggerRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStartSoftwareTriggerRequestEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartSoftwareTriggerRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1716,7 +1716,7 @@ impl BarcodeScannerProviderConnection {
     pub fn StopSoftwareTriggerRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStopSoftwareTriggerRequestEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StopSoftwareTriggerRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1731,7 +1731,7 @@ impl BarcodeScannerProviderConnection {
     pub fn GetBarcodeSymbologyAttributesRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerGetSymbologyAttributesRequestEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetBarcodeSymbologyAttributesRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1746,7 +1746,7 @@ impl BarcodeScannerProviderConnection {
     pub fn SetBarcodeSymbologyAttributesRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetSymbologyAttributesRequestEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetBarcodeSymbologyAttributesRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1761,7 +1761,7 @@ impl BarcodeScannerProviderConnection {
     pub fn HideVideoPreviewRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerHideVideoPreviewRequestEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HideVideoPreviewRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1776,7 +1776,7 @@ impl BarcodeScannerProviderConnection {
     pub fn CreateFrameReaderAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerProviderConnection2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateFrameReaderAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1785,7 +1785,7 @@ impl BarcodeScannerProviderConnection {
     pub fn CreateFrameReaderWithFormatAsync(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerProviderConnection2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateFrameReaderWithFormatAsync)(::windows_core::Interface::as_raw(this), preferredformat, &mut result__).from_abi(result__)
         }
     }
@@ -1794,7 +1794,7 @@ impl BarcodeScannerProviderConnection {
     pub fn CreateFrameReaderWithFormatAndSizeAsync(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat, preferredsize: super::super::super::Graphics::Imaging::BitmapSize) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerProviderConnection2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateFrameReaderWithFormatAndSizeAsync)(::windows_core::Interface::as_raw(this), preferredformat, preferredsize, &mut result__).from_abi(result__)
         }
     }
@@ -1845,7 +1845,7 @@ impl BarcodeScannerProviderTriggerDetails {
     pub fn Connection(&self) -> ::windows_core::Result<BarcodeScannerProviderConnection> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BarcodeScannerProviderConnection>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Connection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1890,7 +1890,7 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
     pub fn Symbologies(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Symbologies)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1899,7 +1899,7 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportCompletedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1908,7 +1908,7 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
     pub fn ReportFailedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1917,7 +1917,7 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerSetActiveSymbologiesRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAsync)(::windows_core::Interface::as_raw(this), reason, &mut result__).from_abi(result__)
         }
     }
@@ -1926,7 +1926,7 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerSetActiveSymbologiesRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAndDescriptionAsync)(::windows_core::Interface::as_raw(this), reason, ::core::mem::transmute_copy(failedreasondescription), &mut result__).from_abi(result__)
         }
     }
@@ -1969,7 +1969,7 @@ impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<BarcodeScannerSetActiveSymbologiesRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BarcodeScannerSetActiveSymbologiesRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1978,7 +1978,7 @@ impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2021,14 +2021,14 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
     pub fn Symbology(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Symbology)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Attributes(&self) -> ::windows_core::Result<super::BarcodeSymbologyAttributes> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::BarcodeSymbologyAttributes>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Attributes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2037,7 +2037,7 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportCompletedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2046,7 +2046,7 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
     pub fn ReportFailedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2055,7 +2055,7 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerSetSymbologyAttributesRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAsync)(::windows_core::Interface::as_raw(this), reason, &mut result__).from_abi(result__)
         }
     }
@@ -2064,7 +2064,7 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerSetSymbologyAttributesRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAndDescriptionAsync)(::windows_core::Interface::as_raw(this), reason, ::core::mem::transmute_copy(failedreasondescription), &mut result__).from_abi(result__)
         }
     }
@@ -2107,7 +2107,7 @@ impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<BarcodeScannerSetSymbologyAttributesRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BarcodeScannerSetSymbologyAttributesRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2116,7 +2116,7 @@ impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2161,7 +2161,7 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportCompletedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2170,7 +2170,7 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
     pub fn ReportFailedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2179,7 +2179,7 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerStartSoftwareTriggerRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAsync)(::windows_core::Interface::as_raw(this), reason, &mut result__).from_abi(result__)
         }
     }
@@ -2188,7 +2188,7 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerStartSoftwareTriggerRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAndDescriptionAsync)(::windows_core::Interface::as_raw(this), reason, ::core::mem::transmute_copy(failedreasondescription), &mut result__).from_abi(result__)
         }
     }
@@ -2231,7 +2231,7 @@ impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<BarcodeScannerStartSoftwareTriggerRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BarcodeScannerStartSoftwareTriggerRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2240,7 +2240,7 @@ impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2285,7 +2285,7 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
     pub fn ReportCompletedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportCompletedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2294,7 +2294,7 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
     pub fn ReportFailedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2303,7 +2303,7 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerStopSoftwareTriggerRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAsync)(::windows_core::Interface::as_raw(this), reason, &mut result__).from_abi(result__)
         }
     }
@@ -2312,7 +2312,7 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync(&self, reason: i32, failedreasondescription: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IBarcodeScannerStopSoftwareTriggerRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportFailedWithFailedReasonAndDescriptionAsync)(::windows_core::Interface::as_raw(this), reason, ::core::mem::transmute_copy(failedreasondescription), &mut result__).from_abi(result__)
         }
     }
@@ -2355,7 +2355,7 @@ impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<BarcodeScannerStopSoftwareTriggerRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BarcodeScannerStopSoftwareTriggerRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2364,7 +2364,7 @@ impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2409,21 +2409,21 @@ impl BarcodeScannerVideoFrame {
     pub fn Format(&self) -> ::windows_core::Result<super::super::super::Graphics::Imaging::BitmapPixelFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::Imaging::BitmapPixelFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Format)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Width(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Width)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Height(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2432,7 +2432,7 @@ impl BarcodeScannerVideoFrame {
     pub fn PixelData(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Storage::Streams::IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PixelData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2490,7 +2490,7 @@ impl BarcodeSymbologyAttributesBuilder {
     pub fn IsCheckDigitValidationSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCheckDigitValidationSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2501,7 +2501,7 @@ impl BarcodeSymbologyAttributesBuilder {
     pub fn IsCheckDigitTransmissionSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCheckDigitTransmissionSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2512,7 +2512,7 @@ impl BarcodeSymbologyAttributesBuilder {
     pub fn IsDecodeLengthSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDecodeLengthSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2523,7 +2523,7 @@ impl BarcodeSymbologyAttributesBuilder {
     pub fn CreateAttributes(&self) -> ::windows_core::Result<super::BarcodeSymbologyAttributes> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::BarcodeSymbologyAttributes>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAttributes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

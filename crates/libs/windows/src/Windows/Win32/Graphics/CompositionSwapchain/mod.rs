@@ -228,11 +228,11 @@ impl IPresentationBuffer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAvailableEvent(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAvailableEvent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsAvailable(&self) -> ::windows_core::Result<u8> {
-        let mut result__ = ::windows_core::zeroed::<u8>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsAvailable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -317,7 +317,7 @@ impl IPresentationFactory {
         (::windows_core::Interface::vtable(self).IsPresentationSupportedWithIndependentFlip)(::windows_core::Interface::as_raw(self))
     }
     pub unsafe fn CreatePresentationManager(&self) -> ::windows_core::Result<IPresentationManager> {
-        let mut result__ = ::windows_core::zeroed::<IPresentationManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePresentationManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -360,7 +360,7 @@ impl IPresentationManager {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<IPresentationBuffer>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBufferFromResource)(::windows_core::Interface::as_raw(self), resource.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -369,7 +369,7 @@ impl IPresentationManager {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     {
-        let mut result__ = ::windows_core::zeroed::<IPresentationSurface>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePresentationSurface)(::windows_core::Interface::as_raw(self), compositionsurfacehandle.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextPresentId(&self) -> u64 {
@@ -388,7 +388,7 @@ impl IPresentationManager {
         (::windows_core::Interface::vtable(self).Present)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetPresentRetiringFence(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<*mut ::core::ffi::c_void> {
-        let mut result__ = ::windows_core::zeroed::<*mut ::core::ffi::c_void>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPresentRetiringFence)(::windows_core::Interface::as_raw(self), riid, &mut result__).from_abi(result__)
     }
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> ::windows_core::Result<()> {
@@ -397,20 +397,20 @@ impl IPresentationManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLostEvent(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLostEvent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresentStatisticsAvailableEvent(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPresentStatisticsAvailableEvent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).EnablePresentStatisticsKind)(::windows_core::Interface::as_raw(self), presentstatisticskind, enabled).ok()
     }
     pub unsafe fn GetNextPresentStatistics(&self) -> ::windows_core::Result<IPresentStatistics> {
-        let mut result__ = ::windows_core::zeroed::<IPresentStatistics>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextPresentStatistics)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

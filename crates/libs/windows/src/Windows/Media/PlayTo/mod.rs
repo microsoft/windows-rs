@@ -703,7 +703,7 @@ impl CurrentTimeChangeRequestedEventArgs {
     pub fn Time(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Time)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -744,7 +744,7 @@ impl MuteChangeRequestedEventArgs {
     pub fn Mute(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Mute)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -789,7 +789,7 @@ impl PlayToConnection {
     pub fn State(&self) -> ::windows_core::Result<PlayToConnectionState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlayToConnectionState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -798,7 +798,7 @@ impl PlayToConnection {
     pub fn StateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToConnection, PlayToConnectionStateChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -813,7 +813,7 @@ impl PlayToConnection {
     pub fn Transferred(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToConnection, PlayToConnectionTransferredEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Transferred)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -828,7 +828,7 @@ impl PlayToConnection {
     pub fn Error(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToConnection, PlayToConnectionErrorEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Error)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -892,7 +892,7 @@ impl PlayToConnectionErrorEventArgs {
     pub fn Code(&self) -> ::windows_core::Result<PlayToConnectionError> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlayToConnectionError>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Code)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -901,7 +901,7 @@ impl PlayToConnectionErrorEventArgs {
     pub fn Message(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -959,7 +959,7 @@ impl PlayToConnectionStateChangedEventArgs {
     pub fn PreviousState(&self) -> ::windows_core::Result<PlayToConnectionState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlayToConnectionState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -968,7 +968,7 @@ impl PlayToConnectionStateChangedEventArgs {
     pub fn CurrentState(&self) -> ::windows_core::Result<PlayToConnectionState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlayToConnectionState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1026,7 +1026,7 @@ impl PlayToConnectionTransferredEventArgs {
     pub fn PreviousSource(&self) -> ::windows_core::Result<PlayToSource> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlayToSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviousSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1035,7 +1035,7 @@ impl PlayToConnectionTransferredEventArgs {
     pub fn CurrentSource(&self) -> ::windows_core::Result<PlayToSource> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlayToSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1093,7 +1093,7 @@ impl PlayToManager {
     pub fn SourceRequested(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToManager, PlayToSourceRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1108,7 +1108,7 @@ impl PlayToManager {
     pub fn SourceSelected(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToManager, PlayToSourceSelectedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceSelected)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1129,7 +1129,7 @@ impl PlayToManager {
     pub fn DefaultSourceSelection(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultSourceSelection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1137,7 +1137,7 @@ impl PlayToManager {
     #[cfg(feature = "deprecated")]
     pub fn GetForCurrentView() -> ::windows_core::Result<PlayToManager> {
         Self::IPlayToManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlayToManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1211,7 +1211,7 @@ impl PlayToReceiver {
     pub fn PlayRequested(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToReceiver, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PlayRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1226,7 +1226,7 @@ impl PlayToReceiver {
     pub fn PauseRequested(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToReceiver, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PauseRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1241,7 +1241,7 @@ impl PlayToReceiver {
     pub fn SourceChangeRequested(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToReceiver, SourceChangeRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceChangeRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1256,7 +1256,7 @@ impl PlayToReceiver {
     pub fn PlaybackRateChangeRequested(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToReceiver, PlaybackRateChangeRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PlaybackRateChangeRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1271,7 +1271,7 @@ impl PlayToReceiver {
     pub fn CurrentTimeChangeRequested(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToReceiver, CurrentTimeChangeRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentTimeChangeRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1286,7 +1286,7 @@ impl PlayToReceiver {
     pub fn MuteChangeRequested(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToReceiver, MuteChangeRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MuteChangeRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1301,7 +1301,7 @@ impl PlayToReceiver {
     pub fn VolumeChangeRequested(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToReceiver, VolumeChangeRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VolumeChangeRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1316,7 +1316,7 @@ impl PlayToReceiver {
     pub fn TimeUpdateRequested(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToReceiver, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TimeUpdateRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1331,7 +1331,7 @@ impl PlayToReceiver {
     pub fn StopRequested(&self, handler: &super::super::Foundation::TypedEventHandler<PlayToReceiver, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StopRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1396,7 +1396,7 @@ impl PlayToReceiver {
     pub fn FriendlyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FriendlyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1411,7 +1411,7 @@ impl PlayToReceiver {
     pub fn SupportsImage(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportsImage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1422,7 +1422,7 @@ impl PlayToReceiver {
     pub fn SupportsAudio(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportsAudio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1433,7 +1433,7 @@ impl PlayToReceiver {
     pub fn SupportsVideo(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportsVideo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1442,7 +1442,7 @@ impl PlayToReceiver {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1451,7 +1451,7 @@ impl PlayToReceiver {
     pub fn StartAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1460,7 +1460,7 @@ impl PlayToReceiver {
     pub fn StopAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StopAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1505,7 +1505,7 @@ impl PlayToSource {
     pub fn Connection(&self) -> ::windows_core::Result<PlayToConnection> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlayToConnection>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Connection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1514,7 +1514,7 @@ impl PlayToSource {
     pub fn Next(&self) -> ::windows_core::Result<PlayToSource> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlayToSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Next)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1535,7 +1535,7 @@ impl PlayToSource {
     pub fn PreferredSourceUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = &::windows_core::ComInterface::cast::<IPlayToSourceWithPreferredSourceUri>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreferredSourceUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1654,7 +1654,7 @@ impl PlayToSourceRequest {
     pub fn Deadline(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Deadline)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1669,7 +1669,7 @@ impl PlayToSourceRequest {
     pub fn GetDeferral(&self) -> ::windows_core::Result<PlayToSourceDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlayToSourceDeferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1733,7 +1733,7 @@ impl PlayToSourceRequestedEventArgs {
     pub fn SourceRequest(&self) -> ::windows_core::Result<PlayToSourceRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlayToSourceRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceRequest)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1791,7 +1791,7 @@ impl PlayToSourceSelectedEventArgs {
     pub fn FriendlyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FriendlyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1800,7 +1800,7 @@ impl PlayToSourceSelectedEventArgs {
     pub fn Icon(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Icon)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1809,7 +1809,7 @@ impl PlayToSourceSelectedEventArgs {
     pub fn SupportsImage(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportsImage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1818,7 +1818,7 @@ impl PlayToSourceSelectedEventArgs {
     pub fn SupportsAudio(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportsAudio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1827,7 +1827,7 @@ impl PlayToSourceSelectedEventArgs {
     pub fn SupportsVideo(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportsVideo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1881,7 +1881,7 @@ impl PlaybackRateChangeRequestedEventArgs {
     pub fn Rate(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Rate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1924,42 +1924,42 @@ impl SourceChangeRequestedEventArgs {
     pub fn Stream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Stream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Author(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Author)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Album(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Album)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Genre(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Genre)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1968,7 +1968,7 @@ impl SourceChangeRequestedEventArgs {
     pub fn Date(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Date)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1977,7 +1977,7 @@ impl SourceChangeRequestedEventArgs {
     pub fn Thumbnail(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Thumbnail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1986,7 +1986,7 @@ impl SourceChangeRequestedEventArgs {
     pub fn Rating(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Rating)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1995,7 +1995,7 @@ impl SourceChangeRequestedEventArgs {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2036,7 +2036,7 @@ impl VolumeChangeRequestedEventArgs {
     pub fn Volume(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Volume)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

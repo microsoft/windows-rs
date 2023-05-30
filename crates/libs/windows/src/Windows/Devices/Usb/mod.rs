@@ -779,21 +779,21 @@ impl UsbBulkInEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxPacketSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointNumber(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndpointNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Pipe(&self) -> ::windows_core::Result<UsbBulkInPipe> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbBulkInPipe>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Pipe)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -836,14 +836,14 @@ impl UsbBulkInPipe {
     pub fn MaxTransferSizeBytes(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxTransferSizeBytes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointDescriptor(&self) -> ::windows_core::Result<UsbBulkInEndpointDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbBulkInEndpointDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -852,7 +852,7 @@ impl UsbBulkInPipe {
     pub fn ClearStallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClearStallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -863,7 +863,7 @@ impl UsbBulkInPipe {
     pub fn ReadOptions(&self) -> ::windows_core::Result<UsbReadOptions> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbReadOptions>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -876,7 +876,7 @@ impl UsbBulkInPipe {
     pub fn InputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IInputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -919,21 +919,21 @@ impl UsbBulkOutEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxPacketSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointNumber(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndpointNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Pipe(&self) -> ::windows_core::Result<UsbBulkOutPipe> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbBulkOutPipe>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Pipe)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -976,7 +976,7 @@ impl UsbBulkOutPipe {
     pub fn EndpointDescriptor(&self) -> ::windows_core::Result<UsbBulkOutEndpointDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbBulkOutEndpointDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -985,7 +985,7 @@ impl UsbBulkOutPipe {
     pub fn ClearStallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClearStallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -996,7 +996,7 @@ impl UsbBulkOutPipe {
     pub fn WriteOptions(&self) -> ::windows_core::Result<UsbWriteOptions> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbWriteOptions>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1005,7 +1005,7 @@ impl UsbBulkOutPipe {
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IOutputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OutputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1050,14 +1050,14 @@ impl UsbConfiguration {
     pub fn UsbInterfaces(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterface>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterface>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UsbInterfaces)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ConfigurationDescriptor(&self) -> ::windows_core::Result<UsbConfigurationDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbConfigurationDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConfigurationDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1066,7 +1066,7 @@ impl UsbConfiguration {
     pub fn Descriptors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Descriptors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1109,40 +1109,40 @@ impl UsbConfigurationDescriptor {
     pub fn ConfigurationValue(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConfigurationValue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxPowerMilliamps(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxPowerMilliamps)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SelfPowered(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelfPowered)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoteWakeup(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoteWakeup)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryParse(descriptor: &UsbDescriptor, parsed: &mut ::core::option::Option<UsbConfigurationDescriptor>) -> ::windows_core::Result<bool> {
         Self::IUsbConfigurationDescriptorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), parsed as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
     pub fn Parse(descriptor: &UsbDescriptor) -> ::windows_core::Result<UsbConfigurationDescriptor> {
         Self::IUsbConfigurationDescriptorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbConfigurationDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Parse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), &mut result__).from_abi(result__)
         })
     }
@@ -1197,7 +1197,7 @@ impl UsbControlRequestType {
     pub fn Direction(&self) -> ::windows_core::Result<UsbTransferDirection> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbTransferDirection>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Direction)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1208,7 +1208,7 @@ impl UsbControlRequestType {
     pub fn ControlTransferType(&self) -> ::windows_core::Result<UsbControlTransferType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbControlTransferType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ControlTransferType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1219,7 +1219,7 @@ impl UsbControlRequestType {
     pub fn Recipient(&self) -> ::windows_core::Result<UsbControlRecipient> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbControlRecipient>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Recipient)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1230,7 +1230,7 @@ impl UsbControlRequestType {
     pub fn AsByte(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AsByte)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1277,14 +1277,14 @@ impl UsbDescriptor {
     pub fn Length(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Length)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DescriptorType(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DescriptorType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1347,7 +1347,7 @@ impl UsbDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SendControlOutTransferAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(setuppacket), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1356,7 +1356,7 @@ impl UsbDevice {
     pub fn SendControlOutTransferAsyncNoBuffer(&self, setuppacket: &UsbSetupPacket) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SendControlOutTransferAsyncNoBuffer)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(setuppacket), &mut result__).from_abi(result__)
         }
     }
@@ -1368,7 +1368,7 @@ impl UsbDevice {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SendControlInTransferAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(setuppacket), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1377,52 +1377,52 @@ impl UsbDevice {
     pub fn SendControlInTransferAsyncNoBuffer(&self, setuppacket: &UsbSetupPacket) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SendControlInTransferAsyncNoBuffer)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(setuppacket), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultInterface(&self) -> ::windows_core::Result<UsbInterface> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbInterface>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultInterface)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DeviceDescriptor(&self) -> ::windows_core::Result<UsbDeviceDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbDeviceDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Configuration(&self) -> ::windows_core::Result<UsbConfiguration> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbConfiguration>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Configuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeviceSelector(vendorid: u32, productid: u32, winusbinterfaceclass: ::windows_core::GUID) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), vendorid, productid, winusbinterfaceclass, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorGuidOnly(winusbinterfaceclass: ::windows_core::GUID) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelectorGuidOnly)(::windows_core::Interface::as_raw(this), winusbinterfaceclass, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorVidPidOnly(vendorid: u32, productid: u32) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelectorVidPidOnly)(::windows_core::Interface::as_raw(this), vendorid, productid, &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceClassSelector(usbclass: &UsbDeviceClass) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceClassSelector)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(usbclass), &mut result__).from_abi(result__)
         })
     }
@@ -1430,7 +1430,7 @@ impl UsbDevice {
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UsbDevice>> {
         Self::IUsbDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<UsbDevice>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
@@ -1487,7 +1487,7 @@ impl UsbDeviceClass {
     pub fn ClassCode(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClassCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1500,7 +1500,7 @@ impl UsbDeviceClass {
     pub fn SubclassCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<u8>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SubclassCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1518,7 +1518,7 @@ impl UsbDeviceClass {
     pub fn ProtocolCode(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<u8>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProtocolCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1569,55 +1569,55 @@ pub struct UsbDeviceClasses(::windows_core::IUnknown);
 impl UsbDeviceClasses {
     pub fn CdcControl() -> ::windows_core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbDeviceClass>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CdcControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Physical() -> ::windows_core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbDeviceClass>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Physical)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn PersonalHealthcare() -> ::windows_core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbDeviceClass>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PersonalHealthcare)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ActiveSync() -> ::windows_core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbDeviceClass>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActiveSync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn PalmSync() -> ::windows_core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbDeviceClass>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PalmSync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn DeviceFirmwareUpdate() -> ::windows_core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbDeviceClass>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceFirmwareUpdate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Irda() -> ::windows_core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbDeviceClass>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Irda)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Measurement() -> ::windows_core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbDeviceClass>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Measurement)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn VendorSpecific() -> ::windows_core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbDeviceClass>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VendorSpecific)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1665,42 +1665,42 @@ impl UsbDeviceDescriptor {
     pub fn BcdUsb(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BcdUsb)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxPacketSize0(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxPacketSize0)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VendorId(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VendorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProductId(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProductId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BcdDeviceRevision(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BcdDeviceRevision)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NumberOfConfigurations(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberOfConfigurations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1743,61 +1743,61 @@ impl UsbEndpointDescriptor {
     pub fn EndpointNumber(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndpointNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Direction(&self) -> ::windows_core::Result<UsbTransferDirection> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbTransferDirection>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Direction)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointType(&self) -> ::windows_core::Result<UsbEndpointType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbEndpointType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndpointType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AsBulkInEndpointDescriptor(&self) -> ::windows_core::Result<UsbBulkInEndpointDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbBulkInEndpointDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AsBulkInEndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AsInterruptInEndpointDescriptor(&self) -> ::windows_core::Result<UsbInterruptInEndpointDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbInterruptInEndpointDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AsInterruptInEndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AsBulkOutEndpointDescriptor(&self) -> ::windows_core::Result<UsbBulkOutEndpointDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbBulkOutEndpointDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AsBulkOutEndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AsInterruptOutEndpointDescriptor(&self) -> ::windows_core::Result<UsbInterruptOutEndpointDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbInterruptOutEndpointDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AsInterruptOutEndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryParse(descriptor: &UsbDescriptor, parsed: &mut ::core::option::Option<UsbEndpointDescriptor>) -> ::windows_core::Result<bool> {
         Self::IUsbEndpointDescriptorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), parsed as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
     pub fn Parse(descriptor: &UsbDescriptor) -> ::windows_core::Result<UsbEndpointDescriptor> {
         Self::IUsbEndpointDescriptorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbEndpointDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Parse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), &mut result__).from_abi(result__)
         })
     }
@@ -1847,7 +1847,7 @@ impl UsbInterface {
     pub fn BulkInPipes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInPipe>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbBulkInPipe>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BulkInPipes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1856,7 +1856,7 @@ impl UsbInterface {
     pub fn InterruptInPipes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptInPipe>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterruptInPipe>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InterruptInPipes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1865,7 +1865,7 @@ impl UsbInterface {
     pub fn BulkOutPipes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkOutPipe>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbBulkOutPipe>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BulkOutPipes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1874,7 +1874,7 @@ impl UsbInterface {
     pub fn InterruptOutPipes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptOutPipe>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterruptOutPipe>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InterruptOutPipes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1883,14 +1883,14 @@ impl UsbInterface {
     pub fn InterfaceSettings(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterfaceSetting>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterfaceSetting>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InterfaceSettings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InterfaceNumber(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InterfaceNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1899,7 +1899,7 @@ impl UsbInterface {
     pub fn Descriptors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Descriptors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1942,47 +1942,47 @@ impl UsbInterfaceDescriptor {
     pub fn ClassCode(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClassCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SubclassCode(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SubclassCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProtocolCode(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProtocolCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AlternateSettingNumber(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AlternateSettingNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InterfaceNumber(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InterfaceNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TryParse(descriptor: &UsbDescriptor, parsed: &mut ::core::option::Option<UsbInterfaceDescriptor>) -> ::windows_core::Result<bool> {
         Self::IUsbInterfaceDescriptorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), parsed as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
     pub fn Parse(descriptor: &UsbDescriptor) -> ::windows_core::Result<UsbInterfaceDescriptor> {
         Self::IUsbInterfaceDescriptorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbInterfaceDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Parse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(descriptor), &mut result__).from_abi(result__)
         })
     }
@@ -2032,7 +2032,7 @@ impl UsbInterfaceSetting {
     pub fn BulkInEndpoints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkInEndpointDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbBulkInEndpointDescriptor>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BulkInEndpoints)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2041,7 +2041,7 @@ impl UsbInterfaceSetting {
     pub fn InterruptInEndpoints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptInEndpointDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterruptInEndpointDescriptor>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InterruptInEndpoints)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2050,7 +2050,7 @@ impl UsbInterfaceSetting {
     pub fn BulkOutEndpoints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbBulkOutEndpointDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbBulkOutEndpointDescriptor>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BulkOutEndpoints)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2059,14 +2059,14 @@ impl UsbInterfaceSetting {
     pub fn InterruptOutEndpoints(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbInterruptOutEndpointDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbInterruptOutEndpointDescriptor>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InterruptOutEndpoints)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Selected(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Selected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2075,14 +2075,14 @@ impl UsbInterfaceSetting {
     pub fn SelectSettingAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelectSettingAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InterfaceDescriptor(&self) -> ::windows_core::Result<UsbInterfaceDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbInterfaceDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InterfaceDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2091,7 +2091,7 @@ impl UsbInterfaceSetting {
     pub fn Descriptors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<UsbDescriptor>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Descriptors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2134,14 +2134,14 @@ impl UsbInterruptInEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxPacketSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointNumber(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndpointNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2150,14 +2150,14 @@ impl UsbInterruptInEndpointDescriptor {
     pub fn Interval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Interval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Pipe(&self) -> ::windows_core::Result<UsbInterruptInPipe> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbInterruptInPipe>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Pipe)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2202,7 +2202,7 @@ impl UsbInterruptInEventArgs {
     pub fn InterruptData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InterruptData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2245,7 +2245,7 @@ impl UsbInterruptInPipe {
     pub fn EndpointDescriptor(&self) -> ::windows_core::Result<UsbInterruptInEndpointDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbInterruptInEndpointDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2254,7 +2254,7 @@ impl UsbInterruptInPipe {
     pub fn ClearStallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClearStallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2263,7 +2263,7 @@ impl UsbInterruptInPipe {
     pub fn DataReceived(&self, handler: &super::super::Foundation::TypedEventHandler<UsbInterruptInPipe, UsbInterruptInEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DataReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2312,14 +2312,14 @@ impl UsbInterruptOutEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxPacketSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndpointNumber(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndpointNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2328,14 +2328,14 @@ impl UsbInterruptOutEndpointDescriptor {
     pub fn Interval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Interval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Pipe(&self) -> ::windows_core::Result<UsbInterruptOutPipe> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbInterruptOutPipe>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Pipe)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2378,7 +2378,7 @@ impl UsbInterruptOutPipe {
     pub fn EndpointDescriptor(&self) -> ::windows_core::Result<UsbInterruptOutEndpointDescriptor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbInterruptOutEndpointDescriptor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndpointDescriptor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2387,7 +2387,7 @@ impl UsbInterruptOutPipe {
     pub fn ClearStallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClearStallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2398,7 +2398,7 @@ impl UsbInterruptOutPipe {
     pub fn WriteOptions(&self) -> ::windows_core::Result<UsbWriteOptions> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbWriteOptions>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2407,7 +2407,7 @@ impl UsbInterruptOutPipe {
     pub fn OutputStream(&self) -> ::windows_core::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IOutputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OutputStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2457,7 +2457,7 @@ impl UsbSetupPacket {
     pub fn RequestType(&self) -> ::windows_core::Result<UsbControlRequestType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbControlRequestType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2468,7 +2468,7 @@ impl UsbSetupPacket {
     pub fn Request(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2479,7 +2479,7 @@ impl UsbSetupPacket {
     pub fn Value(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2490,7 +2490,7 @@ impl UsbSetupPacket {
     pub fn Index(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Index)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2501,7 +2501,7 @@ impl UsbSetupPacket {
     pub fn Length(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Length)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2516,7 +2516,7 @@ impl UsbSetupPacket {
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         Self::IUsbSetupPacketFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UsbSetupPacket>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithEightByteBuffer)(::windows_core::Interface::as_raw(this), eightbytebuffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }

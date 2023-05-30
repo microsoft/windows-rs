@@ -172,21 +172,21 @@ impl PhoneCallBlockedTriggerDetails {
     pub fn PhoneNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LineId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CallBlockedReason(&self) -> ::windows_core::Result<PhoneCallBlockedReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PhoneCallBlockedReason>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CallBlockedReason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -233,7 +233,7 @@ impl PhoneCallOriginDataRequestTriggerDetails {
     pub fn RequestId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -242,7 +242,7 @@ impl PhoneCallOriginDataRequestTriggerDetails {
     pub fn PhoneNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -300,7 +300,7 @@ impl PhoneIncomingCallDismissedTriggerDetails {
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LineId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -309,7 +309,7 @@ impl PhoneIncomingCallDismissedTriggerDetails {
     pub fn PhoneNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -318,7 +318,7 @@ impl PhoneIncomingCallDismissedTriggerDetails {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -327,7 +327,7 @@ impl PhoneIncomingCallDismissedTriggerDetails {
     pub fn DismissalTime(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DismissalTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -336,7 +336,7 @@ impl PhoneIncomingCallDismissedTriggerDetails {
     pub fn TextReplyMessage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TextReplyMessage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -345,7 +345,7 @@ impl PhoneIncomingCallDismissedTriggerDetails {
     pub fn Reason(&self) -> ::windows_core::Result<PhoneIncomingCallDismissedReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PhoneIncomingCallDismissedReason>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -399,14 +399,14 @@ impl PhoneIncomingCallNotificationTriggerDetails {
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LineId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CallId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CallId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -449,21 +449,21 @@ impl PhoneLineChangedTriggerDetails {
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LineId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ChangeType(&self) -> ::windows_core::Result<PhoneLineChangeKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PhoneLineChangeKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ChangeType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HasLinePropertyChanged(&self, lineproperty: PhoneLineProperties) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasLinePropertyChanged)(::windows_core::Interface::as_raw(this), lineproperty, &mut result__).from_abi(result__)
         }
     }
@@ -506,21 +506,21 @@ impl PhoneNewVoicemailMessageTriggerDetails {
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LineId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VoicemailCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VoicemailCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OperatorMessage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OperatorMessage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

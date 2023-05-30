@@ -121,21 +121,21 @@ impl INumberFormatter {
     pub fn FormatInt(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatUInt(&self, value: u64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatDouble(&self, value: f64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -181,21 +181,21 @@ impl INumberFormatter2 {
     pub fn FormatInt(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatUInt(&self, value: u64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatDouble(&self, value: f64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -243,21 +243,21 @@ impl INumberFormatterOptions {
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Languages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IntegerDigits(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IntegerDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -268,7 +268,7 @@ impl INumberFormatterOptions {
     pub fn FractionDigits(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FractionDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -279,7 +279,7 @@ impl INumberFormatterOptions {
     pub fn IsGrouped(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsGrouped)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -290,7 +290,7 @@ impl INumberFormatterOptions {
     pub fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDecimalPointAlwaysDisplayed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -301,7 +301,7 @@ impl INumberFormatterOptions {
     pub fn NumeralSystem(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumeralSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -312,14 +312,14 @@ impl INumberFormatterOptions {
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ResolvedGeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedGeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -381,7 +381,7 @@ impl INumberParser {
     pub fn ParseInt(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<i64>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseInt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -390,7 +390,7 @@ impl INumberParser {
     pub fn ParseUInt(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<u64>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<u64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseUInt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -399,7 +399,7 @@ impl INumberParser {
     pub fn ParseDouble(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<f64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseDouble)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -454,42 +454,42 @@ impl INumberRounder {
     pub fn RoundInt32(&self, value: i32) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundInt32)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundUInt32(&self, value: u32) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundUInt32)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundInt64(&self, value: i64) -> ::windows_core::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundInt64)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundUInt64(&self, value: u64) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundUInt64)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundSingle(&self, value: f32) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundSingle)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundDouble(&self, value: f64) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -538,7 +538,7 @@ impl INumberRounderOption {
     pub fn NumberRounder(&self) -> ::windows_core::Result<INumberRounder> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<INumberRounder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberRounder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -686,7 +686,7 @@ impl ISignedZeroOption {
     pub fn IsZeroSigned(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsZeroSigned)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -758,7 +758,7 @@ impl ISignificantDigitsOption {
     pub fn SignificantDigits(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignificantDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -807,7 +807,7 @@ impl CurrencyFormatter {
     pub fn Currency(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Currency)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -820,7 +820,7 @@ impl CurrencyFormatter {
     pub fn Mode(&self) -> ::windows_core::Result<CurrencyFormatterMode> {
         let this = &::windows_core::ComInterface::cast::<ICurrencyFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CurrencyFormatterMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Mode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -834,7 +834,7 @@ impl CurrencyFormatter {
     }
     pub fn CreateCurrencyFormatterCode(currencycode: &::windows_core::HSTRING) -> ::windows_core::Result<CurrencyFormatter> {
         Self::ICurrencyFormatterFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CurrencyFormatter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateCurrencyFormatterCode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(currencycode), &mut result__).from_abi(result__)
         })
     }
@@ -845,49 +845,49 @@ impl CurrencyFormatter {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::ICurrencyFormatterFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CurrencyFormatter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateCurrencyFormatterCodeContext)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(currencycode), languages.try_into_param()?.abi(), ::core::mem::transmute_copy(geographicregion), &mut result__).from_abi(result__)
         })
     }
     pub fn FormatInt(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatUInt(&self, value: u64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatDouble(&self, value: f64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatInt2(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatUInt2(&self, value: u64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatDouble2(&self, value: f64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -896,21 +896,21 @@ impl CurrencyFormatter {
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Languages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IntegerDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IntegerDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -921,7 +921,7 @@ impl CurrencyFormatter {
     pub fn FractionDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FractionDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -932,7 +932,7 @@ impl CurrencyFormatter {
     pub fn IsGrouped(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsGrouped)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -943,7 +943,7 @@ impl CurrencyFormatter {
     pub fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDecimalPointAlwaysDisplayed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -954,7 +954,7 @@ impl CurrencyFormatter {
     pub fn NumeralSystem(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumeralSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -965,14 +965,14 @@ impl CurrencyFormatter {
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ResolvedGeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedGeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -981,7 +981,7 @@ impl CurrencyFormatter {
     pub fn ParseInt(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseInt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -990,7 +990,7 @@ impl CurrencyFormatter {
     pub fn ParseUInt(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<u64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseUInt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -999,14 +999,14 @@ impl CurrencyFormatter {
     pub fn ParseDouble(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<f64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseDouble)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
     pub fn NumberRounder(&self) -> ::windows_core::Result<INumberRounder> {
         let this = &::windows_core::ComInterface::cast::<INumberRounderOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<INumberRounder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberRounder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1020,7 +1020,7 @@ impl CurrencyFormatter {
     pub fn IsZeroSigned(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISignedZeroOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsZeroSigned)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1031,7 +1031,7 @@ impl CurrencyFormatter {
     pub fn SignificantDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<ISignificantDigitsOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignificantDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1101,49 +1101,49 @@ impl DecimalFormatter {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IDecimalFormatterFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<DecimalFormatter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateDecimalFormatter)(::windows_core::Interface::as_raw(this), languages.try_into_param()?.abi(), ::core::mem::transmute_copy(geographicregion), &mut result__).from_abi(result__)
         })
     }
     pub fn FormatInt(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatUInt(&self, value: u64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatDouble(&self, value: f64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatInt2(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatUInt2(&self, value: u64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatDouble2(&self, value: f64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -1152,21 +1152,21 @@ impl DecimalFormatter {
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Languages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IntegerDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IntegerDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1177,7 +1177,7 @@ impl DecimalFormatter {
     pub fn FractionDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FractionDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1188,7 +1188,7 @@ impl DecimalFormatter {
     pub fn IsGrouped(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsGrouped)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1199,7 +1199,7 @@ impl DecimalFormatter {
     pub fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDecimalPointAlwaysDisplayed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1210,7 +1210,7 @@ impl DecimalFormatter {
     pub fn NumeralSystem(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumeralSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1221,14 +1221,14 @@ impl DecimalFormatter {
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ResolvedGeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedGeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1237,7 +1237,7 @@ impl DecimalFormatter {
     pub fn ParseInt(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseInt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -1246,7 +1246,7 @@ impl DecimalFormatter {
     pub fn ParseUInt(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<u64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseUInt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -1255,14 +1255,14 @@ impl DecimalFormatter {
     pub fn ParseDouble(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<f64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseDouble)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
     pub fn NumberRounder(&self) -> ::windows_core::Result<INumberRounder> {
         let this = &::windows_core::ComInterface::cast::<INumberRounderOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<INumberRounder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberRounder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1276,7 +1276,7 @@ impl DecimalFormatter {
     pub fn IsZeroSigned(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISignedZeroOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsZeroSigned)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1287,7 +1287,7 @@ impl DecimalFormatter {
     pub fn SignificantDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<ISignificantDigitsOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignificantDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1353,7 +1353,7 @@ impl IncrementNumberRounder {
     pub fn RoundingAlgorithm(&self) -> ::windows_core::Result<RoundingAlgorithm> {
         let this = &::windows_core::ComInterface::cast::<IIncrementNumberRounder>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<RoundingAlgorithm>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundingAlgorithm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1364,7 +1364,7 @@ impl IncrementNumberRounder {
     pub fn Increment(&self) -> ::windows_core::Result<f64> {
         let this = &::windows_core::ComInterface::cast::<IIncrementNumberRounder>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Increment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1375,42 +1375,42 @@ impl IncrementNumberRounder {
     pub fn RoundInt32(&self, value: i32) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundInt32)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundUInt32(&self, value: u32) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundUInt32)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundInt64(&self, value: i64) -> ::windows_core::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundInt64)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundUInt64(&self, value: u64) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundUInt64)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundSingle(&self, value: f32) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundSingle)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundDouble(&self, value: f64) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -1463,21 +1463,21 @@ impl NumeralSystemTranslator {
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Languages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NumeralSystem(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumeralSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1488,7 +1488,7 @@ impl NumeralSystemTranslator {
     pub fn TranslateNumerals(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TranslateNumerals)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
@@ -1499,7 +1499,7 @@ impl NumeralSystemTranslator {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::INumeralSystemTranslatorFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<NumeralSystemTranslator>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), languages.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1554,42 +1554,42 @@ impl PercentFormatter {
     pub fn FormatInt(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatUInt(&self, value: u64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatDouble(&self, value: f64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatInt2(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatUInt2(&self, value: u64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatDouble2(&self, value: f64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -1598,21 +1598,21 @@ impl PercentFormatter {
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Languages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IntegerDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IntegerDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1623,7 +1623,7 @@ impl PercentFormatter {
     pub fn FractionDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FractionDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1634,7 +1634,7 @@ impl PercentFormatter {
     pub fn IsGrouped(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsGrouped)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1645,7 +1645,7 @@ impl PercentFormatter {
     pub fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDecimalPointAlwaysDisplayed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1656,7 +1656,7 @@ impl PercentFormatter {
     pub fn NumeralSystem(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumeralSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1667,14 +1667,14 @@ impl PercentFormatter {
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ResolvedGeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedGeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1683,7 +1683,7 @@ impl PercentFormatter {
     pub fn ParseInt(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseInt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -1692,7 +1692,7 @@ impl PercentFormatter {
     pub fn ParseUInt(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<u64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseUInt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -1701,14 +1701,14 @@ impl PercentFormatter {
     pub fn ParseDouble(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<f64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseDouble)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
     pub fn NumberRounder(&self) -> ::windows_core::Result<INumberRounder> {
         let this = &::windows_core::ComInterface::cast::<INumberRounderOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<INumberRounder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberRounder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1726,14 +1726,14 @@ impl PercentFormatter {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPercentFormatterFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PercentFormatter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreatePercentFormatter)(::windows_core::Interface::as_raw(this), languages.try_into_param()?.abi(), ::core::mem::transmute_copy(geographicregion), &mut result__).from_abi(result__)
         })
     }
     pub fn IsZeroSigned(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISignedZeroOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsZeroSigned)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1744,7 +1744,7 @@ impl PercentFormatter {
     pub fn SignificantDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<ISignificantDigitsOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignificantDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1810,42 +1810,42 @@ impl PermilleFormatter {
     pub fn FormatInt(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatUInt(&self, value: u64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatDouble(&self, value: f64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatInt2(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatUInt2(&self, value: u64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUInt)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatDouble2(&self, value: f64) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatter2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -1854,21 +1854,21 @@ impl PermilleFormatter {
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Languages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IntegerDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IntegerDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1879,7 +1879,7 @@ impl PermilleFormatter {
     pub fn FractionDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FractionDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1890,7 +1890,7 @@ impl PermilleFormatter {
     pub fn IsGrouped(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsGrouped)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1901,7 +1901,7 @@ impl PermilleFormatter {
     pub fn IsDecimalPointAlwaysDisplayed(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDecimalPointAlwaysDisplayed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1912,7 +1912,7 @@ impl PermilleFormatter {
     pub fn NumeralSystem(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumeralSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1923,14 +1923,14 @@ impl PermilleFormatter {
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ResolvedGeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<INumberFormatterOptions>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolvedGeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1939,7 +1939,7 @@ impl PermilleFormatter {
     pub fn ParseInt(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseInt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -1948,7 +1948,7 @@ impl PermilleFormatter {
     pub fn ParseUInt(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<u64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseUInt)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
@@ -1957,14 +1957,14 @@ impl PermilleFormatter {
     pub fn ParseDouble(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows_core::ComInterface::cast::<INumberParser>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<f64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ParseDouble)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
     pub fn NumberRounder(&self) -> ::windows_core::Result<INumberRounder> {
         let this = &::windows_core::ComInterface::cast::<INumberRounderOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<INumberRounder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NumberRounder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1982,14 +1982,14 @@ impl PermilleFormatter {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPermilleFormatterFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PermilleFormatter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreatePermilleFormatter)(::windows_core::Interface::as_raw(this), languages.try_into_param()?.abi(), ::core::mem::transmute_copy(geographicregion), &mut result__).from_abi(result__)
         })
     }
     pub fn IsZeroSigned(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISignedZeroOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsZeroSigned)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2000,7 +2000,7 @@ impl PermilleFormatter {
     pub fn SignificantDigits(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<ISignificantDigitsOption>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignificantDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2066,49 +2066,49 @@ impl SignificantDigitsNumberRounder {
     pub fn RoundInt32(&self, value: i32) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundInt32)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundUInt32(&self, value: u32) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundUInt32)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundInt64(&self, value: i64) -> ::windows_core::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundInt64)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundUInt64(&self, value: u64) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundUInt64)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundSingle(&self, value: f32) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundSingle)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundDouble(&self, value: f64) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundDouble)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn RoundingAlgorithm(&self) -> ::windows_core::Result<RoundingAlgorithm> {
         let this = &::windows_core::ComInterface::cast::<ISignificantDigitsNumberRounder>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<RoundingAlgorithm>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoundingAlgorithm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2119,7 +2119,7 @@ impl SignificantDigitsNumberRounder {
     pub fn SignificantDigits(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<ISignificantDigitsNumberRounder>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignificantDigits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

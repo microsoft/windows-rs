@@ -129,7 +129,7 @@ impl IPrintDocumentPackageTarget2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsTargetIppPrinter(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIsTargetIppPrinter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTargetIppPrintDevice<T>(&self) -> ::windows_core::Result<T>
@@ -186,7 +186,7 @@ impl IPrintDocumentPackageTargetFactory {
         P2: ::windows_core::IntoParam<super::super::super::System::Com::IStream>,
         P3: ::windows_core::IntoParam<super::super::super::System::Com::IStream>,
     {
-        let mut result__ = ::windows_core::zeroed::<IPrintDocumentPackageTarget>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows_core::Interface::as_raw(self), printername.into_param().abi(), jobname.into_param().abi(), joboutputstream.into_param().abi(), jobprintticketstream.into_param().abi(), &mut result__).from_abi(result__)
     }
 }

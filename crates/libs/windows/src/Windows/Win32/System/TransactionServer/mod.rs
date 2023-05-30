@@ -10,7 +10,7 @@ impl ICatalog {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCollection)(::windows_core::Interface::as_raw(self), bstrcollname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -19,7 +19,7 @@ impl ICatalog {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::Com::IDispatch>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Connect)(::windows_core::Interface::as_raw(self), bstrconnectstring.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn MajorVersion(&self, retval: *mut i32) -> ::windows_core::Result<()> {

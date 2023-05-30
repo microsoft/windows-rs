@@ -350,7 +350,7 @@ impl AppServiceCatalog {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAppServiceProvidersAsync(appservicename: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>> {
         Self::IAppServiceCatalogStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindAppServiceProvidersAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appservicename), &mut result__).from_abi(result__)
         })
     }
@@ -370,7 +370,7 @@ impl AppServiceClosedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<AppServiceClosedStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<AppServiceClosedStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -420,7 +420,7 @@ impl AppServiceConnection {
     pub fn AppServiceName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AppServiceName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -431,7 +431,7 @@ impl AppServiceConnection {
     pub fn PackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -444,7 +444,7 @@ impl AppServiceConnection {
     pub fn OpenAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -453,7 +453,7 @@ impl AppServiceConnection {
     pub fn SendMessageAsync(&self, message: &super::super::Foundation::Collections::ValueSet) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppServiceResponse>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<AppServiceResponse>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SendMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
         }
     }
@@ -462,7 +462,7 @@ impl AppServiceConnection {
     pub fn RequestReceived(&self, handler: &super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceRequestReceivedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -477,7 +477,7 @@ impl AppServiceConnection {
     pub fn ServiceClosed(&self, handler: &super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceClosedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ServiceClosed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -492,7 +492,7 @@ impl AppServiceConnection {
     pub fn OpenRemoteAsync(&self, remotesystemconnectionrequest: &super::super::System::RemoteSystems::RemoteSystemConnectionRequest) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>> {
         let this = &::windows_core::ComInterface::cast::<IAppServiceConnection2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenRemoteAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(remotesystemconnectionrequest), &mut result__).from_abi(result__)
         }
     }
@@ -501,7 +501,7 @@ impl AppServiceConnection {
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IAppServiceConnection2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::System::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -515,7 +515,7 @@ impl AppServiceConnection {
     #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
     pub fn SendStatelessMessageAsync(connection: &AppServiceConnection, connectionrequest: &super::super::System::RemoteSystems::RemoteSystemConnectionRequest, message: &super::super::Foundation::Collections::ValueSet) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>> {
         Self::IAppServiceConnectionStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SendStatelessMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(connection), ::core::mem::transmute_copy(connectionrequest), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
         })
     }
@@ -613,7 +613,7 @@ impl AppServiceRequest {
     pub fn Message(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::ValueSet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -622,7 +622,7 @@ impl AppServiceRequest {
     pub fn SendResponseAsync(&self, message: &super::super::Foundation::Collections::ValueSet) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SendResponseAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
         }
     }
@@ -665,14 +665,14 @@ impl AppServiceRequestReceivedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<AppServiceRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<AppServiceRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeferral(&self) -> ::windows_core::Result<AppServiceDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<AppServiceDeferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -717,14 +717,14 @@ impl AppServiceResponse {
     pub fn Message(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::ValueSet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<AppServiceResponseStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<AppServiceResponseStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -767,28 +767,28 @@ impl AppServiceTriggerDetails {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CallerPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CallerPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppServiceConnection(&self) -> ::windows_core::Result<AppServiceConnection> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<AppServiceConnection>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AppServiceConnection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsRemoteSystemConnection(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IAppServiceTriggerDetails2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsRemoteSystemConnection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -797,14 +797,14 @@ impl AppServiceTriggerDetails {
     pub fn CheckCallerForCapabilityAsync(&self, capabilityname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IAppServiceTriggerDetails3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CheckCallerForCapabilityAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(capabilityname), &mut result__).from_abi(result__)
         }
     }
     pub fn CallerRemoteConnectionToken(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IAppServiceTriggerDetails4>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CallerRemoteConnectionToken)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -849,14 +849,14 @@ impl StatelessAppServiceResponse {
     pub fn Message(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::ValueSet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<StatelessAppServiceResponseStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StatelessAppServiceResponseStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

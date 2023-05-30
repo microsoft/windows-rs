@@ -239,7 +239,7 @@ impl ICoreApplicationUnhandledError {
     pub fn UnhandledErrorDetected(&self, handler: &super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnhandledErrorDetected)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -620,7 +620,7 @@ impl IFrameworkViewSource {
     pub fn CreateView(&self) -> ::windows_core::Result<IFrameworkView> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IFrameworkView>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -728,7 +728,7 @@ impl AppListEntry {
     pub fn DisplayInfo(&self) -> ::windows_core::Result<super::AppDisplayInfo> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::AppDisplayInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -737,14 +737,14 @@ impl AppListEntry {
     pub fn LaunchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LaunchAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppUserModelId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IAppListEntry2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AppUserModelId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -753,14 +753,14 @@ impl AppListEntry {
     pub fn LaunchForUserAsync(&self, user: &super::super::System::User) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IAppListEntry3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LaunchForUserAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         }
     }
     pub fn AppInfo(&self) -> ::windows_core::Result<super::AppInfo> {
         let this = &::windows_core::ComInterface::cast::<IAppListEntry4>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::AppInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AppInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -801,7 +801,7 @@ pub struct CoreApplication;
 impl CoreApplication {
     pub fn Id() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::ICoreApplication(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -809,7 +809,7 @@ impl CoreApplication {
     #[cfg(feature = "Foundation")]
     pub fn Suspending(handler: &super::super::Foundation::EventHandler<super::SuspendingEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ICoreApplication(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Suspending)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -822,7 +822,7 @@ impl CoreApplication {
     #[cfg(feature = "Foundation")]
     pub fn Resuming(handler: &super::super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ICoreApplication(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Resuming)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -835,13 +835,13 @@ impl CoreApplication {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties() -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         Self::ICoreApplication(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetCurrentView() -> ::windows_core::Result<CoreApplicationView> {
         Self::ICoreApplication(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreApplicationView>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -863,7 +863,7 @@ impl CoreApplication {
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
     pub fn BackgroundActivated(handler: &super::super::Foundation::EventHandler<super::Activation::BackgroundActivatedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ICoreApplication2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BackgroundActivated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -876,7 +876,7 @@ impl CoreApplication {
     #[cfg(feature = "Foundation")]
     pub fn LeavingBackground(handler: &super::super::Foundation::EventHandler<super::LeavingBackgroundEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ICoreApplication2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LeavingBackground)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -889,7 +889,7 @@ impl CoreApplication {
     #[cfg(feature = "Foundation")]
     pub fn EnteredBackground(handler: &super::super::Foundation::EventHandler<super::EnteredBackgroundEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ICoreApplication2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnteredBackground)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -905,7 +905,7 @@ impl CoreApplication {
     #[cfg(feature = "Foundation")]
     pub fn RequestRestartAsync(launcharguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>> {
         Self::ICoreApplication3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestRestartAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(launcharguments), &mut result__).from_abi(result__)
         })
     }
@@ -913,7 +913,7 @@ impl CoreApplication {
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn RequestRestartForUserAsync(user: &super::super::System::User, launcharguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>> {
         Self::ICoreApplication3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<AppRestartFailureReason>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestRestartForUserAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(launcharguments), &mut result__).from_abi(result__)
         })
     }
@@ -924,7 +924,7 @@ impl CoreApplication {
     #[cfg(feature = "Foundation")]
     pub fn Exiting(handler: &super::super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ICoreApplicationExit(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Exiting)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -937,7 +937,7 @@ impl CoreApplication {
     #[cfg(feature = "Foundation")]
     pub fn UnhandledErrorDetected(handler: &super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ICoreApplicationUnhandledError(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnhandledErrorDetected)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -956,25 +956,25 @@ impl CoreApplication {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Views() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<CoreApplicationView>> {
         Self::ICoreImmersiveApplication(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<CoreApplicationView>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Views)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateNewView(runtimetype: &::windows_core::HSTRING, entrypoint: &::windows_core::HSTRING) -> ::windows_core::Result<CoreApplicationView> {
         Self::ICoreImmersiveApplication(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreApplicationView>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateNewView)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(runtimetype), ::core::mem::transmute_copy(entrypoint), &mut result__).from_abi(result__)
         })
     }
     pub fn MainView() -> ::windows_core::Result<CoreApplicationView> {
         Self::ICoreImmersiveApplication(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreApplicationView>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MainView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateNewViewFromMainView() -> ::windows_core::Result<CoreApplicationView> {
         Self::ICoreImmersiveApplication2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreApplicationView>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateNewViewFromMainView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -983,7 +983,7 @@ impl CoreApplication {
         P0: ::windows_core::TryIntoParam<IFrameworkViewSource>,
     {
         Self::ICoreImmersiveApplication3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreApplicationView>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateNewViewWithViewSource)(::windows_core::Interface::as_raw(this), viewsource.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1045,7 +1045,7 @@ impl CoreApplicationView {
     pub fn CoreWindow(&self) -> ::windows_core::Result<super::super::UI::Core::CoreWindow> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::UI::Core::CoreWindow>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CoreWindow)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1054,7 +1054,7 @@ impl CoreApplicationView {
     pub fn Activated(&self, handler: &super::super::Foundation::TypedEventHandler<CoreApplicationView, super::Activation::IActivatedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Activated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1067,14 +1067,14 @@ impl CoreApplicationView {
     pub fn IsMain(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsMain)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsHosted(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsHosted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1083,21 +1083,21 @@ impl CoreApplicationView {
     pub fn Dispatcher(&self) -> ::windows_core::Result<super::super::UI::Core::CoreDispatcher> {
         let this = &::windows_core::ComInterface::cast::<ICoreApplicationView2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::UI::Core::CoreDispatcher>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Dispatcher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsComponent(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ICoreApplicationView3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsComponent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TitleBar(&self) -> ::windows_core::Result<CoreApplicationViewTitleBar> {
         let this = &::windows_core::ComInterface::cast::<ICoreApplicationView3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreApplicationViewTitleBar>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TitleBar)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1106,7 +1106,7 @@ impl CoreApplicationView {
     pub fn HostedViewClosing(&self, handler: &super::super::Foundation::TypedEventHandler<CoreApplicationView, HostedViewClosingEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<ICoreApplicationView3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HostedViewClosing)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1121,7 +1121,7 @@ impl CoreApplicationView {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows_core::ComInterface::cast::<ICoreApplicationView5>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1130,7 +1130,7 @@ impl CoreApplicationView {
     pub fn DispatcherQueue(&self) -> ::windows_core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows_core::ComInterface::cast::<ICoreApplicationView6>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::System::DispatcherQueue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DispatcherQueue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1175,28 +1175,28 @@ impl CoreApplicationViewTitleBar {
     pub fn ExtendViewIntoTitleBar(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendViewIntoTitleBar)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SystemOverlayLeftInset(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemOverlayLeftInset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SystemOverlayRightInset(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemOverlayRightInset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Height(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1205,7 +1205,7 @@ impl CoreApplicationViewTitleBar {
     pub fn LayoutMetricsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LayoutMetricsChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1218,7 +1218,7 @@ impl CoreApplicationViewTitleBar {
     pub fn IsVisible(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsVisible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1227,7 +1227,7 @@ impl CoreApplicationViewTitleBar {
     pub fn IsVisibleChanged(&self, handler: &super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsVisibleChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1276,7 +1276,7 @@ impl HostedViewClosingEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1319,7 +1319,7 @@ impl UnhandledError {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Handled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1366,7 +1366,7 @@ impl UnhandledErrorDetectedEventArgs {
     pub fn UnhandledError(&self) -> ::windows_core::Result<UnhandledError> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UnhandledError>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnhandledError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

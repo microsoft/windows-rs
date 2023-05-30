@@ -220,7 +220,7 @@ impl PhoneCallOrigin {
     pub fn Category(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Category)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -235,7 +235,7 @@ impl PhoneCallOrigin {
     pub fn CategoryDescription(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CategoryDescription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -250,7 +250,7 @@ impl PhoneCallOrigin {
     pub fn Location(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Location)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -265,7 +265,7 @@ impl PhoneCallOrigin {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IPhoneCallOrigin2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -280,7 +280,7 @@ impl PhoneCallOrigin {
     pub fn DisplayPicture(&self) -> ::windows_core::Result<super::super::super::Storage::StorageFile> {
         let this = &::windows_core::ComInterface::cast::<IPhoneCallOrigin3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Storage::StorageFile>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayPicture)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -342,7 +342,7 @@ impl PhoneCallOriginManager {
     #[cfg(feature = "deprecated")]
     pub fn IsCurrentAppActiveCallOriginApp() -> ::windows_core::Result<bool> {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCurrentAppActiveCallOriginApp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -360,7 +360,7 @@ impl PhoneCallOriginManager {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RequestSetAsActiveCallOriginAppAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPhoneCallOriginManagerStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestSetAsActiveCallOriginAppAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -368,7 +368,7 @@ impl PhoneCallOriginManager {
     #[cfg(feature = "deprecated")]
     pub fn IsSupported() -> ::windows_core::Result<bool> {
         Self::IPhoneCallOriginManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }

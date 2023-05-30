@@ -383,7 +383,7 @@ where
 #[inline]
 pub unsafe fn EngQueryLocalTime() -> ENG_TIME_FIELDS {
     ::windows_targets::link!("gdi32.dll" "system" fn EngQueryLocalTime(param0 : *mut ENG_TIME_FIELDS) -> ());
-    let mut result__ = ::windows_core::zeroed::<ENG_TIME_FIELDS>();
+    let mut result__ = ::std::mem::zeroed();
     EngQueryLocalTime(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -658,7 +658,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
     ::windows_targets::link!("dxva2.dll" "system" fn GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9 : * mut::core::ffi::c_void, pdwnumberofphysicalmonitors : *mut u32) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<u32>();
+    let mut result__ = ::std::mem::zeroed();
     GetNumberOfPhysicalMonitorsFromIDirect3DDevice9(pdirect3ddevice9.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -1062,7 +1062,7 @@ impl IViewHelper {
     where
         P0: ::windows_core::IntoParam<super::super::System::Com::IStream>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetConfiguration)(::windows_core::Interface::as_raw(self), pistream.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProceedOnNewConfiguration(&self) -> ::windows_core::Result<()> {

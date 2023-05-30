@@ -504,13 +504,13 @@ pub struct AdvertisingManager;
 impl AdvertisingManager {
     pub fn AdvertisingId() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IAdvertisingManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AdvertisingId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetForUser(user: &super::User) -> ::windows_core::Result<AdvertisingManagerForUser> {
         Self::IAdvertisingManagerStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AdvertisingManagerForUser>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
@@ -535,14 +535,14 @@ impl AdvertisingManagerForUser {
     pub fn AdvertisingId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AdvertisingId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn User(&self) -> ::windows_core::Result<super::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -585,33 +585,33 @@ impl AssignedAccessSettings {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSingleAppKioskMode(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSingleAppKioskMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn User(&self) -> ::windows_core::Result<super::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows_core::Result<AssignedAccessSettings> {
         Self::IAssignedAccessSettingsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AssignedAccessSettings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetForUser(user: &super::User) -> ::windows_core::Result<AssignedAccessSettings> {
         Self::IAssignedAccessSettingsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AssignedAccessSettings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
@@ -659,26 +659,26 @@ impl DiagnosticsSettings {
     pub fn CanUseDiagnosticsToTailorExperiences(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanUseDiagnosticsToTailorExperiences)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn User(&self) -> ::windows_core::Result<super::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows_core::Result<DiagnosticsSettings> {
         Self::IDiagnosticsSettingsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<DiagnosticsSettings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetForUser(user: &super::User) -> ::windows_core::Result<DiagnosticsSettings> {
         Self::IDiagnosticsSettingsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<DiagnosticsSettings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
@@ -725,7 +725,7 @@ pub struct FirstSignInSettings(::windows_core::IUnknown);
 impl FirstSignInSettings {
     pub fn GetDefault() -> ::windows_core::Result<FirstSignInSettings> {
         Self::IFirstSignInSettingsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<FirstSignInSettings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -734,7 +734,7 @@ impl FirstSignInSettings {
     pub fn First(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows_core::HSTRING, ::windows_core::IInspectable>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -743,7 +743,7 @@ impl FirstSignInSettings {
     pub fn Lookup(&self, key: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Lookup)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
@@ -752,7 +752,7 @@ impl FirstSignInSettings {
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -761,7 +761,7 @@ impl FirstSignInSettings {
     pub fn HasKey(&self, key: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::IInspectable>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasKey)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(key), &mut result__).from_abi(result__)
         }
     }
@@ -835,7 +835,7 @@ impl GlobalizationPreferences {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Calendars() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Calendars)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -843,7 +843,7 @@ impl GlobalizationPreferences {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clocks() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Clocks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -851,7 +851,7 @@ impl GlobalizationPreferences {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Currencies() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Currencies)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -859,13 +859,13 @@ impl GlobalizationPreferences {
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Languages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn HomeGeographicRegion() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HomeGeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -873,13 +873,13 @@ impl GlobalizationPreferences {
     #[cfg(feature = "Globalization")]
     pub fn WeekStartsOn() -> ::windows_core::Result<super::super::Globalization::DayOfWeek> {
         Self::IGlobalizationPreferencesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Globalization::DayOfWeek>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WeekStartsOn)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn TrySetHomeGeographicRegion(region: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         Self::IGlobalizationPreferencesStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySetHomeGeographicRegion)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(region), &mut result__).from_abi(result__)
         })
     }
@@ -890,13 +890,13 @@ impl GlobalizationPreferences {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IGlobalizationPreferencesStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySetLanguages)(::windows_core::Interface::as_raw(this), languagetags.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn GetForUser(user: &super::User) -> ::windows_core::Result<GlobalizationPreferencesForUser> {
         Self::IGlobalizationPreferencesStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<GlobalizationPreferencesForUser>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
@@ -926,7 +926,7 @@ impl GlobalizationPreferencesForUser {
     pub fn User(&self) -> ::windows_core::Result<super::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -935,7 +935,7 @@ impl GlobalizationPreferencesForUser {
     pub fn Calendars(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Calendars)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -944,7 +944,7 @@ impl GlobalizationPreferencesForUser {
     pub fn Clocks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Clocks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -953,7 +953,7 @@ impl GlobalizationPreferencesForUser {
     pub fn Currencies(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Currencies)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -962,14 +962,14 @@ impl GlobalizationPreferencesForUser {
     pub fn Languages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Languages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HomeGeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HomeGeographicRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -978,7 +978,7 @@ impl GlobalizationPreferencesForUser {
     pub fn WeekStartsOn(&self) -> ::windows_core::Result<super::super::Globalization::DayOfWeek> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Globalization::DayOfWeek>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WeekStartsOn)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1021,13 +1021,13 @@ impl LockScreen {
     #[cfg(feature = "Foundation")]
     pub fn RequestSetImageFeedAsync(syndicationfeeduri: &super::super::Foundation::Uri) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>> {
         Self::ILockScreenImageFeedStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestSetImageFeedAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(syndicationfeeduri), &mut result__).from_abi(result__)
         })
     }
     pub fn TryRemoveImageFeed() -> ::windows_core::Result<bool> {
         Self::ILockScreenImageFeedStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryRemoveImageFeed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1035,7 +1035,7 @@ impl LockScreen {
     #[cfg(feature = "Foundation")]
     pub fn OriginalImageFile() -> ::windows_core::Result<super::super::Foundation::Uri> {
         Self::ILockScreenStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OriginalImageFile)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1043,7 +1043,7 @@ impl LockScreen {
     #[cfg(feature = "Storage_Streams")]
     pub fn GetImageStream() -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         Self::ILockScreenStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IRandomAccessStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetImageStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1054,7 +1054,7 @@ impl LockScreen {
         P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
     {
         Self::ILockScreenStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetImageFileAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1065,7 +1065,7 @@ impl LockScreen {
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::ILockScreenStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetImageStreamAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1092,7 +1092,7 @@ impl UserInformation {
     #[cfg(feature = "deprecated")]
     pub fn AccountPictureChangeEnabled() -> ::windows_core::Result<bool> {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AccountPictureChangeEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1100,7 +1100,7 @@ impl UserInformation {
     #[cfg(feature = "deprecated")]
     pub fn NameAccessAllowed() -> ::windows_core::Result<bool> {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NameAccessAllowed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1108,7 +1108,7 @@ impl UserInformation {
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub fn GetAccountPicture(kind: AccountPictureKind) -> ::windows_core::Result<super::super::Storage::IStorageFile> {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::IStorageFile>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAccountPicture)(::windows_core::Interface::as_raw(this), kind, &mut result__).from_abi(result__)
         })
     }
@@ -1119,7 +1119,7 @@ impl UserInformation {
         P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
     {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetAccountPictureAsync)(::windows_core::Interface::as_raw(this), image.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1132,7 +1132,7 @@ impl UserInformation {
         P2: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
     {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetAccountPicturesAsync)(::windows_core::Interface::as_raw(this), smallimage.try_into_param()?.abi(), largeimage.try_into_param()?.abi(), video.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1143,7 +1143,7 @@ impl UserInformation {
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetAccountPictureFromStreamAsync)(::windows_core::Interface::as_raw(this), image.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1156,7 +1156,7 @@ impl UserInformation {
         P2: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
     {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetAccountPicturesFromStreamsAsync)(::windows_core::Interface::as_raw(this), smallimage.try_into_param()?.abi(), largeimage.try_into_param()?.abi(), video.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1164,7 +1164,7 @@ impl UserInformation {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AccountPictureChanged(changehandler: &super::super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AccountPictureChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(changehandler), &mut result__).from_abi(result__)
         })
     }
@@ -1177,7 +1177,7 @@ impl UserInformation {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetDisplayNameAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDisplayNameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1185,7 +1185,7 @@ impl UserInformation {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetFirstNameAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetFirstNameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1193,7 +1193,7 @@ impl UserInformation {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetLastNameAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetLastNameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1201,7 +1201,7 @@ impl UserInformation {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetPrincipalNameAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPrincipalNameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1209,7 +1209,7 @@ impl UserInformation {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetSessionInitiationProtocolUriAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSessionInitiationProtocolUriAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1217,7 +1217,7 @@ impl UserInformation {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetDomainNameAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         Self::IUserInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDomainNameAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1241,7 +1241,7 @@ impl UserProfilePersonalizationSettings {
     pub fn TrySetLockScreenImageAsync(&self, imagefile: &super::super::Storage::StorageFile) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySetLockScreenImageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(imagefile), &mut result__).from_abi(result__)
         }
     }
@@ -1250,19 +1250,19 @@ impl UserProfilePersonalizationSettings {
     pub fn TrySetWallpaperImageAsync(&self, imagefile: &super::super::Storage::StorageFile) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySetWallpaperImageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(imagefile), &mut result__).from_abi(result__)
         }
     }
     pub fn Current() -> ::windows_core::Result<UserProfilePersonalizationSettings> {
         Self::IUserProfilePersonalizationSettingsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserProfilePersonalizationSettings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Current)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IsSupported() -> ::windows_core::Result<bool> {
         Self::IUserProfilePersonalizationSettingsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }

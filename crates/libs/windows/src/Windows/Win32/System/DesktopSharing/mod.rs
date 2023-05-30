@@ -7,17 +7,17 @@ impl IRDPSRAPIApplication {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Windows(&self) -> ::windows_core::Result<IRDPSRAPIWindowList> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIWindowList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Windows)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Id(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Shared(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Shared)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -29,11 +29,11 @@ impl IRDPSRAPIApplication {
         (::windows_core::Interface::vtable(self).SetShared)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Flags(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Flags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -97,19 +97,19 @@ impl IRDPSRAPIApplicationFilter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Applications(&self) -> ::windows_core::Result<IRDPSRAPIApplicationList> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIApplicationList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Applications)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Windows(&self) -> ::windows_core::Result<IRDPSRAPIWindowList> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIWindowList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Windows)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Enabled)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -180,13 +180,13 @@ pub struct IRDPSRAPIApplicationList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIApplicationList {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, item: i32) -> ::windows_core::Result<IRDPSRAPIApplication> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIApplication>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), item, &mut result__).from_abi(result__)
     }
 }
@@ -238,15 +238,15 @@ pub struct IRDPSRAPIAttendee(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIAttendee {
     pub unsafe fn Id(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoteName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RemoteName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ControlLevel(&self) -> ::windows_core::Result<CTRL_LEVEL> {
-        let mut result__ = ::windows_core::zeroed::<CTRL_LEVEL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ControlLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetControlLevel(&self, pnewval: CTRL_LEVEL) -> ::windows_core::Result<()> {
@@ -255,18 +255,18 @@ impl IRDPSRAPIAttendee {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Invitation(&self) -> ::windows_core::Result<IRDPSRAPIInvitation> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIInvitation>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Invitation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn TerminateConnection(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).TerminateConnection)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Flags(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Flags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ConnectivityInfo(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectivityInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -326,15 +326,15 @@ impl IRDPSRAPIAttendeeDisconnectInfo {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Attendee(&self) -> ::windows_core::Result<IRDPSRAPIAttendee> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIAttendee>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Attendee)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Reason(&self) -> ::windows_core::Result<ATTENDEE_DISCONNECT_REASON> {
-        let mut result__ = ::windows_core::zeroed::<ATTENDEE_DISCONNECT_REASON>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Reason)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Code(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Code)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -387,13 +387,13 @@ pub struct IRDPSRAPIAttendeeManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIAttendeeManager {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, id: i32) -> ::windows_core::Result<IRDPSRAPIAttendee> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIAttendee>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
 }
@@ -443,7 +443,7 @@ pub struct IRDPSRAPIAttendeeManager_Vtbl {
 pub struct IRDPSRAPIAudioStream(::windows_core::IUnknown);
 impl IRDPSRAPIAudioStream {
     pub unsafe fn Initialize(&self) -> ::windows_core::Result<i64> {
-        let mut result__ = ::windows_core::zeroed::<i64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Start(&self) -> ::windows_core::Result<()> {
@@ -502,7 +502,7 @@ impl IRDPSRAPIClipboardUseEvents {
     where
         P0: ::windows_core::IntoParam<super::Com::IDispatch>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OnPasteFromClipboard)(::windows_core::Interface::as_raw(self), clipboardformat, pattendee.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -549,7 +549,7 @@ impl IRDPSRAPIDebug {
         (::windows_core::Interface::vtable(self).SetCLXCmdLine)(::windows_core::Interface::as_raw(self), clxcmdline.into_param().abi()).ok()
     }
     pub unsafe fn CLXCmdLine(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CLXCmdLine)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -590,21 +590,21 @@ pub struct IRDPSRAPIFrameBuffer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIFrameBuffer {
     pub unsafe fn Width(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Width)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Height(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Height)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Bpp(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Bpp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFrameBufferBits(&self, x: i32, y: i32, width: i32, heigth: i32) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
-        let mut result__ = ::windows_core::zeroed::<*mut super::Com::SAFEARRAY>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFrameBufferBits)(::windows_core::Interface::as_raw(self), x, y, width, heigth, &mut result__).from_abi(result__)
     }
 }
@@ -658,19 +658,19 @@ pub struct IRDPSRAPIInvitation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIInvitation {
     pub unsafe fn ConnectionString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectionString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GroupName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GroupName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Password(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Password)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AttendeeLimit(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AttendeeLimit)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAttendeeLimit(&self, newval: i32) -> ::windows_core::Result<()> {
@@ -679,7 +679,7 @@ impl IRDPSRAPIInvitation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Revoked(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Revoked)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -747,17 +747,17 @@ pub struct IRDPSRAPIInvitationManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIInvitationManager {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, item: super::Com::VARIANT) -> ::windows_core::Result<IRDPSRAPIInvitation> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIInvitation>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(item), &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -768,7 +768,7 @@ impl IRDPSRAPIInvitationManager {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
         P2: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIInvitation>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateInvitation)(::windows_core::Interface::as_raw(self), bstrauthstring.into_param().abi(), bstrgroupname.into_param().abi(), bstrpassword.into_param().abi(), attendeelimit, &mut result__).from_abi(result__)
     }
 }
@@ -863,7 +863,7 @@ impl IRDPSRAPIPerfCounterLoggingManager {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIPerfCounterLogger>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateLogger)(::windows_core::Interface::as_raw(self), bstrcountername.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -908,7 +908,7 @@ impl IRDPSRAPISessionProperties {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Property)(::windows_core::Interface::as_raw(self), propertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -980,37 +980,37 @@ impl IRDPSRAPISharingSession {
         (::windows_core::Interface::vtable(self).SetColorDepth)(::windows_core::Interface::as_raw(self), colordepth).ok()
     }
     pub unsafe fn ColorDepth(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ColorDepth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<IRDPSRAPISessionProperties> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPISessionProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Attendees(&self) -> ::windows_core::Result<IRDPSRAPIAttendeeManager> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIAttendeeManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Attendees)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Invitations(&self) -> ::windows_core::Result<IRDPSRAPIInvitationManager> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIInvitationManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Invitations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationFilter(&self) -> ::windows_core::Result<IRDPSRAPIApplicationFilter> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIApplicationFilter>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ApplicationFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VirtualChannelManager(&self) -> ::windows_core::Result<IRDPSRAPIVirtualChannelManager> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIVirtualChannelManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VirtualChannelManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Pause(&self) -> ::windows_core::Result<()> {
@@ -1113,37 +1113,37 @@ impl IRDPSRAPISharingSession2 {
         (::windows_core::Interface::vtable(self).base__.SetColorDepth)(::windows_core::Interface::as_raw(self), colordepth).ok()
     }
     pub unsafe fn ColorDepth(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ColorDepth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<IRDPSRAPISessionProperties> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPISessionProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Attendees(&self) -> ::windows_core::Result<IRDPSRAPIAttendeeManager> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIAttendeeManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Attendees)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Invitations(&self) -> ::windows_core::Result<IRDPSRAPIInvitationManager> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIInvitationManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Invitations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationFilter(&self) -> ::windows_core::Result<IRDPSRAPIApplicationFilter> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIApplicationFilter>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ApplicationFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VirtualChannelManager(&self) -> ::windows_core::Result<IRDPSRAPIVirtualChannelManager> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIVirtualChannelManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.VirtualChannelManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Pause(&self) -> ::windows_core::Result<()> {
@@ -1175,7 +1175,7 @@ impl IRDPSRAPISharingSession2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FrameBuffer(&self) -> ::windows_core::Result<IRDPSRAPIFrameBuffer> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIFrameBuffer>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FrameBuffer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1239,23 +1239,23 @@ pub struct IRDPSRAPITcpConnectionInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPITcpConnectionInfo {
     pub unsafe fn Protocol(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Protocol)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn LocalPort(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LocalPort)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn LocalIP(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LocalIP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PeerPort(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeerPort)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PeerIP(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PeerIP)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1305,7 +1305,7 @@ pub struct IRDPSRAPITcpConnectionInfo_Vtbl {
 pub struct IRDPSRAPITransportStream(::windows_core::IUnknown);
 impl IRDPSRAPITransportStream {
     pub unsafe fn AllocBuffer(&self, maxpayload: i32) -> ::windows_core::Result<IRDPSRAPITransportStreamBuffer> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPITransportStreamBuffer>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AllocBuffer)(::windows_core::Interface::as_raw(self), maxpayload, &mut result__).from_abi(result__)
     }
     pub unsafe fn FreeBuffer<P0>(&self, pbuffer: P0) -> ::windows_core::Result<()>
@@ -1375,36 +1375,36 @@ pub struct IRDPSRAPITransportStream_Vtbl {
 pub struct IRDPSRAPITransportStreamBuffer(::windows_core::IUnknown);
 impl IRDPSRAPITransportStreamBuffer {
     pub unsafe fn Storage(&self) -> ::windows_core::Result<*mut u8> {
-        let mut result__ = ::windows_core::zeroed::<*mut u8>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Storage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn StorageSize(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StorageSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PayloadSize(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PayloadSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPayloadSize(&self, lval: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPayloadSize)(::windows_core::Interface::as_raw(self), lval).ok()
     }
     pub unsafe fn PayloadOffset(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PayloadOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPayloadOffset(&self, lretval: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPayloadOffset)(::windows_core::Interface::as_raw(self), lretval).ok()
     }
     pub unsafe fn Flags(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Flags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFlags(&self, lflags: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFlags)(::windows_core::Interface::as_raw(self), lflags).ok()
     }
     pub unsafe fn Context(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Context)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetContext<P0>(&self, pcontext: P0) -> ::windows_core::Result<()>
@@ -1523,25 +1523,25 @@ impl IRDPSRAPIViewer {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Attendees(&self) -> ::windows_core::Result<IRDPSRAPIAttendeeManager> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIAttendeeManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Attendees)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Invitations(&self) -> ::windows_core::Result<IRDPSRAPIInvitationManager> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIInvitationManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Invitations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ApplicationFilter(&self) -> ::windows_core::Result<IRDPSRAPIApplicationFilter> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIApplicationFilter>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ApplicationFilter)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn VirtualChannelManager(&self) -> ::windows_core::Result<IRDPSRAPIVirtualChannelManager> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIVirtualChannelManager>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VirtualChannelManager)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1555,7 +1555,7 @@ impl IRDPSRAPIViewer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SmartSizing(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SmartSizing)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RequestControl(&self, ctrllevel: CTRL_LEVEL) -> ::windows_core::Result<()> {
@@ -1568,7 +1568,7 @@ impl IRDPSRAPIViewer {
         (::windows_core::Interface::vtable(self).SetDisconnectedText)(::windows_core::Interface::as_raw(self), bstrdisconnectedtext.into_param().abi()).ok()
     }
     pub unsafe fn DisconnectedText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DisconnectedText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RequestColorDepthChange(&self, bpp: i32) -> ::windows_core::Result<()> {
@@ -1577,7 +1577,7 @@ impl IRDPSRAPIViewer {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<IRDPSRAPISessionProperties> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPISessionProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartReverseConnectListener<P0, P1, P2>(&self, bstrconnectionstring: P0, bstrusername: P1, bstrpassword: P2) -> ::windows_core::Result<::windows_core::BSTR>
@@ -1586,7 +1586,7 @@ impl IRDPSRAPIViewer {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
         P2: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartReverseConnectListener)(::windows_core::Interface::as_raw(self), bstrconnectionstring.into_param().abi(), bstrusername.into_param().abi(), bstrpassword.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -1677,15 +1677,15 @@ impl IRDPSRAPIVirtualChannel {
         (::windows_core::Interface::vtable(self).SetAccess)(::windows_core::Interface::as_raw(self), lattendeeid, accesstype).ok()
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Flags(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Flags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Priority(&self) -> ::windows_core::Result<CHANNEL_PRIORITY> {
-        let mut result__ = ::windows_core::zeroed::<CHANNEL_PRIORITY>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Priority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1737,13 +1737,13 @@ pub struct IRDPSRAPIVirtualChannelManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIVirtualChannelManager {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, item: super::Com::VARIANT) -> ::windows_core::Result<IRDPSRAPIVirtualChannel> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIVirtualChannel>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(item), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1752,7 +1752,7 @@ impl IRDPSRAPIVirtualChannelManager {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIVirtualChannel>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateVirtualChannel)(::windows_core::Interface::as_raw(self), bstrchannelname.into_param().abi(), priority, channelflags, &mut result__).from_abi(result__)
     }
 }
@@ -1808,19 +1808,19 @@ pub struct IRDPSRAPIWindow(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIWindow {
     pub unsafe fn Id(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Application(&self) -> ::windows_core::Result<IRDPSRAPIApplication> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIApplication>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Application)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Shared(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Shared)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1832,14 +1832,14 @@ impl IRDPSRAPIWindow {
         (::windows_core::Interface::vtable(self).SetShared)(::windows_core::Interface::as_raw(self), newval.into_param().abi()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Show(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Show)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Flags(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Flags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1902,13 +1902,13 @@ pub struct IRDPSRAPIWindowList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIWindowList {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, item: i32) -> ::windows_core::Result<IRDPSRAPIWindow> {
-        let mut result__ = ::windows_core::zeroed::<IRDPSRAPIWindow>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), item, &mut result__).from_abi(result__)
     }
 }

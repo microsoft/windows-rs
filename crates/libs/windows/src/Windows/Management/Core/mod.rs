@@ -48,7 +48,7 @@ impl ApplicationDataManager {
     #[cfg(feature = "Storage")]
     pub fn CreateForPackageFamily(packagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Storage::ApplicationData> {
         Self::IApplicationDataManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::ApplicationData>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateForPackageFamily)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefamilyname), &mut result__).from_abi(result__)
         })
     }

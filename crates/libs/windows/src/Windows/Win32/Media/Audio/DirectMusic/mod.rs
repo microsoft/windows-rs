@@ -271,7 +271,7 @@ pub struct IDirectMusicBuffer_Vtbl {
 pub struct IDirectMusicCollection(::windows_core::IUnknown);
 impl IDirectMusicCollection {
     pub unsafe fn GetInstrument(&self, dwpatch: u32) -> ::windows_core::Result<IDirectMusicInstrument> {
-        let mut result__ = ::windows_core::zeroed::<IDirectMusicInstrument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInstrument)(::windows_core::Interface::as_raw(self), dwpatch, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumInstrument<P0>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: P0, dwnamelen: u32) -> ::windows_core::Result<()>
@@ -458,7 +458,7 @@ impl IDirectMusicPort {
         (::windows_core::Interface::vtable(self).UnloadInstrument)(::windows_core::Interface::as_raw(self), pdownloadedinstrument.into_param().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows_core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::windows_core::zeroed::<super::super::IReferenceClock>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows_core::Result<()> {
@@ -570,11 +570,11 @@ pub struct IDirectMusicPort_Vtbl {
 pub struct IDirectMusicPortDownload(::windows_core::IUnknown);
 impl IDirectMusicPortDownload {
     pub unsafe fn GetBuffer(&self, dwdlid: u32) -> ::windows_core::Result<IDirectMusicDownload> {
-        let mut result__ = ::windows_core::zeroed::<IDirectMusicDownload>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBuffer)(::windows_core::Interface::as_raw(self), dwdlid, &mut result__).from_abi(result__)
     }
     pub unsafe fn AllocateBuffer(&self, dwsize: u32) -> ::windows_core::Result<IDirectMusicDownload> {
-        let mut result__ = ::windows_core::zeroed::<IDirectMusicDownload>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AllocateBuffer)(::windows_core::Interface::as_raw(self), dwsize, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDLId(&self, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows_core::Result<()> {
@@ -675,7 +675,7 @@ impl IDirectMusicSynth {
         (::windows_core::Interface::vtable(self).SetMasterClock)(::windows_core::Interface::as_raw(self), pclock.into_param().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows_core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::windows_core::zeroed::<super::super::IReferenceClock>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -810,7 +810,7 @@ impl IDirectMusicSynth8 {
         (::windows_core::Interface::vtable(self).base__.SetMasterClock)(::windows_core::Interface::as_raw(self), pclock.into_param().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows_core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::windows_core::zeroed::<super::super::IReferenceClock>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -913,7 +913,7 @@ impl IDirectMusicSynthSink {
         (::windows_core::Interface::vtable(self).SetMasterClock)(::windows_core::Interface::as_raw(self), pclock.into_param().abi()).ok()
     }
     pub unsafe fn GetLatencyClock(&self) -> ::windows_core::Result<super::super::IReferenceClock> {
-        let mut result__ = ::windows_core::zeroed::<super::super::IReferenceClock>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLatencyClock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]

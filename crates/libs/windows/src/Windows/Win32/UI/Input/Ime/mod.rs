@@ -942,15 +942,15 @@ impl IActiveIME {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IEnumRegisterWordW>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumRegisterWord)(::windows_core::Interface::as_raw(self), szreading.into_param().abi(), dwstyle, szregister.into_param().abi(), pdata, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCodePageA(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCodePageA)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLangId(&self) -> ::windows_core::Result<u16> {
-        let mut result__ = ::windows_core::zeroed::<u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLangId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1134,15 +1134,15 @@ impl IActiveIME2 {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IEnumRegisterWordW>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumRegisterWord)(::windows_core::Interface::as_raw(self), szreading.into_param().abi(), dwstyle, szregister.into_param().abi(), pdata, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCodePageA(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCodePageA)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLangId(&self) -> ::windows_core::Result<u16> {
-        let mut result__ = ::windows_core::zeroed::<u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetLangId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Sleep(&self) -> ::windows_core::Result<()> {
@@ -1201,7 +1201,7 @@ impl IActiveIMMApp {
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
         P1: ::windows_core::IntoParam<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::HIMC>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AssociateContext)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), hime.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
@@ -1225,7 +1225,7 @@ impl IActiveIMMApp {
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateContext(&self) -> ::windows_core::Result<super::super::super::Globalization::HIMC> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::HIMC>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -1244,7 +1244,7 @@ impl IActiveIMMApp {
         P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
         P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IEnumRegisterWordA>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumRegisterWordA)(::windows_core::Interface::as_raw(self), hkl.into_param().abi(), szreading.into_param().abi(), dwstyle, szregister.into_param().abi(), pdata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1255,7 +1255,7 @@ impl IActiveIMMApp {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IEnumRegisterWordW>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumRegisterWordW)(::windows_core::Interface::as_raw(self), hkl.into_param().abi(), szreading.into_param().abi(), dwstyle, szregister.into_param().abi(), pdata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
@@ -1362,7 +1362,7 @@ impl IActiveIMMApp {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::HIMC>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetContext)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
@@ -1399,7 +1399,7 @@ impl IActiveIMMApp {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::HWND>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultIMEWnd)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1464,7 +1464,7 @@ impl IActiveIMMApp {
     where
         P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), hkl.into_param().abi(), fdwindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1489,7 +1489,7 @@ impl IActiveIMMApp {
     where
         P0: ::windows_core::IntoParam<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::POINT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStatusWindowPos)(::windows_core::Interface::as_raw(self), himc.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1498,7 +1498,7 @@ impl IActiveIMMApp {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVirtualKey)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1508,7 +1508,7 @@ impl IActiveIMMApp {
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::TextServices::HKL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InstallIMEA)(::windows_core::Interface::as_raw(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1518,7 +1518,7 @@ impl IActiveIMMApp {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::TextServices::HKL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InstallIMEW)(::windows_core::Interface::as_raw(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1706,7 +1706,7 @@ impl IActiveIMMApp {
         P1: ::windows_core::IntoParam<super::super::super::Foundation::WPARAM>,
         P2: ::windows_core::IntoParam<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::LRESULT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OnDefWindowProc)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), msg, wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FilterClientWindows(&self, aaclasslist: *const u16, usize: u32) -> ::windows_core::Result<()> {
@@ -1718,7 +1718,7 @@ impl IActiveIMMApp {
     where
         P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCodePageA)(::windows_core::Interface::as_raw(self), hkl.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -1727,7 +1727,7 @@ impl IActiveIMMApp {
     where
         P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::windows_core::zeroed::<u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLangId)(::windows_core::Interface::as_raw(self), hkl.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
@@ -1759,7 +1759,7 @@ impl IActiveIMMApp {
         (::windows_core::Interface::vtable(self).GetImeMenuItemsW)(::windows_core::Interface::as_raw(self), himc.into_param().abi(), dwflags, dwtype, pimeparentmenu, pimemenu, dwsize, pdwresult).ok()
     }
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> ::windows_core::Result<IEnumInputContext> {
-        let mut result__ = ::windows_core::zeroed::<IEnumInputContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumInputContext)(::windows_core::Interface::as_raw(self), idthread, &mut result__).from_abi(result__)
     }
 }
@@ -2062,7 +2062,7 @@ impl IActiveIMMIME {
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
         P1: ::windows_core::IntoParam<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::HIMC>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AssociateContext)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), hime.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
@@ -2086,7 +2086,7 @@ impl IActiveIMMIME {
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateContext(&self) -> ::windows_core::Result<super::super::super::Globalization::HIMC> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::HIMC>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2105,7 +2105,7 @@ impl IActiveIMMIME {
         P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
         P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IEnumRegisterWordA>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumRegisterWordA)(::windows_core::Interface::as_raw(self), hkl.into_param().abi(), szreading.into_param().abi(), dwstyle, szregister.into_param().abi(), pdata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2116,7 +2116,7 @@ impl IActiveIMMIME {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IEnumRegisterWordW>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumRegisterWordW)(::windows_core::Interface::as_raw(self), hkl.into_param().abi(), szreading.into_param().abi(), dwstyle, szregister.into_param().abi(), pdata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
@@ -2223,7 +2223,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::HIMC>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetContext)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
@@ -2260,7 +2260,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::HWND>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultIMEWnd)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2325,7 +2325,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), hkl.into_param().abi(), fdwindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2350,7 +2350,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::POINT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStatusWindowPos)(::windows_core::Interface::as_raw(self), himc.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2359,7 +2359,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVirtualKey)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2369,7 +2369,7 @@ impl IActiveIMMIME {
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::TextServices::HKL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InstallIMEA)(::windows_core::Interface::as_raw(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2379,7 +2379,7 @@ impl IActiveIMMIME {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::TextServices::HKL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InstallIMEW)(::windows_core::Interface::as_raw(self), szimefilename.into_param().abi(), szlayouttext.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2562,7 +2562,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::windows_core::zeroed::<*mut INPUTCONTEXT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LockIMC)(::windows_core::Interface::as_raw(self), himc.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2579,13 +2579,13 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::super::Globalization::HIMC>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIMCLockCount)(::windows_core::Interface::as_raw(self), himc.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn CreateIMCC(&self, dwsize: u32) -> ::windows_core::Result<super::super::super::Globalization::HIMCC> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::HIMCC>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateIMCC)(::windows_core::Interface::as_raw(self), dwsize, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2618,7 +2618,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::super::Globalization::HIMCC>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::HIMCC>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReSizeIMCC)(::windows_core::Interface::as_raw(self), himcc.into_param().abi(), dwsize, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2627,7 +2627,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::super::Globalization::HIMCC>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIMCCSize)(::windows_core::Interface::as_raw(self), himcc.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -2636,7 +2636,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::super::Globalization::HIMCC>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIMCCLockCount)(::windows_core::Interface::as_raw(self), himcc.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2658,7 +2658,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::HWND>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSoftKeyboard)(::windows_core::Interface::as_raw(self), utype, howner.into_param().abi(), x, y, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2683,7 +2683,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCodePageA)(::windows_core::Interface::as_raw(self), hkl.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -2692,7 +2692,7 @@ impl IActiveIMMIME {
     where
         P0: ::windows_core::IntoParam<super::super::TextServices::HKL>,
     {
-        let mut result__ = ::windows_core::zeroed::<u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLangId)(::windows_core::Interface::as_raw(self), hkl.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn KeybdEvent(&self, lgidime: u16, bvk: u8, bscan: u8, dwflags: u32, dwextrainfo: u32) -> ::windows_core::Result<()> {
@@ -2733,7 +2733,7 @@ impl IActiveIMMIME {
         (::windows_core::Interface::vtable(self).GetImeMenuItemsW)(::windows_core::Interface::as_raw(self), himc.into_param().abi(), dwflags, dwtype, pimeparentmenu, pimemenu, dwsize, pdwresult).ok()
     }
     pub unsafe fn EnumInputContext(&self, idthread: u32) -> ::windows_core::Result<IEnumInputContext> {
-        let mut result__ = ::windows_core::zeroed::<IEnumInputContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumInputContext)(::windows_core::Interface::as_raw(self), idthread, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
@@ -2744,7 +2744,7 @@ impl IActiveIMMIME {
         P1: ::windows_core::IntoParam<super::super::super::Foundation::WPARAM>,
         P2: ::windows_core::IntoParam<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::LRESULT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RequestMessageA)(::windows_core::Interface::as_raw(self), himc.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
@@ -2755,7 +2755,7 @@ impl IActiveIMMIME {
         P1: ::windows_core::IntoParam<super::super::super::Foundation::WPARAM>,
         P2: ::windows_core::IntoParam<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::LRESULT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RequestMessageW)(::windows_core::Interface::as_raw(self), himc.into_param().abi(), wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2766,7 +2766,7 @@ impl IActiveIMMIME {
         P1: ::windows_core::IntoParam<super::super::super::Foundation::WPARAM>,
         P2: ::windows_core::IntoParam<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::LRESULT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SendIMCA)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), umsg, wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2777,7 +2777,7 @@ impl IActiveIMMIME {
         P1: ::windows_core::IntoParam<super::super::super::Foundation::WPARAM>,
         P2: ::windows_core::IntoParam<super::super::super::Foundation::LPARAM>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::LRESULT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SendIMCW)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), umsg, wparam.into_param().abi(), lparam.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsSleeping(&self) -> ::windows_core::Result<()> {
@@ -3162,7 +3162,7 @@ impl IActiveIMMMessagePumpOwner {
         (::windows_core::Interface::vtable(self).OnTranslateMessage)(::windows_core::Interface::as_raw(self), pmsg).ok()
     }
     pub unsafe fn Pause(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Pause)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Resume(&self, dwcookie: u32) -> ::windows_core::Result<()> {
@@ -3255,7 +3255,7 @@ pub struct IActiveIMMRegistrar_Vtbl {
 pub struct IEnumInputContext(::windows_core::IUnknown);
 impl IEnumInputContext {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumInputContext> {
-        let mut result__ = ::windows_core::zeroed::<IEnumInputContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -3310,7 +3310,7 @@ pub struct IEnumInputContext_Vtbl {
 pub struct IEnumRegisterWordA(::windows_core::IUnknown);
 impl IEnumRegisterWordA {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumRegisterWordA> {
-        let mut result__ = ::windows_core::zeroed::<IEnumRegisterWordA>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDA, pcfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -3360,7 +3360,7 @@ pub struct IEnumRegisterWordA_Vtbl {
 pub struct IEnumRegisterWordW(::windows_core::IUnknown);
 impl IEnumRegisterWordW {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumRegisterWordW> {
-        let mut result__ = ::windows_core::zeroed::<IEnumRegisterWordW>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Next(&self, ulcount: u32, rgregisterword: *mut REGISTERWORDW, pcfetched: *mut u32) -> ::windows_core::Result<()> {

@@ -154,21 +154,21 @@ impl ISpiDeviceStatics {
     pub fn GetDeviceSelector(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), &mut result__).from_abi(result__)
         }
     }
     pub fn GetBusInfo(&self, busid: &::windows_core::HSTRING) -> ::windows_core::Result<SpiBusInfo> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpiBusInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetBusInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), &mut result__).from_abi(result__)
         }
     }
@@ -177,7 +177,7 @@ impl ISpiDeviceStatics {
     pub fn FromIdAsync(&self, busid: &::windows_core::HSTRING, settings: &SpiConnectionSettings) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<SpiDevice>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), ::core::mem::transmute_copy(settings), &mut result__).from_abi(result__)
         }
     }
@@ -227,21 +227,21 @@ impl SpiBusInfo {
     pub fn ChipSelectLineCount(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ChipSelectLineCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MinClockFrequency(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinClockFrequency)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxClockFrequency(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxClockFrequency)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -250,7 +250,7 @@ impl SpiBusInfo {
     pub fn SupportedDataBitLengths(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedDataBitLengths)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -293,7 +293,7 @@ impl SpiConnectionSettings {
     pub fn ChipSelectLine(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ChipSelectLine)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -304,7 +304,7 @@ impl SpiConnectionSettings {
     pub fn Mode(&self) -> ::windows_core::Result<SpiMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpiMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Mode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -315,7 +315,7 @@ impl SpiConnectionSettings {
     pub fn DataBitLength(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DataBitLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -326,7 +326,7 @@ impl SpiConnectionSettings {
     pub fn ClockFrequency(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClockFrequency)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -337,7 +337,7 @@ impl SpiConnectionSettings {
     pub fn SharingMode(&self) -> ::windows_core::Result<SpiSharingMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpiSharingMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SharingMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -347,7 +347,7 @@ impl SpiConnectionSettings {
     }
     pub fn Create(chipselectline: i32) -> ::windows_core::Result<SpiConnectionSettings> {
         Self::ISpiConnectionSettingsFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpiConnectionSettings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), chipselectline, &mut result__).from_abi(result__)
         })
     }
@@ -395,7 +395,7 @@ impl SpiController {
     pub fn GetDevice(&self, settings: &SpiConnectionSettings) -> ::windows_core::Result<SpiDevice> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpiDevice>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDevice)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(settings), &mut result__).from_abi(result__)
         }
     }
@@ -403,7 +403,7 @@ impl SpiController {
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpiController>> {
         Self::ISpiControllerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<SpiController>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDefaultAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -414,7 +414,7 @@ impl SpiController {
         P0: ::windows_core::TryIntoParam<Provider::ISpiProvider>,
     {
         Self::ISpiControllerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetControllersAsync)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -468,14 +468,14 @@ impl SpiDevice {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ConnectionSettings(&self) -> ::windows_core::Result<SpiConnectionSettings> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpiConnectionSettings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConnectionSettings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -497,19 +497,19 @@ impl SpiDevice {
     }
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::ISpiDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelectorFromFriendlyName(friendlyname: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::ISpiDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), &mut result__).from_abi(result__)
         })
     }
     pub fn GetBusInfo(busid: &::windows_core::HSTRING) -> ::windows_core::Result<SpiBusInfo> {
         Self::ISpiDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SpiBusInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetBusInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), &mut result__).from_abi(result__)
         })
     }
@@ -517,7 +517,7 @@ impl SpiDevice {
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(busid: &::windows_core::HSTRING, settings: &SpiConnectionSettings) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<SpiDevice>> {
         Self::ISpiDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<SpiDevice>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(busid), ::core::mem::transmute_copy(settings), &mut result__).from_abi(result__)
         })
     }

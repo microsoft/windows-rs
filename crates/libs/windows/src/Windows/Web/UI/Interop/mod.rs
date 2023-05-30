@@ -228,7 +228,7 @@ impl WebViewControl {
     pub fn Source(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Source)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -241,21 +241,21 @@ impl WebViewControl {
     pub fn DocumentTitle(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DocumentTitle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanGoBack(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanGoBack)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanGoForward(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanGoForward)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -270,21 +270,21 @@ impl WebViewControl {
     pub fn DefaultBackgroundColor(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::UI::Color>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultBackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ContainsFullScreenElement(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContainsFullScreenElement)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Settings(&self) -> ::windows_core::Result<super::WebViewControlSettings> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::WebViewControlSettings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Settings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -293,7 +293,7 @@ impl WebViewControl {
     pub fn DeferredPermissionRequests(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::WebViewControlDeferredPermissionRequest>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<super::WebViewControlDeferredPermissionRequest>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeferredPermissionRequests)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -346,7 +346,7 @@ impl WebViewControl {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InvokeScriptAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(scriptname), arguments.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -358,7 +358,7 @@ impl WebViewControl {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CapturePreviewToStreamAsync)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -367,7 +367,7 @@ impl WebViewControl {
     pub fn CaptureSelectedContentToDataPackageAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::ApplicationModel::DataTransfer::DataPackage>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::ApplicationModel::DataTransfer::DataPackage>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CaptureSelectedContentToDataPackageAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -376,7 +376,7 @@ impl WebViewControl {
     pub fn BuildLocalStreamUri(&self, contentidentifier: &::windows_core::HSTRING, relativepath: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BuildLocalStreamUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contentidentifier), ::core::mem::transmute_copy(relativepath), &mut result__).from_abi(result__)
         }
     }
@@ -389,7 +389,7 @@ impl WebViewControl {
     pub fn NavigationStarting(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlNavigationStartingEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NavigationStarting)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -404,7 +404,7 @@ impl WebViewControl {
     pub fn ContentLoading(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlContentLoadingEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContentLoading)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -419,7 +419,7 @@ impl WebViewControl {
     pub fn DOMContentLoaded(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlDOMContentLoadedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DOMContentLoaded)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -434,7 +434,7 @@ impl WebViewControl {
     pub fn NavigationCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlNavigationCompletedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NavigationCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -449,7 +449,7 @@ impl WebViewControl {
     pub fn FrameNavigationStarting(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlNavigationStartingEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameNavigationStarting)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -464,7 +464,7 @@ impl WebViewControl {
     pub fn FrameContentLoading(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlContentLoadingEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameContentLoading)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -479,7 +479,7 @@ impl WebViewControl {
     pub fn FrameDOMContentLoaded(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlDOMContentLoadedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameDOMContentLoaded)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -494,7 +494,7 @@ impl WebViewControl {
     pub fn FrameNavigationCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlNavigationCompletedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameNavigationCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -509,7 +509,7 @@ impl WebViewControl {
     pub fn ScriptNotify(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlScriptNotifyEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ScriptNotify)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -524,7 +524,7 @@ impl WebViewControl {
     pub fn LongRunningScriptDetected(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlLongRunningScriptDetectedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LongRunningScriptDetected)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -539,7 +539,7 @@ impl WebViewControl {
     pub fn UnsafeContentWarningDisplaying(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnsafeContentWarningDisplaying)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -554,7 +554,7 @@ impl WebViewControl {
     pub fn UnviewableContentIdentified(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlUnviewableContentIdentifiedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnviewableContentIdentified)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -569,7 +569,7 @@ impl WebViewControl {
     pub fn PermissionRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlPermissionRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PermissionRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -584,7 +584,7 @@ impl WebViewControl {
     pub fn UnsupportedUriSchemeIdentified(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnsupportedUriSchemeIdentified)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -599,7 +599,7 @@ impl WebViewControl {
     pub fn NewWindowRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlNewWindowRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NewWindowRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -614,7 +614,7 @@ impl WebViewControl {
     pub fn ContainsFullScreenElementChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContainsFullScreenElementChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -629,7 +629,7 @@ impl WebViewControl {
     pub fn WebResourceRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<super::IWebViewControl, super::WebViewControlWebResourceRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WebResourceRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -646,7 +646,7 @@ impl WebViewControl {
     pub fn Process(&self) -> ::windows_core::Result<WebViewControlProcess> {
         let this = &::windows_core::ComInterface::cast::<IWebViewControlSite>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WebViewControlProcess>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Process)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -657,7 +657,7 @@ impl WebViewControl {
     pub fn Scale(&self) -> ::windows_core::Result<f64> {
         let this = &::windows_core::ComInterface::cast::<IWebViewControlSite>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Scale)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -672,7 +672,7 @@ impl WebViewControl {
     pub fn Bounds(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IWebViewControlSite>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Rect>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Bounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -683,7 +683,7 @@ impl WebViewControl {
     pub fn IsVisible(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IWebViewControlSite>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsVisible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -700,7 +700,7 @@ impl WebViewControl {
     pub fn MoveFocusRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlMoveFocusRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IWebViewControlSite>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MoveFocusRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -715,7 +715,7 @@ impl WebViewControl {
     pub fn AcceleratorKeyPressed(&self, handler: &super::super::super::Foundation::TypedEventHandler<WebViewControl, WebViewControlAcceleratorKeyPressedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IWebViewControlSite>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AcceleratorKeyPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -730,7 +730,7 @@ impl WebViewControl {
     pub fn GotFocus(&self, handler: &super::super::super::Foundation::TypedEventHandler<WebViewControl, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IWebViewControlSite2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GotFocus)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -745,7 +745,7 @@ impl WebViewControl {
     pub fn LostFocus(&self, handler: &super::super::super::Foundation::TypedEventHandler<WebViewControl, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IWebViewControlSite2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LostFocus)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -796,7 +796,7 @@ impl WebViewControlAcceleratorKeyPressedEventArgs {
     pub fn EventType(&self) -> ::windows_core::Result<super::super::super::UI::Core::CoreAcceleratorKeyEventType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::UI::Core::CoreAcceleratorKeyEventType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EventType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -805,7 +805,7 @@ impl WebViewControlAcceleratorKeyPressedEventArgs {
     pub fn VirtualKey(&self) -> ::windows_core::Result<super::super::super::System::VirtualKey> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::System::VirtualKey>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VirtualKey)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -814,21 +814,21 @@ impl WebViewControlAcceleratorKeyPressedEventArgs {
     pub fn KeyStatus(&self) -> ::windows_core::Result<super::super::super::UI::Core::CorePhysicalKeyStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::UI::Core::CorePhysicalKeyStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).KeyStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RoutingStage(&self) -> ::windows_core::Result<WebViewControlAcceleratorKeyRoutingStage> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WebViewControlAcceleratorKeyRoutingStage>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoutingStage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Handled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -873,7 +873,7 @@ impl WebViewControlMoveFocusRequestedEventArgs {
     pub fn Reason(&self) -> ::windows_core::Result<WebViewControlMoveFocusReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WebViewControlMoveFocusReason>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -921,21 +921,21 @@ impl WebViewControlProcess {
     pub fn ProcessId(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProcessId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EnterpriseId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnterpriseId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPrivateNetworkClientServerCapabilityEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPrivateNetworkClientServerCapabilityEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -944,7 +944,7 @@ impl WebViewControlProcess {
     pub fn CreateWebViewControlAsync(&self, hostwindowhandle: i64, bounds: super::super::super::Foundation::Rect) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<WebViewControl>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<WebViewControl>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWebViewControlAsync)(::windows_core::Interface::as_raw(this), hostwindowhandle, bounds, &mut result__).from_abi(result__)
         }
     }
@@ -953,7 +953,7 @@ impl WebViewControlProcess {
     pub fn GetWebViewControls(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<WebViewControl>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<WebViewControl>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetWebViewControls)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -966,7 +966,7 @@ impl WebViewControlProcess {
     pub fn ProcessExited(&self, handler: &super::super::super::Foundation::TypedEventHandler<WebViewControlProcess, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProcessExited)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -978,7 +978,7 @@ impl WebViewControlProcess {
     }
     pub fn CreateWithOptions(processoptions: &WebViewControlProcessOptions) -> ::windows_core::Result<WebViewControlProcess> {
         Self::IWebViewControlProcessFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<WebViewControlProcess>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(processoptions), &mut result__).from_abi(result__)
         })
     }
@@ -1035,7 +1035,7 @@ impl WebViewControlProcessOptions {
     pub fn EnterpriseId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnterpriseId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1046,7 +1046,7 @@ impl WebViewControlProcessOptions {
     pub fn PrivateNetworkClientServerCapability(&self) -> ::windows_core::Result<WebViewControlProcessCapabilityState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WebViewControlProcessCapabilityState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrivateNetworkClientServerCapability)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

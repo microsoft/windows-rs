@@ -331,7 +331,7 @@ impl GameSaveBlobGetResult {
     pub fn Status(&self) -> ::windows_core::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameSaveErrorStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -340,7 +340,7 @@ impl GameSaveBlobGetResult {
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, super::super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, super::super::super::Storage::Streams::IBuffer>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -383,14 +383,14 @@ impl GameSaveBlobInfo {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -433,7 +433,7 @@ impl GameSaveBlobInfoGetResult {
     pub fn Status(&self) -> ::windows_core::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameSaveErrorStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -442,7 +442,7 @@ impl GameSaveBlobInfoGetResult {
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GameSaveBlobInfo>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<GameSaveBlobInfo>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -487,7 +487,7 @@ impl GameSaveBlobInfoQuery {
     pub fn GetBlobInfoAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetBlobInfoAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -496,7 +496,7 @@ impl GameSaveBlobInfoQuery {
     pub fn GetBlobInfoWithIndexAndMaxAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobInfoGetResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetBlobInfoWithIndexAndMaxAsync)(::windows_core::Interface::as_raw(this), startindex, maxnumberofitems, &mut result__).from_abi(result__)
         }
     }
@@ -505,7 +505,7 @@ impl GameSaveBlobInfoQuery {
     pub fn GetItemCountAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetItemCountAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -548,14 +548,14 @@ impl GameSaveContainer {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Provider(&self) -> ::windows_core::Result<GameSaveProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameSaveProvider>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Provider)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -568,7 +568,7 @@ impl GameSaveContainer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SubmitUpdatesAsync)(::windows_core::Interface::as_raw(this), blobstowrite.try_into_param()?.abi(), blobstodelete.try_into_param()?.abi(), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
         }
     }
@@ -580,7 +580,7 @@ impl GameSaveContainer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), blobstoread.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -592,7 +592,7 @@ impl GameSaveContainer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAsync)(::windows_core::Interface::as_raw(this), blobstoread.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -605,14 +605,14 @@ impl GameSaveContainer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SubmitPropertySetUpdatesAsync)(::windows_core::Interface::as_raw(this), blobstowrite.try_into_param()?.abi(), blobstodelete.try_into_param()?.abi(), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateBlobInfoQuery(&self, blobnameprefix: &::windows_core::HSTRING) -> ::windows_core::Result<GameSaveBlobInfoQuery> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameSaveBlobInfoQuery>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateBlobInfoQuery)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(blobnameprefix), &mut result__).from_abi(result__)
         }
     }
@@ -655,21 +655,21 @@ impl GameSaveContainerInfo {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TotalSize(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TotalSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -678,14 +678,14 @@ impl GameSaveContainerInfo {
     pub fn LastModifiedTime(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastModifiedTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NeedsSync(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NeedsSync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -728,7 +728,7 @@ impl GameSaveContainerInfoGetResult {
     pub fn Status(&self) -> ::windows_core::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameSaveErrorStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -737,7 +737,7 @@ impl GameSaveContainerInfoGetResult {
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GameSaveContainerInfo>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<GameSaveContainerInfo>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -782,7 +782,7 @@ impl GameSaveContainerInfoQuery {
     pub fn GetContainerInfoAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetContainerInfoAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -791,7 +791,7 @@ impl GameSaveContainerInfoQuery {
     pub fn GetContainerInfoWithIndexAndMaxAsync(&self, startindex: u32, maxnumberofitems: u32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveContainerInfoGetResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetContainerInfoWithIndexAndMaxAsync)(::windows_core::Interface::as_raw(this), startindex, maxnumberofitems, &mut result__).from_abi(result__)
         }
     }
@@ -800,7 +800,7 @@ impl GameSaveContainerInfoQuery {
     pub fn GetItemCountAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetItemCountAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -843,7 +843,7 @@ impl GameSaveOperationResult {
     pub fn Status(&self) -> ::windows_core::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameSaveErrorStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -888,14 +888,14 @@ impl GameSaveProvider {
     pub fn User(&self) -> ::windows_core::Result<super::super::super::System::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::System::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateContainer(&self, name: &::windows_core::HSTRING) -> ::windows_core::Result<GameSaveContainer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameSaveContainer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateContainer)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         }
     }
@@ -904,21 +904,21 @@ impl GameSaveProvider {
     pub fn DeleteContainerAsync(&self, name: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeleteContainerAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateContainerInfoQuery(&self) -> ::windows_core::Result<GameSaveContainerInfoQuery> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameSaveContainerInfoQuery>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateContainerInfoQuery)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateContainerInfoQueryWithName(&self, containernameprefix: &::windows_core::HSTRING) -> ::windows_core::Result<GameSaveContainerInfoQuery> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameSaveContainerInfoQuery>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateContainerInfoQueryWithName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(containernameprefix), &mut result__).from_abi(result__)
         }
     }
@@ -927,7 +927,7 @@ impl GameSaveProvider {
     pub fn GetRemainingBytesInQuotaAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<i64>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<i64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetRemainingBytesInQuotaAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -936,7 +936,7 @@ impl GameSaveProvider {
     pub fn ContainersChangedSinceLastSync(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContainersChangedSinceLastSync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -944,7 +944,7 @@ impl GameSaveProvider {
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetForUserAsync(user: &super::super::super::System::User, serviceconfigid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
         Self::IGameSaveProviderStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForUserAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(serviceconfigid), &mut result__).from_abi(result__)
         })
     }
@@ -952,7 +952,7 @@ impl GameSaveProvider {
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn GetSyncOnDemandForUserAsync(user: &super::super::super::System::User, serviceconfigid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
         Self::IGameSaveProviderStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSyncOnDemandForUserAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(serviceconfigid), &mut result__).from_abi(result__)
         })
     }
@@ -1000,14 +1000,14 @@ impl GameSaveProviderGetResult {
     pub fn Status(&self) -> ::windows_core::Result<GameSaveErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameSaveErrorStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Value(&self) -> ::windows_core::Result<GameSaveProvider> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameSaveProvider>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

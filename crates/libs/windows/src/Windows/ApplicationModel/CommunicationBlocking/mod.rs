@@ -81,7 +81,7 @@ pub struct CommunicationBlockingAccessManager;
 impl CommunicationBlockingAccessManager {
     pub fn IsBlockingActive() -> ::windows_core::Result<bool> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsBlockingActive)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -89,7 +89,7 @@ impl CommunicationBlockingAccessManager {
     #[cfg(feature = "Foundation")]
     pub fn IsBlockedNumberAsync(number: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsBlockedNumberAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         })
     }
@@ -100,7 +100,7 @@ impl CommunicationBlockingAccessManager {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShowBlockNumbersUI)(::windows_core::Interface::as_raw(this), phonenumbers.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -111,7 +111,7 @@ impl CommunicationBlockingAccessManager {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShowUnblockNumbersUI)(::windows_core::Interface::as_raw(this), phonenumbers.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -135,7 +135,7 @@ pub struct CommunicationBlockingAppManager;
 impl CommunicationBlockingAppManager {
     pub fn IsCurrentAppActiveBlockingApp() -> ::windows_core::Result<bool> {
         Self::ICommunicationBlockingAppManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCurrentAppActiveBlockingApp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -146,7 +146,7 @@ impl CommunicationBlockingAppManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestSetAsActiveBlockingAppAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICommunicationBlockingAppManagerStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestSetAsActiveBlockingAppAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }

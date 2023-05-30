@@ -3119,7 +3119,7 @@ impl ISClusApplication {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DomainNames(&self) -> ::windows_core::Result<ISDomainNames> {
-        let mut result__ = ::windows_core::zeroed::<ISDomainNames>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DomainNames)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3128,7 +3128,7 @@ impl ISClusApplication {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISClusterNames>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_ClusterNames)(::windows_core::Interface::as_raw(self), bstrdomainname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3137,7 +3137,7 @@ impl ISClusApplication {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISCluster>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenCluster)(::windows_core::Interface::as_raw(self), bstrclustername.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -3196,11 +3196,11 @@ pub struct ISClusCryptoKeys(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusCryptoKeys {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -3209,7 +3209,7 @@ impl ISClusCryptoKeys {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddItem<P0>(&self, bstrcryptokey: P0) -> ::windows_core::Result<()>
@@ -3279,23 +3279,23 @@ pub struct ISClusDisk(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusDisk {
     pub unsafe fn Signature(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Signature)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ScsiAddress(&self) -> ::windows_core::Result<ISClusScsiAddress> {
-        let mut result__ = ::windows_core::zeroed::<ISClusScsiAddress>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ScsiAddress)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DiskNumber(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DiskNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Partitions(&self) -> ::windows_core::Result<ISClusPartitions> {
-        let mut result__ = ::windows_core::zeroed::<ISClusPartitions>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Partitions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3352,17 +3352,17 @@ pub struct ISClusDisks(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusDisks {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusDisk> {
-        let mut result__ = ::windows_core::zeroed::<ISClusDisk>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
 }
@@ -3417,43 +3417,43 @@ impl ISClusNetInterface {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Handle(&self) -> ::windows_core::Result<usize> {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<CLUSTER_NETINTERFACE_STATE> {
-        let mut result__ = ::windows_core::zeroed::<CLUSTER_NETINTERFACE_STATE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
-        let mut result__ = ::windows_core::zeroed::<ISCluster>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Cluster)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3523,11 +3523,11 @@ pub struct ISClusNetInterfaces(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetInterfaces {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -3536,7 +3536,7 @@ impl ISClusNetInterfaces {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusNetInterface> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNetInterface>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
 }
@@ -3592,33 +3592,33 @@ impl ISClusNetwork {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Handle(&self) -> ::windows_core::Result<usize> {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetName<P0>(&self, bstrnetworkname: P0) -> ::windows_core::Result<()>
@@ -3628,23 +3628,23 @@ impl ISClusNetwork {
         (::windows_core::Interface::vtable(self).SetName)(::windows_core::Interface::as_raw(self), bstrnetworkname.into_param().abi()).ok()
     }
     pub unsafe fn NetworkID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NetworkID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<CLUSTER_NETWORK_STATE> {
-        let mut result__ = ::windows_core::zeroed::<CLUSTER_NETWORK_STATE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NetInterfaces(&self) -> ::windows_core::Result<ISClusNetworkNetInterfaces> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNetworkNetInterfaces>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NetInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
-        let mut result__ = ::windows_core::zeroed::<ISCluster>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Cluster)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3720,11 +3720,11 @@ pub struct ISClusNetworkNetInterfaces(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetworkNetInterfaces {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -3733,7 +3733,7 @@ impl ISClusNetworkNetInterfaces {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusNetInterface> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNetInterface>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
 }
@@ -3787,11 +3787,11 @@ pub struct ISClusNetworks(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNetworks {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -3800,7 +3800,7 @@ impl ISClusNetworks {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusNetwork> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNetwork>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
 }
@@ -3856,41 +3856,41 @@ impl ISClusNode {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Handle(&self) -> ::windows_core::Result<usize> {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NodeID(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NodeID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<CLUSTER_NODE_STATE> {
-        let mut result__ = ::windows_core::zeroed::<CLUSTER_NODE_STATE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Pause(&self) -> ::windows_core::Result<()> {
@@ -3905,19 +3905,19 @@ impl ISClusNode {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResourceGroups(&self) -> ::windows_core::Result<ISClusResGroups> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResGroups>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResourceGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
-        let mut result__ = ::windows_core::zeroed::<ISCluster>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Cluster)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NetInterfaces(&self) -> ::windows_core::Result<ISClusNodeNetInterfaces> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNodeNetInterfaces>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NetInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3999,11 +3999,11 @@ pub struct ISClusNodeNetInterfaces(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNodeNetInterfaces {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -4012,7 +4012,7 @@ impl ISClusNodeNetInterfaces {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusNetInterface> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNetInterface>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
 }
@@ -4066,11 +4066,11 @@ pub struct ISClusNodes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusNodes {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -4079,7 +4079,7 @@ impl ISClusNodes {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusNode> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
 }
@@ -4133,31 +4133,31 @@ pub struct ISClusPartition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPartition {
     pub unsafe fn Flags(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Flags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeviceName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DeviceName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn VolumeLabel(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VolumeLabel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SerialNumber(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SerialNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MaximumComponentLength(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MaximumComponentLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FileSystemFlags(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FileSystemFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FileSystem(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FileSystem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4211,51 +4211,51 @@ pub struct ISClusPartitionEx(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPartitionEx {
     pub unsafe fn Flags(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Flags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeviceName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DeviceName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn VolumeLabel(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.VolumeLabel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SerialNumber(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SerialNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MaximumComponentLength(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.MaximumComponentLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FileSystemFlags(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FileSystemFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FileSystem(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FileSystem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn TotalSize(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TotalSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FreeSpace(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FreeSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeviceNumber(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DeviceNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PartitionNumber(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PartitionNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn VolumeGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VolumeGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4307,17 +4307,17 @@ pub struct ISClusPartitions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPartitions {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusPartition> {
-        let mut result__ = ::windows_core::zeroed::<ISClusPartition>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
 }
@@ -4370,11 +4370,11 @@ pub struct ISClusProperties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusProperties {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -4383,7 +4383,7 @@ impl ISClusProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusProperty> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperty>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4392,7 +4392,7 @@ impl ISClusProperties {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperty>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateItem)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(varvalue), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4403,31 +4403,31 @@ impl ISClusProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SaveChanges(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SaveChanges)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ReadOnly(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReadOnly)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Private(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Private)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Common(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Common)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Modified(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Modified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4509,27 +4509,27 @@ pub struct ISClusProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusProperty {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Length(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ValueCount(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ValueCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Values(&self) -> ::windows_core::Result<ISClusPropertyValues> {
-        let mut result__ = ::windows_core::zeroed::<ISClusPropertyValues>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Values)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4538,14 +4538,14 @@ impl ISClusProperty {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varvalue)).ok()
     }
     pub unsafe fn Type(&self) -> ::windows_core::Result<CLUSTER_PROPERTY_TYPE> {
-        let mut result__ = ::windows_core::zeroed::<CLUSTER_PROPERTY_TYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
     pub unsafe fn Format(&self) -> ::windows_core::Result<CLUSTER_PROPERTY_FORMAT> {
-        let mut result__ = ::windows_core::zeroed::<CLUSTER_PROPERTY_FORMAT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Format)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> ::windows_core::Result<()> {
@@ -4554,25 +4554,25 @@ impl ISClusProperty {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ReadOnly(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReadOnly)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Private(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Private)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Common(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Common)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Modified(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Modified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn UseDefaultValue(&self) -> ::windows_core::Result<()> {
@@ -4660,7 +4660,7 @@ impl ISClusPropertyValue {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4669,31 +4669,31 @@ impl ISClusPropertyValue {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varvalue)).ok()
     }
     pub unsafe fn Type(&self) -> ::windows_core::Result<CLUSTER_PROPERTY_TYPE> {
-        let mut result__ = ::windows_core::zeroed::<CLUSTER_PROPERTY_TYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetType(&self, r#type: CLUSTER_PROPERTY_TYPE) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
     pub unsafe fn Format(&self) -> ::windows_core::Result<CLUSTER_PROPERTY_FORMAT> {
-        let mut result__ = ::windows_core::zeroed::<CLUSTER_PROPERTY_FORMAT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Format)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFormat(&self, format: CLUSTER_PROPERTY_FORMAT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFormat)(::windows_core::Interface::as_raw(self), format).ok()
     }
     pub unsafe fn Length(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DataCount(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DataCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Data(&self) -> ::windows_core::Result<ISClusPropertyValueData> {
-        let mut result__ = ::windows_core::zeroed::<ISClusPropertyValueData>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Data)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4758,23 +4758,23 @@ pub struct ISClusPropertyValueData(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValueData {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateItem(&self, varvalue: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateItem)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varvalue), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4840,17 +4840,17 @@ pub struct ISClusPropertyValues(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusPropertyValues {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusPropertyValue> {
-        let mut result__ = ::windows_core::zeroed::<ISClusPropertyValue>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4859,7 +4859,7 @@ impl ISClusPropertyValues {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISClusPropertyValue>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateItem)(::windows_core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(varvalue), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4925,7 +4925,7 @@ pub struct ISClusRefObject(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusRefObject {
     pub unsafe fn Handle(&self) -> ::windows_core::Result<usize> {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4973,11 +4973,11 @@ pub struct ISClusRegistryKeys(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusRegistryKeys {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -4986,7 +4986,7 @@ impl ISClusRegistryKeys {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddItem<P0>(&self, bstrregistrykey: P0) -> ::windows_core::Result<()>
@@ -5056,11 +5056,11 @@ pub struct ISClusResDependencies(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResDependencies {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -5069,7 +5069,7 @@ impl ISClusResDependencies {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusResource> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5079,7 +5079,7 @@ impl ISClusResDependencies {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISClusResource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateItem)(::windows_core::Interface::as_raw(self), bstrresourcename.into_param().abi(), bstrresourcetype.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5167,11 +5167,11 @@ pub struct ISClusResDependents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResDependents {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -5180,7 +5180,7 @@ impl ISClusResDependents {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusResource> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5190,7 +5190,7 @@ impl ISClusResDependents {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISClusResource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateItem)(::windows_core::Interface::as_raw(self), bstrresourcename.into_param().abi(), bstrresourcetype.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5280,33 +5280,33 @@ impl ISClusResGroup {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Handle(&self) -> ::windows_core::Result<usize> {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetName<P0>(&self, bstrgroupname: P0) -> ::windows_core::Result<()>
@@ -5316,25 +5316,25 @@ impl ISClusResGroup {
         (::windows_core::Interface::vtable(self).SetName)(::windows_core::Interface::as_raw(self), bstrgroupname.into_param().abi()).ok()
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<CLUSTER_GROUP_STATE> {
-        let mut result__ = ::windows_core::zeroed::<CLUSTER_GROUP_STATE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OwnerNode(&self) -> ::windows_core::Result<ISClusNode> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OwnerNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resources(&self) -> ::windows_core::Result<ISClusResGroupResources> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResGroupResources>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Resources)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PreferredOwnerNodes(&self) -> ::windows_core::Result<ISClusResGroupPreferredOwnerNodes> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResGroupPreferredOwnerNodes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PreferredOwnerNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
@@ -5343,25 +5343,25 @@ impl ISClusResGroup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Online(&self, vartimeout: super::super::System::Com::VARIANT, varnode: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Online)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vartimeout), ::core::mem::transmute(varnode), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Move(&self, vartimeout: super::super::System::Com::VARIANT, varnode: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Move)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vartimeout), ::core::mem::transmute(varnode), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Offline(&self, vartimeout: super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Offline)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vartimeout), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
-        let mut result__ = ::windows_core::zeroed::<ISCluster>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Cluster)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -5457,11 +5457,11 @@ pub struct ISClusResGroupPreferredOwnerNodes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroupPreferredOwnerNodes {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -5470,7 +5470,7 @@ impl ISClusResGroupPreferredOwnerNodes {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusNode> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5489,7 +5489,7 @@ impl ISClusResGroupPreferredOwnerNodes {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Modified(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Modified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SaveChanges(&self) -> ::windows_core::Result<()> {
@@ -5571,11 +5571,11 @@ pub struct ISClusResGroupResources(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroupResources {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -5584,7 +5584,7 @@ impl ISClusResGroupResources {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusResource> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5594,7 +5594,7 @@ impl ISClusResGroupResources {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISClusResource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateItem)(::windows_core::Interface::as_raw(self), bstrresourcename.into_param().abi(), bstrresourcetype.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5661,11 +5661,11 @@ pub struct ISClusResGroups(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResGroups {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -5674,7 +5674,7 @@ impl ISClusResGroups {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusResGroup> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5683,7 +5683,7 @@ impl ISClusResGroups {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISClusResGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateItem)(::windows_core::Interface::as_raw(self), bstrresourcegroupname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5750,11 +5750,11 @@ pub struct ISClusResPossibleOwnerNodes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResPossibleOwnerNodes {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -5763,7 +5763,7 @@ impl ISClusResPossibleOwnerNodes {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusNode> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5782,7 +5782,7 @@ impl ISClusResPossibleOwnerNodes {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Modified(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Modified)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -5850,29 +5850,29 @@ impl ISClusResType {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
@@ -5881,25 +5881,25 @@ impl ISClusResType {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
-        let mut result__ = ::windows_core::zeroed::<ISCluster>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Cluster)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resources(&self) -> ::windows_core::Result<ISClusResTypeResources> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResTypeResources>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Resources)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PossibleOwnerNodes(&self) -> ::windows_core::Result<ISClusResTypePossibleOwnerNodes> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResTypePossibleOwnerNodes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PossibleOwnerNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AvailableDisks(&self) -> ::windows_core::Result<ISClusDisks> {
-        let mut result__ = ::windows_core::zeroed::<ISClusDisks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AvailableDisks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -5980,11 +5980,11 @@ pub struct ISClusResTypePossibleOwnerNodes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypePossibleOwnerNodes {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -5993,7 +5993,7 @@ impl ISClusResTypePossibleOwnerNodes {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusNode> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
 }
@@ -6047,11 +6047,11 @@ pub struct ISClusResTypeResources(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypeResources {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -6060,7 +6060,7 @@ impl ISClusResTypeResources {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusResource> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6070,7 +6070,7 @@ impl ISClusResTypeResources {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISClusResource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateItem)(::windows_core::Interface::as_raw(self), bstrresourcename.into_param().abi(), bstrgroupname.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6137,11 +6137,11 @@ pub struct ISClusResTypes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResTypes {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -6150,7 +6150,7 @@ impl ISClusResTypes {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusResType> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6161,7 +6161,7 @@ impl ISClusResTypes {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
         P2: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISClusResType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateItem)(::windows_core::Interface::as_raw(self), bstrresourcetypename.into_param().abi(), bstrdisplayname.into_param().abi(), bstrresourcetypedll.into_param().abi(), dwlooksalivepollinterval, dwisalivepollinterval, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6230,33 +6230,33 @@ impl ISClusResource {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Handle(&self) -> ::windows_core::Result<usize> {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetName<P0>(&self, bstrresourcename: P0) -> ::windows_core::Result<()>
@@ -6266,11 +6266,11 @@ impl ISClusResource {
         (::windows_core::Interface::vtable(self).SetName)(::windows_core::Interface::as_raw(self), bstrresourcename.into_param().abi()).ok()
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<CLUSTER_RESOURCE_STATE> {
-        let mut result__ = ::windows_core::zeroed::<CLUSTER_RESOURCE_STATE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CoreFlag(&self) -> ::windows_core::Result<CLUS_FLAGS> {
-        let mut result__ = ::windows_core::zeroed::<CLUS_FLAGS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CoreFlag)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn BecomeQuorumResource<P0>(&self, bstrdevicepath: P0, lmaxlogsize: i32) -> ::windows_core::Result<()>
@@ -6288,13 +6288,13 @@ impl ISClusResource {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Online(&self, ntimeout: i32) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Online)(::windows_core::Interface::as_raw(self), ntimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Offline(&self, ntimeout: i32) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Offline)(::windows_core::Interface::as_raw(self), ntimeout, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6327,81 +6327,81 @@ impl ISClusResource {
     where
         P0: ::windows_core::IntoParam<ISClusResource>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanResourceBeDependent)(::windows_core::Interface::as_raw(self), presource.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PossibleOwnerNodes(&self) -> ::windows_core::Result<ISClusResPossibleOwnerNodes> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResPossibleOwnerNodes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PossibleOwnerNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Dependencies(&self) -> ::windows_core::Result<ISClusResDependencies> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResDependencies>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Dependencies)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Dependents(&self) -> ::windows_core::Result<ISClusResDependents> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResDependents>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Dependents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Group(&self) -> ::windows_core::Result<ISClusResGroup> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Group)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OwnerNode(&self) -> ::windows_core::Result<ISClusNode> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OwnerNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cluster(&self) -> ::windows_core::Result<ISCluster> {
-        let mut result__ = ::windows_core::zeroed::<ISCluster>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Cluster)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ClassInfo(&self) -> ::windows_core::Result<CLUSTER_RESOURCE_CLASS> {
-        let mut result__ = ::windows_core::zeroed::<CLUSTER_RESOURCE_CLASS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ClassInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Disk(&self) -> ::windows_core::Result<ISClusDisk> {
-        let mut result__ = ::windows_core::zeroed::<ISClusDisk>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Disk)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegistryKeys(&self) -> ::windows_core::Result<ISClusRegistryKeys> {
-        let mut result__ = ::windows_core::zeroed::<ISClusRegistryKeys>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RegistryKeys)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CryptoKeys(&self) -> ::windows_core::Result<ISClusCryptoKeys> {
-        let mut result__ = ::windows_core::zeroed::<ISClusCryptoKeys>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CryptoKeys)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn TypeName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TypeName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Type(&self) -> ::windows_core::Result<ISClusResType> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MaintenanceMode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MaintenanceMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6554,11 +6554,11 @@ pub struct ISClusResources(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusResources {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -6567,7 +6567,7 @@ impl ISClusResources {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISClusResource> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6578,7 +6578,7 @@ impl ISClusResources {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
         P2: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISClusResource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateItem)(::windows_core::Interface::as_raw(self), bstrresourcename.into_param().abi(), bstrresourcetype.into_param().abi(), bstrgroupname.into_param().abi(), dwflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6647,25 +6647,25 @@ impl ISClusScsiAddress {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PortNumber(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PortNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PathId(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PathId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn TargetId(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TargetId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Lun(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Lun)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -6728,45 +6728,45 @@ pub struct ISClusVersion(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusVersion {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MajorVersion(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MajorVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MinorVersion(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MinorVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn BuildNumber(&self) -> ::windows_core::Result<i16> {
-        let mut result__ = ::windows_core::zeroed::<i16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BuildNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn VendorId(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VendorId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CSDVersion(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CSDVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ClusterHighestVersion(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ClusterHighestVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ClusterLowestVersion(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ClusterLowestVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Flags(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Flags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MixedVersion(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MixedVersion)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -6828,29 +6828,29 @@ impl ISCluster {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommonROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommonROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrivateROProperties(&self) -> ::windows_core::Result<ISClusProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISClusProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrivateROProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Handle(&self) -> ::windows_core::Result<usize> {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Handle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Open<P0>(&self, bstrclustername: P0) -> ::windows_core::Result<()>
@@ -6860,7 +6860,7 @@ impl ISCluster {
         (::windows_core::Interface::vtable(self).Open)(::windows_core::Interface::as_raw(self), bstrclustername.into_param().abi()).ok()
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetName<P0>(&self, bstrclustername: P0) -> ::windows_core::Result<()>
@@ -6872,7 +6872,7 @@ impl ISCluster {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Version(&self) -> ::windows_core::Result<ISClusVersion> {
-        let mut result__ = ::windows_core::zeroed::<ISClusVersion>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Version)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6886,18 +6886,18 @@ impl ISCluster {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QuorumResource(&self) -> ::windows_core::Result<ISClusResource> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QuorumResource)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn QuorumLogSize(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QuorumLogSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetQuorumLogSize(&self, nlogsize: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetQuorumLogSize)(::windows_core::Interface::as_raw(self), nlogsize).ok()
     }
     pub unsafe fn QuorumPath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QuorumPath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetQuorumPath<P0>(&self, ppath: P0) -> ::windows_core::Result<()>
@@ -6909,37 +6909,37 @@ impl ISCluster {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Nodes(&self) -> ::windows_core::Result<ISClusNodes> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNodes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Nodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResourceGroups(&self) -> ::windows_core::Result<ISClusResGroups> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResGroups>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResourceGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resources(&self) -> ::windows_core::Result<ISClusResources> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResources>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Resources)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResourceTypes(&self) -> ::windows_core::Result<ISClusResTypes> {
-        let mut result__ = ::windows_core::zeroed::<ISClusResTypes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ResourceTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Networks(&self) -> ::windows_core::Result<ISClusNetworks> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNetworks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Networks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NetInterfaces(&self) -> ::windows_core::Result<ISClusNetInterfaces> {
-        let mut result__ = ::windows_core::zeroed::<ISClusNetInterfaces>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NetInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -7046,11 +7046,11 @@ pub struct ISClusterNames(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISClusterNames {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -7059,11 +7059,11 @@ impl ISClusterNames {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
     pub unsafe fn DomainName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DomainName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -7118,11 +7118,11 @@ pub struct ISDomainNames(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISDomainNames {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Refresh(&self) -> ::windows_core::Result<()> {
@@ -7131,7 +7131,7 @@ impl ISDomainNames {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, varindex: super::super::System::Com::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varindex), &mut result__).from_abi(result__)
     }
 }

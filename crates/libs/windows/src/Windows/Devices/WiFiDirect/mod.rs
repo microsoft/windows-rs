@@ -431,7 +431,7 @@ impl WiFiDirectAdvertisement {
     pub fn InformationElements(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InformationElements)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -447,7 +447,7 @@ impl WiFiDirectAdvertisement {
     pub fn ListenStateDiscoverability(&self) -> ::windows_core::Result<WiFiDirectAdvertisementListenStateDiscoverability> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WiFiDirectAdvertisementListenStateDiscoverability>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ListenStateDiscoverability)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -458,7 +458,7 @@ impl WiFiDirectAdvertisement {
     pub fn IsAutonomousGroupOwnerEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsAutonomousGroupOwnerEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -469,7 +469,7 @@ impl WiFiDirectAdvertisement {
     pub fn LegacySettings(&self) -> ::windows_core::Result<WiFiDirectLegacySettings> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WiFiDirectLegacySettings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LegacySettings)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -478,7 +478,7 @@ impl WiFiDirectAdvertisement {
     pub fn SupportedConfigurationMethods(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<WiFiDirectConfigurationMethod>> {
         let this = &::windows_core::ComInterface::cast::<IWiFiDirectAdvertisement2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<WiFiDirectConfigurationMethod>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedConfigurationMethods)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -528,14 +528,14 @@ impl WiFiDirectAdvertisementPublisher {
     pub fn Advertisement(&self) -> ::windows_core::Result<WiFiDirectAdvertisement> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WiFiDirectAdvertisement>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Advertisement)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<WiFiDirectAdvertisementPublisherStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WiFiDirectAdvertisementPublisherStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -544,7 +544,7 @@ impl WiFiDirectAdvertisementPublisher {
     pub fn StatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<WiFiDirectAdvertisementPublisher, WiFiDirectAdvertisementPublisherStatusChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -601,14 +601,14 @@ impl WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<WiFiDirectAdvertisementPublisherStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WiFiDirectAdvertisementPublisherStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Error(&self) -> ::windows_core::Result<WiFiDirectError> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WiFiDirectError>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Error)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -660,7 +660,7 @@ impl WiFiDirectConnectionListener {
     pub fn ConnectionRequested(&self, handler: &super::super::Foundation::TypedEventHandler<WiFiDirectConnectionListener, WiFiDirectConnectionRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConnectionRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -716,7 +716,7 @@ impl WiFiDirectConnectionParameters {
     pub fn GroupOwnerIntent(&self) -> ::windows_core::Result<i16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GroupOwnerIntent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -729,14 +729,14 @@ impl WiFiDirectConnectionParameters {
     pub fn PreferenceOrderedConfigurationMethods(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<WiFiDirectConfigurationMethod>> {
         let this = &::windows_core::ComInterface::cast::<IWiFiDirectConnectionParameters2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<WiFiDirectConfigurationMethod>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreferenceOrderedConfigurationMethods)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreferredPairingProcedure(&self) -> ::windows_core::Result<WiFiDirectPairingProcedure> {
         let this = &::windows_core::ComInterface::cast::<IWiFiDirectConnectionParameters2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WiFiDirectPairingProcedure>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreferredPairingProcedure)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -748,7 +748,7 @@ impl WiFiDirectConnectionParameters {
     #[cfg(feature = "Devices_Enumeration")]
     pub fn GetDevicePairingKinds(configurationmethod: WiFiDirectConfigurationMethod) -> ::windows_core::Result<super::Enumeration::DevicePairingKinds> {
         Self::IWiFiDirectConnectionParametersStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Enumeration::DevicePairingKinds>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDevicePairingKinds)(::windows_core::Interface::as_raw(this), configurationmethod, &mut result__).from_abi(result__)
         })
     }
@@ -806,7 +806,7 @@ impl WiFiDirectConnectionRequest {
     pub fn DeviceInformation(&self) -> ::windows_core::Result<super::Enumeration::DeviceInformation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Enumeration::DeviceInformation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -851,7 +851,7 @@ impl WiFiDirectConnectionRequestedEventArgs {
     pub fn GetConnectionRequest(&self) -> ::windows_core::Result<WiFiDirectConnectionRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WiFiDirectConnectionRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetConnectionRequest)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -900,14 +900,14 @@ impl WiFiDirectDevice {
     pub fn ConnectionStatus(&self) -> ::windows_core::Result<WiFiDirectConnectionStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WiFiDirectConnectionStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConnectionStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -916,7 +916,7 @@ impl WiFiDirectDevice {
     pub fn ConnectionStatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<WiFiDirectDevice, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConnectionStatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -931,13 +931,13 @@ impl WiFiDirectDevice {
     pub fn GetConnectionEndpointPairs(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Networking::EndpointPair>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Networking::EndpointPair>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetConnectionEndpointPairs)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IWiFiDirectDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -945,13 +945,13 @@ impl WiFiDirectDevice {
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiDirectDevice>> {
         Self::IWiFiDirectDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<WiFiDirectDevice>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelector2(r#type: WiFiDirectDeviceSelectorType) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IWiFiDirectDeviceStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), r#type, &mut result__).from_abi(result__)
         })
     }
@@ -959,7 +959,7 @@ impl WiFiDirectDevice {
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync2(deviceid: &::windows_core::HSTRING, connectionparameters: &WiFiDirectConnectionParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiDirectDevice>> {
         Self::IWiFiDirectDeviceStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<WiFiDirectDevice>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), ::core::mem::transmute_copy(connectionparameters), &mut result__).from_abi(result__)
         })
     }
@@ -1023,7 +1023,7 @@ impl WiFiDirectInformationElement {
     pub fn Oui(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Oui)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1039,7 +1039,7 @@ impl WiFiDirectInformationElement {
     pub fn OuiType(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OuiType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1052,7 +1052,7 @@ impl WiFiDirectInformationElement {
     pub fn Value(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1072,7 +1072,7 @@ impl WiFiDirectInformationElement {
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
     {
         Self::IWiFiDirectInformationElementStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateFromBuffer)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1080,7 +1080,7 @@ impl WiFiDirectInformationElement {
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation_Collections"))]
     pub fn CreateFromDeviceInformation(deviceinformation: &super::Enumeration::DeviceInformation) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>> {
         Self::IWiFiDirectInformationElementStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateFromDeviceInformation)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceinformation), &mut result__).from_abi(result__)
         })
     }
@@ -1128,7 +1128,7 @@ impl WiFiDirectLegacySettings {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1139,7 +1139,7 @@ impl WiFiDirectLegacySettings {
     pub fn Ssid(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Ssid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1152,7 +1152,7 @@ impl WiFiDirectLegacySettings {
     pub fn Passphrase(&self) -> ::windows_core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Security::Credentials::PasswordCredential>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Passphrase)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

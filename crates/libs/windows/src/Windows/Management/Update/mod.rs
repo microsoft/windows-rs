@@ -623,7 +623,7 @@ impl PreviewBuildsManager {
     pub fn ArePreviewBuildsAllowed(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ArePreviewBuildsAllowed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -634,7 +634,7 @@ impl PreviewBuildsManager {
     pub fn GetCurrentState(&self) -> ::windows_core::Result<PreviewBuildsState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PreviewBuildsState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCurrentState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -643,19 +643,19 @@ impl PreviewBuildsManager {
     pub fn SyncAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SyncAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows_core::Result<PreviewBuildsManager> {
         Self::IPreviewBuildsManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PreviewBuildsManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IsSupported() -> ::windows_core::Result<bool> {
         Self::IPreviewBuildsManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -705,7 +705,7 @@ impl PreviewBuildsState {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::ValueSet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -748,91 +748,91 @@ impl WindowsUpdate {
     pub fn ProviderId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProviderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UpdateId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UpdateId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsFeatureUpdate(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsFeatureUpdate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsMinorImpact(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsMinorImpact)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSecurity(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSecurity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsCritical(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCritical)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsForOS(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsForOS)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsDriver(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDriver)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsMandatory(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsMandatory)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsUrgent(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsUrgent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSeeker(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSeeker)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -841,7 +841,7 @@ impl WindowsUpdate {
     pub fn MoreInfoUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MoreInfoUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -850,21 +850,21 @@ impl WindowsUpdate {
     pub fn SupportUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsEulaAccepted(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEulaAccepted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EulaText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EulaText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -873,42 +873,42 @@ impl WindowsUpdate {
     pub fn Deadline(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Deadline)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AttentionRequiredInfo(&self) -> ::windows_core::Result<WindowsUpdateAttentionRequiredInfo> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateAttentionRequiredInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AttentionRequiredInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ActionResult(&self) -> ::windows_core::Result<WindowsUpdateActionResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateActionResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActionResult)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentAction(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentAction)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ActionProgress(&self) -> ::windows_core::Result<WindowsUpdateActionProgress> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateActionProgress>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActionProgress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetPropertyValue(&self, propertyname: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPropertyValue)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), &mut result__).from_abi(result__)
         }
     }
@@ -955,28 +955,28 @@ impl WindowsUpdateActionCompletedEventArgs {
     pub fn Update(&self) -> ::windows_core::Result<WindowsUpdate> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdate>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Update)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Action(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Action)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Succeeded(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Succeeded)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1019,14 +1019,14 @@ impl WindowsUpdateActionProgress {
     pub fn Action(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Action)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Progress(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1071,28 +1071,28 @@ impl WindowsUpdateActionResult {
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Succeeded(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Succeeded)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Action(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Action)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1157,37 +1157,37 @@ impl WindowsUpdateAdministrator {
     pub fn GetUpdates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<WindowsUpdate>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetUpdates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetRegisteredAdministrator(organizationname: &::windows_core::HSTRING) -> ::windows_core::Result<WindowsUpdateGetAdministratorResult> {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateGetAdministratorResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetRegisteredAdministrator)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(organizationname), &mut result__).from_abi(result__)
         })
     }
     pub fn RegisterForAdministration(organizationname: &::windows_core::HSTRING, options: WindowsUpdateAdministratorOptions) -> ::windows_core::Result<WindowsUpdateAdministratorStatus> {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateAdministratorStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RegisterForAdministration)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(organizationname), options, &mut result__).from_abi(result__)
         })
     }
     pub fn UnregisterForAdministration(organizationname: &::windows_core::HSTRING) -> ::windows_core::Result<WindowsUpdateAdministratorStatus> {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateAdministratorStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnregisterForAdministration)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(organizationname), &mut result__).from_abi(result__)
         })
     }
     pub fn GetRegisteredAdministratorName() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetRegisteredAdministratorName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn RequestRestart(restartoptions: &WindowsUpdateRestartRequestOptions) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestRestart)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(restartoptions), &mut result__).from_abi(result__)
         })
     }
@@ -1247,7 +1247,7 @@ impl WindowsUpdateApprovalData {
     pub fn Seeker(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Seeker)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1265,7 +1265,7 @@ impl WindowsUpdateApprovalData {
     pub fn AllowDownloadOnMetered(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowDownloadOnMetered)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1283,7 +1283,7 @@ impl WindowsUpdateApprovalData {
     pub fn ComplianceDeadlineInDays(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ComplianceDeadlineInDays)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1301,7 +1301,7 @@ impl WindowsUpdateApprovalData {
     pub fn ComplianceGracePeriodInDays(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ComplianceGracePeriodInDays)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1319,7 +1319,7 @@ impl WindowsUpdateApprovalData {
     pub fn OptOutOfAutoReboot(&self) -> ::windows_core::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OptOutOfAutoReboot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1371,7 +1371,7 @@ impl WindowsUpdateAttentionRequiredInfo {
     pub fn Reason(&self) -> ::windows_core::Result<WindowsUpdateAttentionRequiredReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateAttentionRequiredReason>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1380,7 +1380,7 @@ impl WindowsUpdateAttentionRequiredInfo {
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1423,14 +1423,14 @@ impl WindowsUpdateAttentionRequiredReasonChangedEventArgs {
     pub fn Update(&self) -> ::windows_core::Result<WindowsUpdate> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdate>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Update)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Reason(&self) -> ::windows_core::Result<WindowsUpdateAttentionRequiredReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateAttentionRequiredReason>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1473,14 +1473,14 @@ impl WindowsUpdateGetAdministratorResult {
     pub fn Administrator(&self) -> ::windows_core::Result<WindowsUpdateAdministrator> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateAdministrator>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Administrator)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<WindowsUpdateAdministratorStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateAdministratorStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1523,14 +1523,14 @@ impl WindowsUpdateItem {
     pub fn ProviderId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProviderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UpdateId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UpdateId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1539,21 +1539,21 @@ impl WindowsUpdateItem {
     pub fn Timestamp(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Timestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1562,21 +1562,21 @@ impl WindowsUpdateItem {
     pub fn MoreInfoUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MoreInfoUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Category(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Category)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Operation(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Operation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1621,7 +1621,7 @@ impl WindowsUpdateManager {
     pub fn ScanningStateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ScanningStateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1636,7 +1636,7 @@ impl WindowsUpdateManager {
     pub fn WorkingStateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WorkingStateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1651,7 +1651,7 @@ impl WindowsUpdateManager {
     pub fn ProgressChanged(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateProgressChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProgressChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1666,7 +1666,7 @@ impl WindowsUpdateManager {
     pub fn AttentionRequiredReasonChanged(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateAttentionRequiredReasonChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AttentionRequiredReasonChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1681,7 +1681,7 @@ impl WindowsUpdateManager {
     pub fn ActionCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateActionCompletedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActionCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1696,7 +1696,7 @@ impl WindowsUpdateManager {
     pub fn ScanCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateScanCompletedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ScanCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1709,14 +1709,14 @@ impl WindowsUpdateManager {
     pub fn IsScanning(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsScanning)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsWorking(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsWorking)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1725,7 +1725,7 @@ impl WindowsUpdateManager {
     pub fn LastSuccessfulScanTimestamp(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastSuccessfulScanTimestamp)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1734,7 +1734,7 @@ impl WindowsUpdateManager {
     pub fn GetApplicableUpdates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<WindowsUpdate>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetApplicableUpdates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1743,7 +1743,7 @@ impl WindowsUpdateManager {
     pub fn GetMostRecentCompletedUpdates(&self, count: i32) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMostRecentCompletedUpdates)(::windows_core::Interface::as_raw(this), count, &mut result__).from_abi(result__)
         }
     }
@@ -1752,7 +1752,7 @@ impl WindowsUpdateManager {
     pub fn GetMostRecentCompletedUpdatesAsync(&self, count: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WindowsUpdateItem>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMostRecentCompletedUpdatesAsync)(::windows_core::Interface::as_raw(this), count, &mut result__).from_abi(result__)
         }
     }
@@ -1762,7 +1762,7 @@ impl WindowsUpdateManager {
     }
     pub fn CreateInstance(clientid: &::windows_core::HSTRING) -> ::windows_core::Result<WindowsUpdateManager> {
         Self::IWindowsUpdateManagerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(clientid), &mut result__).from_abi(result__)
         })
     }
@@ -1810,14 +1810,14 @@ impl WindowsUpdateProgressChangedEventArgs {
     pub fn Update(&self) -> ::windows_core::Result<WindowsUpdate> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdate>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Update)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ActionProgress(&self) -> ::windows_core::Result<WindowsUpdateActionProgress> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateActionProgress>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActionProgress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1867,7 +1867,7 @@ impl WindowsUpdateRestartRequestOptions {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1878,7 +1878,7 @@ impl WindowsUpdateRestartRequestOptions {
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1891,7 +1891,7 @@ impl WindowsUpdateRestartRequestOptions {
     pub fn MoreInfoUrl(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MoreInfoUrl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1904,7 +1904,7 @@ impl WindowsUpdateRestartRequestOptions {
     pub fn ComplianceDeadlineInDays(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ComplianceDeadlineInDays)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1915,7 +1915,7 @@ impl WindowsUpdateRestartRequestOptions {
     pub fn ComplianceGracePeriodInDays(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ComplianceGracePeriodInDays)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1926,7 +1926,7 @@ impl WindowsUpdateRestartRequestOptions {
     pub fn OrganizationName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OrganizationName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1937,7 +1937,7 @@ impl WindowsUpdateRestartRequestOptions {
     pub fn OptOutOfAutoReboot(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OptOutOfAutoReboot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1949,7 +1949,7 @@ impl WindowsUpdateRestartRequestOptions {
     #[cfg(feature = "Foundation")]
     pub fn CreateInstance(title: &::windows_core::HSTRING, description: &::windows_core::HSTRING, moreinfourl: &super::super::Foundation::Uri, compliancedeadlineindays: i32, compliancegraceperiodindays: i32) -> ::windows_core::Result<WindowsUpdateRestartRequestOptions> {
         Self::IWindowsUpdateRestartRequestOptionsFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<WindowsUpdateRestartRequestOptions>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(description), ::core::mem::transmute_copy(moreinfourl), compliancedeadlineindays, compliancegraceperiodindays, &mut result__).from_abi(result__)
         })
     }
@@ -1997,21 +1997,21 @@ impl WindowsUpdateScanCompletedEventArgs {
     pub fn ProviderId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProviderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Succeeded(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Succeeded)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2020,7 +2020,7 @@ impl WindowsUpdateScanCompletedEventArgs {
     pub fn Updates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<WindowsUpdate>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<WindowsUpdate>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Updates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

@@ -115,7 +115,7 @@ impl BackPressedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Handled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -197,7 +197,7 @@ impl HardwareButtons {
     #[cfg(feature = "Foundation")]
     pub fn BackPressed(handler: &super::super::super::Foundation::EventHandler<BackPressedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IHardwareButtonsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BackPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -210,7 +210,7 @@ impl HardwareButtons {
     #[cfg(feature = "Foundation")]
     pub fn CameraHalfPressed(handler: &super::super::super::Foundation::EventHandler<CameraEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IHardwareButtonsStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CameraHalfPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -223,7 +223,7 @@ impl HardwareButtons {
     #[cfg(feature = "Foundation")]
     pub fn CameraPressed(handler: &super::super::super::Foundation::EventHandler<CameraEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IHardwareButtonsStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CameraPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -236,7 +236,7 @@ impl HardwareButtons {
     #[cfg(feature = "Foundation")]
     pub fn CameraReleased(handler: &super::super::super::Foundation::EventHandler<CameraEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IHardwareButtonsStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CameraReleased)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }

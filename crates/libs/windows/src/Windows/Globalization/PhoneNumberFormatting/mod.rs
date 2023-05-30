@@ -127,35 +127,35 @@ impl PhoneNumberFormatter {
     pub fn Format(&self, number: &PhoneNumberInfo) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Format)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         }
     }
     pub fn FormatWithOutputFormat(&self, number: &PhoneNumberInfo, numberformat: PhoneNumberFormat) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatWithOutputFormat)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(number), numberformat, &mut result__).from_abi(result__)
         }
     }
     pub fn FormatPartialString(&self, number: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatPartialString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         }
     }
     pub fn FormatString(&self, number: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         }
     }
     pub fn FormatStringWithLeftToRightMarkers(&self, number: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatStringWithLeftToRightMarkers)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         }
     }
@@ -164,19 +164,19 @@ impl PhoneNumberFormatter {
     }
     pub fn GetCountryCodeForRegion(regioncode: &::windows_core::HSTRING) -> ::windows_core::Result<i32> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCountryCodeForRegion)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(regioncode), &mut result__).from_abi(result__)
         })
     }
     pub fn GetNationalDirectDialingPrefixForRegion(regioncode: &::windows_core::HSTRING, stripnondigit: bool) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetNationalDirectDialingPrefixForRegion)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(regioncode), stripnondigit, &mut result__).from_abi(result__)
         })
     }
     pub fn WrapWithLeftToRightMarkers(number: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WrapWithLeftToRightMarkers)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         })
     }
@@ -224,74 +224,74 @@ impl PhoneNumberInfo {
     pub fn CountryCode(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CountryCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PhoneNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetLengthOfGeographicalAreaCode(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetLengthOfGeographicalAreaCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetNationalSignificantNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetNationalSignificantNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetLengthOfNationalDestinationCode(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetLengthOfNationalDestinationCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PredictNumberKind(&self) -> ::windows_core::Result<PredictedPhoneNumberKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PredictedPhoneNumberKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PredictNumberKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetGeographicRegionCode(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetGeographicRegionCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CheckNumberMatch(&self, othernumber: &PhoneNumberInfo) -> ::windows_core::Result<PhoneNumberMatchResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PhoneNumberMatchResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CheckNumberMatch)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(othernumber), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(number: &::windows_core::HSTRING) -> ::windows_core::Result<PhoneNumberInfo> {
         Self::IPhoneNumberInfoFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PhoneNumberInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(number), &mut result__).from_abi(result__)
         })
     }
     pub fn TryParse(input: &::windows_core::HSTRING, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows_core::Result<PhoneNumberParseResult> {
         Self::IPhoneNumberInfoStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PhoneNumberParseResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryParse)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), phonenumber as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
     pub fn TryParseWithRegion(input: &::windows_core::HSTRING, regioncode: &::windows_core::HSTRING, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows_core::Result<PhoneNumberParseResult> {
         Self::IPhoneNumberInfoStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PhoneNumberParseResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryParseWithRegion)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(input), ::core::mem::transmute_copy(regioncode), phonenumber as *mut _ as _, &mut result__).from_abi(result__)
         })
     }
@@ -300,7 +300,7 @@ impl PhoneNumberInfo {
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ToString)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

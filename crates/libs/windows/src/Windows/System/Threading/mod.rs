@@ -101,7 +101,7 @@ impl ThreadPool {
     #[cfg(feature = "Foundation")]
     pub fn RunAsync(handler: &WorkItemHandler) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IThreadPoolStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RunAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         })
     }
@@ -109,7 +109,7 @@ impl ThreadPool {
     #[cfg(feature = "Foundation")]
     pub fn RunWithPriorityAsync(handler: &WorkItemHandler, priority: WorkItemPriority) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IThreadPoolStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RunWithPriorityAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), priority, &mut result__).from_abi(result__)
         })
     }
@@ -117,7 +117,7 @@ impl ThreadPool {
     #[cfg(feature = "Foundation")]
     pub fn RunWithPriorityAndOptionsAsync(handler: &WorkItemHandler, priority: WorkItemPriority, options: WorkItemOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         Self::IThreadPoolStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RunWithPriorityAndOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), priority, options, &mut result__).from_abi(result__)
         })
     }
@@ -139,7 +139,7 @@ impl ThreadPoolTimer {
     pub fn Period(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Period)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -148,7 +148,7 @@ impl ThreadPoolTimer {
     pub fn Delay(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -160,7 +160,7 @@ impl ThreadPoolTimer {
     #[cfg(feature = "Foundation")]
     pub fn CreatePeriodicTimer(handler: &TimerElapsedHandler, period: super::super::Foundation::TimeSpan) -> ::windows_core::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ThreadPoolTimer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreatePeriodicTimer)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), period, &mut result__).from_abi(result__)
         })
     }
@@ -168,7 +168,7 @@ impl ThreadPoolTimer {
     #[cfg(feature = "Foundation")]
     pub fn CreateTimer(handler: &TimerElapsedHandler, delay: super::super::Foundation::TimeSpan) -> ::windows_core::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ThreadPoolTimer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateTimer)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), delay, &mut result__).from_abi(result__)
         })
     }
@@ -176,7 +176,7 @@ impl ThreadPoolTimer {
     #[cfg(feature = "Foundation")]
     pub fn CreatePeriodicTimerWithCompletion(handler: &TimerElapsedHandler, period: super::super::Foundation::TimeSpan, destroyed: &TimerDestroyedHandler) -> ::windows_core::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ThreadPoolTimer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreatePeriodicTimerWithCompletion)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), period, ::core::mem::transmute_copy(destroyed), &mut result__).from_abi(result__)
         })
     }
@@ -184,7 +184,7 @@ impl ThreadPoolTimer {
     #[cfg(feature = "Foundation")]
     pub fn CreateTimerWithCompletion(handler: &TimerElapsedHandler, delay: super::super::Foundation::TimeSpan, destroyed: &TimerDestroyedHandler) -> ::windows_core::Result<ThreadPoolTimer> {
         Self::IThreadPoolTimerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ThreadPoolTimer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateTimerWithCompletion)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), delay, ::core::mem::transmute_copy(destroyed), &mut result__).from_abi(result__)
         })
     }

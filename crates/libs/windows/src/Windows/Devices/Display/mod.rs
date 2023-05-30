@@ -115,35 +115,35 @@ impl DisplayMonitor {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ConnectionKind(&self) -> ::windows_core::Result<DisplayMonitorConnectionKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DisplayMonitorConnectionKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConnectionKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PhysicalConnector(&self) -> ::windows_core::Result<DisplayMonitorPhysicalConnectorKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DisplayMonitorPhysicalConnectorKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhysicalConnector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayAdapterDeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayAdapterDeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -152,21 +152,21 @@ impl DisplayMonitor {
     pub fn DisplayAdapterId(&self) -> ::windows_core::Result<super::super::Graphics::DisplayAdapterId> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Graphics::DisplayAdapterId>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayAdapterId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayAdapterTargetId(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayAdapterTargetId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsageKind(&self) -> ::windows_core::Result<DisplayMonitorUsageKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DisplayMonitorUsageKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UsageKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -175,7 +175,7 @@ impl DisplayMonitor {
     pub fn NativeResolutionInRawPixels(&self) -> ::windows_core::Result<super::super::Graphics::SizeInt32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Graphics::SizeInt32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NativeResolutionInRawPixels)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -184,21 +184,21 @@ impl DisplayMonitor {
     pub fn PhysicalSizeInInches(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Size>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::Size>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhysicalSizeInInches)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RawDpiX(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RawDpiX)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RawDpiY(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RawDpiY)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -207,7 +207,7 @@ impl DisplayMonitor {
     pub fn RedPrimary(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Point>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RedPrimary)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -216,7 +216,7 @@ impl DisplayMonitor {
     pub fn GreenPrimary(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Point>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GreenPrimary)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -225,7 +225,7 @@ impl DisplayMonitor {
     pub fn BluePrimary(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Point>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BluePrimary)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -234,28 +234,28 @@ impl DisplayMonitor {
     pub fn WhitePoint(&self) -> ::windows_core::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Point>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WhitePoint)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxLuminanceInNits(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxLuminanceInNits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MinLuminanceInNits(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinLuminanceInNits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxAverageFullFrameLuminanceInNits(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxAverageFullFrameLuminanceInNits)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -269,13 +269,13 @@ impl DisplayMonitor {
     pub fn IsDolbyVisionSupportedInHdrMode(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IDisplayMonitor2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDolbyVisionSupportedInHdrMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IDisplayMonitorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -283,7 +283,7 @@ impl DisplayMonitor {
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
         Self::IDisplayMonitorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<DisplayMonitor>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
@@ -291,7 +291,7 @@ impl DisplayMonitor {
     #[cfg(feature = "Foundation")]
     pub fn FromInterfaceIdAsync(deviceinterfaceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
         Self::IDisplayMonitorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<DisplayMonitor>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromInterfaceIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceinterfaceid), &mut result__).from_abi(result__)
         })
     }

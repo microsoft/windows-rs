@@ -93,14 +93,14 @@ impl IImageScannerFormatConfiguration {
     pub fn DefaultFormat(&self) -> ::windows_core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows_core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Format)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -111,7 +111,7 @@ impl IImageScannerFormatConfiguration {
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsFormatSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -204,7 +204,7 @@ impl IImageScannerSourceConfiguration {
     pub fn MinScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Size>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -213,7 +213,7 @@ impl IImageScannerSourceConfiguration {
     pub fn MaxScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Size>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -222,7 +222,7 @@ impl IImageScannerSourceConfiguration {
     pub fn SelectedScanRegion(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Rect>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelectedScanRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -235,7 +235,7 @@ impl IImageScannerSourceConfiguration {
     pub fn AutoCroppingMode(&self) -> ::windows_core::Result<ImageScannerAutoCroppingMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerAutoCroppingMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AutoCroppingMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -246,35 +246,35 @@ impl IImageScannerSourceConfiguration {
     pub fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsAutoCroppingModeSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OpticalResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpticalResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DesiredResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -285,21 +285,21 @@ impl IImageScannerSourceConfiguration {
     pub fn ActualResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActualResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultColorMode(&self) -> ::windows_core::Result<ImageScannerColorMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerColorMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultColorMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ColorMode(&self) -> ::windows_core::Result<ImageScannerColorMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerColorMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ColorMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -310,42 +310,42 @@ impl IImageScannerSourceConfiguration {
     pub fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsColorModeSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinBrightness(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinBrightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxBrightness(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxBrightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BrightnessStep(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BrightnessStep)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultBrightness(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultBrightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Brightness(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Brightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -356,35 +356,35 @@ impl IImageScannerSourceConfiguration {
     pub fn MinContrast(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinContrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxContrast(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxContrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ContrastStep(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContrastStep)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultContrast(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultContrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Contrast(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Contrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -395,14 +395,14 @@ impl IImageScannerSourceConfiguration {
     pub fn DefaultFormat(&self) -> ::windows_core::Result<ImageScannerFormat> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows_core::Result<ImageScannerFormat> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Format)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -413,7 +413,7 @@ impl IImageScannerSourceConfiguration {
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFormatConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsFormatSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -522,49 +522,49 @@ impl ImageScanner {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultScanSource(&self) -> ::windows_core::Result<ImageScannerScanSource> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerScanSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultScanSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsScanSourceSupported(&self, value: ImageScannerScanSource) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsScanSourceSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn FlatbedConfiguration(&self) -> ::windows_core::Result<ImageScannerFlatbedConfiguration> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFlatbedConfiguration>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlatbedConfiguration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FeederConfiguration(&self) -> ::windows_core::Result<ImageScannerFeederConfiguration> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFeederConfiguration>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FeederConfiguration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AutoConfiguration(&self) -> ::windows_core::Result<ImageScannerAutoConfiguration> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerAutoConfiguration>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AutoConfiguration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPreviewSupported(&self, scansource: ImageScannerScanSource) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPreviewSupported)(::windows_core::Interface::as_raw(this), scansource, &mut result__).from_abi(result__)
         }
     }
@@ -576,7 +576,7 @@ impl ImageScanner {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ScanPreviewToStreamAsync)(::windows_core::Interface::as_raw(this), scansource, targetstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -585,7 +585,7 @@ impl ImageScanner {
     pub fn ScanFilesToFolderAsync(&self, scansource: ImageScannerScanSource, storagefolder: &super::super::Storage::StorageFolder) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ScanFilesToFolderAsync)(::windows_core::Interface::as_raw(this), scansource, ::core::mem::transmute_copy(storagefolder), &mut result__).from_abi(result__)
         }
     }
@@ -593,13 +593,13 @@ impl ImageScanner {
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ImageScanner>> {
         Self::IImageScannerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ImageScanner>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
     pub fn GetDeviceSelector() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IImageScannerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -647,14 +647,14 @@ impl ImageScannerAutoConfiguration {
     pub fn DefaultFormat(&self) -> ::windows_core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows_core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Format)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -665,7 +665,7 @@ impl ImageScannerAutoConfiguration {
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsFormatSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -709,14 +709,14 @@ impl ImageScannerFeederConfiguration {
     pub fn CanAutoDetectPageSize(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanAutoDetectPageSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AutoDetectPageSize(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AutoDetectPageSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -729,7 +729,7 @@ impl ImageScannerFeederConfiguration {
     pub fn PageSize(&self) -> ::windows_core::Result<super::super::Graphics::Printing::PrintMediaSize> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Graphics::Printing::PrintMediaSize>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PageSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -744,7 +744,7 @@ impl ImageScannerFeederConfiguration {
     pub fn PageOrientation(&self) -> ::windows_core::Result<super::super::Graphics::Printing::PrintOrientation> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Graphics::Printing::PrintOrientation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PageOrientation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -759,7 +759,7 @@ impl ImageScannerFeederConfiguration {
     pub fn PageSizeDimensions(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Size>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PageSizeDimensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -768,14 +768,14 @@ impl ImageScannerFeederConfiguration {
     pub fn IsPageSizeSupported(&self, pagesize: super::super::Graphics::Printing::PrintMediaSize, pageorientation: super::super::Graphics::Printing::PrintOrientation) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPageSizeSupported)(::windows_core::Interface::as_raw(this), pagesize, pageorientation, &mut result__).from_abi(result__)
         }
     }
     pub fn MaxNumberOfPages(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxNumberOfPages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -786,14 +786,14 @@ impl ImageScannerFeederConfiguration {
     pub fn CanScanDuplex(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanScanDuplex)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Duplex(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Duplex)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -804,14 +804,14 @@ impl ImageScannerFeederConfiguration {
     pub fn CanScanAhead(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanScanAhead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ScanAhead(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerFeederConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ScanAhead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -822,14 +822,14 @@ impl ImageScannerFeederConfiguration {
     pub fn DefaultFormat(&self) -> ::windows_core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows_core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Format)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -840,7 +840,7 @@ impl ImageScannerFeederConfiguration {
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsFormatSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -849,7 +849,7 @@ impl ImageScannerFeederConfiguration {
     pub fn MinScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Size>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -858,7 +858,7 @@ impl ImageScannerFeederConfiguration {
     pub fn MaxScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Size>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -867,7 +867,7 @@ impl ImageScannerFeederConfiguration {
     pub fn SelectedScanRegion(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Rect>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelectedScanRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -880,7 +880,7 @@ impl ImageScannerFeederConfiguration {
     pub fn AutoCroppingMode(&self) -> ::windows_core::Result<ImageScannerAutoCroppingMode> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerAutoCroppingMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AutoCroppingMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -891,35 +891,35 @@ impl ImageScannerFeederConfiguration {
     pub fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsAutoCroppingModeSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OpticalResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpticalResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DesiredResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -930,21 +930,21 @@ impl ImageScannerFeederConfiguration {
     pub fn ActualResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActualResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultColorMode(&self) -> ::windows_core::Result<ImageScannerColorMode> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerColorMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultColorMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ColorMode(&self) -> ::windows_core::Result<ImageScannerColorMode> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerColorMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ColorMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -955,42 +955,42 @@ impl ImageScannerFeederConfiguration {
     pub fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsColorModeSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinBrightness(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinBrightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxBrightness(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxBrightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BrightnessStep(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BrightnessStep)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultBrightness(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultBrightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Brightness(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Brightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1001,35 +1001,35 @@ impl ImageScannerFeederConfiguration {
     pub fn MinContrast(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinContrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxContrast(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxContrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ContrastStep(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContrastStep)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultContrast(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultContrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Contrast(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Contrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1078,14 +1078,14 @@ impl ImageScannerFlatbedConfiguration {
     pub fn DefaultFormat(&self) -> ::windows_core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows_core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Format)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1096,7 +1096,7 @@ impl ImageScannerFlatbedConfiguration {
     pub fn IsFormatSupported(&self, value: ImageScannerFormat) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsFormatSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
@@ -1105,7 +1105,7 @@ impl ImageScannerFlatbedConfiguration {
     pub fn MinScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Size>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1114,7 +1114,7 @@ impl ImageScannerFlatbedConfiguration {
     pub fn MaxScanArea(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Size>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxScanArea)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1123,7 +1123,7 @@ impl ImageScannerFlatbedConfiguration {
     pub fn SelectedScanRegion(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Rect>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelectedScanRegion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1136,7 +1136,7 @@ impl ImageScannerFlatbedConfiguration {
     pub fn AutoCroppingMode(&self) -> ::windows_core::Result<ImageScannerAutoCroppingMode> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerAutoCroppingMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AutoCroppingMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1147,35 +1147,35 @@ impl ImageScannerFlatbedConfiguration {
     pub fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsAutoCroppingModeSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OpticalResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpticalResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DesiredResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1186,21 +1186,21 @@ impl ImageScannerFlatbedConfiguration {
     pub fn ActualResolution(&self) -> ::windows_core::Result<ImageScannerResolution> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerResolution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActualResolution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultColorMode(&self) -> ::windows_core::Result<ImageScannerColorMode> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerColorMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultColorMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ColorMode(&self) -> ::windows_core::Result<ImageScannerColorMode> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerColorMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ColorMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1211,42 +1211,42 @@ impl ImageScannerFlatbedConfiguration {
     pub fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsColorModeSupported)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn MinBrightness(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinBrightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxBrightness(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxBrightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BrightnessStep(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BrightnessStep)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultBrightness(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultBrightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Brightness(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Brightness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1257,35 +1257,35 @@ impl ImageScannerFlatbedConfiguration {
     pub fn MinContrast(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinContrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxContrast(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxContrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ContrastStep(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContrastStep)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DefaultContrast(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DefaultContrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Contrast(&self) -> ::windows_core::Result<i32> {
         let this = &::windows_core::ComInterface::cast::<IImageScannerSourceConfiguration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Contrast)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1334,14 +1334,14 @@ impl ImageScannerPreviewResult {
     pub fn Succeeded(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Succeeded)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Format(&self) -> ::windows_core::Result<ImageScannerFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ImageScannerFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Format)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1386,7 +1386,7 @@ impl ImageScannerScanResult {
     pub fn ScannedFiles(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ScannedFiles)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

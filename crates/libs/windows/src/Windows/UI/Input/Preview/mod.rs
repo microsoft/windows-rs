@@ -30,7 +30,7 @@ impl InputActivationListenerPreview {
     #[cfg(feature = "UI_WindowManagement")]
     pub fn CreateForApplicationWindow(window: &super::super::WindowManagement::AppWindow) -> ::windows_core::Result<super::InputActivationListener> {
         Self::IInputActivationListenerPreviewStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::InputActivationListener>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateForApplicationWindow)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(window), &mut result__).from_abi(result__)
         })
     }

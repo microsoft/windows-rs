@@ -15,7 +15,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterable<T> {
     pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IIterator<T>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -102,7 +102,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn Current(&self) -> ::windows_core::Result<T> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<T>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Current)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -113,7 +113,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn HasCurrent(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasCurrent)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -124,7 +124,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
     pub fn MoveNext(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MoveNext)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -138,7 +138,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator<T> {
     ) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMany)(
                 ::windows_core::Interface::as_raw(this),
                 items.len() as u32,
@@ -235,7 +235,7 @@ impl IStringable {
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ToString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -472,7 +472,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<T> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<T>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAt)(
                 ::windows_core::Interface::as_raw(this),
                 index,
@@ -484,7 +484,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -498,7 +498,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IndexOf)(
                 ::windows_core::Interface::as_raw(this),
                 value.into_param().abi(),
@@ -515,7 +515,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     ) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMany)(
                 ::windows_core::Interface::as_raw(this),
                 startindex,
@@ -529,7 +529,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView<T> {
     pub fn First(&self) -> ::windows_core::Result<IIterator<T>> {
         let this = &::windows_core::ComInterface::cast::<IIterable<T>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IIterator<T>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -659,7 +659,7 @@ impl IWwwFormUrlDecoderEntry {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -670,7 +670,7 @@ impl IWwwFormUrlDecoderEntry {
     pub fn Value(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -782,7 +782,7 @@ impl Uri {
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IStringable>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ToString)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -794,7 +794,7 @@ impl Uri {
         tounescape: &::windows_core::HSTRING,
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IUriEscapeStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnescapeComponent)(
                 ::windows_core::Interface::as_raw(this),
                 ::core::mem::transmute_copy(tounescape),
@@ -807,7 +807,7 @@ impl Uri {
         toescape: &::windows_core::HSTRING,
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IUriEscapeStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EscapeComponent)(
                 ::windows_core::Interface::as_raw(this),
                 ::core::mem::transmute_copy(toescape),
@@ -819,7 +819,7 @@ impl Uri {
     pub fn AbsoluteUri(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AbsoluteUri)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -830,7 +830,7 @@ impl Uri {
     pub fn DisplayUri(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayUri)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -841,7 +841,7 @@ impl Uri {
     pub fn Domain(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Domain)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -852,7 +852,7 @@ impl Uri {
     pub fn Extension(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Extension)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -863,7 +863,7 @@ impl Uri {
     pub fn Fragment(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Fragment)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -874,7 +874,7 @@ impl Uri {
     pub fn Host(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Host)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -885,7 +885,7 @@ impl Uri {
     pub fn Password(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Password)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -896,7 +896,7 @@ impl Uri {
     pub fn Path(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Path)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -907,7 +907,7 @@ impl Uri {
     pub fn Query(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Query)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -918,7 +918,7 @@ impl Uri {
     pub fn QueryParsed(&self) -> ::windows_core::Result<WwwFormUrlDecoder> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WwwFormUrlDecoder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryParsed)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -929,7 +929,7 @@ impl Uri {
     pub fn RawUri(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RawUri)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -940,7 +940,7 @@ impl Uri {
     pub fn SchemeName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SchemeName)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -951,7 +951,7 @@ impl Uri {
     pub fn UserName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UserName)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -962,7 +962,7 @@ impl Uri {
     pub fn Port(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Port)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -973,7 +973,7 @@ impl Uri {
     pub fn Suspicious(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Suspicious)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -984,7 +984,7 @@ impl Uri {
     pub fn Equals(&self, puri: &Uri) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Equals)(
                 ::windows_core::Interface::as_raw(this),
                 ::core::mem::transmute_copy(puri),
@@ -996,7 +996,7 @@ impl Uri {
     pub fn CombineUri(&self, relativeuri: &::windows_core::HSTRING) -> ::windows_core::Result<Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CombineUri)(
                 ::windows_core::Interface::as_raw(this),
                 ::core::mem::transmute_copy(relativeuri),
@@ -1007,7 +1007,7 @@ impl Uri {
     }
     pub fn CreateUri(uri: &::windows_core::HSTRING) -> ::windows_core::Result<Uri> {
         Self::IUriRuntimeClassFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateUri)(
                 ::windows_core::Interface::as_raw(this),
                 ::core::mem::transmute_copy(uri),
@@ -1021,7 +1021,7 @@ impl Uri {
         relativeuri: &::windows_core::HSTRING,
     ) -> ::windows_core::Result<Uri> {
         Self::IUriRuntimeClassFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithRelativeUri)(
                 ::windows_core::Interface::as_raw(this),
                 ::core::mem::transmute_copy(baseuri),
@@ -1035,7 +1035,7 @@ impl Uri {
         let this =
             &::windows_core::ComInterface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AbsoluteCanonicalUri)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1047,7 +1047,7 @@ impl Uri {
         let this =
             &::windows_core::ComInterface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayIri)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1118,7 +1118,7 @@ impl WwwFormUrlDecoder {
     pub fn First(&self) -> ::windows_core::Result<IIterator<IWwwFormUrlDecoderEntry>> {
         let this = &::windows_core::ComInterface::cast::<IIterable<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IIterator<IWwwFormUrlDecoderEntry>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1130,7 +1130,7 @@ impl WwwFormUrlDecoder {
         let this =
             &::windows_core::ComInterface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IWwwFormUrlDecoderEntry>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAt)(
                 ::windows_core::Interface::as_raw(this),
                 index,
@@ -1143,7 +1143,7 @@ impl WwwFormUrlDecoder {
         let this =
             &::windows_core::ComInterface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(
                 ::windows_core::Interface::as_raw(this),
                 &mut result__,
@@ -1158,7 +1158,7 @@ impl WwwFormUrlDecoder {
         let this =
             &::windows_core::ComInterface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IndexOf)(
                 ::windows_core::Interface::as_raw(this),
                 value.try_into_param()?.abi(),
@@ -1176,7 +1176,7 @@ impl WwwFormUrlDecoder {
         let this =
             &::windows_core::ComInterface::cast::<IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMany)(
                 ::windows_core::Interface::as_raw(this),
                 startindex,
@@ -1193,7 +1193,7 @@ impl WwwFormUrlDecoder {
     ) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetFirstValueByName)(
                 ::windows_core::Interface::as_raw(this),
                 ::core::mem::transmute_copy(name),
@@ -1206,7 +1206,7 @@ impl WwwFormUrlDecoder {
         query: &::windows_core::HSTRING,
     ) -> ::windows_core::Result<WwwFormUrlDecoder> {
         Self::IWwwFormUrlDecoderRuntimeClassFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<WwwFormUrlDecoder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWwwFormUrlDecoder)(
                 ::windows_core::Interface::as_raw(this),
                 ::core::mem::transmute_copy(query),

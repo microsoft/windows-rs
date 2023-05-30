@@ -207,21 +207,21 @@ impl Enterprise {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn WorkplaceId(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WorkplaceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -230,7 +230,7 @@ impl Enterprise {
     pub fn EnrollmentValidFrom(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnrollmentValidFrom)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -239,14 +239,14 @@ impl Enterprise {
     pub fn EnrollmentValidTo(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnrollmentValidTo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<EnterpriseStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<EnterpriseStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -289,13 +289,13 @@ impl EnterpriseEnrollmentManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn EnrolledEnterprises() -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<Enterprise>> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<Enterprise>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnrolledEnterprises)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn CurrentEnterprise() -> ::windows_core::Result<Enterprise> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<Enterprise>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentEnterprise)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -303,7 +303,7 @@ impl EnterpriseEnrollmentManager {
     #[cfg(feature = "Foundation")]
     pub fn ValidateEnterprisesAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ValidateEnterprisesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -311,7 +311,7 @@ impl EnterpriseEnrollmentManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestEnrollmentAsync(enrollmenttoken: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<EnterpriseEnrollmentResult>> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<EnterpriseEnrollmentResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestEnrollmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(enrollmenttoken), &mut result__).from_abi(result__)
         })
     }
@@ -319,7 +319,7 @@ impl EnterpriseEnrollmentManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestUnenrollmentAsync(enterprise: &Enterprise) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestUnenrollmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(enterprise), &mut result__).from_abi(result__)
         })
     }
@@ -339,14 +339,14 @@ impl EnterpriseEnrollmentResult {
     pub fn EnrolledEnterprise(&self) -> ::windows_core::Result<Enterprise> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<Enterprise>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnrolledEnterprise)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<EnterpriseEnrollmentStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<EnterpriseEnrollmentStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -387,7 +387,7 @@ impl InstallationManager {
     #[cfg(feature = "Foundation")]
     pub fn AddPackageAsync(title: &::windows_core::HSTRING, sourcelocation: &super::super::super::Foundation::Uri) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>> {
         Self::IInstallationManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AddPackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(sourcelocation), &mut result__).from_abi(result__)
         })
     }
@@ -395,7 +395,7 @@ impl InstallationManager {
     #[cfg(feature = "Foundation")]
     pub fn AddPackagePreloadedAsync(title: &::windows_core::HSTRING, sourcelocation: &super::super::super::Foundation::Uri, instanceid: &::windows_core::HSTRING, offerid: &::windows_core::HSTRING, license: &super::super::super::Foundation::Uri) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>> {
         Self::IInstallationManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AddPackagePreloadedAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(sourcelocation), ::core::mem::transmute_copy(instanceid), ::core::mem::transmute_copy(offerid), ::core::mem::transmute_copy(license), &mut result__).from_abi(result__)
         })
     }
@@ -403,7 +403,7 @@ impl InstallationManager {
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPendingPackageInstalls() -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>> {
         Self::IInstallationManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPendingPackageInstalls)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -411,7 +411,7 @@ impl InstallationManager {
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindPackagesForCurrentPublisher() -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>> {
         Self::IInstallationManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindPackagesForCurrentPublisher)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -419,7 +419,7 @@ impl InstallationManager {
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindPackages() -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>> {
         Self::IInstallationManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindPackages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -427,7 +427,7 @@ impl InstallationManager {
     #[cfg(all(feature = "Foundation", feature = "Management_Deployment"))]
     pub fn RemovePackageAsync(packagefullname: &::windows_core::HSTRING, removaloptions: super::super::super::Management::Deployment::RemovalOptions) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>> {
         Self::IInstallationManagerStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemovePackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(packagefullname), removaloptions, &mut result__).from_abi(result__)
         })
     }
@@ -438,7 +438,7 @@ impl InstallationManager {
         P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Uri>>,
     {
         Self::IInstallationManagerStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RegisterPackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(manifesturi), dependencypackageuris.try_into_param()?.abi(), deploymentoptions, &mut result__).from_abi(result__)
         })
     }
@@ -446,7 +446,7 @@ impl InstallationManager {
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindPackagesByNamePublisher(packagename: &::windows_core::HSTRING, packagepublisher: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>> {
         Self::IInstallationManagerStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindPackagesByNamePublisher)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(packagename), ::core::mem::transmute_copy(packagepublisher), &mut result__).from_abi(result__)
         })
     }
@@ -471,7 +471,7 @@ impl PackageInstallResult {
     pub fn ProductId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProductId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -480,14 +480,14 @@ impl PackageInstallResult {
     pub fn InstallState(&self) -> ::windows_core::Result<super::super::super::Management::Deployment::PackageInstallState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Management::Deployment::PackageInstallState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstallState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ErrorText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IPackageInstallResult2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ErrorText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

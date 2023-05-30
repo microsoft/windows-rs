@@ -51,7 +51,7 @@ impl CompositorController {
     pub fn Compositor(&self) -> ::windows_core::Result<super::Compositor> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Compositor>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Compositor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -64,7 +64,7 @@ impl CompositorController {
     pub fn EnsurePreviousCommitCompletedAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnsurePreviousCommitCompletedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -73,7 +73,7 @@ impl CompositorController {
     pub fn CommitNeeded(&self, handler: &super::super::super::Foundation::TypedEventHandler<CompositorController, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CommitNeeded)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }

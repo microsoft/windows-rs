@@ -254,7 +254,7 @@ impl FileOpenPickerUI {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<AddFileResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AddFile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -265,7 +265,7 @@ impl FileOpenPickerUI {
     pub fn ContainsFile(&self, id: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContainsFile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         }
     }
@@ -275,7 +275,7 @@ impl FileOpenPickerUI {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanAddFile)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -284,28 +284,28 @@ impl FileOpenPickerUI {
     pub fn AllowedFileTypes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowedFileTypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SelectionMode(&self) -> ::windows_core::Result<FileSelectionMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FileSelectionMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelectionMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SettingsIdentifier(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SettingsIdentifier)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -318,7 +318,7 @@ impl FileOpenPickerUI {
     pub fn FileRemoved(&self, handler: &super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, FileRemovedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FileRemoved)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -333,7 +333,7 @@ impl FileOpenPickerUI {
     pub fn Closing(&self, handler: &super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, PickerClosingEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Closing)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -384,7 +384,7 @@ impl FileRemovedEventArgs {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -434,7 +434,7 @@ impl FileSavePickerUI {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -447,28 +447,28 @@ impl FileSavePickerUI {
     pub fn AllowedFileTypes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowedFileTypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SettingsIdentifier(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SettingsIdentifier)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FileName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FileName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TrySetFileName(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<SetFileNameResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SetFileNameResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySetFileName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
@@ -477,7 +477,7 @@ impl FileSavePickerUI {
     pub fn FileNameChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FileNameChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -492,7 +492,7 @@ impl FileSavePickerUI {
     pub fn TargetFileRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, TargetFileRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TargetFileRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -577,14 +577,14 @@ impl PickerClosingEventArgs {
     pub fn ClosingOperation(&self) -> ::windows_core::Result<PickerClosingOperation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PickerClosingOperation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClosingOperation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -625,7 +625,7 @@ impl PickerClosingOperation {
     pub fn GetDeferral(&self) -> ::windows_core::Result<PickerClosingDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PickerClosingDeferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -634,7 +634,7 @@ impl PickerClosingOperation {
     pub fn Deadline(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Deadline)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -675,7 +675,7 @@ impl TargetFileRequest {
     pub fn TargetFile(&self) -> ::windows_core::Result<super::super::IStorageFile> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::IStorageFile>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TargetFile)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -689,7 +689,7 @@ impl TargetFileRequest {
     pub fn GetDeferral(&self) -> ::windows_core::Result<TargetFileRequestDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<TargetFileRequestDeferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -768,7 +768,7 @@ impl TargetFileRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<TargetFileRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<TargetFileRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

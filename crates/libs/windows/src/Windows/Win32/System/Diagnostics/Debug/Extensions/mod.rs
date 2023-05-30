@@ -5,7 +5,7 @@ where
     P0: ::windows_core::IntoParam<IDebugHost>,
 {
     ::windows_targets::link!("dbgmodel.dll" "system" fn CreateDataModelManager(debughost : * mut::core::ffi::c_void, manager : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<IDataModelManager>();
+    let mut result__ = ::std::mem::zeroed();
     CreateDataModelManager(debughost.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
@@ -51,7 +51,7 @@ where
 pub struct DebugBaseEventCallbacks(::windows_core::IUnknown);
 impl DebugBaseEventCallbacks {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetInterestMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Breakpoint<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -143,7 +143,7 @@ pub struct DebugBaseEventCallbacks_Vtbl {
 pub struct DebugBaseEventCallbacksWide(::windows_core::IUnknown);
 impl DebugBaseEventCallbacksWide {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetInterestMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Breakpoint<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -238,7 +238,7 @@ impl ICodeAddressConcept {
     where
         P0: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbol>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetContainingSymbol)(::windows_core::Interface::as_raw(self), pcontextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -280,7 +280,7 @@ impl IComparableConcept {
         P0: ::windows_core::IntoParam<IModelObject>,
         P1: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CompareObjects)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), otherobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -326,7 +326,7 @@ impl IDataModelConcept {
         (::windows_core::Interface::vtable(self).InitializeObject)(::windows_core::Interface::as_raw(self), modelobject.into_param().abi(), matchingtypesignature.into_param().abi(), wildcardmatches.into_param().abi()).ok()
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -368,14 +368,14 @@ impl IDataModelManager {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn CreateNoValue(&self) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateNoValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateErrorObject<P0>(&self, hrerror: ::windows_core::HRESULT, pwszmessage: P0) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateErrorObject)(::windows_core::Interface::as_raw(self), hrerror, pwszmessage.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTypedObject<P0, P1>(&self, context: P0, objectlocation: Location, objecttype: P1) -> ::windows_core::Result<IModelObject>
@@ -383,7 +383,7 @@ impl IDataModelManager {
         P0: ::windows_core::IntoParam<IDebugHostContext>,
         P1: ::windows_core::IntoParam<IDebugHostType>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTypedObject)(::windows_core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(objectlocation), objecttype.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTypedObjectReference<P0, P1>(&self, context: P0, objectlocation: Location, objecttype: P1) -> ::windows_core::Result<IModelObject>
@@ -391,27 +391,27 @@ impl IDataModelManager {
         P0: ::windows_core::IntoParam<IDebugHostContext>,
         P1: ::windows_core::IntoParam<IDebugHostType>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTypedObjectReference)(::windows_core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(objectlocation), objecttype.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSyntheticObject<P0>(&self, context: P0) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<IDebugHostContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSyntheticObject)(::windows_core::Interface::as_raw(self), context.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDataModelObject<P0>(&self, datamodel: P0) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<IDataModelConcept>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDataModelObject)(::windows_core::Interface::as_raw(self), datamodel.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Com::VARIANT) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateIntrinsicObject)(::windows_core::Interface::as_raw(self), objectkind, intrinsicdata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -420,14 +420,14 @@ impl IDataModelManager {
     where
         P0: ::windows_core::IntoParam<IDebugHostType>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTypedIntrinsicObject)(::windows_core::Interface::as_raw(self), intrinsicdata, r#type.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModelForTypeSignature<P0>(&self, typesignature: P0) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<IDebugHostTypeSignature>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetModelForTypeSignature)(::windows_core::Interface::as_raw(self), typesignature.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModelForType<P0>(&self, r#type: P0, datamodel: *mut ::core::option::Option<IModelObject>, typesignature: ::core::option::Option<*mut ::core::option::Option<IDebugHostTypeSignature>>, wildcardmatches: ::core::option::Option<*mut ::core::option::Option<IDebugHostSymbolEnumerator>>) -> ::windows_core::Result<()>
@@ -468,11 +468,11 @@ impl IDataModelManager {
     where
         P0: ::windows_core::IntoParam<IKeyStore>,
     {
-        let mut result__ = ::windows_core::zeroed::<IKeyStore>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateMetadataStore)(::windows_core::Interface::as_raw(self), parentstore.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRootNamespace(&self) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRootNamespace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RegisterNamedModel<P0, P1>(&self, modelname: P0, modeobject: P1) -> ::windows_core::Result<()>
@@ -492,7 +492,7 @@ impl IDataModelManager {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AcquireNamedModel)(::windows_core::Interface::as_raw(self), modelname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -558,14 +558,14 @@ impl IDataModelManager2 {
         (::windows_core::Interface::vtable(self).base__.Close)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn CreateNoValue(&self) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateNoValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateErrorObject<P0>(&self, hrerror: ::windows_core::HRESULT, pwszmessage: P0) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateErrorObject)(::windows_core::Interface::as_raw(self), hrerror, pwszmessage.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTypedObject<P0, P1>(&self, context: P0, objectlocation: Location, objecttype: P1) -> ::windows_core::Result<IModelObject>
@@ -573,7 +573,7 @@ impl IDataModelManager2 {
         P0: ::windows_core::IntoParam<IDebugHostContext>,
         P1: ::windows_core::IntoParam<IDebugHostType>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTypedObject)(::windows_core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(objectlocation), objecttype.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTypedObjectReference<P0, P1>(&self, context: P0, objectlocation: Location, objecttype: P1) -> ::windows_core::Result<IModelObject>
@@ -581,27 +581,27 @@ impl IDataModelManager2 {
         P0: ::windows_core::IntoParam<IDebugHostContext>,
         P1: ::windows_core::IntoParam<IDebugHostType>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTypedObjectReference)(::windows_core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(objectlocation), objecttype.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSyntheticObject<P0>(&self, context: P0) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<IDebugHostContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateSyntheticObject)(::windows_core::Interface::as_raw(self), context.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateDataModelObject<P0>(&self, datamodel: P0) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<IDataModelConcept>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateDataModelObject)(::windows_core::Interface::as_raw(self), datamodel.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Com::VARIANT) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateIntrinsicObject)(::windows_core::Interface::as_raw(self), objectkind, intrinsicdata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -610,14 +610,14 @@ impl IDataModelManager2 {
     where
         P0: ::windows_core::IntoParam<IDebugHostType>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateTypedIntrinsicObject)(::windows_core::Interface::as_raw(self), intrinsicdata, r#type.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModelForTypeSignature<P0>(&self, typesignature: P0) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<IDebugHostTypeSignature>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetModelForTypeSignature)(::windows_core::Interface::as_raw(self), typesignature.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModelForType<P0>(&self, r#type: P0, datamodel: *mut ::core::option::Option<IModelObject>, typesignature: ::core::option::Option<*mut ::core::option::Option<IDebugHostTypeSignature>>, wildcardmatches: ::core::option::Option<*mut ::core::option::Option<IDebugHostSymbolEnumerator>>) -> ::windows_core::Result<()>
@@ -658,11 +658,11 @@ impl IDataModelManager2 {
     where
         P0: ::windows_core::IntoParam<IKeyStore>,
     {
-        let mut result__ = ::windows_core::zeroed::<IKeyStore>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateMetadataStore)(::windows_core::Interface::as_raw(self), parentstore.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRootNamespace(&self) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRootNamespace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RegisterNamedModel<P0, P1>(&self, modelname: P0, modeobject: P1) -> ::windows_core::Result<()>
@@ -682,7 +682,7 @@ impl IDataModelManager2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AcquireNamedModel)(::windows_core::Interface::as_raw(self), modelname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn AcquireSubNamespace<P0, P1, P2, P3>(&self, modelname: P0, subnamespacemodelname: P1, accessname: P2, metadata: P3) -> ::windows_core::Result<IModelObject>
@@ -692,7 +692,7 @@ impl IDataModelManager2 {
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P3: ::windows_core::IntoParam<IKeyStore>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AcquireSubNamespace)(::windows_core::Interface::as_raw(self), modelname.into_param().abi(), subnamespacemodelname.into_param().abi(), accessname.into_param().abi(), metadata.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -702,7 +702,7 @@ impl IDataModelManager2 {
         P0: ::windows_core::IntoParam<IDebugHostContext>,
         P1: ::windows_core::IntoParam<IDebugHostType>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTypedIntrinsicObjectEx)(::windows_core::Interface::as_raw(self), context.into_param().abi(), intrinsicdata, r#type.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -761,14 +761,14 @@ impl IDataModelNameBinder {
     where
         P0: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<IKeyEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateValues)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateReferences<P0>(&self, contextobject: P0) -> ::windows_core::Result<IKeyEnumerator>
     where
         P0: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<IKeyEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateReferences)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -809,7 +809,7 @@ pub struct IDataModelNameBinder_Vtbl {
 pub struct IDataModelScript(::windows_core::IUnknown);
 impl IDataModelScript {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Rename<P0>(&self, scriptname: P0) -> ::windows_core::Result<()>
@@ -836,7 +836,7 @@ impl IDataModelScript {
         (::windows_core::Interface::vtable(self).Unlink)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn IsInvocable(&self) -> ::windows_core::Result<bool> {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsInvocable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InvokeMain<P0>(&self, client: P0) -> ::windows_core::Result<()>
@@ -935,23 +935,23 @@ impl IDataModelScriptDebug {
         (::windows_core::Interface::vtable(self).GetCurrentPosition)(::windows_core::Interface::as_raw(self), currentposition, ::core::mem::transmute(positionspanend.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(linetext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetStack(&self) -> ::windows_core::Result<IDataModelScriptDebugStack> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugStack>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStack)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetBreakpoint(&self, lineposition: u32, columnposition: u32) -> ::windows_core::Result<IDataModelScriptDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetBreakpoint)(::windows_core::Interface::as_raw(self), lineposition, columnposition, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindBreakpointById(&self, breakpointid: u64) -> ::windows_core::Result<IDataModelScriptDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindBreakpointById)(::windows_core::Interface::as_raw(self), breakpointid, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateBreakpoints(&self) -> ::windows_core::Result<IDataModelScriptDebugBreakpointEnumerator> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugBreakpointEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateBreakpoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventFilter(&self, eventfilter: ScriptDebugEventFilter) -> ::windows_core::Result<bool> {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventFilter)(::windows_core::Interface::as_raw(self), eventfilter, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventFilter(&self, eventfilter: ScriptDebugEventFilter, isbreakenabled: u8) -> ::windows_core::Result<()> {
@@ -1019,23 +1019,23 @@ impl IDataModelScriptDebug2 {
         (::windows_core::Interface::vtable(self).base__.GetCurrentPosition)(::windows_core::Interface::as_raw(self), currentposition, ::core::mem::transmute(positionspanend.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(linetext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetStack(&self) -> ::windows_core::Result<IDataModelScriptDebugStack> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugStack>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStack)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetBreakpoint(&self, lineposition: u32, columnposition: u32) -> ::windows_core::Result<IDataModelScriptDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SetBreakpoint)(::windows_core::Interface::as_raw(self), lineposition, columnposition, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindBreakpointById(&self, breakpointid: u64) -> ::windows_core::Result<IDataModelScriptDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindBreakpointById)(::windows_core::Interface::as_raw(self), breakpointid, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateBreakpoints(&self) -> ::windows_core::Result<IDataModelScriptDebugBreakpointEnumerator> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugBreakpointEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumerateBreakpoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventFilter(&self, eventfilter: ScriptDebugEventFilter) -> ::windows_core::Result<bool> {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEventFilter)(::windows_core::Interface::as_raw(self), eventfilter, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventFilter(&self, eventfilter: ScriptDebugEventFilter, isbreakenabled: u8) -> ::windows_core::Result<()> {
@@ -1057,7 +1057,7 @@ impl IDataModelScriptDebug2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetBreakpointAtFunction)(::windows_core::Interface::as_raw(self), functionname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -1155,7 +1155,7 @@ impl IDataModelScriptDebugBreakpointEnumerator {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetNext(&self) -> ::windows_core::Result<IDataModelScriptDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1238,7 +1238,7 @@ impl IDataModelScriptDebugStack {
         (::windows_core::Interface::vtable(self).GetFrameCount)(::windows_core::Interface::as_raw(self))
     }
     pub unsafe fn GetStackFrame(&self, framenumber: u64) -> ::windows_core::Result<IDataModelScriptDebugStackFrame> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugStackFrame>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStackFrame)(::windows_core::Interface::as_raw(self), framenumber, &mut result__).from_abi(result__)
     }
 }
@@ -1277,14 +1277,14 @@ pub struct IDataModelScriptDebugStack_Vtbl {
 pub struct IDataModelScriptDebugStackFrame(::windows_core::IUnknown);
 impl IDataModelScriptDebugStackFrame {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPosition(&self, position: *mut ScriptDebugPosition, positionspanend: ::core::option::Option<*mut ScriptDebugPosition>, linetext: ::core::option::Option<*mut ::windows_core::BSTR>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPosition)(::windows_core::Interface::as_raw(self), position, ::core::mem::transmute(positionspanend.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(linetext.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn IsTransitionPoint(&self) -> ::windows_core::Result<bool> {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsTransitionPoint)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTransition(&self, transitionscript: *mut ::core::option::Option<IDataModelScript>, istransitioncontiguous: *mut bool) -> ::windows_core::Result<()> {
@@ -1294,15 +1294,15 @@ impl IDataModelScriptDebugStackFrame {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Evaluate)(::windows_core::Interface::as_raw(self), pwszexpression.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateLocals(&self) -> ::windows_core::Result<IDataModelScriptDebugVariableSetEnumerator> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugVariableSetEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateLocals)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateArguments(&self) -> ::windows_core::Result<IDataModelScriptDebugVariableSetEnumerator> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptDebugVariableSetEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateArguments)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1393,7 +1393,7 @@ impl IDataModelScriptHostContext {
         (::windows_core::Interface::vtable(self).NotifyScriptChange)(::windows_core::Interface::as_raw(self), script.into_param().abi(), changekind).ok()
     }
     pub unsafe fn GetNamespaceObject(&self) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNamespaceObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1432,7 +1432,7 @@ pub struct IDataModelScriptHostContext_Vtbl {
 pub struct IDataModelScriptManager(::windows_core::IUnknown);
 impl IDataModelScriptManager {
     pub unsafe fn GetDefaultNameBinder(&self) -> ::windows_core::Result<IDataModelNameBinder> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelNameBinder>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultNameBinder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RegisterScriptProvider<P0>(&self, provider: P0) -> ::windows_core::Result<()>
@@ -1451,18 +1451,18 @@ impl IDataModelScriptManager {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptProvider>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindProviderForScriptType)(::windows_core::Interface::as_raw(self), scripttype.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindProviderForScriptExtension<P0>(&self, scriptextension: P0) -> ::windows_core::Result<IDataModelScriptProvider>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptProvider>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindProviderForScriptExtension)(::windows_core::Interface::as_raw(self), scriptextension.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateScriptProviders(&self) -> ::windows_core::Result<IDataModelScriptProviderEnumerator> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptProviderEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateScriptProviders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1505,23 +1505,23 @@ pub struct IDataModelScriptManager_Vtbl {
 pub struct IDataModelScriptProvider(::windows_core::IUnknown);
 impl IDataModelScriptProvider {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExtension(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtension)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateScript(&self) -> ::windows_core::Result<IDataModelScript> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScript>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateScript)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDefaultTemplateContent(&self) -> ::windows_core::Result<IDataModelScriptTemplate> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptTemplate>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultTemplateContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateTemplates(&self) -> ::windows_core::Result<IDataModelScriptTemplateEnumerator> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptTemplateEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateTemplates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1566,7 +1566,7 @@ impl IDataModelScriptProviderEnumerator {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetNext(&self) -> ::windows_core::Result<IDataModelScriptProvider> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptProvider>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1605,17 +1605,17 @@ pub struct IDataModelScriptProviderEnumerator_Vtbl {
 pub struct IDataModelScriptTemplate(::windows_core::IUnknown);
 impl IDataModelScriptTemplate {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDescription(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDescription)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetContent(&self) -> ::windows_core::Result<super::super::super::Com::IStream> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Com::IStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetContent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1661,7 +1661,7 @@ impl IDataModelScriptTemplateEnumerator {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetNext(&self) -> ::windows_core::Result<IDataModelScriptTemplate> {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptTemplate>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1995,18 +1995,18 @@ pub struct IDebugAdvanced4_Vtbl {
 pub struct IDebugBreakpoint(::windows_core::IUnknown);
 impl IDebugBreakpoint {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self, breaktype: *mut u32, proctype: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetType)(::windows_core::Interface::as_raw(self), breaktype, proctype).ok()
     }
     pub unsafe fn GetAdder(&self) -> ::windows_core::Result<IDebugClient> {
-        let mut result__ = ::windows_core::zeroed::<IDebugClient>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAdder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFlags(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddFlags(&self, flags: u32) -> ::windows_core::Result<()> {
@@ -2019,7 +2019,7 @@ impl IDebugBreakpoint {
         (::windows_core::Interface::vtable(self).SetFlags)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOffset(&self, offset: u64) -> ::windows_core::Result<()> {
@@ -2032,18 +2032,18 @@ impl IDebugBreakpoint {
         (::windows_core::Interface::vtable(self).SetDataParameters)(::windows_core::Interface::as_raw(self), size, accesstype).ok()
     }
     pub unsafe fn GetPassCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPassCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPassCount(&self, count: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPassCount)(::windows_core::Interface::as_raw(self), count).ok()
     }
     pub unsafe fn GetCurrentPassCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentPassCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMatchThreadId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMatchThreadId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMatchThreadId(&self, thread: u32) -> ::windows_core::Result<()> {
@@ -2125,18 +2125,18 @@ pub struct IDebugBreakpoint_Vtbl {
 pub struct IDebugBreakpoint2(::windows_core::IUnknown);
 impl IDebugBreakpoint2 {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self, breaktype: *mut u32, proctype: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetType)(::windows_core::Interface::as_raw(self), breaktype, proctype).ok()
     }
     pub unsafe fn GetAdder(&self) -> ::windows_core::Result<IDebugClient> {
-        let mut result__ = ::windows_core::zeroed::<IDebugClient>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAdder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFlags(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddFlags(&self, flags: u32) -> ::windows_core::Result<()> {
@@ -2149,7 +2149,7 @@ impl IDebugBreakpoint2 {
         (::windows_core::Interface::vtable(self).SetFlags)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOffset(&self, offset: u64) -> ::windows_core::Result<()> {
@@ -2162,18 +2162,18 @@ impl IDebugBreakpoint2 {
         (::windows_core::Interface::vtable(self).SetDataParameters)(::windows_core::Interface::as_raw(self), size, accesstype).ok()
     }
     pub unsafe fn GetPassCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPassCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPassCount(&self, count: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPassCount)(::windows_core::Interface::as_raw(self), count).ok()
     }
     pub unsafe fn GetCurrentPassCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentPassCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMatchThreadId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMatchThreadId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMatchThreadId(&self, thread: u32) -> ::windows_core::Result<()> {
@@ -2277,18 +2277,18 @@ pub struct IDebugBreakpoint2_Vtbl {
 pub struct IDebugBreakpoint3(::windows_core::IUnknown);
 impl IDebugBreakpoint3 {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self, breaktype: *mut u32, proctype: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetType)(::windows_core::Interface::as_raw(self), breaktype, proctype).ok()
     }
     pub unsafe fn GetAdder(&self) -> ::windows_core::Result<IDebugClient> {
-        let mut result__ = ::windows_core::zeroed::<IDebugClient>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAdder)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFlags(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddFlags(&self, flags: u32) -> ::windows_core::Result<()> {
@@ -2301,7 +2301,7 @@ impl IDebugBreakpoint3 {
         (::windows_core::Interface::vtable(self).SetFlags)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOffset(&self, offset: u64) -> ::windows_core::Result<()> {
@@ -2314,18 +2314,18 @@ impl IDebugBreakpoint3 {
         (::windows_core::Interface::vtable(self).SetDataParameters)(::windows_core::Interface::as_raw(self), size, accesstype).ok()
     }
     pub unsafe fn GetPassCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPassCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPassCount(&self, count: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetPassCount)(::windows_core::Interface::as_raw(self), count).ok()
     }
     pub unsafe fn GetCurrentPassCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentPassCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMatchThreadId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMatchThreadId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMatchThreadId(&self, thread: u32) -> ::windows_core::Result<()> {
@@ -2371,7 +2371,7 @@ impl IDebugBreakpoint3 {
         (::windows_core::Interface::vtable(self).SetOffsetExpressionWide)(::windows_core::Interface::as_raw(self), expression.into_param().abi()).ok()
     }
     pub unsafe fn GetGuid(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2458,7 +2458,7 @@ impl IDebugClient {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServer)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> ::windows_core::Result<()> {
@@ -2471,7 +2471,7 @@ impl IDebugClient {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u8]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u8]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -2505,7 +2505,7 @@ impl IDebugClient {
         (::windows_core::Interface::vtable(self).CreateProcessAndAttach)(::windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddProcessOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -2554,7 +2554,7 @@ impl IDebugClient {
         (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetExitCode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExitCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DispatchCallbacks(&self, timeout: u32) -> ::windows_core::Result<()> {
@@ -2567,11 +2567,11 @@ impl IDebugClient {
         (::windows_core::Interface::vtable(self).ExitDispatch)(::windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> ::windows_core::Result<IDebugClient> {
-        let mut result__ = ::windows_core::zeroed::<IDebugClient>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateClient)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputCallbacks(&self) -> ::windows_core::Result<IDebugInputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugInputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -2581,7 +2581,7 @@ impl IDebugClient {
         (::windows_core::Interface::vtable(self).SetInputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> ::windows_core::Result<IDebugOutputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -2591,7 +2591,7 @@ impl IDebugClient {
         (::windows_core::Interface::vtable(self).SetOutputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -2601,7 +2601,7 @@ impl IDebugClient {
     where
         P0: ::windows_core::IntoParam<IDebugClient>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> ::windows_core::Result<()>
@@ -2611,7 +2611,7 @@ impl IDebugClient {
         (::windows_core::Interface::vtable(self).SetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputWidth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputWidth(&self, columns: u32) -> ::windows_core::Result<()> {
@@ -2636,7 +2636,7 @@ impl IDebugClient {
         (::windows_core::Interface::vtable(self).OutputIdentity)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> ::windows_core::Result<IDebugEventCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -2751,7 +2751,7 @@ impl IDebugClient2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServer)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> ::windows_core::Result<()> {
@@ -2764,7 +2764,7 @@ impl IDebugClient2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u8]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u8]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -2798,7 +2798,7 @@ impl IDebugClient2 {
         (::windows_core::Interface::vtable(self).CreateProcessAndAttach)(::windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddProcessOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -2847,7 +2847,7 @@ impl IDebugClient2 {
         (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetExitCode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExitCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DispatchCallbacks(&self, timeout: u32) -> ::windows_core::Result<()> {
@@ -2860,11 +2860,11 @@ impl IDebugClient2 {
         (::windows_core::Interface::vtable(self).ExitDispatch)(::windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> ::windows_core::Result<IDebugClient> {
-        let mut result__ = ::windows_core::zeroed::<IDebugClient>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateClient)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputCallbacks(&self) -> ::windows_core::Result<IDebugInputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugInputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -2874,7 +2874,7 @@ impl IDebugClient2 {
         (::windows_core::Interface::vtable(self).SetInputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> ::windows_core::Result<IDebugOutputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -2884,7 +2884,7 @@ impl IDebugClient2 {
         (::windows_core::Interface::vtable(self).SetOutputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -2894,7 +2894,7 @@ impl IDebugClient2 {
     where
         P0: ::windows_core::IntoParam<IDebugClient>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> ::windows_core::Result<()>
@@ -2904,7 +2904,7 @@ impl IDebugClient2 {
         (::windows_core::Interface::vtable(self).SetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputWidth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputWidth(&self, columns: u32) -> ::windows_core::Result<()> {
@@ -2929,7 +2929,7 @@ impl IDebugClient2 {
         (::windows_core::Interface::vtable(self).OutputIdentity)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> ::windows_core::Result<IDebugEventCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -3083,7 +3083,7 @@ impl IDebugClient3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServer)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> ::windows_core::Result<()> {
@@ -3096,7 +3096,7 @@ impl IDebugClient3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u8]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u8]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -3130,7 +3130,7 @@ impl IDebugClient3 {
         (::windows_core::Interface::vtable(self).CreateProcessAndAttach)(::windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddProcessOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -3179,7 +3179,7 @@ impl IDebugClient3 {
         (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetExitCode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExitCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DispatchCallbacks(&self, timeout: u32) -> ::windows_core::Result<()> {
@@ -3192,11 +3192,11 @@ impl IDebugClient3 {
         (::windows_core::Interface::vtable(self).ExitDispatch)(::windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> ::windows_core::Result<IDebugClient> {
-        let mut result__ = ::windows_core::zeroed::<IDebugClient>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateClient)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputCallbacks(&self) -> ::windows_core::Result<IDebugInputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugInputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -3206,7 +3206,7 @@ impl IDebugClient3 {
         (::windows_core::Interface::vtable(self).SetInputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> ::windows_core::Result<IDebugOutputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -3216,7 +3216,7 @@ impl IDebugClient3 {
         (::windows_core::Interface::vtable(self).SetOutputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -3226,7 +3226,7 @@ impl IDebugClient3 {
     where
         P0: ::windows_core::IntoParam<IDebugClient>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> ::windows_core::Result<()>
@@ -3236,7 +3236,7 @@ impl IDebugClient3 {
         (::windows_core::Interface::vtable(self).SetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputWidth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputWidth(&self, columns: u32) -> ::windows_core::Result<()> {
@@ -3261,7 +3261,7 @@ impl IDebugClient3 {
         (::windows_core::Interface::vtable(self).OutputIdentity)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> ::windows_core::Result<IDebugEventCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -3308,7 +3308,7 @@ impl IDebugClient3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u16]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u16]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -3453,7 +3453,7 @@ impl IDebugClient4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServer)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> ::windows_core::Result<()> {
@@ -3466,7 +3466,7 @@ impl IDebugClient4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u8]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u8]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -3500,7 +3500,7 @@ impl IDebugClient4 {
         (::windows_core::Interface::vtable(self).CreateProcessAndAttach)(::windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddProcessOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -3549,7 +3549,7 @@ impl IDebugClient4 {
         (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetExitCode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExitCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DispatchCallbacks(&self, timeout: u32) -> ::windows_core::Result<()> {
@@ -3562,11 +3562,11 @@ impl IDebugClient4 {
         (::windows_core::Interface::vtable(self).ExitDispatch)(::windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> ::windows_core::Result<IDebugClient> {
-        let mut result__ = ::windows_core::zeroed::<IDebugClient>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateClient)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputCallbacks(&self) -> ::windows_core::Result<IDebugInputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugInputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -3576,7 +3576,7 @@ impl IDebugClient4 {
         (::windows_core::Interface::vtable(self).SetInputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> ::windows_core::Result<IDebugOutputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -3586,7 +3586,7 @@ impl IDebugClient4 {
         (::windows_core::Interface::vtable(self).SetOutputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -3596,7 +3596,7 @@ impl IDebugClient4 {
     where
         P0: ::windows_core::IntoParam<IDebugClient>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> ::windows_core::Result<()>
@@ -3606,7 +3606,7 @@ impl IDebugClient4 {
         (::windows_core::Interface::vtable(self).SetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputWidth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputWidth(&self, columns: u32) -> ::windows_core::Result<()> {
@@ -3631,7 +3631,7 @@ impl IDebugClient4 {
         (::windows_core::Interface::vtable(self).OutputIdentity)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> ::windows_core::Result<IDebugEventCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -3678,7 +3678,7 @@ impl IDebugClient4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u16]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u16]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -3728,7 +3728,7 @@ impl IDebugClient4 {
         (::windows_core::Interface::vtable(self).AddDumpInformationFileWide)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, r#type).ok()
     }
     pub unsafe fn GetNumberDumpFiles(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberDumpFiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDumpFile(&self, index: u32, buffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, handle: ::core::option::Option<*mut u64>, r#type: *mut u32) -> ::windows_core::Result<()> {
@@ -3858,7 +3858,7 @@ impl IDebugClient5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServer)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> ::windows_core::Result<()> {
@@ -3871,7 +3871,7 @@ impl IDebugClient5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u8]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u8]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -3905,7 +3905,7 @@ impl IDebugClient5 {
         (::windows_core::Interface::vtable(self).CreateProcessAndAttach)(::windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddProcessOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -3954,7 +3954,7 @@ impl IDebugClient5 {
         (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetExitCode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExitCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DispatchCallbacks(&self, timeout: u32) -> ::windows_core::Result<()> {
@@ -3967,11 +3967,11 @@ impl IDebugClient5 {
         (::windows_core::Interface::vtable(self).ExitDispatch)(::windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> ::windows_core::Result<IDebugClient> {
-        let mut result__ = ::windows_core::zeroed::<IDebugClient>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateClient)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputCallbacks(&self) -> ::windows_core::Result<IDebugInputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugInputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -3981,7 +3981,7 @@ impl IDebugClient5 {
         (::windows_core::Interface::vtable(self).SetInputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> ::windows_core::Result<IDebugOutputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -3991,7 +3991,7 @@ impl IDebugClient5 {
         (::windows_core::Interface::vtable(self).SetOutputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -4001,7 +4001,7 @@ impl IDebugClient5 {
     where
         P0: ::windows_core::IntoParam<IDebugClient>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> ::windows_core::Result<()>
@@ -4011,7 +4011,7 @@ impl IDebugClient5 {
         (::windows_core::Interface::vtable(self).SetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputWidth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputWidth(&self, columns: u32) -> ::windows_core::Result<()> {
@@ -4036,7 +4036,7 @@ impl IDebugClient5 {
         (::windows_core::Interface::vtable(self).OutputIdentity)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> ::windows_core::Result<IDebugEventCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -4083,7 +4083,7 @@ impl IDebugClient5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u16]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u16]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -4133,7 +4133,7 @@ impl IDebugClient5 {
         (::windows_core::Interface::vtable(self).AddDumpInformationFileWide)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, r#type).ok()
     }
     pub unsafe fn GetNumberDumpFiles(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberDumpFiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDumpFile(&self, index: u32, buffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, handle: ::core::option::Option<*mut u64>, r#type: *mut u32) -> ::windows_core::Result<()> {
@@ -4167,7 +4167,7 @@ impl IDebugClient5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServerWide)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartServerWide<P0>(&self, options: P0) -> ::windows_core::Result<()>
@@ -4183,7 +4183,7 @@ impl IDebugClient5 {
         (::windows_core::Interface::vtable(self).OutputServersWide)(::windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetOutputCallbacksWide(&self) -> ::windows_core::Result<IDebugOutputCallbacksWide> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacksWide>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacksWide)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -4211,7 +4211,7 @@ impl IDebugClient5 {
         (::windows_core::Interface::vtable(self).OutputIdentityWide)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacksWide(&self) -> ::windows_core::Result<IDebugEventCallbacksWide> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacksWide>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacksWide)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -4256,29 +4256,29 @@ impl IDebugClient5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PushOutputLinePrefix)(::windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn PushOutputLinePrefixWide<P0>(&self, newprefix: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(::windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn PopOutputLinePrefix(&self, handle: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PopOutputLinePrefix)(::windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn GetNumberInputCallbacks(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberOutputCallbacks(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberEventCallbacks(&self, eventflags: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberEventCallbacks)(::windows_core::Interface::as_raw(self), eventflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetQuitLockString(&self, buffer: ::core::option::Option<&mut [u8]>, stringsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -4449,7 +4449,7 @@ impl IDebugClient6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServer)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> ::windows_core::Result<()> {
@@ -4462,7 +4462,7 @@ impl IDebugClient6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u8]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u8]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -4496,7 +4496,7 @@ impl IDebugClient6 {
         (::windows_core::Interface::vtable(self).CreateProcessAndAttach)(::windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddProcessOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -4545,7 +4545,7 @@ impl IDebugClient6 {
         (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetExitCode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExitCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DispatchCallbacks(&self, timeout: u32) -> ::windows_core::Result<()> {
@@ -4558,11 +4558,11 @@ impl IDebugClient6 {
         (::windows_core::Interface::vtable(self).ExitDispatch)(::windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> ::windows_core::Result<IDebugClient> {
-        let mut result__ = ::windows_core::zeroed::<IDebugClient>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateClient)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputCallbacks(&self) -> ::windows_core::Result<IDebugInputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugInputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -4572,7 +4572,7 @@ impl IDebugClient6 {
         (::windows_core::Interface::vtable(self).SetInputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> ::windows_core::Result<IDebugOutputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -4582,7 +4582,7 @@ impl IDebugClient6 {
         (::windows_core::Interface::vtable(self).SetOutputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -4592,7 +4592,7 @@ impl IDebugClient6 {
     where
         P0: ::windows_core::IntoParam<IDebugClient>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> ::windows_core::Result<()>
@@ -4602,7 +4602,7 @@ impl IDebugClient6 {
         (::windows_core::Interface::vtable(self).SetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputWidth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputWidth(&self, columns: u32) -> ::windows_core::Result<()> {
@@ -4627,7 +4627,7 @@ impl IDebugClient6 {
         (::windows_core::Interface::vtable(self).OutputIdentity)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> ::windows_core::Result<IDebugEventCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -4674,7 +4674,7 @@ impl IDebugClient6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u16]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u16]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -4724,7 +4724,7 @@ impl IDebugClient6 {
         (::windows_core::Interface::vtable(self).AddDumpInformationFileWide)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, r#type).ok()
     }
     pub unsafe fn GetNumberDumpFiles(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberDumpFiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDumpFile(&self, index: u32, buffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, handle: ::core::option::Option<*mut u64>, r#type: *mut u32) -> ::windows_core::Result<()> {
@@ -4758,7 +4758,7 @@ impl IDebugClient6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServerWide)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartServerWide<P0>(&self, options: P0) -> ::windows_core::Result<()>
@@ -4774,7 +4774,7 @@ impl IDebugClient6 {
         (::windows_core::Interface::vtable(self).OutputServersWide)(::windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetOutputCallbacksWide(&self) -> ::windows_core::Result<IDebugOutputCallbacksWide> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacksWide>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacksWide)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -4802,7 +4802,7 @@ impl IDebugClient6 {
         (::windows_core::Interface::vtable(self).OutputIdentityWide)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacksWide(&self) -> ::windows_core::Result<IDebugEventCallbacksWide> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacksWide>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacksWide)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -4847,29 +4847,29 @@ impl IDebugClient6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PushOutputLinePrefix)(::windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn PushOutputLinePrefixWide<P0>(&self, newprefix: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(::windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn PopOutputLinePrefix(&self, handle: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PopOutputLinePrefix)(::windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn GetNumberInputCallbacks(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberOutputCallbacks(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberEventCallbacks(&self, eventflags: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberEventCallbacks)(::windows_core::Interface::as_raw(self), eventflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetQuitLockString(&self, buffer: ::core::option::Option<&mut [u8]>, stringsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -5047,7 +5047,7 @@ impl IDebugClient7 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServer)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> ::windows_core::Result<()> {
@@ -5060,7 +5060,7 @@ impl IDebugClient7 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u8]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u8]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -5094,7 +5094,7 @@ impl IDebugClient7 {
         (::windows_core::Interface::vtable(self).CreateProcessAndAttach)(::windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddProcessOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -5143,7 +5143,7 @@ impl IDebugClient7 {
         (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetExitCode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExitCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DispatchCallbacks(&self, timeout: u32) -> ::windows_core::Result<()> {
@@ -5156,11 +5156,11 @@ impl IDebugClient7 {
         (::windows_core::Interface::vtable(self).ExitDispatch)(::windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> ::windows_core::Result<IDebugClient> {
-        let mut result__ = ::windows_core::zeroed::<IDebugClient>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateClient)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputCallbacks(&self) -> ::windows_core::Result<IDebugInputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugInputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -5170,7 +5170,7 @@ impl IDebugClient7 {
         (::windows_core::Interface::vtable(self).SetInputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> ::windows_core::Result<IDebugOutputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -5180,7 +5180,7 @@ impl IDebugClient7 {
         (::windows_core::Interface::vtable(self).SetOutputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -5190,7 +5190,7 @@ impl IDebugClient7 {
     where
         P0: ::windows_core::IntoParam<IDebugClient>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> ::windows_core::Result<()>
@@ -5200,7 +5200,7 @@ impl IDebugClient7 {
         (::windows_core::Interface::vtable(self).SetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputWidth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputWidth(&self, columns: u32) -> ::windows_core::Result<()> {
@@ -5225,7 +5225,7 @@ impl IDebugClient7 {
         (::windows_core::Interface::vtable(self).OutputIdentity)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> ::windows_core::Result<IDebugEventCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -5272,7 +5272,7 @@ impl IDebugClient7 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u16]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u16]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -5322,7 +5322,7 @@ impl IDebugClient7 {
         (::windows_core::Interface::vtable(self).AddDumpInformationFileWide)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, r#type).ok()
     }
     pub unsafe fn GetNumberDumpFiles(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberDumpFiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDumpFile(&self, index: u32, buffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, handle: ::core::option::Option<*mut u64>, r#type: *mut u32) -> ::windows_core::Result<()> {
@@ -5356,7 +5356,7 @@ impl IDebugClient7 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServerWide)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartServerWide<P0>(&self, options: P0) -> ::windows_core::Result<()>
@@ -5372,7 +5372,7 @@ impl IDebugClient7 {
         (::windows_core::Interface::vtable(self).OutputServersWide)(::windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetOutputCallbacksWide(&self) -> ::windows_core::Result<IDebugOutputCallbacksWide> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacksWide>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacksWide)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -5400,7 +5400,7 @@ impl IDebugClient7 {
         (::windows_core::Interface::vtable(self).OutputIdentityWide)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacksWide(&self) -> ::windows_core::Result<IDebugEventCallbacksWide> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacksWide>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacksWide)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -5445,29 +5445,29 @@ impl IDebugClient7 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PushOutputLinePrefix)(::windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn PushOutputLinePrefixWide<P0>(&self, newprefix: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(::windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn PopOutputLinePrefix(&self, handle: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PopOutputLinePrefix)(::windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn GetNumberInputCallbacks(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberOutputCallbacks(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberEventCallbacks(&self, eventflags: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberEventCallbacks)(::windows_core::Interface::as_raw(self), eventflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetQuitLockString(&self, buffer: ::core::option::Option<&mut [u8]>, stringsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -5649,7 +5649,7 @@ impl IDebugClient8 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServer)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisconnectProcessServer(&self, server: u64) -> ::windows_core::Result<()> {
@@ -5662,7 +5662,7 @@ impl IDebugClient8 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableName)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescription(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u8]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u8]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -5696,7 +5696,7 @@ impl IDebugClient8 {
         (::windows_core::Interface::vtable(self).CreateProcessAndAttach)(::windows_core::Interface::as_raw(self), server, commandline.into_param().abi(), createflags, processid, attachflags).ok()
     }
     pub unsafe fn GetProcessOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddProcessOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -5745,7 +5745,7 @@ impl IDebugClient8 {
         (::windows_core::Interface::vtable(self).EndSession)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetExitCode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExitCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DispatchCallbacks(&self, timeout: u32) -> ::windows_core::Result<()> {
@@ -5758,11 +5758,11 @@ impl IDebugClient8 {
         (::windows_core::Interface::vtable(self).ExitDispatch)(::windows_core::Interface::as_raw(self), client.into_param().abi()).ok()
     }
     pub unsafe fn CreateClient(&self) -> ::windows_core::Result<IDebugClient> {
-        let mut result__ = ::windows_core::zeroed::<IDebugClient>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateClient)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetInputCallbacks(&self) -> ::windows_core::Result<IDebugInputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugInputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -5772,7 +5772,7 @@ impl IDebugClient8 {
         (::windows_core::Interface::vtable(self).SetInputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputCallbacks(&self) -> ::windows_core::Result<IDebugOutputCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -5782,7 +5782,7 @@ impl IDebugClient8 {
         (::windows_core::Interface::vtable(self).SetOutputCallbacks)(::windows_core::Interface::as_raw(self), callbacks.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -5792,7 +5792,7 @@ impl IDebugClient8 {
     where
         P0: ::windows_core::IntoParam<IDebugClient>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOtherOutputMask<P0>(&self, client: P0, mask: u32) -> ::windows_core::Result<()>
@@ -5802,7 +5802,7 @@ impl IDebugClient8 {
         (::windows_core::Interface::vtable(self).SetOtherOutputMask)(::windows_core::Interface::as_raw(self), client.into_param().abi(), mask).ok()
     }
     pub unsafe fn GetOutputWidth(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputWidth)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputWidth(&self, columns: u32) -> ::windows_core::Result<()> {
@@ -5827,7 +5827,7 @@ impl IDebugClient8 {
         (::windows_core::Interface::vtable(self).OutputIdentity)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacks(&self) -> ::windows_core::Result<IDebugEventCallbacks> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacks>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacks<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -5874,7 +5874,7 @@ impl IDebugClient8 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRunningProcessSystemIdByExecutableNameWide)(::windows_core::Interface::as_raw(self), server, exename.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRunningProcessDescriptionWide(&self, server: u64, systemid: u32, flags: u32, exename: ::core::option::Option<&mut [u16]>, actualexenamesize: ::core::option::Option<*mut u32>, description: ::core::option::Option<&mut [u16]>, actualdescriptionsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -5924,7 +5924,7 @@ impl IDebugClient8 {
         (::windows_core::Interface::vtable(self).AddDumpInformationFileWide)(::windows_core::Interface::as_raw(self), filename.into_param().abi(), filehandle, r#type).ok()
     }
     pub unsafe fn GetNumberDumpFiles(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberDumpFiles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDumpFile(&self, index: u32, buffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, handle: ::core::option::Option<*mut u64>, r#type: *mut u32) -> ::windows_core::Result<()> {
@@ -5958,7 +5958,7 @@ impl IDebugClient8 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ConnectProcessServerWide)(::windows_core::Interface::as_raw(self), remoteoptions.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartServerWide<P0>(&self, options: P0) -> ::windows_core::Result<()>
@@ -5974,7 +5974,7 @@ impl IDebugClient8 {
         (::windows_core::Interface::vtable(self).OutputServersWide)(::windows_core::Interface::as_raw(self), outputcontrol, machine.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetOutputCallbacksWide(&self) -> ::windows_core::Result<IDebugOutputCallbacksWide> {
-        let mut result__ = ::windows_core::zeroed::<IDebugOutputCallbacksWide>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputCallbacksWide)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetOutputCallbacksWide<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -6002,7 +6002,7 @@ impl IDebugClient8 {
         (::windows_core::Interface::vtable(self).OutputIdentityWide)(::windows_core::Interface::as_raw(self), outputcontrol, flags, format.into_param().abi()).ok()
     }
     pub unsafe fn GetEventCallbacksWide(&self) -> ::windows_core::Result<IDebugEventCallbacksWide> {
-        let mut result__ = ::windows_core::zeroed::<IDebugEventCallbacksWide>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventCallbacksWide)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventCallbacksWide<P0>(&self, callbacks: P0) -> ::windows_core::Result<()>
@@ -6047,29 +6047,29 @@ impl IDebugClient8 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PushOutputLinePrefix)(::windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn PushOutputLinePrefixWide<P0>(&self, newprefix: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PushOutputLinePrefixWide)(::windows_core::Interface::as_raw(self), newprefix.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn PopOutputLinePrefix(&self, handle: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).PopOutputLinePrefix)(::windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn GetNumberInputCallbacks(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberInputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberOutputCallbacks(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberOutputCallbacks)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberEventCallbacks(&self, eventflags: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberEventCallbacks)(::windows_core::Interface::as_raw(self), eventflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetQuitLockString(&self, buffer: ::core::option::Option<&mut [u8]>, stringsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -6240,7 +6240,7 @@ impl IDebugControl {
         (::windows_core::Interface::vtable(self).SetInterrupt)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetInterruptTimeout(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterruptTimeout)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
@@ -6264,7 +6264,7 @@ impl IDebugControl {
         (::windows_core::Interface::vtable(self).CloseLogFile)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetLogMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLogMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLogMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -6325,7 +6325,7 @@ impl IDebugControl {
         (::windows_core::Interface::vtable(self).OutputVersionInformation)(::windows_core::Interface::as_raw(self), outputcontrol).ok()
     }
     pub unsafe fn GetNotifyEventHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNotifyEventHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNotifyEventHandle(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -6335,25 +6335,25 @@ impl IDebugControl {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Assemble)(::windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: ::core::option::Option<&mut [u8]>, disassemblysize: ::core::option::Option<*mut u32>, endoffset: *mut u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Disassemble)(::windows_core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(disassemblysize.unwrap_or(::std::ptr::null_mut())), endoffset).ok()
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisassembleEffectiveOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassembly(&self, outputcontrol: u32, offset: u64, flags: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutputDisassembly)(::windows_core::Interface::as_raw(self), outputcontrol, offset, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: ::core::option::Option<*mut u32>, startoffset: ::core::option::Option<*mut u64>, endoffset: ::core::option::Option<*mut u64>, lineoffsets: ::core::option::Option<&mut [u64]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputDisassemblyLines)(::windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len() as _), offset, flags, ::core::mem::transmute(offsetline.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(startoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(endoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lineoffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6362,7 +6362,7 @@ impl IDebugControl {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetReturnOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6374,22 +6374,22 @@ impl IDebugControl {
         (::windows_core::Interface::vtable(self).GetDebuggeeType)(::windows_core::Interface::as_raw(self), class, qualifier).ok()
     }
     pub unsafe fn GetActualProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActualProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExecutingProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutingProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberPossibleExecutingProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), start, types.len() as _, ::core::mem::transmute(types.as_ptr())).ok()
     }
     pub unsafe fn GetNumberProcessors(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberProcessors)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: ::core::option::Option<&mut [u8]>, servicepackstringused: ::core::option::Option<*mut u32>, servicepacknumber: *mut u32, buildstring: ::core::option::Option<&mut [u8]>, buildstringused: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -6409,7 +6409,7 @@ impl IDebugControl {
         .ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPageSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsPointer64Bit(&self) -> ::windows_core::Result<()> {
@@ -6419,7 +6419,7 @@ impl IDebugControl {
         (::windows_core::Interface::vtable(self).ReadBugCheckData)(::windows_core::Interface::as_raw(self), code, arg1, arg2, arg3, arg4).ok()
     }
     pub unsafe fn GetNumberSupportedProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberSupportedProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
@@ -6439,28 +6439,28 @@ impl IDebugControl {
         .ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEffectiveProcessorType(&self, r#type: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
     pub unsafe fn GetExecutionStatus(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutionStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExecutionStatus(&self, status: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetExecutionStatus)(::windows_core::Interface::as_raw(self), status).ok()
     }
     pub unsafe fn GetCodeLevel(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCodeLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCodeLevel(&self, level: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCodeLevel)(::windows_core::Interface::as_raw(self), level).ok()
     }
     pub unsafe fn GetEngineOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEngineOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddEngineOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -6488,7 +6488,7 @@ impl IDebugControl {
         (::windows_core::Interface::vtable(self).SetTextMacro)(::windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRadix)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
@@ -6525,22 +6525,22 @@ impl IDebugControl {
         (::windows_core::Interface::vtable(self).ExecuteCommandFile)(::windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberBreakpoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointById)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBreakpointParameters)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, params).ok()
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBreakpoint)(::windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -6553,7 +6553,7 @@ impl IDebugControl {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddExtension)(::windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -6563,7 +6563,7 @@ impl IDebugControl {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensionByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> ::windows_core::Result<()>
@@ -6816,7 +6816,7 @@ impl IDebugControl2 {
         (::windows_core::Interface::vtable(self).SetInterrupt)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetInterruptTimeout(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterruptTimeout)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
@@ -6840,7 +6840,7 @@ impl IDebugControl2 {
         (::windows_core::Interface::vtable(self).CloseLogFile)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetLogMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLogMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLogMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -6901,7 +6901,7 @@ impl IDebugControl2 {
         (::windows_core::Interface::vtable(self).OutputVersionInformation)(::windows_core::Interface::as_raw(self), outputcontrol).ok()
     }
     pub unsafe fn GetNotifyEventHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNotifyEventHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNotifyEventHandle(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -6911,25 +6911,25 @@ impl IDebugControl2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Assemble)(::windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: ::core::option::Option<&mut [u8]>, disassemblysize: ::core::option::Option<*mut u32>, endoffset: *mut u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Disassemble)(::windows_core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(disassemblysize.unwrap_or(::std::ptr::null_mut())), endoffset).ok()
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisassembleEffectiveOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassembly(&self, outputcontrol: u32, offset: u64, flags: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutputDisassembly)(::windows_core::Interface::as_raw(self), outputcontrol, offset, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: ::core::option::Option<*mut u32>, startoffset: ::core::option::Option<*mut u64>, endoffset: ::core::option::Option<*mut u64>, lineoffsets: ::core::option::Option<&mut [u64]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputDisassemblyLines)(::windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len() as _), offset, flags, ::core::mem::transmute(offsetline.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(startoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(endoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lineoffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6938,7 +6938,7 @@ impl IDebugControl2 {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetReturnOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6950,22 +6950,22 @@ impl IDebugControl2 {
         (::windows_core::Interface::vtable(self).GetDebuggeeType)(::windows_core::Interface::as_raw(self), class, qualifier).ok()
     }
     pub unsafe fn GetActualProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActualProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExecutingProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutingProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberPossibleExecutingProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), start, types.len() as _, ::core::mem::transmute(types.as_ptr())).ok()
     }
     pub unsafe fn GetNumberProcessors(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberProcessors)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: ::core::option::Option<&mut [u8]>, servicepackstringused: ::core::option::Option<*mut u32>, servicepacknumber: *mut u32, buildstring: ::core::option::Option<&mut [u8]>, buildstringused: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -6985,7 +6985,7 @@ impl IDebugControl2 {
         .ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPageSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsPointer64Bit(&self) -> ::windows_core::Result<()> {
@@ -6995,7 +6995,7 @@ impl IDebugControl2 {
         (::windows_core::Interface::vtable(self).ReadBugCheckData)(::windows_core::Interface::as_raw(self), code, arg1, arg2, arg3, arg4).ok()
     }
     pub unsafe fn GetNumberSupportedProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberSupportedProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
@@ -7015,28 +7015,28 @@ impl IDebugControl2 {
         .ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEffectiveProcessorType(&self, r#type: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
     pub unsafe fn GetExecutionStatus(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutionStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExecutionStatus(&self, status: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetExecutionStatus)(::windows_core::Interface::as_raw(self), status).ok()
     }
     pub unsafe fn GetCodeLevel(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCodeLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCodeLevel(&self, level: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCodeLevel)(::windows_core::Interface::as_raw(self), level).ok()
     }
     pub unsafe fn GetEngineOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEngineOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddEngineOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -7064,7 +7064,7 @@ impl IDebugControl2 {
         (::windows_core::Interface::vtable(self).SetTextMacro)(::windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRadix)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
@@ -7101,22 +7101,22 @@ impl IDebugControl2 {
         (::windows_core::Interface::vtable(self).ExecuteCommandFile)(::windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberBreakpoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointById)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBreakpointParameters)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, params).ok()
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBreakpoint)(::windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -7129,7 +7129,7 @@ impl IDebugControl2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddExtension)(::windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -7139,7 +7139,7 @@ impl IDebugControl2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensionByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> ::windows_core::Result<()>
@@ -7231,19 +7231,19 @@ impl IDebugControl2 {
         .ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentTimeDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSystemUpTime(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentSystemUpTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDumpFormatFlags(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDumpFormatFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberTextReplacements(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberTextReplacements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: ::core::option::Option<&mut [u8]>, srcsize: ::core::option::Option<*mut u32>, dstbuffer: ::core::option::Option<&mut [u8]>, dstsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -7446,7 +7446,7 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).SetInterrupt)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetInterruptTimeout(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterruptTimeout)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
@@ -7470,7 +7470,7 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).CloseLogFile)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetLogMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLogMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLogMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -7531,7 +7531,7 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).OutputVersionInformation)(::windows_core::Interface::as_raw(self), outputcontrol).ok()
     }
     pub unsafe fn GetNotifyEventHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNotifyEventHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNotifyEventHandle(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -7541,25 +7541,25 @@ impl IDebugControl3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Assemble)(::windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: ::core::option::Option<&mut [u8]>, disassemblysize: ::core::option::Option<*mut u32>, endoffset: *mut u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Disassemble)(::windows_core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(disassemblysize.unwrap_or(::std::ptr::null_mut())), endoffset).ok()
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisassembleEffectiveOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassembly(&self, outputcontrol: u32, offset: u64, flags: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutputDisassembly)(::windows_core::Interface::as_raw(self), outputcontrol, offset, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: ::core::option::Option<*mut u32>, startoffset: ::core::option::Option<*mut u64>, endoffset: ::core::option::Option<*mut u64>, lineoffsets: ::core::option::Option<&mut [u64]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputDisassemblyLines)(::windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len() as _), offset, flags, ::core::mem::transmute(offsetline.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(startoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(endoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lineoffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7568,7 +7568,7 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetReturnOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7580,22 +7580,22 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).GetDebuggeeType)(::windows_core::Interface::as_raw(self), class, qualifier).ok()
     }
     pub unsafe fn GetActualProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActualProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExecutingProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutingProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberPossibleExecutingProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), start, types.len() as _, ::core::mem::transmute(types.as_ptr())).ok()
     }
     pub unsafe fn GetNumberProcessors(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberProcessors)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: ::core::option::Option<&mut [u8]>, servicepackstringused: ::core::option::Option<*mut u32>, servicepacknumber: *mut u32, buildstring: ::core::option::Option<&mut [u8]>, buildstringused: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -7615,7 +7615,7 @@ impl IDebugControl3 {
         .ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPageSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsPointer64Bit(&self) -> ::windows_core::Result<()> {
@@ -7625,7 +7625,7 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).ReadBugCheckData)(::windows_core::Interface::as_raw(self), code, arg1, arg2, arg3, arg4).ok()
     }
     pub unsafe fn GetNumberSupportedProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberSupportedProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
@@ -7645,28 +7645,28 @@ impl IDebugControl3 {
         .ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEffectiveProcessorType(&self, r#type: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
     pub unsafe fn GetExecutionStatus(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutionStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExecutionStatus(&self, status: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetExecutionStatus)(::windows_core::Interface::as_raw(self), status).ok()
     }
     pub unsafe fn GetCodeLevel(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCodeLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCodeLevel(&self, level: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCodeLevel)(::windows_core::Interface::as_raw(self), level).ok()
     }
     pub unsafe fn GetEngineOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEngineOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddEngineOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -7694,7 +7694,7 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).SetTextMacro)(::windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRadix)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
@@ -7731,22 +7731,22 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).ExecuteCommandFile)(::windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberBreakpoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointById)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBreakpointParameters)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, params).ok()
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBreakpoint)(::windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -7759,7 +7759,7 @@ impl IDebugControl3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddExtension)(::windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -7769,7 +7769,7 @@ impl IDebugControl3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensionByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> ::windows_core::Result<()>
@@ -7861,19 +7861,19 @@ impl IDebugControl3 {
         .ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentTimeDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSystemUpTime(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentSystemUpTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDumpFormatFlags(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDumpFormatFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberTextReplacements(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberTextReplacements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: ::core::option::Option<&mut [u8]>, srcsize: ::core::option::Option<*mut u32>, dstbuffer: ::core::option::Option<&mut [u8]>, dstsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -7907,7 +7907,7 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).OutputTextReplacements)(::windows_core::Interface::as_raw(self), outputcontrol, flags).ok()
     }
     pub unsafe fn GetAssemblyOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAssemblyOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddAssemblyOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -7920,7 +7920,7 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).SetAssemblyOptions)(::windows_core::Interface::as_raw(self), options).ok()
     }
     pub unsafe fn GetExpressionSyntax(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExpressionSyntax)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExpressionSyntax(&self, flags: u32) -> ::windows_core::Result<()> {
@@ -7933,7 +7933,7 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(::windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
     }
     pub unsafe fn GetNumberExpressionSyntaxes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberExpressionSyntaxes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExpressionSyntaxNames(&self, index: u32, fullnamebuffer: ::core::option::Option<&mut [u8]>, fullnamesize: ::core::option::Option<*mut u32>, abbrevnamebuffer: ::core::option::Option<&mut [u8]>, abbrevnamesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -7950,7 +7950,7 @@ impl IDebugControl3 {
         .ok()
     }
     pub unsafe fn GetNumberEvents(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberEvents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -7960,11 +7960,11 @@ impl IDebugControl3 {
         (::windows_core::Interface::vtable(self).GetEventIndexDescription)(::windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentEventIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNextEventIndex(&self, relation: u32, value: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetNextEventIndex)(::windows_core::Interface::as_raw(self), relation, value, &mut result__).from_abi(result__)
     }
 }
@@ -8150,7 +8150,7 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).SetInterrupt)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetInterruptTimeout(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterruptTimeout)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
@@ -8174,7 +8174,7 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).CloseLogFile)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetLogMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLogMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLogMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -8235,7 +8235,7 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).OutputVersionInformation)(::windows_core::Interface::as_raw(self), outputcontrol).ok()
     }
     pub unsafe fn GetNotifyEventHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNotifyEventHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNotifyEventHandle(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -8245,25 +8245,25 @@ impl IDebugControl4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Assemble)(::windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: ::core::option::Option<&mut [u8]>, disassemblysize: ::core::option::Option<*mut u32>, endoffset: *mut u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Disassemble)(::windows_core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(disassemblysize.unwrap_or(::std::ptr::null_mut())), endoffset).ok()
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisassembleEffectiveOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassembly(&self, outputcontrol: u32, offset: u64, flags: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutputDisassembly)(::windows_core::Interface::as_raw(self), outputcontrol, offset, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: ::core::option::Option<*mut u32>, startoffset: ::core::option::Option<*mut u64>, endoffset: ::core::option::Option<*mut u64>, lineoffsets: ::core::option::Option<&mut [u64]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputDisassemblyLines)(::windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len() as _), offset, flags, ::core::mem::transmute(offsetline.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(startoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(endoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lineoffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8272,7 +8272,7 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetReturnOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8284,22 +8284,22 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).GetDebuggeeType)(::windows_core::Interface::as_raw(self), class, qualifier).ok()
     }
     pub unsafe fn GetActualProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActualProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExecutingProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutingProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberPossibleExecutingProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), start, types.len() as _, ::core::mem::transmute(types.as_ptr())).ok()
     }
     pub unsafe fn GetNumberProcessors(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberProcessors)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: ::core::option::Option<&mut [u8]>, servicepackstringused: ::core::option::Option<*mut u32>, servicepacknumber: *mut u32, buildstring: ::core::option::Option<&mut [u8]>, buildstringused: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -8319,7 +8319,7 @@ impl IDebugControl4 {
         .ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPageSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsPointer64Bit(&self) -> ::windows_core::Result<()> {
@@ -8329,7 +8329,7 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).ReadBugCheckData)(::windows_core::Interface::as_raw(self), code, arg1, arg2, arg3, arg4).ok()
     }
     pub unsafe fn GetNumberSupportedProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberSupportedProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
@@ -8349,28 +8349,28 @@ impl IDebugControl4 {
         .ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEffectiveProcessorType(&self, r#type: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
     pub unsafe fn GetExecutionStatus(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutionStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExecutionStatus(&self, status: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetExecutionStatus)(::windows_core::Interface::as_raw(self), status).ok()
     }
     pub unsafe fn GetCodeLevel(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCodeLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCodeLevel(&self, level: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCodeLevel)(::windows_core::Interface::as_raw(self), level).ok()
     }
     pub unsafe fn GetEngineOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEngineOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddEngineOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -8398,7 +8398,7 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).SetTextMacro)(::windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRadix)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
@@ -8435,22 +8435,22 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).ExecuteCommandFile)(::windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberBreakpoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointById)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBreakpointParameters)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, params).ok()
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBreakpoint)(::windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -8463,7 +8463,7 @@ impl IDebugControl4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddExtension)(::windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -8473,7 +8473,7 @@ impl IDebugControl4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensionByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> ::windows_core::Result<()>
@@ -8565,19 +8565,19 @@ impl IDebugControl4 {
         .ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentTimeDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSystemUpTime(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentSystemUpTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDumpFormatFlags(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDumpFormatFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberTextReplacements(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberTextReplacements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: ::core::option::Option<&mut [u8]>, srcsize: ::core::option::Option<*mut u32>, dstbuffer: ::core::option::Option<&mut [u8]>, dstsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -8611,7 +8611,7 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).OutputTextReplacements)(::windows_core::Interface::as_raw(self), outputcontrol, flags).ok()
     }
     pub unsafe fn GetAssemblyOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAssemblyOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddAssemblyOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -8624,7 +8624,7 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).SetAssemblyOptions)(::windows_core::Interface::as_raw(self), options).ok()
     }
     pub unsafe fn GetExpressionSyntax(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExpressionSyntax)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExpressionSyntax(&self, flags: u32) -> ::windows_core::Result<()> {
@@ -8637,7 +8637,7 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(::windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
     }
     pub unsafe fn GetNumberExpressionSyntaxes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberExpressionSyntaxes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExpressionSyntaxNames(&self, index: u32, fullnamebuffer: ::core::option::Option<&mut [u8]>, fullnamesize: ::core::option::Option<*mut u32>, abbrevnamebuffer: ::core::option::Option<&mut [u8]>, abbrevnamesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -8654,7 +8654,7 @@ impl IDebugControl4 {
         .ok()
     }
     pub unsafe fn GetNumberEvents(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberEvents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -8664,11 +8664,11 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).GetEventIndexDescription)(::windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentEventIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNextEventIndex(&self, relation: u32, value: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetNextEventIndex)(::windows_core::Interface::as_raw(self), relation, value, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8737,7 +8737,7 @@ impl IDebugControl4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AssembleWide)(::windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: ::core::option::Option<&mut [u16]>, disassemblysize: ::core::option::Option<*mut u32>, endoffset: *mut u64) -> ::windows_core::Result<()> {
@@ -8786,15 +8786,15 @@ impl IDebugControl4 {
         (::windows_core::Interface::vtable(self).ExecuteCommandFileWide)(::windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByIndex2)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointById2(&self, id: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointById2)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBreakpoint2)(::windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -8807,14 +8807,14 @@ impl IDebugControl4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddExtensionWide)(::windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExtensionByPathWide<P0>(&self, path: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensionByPathWide)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CallExtensionWide<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> ::windows_core::Result<()>
@@ -9229,7 +9229,7 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).SetInterrupt)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetInterruptTimeout(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterruptTimeout)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
@@ -9253,7 +9253,7 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).CloseLogFile)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetLogMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLogMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLogMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -9314,7 +9314,7 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).OutputVersionInformation)(::windows_core::Interface::as_raw(self), outputcontrol).ok()
     }
     pub unsafe fn GetNotifyEventHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNotifyEventHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNotifyEventHandle(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -9324,25 +9324,25 @@ impl IDebugControl5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Assemble)(::windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: ::core::option::Option<&mut [u8]>, disassemblysize: ::core::option::Option<*mut u32>, endoffset: *mut u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Disassemble)(::windows_core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(disassemblysize.unwrap_or(::std::ptr::null_mut())), endoffset).ok()
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisassembleEffectiveOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassembly(&self, outputcontrol: u32, offset: u64, flags: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutputDisassembly)(::windows_core::Interface::as_raw(self), outputcontrol, offset, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: ::core::option::Option<*mut u32>, startoffset: ::core::option::Option<*mut u64>, endoffset: ::core::option::Option<*mut u64>, lineoffsets: ::core::option::Option<&mut [u64]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputDisassemblyLines)(::windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len() as _), offset, flags, ::core::mem::transmute(offsetline.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(startoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(endoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lineoffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9351,7 +9351,7 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetReturnOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9363,22 +9363,22 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).GetDebuggeeType)(::windows_core::Interface::as_raw(self), class, qualifier).ok()
     }
     pub unsafe fn GetActualProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActualProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExecutingProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutingProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberPossibleExecutingProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), start, types.len() as _, ::core::mem::transmute(types.as_ptr())).ok()
     }
     pub unsafe fn GetNumberProcessors(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberProcessors)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: ::core::option::Option<&mut [u8]>, servicepackstringused: ::core::option::Option<*mut u32>, servicepacknumber: *mut u32, buildstring: ::core::option::Option<&mut [u8]>, buildstringused: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -9398,7 +9398,7 @@ impl IDebugControl5 {
         .ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPageSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsPointer64Bit(&self) -> ::windows_core::Result<()> {
@@ -9408,7 +9408,7 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).ReadBugCheckData)(::windows_core::Interface::as_raw(self), code, arg1, arg2, arg3, arg4).ok()
     }
     pub unsafe fn GetNumberSupportedProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberSupportedProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
@@ -9428,28 +9428,28 @@ impl IDebugControl5 {
         .ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEffectiveProcessorType(&self, r#type: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
     pub unsafe fn GetExecutionStatus(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutionStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExecutionStatus(&self, status: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetExecutionStatus)(::windows_core::Interface::as_raw(self), status).ok()
     }
     pub unsafe fn GetCodeLevel(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCodeLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCodeLevel(&self, level: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCodeLevel)(::windows_core::Interface::as_raw(self), level).ok()
     }
     pub unsafe fn GetEngineOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEngineOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddEngineOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -9477,7 +9477,7 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).SetTextMacro)(::windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRadix)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
@@ -9514,22 +9514,22 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).ExecuteCommandFile)(::windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberBreakpoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointById)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBreakpointParameters)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, params).ok()
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBreakpoint)(::windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -9542,7 +9542,7 @@ impl IDebugControl5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddExtension)(::windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -9552,7 +9552,7 @@ impl IDebugControl5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensionByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> ::windows_core::Result<()>
@@ -9644,19 +9644,19 @@ impl IDebugControl5 {
         .ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentTimeDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSystemUpTime(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentSystemUpTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDumpFormatFlags(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDumpFormatFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberTextReplacements(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberTextReplacements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: ::core::option::Option<&mut [u8]>, srcsize: ::core::option::Option<*mut u32>, dstbuffer: ::core::option::Option<&mut [u8]>, dstsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -9690,7 +9690,7 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).OutputTextReplacements)(::windows_core::Interface::as_raw(self), outputcontrol, flags).ok()
     }
     pub unsafe fn GetAssemblyOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAssemblyOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddAssemblyOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -9703,7 +9703,7 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).SetAssemblyOptions)(::windows_core::Interface::as_raw(self), options).ok()
     }
     pub unsafe fn GetExpressionSyntax(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExpressionSyntax)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExpressionSyntax(&self, flags: u32) -> ::windows_core::Result<()> {
@@ -9716,7 +9716,7 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(::windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
     }
     pub unsafe fn GetNumberExpressionSyntaxes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberExpressionSyntaxes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExpressionSyntaxNames(&self, index: u32, fullnamebuffer: ::core::option::Option<&mut [u8]>, fullnamesize: ::core::option::Option<*mut u32>, abbrevnamebuffer: ::core::option::Option<&mut [u8]>, abbrevnamesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -9733,7 +9733,7 @@ impl IDebugControl5 {
         .ok()
     }
     pub unsafe fn GetNumberEvents(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberEvents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -9743,11 +9743,11 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).GetEventIndexDescription)(::windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentEventIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNextEventIndex(&self, relation: u32, value: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetNextEventIndex)(::windows_core::Interface::as_raw(self), relation, value, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9816,7 +9816,7 @@ impl IDebugControl5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AssembleWide)(::windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: ::core::option::Option<&mut [u16]>, disassemblysize: ::core::option::Option<*mut u32>, endoffset: *mut u64) -> ::windows_core::Result<()> {
@@ -9865,15 +9865,15 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).ExecuteCommandFileWide)(::windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByIndex2)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointById2(&self, id: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointById2)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBreakpoint2)(::windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -9886,14 +9886,14 @@ impl IDebugControl5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddExtensionWide)(::windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExtensionByPathWide<P0>(&self, path: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensionByPathWide)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CallExtensionWide<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> ::windows_core::Result<()>
@@ -10075,7 +10075,7 @@ impl IDebugControl5 {
         (::windows_core::Interface::vtable(self).OutputContextStackTraceEx)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, framecontexts, framecontextssize, framecontextsentrysize, flags).ok()
     }
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const ::windows_core::GUID) -> ::windows_core::Result<IDebugBreakpoint3> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint3>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByGuid)(::windows_core::Interface::as_raw(self), guid, &mut result__).from_abi(result__)
     }
 }
@@ -10349,7 +10349,7 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).SetInterrupt)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetInterruptTimeout(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterruptTimeout)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
@@ -10373,7 +10373,7 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).CloseLogFile)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetLogMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLogMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLogMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -10434,7 +10434,7 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).OutputVersionInformation)(::windows_core::Interface::as_raw(self), outputcontrol).ok()
     }
     pub unsafe fn GetNotifyEventHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNotifyEventHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNotifyEventHandle(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -10444,25 +10444,25 @@ impl IDebugControl6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Assemble)(::windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: ::core::option::Option<&mut [u8]>, disassemblysize: ::core::option::Option<*mut u32>, endoffset: *mut u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Disassemble)(::windows_core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(disassemblysize.unwrap_or(::std::ptr::null_mut())), endoffset).ok()
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisassembleEffectiveOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassembly(&self, outputcontrol: u32, offset: u64, flags: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutputDisassembly)(::windows_core::Interface::as_raw(self), outputcontrol, offset, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: ::core::option::Option<*mut u32>, startoffset: ::core::option::Option<*mut u64>, endoffset: ::core::option::Option<*mut u64>, lineoffsets: ::core::option::Option<&mut [u64]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputDisassemblyLines)(::windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len() as _), offset, flags, ::core::mem::transmute(offsetline.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(startoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(endoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lineoffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10471,7 +10471,7 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetReturnOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10483,22 +10483,22 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).GetDebuggeeType)(::windows_core::Interface::as_raw(self), class, qualifier).ok()
     }
     pub unsafe fn GetActualProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActualProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExecutingProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutingProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberPossibleExecutingProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), start, types.len() as _, ::core::mem::transmute(types.as_ptr())).ok()
     }
     pub unsafe fn GetNumberProcessors(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberProcessors)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: ::core::option::Option<&mut [u8]>, servicepackstringused: ::core::option::Option<*mut u32>, servicepacknumber: *mut u32, buildstring: ::core::option::Option<&mut [u8]>, buildstringused: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -10518,7 +10518,7 @@ impl IDebugControl6 {
         .ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPageSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsPointer64Bit(&self) -> ::windows_core::Result<()> {
@@ -10528,7 +10528,7 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).ReadBugCheckData)(::windows_core::Interface::as_raw(self), code, arg1, arg2, arg3, arg4).ok()
     }
     pub unsafe fn GetNumberSupportedProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberSupportedProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
@@ -10548,28 +10548,28 @@ impl IDebugControl6 {
         .ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEffectiveProcessorType(&self, r#type: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
     pub unsafe fn GetExecutionStatus(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutionStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExecutionStatus(&self, status: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetExecutionStatus)(::windows_core::Interface::as_raw(self), status).ok()
     }
     pub unsafe fn GetCodeLevel(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCodeLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCodeLevel(&self, level: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCodeLevel)(::windows_core::Interface::as_raw(self), level).ok()
     }
     pub unsafe fn GetEngineOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEngineOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddEngineOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -10597,7 +10597,7 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).SetTextMacro)(::windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRadix)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
@@ -10634,22 +10634,22 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).ExecuteCommandFile)(::windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberBreakpoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointById)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBreakpointParameters)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, params).ok()
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBreakpoint)(::windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -10662,7 +10662,7 @@ impl IDebugControl6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddExtension)(::windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -10672,7 +10672,7 @@ impl IDebugControl6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensionByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> ::windows_core::Result<()>
@@ -10764,19 +10764,19 @@ impl IDebugControl6 {
         .ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentTimeDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSystemUpTime(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentSystemUpTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDumpFormatFlags(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDumpFormatFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberTextReplacements(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberTextReplacements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: ::core::option::Option<&mut [u8]>, srcsize: ::core::option::Option<*mut u32>, dstbuffer: ::core::option::Option<&mut [u8]>, dstsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -10810,7 +10810,7 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).OutputTextReplacements)(::windows_core::Interface::as_raw(self), outputcontrol, flags).ok()
     }
     pub unsafe fn GetAssemblyOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAssemblyOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddAssemblyOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -10823,7 +10823,7 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).SetAssemblyOptions)(::windows_core::Interface::as_raw(self), options).ok()
     }
     pub unsafe fn GetExpressionSyntax(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExpressionSyntax)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExpressionSyntax(&self, flags: u32) -> ::windows_core::Result<()> {
@@ -10836,7 +10836,7 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(::windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
     }
     pub unsafe fn GetNumberExpressionSyntaxes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberExpressionSyntaxes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExpressionSyntaxNames(&self, index: u32, fullnamebuffer: ::core::option::Option<&mut [u8]>, fullnamesize: ::core::option::Option<*mut u32>, abbrevnamebuffer: ::core::option::Option<&mut [u8]>, abbrevnamesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -10853,7 +10853,7 @@ impl IDebugControl6 {
         .ok()
     }
     pub unsafe fn GetNumberEvents(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberEvents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -10863,11 +10863,11 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).GetEventIndexDescription)(::windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentEventIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNextEventIndex(&self, relation: u32, value: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetNextEventIndex)(::windows_core::Interface::as_raw(self), relation, value, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10936,7 +10936,7 @@ impl IDebugControl6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AssembleWide)(::windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: ::core::option::Option<&mut [u16]>, disassemblysize: ::core::option::Option<*mut u32>, endoffset: *mut u64) -> ::windows_core::Result<()> {
@@ -10985,15 +10985,15 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).ExecuteCommandFileWide)(::windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByIndex2)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointById2(&self, id: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointById2)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBreakpoint2)(::windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -11006,14 +11006,14 @@ impl IDebugControl6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddExtensionWide)(::windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExtensionByPathWide<P0>(&self, path: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensionByPathWide)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CallExtensionWide<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> ::windows_core::Result<()>
@@ -11195,11 +11195,11 @@ impl IDebugControl6 {
         (::windows_core::Interface::vtable(self).OutputContextStackTraceEx)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, framecontexts, framecontextssize, framecontextsentrysize, flags).ok()
     }
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const ::windows_core::GUID) -> ::windows_core::Result<IDebugBreakpoint3> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint3>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByGuid)(::windows_core::Interface::as_raw(self), guid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExecutionStatusEx(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutionStatusEx)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSynchronizationStatus(&self, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> ::windows_core::Result<()> {
@@ -11478,7 +11478,7 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).SetInterrupt)(::windows_core::Interface::as_raw(self), flags).ok()
     }
     pub unsafe fn GetInterruptTimeout(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterruptTimeout)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetInterruptTimeout(&self, seconds: u32) -> ::windows_core::Result<()> {
@@ -11502,7 +11502,7 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).CloseLogFile)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetLogMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLogMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLogMask(&self, mask: u32) -> ::windows_core::Result<()> {
@@ -11563,7 +11563,7 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).OutputVersionInformation)(::windows_core::Interface::as_raw(self), outputcontrol).ok()
     }
     pub unsafe fn GetNotifyEventHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNotifyEventHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNotifyEventHandle(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -11573,25 +11573,25 @@ impl IDebugControl7 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Assemble)(::windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: ::core::option::Option<&mut [u8]>, disassemblysize: ::core::option::Option<*mut u32>, endoffset: *mut u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Disassemble)(::windows_core::Interface::as_raw(self), offset, flags, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(disassemblysize.unwrap_or(::std::ptr::null_mut())), endoffset).ok()
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisassembleEffectiveOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassembly(&self, outputcontrol: u32, offset: u64, flags: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OutputDisassembly)(::windows_core::Interface::as_raw(self), outputcontrol, offset, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: ::core::option::Option<*mut u32>, startoffset: ::core::option::Option<*mut u64>, endoffset: ::core::option::Option<*mut u64>, lineoffsets: ::core::option::Option<&mut [u64]>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OutputDisassemblyLines)(::windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len() as _), offset, flags, ::core::mem::transmute(offsetline.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(startoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(endoffset.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lineoffsets.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNearInstruction)(::windows_core::Interface::as_raw(self), offset, delta, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11600,7 +11600,7 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).GetStackTrace)(::windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, ::core::mem::transmute(framesfilled.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetReturnOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetReturnOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11612,22 +11612,22 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).GetDebuggeeType)(::windows_core::Interface::as_raw(self), class, qualifier).ok()
     }
     pub unsafe fn GetActualProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetActualProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExecutingProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutingProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberPossibleExecutingProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(::windows_core::Interface::as_raw(self), start, types.len() as _, ::core::mem::transmute(types.as_ptr())).ok()
     }
     pub unsafe fn GetNumberProcessors(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberProcessors)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemVersion(&self, platformid: *mut u32, major: *mut u32, minor: *mut u32, servicepackstring: ::core::option::Option<&mut [u8]>, servicepackstringused: ::core::option::Option<*mut u32>, servicepacknumber: *mut u32, buildstring: ::core::option::Option<&mut [u8]>, buildstringused: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -11647,7 +11647,7 @@ impl IDebugControl7 {
         .ok()
     }
     pub unsafe fn GetPageSize(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPageSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsPointer64Bit(&self) -> ::windows_core::Result<()> {
@@ -11657,7 +11657,7 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).ReadBugCheckData)(::windows_core::Interface::as_raw(self), code, arg1, arg2, arg3, arg4).ok()
     }
     pub unsafe fn GetNumberSupportedProcessorTypes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberSupportedProcessorTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> ::windows_core::Result<()> {
@@ -11677,28 +11677,28 @@ impl IDebugControl7 {
         .ok()
     }
     pub unsafe fn GetEffectiveProcessorType(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEffectiveProcessorType(&self, r#type: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEffectiveProcessorType)(::windows_core::Interface::as_raw(self), r#type).ok()
     }
     pub unsafe fn GetExecutionStatus(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutionStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExecutionStatus(&self, status: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetExecutionStatus)(::windows_core::Interface::as_raw(self), status).ok()
     }
     pub unsafe fn GetCodeLevel(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCodeLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCodeLevel(&self, level: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCodeLevel)(::windows_core::Interface::as_raw(self), level).ok()
     }
     pub unsafe fn GetEngineOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEngineOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddEngineOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -11726,7 +11726,7 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).SetTextMacro)(::windows_core::Interface::as_raw(self), slot, r#macro.into_param().abi()).ok()
     }
     pub unsafe fn GetRadix(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRadix)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRadix(&self, radix: u32) -> ::windows_core::Result<()> {
@@ -11763,22 +11763,22 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).ExecuteCommandFile)(::windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetNumberBreakpoints(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberBreakpoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointByIndex(&self, index: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointById(&self, id: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointById)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointParameters(&self, count: u32, ids: ::core::option::Option<*const u32>, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetBreakpointParameters)(::windows_core::Interface::as_raw(self), count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null())), start, params).ok()
     }
     pub unsafe fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> ::windows_core::Result<IDebugBreakpoint> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBreakpoint)(::windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveBreakpoint<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -11791,7 +11791,7 @@ impl IDebugControl7 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddExtension)(::windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveExtension(&self, handle: u64) -> ::windows_core::Result<()> {
@@ -11801,7 +11801,7 @@ impl IDebugControl7 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensionByPath)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CallExtension<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> ::windows_core::Result<()>
@@ -11893,19 +11893,19 @@ impl IDebugControl7 {
         .ok()
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentTimeDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSystemUpTime(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentSystemUpTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDumpFormatFlags(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDumpFormatFlags)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberTextReplacements(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberTextReplacements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTextReplacement<P0>(&self, srctext: P0, index: u32, srcbuffer: ::core::option::Option<&mut [u8]>, srcsize: ::core::option::Option<*mut u32>, dstbuffer: ::core::option::Option<&mut [u8]>, dstsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -11939,7 +11939,7 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).OutputTextReplacements)(::windows_core::Interface::as_raw(self), outputcontrol, flags).ok()
     }
     pub unsafe fn GetAssemblyOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAssemblyOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddAssemblyOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -11952,7 +11952,7 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).SetAssemblyOptions)(::windows_core::Interface::as_raw(self), options).ok()
     }
     pub unsafe fn GetExpressionSyntax(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExpressionSyntax)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetExpressionSyntax(&self, flags: u32) -> ::windows_core::Result<()> {
@@ -11965,7 +11965,7 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).SetExpressionSyntaxByName)(::windows_core::Interface::as_raw(self), abbrevname.into_param().abi()).ok()
     }
     pub unsafe fn GetNumberExpressionSyntaxes(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberExpressionSyntaxes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExpressionSyntaxNames(&self, index: u32, fullnamebuffer: ::core::option::Option<&mut [u8]>, fullnamesize: ::core::option::Option<*mut u32>, abbrevnamebuffer: ::core::option::Option<&mut [u8]>, abbrevnamesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -11982,7 +11982,7 @@ impl IDebugControl7 {
         .ok()
     }
     pub unsafe fn GetNumberEvents(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberEvents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventIndexDescription<P0>(&self, index: u32, which: u32, buffer: P0, buffersize: u32, descsize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -11992,11 +11992,11 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).GetEventIndexDescription)(::windows_core::Interface::as_raw(self), index, which, buffer.into_param().abi(), buffersize, ::core::mem::transmute(descsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentEventIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentEventIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetNextEventIndex(&self, relation: u32, value: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetNextEventIndex)(::windows_core::Interface::as_raw(self), relation, value, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12065,7 +12065,7 @@ impl IDebugControl7 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AssembleWide)(::windows_core::Interface::as_raw(self), offset, instr.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: ::core::option::Option<&mut [u16]>, disassemblysize: ::core::option::Option<*mut u32>, endoffset: *mut u64) -> ::windows_core::Result<()> {
@@ -12114,15 +12114,15 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).ExecuteCommandFileWide)(::windows_core::Interface::as_raw(self), outputcontrol, commandfile.into_param().abi(), flags).ok()
     }
     pub unsafe fn GetBreakpointByIndex2(&self, index: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByIndex2)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBreakpointById2(&self, id: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointById2)(::windows_core::Interface::as_raw(self), id, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> ::windows_core::Result<IDebugBreakpoint2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddBreakpoint2)(::windows_core::Interface::as_raw(self), r#type, desiredid, &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveBreakpoint2<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -12135,14 +12135,14 @@ impl IDebugControl7 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddExtensionWide)(::windows_core::Interface::as_raw(self), path.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExtensionByPathWide<P0>(&self, path: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtensionByPathWide)(::windows_core::Interface::as_raw(self), path.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CallExtensionWide<P0, P1>(&self, handle: u64, function: P0, arguments: P1) -> ::windows_core::Result<()>
@@ -12324,11 +12324,11 @@ impl IDebugControl7 {
         (::windows_core::Interface::vtable(self).OutputContextStackTraceEx)(::windows_core::Interface::as_raw(self), outputcontrol, ::core::mem::transmute(frames.as_ptr()), frames.len() as _, framecontexts, framecontextssize, framecontextsentrysize, flags).ok()
     }
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const ::windows_core::GUID) -> ::windows_core::Result<IDebugBreakpoint3> {
-        let mut result__ = ::windows_core::zeroed::<IDebugBreakpoint3>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBreakpointByGuid)(::windows_core::Interface::as_raw(self), guid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetExecutionStatusEx(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExecutionStatusEx)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSynchronizationStatus(&self, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> ::windows_core::Result<()> {
@@ -12611,7 +12611,7 @@ impl IDebugDataSpaces {
         (::windows_core::Interface::vtable(self).WriteVirtual)(::windows_core::Interface::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SearchVirtual)(::windows_core::Interface::as_raw(self), offset, length, pattern, patternsize, patterngranularity, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReadVirtualUncached(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -12645,7 +12645,7 @@ impl IDebugDataSpaces {
         (::windows_core::Interface::vtable(self).WriteIo)(::windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadMsr(&self, msr: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReadMsr)(::windows_core::Interface::as_raw(self), msr, &mut result__).from_abi(result__)
     }
     pub unsafe fn WriteMsr(&self, msr: u32, value: u64) -> ::windows_core::Result<()> {
@@ -12726,7 +12726,7 @@ impl IDebugDataSpaces2 {
         (::windows_core::Interface::vtable(self).WriteVirtual)(::windows_core::Interface::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SearchVirtual)(::windows_core::Interface::as_raw(self), offset, length, pattern, patternsize, patterngranularity, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReadVirtualUncached(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -12760,7 +12760,7 @@ impl IDebugDataSpaces2 {
         (::windows_core::Interface::vtable(self).WriteIo)(::windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadMsr(&self, msr: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReadMsr)(::windows_core::Interface::as_raw(self), msr, &mut result__).from_abi(result__)
     }
     pub unsafe fn WriteMsr(&self, msr: u32, value: u64) -> ::windows_core::Result<()> {
@@ -12782,7 +12782,7 @@ impl IDebugDataSpaces2 {
         (::windows_core::Interface::vtable(self).ReadProcessorSystemData)(::windows_core::Interface::as_raw(self), processor, index, buffer, buffersize, ::core::mem::transmute(datasize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn VirtualToPhysical(&self, r#virtual: u64) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VirtualToPhysical)(::windows_core::Interface::as_raw(self), r#virtual, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVirtualTranslationPhysicalOffsets(&self, r#virtual: u64, offsets: ::core::option::Option<&mut [u64]>, levels: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -12871,7 +12871,7 @@ impl IDebugDataSpaces3 {
         (::windows_core::Interface::vtable(self).WriteVirtual)(::windows_core::Interface::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SearchVirtual)(::windows_core::Interface::as_raw(self), offset, length, pattern, patternsize, patterngranularity, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReadVirtualUncached(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -12905,7 +12905,7 @@ impl IDebugDataSpaces3 {
         (::windows_core::Interface::vtable(self).WriteIo)(::windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadMsr(&self, msr: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReadMsr)(::windows_core::Interface::as_raw(self), msr, &mut result__).from_abi(result__)
     }
     pub unsafe fn WriteMsr(&self, msr: u32, value: u64) -> ::windows_core::Result<()> {
@@ -12927,7 +12927,7 @@ impl IDebugDataSpaces3 {
         (::windows_core::Interface::vtable(self).ReadProcessorSystemData)(::windows_core::Interface::as_raw(self), processor, index, buffer, buffersize, ::core::mem::transmute(datasize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn VirtualToPhysical(&self, r#virtual: u64) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VirtualToPhysical)(::windows_core::Interface::as_raw(self), r#virtual, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVirtualTranslationPhysicalOffsets(&self, r#virtual: u64, offsets: ::core::option::Option<&mut [u64]>, levels: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -12956,7 +12956,7 @@ impl IDebugDataSpaces3 {
         (::windows_core::Interface::vtable(self).ReadTagged)(::windows_core::Interface::as_raw(self), tag, offset, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(totalsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn StartEnumTagged(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartEnumTagged)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextTagged(&self, handle: u64, tag: *mut ::windows_core::GUID, size: *mut u32) -> ::windows_core::Result<()> {
@@ -13042,7 +13042,7 @@ impl IDebugDataSpaces4 {
         (::windows_core::Interface::vtable(self).WriteVirtual)(::windows_core::Interface::as_raw(self), offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn SearchVirtual(&self, offset: u64, length: u64, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SearchVirtual)(::windows_core::Interface::as_raw(self), offset, length, pattern, patternsize, patterngranularity, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReadVirtualUncached(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -13076,7 +13076,7 @@ impl IDebugDataSpaces4 {
         (::windows_core::Interface::vtable(self).WriteIo)(::windows_core::Interface::as_raw(self), interfacetype, busnumber, addressspace, offset, buffer, buffersize, ::core::mem::transmute(byteswritten.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn ReadMsr(&self, msr: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ReadMsr)(::windows_core::Interface::as_raw(self), msr, &mut result__).from_abi(result__)
     }
     pub unsafe fn WriteMsr(&self, msr: u32, value: u64) -> ::windows_core::Result<()> {
@@ -13098,7 +13098,7 @@ impl IDebugDataSpaces4 {
         (::windows_core::Interface::vtable(self).ReadProcessorSystemData)(::windows_core::Interface::as_raw(self), processor, index, buffer, buffersize, ::core::mem::transmute(datasize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn VirtualToPhysical(&self, r#virtual: u64) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VirtualToPhysical)(::windows_core::Interface::as_raw(self), r#virtual, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVirtualTranslationPhysicalOffsets(&self, r#virtual: u64, offsets: ::core::option::Option<&mut [u64]>, levels: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -13127,7 +13127,7 @@ impl IDebugDataSpaces4 {
         (::windows_core::Interface::vtable(self).ReadTagged)(::windows_core::Interface::as_raw(self), tag, offset, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(totalsize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn StartEnumTagged(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartEnumTagged)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextTagged(&self, handle: u64, tag: *mut ::windows_core::GUID, size: *mut u32) -> ::windows_core::Result<()> {
@@ -13140,14 +13140,14 @@ impl IDebugDataSpaces4 {
         (::windows_core::Interface::vtable(self).GetOffsetInformation)(::windows_core::Interface::as_raw(self), space, which, offset, ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())), buffersize, ::core::mem::transmute(infosize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetNextDifferentlyValidOffsetVirtual(&self, offset: u64) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNextDifferentlyValidOffsetVirtual)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetValidRegionVirtual(&self, base: u64, size: u32, validbase: *mut u64, validsize: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetValidRegionVirtual)(::windows_core::Interface::as_raw(self), base, size, validbase, validsize).ok()
     }
     pub unsafe fn SearchVirtual2(&self, offset: u64, length: u64, flags: u32, pattern: *const ::core::ffi::c_void, patternsize: u32, patterngranularity: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SearchVirtual2)(::windows_core::Interface::as_raw(self), offset, length, flags, pattern, patternsize, patterngranularity, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReadMultiByteStringVirtual(&self, offset: u64, maxbytes: u32, buffer: ::core::option::Option<&mut [u8]>, stringbytes: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -13249,7 +13249,7 @@ pub struct IDebugDataSpaces4_Vtbl {
 pub struct IDebugEventCallbacks(::windows_core::IUnknown);
 impl IDebugEventCallbacks {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterestMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Breakpoint<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -13358,7 +13358,7 @@ pub struct IDebugEventCallbacks_Vtbl {
 pub struct IDebugEventCallbacksWide(::windows_core::IUnknown);
 impl IDebugEventCallbacksWide {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterestMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Breakpoint<P0>(&self, bp: P0) -> ::windows_core::Result<()>
@@ -13467,7 +13467,7 @@ pub struct IDebugEventCallbacksWide_Vtbl {
 pub struct IDebugEventContextCallbacks(::windows_core::IUnknown);
 impl IDebugEventContextCallbacks {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterestMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Breakpoint<P0>(&self, bp: P0, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()>
@@ -13596,7 +13596,7 @@ impl IDebugFAEntryTags {
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<DEBUG_FLR_PARAM_TYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTagByName)(::windows_core::Interface::as_raw(self), pluginid.into_param().abi(), tagname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -13787,13 +13787,13 @@ impl IDebugFailureAnalysis2 {
         (::windows_core::Interface::vtable(self).AddBuffer)(::windows_core::Interface::as_raw(self), tag, entrytype, buf, size)
     }
     pub unsafe fn GetDebugFATagControl(&self) -> ::windows_core::Result<IDebugFAEntryTags> {
-        let mut result__ = ::windows_core::zeroed::<IDebugFAEntryTags>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDebugFATagControl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetAnalysisXml(&self) -> ::windows_core::Result<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAnalysisXml)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddStructuredAnalysisData<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: P0) -> ::windows_core::Result<()>
@@ -13934,13 +13934,13 @@ impl IDebugFailureAnalysis3 {
         (::windows_core::Interface::vtable(self).AddBuffer)(::windows_core::Interface::as_raw(self), tag, entrytype, buf, size)
     }
     pub unsafe fn GetDebugFATagControl(&self) -> ::windows_core::Result<IDebugFAEntryTags> {
-        let mut result__ = ::windows_core::zeroed::<IDebugFAEntryTags>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDebugFATagControl)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn GetAnalysisXml(&self) -> ::windows_core::Result<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAnalysisXml)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddStructuredAnalysisData<P0>(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: P0) -> ::windows_core::Result<()>
@@ -13958,11 +13958,11 @@ impl IDebugFailureAnalysis3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AttributeGet(&self, nindex: u32) -> ::windows_core::Result<super::super::super::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AttributeGet)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn AttributeGetName(&self, nindex: u32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AttributeGetName)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -14004,7 +14004,7 @@ impl IDebugFailureAnalysis3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProblemClassIsSet(&self, nindex: u32) -> ::windows_core::Result<super::super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProblemClassIsSet)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn ProblemClassDelete(&self, nindex: u32) -> ::windows_core::Result<()> {
@@ -14030,7 +14030,7 @@ impl IDebugFailureAnalysis3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAdditionalXML)(::windows_core::Interface::as_raw(self), key.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteAdditionalXML<P0>(&self, key: P0) -> ::windows_core::Result<()>
@@ -14125,15 +14125,15 @@ pub struct IDebugFailureAnalysis3_Vtbl {
 pub struct IDebugHost(::windows_core::IUnknown);
 impl IDebugHost {
     pub unsafe fn GetHostDefinedInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHostDefinedInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDefaultMetadata(&self) -> ::windows_core::Result<IKeyStore> {
-        let mut result__ = ::windows_core::zeroed::<IKeyStore>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultMetadata)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -14173,41 +14173,41 @@ pub struct IDebugHost_Vtbl {
 pub struct IDebugHostBaseClass(::windows_core::IUnknown);
 impl IDebugHostBaseClass {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumerateChildren)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolKind(&self) -> ::windows_core::Result<SymbolKind> {
-        let mut result__ = ::windows_core::zeroed::<SymbolKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSymbolKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainingModule(&self) -> ::windows_core::Result<IDebugHostModule> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContainingModule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<IDebugHostSymbol>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -14245,43 +14245,43 @@ pub struct IDebugHostBaseClass_Vtbl {
 pub struct IDebugHostConstant(::windows_core::IUnknown);
 impl IDebugHostConstant {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumerateChildren)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolKind(&self) -> ::windows_core::Result<SymbolKind> {
-        let mut result__ = ::windows_core::zeroed::<SymbolKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSymbolKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainingModule(&self) -> ::windows_core::Result<IDebugHostModule> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContainingModule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<IDebugHostSymbol>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue(&self) -> ::windows_core::Result<super::super::super::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -14325,7 +14325,7 @@ impl IDebugHostContext {
     where
         P0: ::windows_core::IntoParam<IDebugHostContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsEqualTo)(::windows_core::Interface::as_raw(self), pcontext.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -14363,51 +14363,51 @@ pub struct IDebugHostContext_Vtbl {
 pub struct IDebugHostData(::windows_core::IUnknown);
 impl IDebugHostData {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumerateChildren)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolKind(&self) -> ::windows_core::Result<SymbolKind> {
-        let mut result__ = ::windows_core::zeroed::<SymbolKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSymbolKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainingModule(&self) -> ::windows_core::Result<IDebugHostModule> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContainingModule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<IDebugHostSymbol>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocationKind(&self) -> ::windows_core::Result<LocationKind> {
-        let mut result__ = ::windows_core::zeroed::<LocationKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocationKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocation(&self) -> ::windows_core::Result<Location> {
-        let mut result__ = ::windows_core::zeroed::<Location>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue(&self) -> ::windows_core::Result<super::super::super::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -14646,55 +14646,55 @@ pub struct IDebugHostExtensibility_Vtbl {
 pub struct IDebugHostField(::windows_core::IUnknown);
 impl IDebugHostField {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumerateChildren)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolKind(&self) -> ::windows_core::Result<SymbolKind> {
-        let mut result__ = ::windows_core::zeroed::<SymbolKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSymbolKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainingModule(&self) -> ::windows_core::Result<IDebugHostModule> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContainingModule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<IDebugHostSymbol>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocationKind(&self) -> ::windows_core::Result<LocationKind> {
-        let mut result__ = ::windows_core::zeroed::<LocationKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocationKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocation(&self) -> ::windows_core::Result<Location> {
-        let mut result__ = ::windows_core::zeroed::<Location>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue(&self) -> ::windows_core::Result<super::super::super::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -14765,7 +14765,7 @@ impl IDebugHostMemory {
     where
         P0: ::windows_core::IntoParam<IDebugHostContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisplayStringForLocation)(::windows_core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(location), verbose, &mut result__).from_abi(result__)
     }
 }
@@ -14834,14 +14834,14 @@ impl IDebugHostMemory2 {
     where
         P0: ::windows_core::IntoParam<IDebugHostContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDisplayStringForLocation)(::windows_core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(location), verbose, &mut result__).from_abi(result__)
     }
     pub unsafe fn LinearizeLocation<P0>(&self, context: P0, location: Location) -> ::windows_core::Result<Location>
     where
         P0: ::windows_core::IntoParam<IDebugHostContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<Location>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LinearizeLocation)(::windows_core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(location), &mut result__).from_abi(result__)
     }
 }
@@ -14879,45 +14879,45 @@ pub struct IDebugHostMemory2_Vtbl {
 pub struct IDebugHostModule(::windows_core::IUnknown);
 impl IDebugHostModule {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumerateChildren)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolKind(&self) -> ::windows_core::Result<SymbolKind> {
-        let mut result__ = ::windows_core::zeroed::<SymbolKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSymbolKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainingModule(&self) -> ::windows_core::Result<IDebugHostModule> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContainingModule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<IDebugHostSymbol>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImageName(&self, allowpath: u8) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetImageName)(::windows_core::Interface::as_raw(self), allowpath, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBaseLocation(&self) -> ::windows_core::Result<Location> {
-        let mut result__ = ::windows_core::zeroed::<Location>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBaseLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, fileversion: ::core::option::Option<*mut u64>, productversion: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -14927,18 +14927,18 @@ impl IDebugHostModule {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindTypeByName)(::windows_core::Interface::as_raw(self), typename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindSymbolByRVA(&self, rva: u64) -> ::windows_core::Result<IDebugHostSymbol> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbol>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindSymbolByRVA)(::windows_core::Interface::as_raw(self), rva, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindSymbolByName<P0>(&self, symbolname: P0) -> ::windows_core::Result<IDebugHostSymbol>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbol>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindSymbolByName)(::windows_core::Interface::as_raw(self), symbolname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -14981,45 +14981,45 @@ pub struct IDebugHostModule_Vtbl {
 pub struct IDebugHostModule2(::windows_core::IUnknown);
 impl IDebugHostModule2 {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumerateChildren)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolKind(&self) -> ::windows_core::Result<SymbolKind> {
-        let mut result__ = ::windows_core::zeroed::<SymbolKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetSymbolKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainingModule(&self) -> ::windows_core::Result<IDebugHostModule> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetContainingModule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<IDebugHostSymbol>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImageName(&self, allowpath: u8) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetImageName)(::windows_core::Interface::as_raw(self), allowpath, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBaseLocation(&self) -> ::windows_core::Result<Location> {
-        let mut result__ = ::windows_core::zeroed::<Location>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetBaseLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetVersion(&self, fileversion: ::core::option::Option<*mut u64>, productversion: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -15029,18 +15029,18 @@ impl IDebugHostModule2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindTypeByName)(::windows_core::Interface::as_raw(self), typename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindSymbolByRVA(&self, rva: u64) -> ::windows_core::Result<IDebugHostSymbol> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbol>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindSymbolByRVA)(::windows_core::Interface::as_raw(self), rva, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindSymbolByName<P0>(&self, symbolname: P0) -> ::windows_core::Result<IDebugHostSymbol>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbol>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindSymbolByName)(::windows_core::Interface::as_raw(self), symbolname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindContainingSymbolByRVA(&self, rva: u64, symbol: *mut ::core::option::Option<IDebugHostSymbol>, offset: *mut u64) -> ::windows_core::Result<()> {
@@ -15084,7 +15084,7 @@ impl IDebugHostModuleSignature {
     where
         P0: ::windows_core::IntoParam<IDebugHostModule>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsMatch)(::windows_core::Interface::as_raw(self), pmodule.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -15122,45 +15122,45 @@ pub struct IDebugHostModuleSignature_Vtbl {
 pub struct IDebugHostPublic(::windows_core::IUnknown);
 impl IDebugHostPublic {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumerateChildren)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolKind(&self) -> ::windows_core::Result<SymbolKind> {
-        let mut result__ = ::windows_core::zeroed::<SymbolKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSymbolKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainingModule(&self) -> ::windows_core::Result<IDebugHostModule> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContainingModule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<IDebugHostSymbol>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocationKind(&self) -> ::windows_core::Result<LocationKind> {
-        let mut result__ = ::windows_core::zeroed::<LocationKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocationKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLocation(&self) -> ::windows_core::Result<Location> {
-        let mut result__ = ::windows_core::zeroed::<Location>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -15202,7 +15202,7 @@ impl IDebugHostScriptHost {
     where
         P0: ::windows_core::IntoParam<IDataModelScript>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDataModelScriptHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateContext)(::windows_core::Interface::as_raw(self), script.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -15240,7 +15240,7 @@ pub struct IDebugHostScriptHost_Vtbl {
 pub struct IDebugHostStatus(::windows_core::IUnknown);
 impl IDebugHostStatus {
     pub unsafe fn PollUserInterrupt(&self) -> ::windows_core::Result<bool> {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PollUserInterrupt)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -15278,37 +15278,37 @@ pub struct IDebugHostStatus_Vtbl {
 pub struct IDebugHostSymbol(::windows_core::IUnknown);
 impl IDebugHostSymbol {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateChildren)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolKind(&self) -> ::windows_core::Result<SymbolKind> {
-        let mut result__ = ::windows_core::zeroed::<SymbolKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainingModule(&self) -> ::windows_core::Result<IDebugHostModule> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetContainingModule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<IDebugHostSymbol>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
 }
@@ -15352,41 +15352,41 @@ pub struct IDebugHostSymbol_Vtbl {
 pub struct IDebugHostSymbol2(::windows_core::IUnknown);
 impl IDebugHostSymbol2 {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumerateChildren)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolKind(&self) -> ::windows_core::Result<SymbolKind> {
-        let mut result__ = ::windows_core::zeroed::<SymbolKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSymbolKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainingModule(&self) -> ::windows_core::Result<IDebugHostModule> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContainingModule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<IDebugHostSymbol>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetLanguage(&self) -> ::windows_core::Result<LanguageKind> {
-        let mut result__ = ::windows_core::zeroed::<LanguageKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLanguage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -15427,7 +15427,7 @@ impl IDebugHostSymbolEnumerator {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetNext(&self) -> ::windows_core::Result<IDebugHostSymbol> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbol>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -15471,7 +15471,7 @@ impl IDebugHostSymbols {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModuleSignature>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateModuleSignature)(::windows_core::Interface::as_raw(self), pwszmodulename.into_param().abi(), pwszminversion.into_param().abi(), pwszmaxversion.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTypeSignature<P0, P1>(&self, signaturespecification: P0, module: P1) -> ::windows_core::Result<IDebugHostTypeSignature>
@@ -15479,7 +15479,7 @@ impl IDebugHostSymbols {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<IDebugHostModule>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostTypeSignature>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTypeSignature)(::windows_core::Interface::as_raw(self), signaturespecification.into_param().abi(), module.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateTypeSignatureForModuleRange<P0, P1, P2, P3>(&self, signaturespecification: P0, modulename: P1, minversion: P2, maxversion: P3) -> ::windows_core::Result<IDebugHostTypeSignature>
@@ -15489,14 +15489,14 @@ impl IDebugHostSymbols {
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostTypeSignature>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTypeSignatureForModuleRange)(::windows_core::Interface::as_raw(self), signaturespecification.into_param().abi(), modulename.into_param().abi(), minversion.into_param().abi(), maxversion.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateModules<P0>(&self, context: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<IDebugHostContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateModules)(::windows_core::Interface::as_raw(self), context.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindModuleByName<P0, P1>(&self, context: P0, modulename: P1) -> ::windows_core::Result<IDebugHostModule>
@@ -15504,14 +15504,14 @@ impl IDebugHostSymbols {
         P0: ::windows_core::IntoParam<IDebugHostContext>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindModuleByName)(::windows_core::Interface::as_raw(self), context.into_param().abi(), modulename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn FindModuleByLocation<P0>(&self, context: P0, modulelocation: Location) -> ::windows_core::Result<IDebugHostModule>
     where
         P0: ::windows_core::IntoParam<IDebugHostContext>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindModuleByLocation)(::windows_core::Interface::as_raw(self), context.into_param().abi(), ::core::mem::transmute(modulelocation), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMostDerivedObject<P0, P1>(&self, pcontext: P0, location: Location, objecttype: P1, derivedlocation: *mut Location, derivedtype: *mut ::core::option::Option<IDebugHostType>) -> ::windows_core::Result<()>
@@ -15562,53 +15562,53 @@ pub struct IDebugHostSymbols_Vtbl {
 pub struct IDebugHostType(::windows_core::IUnknown);
 impl IDebugHostType {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumerateChildren)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolKind(&self) -> ::windows_core::Result<SymbolKind> {
-        let mut result__ = ::windows_core::zeroed::<SymbolKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSymbolKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainingModule(&self) -> ::windows_core::Result<IDebugHostModule> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContainingModule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<IDebugHostSymbol>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeKind(&self) -> ::windows_core::Result<TypeKind> {
-        let mut result__ = ::windows_core::zeroed::<TypeKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSize(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBaseType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBaseType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetHashCode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHashCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetIntrinsicType(&self, intrinsickind: ::core::option::Option<*mut IntrinsicKind>, carriertype: ::core::option::Option<*mut u16>) -> ::windows_core::Result<()> {
@@ -15618,54 +15618,54 @@ impl IDebugHostType {
         (::windows_core::Interface::vtable(self).GetBitField)(::windows_core::Interface::as_raw(self), lsboffield, lengthoffield).ok()
     }
     pub unsafe fn GetPointerKind(&self) -> ::windows_core::Result<PointerKind> {
-        let mut result__ = ::windows_core::zeroed::<PointerKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPointerKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMemberType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMemberType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreatePointerTo(&self, kind: PointerKind) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePointerTo)(::windows_core::Interface::as_raw(self), kind, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetArrayDimensionality(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetArrayDimensionality)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetArrayDimensions(&self, pdimensions: &mut [ArrayDimension]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetArrayDimensions)(::windows_core::Interface::as_raw(self), pdimensions.len() as _, ::core::mem::transmute(pdimensions.as_ptr())).ok()
     }
     pub unsafe fn CreateArrayOf(&self, pdimensions: &[ArrayDimension]) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateArrayOf)(::windows_core::Interface::as_raw(self), pdimensions.len() as _, ::core::mem::transmute(pdimensions.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionCallingConvention(&self) -> ::windows_core::Result<CallingConventionKind> {
-        let mut result__ = ::windows_core::zeroed::<CallingConventionKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFunctionCallingConvention)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionReturnType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFunctionReturnType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionParameterTypeCount(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFunctionParameterTypeCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionParameterTypeAt(&self, i: u64) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFunctionParameterTypeAt)(::windows_core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsGeneric(&self) -> ::windows_core::Result<bool> {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsGeneric)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetGenericArgumentCount(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGenericArgumentCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetGenericArgumentAt(&self, i: u64) -> ::windows_core::Result<IDebugHostSymbol> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbol>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGenericArgumentAt)(::windows_core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
     }
 }
@@ -15721,53 +15721,53 @@ pub struct IDebugHostType_Vtbl {
 pub struct IDebugHostType2(::windows_core::IUnknown);
 impl IDebugHostType2 {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateChildren<P0>(&self, kind: SymbolKind, name: P0) -> ::windows_core::Result<IDebugHostSymbolEnumerator>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbolEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumerateChildren)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolKind(&self) -> ::windows_core::Result<SymbolKind> {
-        let mut result__ = ::windows_core::zeroed::<SymbolKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetSymbolKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContainingModule(&self) -> ::windows_core::Result<IDebugHostModule> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostModule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetContainingModule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CompareAgainst<P0>(&self, pcomparisonsymbol: P0, comparisonflags: u32) -> ::windows_core::Result<bool>
     where
         P0: ::windows_core::IntoParam<IDebugHostSymbol>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CompareAgainst)(::windows_core::Interface::as_raw(self), pcomparisonsymbol.into_param().abi(), comparisonflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeKind(&self) -> ::windows_core::Result<TypeKind> {
-        let mut result__ = ::windows_core::zeroed::<TypeKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTypeKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSize(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetBaseType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetBaseType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetHashCode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetHashCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetIntrinsicType(&self, intrinsickind: ::core::option::Option<*mut IntrinsicKind>, carriertype: ::core::option::Option<*mut u16>) -> ::windows_core::Result<()> {
@@ -15777,74 +15777,74 @@ impl IDebugHostType2 {
         (::windows_core::Interface::vtable(self).base__.GetBitField)(::windows_core::Interface::as_raw(self), lsboffield, lengthoffield).ok()
     }
     pub unsafe fn GetPointerKind(&self) -> ::windows_core::Result<PointerKind> {
-        let mut result__ = ::windows_core::zeroed::<PointerKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPointerKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetMemberType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetMemberType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreatePointerTo(&self, kind: PointerKind) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreatePointerTo)(::windows_core::Interface::as_raw(self), kind, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetArrayDimensionality(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetArrayDimensionality)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetArrayDimensions(&self, pdimensions: &mut [ArrayDimension]) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetArrayDimensions)(::windows_core::Interface::as_raw(self), pdimensions.len() as _, ::core::mem::transmute(pdimensions.as_ptr())).ok()
     }
     pub unsafe fn CreateArrayOf(&self, pdimensions: &[ArrayDimension]) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateArrayOf)(::windows_core::Interface::as_raw(self), pdimensions.len() as _, ::core::mem::transmute(pdimensions.as_ptr()), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionCallingConvention(&self) -> ::windows_core::Result<CallingConventionKind> {
-        let mut result__ = ::windows_core::zeroed::<CallingConventionKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFunctionCallingConvention)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionReturnType(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFunctionReturnType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionParameterTypeCount(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFunctionParameterTypeCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionParameterTypeAt(&self, i: u64) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFunctionParameterTypeAt)(::windows_core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsGeneric(&self) -> ::windows_core::Result<bool> {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.IsGeneric)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetGenericArgumentCount(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetGenericArgumentCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetGenericArgumentAt(&self, i: u64) -> ::windows_core::Result<IDebugHostSymbol> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostSymbol>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetGenericArgumentAt)(::windows_core::Interface::as_raw(self), i, &mut result__).from_abi(result__)
     }
     pub unsafe fn IsTypedef(&self) -> ::windows_core::Result<bool> {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsTypedef)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypedefBaseType(&self) -> ::windows_core::Result<IDebugHostType2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypedefBaseType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypedefFinalBaseType(&self) -> ::windows_core::Result<IDebugHostType2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypedefFinalBaseType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionVarArgsKind(&self) -> ::windows_core::Result<VarArgsKind> {
-        let mut result__ = ::windows_core::zeroed::<VarArgsKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFunctionVarArgsKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionInstancePointerType(&self) -> ::windows_core::Result<IDebugHostType2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFunctionInstancePointerType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -15886,7 +15886,7 @@ pub struct IDebugHostType2_Vtbl {
 pub struct IDebugHostTypeSignature(::windows_core::IUnknown);
 impl IDebugHostTypeSignature {
     pub unsafe fn GetHashCode(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHashCode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn IsMatch<P0>(&self, r#type: P0, ismatch: *mut bool, wildcardmatches: ::core::option::Option<*mut ::core::option::Option<IDebugHostSymbolEnumerator>>) -> ::windows_core::Result<()>
@@ -15899,7 +15899,7 @@ impl IDebugHostTypeSignature {
     where
         P0: ::windows_core::IntoParam<IDebugHostTypeSignature>,
     {
-        let mut result__ = ::windows_core::zeroed::<SignatureComparison>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CompareAgainst)(::windows_core::Interface::as_raw(self), typesignature.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -16026,7 +16026,7 @@ impl IDebugOutputCallbacks2 {
         (::windows_core::Interface::vtable(self).Output)(::windows_core::Interface::as_raw(self), mask, text.into_param().abi()).ok()
     }
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInterestMask)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Output2<P0>(&self, which: u32, flags: u32, arg: u64, text: P0) -> ::windows_core::Result<()>
@@ -16361,7 +16361,7 @@ pub struct IDebugPlmClient3_Vtbl {
 pub struct IDebugRegisters(::windows_core::IUnknown);
 impl IDebugRegisters {
     pub unsafe fn GetNumberRegisters(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberRegisters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDescription(&self, register: u32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, desc: ::core::option::Option<*mut DEBUG_REGISTER_DESCRIPTION>) -> ::windows_core::Result<()> {
@@ -16371,7 +16371,7 @@ impl IDebugRegisters {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIndexByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -16398,15 +16398,15 @@ impl IDebugRegisters {
         (::windows_core::Interface::vtable(self).OutputRegisters)(::windows_core::Interface::as_raw(self), outputcontrol, flags).ok()
     }
     pub unsafe fn GetInstructionOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInstructionOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStackOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStackOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFrameOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFrameOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -16466,7 +16466,7 @@ pub struct IDebugRegisters_Vtbl {
 pub struct IDebugRegisters2(::windows_core::IUnknown);
 impl IDebugRegisters2 {
     pub unsafe fn GetNumberRegisters(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberRegisters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDescription(&self, register: u32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, desc: ::core::option::Option<*mut DEBUG_REGISTER_DESCRIPTION>) -> ::windows_core::Result<()> {
@@ -16476,7 +16476,7 @@ impl IDebugRegisters2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIndexByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -16503,15 +16503,15 @@ impl IDebugRegisters2 {
         (::windows_core::Interface::vtable(self).OutputRegisters)(::windows_core::Interface::as_raw(self), outputcontrol, flags).ok()
     }
     pub unsafe fn GetInstructionOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInstructionOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStackOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStackOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFrameOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFrameOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDescriptionWide(&self, register: u32, namebuffer: ::core::option::Option<&mut [u16]>, namesize: ::core::option::Option<*mut u32>, desc: ::core::option::Option<*mut DEBUG_REGISTER_DESCRIPTION>) -> ::windows_core::Result<()> {
@@ -16521,11 +16521,11 @@ impl IDebugRegisters2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIndexByNameWide)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberPseudoRegisters(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberPseudoRegisters)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPseudoDescription(&self, register: u32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, typemodule: ::core::option::Option<*mut u64>, typeid: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -16538,14 +16538,14 @@ impl IDebugRegisters2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPseudoIndexByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPseudoIndexByNameWide<P0>(&self, name: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPseudoIndexByNameWide)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -16572,15 +16572,15 @@ impl IDebugRegisters2 {
         (::windows_core::Interface::vtable(self).OutputRegisters2)(::windows_core::Interface::as_raw(self), outputcontrol, source, flags).ok()
     }
     pub unsafe fn GetInstructionOffset2(&self, source: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInstructionOffset2)(::windows_core::Interface::as_raw(self), source, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStackOffset2(&self, source: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStackOffset2)(::windows_core::Interface::as_raw(self), source, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFrameOffset2(&self, source: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFrameOffset2)(::windows_core::Interface::as_raw(self), source, &mut result__).from_abi(result__)
     }
 }
@@ -16667,7 +16667,7 @@ pub struct IDebugRegisters2_Vtbl {
 pub struct IDebugSymbolGroup(::windows_core::IUnknown);
 impl IDebugSymbolGroup {
     pub unsafe fn GetNumberSymbols(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberSymbols)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddSymbol<P0>(&self, name: P0, index: *mut u32) -> ::windows_core::Result<()>
@@ -16761,7 +16761,7 @@ pub struct IDebugSymbolGroup_Vtbl {
 pub struct IDebugSymbolGroup2(::windows_core::IUnknown);
 impl IDebugSymbolGroup2 {
     pub unsafe fn GetNumberSymbols(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberSymbols)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddSymbol<P0>(&self, name: P0, index: *mut u32) -> ::windows_core::Result<()>
@@ -16842,15 +16842,15 @@ impl IDebugSymbolGroup2 {
         (::windows_core::Interface::vtable(self).GetSymbolTypeNameWide)(::windows_core::Interface::as_raw(self), index, ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolSize(&self, index: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolSize)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolOffset(&self, index: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolOffset)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolRegister(&self, index: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolRegister)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolValueText(&self, index: u32, buffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -16922,7 +16922,7 @@ pub struct IDebugSymbolGroup2_Vtbl {
 pub struct IDebugSymbols(::windows_core::IUnknown);
 impl IDebugSymbols {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddSymbolOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -16941,7 +16941,7 @@ impl IDebugSymbols {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByName)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, displacement: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -16954,14 +16954,14 @@ impl IDebugSymbols {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByLine)(::windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberModules(&self, loaded: *mut u32, unloaded: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNumberModules)(::windows_core::Interface::as_raw(self), loaded, unloaded).ok()
     }
     pub unsafe fn GetModuleByIndex(&self, index: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetModuleByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModuleByModuleName<P0>(&self, name: P0, startindex: u32, index: ::core::option::Option<*mut u32>, base: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -16997,7 +16997,7 @@ impl IDebugSymbols {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolModule)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -17007,18 +17007,18 @@ impl IDebugSymbols {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeId)(::windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeSize(&self, module: u64, typeid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeSize)(::windows_core::Interface::as_raw(self), module, typeid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFieldOffset<P0>(&self, module: u64, typeid: u32, field: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFieldOffset)(::windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolTypeId<P0>(&self, symbol: P0, typeid: *mut u32, module: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -17065,18 +17065,18 @@ impl IDebugSymbols {
     where
         P0: ::windows_core::IntoParam<IDebugSymbolGroup>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScopeSymbolGroup)(::windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSymbolGroup(&self) -> ::windows_core::Result<IDebugSymbolGroup> {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSymbolGroup)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartSymbolMatch)(::windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: ::core::option::Option<&mut [u8]>, matchsize: ::core::option::Option<*mut u32>, offset: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -17240,7 +17240,7 @@ pub struct IDebugSymbols_Vtbl {
 pub struct IDebugSymbols2(::windows_core::IUnknown);
 impl IDebugSymbols2 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddSymbolOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -17259,7 +17259,7 @@ impl IDebugSymbols2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByName)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, displacement: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -17272,14 +17272,14 @@ impl IDebugSymbols2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByLine)(::windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberModules(&self, loaded: *mut u32, unloaded: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNumberModules)(::windows_core::Interface::as_raw(self), loaded, unloaded).ok()
     }
     pub unsafe fn GetModuleByIndex(&self, index: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetModuleByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModuleByModuleName<P0>(&self, name: P0, startindex: u32, index: ::core::option::Option<*mut u32>, base: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -17315,7 +17315,7 @@ impl IDebugSymbols2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolModule)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -17325,18 +17325,18 @@ impl IDebugSymbols2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeId)(::windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeSize(&self, module: u64, typeid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeSize)(::windows_core::Interface::as_raw(self), module, typeid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFieldOffset<P0>(&self, module: u64, typeid: u32, field: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFieldOffset)(::windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolTypeId<P0>(&self, symbol: P0, typeid: *mut u32, module: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -17383,18 +17383,18 @@ impl IDebugSymbols2 {
     where
         P0: ::windows_core::IntoParam<IDebugSymbolGroup>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScopeSymbolGroup)(::windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSymbolGroup(&self) -> ::windows_core::Result<IDebugSymbolGroup> {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSymbolGroup)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartSymbolMatch)(::windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: ::core::option::Option<&mut [u8]>, matchsize: ::core::option::Option<*mut u32>, offset: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -17485,7 +17485,7 @@ impl IDebugSymbols2 {
         (::windows_core::Interface::vtable(self).GetFieldName)(::windows_core::Interface::as_raw(self), module, typeid, fieldindex, ::core::mem::transmute(namebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddTypeOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -17594,7 +17594,7 @@ pub struct IDebugSymbols2_Vtbl {
 pub struct IDebugSymbols3(::windows_core::IUnknown);
 impl IDebugSymbols3 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddSymbolOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -17613,7 +17613,7 @@ impl IDebugSymbols3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByName)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, displacement: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -17626,14 +17626,14 @@ impl IDebugSymbols3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByLine)(::windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberModules(&self, loaded: *mut u32, unloaded: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNumberModules)(::windows_core::Interface::as_raw(self), loaded, unloaded).ok()
     }
     pub unsafe fn GetModuleByIndex(&self, index: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetModuleByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModuleByModuleName<P0>(&self, name: P0, startindex: u32, index: ::core::option::Option<*mut u32>, base: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -17669,7 +17669,7 @@ impl IDebugSymbols3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolModule)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -17679,18 +17679,18 @@ impl IDebugSymbols3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeId)(::windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeSize(&self, module: u64, typeid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeSize)(::windows_core::Interface::as_raw(self), module, typeid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFieldOffset<P0>(&self, module: u64, typeid: u32, field: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFieldOffset)(::windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolTypeId<P0>(&self, symbol: P0, typeid: *mut u32, module: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -17737,18 +17737,18 @@ impl IDebugSymbols3 {
     where
         P0: ::windows_core::IntoParam<IDebugSymbolGroup>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScopeSymbolGroup)(::windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSymbolGroup(&self) -> ::windows_core::Result<IDebugSymbolGroup> {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSymbolGroup)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartSymbolMatch)(::windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: ::core::option::Option<&mut [u8]>, matchsize: ::core::option::Option<*mut u32>, offset: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -17839,7 +17839,7 @@ impl IDebugSymbols3 {
         (::windows_core::Interface::vtable(self).GetFieldName)(::windows_core::Interface::as_raw(self), module, typeid, fieldindex, ::core::mem::transmute(namebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddTypeOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -17858,7 +17858,7 @@ impl IDebugSymbols3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByNameWide)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNearNameByOffsetWide(&self, offset: u64, delta: i32, namebuffer: ::core::option::Option<&mut [u16]>, namesize: ::core::option::Option<*mut u32>, displacement: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -17871,7 +17871,7 @@ impl IDebugSymbols3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByLineWide)(::windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModuleByModuleNameWide<P0>(&self, name: P0, startindex: u32, index: ::core::option::Option<*mut u32>, base: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -17884,7 +17884,7 @@ impl IDebugSymbols3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolModuleWide)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeNameWide(&self, module: u64, typeid: u32, namebuffer: ::core::option::Option<&mut [u16]>, namesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -17894,14 +17894,14 @@ impl IDebugSymbols3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeIdWide)(::windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFieldOffsetWide<P0>(&self, module: u64, typeid: u32, field: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFieldOffsetWide)(::windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolTypeIdWide<P0>(&self, symbol: P0, typeid: *mut u32, module: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -17914,18 +17914,18 @@ impl IDebugSymbols3 {
     where
         P0: ::windows_core::IntoParam<IDebugSymbolGroup2>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(::windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSymbolGroup2(&self) -> ::windows_core::Result<IDebugSymbolGroup2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSymbolGroup2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartSymbolMatchWide<P0>(&self, pattern: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartSymbolMatchWide)(::windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextSymbolMatchWide(&self, handle: u64, buffer: ::core::option::Option<&mut [u16]>, matchsize: ::core::option::Option<*mut u32>, offset: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -18048,7 +18048,7 @@ impl IDebugSymbols3 {
         (::windows_core::Interface::vtable(self).RemoveSyntheticModule)(::windows_core::Interface::as_raw(self), base).ok()
     }
     pub unsafe fn GetCurrentScopeFrameIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentScopeFrameIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetScopeFrameByIndex(&self, index: u32) -> ::windows_core::Result<()> {
@@ -18109,7 +18109,7 @@ impl IDebugSymbols3 {
         (::windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), flags, ::core::mem::transmute(ids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(entries.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntryByToken(&self, modulebase: u64, token: u32) -> ::windows_core::Result<DEBUG_MODULE_AND_ID> {
-        let mut result__ = ::windows_core::zeroed::<DEBUG_MODULE_AND_ID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolEntryByToken)(::windows_core::Interface::as_raw(self), modulebase, token, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolEntryInformation(&self, id: *const DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> ::windows_core::Result<()> {
@@ -18125,7 +18125,7 @@ impl IDebugSymbols3 {
         (::windows_core::Interface::vtable(self).GetSymbolEntryOffsetRegions)(::windows_core::Interface::as_raw(self), id, flags, ::core::mem::transmute(regions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(regionsavail.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntryBySymbolEntry(&self, fromid: *const DEBUG_MODULE_AND_ID, flags: u32) -> ::windows_core::Result<DEBUG_MODULE_AND_ID> {
-        let mut result__ = ::windows_core::zeroed::<DEBUG_MODULE_AND_ID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolEntryBySymbolEntry)(::windows_core::Interface::as_raw(self), fromid, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSourceEntriesByOffset(&self, offset: u64, flags: u32, entries: ::core::option::Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -18318,7 +18318,7 @@ pub struct IDebugSymbols3_Vtbl {
 pub struct IDebugSymbols4(::windows_core::IUnknown);
 impl IDebugSymbols4 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddSymbolOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -18337,7 +18337,7 @@ impl IDebugSymbols4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByName)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, displacement: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -18350,14 +18350,14 @@ impl IDebugSymbols4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByLine)(::windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberModules(&self, loaded: *mut u32, unloaded: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNumberModules)(::windows_core::Interface::as_raw(self), loaded, unloaded).ok()
     }
     pub unsafe fn GetModuleByIndex(&self, index: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetModuleByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModuleByModuleName<P0>(&self, name: P0, startindex: u32, index: ::core::option::Option<*mut u32>, base: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -18393,7 +18393,7 @@ impl IDebugSymbols4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolModule)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -18403,18 +18403,18 @@ impl IDebugSymbols4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeId)(::windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeSize(&self, module: u64, typeid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeSize)(::windows_core::Interface::as_raw(self), module, typeid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFieldOffset<P0>(&self, module: u64, typeid: u32, field: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFieldOffset)(::windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolTypeId<P0>(&self, symbol: P0, typeid: *mut u32, module: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -18461,18 +18461,18 @@ impl IDebugSymbols4 {
     where
         P0: ::windows_core::IntoParam<IDebugSymbolGroup>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScopeSymbolGroup)(::windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSymbolGroup(&self) -> ::windows_core::Result<IDebugSymbolGroup> {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSymbolGroup)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartSymbolMatch)(::windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: ::core::option::Option<&mut [u8]>, matchsize: ::core::option::Option<*mut u32>, offset: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -18563,7 +18563,7 @@ impl IDebugSymbols4 {
         (::windows_core::Interface::vtable(self).GetFieldName)(::windows_core::Interface::as_raw(self), module, typeid, fieldindex, ::core::mem::transmute(namebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddTypeOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -18582,7 +18582,7 @@ impl IDebugSymbols4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByNameWide)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNearNameByOffsetWide(&self, offset: u64, delta: i32, namebuffer: ::core::option::Option<&mut [u16]>, namesize: ::core::option::Option<*mut u32>, displacement: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -18595,7 +18595,7 @@ impl IDebugSymbols4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByLineWide)(::windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModuleByModuleNameWide<P0>(&self, name: P0, startindex: u32, index: ::core::option::Option<*mut u32>, base: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -18608,7 +18608,7 @@ impl IDebugSymbols4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolModuleWide)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeNameWide(&self, module: u64, typeid: u32, namebuffer: ::core::option::Option<&mut [u16]>, namesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -18618,14 +18618,14 @@ impl IDebugSymbols4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeIdWide)(::windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFieldOffsetWide<P0>(&self, module: u64, typeid: u32, field: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFieldOffsetWide)(::windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolTypeIdWide<P0>(&self, symbol: P0, typeid: *mut u32, module: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -18638,18 +18638,18 @@ impl IDebugSymbols4 {
     where
         P0: ::windows_core::IntoParam<IDebugSymbolGroup2>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(::windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSymbolGroup2(&self) -> ::windows_core::Result<IDebugSymbolGroup2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSymbolGroup2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartSymbolMatchWide<P0>(&self, pattern: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartSymbolMatchWide)(::windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextSymbolMatchWide(&self, handle: u64, buffer: ::core::option::Option<&mut [u16]>, matchsize: ::core::option::Option<*mut u32>, offset: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -18772,7 +18772,7 @@ impl IDebugSymbols4 {
         (::windows_core::Interface::vtable(self).RemoveSyntheticModule)(::windows_core::Interface::as_raw(self), base).ok()
     }
     pub unsafe fn GetCurrentScopeFrameIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentScopeFrameIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetScopeFrameByIndex(&self, index: u32) -> ::windows_core::Result<()> {
@@ -18833,7 +18833,7 @@ impl IDebugSymbols4 {
         (::windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), flags, ::core::mem::transmute(ids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(entries.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntryByToken(&self, modulebase: u64, token: u32) -> ::windows_core::Result<DEBUG_MODULE_AND_ID> {
-        let mut result__ = ::windows_core::zeroed::<DEBUG_MODULE_AND_ID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolEntryByToken)(::windows_core::Interface::as_raw(self), modulebase, token, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolEntryInformation(&self, id: *const DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> ::windows_core::Result<()> {
@@ -18849,7 +18849,7 @@ impl IDebugSymbols4 {
         (::windows_core::Interface::vtable(self).GetSymbolEntryOffsetRegions)(::windows_core::Interface::as_raw(self), id, flags, ::core::mem::transmute(regions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(regionsavail.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntryBySymbolEntry(&self, fromid: *const DEBUG_MODULE_AND_ID, flags: u32) -> ::windows_core::Result<DEBUG_MODULE_AND_ID> {
-        let mut result__ = ::windows_core::zeroed::<DEBUG_MODULE_AND_ID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolEntryBySymbolEntry)(::windows_core::Interface::as_raw(self), fromid, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSourceEntriesByOffset(&self, offset: u64, flags: u32, entries: ::core::option::Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -19080,7 +19080,7 @@ pub struct IDebugSymbols4_Vtbl {
 pub struct IDebugSymbols5(::windows_core::IUnknown);
 impl IDebugSymbols5 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddSymbolOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -19099,7 +19099,7 @@ impl IDebugSymbols5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByName)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>, displacement: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -19112,14 +19112,14 @@ impl IDebugSymbols5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByLine)(::windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberModules(&self, loaded: *mut u32, unloaded: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetNumberModules)(::windows_core::Interface::as_raw(self), loaded, unloaded).ok()
     }
     pub unsafe fn GetModuleByIndex(&self, index: u32) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetModuleByIndex)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModuleByModuleName<P0>(&self, name: P0, startindex: u32, index: ::core::option::Option<*mut u32>, base: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -19155,7 +19155,7 @@ impl IDebugSymbols5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolModule)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -19165,18 +19165,18 @@ impl IDebugSymbols5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeId)(::windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeSize(&self, module: u64, typeid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeSize)(::windows_core::Interface::as_raw(self), module, typeid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFieldOffset<P0>(&self, module: u64, typeid: u32, field: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFieldOffset)(::windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolTypeId<P0>(&self, symbol: P0, typeid: *mut u32, module: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -19223,18 +19223,18 @@ impl IDebugSymbols5 {
     where
         P0: ::windows_core::IntoParam<IDebugSymbolGroup>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScopeSymbolGroup)(::windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSymbolGroup(&self) -> ::windows_core::Result<IDebugSymbolGroup> {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSymbolGroup)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartSymbolMatch<P0>(&self, pattern: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartSymbolMatch)(::windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: ::core::option::Option<&mut [u8]>, matchsize: ::core::option::Option<*mut u32>, offset: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -19325,7 +19325,7 @@ impl IDebugSymbols5 {
         (::windows_core::Interface::vtable(self).GetFieldName)(::windows_core::Interface::as_raw(self), module, typeid, fieldindex, ::core::mem::transmute(namebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(namesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetTypeOptions(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeOptions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AddTypeOptions(&self, options: u32) -> ::windows_core::Result<()> {
@@ -19344,7 +19344,7 @@ impl IDebugSymbols5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByNameWide)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNearNameByOffsetWide(&self, offset: u64, delta: i32, namebuffer: ::core::option::Option<&mut [u16]>, namesize: ::core::option::Option<*mut u32>, displacement: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -19357,7 +19357,7 @@ impl IDebugSymbols5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOffsetByLineWide)(::windows_core::Interface::as_raw(self), line, file.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetModuleByModuleNameWide<P0>(&self, name: P0, startindex: u32, index: ::core::option::Option<*mut u32>, base: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -19370,7 +19370,7 @@ impl IDebugSymbols5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolModuleWide)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeNameWide(&self, module: u64, typeid: u32, namebuffer: ::core::option::Option<&mut [u16]>, namesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -19380,14 +19380,14 @@ impl IDebugSymbols5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeIdWide)(::windows_core::Interface::as_raw(self), module, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFieldOffsetWide<P0>(&self, module: u64, typeid: u32, field: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFieldOffsetWide)(::windows_core::Interface::as_raw(self), module, typeid, field.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolTypeIdWide<P0>(&self, symbol: P0, typeid: *mut u32, module: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -19400,18 +19400,18 @@ impl IDebugSymbols5 {
     where
         P0: ::windows_core::IntoParam<IDebugSymbolGroup2>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetScopeSymbolGroup2)(::windows_core::Interface::as_raw(self), flags, update.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateSymbolGroup2(&self) -> ::windows_core::Result<IDebugSymbolGroup2> {
-        let mut result__ = ::windows_core::zeroed::<IDebugSymbolGroup2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSymbolGroup2)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartSymbolMatchWide<P0>(&self, pattern: P0) -> ::windows_core::Result<u64>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartSymbolMatchWide)(::windows_core::Interface::as_raw(self), pattern.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNextSymbolMatchWide(&self, handle: u64, buffer: ::core::option::Option<&mut [u16]>, matchsize: ::core::option::Option<*mut u32>, offset: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -19534,7 +19534,7 @@ impl IDebugSymbols5 {
         (::windows_core::Interface::vtable(self).RemoveSyntheticModule)(::windows_core::Interface::as_raw(self), base).ok()
     }
     pub unsafe fn GetCurrentScopeFrameIndex(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentScopeFrameIndex)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetScopeFrameByIndex(&self, index: u32) -> ::windows_core::Result<()> {
@@ -19595,7 +19595,7 @@ impl IDebugSymbols5 {
         (::windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(::windows_core::Interface::as_raw(self), symbol.into_param().abi(), flags, ::core::mem::transmute(ids.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(entries.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntryByToken(&self, modulebase: u64, token: u32) -> ::windows_core::Result<DEBUG_MODULE_AND_ID> {
-        let mut result__ = ::windows_core::zeroed::<DEBUG_MODULE_AND_ID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolEntryByToken)(::windows_core::Interface::as_raw(self), modulebase, token, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSymbolEntryInformation(&self, id: *const DEBUG_MODULE_AND_ID, info: *mut DEBUG_SYMBOL_ENTRY) -> ::windows_core::Result<()> {
@@ -19611,7 +19611,7 @@ impl IDebugSymbols5 {
         (::windows_core::Interface::vtable(self).GetSymbolEntryOffsetRegions)(::windows_core::Interface::as_raw(self), id, flags, ::core::mem::transmute(regions.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(regionsavail.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetSymbolEntryBySymbolEntry(&self, fromid: *const DEBUG_MODULE_AND_ID, flags: u32) -> ::windows_core::Result<DEBUG_MODULE_AND_ID> {
-        let mut result__ = ::windows_core::zeroed::<DEBUG_MODULE_AND_ID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSymbolEntryBySymbolEntry)(::windows_core::Interface::as_raw(self), fromid, flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSourceEntriesByOffset(&self, offset: u64, flags: u32, entries: ::core::option::Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -19667,7 +19667,7 @@ impl IDebugSymbols5 {
         (::windows_core::Interface::vtable(self).OutputSymbolByInlineContext)(::windows_core::Interface::as_raw(self), outputcontrol, flags, offset, inlinecontext).ok()
     }
     pub unsafe fn GetCurrentScopeFrameIndexEx(&self, flags: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentScopeFrameIndexEx)(::windows_core::Interface::as_raw(self), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetScopeFrameByIndexEx(&self, flags: u32, index: u32) -> ::windows_core::Result<()> {
@@ -19851,29 +19851,29 @@ pub struct IDebugSymbols5_Vtbl {
 pub struct IDebugSystemObjects(::windows_core::IUnknown);
 impl IDebugSystemObjects {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventProcess(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventProcess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCurrentThreadId(&self, id: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentThreadId)(::windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn GetCurrentProcessId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCurrentProcessId(&self, id: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentProcessId)(::windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn GetNumberThreads(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTotalNumberThreads(&self, total: *mut u32, largestprocess: *mut u32) -> ::windows_core::Result<()> {
@@ -19883,78 +19883,78 @@ impl IDebugSystemObjects {
         (::windows_core::Interface::vtable(self).GetThreadIdsByIndex)(::windows_core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetThreadIdByProcessor(&self, processor: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByProcessor)(::windows_core::Interface::as_raw(self), processor, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByDataOffset(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByDataOffset)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadTeb(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadTeb)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByTeb(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByTeb)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadSystemId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadSystemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdBySystemId(&self, sysid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdBySystemId)(::windows_core::Interface::as_raw(self), sysid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByHandle(&self, handle: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberProcesses(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberProcesses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProcessIdsByIndex)(::windows_core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentProcessDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByDataOffset(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByDataOffset)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessPeb(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessPeb)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByPeb(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByPeb)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessSystemId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessSystemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdBySystemId(&self, sysid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdBySystemId)(::windows_core::Interface::as_raw(self), sysid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByHandle(&self, handle: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessExecutableName(&self, buffer: ::core::option::Option<&mut [u8]>, exesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -20023,29 +20023,29 @@ pub struct IDebugSystemObjects_Vtbl {
 pub struct IDebugSystemObjects2(::windows_core::IUnknown);
 impl IDebugSystemObjects2 {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventProcess(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventProcess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCurrentThreadId(&self, id: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentThreadId)(::windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn GetCurrentProcessId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCurrentProcessId(&self, id: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentProcessId)(::windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn GetNumberThreads(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTotalNumberThreads(&self, total: *mut u32, largestprocess: *mut u32) -> ::windows_core::Result<()> {
@@ -20055,96 +20055,96 @@ impl IDebugSystemObjects2 {
         (::windows_core::Interface::vtable(self).GetThreadIdsByIndex)(::windows_core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetThreadIdByProcessor(&self, processor: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByProcessor)(::windows_core::Interface::as_raw(self), processor, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByDataOffset(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByDataOffset)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadTeb(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadTeb)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByTeb(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByTeb)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadSystemId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadSystemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdBySystemId(&self, sysid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdBySystemId)(::windows_core::Interface::as_raw(self), sysid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByHandle(&self, handle: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberProcesses(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberProcesses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProcessIdsByIndex)(::windows_core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentProcessDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByDataOffset(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByDataOffset)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessPeb(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessPeb)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByPeb(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByPeb)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessSystemId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessSystemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdBySystemId(&self, sysid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdBySystemId)(::windows_core::Interface::as_raw(self), sysid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByHandle(&self, handle: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessExecutableName(&self, buffer: ::core::option::Option<&mut [u8]>, exesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(exesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentProcessUpTime(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessUpTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImplicitThreadDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetImplicitThreadDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetImplicitThreadDataOffset(&self, offset: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetImplicitThreadDataOffset)(::windows_core::Interface::as_raw(self), offset).ok()
     }
     pub unsafe fn GetImplicitProcessDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetImplicitProcessDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetImplicitProcessDataOffset(&self, offset: u64) -> ::windows_core::Result<()> {
@@ -20218,29 +20218,29 @@ pub struct IDebugSystemObjects2_Vtbl {
 pub struct IDebugSystemObjects3(::windows_core::IUnknown);
 impl IDebugSystemObjects3 {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventProcess(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventProcess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCurrentThreadId(&self, id: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentThreadId)(::windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn GetCurrentProcessId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCurrentProcessId(&self, id: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentProcessId)(::windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn GetNumberThreads(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTotalNumberThreads(&self, total: *mut u32, largestprocess: *mut u32) -> ::windows_core::Result<()> {
@@ -20250,114 +20250,114 @@ impl IDebugSystemObjects3 {
         (::windows_core::Interface::vtable(self).GetThreadIdsByIndex)(::windows_core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetThreadIdByProcessor(&self, processor: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByProcessor)(::windows_core::Interface::as_raw(self), processor, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByDataOffset(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByDataOffset)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadTeb(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadTeb)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByTeb(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByTeb)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadSystemId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadSystemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdBySystemId(&self, sysid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdBySystemId)(::windows_core::Interface::as_raw(self), sysid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByHandle(&self, handle: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberProcesses(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberProcesses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProcessIdsByIndex)(::windows_core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentProcessDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByDataOffset(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByDataOffset)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessPeb(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessPeb)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByPeb(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByPeb)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessSystemId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessSystemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdBySystemId(&self, sysid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdBySystemId)(::windows_core::Interface::as_raw(self), sysid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByHandle(&self, handle: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessExecutableName(&self, buffer: ::core::option::Option<&mut [u8]>, exesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(exesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentProcessUpTime(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessUpTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImplicitThreadDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetImplicitThreadDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetImplicitThreadDataOffset(&self, offset: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetImplicitThreadDataOffset)(::windows_core::Interface::as_raw(self), offset).ok()
     }
     pub unsafe fn GetImplicitProcessDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetImplicitProcessDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetImplicitProcessDataOffset(&self, offset: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetImplicitProcessDataOffset)(::windows_core::Interface::as_raw(self), offset).ok()
     }
     pub unsafe fn GetEventSystem(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventSystem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSystemId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentSystemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCurrentSystemId(&self, id: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentSystemId)(::windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn GetNumberSystems(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberSystems)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemIdsByIndex(&self, start: u32, ids: &mut [u32]) -> ::windows_core::Result<()> {
@@ -20367,11 +20367,11 @@ impl IDebugSystemObjects3 {
         (::windows_core::Interface::vtable(self).GetTotalNumberThreadsAndProcesses)(::windows_core::Interface::as_raw(self), totalthreads, totalprocesses, largestprocessthreads, largestsystemthreads, largestsystemprocesses).ok()
     }
     pub unsafe fn GetCurrentSystemServer(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentSystemServer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemByServer(&self, server: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSystemByServer)(::windows_core::Interface::as_raw(self), server, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSystemServerName(&self, buffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -20454,29 +20454,29 @@ pub struct IDebugSystemObjects3_Vtbl {
 pub struct IDebugSystemObjects4(::windows_core::IUnknown);
 impl IDebugSystemObjects4 {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventThread)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetEventProcess(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventProcess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCurrentThreadId(&self, id: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentThreadId)(::windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn GetCurrentProcessId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCurrentProcessId(&self, id: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentProcessId)(::windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn GetNumberThreads(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberThreads)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTotalNumberThreads(&self, total: *mut u32, largestprocess: *mut u32) -> ::windows_core::Result<()> {
@@ -20486,114 +20486,114 @@ impl IDebugSystemObjects4 {
         (::windows_core::Interface::vtable(self).GetThreadIdsByIndex)(::windows_core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetThreadIdByProcessor(&self, processor: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByProcessor)(::windows_core::Interface::as_raw(self), processor, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByDataOffset(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByDataOffset)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadTeb(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadTeb)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByTeb(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByTeb)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadSystemId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadSystemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdBySystemId(&self, sysid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdBySystemId)(::windows_core::Interface::as_raw(self), sysid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentThreadHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentThreadHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadIdByHandle(&self, handle: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetThreadIdByHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberProcesses(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberProcesses)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdsByIndex(&self, start: u32, count: u32, ids: ::core::option::Option<*mut u32>, sysids: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetProcessIdsByIndex)(::windows_core::Interface::as_raw(self), start, count, ::core::mem::transmute(ids.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sysids.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentProcessDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByDataOffset(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByDataOffset)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessPeb(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessPeb)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByPeb(&self, offset: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByPeb)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessSystemId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessSystemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdBySystemId(&self, sysid: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdBySystemId)(::windows_core::Interface::as_raw(self), sysid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessHandle(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetProcessIdByHandle(&self, handle: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProcessIdByHandle)(::windows_core::Interface::as_raw(self), handle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentProcessExecutableName(&self, buffer: ::core::option::Option<&mut [u8]>, exesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(exesize.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetCurrentProcessUpTime(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentProcessUpTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetImplicitThreadDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetImplicitThreadDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetImplicitThreadDataOffset(&self, offset: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetImplicitThreadDataOffset)(::windows_core::Interface::as_raw(self), offset).ok()
     }
     pub unsafe fn GetImplicitProcessDataOffset(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetImplicitProcessDataOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetImplicitProcessDataOffset(&self, offset: u64) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetImplicitProcessDataOffset)(::windows_core::Interface::as_raw(self), offset).ok()
     }
     pub unsafe fn GetEventSystem(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetEventSystem)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSystemId(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentSystemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCurrentSystemId(&self, id: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCurrentSystemId)(::windows_core::Interface::as_raw(self), id).ok()
     }
     pub unsafe fn GetNumberSystems(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberSystems)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemIdsByIndex(&self, start: u32, ids: &mut [u32]) -> ::windows_core::Result<()> {
@@ -20603,11 +20603,11 @@ impl IDebugSystemObjects4 {
         (::windows_core::Interface::vtable(self).GetTotalNumberThreadsAndProcesses)(::windows_core::Interface::as_raw(self), totalthreads, totalprocesses, largestprocessthreads, largestsystemthreads, largestsystemprocesses).ok()
     }
     pub unsafe fn GetCurrentSystemServer(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentSystemServer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemByServer(&self, server: u64) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSystemByServer)(::windows_core::Interface::as_raw(self), server, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCurrentSystemServerName(&self, buffer: ::core::option::Option<&mut [u8]>, namesize: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -20784,7 +20784,7 @@ impl IDynamicKeyProviderConcept {
     where
         P0: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<IKeyEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateKeys)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -20828,7 +20828,7 @@ impl IEquatableConcept {
         P0: ::windows_core::IntoParam<IModelObject>,
         P1: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AreObjectsEqual)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), otherobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -20906,7 +20906,7 @@ impl IIndexableConcept {
     where
         P0: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDimensionality)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAt<P0>(&self, contextobject: P0, indexers: &[::core::option::Option<IModelObject>], object: *mut ::core::option::Option<IModelObject>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
@@ -20962,14 +20962,14 @@ impl IIterableConcept {
     where
         P0: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultIndexDimensionality)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetIterator<P0>(&self, contextobject: P0) -> ::windows_core::Result<IModelIterator>
     where
         P0: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelIterator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIterator)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -21158,15 +21158,15 @@ pub struct IModelIterator_Vtbl {
 pub struct IModelKeyReference(::windows_core::IUnknown);
 impl IModelKeyReference {
     pub unsafe fn GetKeyName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetKeyName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOriginalObject(&self) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOriginalObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContextObject(&self) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetContextObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetKey(&self, object: ::core::option::Option<*mut ::core::option::Option<IModelObject>>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()> {
@@ -21229,15 +21229,15 @@ pub struct IModelKeyReference_Vtbl {
 pub struct IModelKeyReference2(::windows_core::IUnknown);
 impl IModelKeyReference2 {
     pub unsafe fn GetKeyName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetKeyName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetOriginalObject(&self) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetOriginalObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetContextObject(&self) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetContextObject)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetKey(&self, object: ::core::option::Option<*mut ::core::option::Option<IModelObject>>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()> {
@@ -21340,23 +21340,23 @@ pub struct IModelMethod_Vtbl {
 pub struct IModelObject(::windows_core::IUnknown);
 impl IModelObject {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetKind(&self) -> ::windows_core::Result<ModelObjectKind> {
-        let mut result__ = ::windows_core::zeroed::<ModelObjectKind>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetKind)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetIntrinsicValue(&self) -> ::windows_core::Result<super::super::super::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIntrinsicValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetIntrinsicValueAs(&self, vt: super::super::super::Com::VARENUM) -> ::windows_core::Result<super::super::super::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIntrinsicValueAs)(::windows_core::Interface::as_raw(self), vt, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetKeyValue<P0>(&self, key: P0, object: ::core::option::Option<*mut ::core::option::Option<IModelObject>>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
@@ -21373,44 +21373,44 @@ impl IModelObject {
         (::windows_core::Interface::vtable(self).SetKeyValue)(::windows_core::Interface::as_raw(self), key.into_param().abi(), object.into_param().abi()).ok()
     }
     pub unsafe fn EnumerateKeyValues(&self) -> ::windows_core::Result<IKeyEnumerator> {
-        let mut result__ = ::windows_core::zeroed::<IKeyEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateKeyValues)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRawValue<P0>(&self, kind: SymbolKind, name: P0, searchflags: u32) -> ::windows_core::Result<IModelObject>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRawValue)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), searchflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateRawValues(&self, kind: SymbolKind, searchflags: u32) -> ::windows_core::Result<IRawEnumerator> {
-        let mut result__ = ::windows_core::zeroed::<IRawEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateRawValues)(::windows_core::Interface::as_raw(self), kind, searchflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn Dereference(&self) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Dereference)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn TryCastToRuntimeType(&self) -> ::windows_core::Result<IModelObject> {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TryCastToRuntimeType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetConcept(&self, conceptid: *const ::windows_core::GUID, conceptinterface: *mut ::core::option::Option<::windows_core::IUnknown>, conceptmetadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetConcept)(::windows_core::Interface::as_raw(self), conceptid, ::core::mem::transmute(conceptinterface), ::core::mem::transmute(conceptmetadata.unwrap_or(::std::ptr::null_mut()))).ok()
     }
     pub unsafe fn GetLocation(&self) -> ::windows_core::Result<Location> {
-        let mut result__ = ::windows_core::zeroed::<Location>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLocation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTypeInfo(&self) -> ::windows_core::Result<IDebugHostType> {
-        let mut result__ = ::windows_core::zeroed::<IDebugHostType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTypeInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetTargetInfo(&self, location: *mut Location, r#type: *mut ::core::option::Option<IDebugHostType>) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetTargetInfo)(::windows_core::Interface::as_raw(self), location, ::core::mem::transmute(r#type)).ok()
     }
     pub unsafe fn GetNumberOfParentModels(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetNumberOfParentModels)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetParentModel(&self, i: u64, model: *mut ::core::option::Option<IModelObject>, contextobject: *mut ::core::option::Option<IModelObject>) -> ::windows_core::Result<()> {
@@ -21453,11 +21453,11 @@ impl IModelObject {
         (::windows_core::Interface::vtable(self).ClearKeys)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn EnumerateKeys(&self) -> ::windows_core::Result<IKeyEnumerator> {
-        let mut result__ = ::windows_core::zeroed::<IKeyEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateKeys)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateKeyReferences(&self) -> ::windows_core::Result<IKeyEnumerator> {
-        let mut result__ = ::windows_core::zeroed::<IKeyEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateKeyReferences)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetConcept<P0, P1>(&self, conceptid: *const ::windows_core::GUID, conceptinterface: P0, conceptmetadata: P1) -> ::windows_core::Result<()>
@@ -21474,11 +21474,11 @@ impl IModelObject {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRawReference)(::windows_core::Interface::as_raw(self), kind, name.into_param().abi(), searchflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumerateRawReferences(&self, kind: SymbolKind, searchflags: u32) -> ::windows_core::Result<IRawEnumerator> {
-        let mut result__ = ::windows_core::zeroed::<IRawEnumerator>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateRawReferences)(::windows_core::Interface::as_raw(self), kind, searchflags, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetContextForDataModel<P0, P1>(&self, datamodelobject: P0, context: P1) -> ::windows_core::Result<()>
@@ -21492,7 +21492,7 @@ impl IModelObject {
     where
         P0: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetContextForDataModel)(::windows_core::Interface::as_raw(self), datamodelobject.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Compare<P0>(&self, other: P0, ppresult: ::core::option::Option<*mut ::core::option::Option<IModelObject>>) -> ::windows_core::Result<()>
@@ -21505,7 +21505,7 @@ impl IModelObject {
     where
         P0: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<bool>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsEqualTo)(::windows_core::Interface::as_raw(self), other.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -21585,7 +21585,7 @@ impl IModelPropertyAccessor {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), key.into_param().abi(), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetValue<P0, P1, P2>(&self, key: P0, contextobject: P1, value: P2) -> ::windows_core::Result<()>
@@ -21635,7 +21635,7 @@ impl IPreferredRuntimeTypeConcept {
     where
         P0: ::windows_core::IntoParam<IModelObject>,
     {
-        let mut result__ = ::windows_core::zeroed::<IModelObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CastToPreferredRuntimeType)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -21718,7 +21718,7 @@ impl IStringDisplayableConcept {
         P0: ::windows_core::IntoParam<IModelObject>,
         P1: ::windows_core::IntoParam<IKeyStore>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ToDisplayString)(::windows_core::Interface::as_raw(self), contextobject.into_param().abi(), metadata.into_param().abi(), &mut result__).from_abi(result__)
     }
 }

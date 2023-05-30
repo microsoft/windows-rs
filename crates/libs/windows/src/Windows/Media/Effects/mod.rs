@@ -56,7 +56,7 @@ impl IAudioEffectDefinition {
     pub fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivatableClassId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -65,7 +65,7 @@ impl IAudioEffectDefinition {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -239,7 +239,7 @@ impl IBasicAudioEffect {
     pub fn UseInputFrameForOutput(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UseInputFrameForOutput)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -248,7 +248,7 @@ impl IBasicAudioEffect {
     pub fn SupportedEncodingProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedEncodingProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -331,21 +331,21 @@ impl IBasicVideoEffect {
     pub fn IsReadOnly(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SupportedMemoryTypes(&self) -> ::windows_core::Result<MediaMemoryTypes> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<MediaMemoryTypes>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedMemoryTypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TimeIndependent(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TimeIndependent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -354,7 +354,7 @@ impl IBasicVideoEffect {
     pub fn SupportedEncodingProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedEncodingProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -534,7 +534,7 @@ impl IVideoCompositor {
     pub fn TimeIndependent(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TimeIndependent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -616,7 +616,7 @@ impl IVideoCompositorDefinition {
     pub fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivatableClassId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -625,7 +625,7 @@ impl IVideoCompositorDefinition {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -697,7 +697,7 @@ impl IVideoEffectDefinition {
     pub fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivatableClassId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -706,7 +706,7 @@ impl IVideoEffectDefinition {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -914,7 +914,7 @@ impl AudioCaptureEffectsManager {
     pub fn AudioCaptureEffectsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioCaptureEffectsChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -929,7 +929,7 @@ impl AudioCaptureEffectsManager {
     pub fn GetAudioCaptureEffects(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<AudioEffect>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAudioCaptureEffects)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -972,7 +972,7 @@ impl AudioEffect {
     pub fn AudioEffectType(&self) -> ::windows_core::Result<AudioEffectType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<AudioEffectType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioEffectType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1015,7 +1015,7 @@ impl AudioEffectDefinition {
     pub fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivatableClassId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1024,13 +1024,13 @@ impl AudioEffectDefinition {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(activatableclassid: &::windows_core::HSTRING) -> ::windows_core::Result<AudioEffectDefinition> {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AudioEffectDefinition>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), &mut result__).from_abi(result__)
         })
     }
@@ -1041,7 +1041,7 @@ impl AudioEffectDefinition {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IPropertySet>,
     {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AudioEffectDefinition>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), props.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1090,7 +1090,7 @@ impl AudioEffectsManager {
     #[cfg(feature = "Media_Render")]
     pub fn CreateAudioRenderEffectsManager(deviceid: &::windows_core::HSTRING, category: super::Render::AudioRenderCategory) -> ::windows_core::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AudioRenderEffectsManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAudioRenderEffectsManager)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, &mut result__).from_abi(result__)
         })
     }
@@ -1098,7 +1098,7 @@ impl AudioEffectsManager {
     #[cfg(feature = "Media_Render")]
     pub fn CreateAudioRenderEffectsManagerWithMode(deviceid: &::windows_core::HSTRING, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> ::windows_core::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AudioRenderEffectsManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAudioRenderEffectsManagerWithMode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, mode, &mut result__).from_abi(result__)
         })
     }
@@ -1106,7 +1106,7 @@ impl AudioEffectsManager {
     #[cfg(feature = "Media_Capture")]
     pub fn CreateAudioCaptureEffectsManager(deviceid: &::windows_core::HSTRING, category: super::Capture::MediaCategory) -> ::windows_core::Result<AudioCaptureEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AudioCaptureEffectsManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAudioCaptureEffectsManager)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, &mut result__).from_abi(result__)
         })
     }
@@ -1114,7 +1114,7 @@ impl AudioEffectsManager {
     #[cfg(feature = "Media_Capture")]
     pub fn CreateAudioCaptureEffectsManagerWithMode(deviceid: &::windows_core::HSTRING, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> ::windows_core::Result<AudioCaptureEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AudioCaptureEffectsManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), category, mode, &mut result__).from_abi(result__)
         })
     }
@@ -1136,7 +1136,7 @@ impl AudioRenderEffectsManager {
     pub fn AudioRenderEffectsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioRenderEffectsChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1151,7 +1151,7 @@ impl AudioRenderEffectsManager {
     pub fn GetAudioRenderEffects(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<AudioEffect>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<AudioEffect>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAudioRenderEffects)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1160,7 +1160,7 @@ impl AudioRenderEffectsManager {
     pub fn EffectsProviderThumbnail(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = &::windows_core::ComInterface::cast::<IAudioRenderEffectsManager2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EffectsProviderThumbnail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1169,7 +1169,7 @@ impl AudioRenderEffectsManager {
     pub fn EffectsProviderSettingsLabel(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IAudioRenderEffectsManager2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EffectsProviderSettingsLabel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1220,21 +1220,21 @@ impl CompositeVideoFrameContext {
     pub fn SurfacesToOverlay(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SurfacesToOverlay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BackgroundFrame(&self) -> ::windows_core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::VideoFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BackgroundFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OutputFrame(&self) -> ::windows_core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::VideoFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OutputFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1246,7 +1246,7 @@ impl CompositeVideoFrameContext {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Editing::MediaOverlay>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOverlayForSurface)(::windows_core::Interface::as_raw(this), surfacetooverlay.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1289,14 +1289,14 @@ impl ProcessAudioFrameContext {
     pub fn InputFrame(&self) -> ::windows_core::Result<super::AudioFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::AudioFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InputFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OutputFrame(&self) -> ::windows_core::Result<super::AudioFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::AudioFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OutputFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1339,14 +1339,14 @@ impl ProcessVideoFrameContext {
     pub fn InputFrame(&self) -> ::windows_core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::VideoFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InputFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OutputFrame(&self) -> ::windows_core::Result<super::VideoFrame> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::VideoFrame>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OutputFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1396,7 +1396,7 @@ impl SlowMotionEffectDefinition {
     pub fn TimeStretchRate(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TimeStretchRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1407,7 +1407,7 @@ impl SlowMotionEffectDefinition {
     pub fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IVideoEffectDefinition>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivatableClassId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1416,7 +1416,7 @@ impl SlowMotionEffectDefinition {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows_core::ComInterface::cast::<IVideoEffectDefinition>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1460,7 +1460,7 @@ impl VideoCompositorDefinition {
     pub fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivatableClassId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1469,13 +1469,13 @@ impl VideoCompositorDefinition {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(activatableclassid: &::windows_core::HSTRING) -> ::windows_core::Result<VideoCompositorDefinition> {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoCompositorDefinition>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), &mut result__).from_abi(result__)
         })
     }
@@ -1486,7 +1486,7 @@ impl VideoCompositorDefinition {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IPropertySet>,
     {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoCompositorDefinition>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), props.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1535,7 +1535,7 @@ impl VideoEffectDefinition {
     pub fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivatableClassId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1544,13 +1544,13 @@ impl VideoEffectDefinition {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(activatableclassid: &::windows_core::HSTRING) -> ::windows_core::Result<VideoEffectDefinition> {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoEffectDefinition>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), &mut result__).from_abi(result__)
         })
     }
@@ -1561,7 +1561,7 @@ impl VideoEffectDefinition {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IPropertySet>,
     {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoEffectDefinition>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid), props.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1617,7 +1617,7 @@ impl VideoTransformEffectDefinition {
     pub fn ActivatableClassId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivatableClassId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1626,7 +1626,7 @@ impl VideoTransformEffectDefinition {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1635,7 +1635,7 @@ impl VideoTransformEffectDefinition {
     pub fn PaddingColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::UI::Color>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PaddingColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1650,7 +1650,7 @@ impl VideoTransformEffectDefinition {
     pub fn OutputSize(&self) -> ::windows_core::Result<super::super::Foundation::Size> {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Size>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OutputSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1665,7 +1665,7 @@ impl VideoTransformEffectDefinition {
     pub fn CropRectangle(&self) -> ::windows_core::Result<super::super::Foundation::Rect> {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Rect>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CropRectangle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1680,7 +1680,7 @@ impl VideoTransformEffectDefinition {
     pub fn Rotation(&self) -> ::windows_core::Result<super::MediaProperties::MediaRotation> {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::MediaProperties::MediaRotation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Rotation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1695,7 +1695,7 @@ impl VideoTransformEffectDefinition {
     pub fn Mirror(&self) -> ::windows_core::Result<super::MediaProperties::MediaMirroringOptions> {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::MediaProperties::MediaMirroringOptions>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Mirror)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1716,14 +1716,14 @@ impl VideoTransformEffectDefinition {
     pub fn ProcessingAlgorithm(&self) -> ::windows_core::Result<super::Transcoding::MediaVideoProcessingAlgorithm> {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Transcoding::MediaVideoProcessingAlgorithm>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProcessingAlgorithm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SphericalProjection(&self) -> ::windows_core::Result<VideoTransformSphericalProjection> {
         let this = &::windows_core::ComInterface::cast::<IVideoTransformEffectDefinition2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<VideoTransformSphericalProjection>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SphericalProjection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1767,7 +1767,7 @@ impl VideoTransformSphericalProjection {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1780,7 +1780,7 @@ impl VideoTransformSphericalProjection {
     pub fn FrameFormat(&self) -> ::windows_core::Result<super::MediaProperties::SphericalVideoFrameFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::MediaProperties::SphericalVideoFrameFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1795,7 +1795,7 @@ impl VideoTransformSphericalProjection {
     pub fn ProjectionMode(&self) -> ::windows_core::Result<super::Playback::SphericalVideoProjectionMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Playback::SphericalVideoProjectionMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProjectionMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1808,7 +1808,7 @@ impl VideoTransformSphericalProjection {
     pub fn HorizontalFieldOfViewInDegrees(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HorizontalFieldOfViewInDegrees)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1821,7 +1821,7 @@ impl VideoTransformSphericalProjection {
     pub fn ViewOrientation(&self) -> ::windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Numerics::Quaternion>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ViewOrientation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

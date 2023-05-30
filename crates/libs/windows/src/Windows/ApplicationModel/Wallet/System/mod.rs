@@ -113,7 +113,7 @@ impl WalletItemSystemStore {
     pub fn GetItemsAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetItemsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -122,7 +122,7 @@ impl WalletItemSystemStore {
     pub fn DeleteAsync(&self, item: &super::WalletItem) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeleteAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(item), &mut result__).from_abi(result__)
         }
     }
@@ -134,7 +134,7 @@ impl WalletItemSystemStore {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::WalletItem>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ImportItemAsync)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -143,7 +143,7 @@ impl WalletItemSystemStore {
     pub fn GetAppStatusForItem(&self, item: &super::WalletItem) -> ::windows_core::Result<WalletItemAppAssociation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WalletItemAppAssociation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAppStatusForItem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(item), &mut result__).from_abi(result__)
         }
     }
@@ -152,7 +152,7 @@ impl WalletItemSystemStore {
     pub fn LaunchAppForItemAsync(&self, item: &super::WalletItem) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LaunchAppForItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(item), &mut result__).from_abi(result__)
         }
     }
@@ -161,7 +161,7 @@ impl WalletItemSystemStore {
     pub fn ItemsChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<WalletItemSystemStore, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IWalletItemSystemStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ItemsChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -223,7 +223,7 @@ impl WalletManagerSystem {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RequestStoreAsync() -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>> {
         Self::IWalletManagerSystemStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }

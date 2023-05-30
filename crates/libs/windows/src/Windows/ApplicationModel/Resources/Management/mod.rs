@@ -148,7 +148,7 @@ impl IndexedResourceCandidate {
     pub fn Type(&self) -> ::windows_core::Result<IndexedResourceType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IndexedResourceType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -157,7 +157,7 @@ impl IndexedResourceCandidate {
     pub fn Uri(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -166,7 +166,7 @@ impl IndexedResourceCandidate {
     pub fn Metadata(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, ::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Metadata)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -175,21 +175,21 @@ impl IndexedResourceCandidate {
     pub fn Qualifiers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<IndexedResourceQualifier>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Qualifiers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ValueAsString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ValueAsString)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetQualifierValue(&self, qualifiername: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetQualifierValue)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(qualifiername), &mut result__).from_abi(result__)
         }
     }
@@ -232,14 +232,14 @@ impl IndexedResourceQualifier {
     pub fn QualifierName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QualifierName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn QualifierValue(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QualifierValue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -286,7 +286,7 @@ impl ResourceIndexer {
     pub fn IndexFilePath(&self, filepath: &super::super::super::Foundation::Uri) -> ::windows_core::Result<IndexedResourceCandidate> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IndexedResourceCandidate>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IndexFilePath)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         }
     }
@@ -295,7 +295,7 @@ impl ResourceIndexer {
     pub fn IndexFileContentsAsync(&self, file: &super::super::super::Foundation::Uri) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IndexFileContentsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(file), &mut result__).from_abi(result__)
         }
     }
@@ -303,7 +303,7 @@ impl ResourceIndexer {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CreateResourceIndexer(projectroot: &super::super::super::Foundation::Uri) -> ::windows_core::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ResourceIndexer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateResourceIndexer)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(projectroot), &mut result__).from_abi(result__)
         })
     }
@@ -311,7 +311,7 @@ impl ResourceIndexer {
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CreateResourceIndexerWithExtension(projectroot: &super::super::super::Foundation::Uri, extensiondllpath: &super::super::super::Foundation::Uri) -> ::windows_core::Result<ResourceIndexer> {
         Self::IResourceIndexerFactory2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ResourceIndexer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateResourceIndexerWithExtension)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(projectroot), ::core::mem::transmute_copy(extensiondllpath), &mut result__).from_abi(result__)
         })
     }

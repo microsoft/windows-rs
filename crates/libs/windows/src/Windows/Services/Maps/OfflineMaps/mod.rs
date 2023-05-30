@@ -115,28 +115,28 @@ impl OfflineMapPackage {
     pub fn Status(&self) -> ::windows_core::Result<OfflineMapPackageStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<OfflineMapPackageStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EnclosingRegionName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnclosingRegionName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EstimatedSizeInBytes(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EstimatedSizeInBytes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -151,7 +151,7 @@ impl OfflineMapPackage {
     pub fn StatusChanged(&self, value: &super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
@@ -160,7 +160,7 @@ impl OfflineMapPackage {
     pub fn RequestStartDownloadAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestStartDownloadAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -168,7 +168,7 @@ impl OfflineMapPackage {
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindPackagesAsync(querypoint: &super::super::super::Devices::Geolocation::Geopoint) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindPackagesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(querypoint), &mut result__).from_abi(result__)
         })
     }
@@ -176,7 +176,7 @@ impl OfflineMapPackage {
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindPackagesInBoundingBoxAsync(queryboundingbox: &super::super::super::Devices::Geolocation::GeoboundingBox) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(queryboundingbox), &mut result__).from_abi(result__)
         })
     }
@@ -184,7 +184,7 @@ impl OfflineMapPackage {
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindPackagesInGeocircleAsync(querycircle: &super::super::super::Devices::Geolocation::Geocircle) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindPackagesInGeocircleAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(querycircle), &mut result__).from_abi(result__)
         })
     }
@@ -232,7 +232,7 @@ impl OfflineMapPackageQueryResult {
     pub fn Status(&self) -> ::windows_core::Result<OfflineMapPackageQueryStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<OfflineMapPackageQueryStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -241,7 +241,7 @@ impl OfflineMapPackageQueryResult {
     pub fn Packages(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<OfflineMapPackage>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<OfflineMapPackage>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Packages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -284,7 +284,7 @@ impl OfflineMapPackageStartDownloadResult {
     pub fn Status(&self) -> ::windows_core::Result<OfflineMapPackageStartDownloadStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<OfflineMapPackageStartDownloadStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

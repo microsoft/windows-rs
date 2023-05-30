@@ -533,7 +533,7 @@ impl GuidanceAudioNotificationRequestedEventArgs {
     pub fn AudioNotification(&self) -> ::windows_core::Result<GuidanceAudioNotificationKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceAudioNotificationKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioNotification)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -542,14 +542,14 @@ impl GuidanceAudioNotificationRequestedEventArgs {
     pub fn AudioFilePaths(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioFilePaths)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AudioText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -592,14 +592,14 @@ impl GuidanceLaneInfo {
     pub fn LaneMarkers(&self) -> ::windows_core::Result<GuidanceLaneMarkers> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceLaneMarkers>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LaneMarkers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsOnRoute(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsOnRoute)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -644,84 +644,84 @@ impl GuidanceManeuver {
     pub fn StartLocation(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Devices::Geolocation::Geopoint>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartLocation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DistanceFromRouteStart(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DistanceFromRouteStart)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DistanceFromPreviousManeuver(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DistanceFromPreviousManeuver)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DepartureRoadName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DepartureRoadName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NextRoadName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NextRoadName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DepartureShortRoadName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DepartureShortRoadName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NextShortRoadName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NextShortRoadName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<GuidanceManeuverKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceManeuverKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StartAngle(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartAngle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EndAngle(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndAngle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RoadSignpost(&self) -> ::windows_core::Result<GuidanceRoadSignpost> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceRoadSignpost>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoadSignpost)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InstructionText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstructionText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -766,35 +766,35 @@ impl GuidanceMapMatchedCoordinate {
     pub fn Location(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopoint> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Devices::Geolocation::Geopoint>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Location)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentHeading(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentHeading)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentSpeed(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentSpeed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsOnStreet(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsOnStreet)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Road(&self) -> ::windows_core::Result<GuidanceRoadSegment> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceRoadSegment>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Road)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -865,7 +865,7 @@ impl GuidanceNavigator {
     pub fn AudioMeasurementSystem(&self) -> ::windows_core::Result<GuidanceAudioMeasurementSystem> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceAudioMeasurementSystem>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioMeasurementSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -876,7 +876,7 @@ impl GuidanceNavigator {
     pub fn AudioNotifications(&self) -> ::windows_core::Result<GuidanceAudioNotifications> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceAudioNotifications>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioNotifications)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -889,7 +889,7 @@ impl GuidanceNavigator {
     pub fn GuidanceUpdated(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceUpdatedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GuidanceUpdated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -904,7 +904,7 @@ impl GuidanceNavigator {
     pub fn DestinationReached(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DestinationReached)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -919,7 +919,7 @@ impl GuidanceNavigator {
     pub fn Rerouting(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Rerouting)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -934,7 +934,7 @@ impl GuidanceNavigator {
     pub fn Rerouted(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceReroutedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Rerouted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -949,7 +949,7 @@ impl GuidanceNavigator {
     pub fn RerouteFailed(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RerouteFailed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -964,7 +964,7 @@ impl GuidanceNavigator {
     pub fn UserLocationLost(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UserLocationLost)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -979,7 +979,7 @@ impl GuidanceNavigator {
     pub fn UserLocationRestored(&self, handler: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UserLocationRestored)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1010,7 +1010,7 @@ impl GuidanceNavigator {
     pub fn AudioNotificationRequested(&self, value: &super::super::super::Foundation::TypedEventHandler<GuidanceNavigator, GuidanceAudioNotificationRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IGuidanceNavigator2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AudioNotificationRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
@@ -1023,7 +1023,7 @@ impl GuidanceNavigator {
     pub fn IsGuidanceAudioMuted(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IGuidanceNavigator2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsGuidanceAudioMuted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1033,13 +1033,13 @@ impl GuidanceNavigator {
     }
     pub fn GetCurrent() -> ::windows_core::Result<GuidanceNavigator> {
         Self::IGuidanceNavigatorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceNavigator>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCurrent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn UseAppProvidedVoice() -> ::windows_core::Result<bool> {
         Self::IGuidanceNavigatorStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UseAppProvidedVoice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1092,7 +1092,7 @@ impl GuidanceReroutedEventArgs {
     pub fn Route(&self) -> ::windows_core::Result<GuidanceRoute> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceRoute>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Route)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1135,21 +1135,21 @@ impl GuidanceRoadSegment {
     pub fn RoadName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoadName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ShortRoadName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShortRoadName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SpeedLimit(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SpeedLimit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1158,7 +1158,7 @@ impl GuidanceRoadSegment {
     pub fn TravelTime(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TravelTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1167,42 +1167,42 @@ impl GuidanceRoadSegment {
     pub fn Path(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopath> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Devices::Geolocation::Geopath>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Path)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsHighway(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsHighway)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsTunnel(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsTunnel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsTollRoad(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsTollRoad)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsScenic(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IGuidanceRoadSegment2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsScenic)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1245,14 +1245,14 @@ impl GuidanceRoadSignpost {
     pub fn ExitNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExitNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Exit(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Exit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1261,7 +1261,7 @@ impl GuidanceRoadSignpost {
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::UI::Color>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1270,7 +1270,7 @@ impl GuidanceRoadSignpost {
     pub fn ForegroundColor(&self) -> ::windows_core::Result<super::super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::UI::Color>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1279,7 +1279,7 @@ impl GuidanceRoadSignpost {
     pub fn ExitDirections(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExitDirections)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1324,14 +1324,14 @@ impl GuidanceRoute {
     pub fn Duration(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Duration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Distance(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Distance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1340,7 +1340,7 @@ impl GuidanceRoute {
     pub fn Maneuvers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceManeuver>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<GuidanceManeuver>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Maneuvers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1349,7 +1349,7 @@ impl GuidanceRoute {
     pub fn BoundingBox(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::GeoboundingBox> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Devices::Geolocation::GeoboundingBox>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BoundingBox)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1358,7 +1358,7 @@ impl GuidanceRoute {
     pub fn Path(&self) -> ::windows_core::Result<super::super::super::Devices::Geolocation::Geopath> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Devices::Geolocation::Geopath>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Path)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1367,26 +1367,26 @@ impl GuidanceRoute {
     pub fn RoadSegments(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceRoadSegment>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<GuidanceRoadSegment>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoadSegments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ConvertToMapRoute(&self) -> ::windows_core::Result<super::MapRoute> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::MapRoute>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConvertToMapRoute)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanCreateFromMapRoute(maproute: &super::MapRoute) -> ::windows_core::Result<bool> {
         Self::IGuidanceRouteStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanCreateFromMapRoute)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(maproute), &mut result__).from_abi(result__)
         })
     }
     pub fn TryCreateFromMapRoute(maproute: &super::MapRoute) -> ::windows_core::Result<GuidanceRoute> {
         Self::IGuidanceRouteStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceRoute>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryCreateFromMapRoute)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(maproute), &mut result__).from_abi(result__)
         })
     }
@@ -1434,7 +1434,7 @@ impl GuidanceTelemetryCollector {
     pub fn Enabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Enabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1449,7 +1449,7 @@ impl GuidanceTelemetryCollector {
     pub fn SpeedTrigger(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SpeedTrigger)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1460,7 +1460,7 @@ impl GuidanceTelemetryCollector {
     pub fn UploadFrequency(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UploadFrequency)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1470,7 +1470,7 @@ impl GuidanceTelemetryCollector {
     }
     pub fn GetCurrent() -> ::windows_core::Result<GuidanceTelemetryCollector> {
         Self::IGuidanceTelemetryCollectorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceTelemetryCollector>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCurrent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1518,49 +1518,49 @@ impl GuidanceUpdatedEventArgs {
     pub fn Mode(&self) -> ::windows_core::Result<GuidanceMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Mode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NextManeuver(&self) -> ::windows_core::Result<GuidanceManeuver> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceManeuver>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NextManeuver)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NextManeuverDistance(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NextManeuverDistance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AfterNextManeuver(&self) -> ::windows_core::Result<GuidanceManeuver> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceManeuver>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AfterNextManeuver)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AfterNextManeuverDistance(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AfterNextManeuverDistance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DistanceToDestination(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DistanceToDestination)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ElapsedDistance(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ElapsedDistance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1569,7 +1569,7 @@ impl GuidanceUpdatedEventArgs {
     pub fn ElapsedTime(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ElapsedTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1578,35 +1578,35 @@ impl GuidanceUpdatedEventArgs {
     pub fn TimeToDestination(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TimeToDestination)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RoadName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RoadName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Route(&self) -> ::windows_core::Result<GuidanceRoute> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceRoute>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Route)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrentLocation(&self) -> ::windows_core::Result<GuidanceMapMatchedCoordinate> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GuidanceMapMatchedCoordinate>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentLocation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsNewManeuver(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsNewManeuver)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1615,7 +1615,7 @@ impl GuidanceUpdatedEventArgs {
     pub fn LaneInfo(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<GuidanceLaneInfo>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<GuidanceLaneInfo>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LaneInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

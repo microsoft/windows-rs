@@ -70,7 +70,7 @@ impl SceneLightingEffect {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -83,7 +83,7 @@ impl SceneLightingEffect {
     pub fn AmbientAmount(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AmbientAmount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -94,7 +94,7 @@ impl SceneLightingEffect {
     pub fn DiffuseAmount(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DiffuseAmount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -107,7 +107,7 @@ impl SceneLightingEffect {
     pub fn NormalMapSource(&self) -> ::windows_core::Result<super::super::super::Graphics::Effects::IGraphicsEffectSource> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::Effects::IGraphicsEffectSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NormalMapSource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -123,7 +123,7 @@ impl SceneLightingEffect {
     pub fn SpecularAmount(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SpecularAmount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -134,7 +134,7 @@ impl SceneLightingEffect {
     pub fn SpecularShine(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SpecularShine)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -145,7 +145,7 @@ impl SceneLightingEffect {
     pub fn ReflectanceModel(&self) -> ::windows_core::Result<SceneLightingEffectReflectanceModel> {
         let this = &::windows_core::ComInterface::cast::<ISceneLightingEffect2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SceneLightingEffectReflectanceModel>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReflectanceModel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

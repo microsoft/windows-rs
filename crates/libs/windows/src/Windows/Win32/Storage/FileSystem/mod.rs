@@ -536,7 +536,7 @@ where
 #[inline]
 pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32) -> ::windows_core::Result<*mut HIORING__> {
     ::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn CreateIoRing(ioringversion : IORING_VERSION, flags : IORING_CREATE_FLAGS, submissionqueuesize : u32, completionqueuesize : u32, h : *mut *mut HIORING__) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut HIORING__>();
+    let mut result__ = ::std::mem::zeroed();
     CreateIoRing(ioringversion, ::core::mem::transmute(flags), submissionqueuesize, completionqueuesize, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
@@ -2655,7 +2655,7 @@ pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const ::windows_
 #[inline]
 pub unsafe fn PopIoRingCompletion(ioring: *const HIORING__) -> ::windows_core::Result<IORING_CQE> {
     ::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn PopIoRingCompletion(ioring : *const HIORING__, cqe : *mut IORING_CQE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<IORING_CQE>();
+    let mut result__ = ::std::mem::zeroed();
     PopIoRingCompletion(ioring, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -2741,7 +2741,7 @@ where
 #[inline]
 pub unsafe fn QueryIoRingCapabilities() -> ::windows_core::Result<IORING_CAPABILITIES> {
     ::windows_targets::link!("api-ms-win-core-ioring-l1-1-0.dll" "system" fn QueryIoRingCapabilities(capabilities : *mut IORING_CAPABILITIES) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<IORING_CAPABILITIES>();
+    let mut result__ = ::std::mem::zeroed();
     QueryIoRingCapabilities(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3579,7 +3579,7 @@ pub unsafe fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: *const
 #[inline]
 pub unsafe fn TxfGetThreadMiniVersionForCreate() -> u16 {
     ::windows_targets::link!("txfw32.dll" "system" fn TxfGetThreadMiniVersionForCreate(miniversion : *mut u16) -> ());
-    let mut result__ = ::windows_core::zeroed::<u16>();
+    let mut result__ = ::std::mem::zeroed();
     TxfGetThreadMiniVersionForCreate(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -3785,7 +3785,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("wofutil.dll" "system" fn WofGetDriverVersion(fileorvolumehandle : super::super::Foundation:: HANDLE, provider : u32, wofversion : *mut u32) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<u32>();
+    let mut result__ = ::std::mem::zeroed();
     WofGetDriverVersion(fileorvolumehandle.into_param().abi(), provider, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3826,7 +3826,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("wofutil.dll" "system" fn WofWimAddEntry(volumename : ::windows_core::PCWSTR, wimpath : ::windows_core::PCWSTR, wimtype : u32, wimindex : u32, datasourceid : *mut i64) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<i64>();
+    let mut result__ = ::std::mem::zeroed();
     WofWimAddEntry(volumename.into_param().abi(), wimpath.into_param().abi(), wimtype, wimindex, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
@@ -3954,13 +3954,13 @@ impl IDiskQuotaControl {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumConnectionPoints(&self) -> ::windows_core::Result<super::super::System::Com::IEnumConnectionPoints> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IEnumConnectionPoints>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumConnectionPoints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindConnectionPoint(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<super::super::System::Com::IConnectionPoint> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IConnectionPoint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FindConnectionPoint)(::windows_core::Interface::as_raw(self), riid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4014,14 +4014,14 @@ impl IDiskQuotaControl {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::PSID>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDiskQuotaUser>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddUserSid)(::windows_core::Interface::as_raw(self), pusersid.into_param().abi(), fnameresolution, &mut result__).from_abi(result__)
     }
     pub unsafe fn AddUserName<P0>(&self, pszlogonname: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows_core::Result<IDiskQuotaUser>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDiskQuotaUser>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddUserName)(::windows_core::Interface::as_raw(self), pszlogonname.into_param().abi(), fnameresolution, &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteUser<P0>(&self, puser: P0) -> ::windows_core::Result<()>
@@ -4036,14 +4036,14 @@ impl IDiskQuotaControl {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::PSID>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDiskQuotaUser>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindUserSid)(::windows_core::Interface::as_raw(self), pusersid.into_param().abi(), fnameresolution, &mut result__).from_abi(result__)
     }
     pub unsafe fn FindUserName<P0>(&self, pszlogonname: P0) -> ::windows_core::Result<IDiskQuotaUser>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IDiskQuotaUser>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindUserName)(::windows_core::Interface::as_raw(self), pszlogonname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4052,7 +4052,7 @@ impl IDiskQuotaControl {
         (::windows_core::Interface::vtable(self).CreateEnumUsers)(::windows_core::Interface::as_raw(self), rgpusersids, cpsids, fnameresolution, ::core::mem::transmute(ppenum)).ok()
     }
     pub unsafe fn CreateUserBatch(&self) -> ::windows_core::Result<IDiskQuotaUserBatch> {
-        let mut result__ = ::windows_core::zeroed::<IDiskQuotaUserBatch>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateUserBatch)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InvalidateSidNameCache(&self) -> ::windows_core::Result<()> {
@@ -4369,7 +4369,7 @@ impl IEnumDiskQuotaUsers {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumDiskQuotaUsers> {
-        let mut result__ = ::windows_core::zeroed::<IEnumDiskQuotaUsers>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

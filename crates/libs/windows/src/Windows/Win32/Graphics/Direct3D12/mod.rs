@@ -268,7 +268,7 @@ impl ID3D12CommandQueue {
         (::windows_core::Interface::vtable(self).Wait)(::windows_core::Interface::as_raw(self), pfence.into_param().abi(), value).ok()
     }
     pub unsafe fn GetTimestampFrequency(&self) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTimestampFrequency)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetClockCalibration(&self, pgputimestamp: *mut u64, pcputimestamp: *mut u64) -> ::windows_core::Result<()> {
@@ -1548,7 +1548,7 @@ impl ID3D12Device {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1566,7 +1566,7 @@ impl ID3D12Device {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -1916,7 +1916,7 @@ impl ID3D12Device1 {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1934,7 +1934,7 @@ impl ID3D12Device1 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -2226,7 +2226,7 @@ impl ID3D12Device10 {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2244,7 +2244,7 @@ impl ID3D12Device10 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -2760,7 +2760,7 @@ impl ID3D12Device11 {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2778,7 +2778,7 @@ impl ID3D12Device11 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -3286,7 +3286,7 @@ impl ID3D12Device2 {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3304,7 +3304,7 @@ impl ID3D12Device2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -3598,7 +3598,7 @@ impl ID3D12Device3 {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3616,7 +3616,7 @@ impl ID3D12Device3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -3938,7 +3938,7 @@ impl ID3D12Device4 {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3956,7 +3956,7 @@ impl ID3D12Device4 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -4333,7 +4333,7 @@ impl ID3D12Device5 {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4351,7 +4351,7 @@ impl ID3D12Device5 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -4763,7 +4763,7 @@ impl ID3D12Device6 {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4781,7 +4781,7 @@ impl ID3D12Device6 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -5194,7 +5194,7 @@ impl ID3D12Device7 {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5212,7 +5212,7 @@ impl ID3D12Device7 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -5638,7 +5638,7 @@ impl ID3D12Device8 {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5656,7 +5656,7 @@ impl ID3D12Device8 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -6134,7 +6134,7 @@ impl ID3D12Device9 {
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.CreateSharedHandle)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(pattributes.unwrap_or(::std::ptr::null())), access, name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6152,7 +6152,7 @@ impl ID3D12Device9 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.base__.base__.base__.base__.base__.OpenSharedHandleByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), access, &mut result__).from_abi(result__)
     }
     pub unsafe fn MakeResident(&self, ppobjects: &[::core::option::Option<ID3D12Pageable>]) -> ::windows_core::Result<()> {
@@ -6656,11 +6656,11 @@ pub struct ID3D12DeviceFactory_Vtbl {
 pub struct ID3D12DeviceRemovedExtendedData(::windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedData {
     pub unsafe fn GetAutoBreadcrumbsOutput(&self) -> ::windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT> {
-        let mut result__ = ::windows_core::zeroed::<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAutoBreadcrumbsOutput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPageFaultAllocationOutput(&self) -> ::windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT> {
-        let mut result__ = ::windows_core::zeroed::<D3D12_DRED_PAGE_FAULT_OUTPUT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPageFaultAllocationOutput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -6701,19 +6701,19 @@ pub struct ID3D12DeviceRemovedExtendedData_Vtbl {
 pub struct ID3D12DeviceRemovedExtendedData1(::windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedData1 {
     pub unsafe fn GetAutoBreadcrumbsOutput(&self) -> ::windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT> {
-        let mut result__ = ::windows_core::zeroed::<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAutoBreadcrumbsOutput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPageFaultAllocationOutput(&self) -> ::windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT> {
-        let mut result__ = ::windows_core::zeroed::<D3D12_DRED_PAGE_FAULT_OUTPUT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPageFaultAllocationOutput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAutoBreadcrumbsOutput1(&self) -> ::windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1> {
-        let mut result__ = ::windows_core::zeroed::<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAutoBreadcrumbsOutput1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPageFaultAllocationOutput1(&self) -> ::windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT1> {
-        let mut result__ = ::windows_core::zeroed::<D3D12_DRED_PAGE_FAULT_OUTPUT1>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPageFaultAllocationOutput1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -6754,19 +6754,19 @@ pub struct ID3D12DeviceRemovedExtendedData1_Vtbl {
 pub struct ID3D12DeviceRemovedExtendedData2(::windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedData2 {
     pub unsafe fn GetAutoBreadcrumbsOutput(&self) -> ::windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT> {
-        let mut result__ = ::windows_core::zeroed::<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetAutoBreadcrumbsOutput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPageFaultAllocationOutput(&self) -> ::windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT> {
-        let mut result__ = ::windows_core::zeroed::<D3D12_DRED_PAGE_FAULT_OUTPUT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetPageFaultAllocationOutput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAutoBreadcrumbsOutput1(&self) -> ::windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1> {
-        let mut result__ = ::windows_core::zeroed::<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAutoBreadcrumbsOutput1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPageFaultAllocationOutput1(&self) -> ::windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT1> {
-        let mut result__ = ::windows_core::zeroed::<D3D12_DRED_PAGE_FAULT_OUTPUT1>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPageFaultAllocationOutput1)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetPageFaultAllocationOutput2(&self, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT2) -> ::windows_core::Result<()> {
@@ -11627,7 +11627,7 @@ pub struct ID3D12InfoQueue1_Vtbl {
 pub struct ID3D12LibraryReflection(::windows_core::IUnknown);
 impl ID3D12LibraryReflection {
     pub unsafe fn GetDesc(&self) -> ::windows_core::Result<D3D12_LIBRARY_DESC> {
-        let mut result__ = ::windows_core::zeroed::<D3D12_LIBRARY_DESC>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDesc)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunctionByIndex(&self, functionindex: i32) -> ::core::option::Option<ID3D12FunctionReflection> {
@@ -12178,7 +12178,7 @@ impl ID3D12PipelineState {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetCachedBlob(&self) -> ::windows_core::Result<super::Direct3D::ID3DBlob> {
-        let mut result__ = ::windows_core::zeroed::<super::Direct3D::ID3DBlob>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCachedBlob)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -13135,7 +13135,7 @@ impl ID3D12ShaderReflection {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D")]
     pub unsafe fn GetMinFeatureLevel(&self) -> ::windows_core::Result<super::Direct3D::D3D_FEATURE_LEVEL> {
-        let mut result__ = ::windows_core::zeroed::<super::Direct3D::D3D_FEATURE_LEVEL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMinFeatureLevel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetThreadGroupSize(&self, psizex: ::core::option::Option<*mut u32>, psizey: ::core::option::Option<*mut u32>, psizez: ::core::option::Option<*mut u32>) -> u32 {
@@ -13714,7 +13714,7 @@ pub struct ID3D12Tools_Vtbl {
 pub struct ID3D12VersionedRootSignatureDeserializer(::windows_core::IUnknown);
 impl ID3D12VersionedRootSignatureDeserializer {
     pub unsafe fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> ::windows_core::Result<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC> {
-        let mut result__ = ::windows_core::zeroed::<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRootSignatureDescAtVersion)(::windows_core::Interface::as_raw(self), converttoversion, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetUnconvertedRootSignatureDesc(&self) -> *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
@@ -13763,14 +13763,14 @@ impl ID3D12VirtualizationGuestDevice {
     where
         P0: ::windows_core::IntoParam<ID3D12DeviceChild>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ShareWithHost)(::windows_core::Interface::as_raw(self), pobject.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateFenceFd<P0>(&self, pfence: P0, fencevalue: u64) -> ::windows_core::Result<i32>
     where
         P0: ::windows_core::IntoParam<ID3D12Fence>,
     {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateFenceFd)(::windows_core::Interface::as_raw(self), pfence.into_param().abi(), fencevalue, &mut result__).from_abi(result__)
     }
 }

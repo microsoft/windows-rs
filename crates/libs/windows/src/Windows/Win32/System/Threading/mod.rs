@@ -926,7 +926,7 @@ pub unsafe fn GetCurrentProcessorNumber() -> u32 {
 #[inline]
 pub unsafe fn GetCurrentProcessorNumberEx() -> super::Kernel::PROCESSOR_NUMBER {
     ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentProcessorNumberEx(procnumber : *mut super::Kernel:: PROCESSOR_NUMBER) -> ());
-    let mut result__ = ::windows_core::zeroed::<super::Kernel::PROCESSOR_NUMBER>();
+    let mut result__ = ::std::mem::zeroed();
     GetCurrentProcessorNumberEx(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -989,7 +989,7 @@ where
 #[inline]
 pub unsafe fn GetMachineTypeAttributes(machine: u16) -> ::windows_core::Result<MACHINE_ATTRIBUTES> {
     ::windows_targets::link!("kernel32.dll" "system" fn GetMachineTypeAttributes(machine : u16, machinetypeattributes : *mut MACHINE_ATTRIBUTES) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<MACHINE_ATTRIBUTES>();
+    let mut result__ = ::std::mem::zeroed();
     GetMachineTypeAttributes(machine, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -1282,7 +1282,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetThreadDescription(hthread : super::super::Foundation:: HANDLE, ppszthreaddescription : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+    let mut result__ = ::std::mem::zeroed();
     GetThreadDescription(hthread.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_SystemInformation\"`*"]
@@ -1427,7 +1427,7 @@ pub unsafe fn InitOnceExecuteOnce(initonce: *mut RTL_RUN_ONCE, initfn: PINIT_ONC
 #[inline]
 pub unsafe fn InitOnceInitialize() -> RTL_RUN_ONCE {
     ::windows_targets::link!("kernel32.dll" "system" fn InitOnceInitialize(initonce : *mut RTL_RUN_ONCE) -> ());
-    let mut result__ = ::windows_core::zeroed::<RTL_RUN_ONCE>();
+    let mut result__ = ::std::mem::zeroed();
     InitOnceInitialize(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1435,7 +1435,7 @@ pub unsafe fn InitOnceInitialize() -> RTL_RUN_ONCE {
 #[inline]
 pub unsafe fn InitializeConditionVariable() -> RTL_CONDITION_VARIABLE {
     ::windows_targets::link!("kernel32.dll" "system" fn InitializeConditionVariable(conditionvariable : *mut RTL_CONDITION_VARIABLE) -> ());
-    let mut result__ = ::windows_core::zeroed::<RTL_CONDITION_VARIABLE>();
+    let mut result__ = ::std::mem::zeroed();
     InitializeConditionVariable(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1472,7 +1472,7 @@ pub unsafe fn InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_A
 #[inline]
 pub unsafe fn InitializeSListHead() -> super::Kernel::SLIST_HEADER {
     ::windows_targets::link!("kernel32.dll" "system" fn InitializeSListHead(listhead : *mut super::Kernel:: SLIST_HEADER) -> ());
-    let mut result__ = ::windows_core::zeroed::<super::Kernel::SLIST_HEADER>();
+    let mut result__ = ::std::mem::zeroed();
     InitializeSListHead(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1480,7 +1480,7 @@ pub unsafe fn InitializeSListHead() -> super::Kernel::SLIST_HEADER {
 #[inline]
 pub unsafe fn InitializeSRWLock() -> RTL_SRWLOCK {
     ::windows_targets::link!("kernel32.dll" "system" fn InitializeSRWLock(srwlock : *mut RTL_SRWLOCK) -> ());
-    let mut result__ = ::windows_core::zeroed::<RTL_SRWLOCK>();
+    let mut result__ = ::std::mem::zeroed();
     InitializeSRWLock(&mut result__);
     ::std::mem::transmute(result__)
 }

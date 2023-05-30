@@ -101,7 +101,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("projectedfslib.dll" "system" fn PrjGetOnDiskFileState(destinationfilename : ::windows_core::PCWSTR, filestate : *mut PRJ_FILE_STATE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<PRJ_FILE_STATE>();
+    let mut result__ = ::std::mem::zeroed();
     PrjGetOnDiskFileState(destinationfilename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]
@@ -131,7 +131,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("projectedfslib.dll" "system" fn PrjStartVirtualizing(virtualizationrootpath : ::windows_core::PCWSTR, callbacks : *const PRJ_CALLBACKS, instancecontext : *const ::core::ffi::c_void, options : *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>();
+    let mut result__ = ::std::mem::zeroed();
     PrjStartVirtualizing(virtualizationrootpath.into_param().abi(), callbacks, ::core::mem::transmute(instancecontext.unwrap_or(::std::ptr::null())), ::core::mem::transmute(options.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_ProjectedFileSystem\"`*"]

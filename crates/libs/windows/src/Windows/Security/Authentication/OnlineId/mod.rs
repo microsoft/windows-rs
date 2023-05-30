@@ -239,7 +239,7 @@ impl OnlineIdAuthenticator {
     pub fn AuthenticateUserAsync(&self, request: &OnlineIdServiceTicketRequest) -> ::windows_core::Result<UserAuthenticationOperation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserAuthenticationOperation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AuthenticateUserAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(request), &mut result__).from_abi(result__)
         }
     }
@@ -251,7 +251,7 @@ impl OnlineIdAuthenticator {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserAuthenticationOperation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AuthenticateUserAsyncAdvanced)(::windows_core::Interface::as_raw(this), requests.try_into_param()?.abi(), credentialprompttype, &mut result__).from_abi(result__)
         }
     }
@@ -260,7 +260,7 @@ impl OnlineIdAuthenticator {
     pub fn SignOutUserAsync(&self) -> ::windows_core::Result<SignOutUserOperation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SignOutUserOperation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignOutUserAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -271,21 +271,21 @@ impl OnlineIdAuthenticator {
     pub fn ApplicationId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ApplicationId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanSignOut(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanSignOut)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AuthenticatedSafeCustomerId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AuthenticatedSafeCustomerId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -328,21 +328,21 @@ impl OnlineIdServiceTicket {
     pub fn Value(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Request(&self) -> ::windows_core::Result<OnlineIdServiceTicketRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<OnlineIdServiceTicketRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ErrorCode(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -385,26 +385,26 @@ impl OnlineIdServiceTicketRequest {
     pub fn Service(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Service)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Policy(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Policy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateOnlineIdServiceTicketRequest(service: &::windows_core::HSTRING, policy: &::windows_core::HSTRING) -> ::windows_core::Result<OnlineIdServiceTicketRequest> {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<OnlineIdServiceTicketRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateOnlineIdServiceTicketRequest)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(policy), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateOnlineIdServiceTicketRequestAdvanced(service: &::windows_core::HSTRING) -> ::windows_core::Result<OnlineIdServiceTicketRequest> {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<OnlineIdServiceTicketRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateOnlineIdServiceTicketRequestAdvanced)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(service), &mut result__).from_abi(result__)
         })
     }
@@ -450,7 +450,7 @@ pub struct OnlineIdSystemAuthenticator;
 impl OnlineIdSystemAuthenticator {
     pub fn Default() -> ::windows_core::Result<OnlineIdSystemAuthenticatorForUser> {
         Self::IOnlineIdSystemAuthenticatorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<OnlineIdSystemAuthenticatorForUser>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Default)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -458,7 +458,7 @@ impl OnlineIdSystemAuthenticator {
     #[cfg(feature = "System")]
     pub fn GetForUser(user: &super::super::super::System::User) -> ::windows_core::Result<OnlineIdSystemAuthenticatorForUser> {
         Self::IOnlineIdSystemAuthenticatorStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<OnlineIdSystemAuthenticatorForUser>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
@@ -480,7 +480,7 @@ impl OnlineIdSystemAuthenticatorForUser {
     pub fn GetTicketAsync(&self, request: &OnlineIdServiceTicketRequest) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetTicketAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(request), &mut result__).from_abi(result__)
         }
     }
@@ -491,7 +491,7 @@ impl OnlineIdSystemAuthenticatorForUser {
     pub fn ApplicationId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ApplicationId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -500,7 +500,7 @@ impl OnlineIdSystemAuthenticatorForUser {
     pub fn User(&self) -> ::windows_core::Result<super::super::super::System::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::System::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -543,14 +543,14 @@ impl OnlineIdSystemIdentity {
     pub fn Ticket(&self) -> ::windows_core::Result<OnlineIdServiceTicket> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<OnlineIdServiceTicket>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Ticket)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -593,21 +593,21 @@ impl OnlineIdSystemTicketResult {
     pub fn Identity(&self) -> ::windows_core::Result<OnlineIdSystemIdentity> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<OnlineIdSystemIdentity>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Identity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<OnlineIdSystemTicketStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<OnlineIdSystemTicketStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -660,7 +660,7 @@ impl SignOutUserOperation {
     pub fn Completed(&self) -> ::windows_core::Result<super::super::super::Foundation::AsyncActionCompletedHandler> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::AsyncActionCompletedHandler>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -675,7 +675,7 @@ impl SignOutUserOperation {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -684,7 +684,7 @@ impl SignOutUserOperation {
     pub fn Status(&self) -> ::windows_core::Result<super::super::super::Foundation::AsyncStatus> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::AsyncStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -693,7 +693,7 @@ impl SignOutUserOperation {
     pub fn ErrorCode(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -798,7 +798,7 @@ impl UserAuthenticationOperation {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -807,7 +807,7 @@ impl UserAuthenticationOperation {
     pub fn Status(&self) -> ::windows_core::Result<super::super::super::Foundation::AsyncStatus> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::AsyncStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -816,7 +816,7 @@ impl UserAuthenticationOperation {
     pub fn ErrorCode(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = &::windows_core::ComInterface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -843,7 +843,7 @@ impl UserAuthenticationOperation {
     pub fn Completed(&self) -> ::windows_core::Result<super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -852,7 +852,7 @@ impl UserAuthenticationOperation {
     pub fn GetResults(&self) -> ::windows_core::Result<UserIdentity> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserIdentity>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetResults)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -943,56 +943,56 @@ impl UserIdentity {
     pub fn Tickets(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Tickets)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SafeCustomerId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SafeCustomerId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SignInName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignInName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FirstName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirstName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LastName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsBetaAccount(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsBetaAccount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsConfirmedPC(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsConfirmedPC)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

@@ -242,21 +242,21 @@ impl Print3DWorkflow {
     pub fn DeviceID(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceID)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetPrintModelPackage(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPrintModelPackage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPrintReady(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPrintReady)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -269,7 +269,7 @@ impl Print3DWorkflow {
     pub fn PrintRequested(&self, eventhandler: &super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrintRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrintRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
@@ -284,7 +284,7 @@ impl Print3DWorkflow {
     pub fn PrinterChanged(&self, eventhandler: &super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IPrint3DWorkflow2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrinterChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
@@ -333,7 +333,7 @@ impl Print3DWorkflowPrintRequestedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<Print3DWorkflowStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<Print3DWorkflowStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -391,7 +391,7 @@ impl Print3DWorkflowPrinterChangedEventArgs {
     pub fn NewDeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NewDeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -432,7 +432,7 @@ pub struct PrintExtensionContext;
 impl PrintExtensionContext {
     pub fn FromDeviceId(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::IInspectable> {
         Self::IPrintExtensionContextStatic(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromDeviceId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
@@ -452,14 +452,14 @@ impl PrintNotificationEventDetails {
     pub fn PrinterName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrinterName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EventData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EventData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -506,7 +506,7 @@ impl PrintTaskConfiguration {
     pub fn PrinterExtensionContext(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrinterExtensionContext)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -515,7 +515,7 @@ impl PrintTaskConfiguration {
     pub fn SaveRequested(&self, eventhandler: &super::super::super::Foundation::TypedEventHandler<PrintTaskConfiguration, PrintTaskConfigurationSaveRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SaveRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
         }
     }
@@ -573,7 +573,7 @@ impl PrintTaskConfigurationSaveRequest {
     pub fn GetDeferral(&self) -> ::windows_core::Result<PrintTaskConfigurationSaveRequestedDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PrintTaskConfigurationSaveRequestedDeferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -582,7 +582,7 @@ impl PrintTaskConfigurationSaveRequest {
     pub fn Deadline(&self) -> ::windows_core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Deadline)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -661,7 +661,7 @@ impl PrintTaskConfigurationSaveRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<PrintTaskConfigurationSaveRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PrintTaskConfigurationSaveRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

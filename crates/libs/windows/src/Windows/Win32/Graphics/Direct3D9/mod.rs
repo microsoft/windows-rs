@@ -60,7 +60,7 @@ pub unsafe fn Direct3DCreate9(sdkversion: u32) -> ::core::option::Option<IDirect
 #[inline]
 pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows_core::Result<IDirect3D9Ex> {
     ::windows_targets::link!("d3d9.dll" "system" fn Direct3DCreate9Ex(sdkversion : u32, param1 : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<IDirect3D9Ex>();
+    let mut result__ = ::std::mem::zeroed();
     Direct3DCreate9Ex(sdkversion, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
@@ -311,7 +311,7 @@ pub struct IDirect3D9Ex_Vtbl {
 pub struct IDirect3DBaseTexture9(::windows_core::IUnknown);
 impl IDirect3DBaseTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows_core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows_core::Result<()> {
@@ -393,7 +393,7 @@ pub struct IDirect3DBaseTexture9_Vtbl {
 pub struct IDirect3DCubeTexture9(::windows_core::IUnknown);
 impl IDirect3DCubeTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows_core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows_core::Result<()> {
@@ -439,7 +439,7 @@ impl IDirect3DCubeTexture9 {
         (::windows_core::Interface::vtable(self).GetLevelDesc)(::windows_core::Interface::as_raw(self), level, pdesc).ok()
     }
     pub unsafe fn GetCubeMapSurface(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows_core::Result<IDirect3DSurface9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSurface9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCubeMapSurface)(::windows_core::Interface::as_raw(self), facetype, level, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -509,7 +509,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).EvictManagedResources)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetDirect3D(&self) -> ::windows_core::Result<IDirect3D9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3D9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDirect3D)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDeviceCaps(&self, pcaps: *mut D3DCAPS9) -> ::windows_core::Result<()> {
@@ -546,7 +546,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).CreateAdditionalSwapChain)(::windows_core::Interface::as_raw(self), ppresentationparameters, ::core::mem::transmute(pswapchain)).ok()
     }
     pub unsafe fn GetSwapChain(&self, iswapchain: u32) -> ::windows_core::Result<IDirect3DSwapChain9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSwapChain9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSwapChain)(::windows_core::Interface::as_raw(self), iswapchain, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
@@ -566,7 +566,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).Present)(::windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.into_param().abi(), pdirtyregion).ok()
     }
     pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows_core::Result<IDirect3DSurface9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSurface9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBackBuffer)(::windows_core::Interface::as_raw(self), iswapchain, ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -687,7 +687,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).SetRenderTarget)(::windows_core::Interface::as_raw(self), rendertargetindex, prendertarget.into_param().abi()).ok()
     }
     pub unsafe fn GetRenderTarget(&self, rendertargetindex: u32) -> ::windows_core::Result<IDirect3DSurface9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSurface9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRenderTarget)(::windows_core::Interface::as_raw(self), rendertargetindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDepthStencilSurface<P0>(&self, pnewzstencil: P0) -> ::windows_core::Result<()>
@@ -697,7 +697,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).SetDepthStencilSurface)(::windows_core::Interface::as_raw(self), pnewzstencil.into_param().abi()).ok()
     }
     pub unsafe fn GetDepthStencilSurface(&self) -> ::windows_core::Result<IDirect3DSurface9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSurface9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDepthStencilSurface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn BeginScene(&self) -> ::windows_core::Result<()> {
@@ -772,14 +772,14 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).GetRenderState)(::windows_core::Interface::as_raw(self), state, pvalue).ok()
     }
     pub unsafe fn CreateStateBlock(&self, r#type: D3DSTATEBLOCKTYPE) -> ::windows_core::Result<IDirect3DStateBlock9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DStateBlock9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateStateBlock)(::windows_core::Interface::as_raw(self), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn BeginStateBlock(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).BeginStateBlock)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn EndStateBlock(&self) -> ::windows_core::Result<IDirect3DStateBlock9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DStateBlock9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EndStateBlock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetClipStatus(&self, pclipstatus: *const D3DCLIPSTATUS9) -> ::windows_core::Result<()> {
@@ -789,7 +789,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).GetClipStatus)(::windows_core::Interface::as_raw(self), pclipstatus).ok()
     }
     pub unsafe fn GetTexture(&self, stage: u32) -> ::windows_core::Result<IDirect3DBaseTexture9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DBaseTexture9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTexture)(::windows_core::Interface::as_raw(self), stage, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetTexture<P0>(&self, stage: u32, ptexture: P0) -> ::windows_core::Result<()>
@@ -878,7 +878,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).ProcessVertices)(::windows_core::Interface::as_raw(self), srcstartindex, destindex, vertexcount, pdestbuffer.into_param().abi(), pvertexdecl.into_param().abi(), flags).ok()
     }
     pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> ::windows_core::Result<IDirect3DVertexDeclaration9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DVertexDeclaration9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateVertexDeclaration)(::windows_core::Interface::as_raw(self), pvertexelements, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetVertexDeclaration<P0>(&self, pdecl: P0) -> ::windows_core::Result<()>
@@ -888,7 +888,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).SetVertexDeclaration)(::windows_core::Interface::as_raw(self), pdecl.into_param().abi()).ok()
     }
     pub unsafe fn GetVertexDeclaration(&self) -> ::windows_core::Result<IDirect3DVertexDeclaration9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DVertexDeclaration9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVertexDeclaration)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFVF(&self, fvf: u32) -> ::windows_core::Result<()> {
@@ -898,7 +898,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).GetFVF)(::windows_core::Interface::as_raw(self), pfvf).ok()
     }
     pub unsafe fn CreateVertexShader(&self, pfunction: *const u32) -> ::windows_core::Result<IDirect3DVertexShader9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DVertexShader9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateVertexShader)(::windows_core::Interface::as_raw(self), pfunction, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetVertexShader<P0>(&self, pshader: P0) -> ::windows_core::Result<()>
@@ -908,7 +908,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).SetVertexShader)(::windows_core::Interface::as_raw(self), pshader.into_param().abi()).ok()
     }
     pub unsafe fn GetVertexShader(&self) -> ::windows_core::Result<IDirect3DVertexShader9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DVertexShader9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVertexShader)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetVertexShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows_core::Result<()> {
@@ -955,11 +955,11 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).SetIndices)(::windows_core::Interface::as_raw(self), pindexdata.into_param().abi()).ok()
     }
     pub unsafe fn GetIndices(&self) -> ::windows_core::Result<IDirect3DIndexBuffer9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DIndexBuffer9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIndices)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreatePixelShader(&self, pfunction: *const u32) -> ::windows_core::Result<IDirect3DPixelShader9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DPixelShader9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreatePixelShader)(::windows_core::Interface::as_raw(self), pfunction, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPixelShader<P0>(&self, pshader: P0) -> ::windows_core::Result<()>
@@ -969,7 +969,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).SetPixelShader)(::windows_core::Interface::as_raw(self), pshader.into_param().abi()).ok()
     }
     pub unsafe fn GetPixelShader(&self) -> ::windows_core::Result<IDirect3DPixelShader9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DPixelShader9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPixelShader)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPixelShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows_core::Result<()> {
@@ -1004,7 +1004,7 @@ impl IDirect3DDevice9 {
         (::windows_core::Interface::vtable(self).DeletePatch)(::windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> ::windows_core::Result<IDirect3DQuery9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DQuery9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateQuery)(::windows_core::Interface::as_raw(self), r#type, &mut result__).from_abi(result__)
     }
 }
@@ -1271,7 +1271,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.EvictManagedResources)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetDirect3D(&self) -> ::windows_core::Result<IDirect3D9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3D9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDirect3D)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDeviceCaps(&self, pcaps: *mut D3DCAPS9) -> ::windows_core::Result<()> {
@@ -1308,7 +1308,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.CreateAdditionalSwapChain)(::windows_core::Interface::as_raw(self), ppresentationparameters, ::core::mem::transmute(pswapchain)).ok()
     }
     pub unsafe fn GetSwapChain(&self, iswapchain: u32) -> ::windows_core::Result<IDirect3DSwapChain9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSwapChain9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSwapChain)(::windows_core::Interface::as_raw(self), iswapchain, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetNumberOfSwapChains(&self) -> u32 {
@@ -1328,7 +1328,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.Present)(::windows_core::Interface::as_raw(self), psourcerect, pdestrect, hdestwindowoverride.into_param().abi(), pdirtyregion).ok()
     }
     pub unsafe fn GetBackBuffer(&self, iswapchain: u32, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows_core::Result<IDirect3DSurface9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSurface9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetBackBuffer)(::windows_core::Interface::as_raw(self), iswapchain, ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1449,7 +1449,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.SetRenderTarget)(::windows_core::Interface::as_raw(self), rendertargetindex, prendertarget.into_param().abi()).ok()
     }
     pub unsafe fn GetRenderTarget(&self, rendertargetindex: u32) -> ::windows_core::Result<IDirect3DSurface9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSurface9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRenderTarget)(::windows_core::Interface::as_raw(self), rendertargetindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDepthStencilSurface<P0>(&self, pnewzstencil: P0) -> ::windows_core::Result<()>
@@ -1459,7 +1459,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.SetDepthStencilSurface)(::windows_core::Interface::as_raw(self), pnewzstencil.into_param().abi()).ok()
     }
     pub unsafe fn GetDepthStencilSurface(&self) -> ::windows_core::Result<IDirect3DSurface9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSurface9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDepthStencilSurface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn BeginScene(&self) -> ::windows_core::Result<()> {
@@ -1534,14 +1534,14 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.GetRenderState)(::windows_core::Interface::as_raw(self), state, pvalue).ok()
     }
     pub unsafe fn CreateStateBlock(&self, r#type: D3DSTATEBLOCKTYPE) -> ::windows_core::Result<IDirect3DStateBlock9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DStateBlock9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateStateBlock)(::windows_core::Interface::as_raw(self), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn BeginStateBlock(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.BeginStateBlock)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn EndStateBlock(&self) -> ::windows_core::Result<IDirect3DStateBlock9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DStateBlock9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EndStateBlock)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetClipStatus(&self, pclipstatus: *const D3DCLIPSTATUS9) -> ::windows_core::Result<()> {
@@ -1551,7 +1551,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.GetClipStatus)(::windows_core::Interface::as_raw(self), pclipstatus).ok()
     }
     pub unsafe fn GetTexture(&self, stage: u32) -> ::windows_core::Result<IDirect3DBaseTexture9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DBaseTexture9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTexture)(::windows_core::Interface::as_raw(self), stage, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetTexture<P0>(&self, stage: u32, ptexture: P0) -> ::windows_core::Result<()>
@@ -1640,7 +1640,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.ProcessVertices)(::windows_core::Interface::as_raw(self), srcstartindex, destindex, vertexcount, pdestbuffer.into_param().abi(), pvertexdecl.into_param().abi(), flags).ok()
     }
     pub unsafe fn CreateVertexDeclaration(&self, pvertexelements: *const D3DVERTEXELEMENT9) -> ::windows_core::Result<IDirect3DVertexDeclaration9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DVertexDeclaration9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateVertexDeclaration)(::windows_core::Interface::as_raw(self), pvertexelements, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetVertexDeclaration<P0>(&self, pdecl: P0) -> ::windows_core::Result<()>
@@ -1650,7 +1650,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.SetVertexDeclaration)(::windows_core::Interface::as_raw(self), pdecl.into_param().abi()).ok()
     }
     pub unsafe fn GetVertexDeclaration(&self) -> ::windows_core::Result<IDirect3DVertexDeclaration9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DVertexDeclaration9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetVertexDeclaration)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFVF(&self, fvf: u32) -> ::windows_core::Result<()> {
@@ -1660,7 +1660,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.GetFVF)(::windows_core::Interface::as_raw(self), pfvf).ok()
     }
     pub unsafe fn CreateVertexShader(&self, pfunction: *const u32) -> ::windows_core::Result<IDirect3DVertexShader9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DVertexShader9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateVertexShader)(::windows_core::Interface::as_raw(self), pfunction, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetVertexShader<P0>(&self, pshader: P0) -> ::windows_core::Result<()>
@@ -1670,7 +1670,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.SetVertexShader)(::windows_core::Interface::as_raw(self), pshader.into_param().abi()).ok()
     }
     pub unsafe fn GetVertexShader(&self) -> ::windows_core::Result<IDirect3DVertexShader9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DVertexShader9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetVertexShader)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetVertexShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows_core::Result<()> {
@@ -1717,11 +1717,11 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.SetIndices)(::windows_core::Interface::as_raw(self), pindexdata.into_param().abi()).ok()
     }
     pub unsafe fn GetIndices(&self) -> ::windows_core::Result<IDirect3DIndexBuffer9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DIndexBuffer9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetIndices)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreatePixelShader(&self, pfunction: *const u32) -> ::windows_core::Result<IDirect3DPixelShader9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DPixelShader9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreatePixelShader)(::windows_core::Interface::as_raw(self), pfunction, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPixelShader<P0>(&self, pshader: P0) -> ::windows_core::Result<()>
@@ -1731,7 +1731,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.SetPixelShader)(::windows_core::Interface::as_raw(self), pshader.into_param().abi()).ok()
     }
     pub unsafe fn GetPixelShader(&self) -> ::windows_core::Result<IDirect3DPixelShader9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DPixelShader9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPixelShader)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPixelShaderConstantF(&self, startregister: u32, pconstantdata: *const f32, vector4fcount: u32) -> ::windows_core::Result<()> {
@@ -1766,7 +1766,7 @@ impl IDirect3DDevice9Ex {
         (::windows_core::Interface::vtable(self).base__.DeletePatch)(::windows_core::Interface::as_raw(self), handle).ok()
     }
     pub unsafe fn CreateQuery(&self, r#type: D3DQUERYTYPE) -> ::windows_core::Result<IDirect3DQuery9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DQuery9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateQuery)(::windows_core::Interface::as_raw(self), r#type, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> ::windows_core::Result<()> {
@@ -1911,7 +1911,7 @@ pub struct IDirect3DDevice9Ex_Vtbl {
 pub struct IDirect3DIndexBuffer9(::windows_core::IUnknown);
 impl IDirect3DIndexBuffer9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows_core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows_core::Result<()> {
@@ -1981,7 +1981,7 @@ pub struct IDirect3DIndexBuffer9_Vtbl {
 pub struct IDirect3DPixelShader9(::windows_core::IUnknown);
 impl IDirect3DPixelShader9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunction(&self, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows_core::Result<()> {
@@ -2023,7 +2023,7 @@ pub struct IDirect3DPixelShader9_Vtbl {
 pub struct IDirect3DQuery9(::windows_core::IUnknown);
 impl IDirect3DQuery9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetType(&self) -> D3DQUERYTYPE {
@@ -2077,7 +2077,7 @@ pub struct IDirect3DQuery9_Vtbl {
 pub struct IDirect3DResource9(::windows_core::IUnknown);
 impl IDirect3DResource9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows_core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows_core::Result<()> {
@@ -2143,7 +2143,7 @@ pub struct IDirect3DResource9_Vtbl {
 pub struct IDirect3DStateBlock9(::windows_core::IUnknown);
 impl IDirect3DStateBlock9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Capture(&self) -> ::windows_core::Result<()> {
@@ -2189,7 +2189,7 @@ pub struct IDirect3DStateBlock9_Vtbl {
 pub struct IDirect3DSurface9(::windows_core::IUnknown);
 impl IDirect3DSurface9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows_core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows_core::Result<()> {
@@ -2303,7 +2303,7 @@ impl IDirect3DSwapChain9 {
         (::windows_core::Interface::vtable(self).GetFrontBufferData)(::windows_core::Interface::as_raw(self), pdestsurface.into_param().abi()).ok()
     }
     pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows_core::Result<IDirect3DSurface9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSurface9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBackBuffer)(::windows_core::Interface::as_raw(self), ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2315,7 +2315,7 @@ impl IDirect3DSwapChain9 {
         (::windows_core::Interface::vtable(self).GetDisplayMode)(::windows_core::Interface::as_raw(self), pmode).ok()
     }
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2387,7 +2387,7 @@ impl IDirect3DSwapChain9Ex {
         (::windows_core::Interface::vtable(self).base__.GetFrontBufferData)(::windows_core::Interface::as_raw(self), pdestsurface.into_param().abi()).ok()
     }
     pub unsafe fn GetBackBuffer(&self, ibackbuffer: u32, r#type: D3DBACKBUFFER_TYPE) -> ::windows_core::Result<IDirect3DSurface9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSurface9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetBackBuffer)(::windows_core::Interface::as_raw(self), ibackbuffer, r#type, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2399,7 +2399,7 @@ impl IDirect3DSwapChain9Ex {
         (::windows_core::Interface::vtable(self).base__.GetDisplayMode)(::windows_core::Interface::as_raw(self), pmode).ok()
     }
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2453,7 +2453,7 @@ pub struct IDirect3DSwapChain9Ex_Vtbl {
 pub struct IDirect3DTexture9(::windows_core::IUnknown);
 impl IDirect3DTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows_core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows_core::Result<()> {
@@ -2499,7 +2499,7 @@ impl IDirect3DTexture9 {
         (::windows_core::Interface::vtable(self).GetLevelDesc)(::windows_core::Interface::as_raw(self), level, pdesc).ok()
     }
     pub unsafe fn GetSurfaceLevel(&self, level: u32) -> ::windows_core::Result<IDirect3DSurface9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DSurface9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSurfaceLevel)(::windows_core::Interface::as_raw(self), level, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2560,7 +2560,7 @@ pub struct IDirect3DTexture9_Vtbl {
 pub struct IDirect3DVertexBuffer9(::windows_core::IUnknown);
 impl IDirect3DVertexBuffer9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows_core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows_core::Result<()> {
@@ -2630,7 +2630,7 @@ pub struct IDirect3DVertexBuffer9_Vtbl {
 pub struct IDirect3DVertexDeclaration9(::windows_core::IUnknown);
 impl IDirect3DVertexDeclaration9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDeclaration(&self, pelement: *mut D3DVERTEXELEMENT9, pnumelements: *mut u32) -> ::windows_core::Result<()> {
@@ -2672,7 +2672,7 @@ pub struct IDirect3DVertexDeclaration9_Vtbl {
 pub struct IDirect3DVertexShader9(::windows_core::IUnknown);
 impl IDirect3DVertexShader9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetFunction(&self, param0: *mut ::core::ffi::c_void, psizeofdata: *mut u32) -> ::windows_core::Result<()> {
@@ -2714,7 +2714,7 @@ pub struct IDirect3DVertexShader9_Vtbl {
 pub struct IDirect3DVolume9(::windows_core::IUnknown);
 impl IDirect3DVolume9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows_core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows_core::Result<()> {
@@ -2780,7 +2780,7 @@ pub struct IDirect3DVolume9_Vtbl {
 pub struct IDirect3DVolumeTexture9(::windows_core::IUnknown);
 impl IDirect3DVolumeTexture9 {
     pub unsafe fn GetDevice(&self) -> ::windows_core::Result<IDirect3DDevice9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DDevice9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetPrivateData(&self, refguid: *const ::windows_core::GUID, pdata: *const ::core::ffi::c_void, sizeofdata: u32, flags: u32) -> ::windows_core::Result<()> {
@@ -2826,7 +2826,7 @@ impl IDirect3DVolumeTexture9 {
         (::windows_core::Interface::vtable(self).GetLevelDesc)(::windows_core::Interface::as_raw(self), level, pdesc).ok()
     }
     pub unsafe fn GetVolumeLevel(&self, level: u32) -> ::windows_core::Result<IDirect3DVolume9> {
-        let mut result__ = ::windows_core::zeroed::<IDirect3DVolume9>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVolumeLevel)(::windows_core::Interface::as_raw(self), level, &mut result__).from_abi(result__)
     }
     pub unsafe fn LockBox(&self, level: u32, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> ::windows_core::Result<()> {

@@ -8,7 +8,7 @@ impl ILearningModelDeviceFactoryNative {
     where
         P0: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateFromD3D12CommandQueue)(::windows_core::Interface::as_raw(self), value.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -51,7 +51,7 @@ impl ILearningModelOperatorProviderNative {
     #[doc = "*Required features: `\"Win32_AI_MachineLearning_WinML\"`*"]
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
     pub unsafe fn GetRegistry(&self) -> ::windows_core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRegistry)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -171,7 +171,7 @@ impl ITensorNative {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
     pub unsafe fn GetD3D12Resource(&self) -> ::windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::Direct3D12::ID3D12Resource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetD3D12Resource)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

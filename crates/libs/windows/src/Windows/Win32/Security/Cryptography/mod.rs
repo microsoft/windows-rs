@@ -2797,7 +2797,7 @@ where
 #[inline]
 pub unsafe fn CryptXmlAddObject(hsignatureorobject: *const ::core::ffi::c_void, dwflags: u32, rgproperty: ::core::option::Option<&[CRYPT_XML_PROPERTY]>, pencoded: *const CRYPT_XML_BLOB) -> ::windows_core::Result<*mut CRYPT_XML_OBJECT> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlAddObject(hsignatureorobject : *const ::core::ffi::c_void, dwflags : u32, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, ppobject : *mut *mut CRYPT_XML_OBJECT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut CRYPT_XML_OBJECT>();
+    let mut result__ = ::std::mem::zeroed();
     CryptXmlAddObject(hsignatureorobject, dwflags, ::core::mem::transmute(rgproperty.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), rgproperty.as_deref().map_or(0, |slice| slice.len() as _), pencoded, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -2846,49 +2846,49 @@ pub unsafe fn CryptXmlFindAlgorithmInfo(dwfindbytype: u32, pvfindby: *const ::co
 #[inline]
 pub unsafe fn CryptXmlGetAlgorithmInfo(pxmlalgorithm: *const CRYPT_XML_ALGORITHM, dwflags: CRYPT_XML_FLAGS) -> ::windows_core::Result<*mut CRYPT_XML_ALGORITHM_INFO> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetAlgorithmInfo(pxmlalgorithm : *const CRYPT_XML_ALGORITHM, dwflags : CRYPT_XML_FLAGS, ppalginfo : *mut *mut CRYPT_XML_ALGORITHM_INFO) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut CRYPT_XML_ALGORITHM_INFO>();
+    let mut result__ = ::std::mem::zeroed();
     CryptXmlGetAlgorithmInfo(pxmlalgorithm, dwflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlGetDocContext(hcryptxml: *const ::core::ffi::c_void) -> ::windows_core::Result<*mut CRYPT_XML_DOC_CTXT> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetDocContext(hcryptxml : *const ::core::ffi::c_void, ppstruct : *mut *mut CRYPT_XML_DOC_CTXT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut CRYPT_XML_DOC_CTXT>();
+    let mut result__ = ::std::mem::zeroed();
     CryptXmlGetDocContext(hcryptxml, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlGetReference(hcryptxml: *const ::core::ffi::c_void) -> ::windows_core::Result<*mut CRYPT_XML_REFERENCE> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetReference(hcryptxml : *const ::core::ffi::c_void, ppstruct : *mut *mut CRYPT_XML_REFERENCE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut CRYPT_XML_REFERENCE>();
+    let mut result__ = ::std::mem::zeroed();
     CryptXmlGetReference(hcryptxml, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlGetSignature(hcryptxml: *const ::core::ffi::c_void) -> ::windows_core::Result<*mut CRYPT_XML_SIGNATURE> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetSignature(hcryptxml : *const ::core::ffi::c_void, ppstruct : *mut *mut CRYPT_XML_SIGNATURE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut CRYPT_XML_SIGNATURE>();
+    let mut result__ = ::std::mem::zeroed();
     CryptXmlGetSignature(hcryptxml, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlGetStatus(hcryptxml: *const ::core::ffi::c_void) -> ::windows_core::Result<CRYPT_XML_STATUS> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetStatus(hcryptxml : *const ::core::ffi::c_void, pstatus : *mut CRYPT_XML_STATUS) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<CRYPT_XML_STATUS>();
+    let mut result__ = ::std::mem::zeroed();
     CryptXmlGetStatus(hcryptxml, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlGetTransforms() -> ::windows_core::Result<*mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlGetTransforms(ppconfig : *mut *mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut CRYPT_XML_TRANSFORM_CHAIN_CONFIG>();
+    let mut result__ = ::std::mem::zeroed();
     CryptXmlGetTransforms(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn CryptXmlImportPublicKey(dwflags: CRYPT_XML_FLAGS, pkeyvalue: *const CRYPT_XML_KEY_VALUE) -> ::windows_core::Result<BCRYPT_KEY_HANDLE> {
     ::windows_targets::link!("cryptxml.dll" "system" fn CryptXmlImportPublicKey(dwflags : CRYPT_XML_FLAGS, pkeyvalue : *const CRYPT_XML_KEY_VALUE, phkey : *mut BCRYPT_KEY_HANDLE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<BCRYPT_KEY_HANDLE>();
+    let mut result__ = ::std::mem::zeroed();
     CryptXmlImportPublicKey(dwflags, pkeyvalue, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -2985,14 +2985,14 @@ pub unsafe fn GetBrowserToken(dwparamtype: u32, pparam: *const ::core::ffi::c_vo
 #[inline]
 pub unsafe fn GetCryptoTransform(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDLE, mode: u32, padding: PaddingMode, feedbacksize: u32, direction: Direction, piv: &[u8]) -> ::windows_core::Result<*mut INFORMATIONCARD_CRYPTO_HANDLE> {
     ::windows_targets::link!("infocardapi.dll" "system" fn GetCryptoTransform(hsymmetriccrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, mode : u32, padding : PaddingMode, feedbacksize : u32, direction : Direction, cbiv : u32, piv : *const u8, pphtransform : *mut *mut INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut INFORMATIONCARD_CRYPTO_HANDLE>();
+    let mut result__ = ::std::mem::zeroed();
     GetCryptoTransform(hsymmetriccrypto, mode, padding, feedbacksize, direction, piv.len() as _, ::core::mem::transmute(piv.as_ptr()), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
 pub unsafe fn GetKeyedHash(hsymmetriccrypto: *const INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows_core::Result<*mut INFORMATIONCARD_CRYPTO_HANDLE> {
     ::windows_targets::link!("infocardapi.dll" "system" fn GetKeyedHash(hsymmetriccrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, pphhash : *mut *mut INFORMATIONCARD_CRYPTO_HANDLE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut INFORMATIONCARD_CRYPTO_HANDLE>();
+    let mut result__ = ::std::mem::zeroed();
     GetKeyedHash(hsymmetriccrypto, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
@@ -3066,7 +3066,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("ncrypt.dll" "system" fn NCryptCreateProtectionDescriptor(pwszdescriptorstring : ::windows_core::PCWSTR, dwflags : u32, phdescriptor : *mut super:: NCRYPT_DESCRIPTOR_HANDLE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::NCRYPT_DESCRIPTOR_HANDLE>();
+    let mut result__ = ::std::mem::zeroed();
     NCryptCreateProtectionDescriptor(pwszdescriptorstring.into_param().abi(), dwflags, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -3331,7 +3331,7 @@ where
     P1: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToProtect(hdescriptor : super:: NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, hwnd : super::super::Foundation:: HWND, pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::NCRYPT_STREAM_HANDLE>();
+    let mut result__ = ::std::mem::zeroed();
     NCryptStreamOpenToProtect(hdescriptor.into_param().abi(), dwflags, hwnd.into_param().abi(), pstreaminfo, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
@@ -3342,7 +3342,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotect(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO, dwflags : u32, hwnd : super::super::Foundation:: HWND, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::NCRYPT_STREAM_HANDLE>();
+    let mut result__ = ::std::mem::zeroed();
     NCryptStreamOpenToUnprotect(pstreaminfo, dwflags, hwnd.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
@@ -3353,7 +3353,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
     ::windows_targets::link!("ncrypt.dll" "system" fn NCryptStreamOpenToUnprotectEx(pstreaminfo : *const NCRYPT_PROTECT_STREAM_INFO_EX, dwflags : u32, hwnd : super::super::Foundation:: HWND, phstream : *mut super:: NCRYPT_STREAM_HANDLE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::NCRYPT_STREAM_HANDLE>();
+    let mut result__ = ::std::mem::zeroed();
     NCryptStreamOpenToUnprotectEx(pstreaminfo, dwflags, hwnd.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
@@ -3480,7 +3480,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("infocardapi.dll" "system" fn VerifyHash(hcrypto : *const INFORMATIONCARD_CRYPTO_HANDLE, cbhash : u32, phash : *const u8, hashalgoid : ::windows_core::PCWSTR, cbsig : u32, psig : *const u8, pfverified : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+    let mut result__ = ::std::mem::zeroed();
     VerifyHash(hcrypto, phash.len() as _, ::core::mem::transmute(phash.as_ptr()), hashalgoid.into_param().abi(), psig.len() as _, ::core::mem::transmute(psig.as_ptr()), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_System_Com\"`*"]
@@ -3490,11 +3490,11 @@ pub struct ICertSrvSetup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetup {
     pub unsafe fn CAErrorId(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CAErrorId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CAErrorString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CAErrorString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3509,7 +3509,7 @@ impl ICertSrvSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetCASetupProperty(&self, propertyid: CASetupProperty) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCASetupProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3520,19 +3520,19 @@ impl ICertSrvSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPropertyEditable(&self, propertyid: CASetupProperty) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsPropertyEditable)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetSupportedCATypes(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSupportedCATypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProviderNameList(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProviderNameList)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3541,7 +3541,7 @@ impl ICertSrvSetup {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetKeyLengthList)(::windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3550,7 +3550,7 @@ impl ICertSrvSetup {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHashAlgorithmList)(::windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3559,13 +3559,13 @@ impl ICertSrvSetup {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPrivateKeyContainerList)(::windows_core::Interface::as_raw(self), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExistingCACertificates(&self) -> ::windows_core::Result<ICertSrvSetupKeyInformationCollection> {
-        let mut result__ = ::windows_core::zeroed::<ICertSrvSetupKeyInformationCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExistingCACertificates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3576,7 +3576,7 @@ impl ICertSrvSetup {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
         P2: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<ICertSrvSetupKeyInformation>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CAImportPFX)(::windows_core::Interface::as_raw(self), bstrfilename.into_param().abi(), bstrpasswd.into_param().abi(), boverwriteexistingkey.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3733,7 +3733,7 @@ pub struct ICertSrvSetupKeyInformation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetupKeyInformation {
     pub unsafe fn ProviderName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProviderName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetProviderName<P0>(&self, bstrval: P0) -> ::windows_core::Result<()>
@@ -3743,7 +3743,7 @@ impl ICertSrvSetupKeyInformation {
         (::windows_core::Interface::vtable(self).SetProviderName)(::windows_core::Interface::as_raw(self), bstrval.into_param().abi()).ok()
     }
     pub unsafe fn Length(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLength(&self, lval: i32) -> ::windows_core::Result<()> {
@@ -3752,7 +3752,7 @@ impl ICertSrvSetupKeyInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Existing(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Existing)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3764,7 +3764,7 @@ impl ICertSrvSetupKeyInformation {
         (::windows_core::Interface::vtable(self).SetExisting)(::windows_core::Interface::as_raw(self), bval.into_param().abi()).ok()
     }
     pub unsafe fn ContainerName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ContainerName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetContainerName<P0>(&self, bstrval: P0) -> ::windows_core::Result<()>
@@ -3774,7 +3774,7 @@ impl ICertSrvSetupKeyInformation {
         (::windows_core::Interface::vtable(self).SetContainerName)(::windows_core::Interface::as_raw(self), bstrval.into_param().abi()).ok()
     }
     pub unsafe fn HashAlgorithm(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HashAlgorithm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetHashAlgorithm<P0>(&self, bstrval: P0) -> ::windows_core::Result<()>
@@ -3786,7 +3786,7 @@ impl ICertSrvSetupKeyInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ExistingCACertificate(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ExistingCACertificate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3862,17 +3862,17 @@ pub struct ICertSrvSetupKeyInformationCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertSrvSetupKeyInformationCollection {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3937,7 +3937,7 @@ pub struct ICertificateEnrollmentPolicyServerSetup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificateEnrollmentPolicyServerSetup {
     pub unsafe fn ErrorString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ErrorString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InitializeInstallDefaults(&self) -> ::windows_core::Result<()> {
@@ -3946,7 +3946,7 @@ impl ICertificateEnrollmentPolicyServerSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProperty(&self, propertyid: CEPSetupProperty) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4021,7 +4021,7 @@ pub struct ICertificateEnrollmentServerSetup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificateEnrollmentServerSetup {
     pub unsafe fn ErrorString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ErrorString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InitializeInstallDefaults(&self) -> ::windows_core::Result<()> {
@@ -4030,7 +4030,7 @@ impl ICertificateEnrollmentServerSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProperty(&self, propertyid: CESSetupProperty) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4113,11 +4113,11 @@ pub struct IMSCEPSetup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMSCEPSetup {
     pub unsafe fn MSCEPErrorId(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MSCEPErrorId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn MSCEPErrorString(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MSCEPErrorString)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InitializeDefaults(&self) -> ::windows_core::Result<()> {
@@ -4126,7 +4126,7 @@ impl IMSCEPSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetMSCEPSetupProperty(&self, propertyid: MSCEPSetupProperty) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMSCEPSetupProperty)(::windows_core::Interface::as_raw(self), propertyid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4144,7 +4144,7 @@ impl IMSCEPSetup {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMSCEPStoreEmpty(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsMSCEPStoreEmpty)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4153,7 +4153,7 @@ impl IMSCEPSetup {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProviderNameList)(::windows_core::Interface::as_raw(self), bexchange.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4163,7 +4163,7 @@ impl IMSCEPSetup {
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetKeyLengthList)(::windows_core::Interface::as_raw(self), bexchange.into_param().abi(), bstrprovidername.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Install(&self) -> ::windows_core::Result<()> {

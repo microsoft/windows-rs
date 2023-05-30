@@ -8,7 +8,7 @@ impl ICompositionCapabilitiesInteropFactory {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::super::UI::Composition::CompositionCapabilities>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetForWindow)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -198,7 +198,7 @@ pub struct ICompositionDrawingSurfaceInterop2_Vtbl {
 pub struct ICompositionGraphicsDeviceInterop(::windows_core::IUnknown);
 impl ICompositionGraphicsDeviceInterop {
     pub unsafe fn GetRenderingDevice(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRenderingDevice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRenderingDevice<P0>(&self, value: P0) -> ::windows_core::Result<()>
@@ -249,7 +249,7 @@ impl ICompositorDesktopInterop {
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HWND>,
         P1: ::windows_core::IntoParam<super::super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDesktopWindowTarget)(::windows_core::Interface::as_raw(self), hwndtarget.into_param().abi(), istopmost.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn EnsureOnThread(&self, threadid: u32) -> ::windows_core::Result<()> {
@@ -299,7 +299,7 @@ impl ICompositorInterop {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::HANDLE>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::super::UI::Composition::ICompositionSurface>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(::windows_core::Interface::as_raw(self), swapchain.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -308,7 +308,7 @@ impl ICompositorInterop {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::super::UI::Composition::ICompositionSurface>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateCompositionSurfaceForSwapChain)(::windows_core::Interface::as_raw(self), swapchain.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"UI_Composition\"`*"]
@@ -317,7 +317,7 @@ impl ICompositorInterop {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::super::UI::Composition::CompositionGraphicsDevice>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateGraphicsDevice)(::windows_core::Interface::as_raw(self), renderingdevice.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -368,7 +368,7 @@ impl IDesktopWindowTargetInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Hwnd(&self) -> ::windows_core::Result<super::super::super::Foundation::HWND> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::HWND>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Hwnd)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

@@ -8,7 +8,7 @@ pub unsafe fn RtlFirstEntrySList(listhead: *const SLIST_HEADER) -> *mut SLIST_EN
 #[inline]
 pub unsafe fn RtlInitializeSListHead() -> SLIST_HEADER {
     ::windows_targets::link!("ntdll.dll" "system" fn RtlInitializeSListHead(listhead : *mut SLIST_HEADER) -> ());
-    let mut result__ = ::windows_core::zeroed::<SLIST_HEADER>();
+    let mut result__ = ::std::mem::zeroed();
     RtlInitializeSListHead(&mut result__);
     ::std::mem::transmute(result__)
 }

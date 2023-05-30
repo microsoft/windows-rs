@@ -6,7 +6,7 @@ where
     P0: ::windows_core::IntoParam<super::super::super::Graphics::Dxgi::IDXGIDevice>,
 {
     ::windows_targets::link!("windows.data.pdf.dll" "system" fn PdfCreateRenderer(pdevice : * mut::core::ffi::c_void, pprenderer : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<IPdfRendererNative>();
+    let mut result__ = ::std::mem::zeroed();
     PdfCreateRenderer(pdevice.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Pdf\"`*"]

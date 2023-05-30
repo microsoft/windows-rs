@@ -5,7 +5,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("deviceaccess.dll" "system" fn CreateDeviceAccessInstance(deviceinterfacepath : ::windows_core::PCWSTR, desiredaccess : u32, createasync : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<ICreateDeviceAccessAsync>();
+    let mut result__ = ::std::mem::zeroed();
     CreateDeviceAccessInstance(deviceinterfacepath.into_param().abi(), desiredaccess, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]

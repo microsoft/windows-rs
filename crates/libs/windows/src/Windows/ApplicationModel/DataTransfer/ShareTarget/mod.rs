@@ -122,7 +122,7 @@ impl QuickLink {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -135,7 +135,7 @@ impl QuickLink {
     pub fn Thumbnail(&self) -> ::windows_core::Result<super::super::super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Storage::Streams::RandomAccessStreamReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Thumbnail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -148,7 +148,7 @@ impl QuickLink {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -161,7 +161,7 @@ impl QuickLink {
     pub fn SupportedDataFormats(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedDataFormats)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -170,7 +170,7 @@ impl QuickLink {
     pub fn SupportedFileTypes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedFileTypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -211,14 +211,14 @@ impl ShareOperation {
     pub fn Data(&self) -> ::windows_core::Result<super::DataPackageView> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::DataPackageView>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn QuickLinkId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QuickLinkId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -259,7 +259,7 @@ impl ShareOperation {
     pub fn Contacts(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>> {
         let this = &::windows_core::ComInterface::cast::<IShareOperation3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Contacts)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

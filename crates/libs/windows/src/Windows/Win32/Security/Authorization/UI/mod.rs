@@ -271,7 +271,7 @@ impl ISecurityInformation2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn LookupSids(&self, csids: u32, rgpsids: *const super::super::super::Foundation::PSID) -> ::windows_core::Result<super::super::super::System::Com::IDataObject> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::IDataObject>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LookupSids)(::windows_core::Interface::as_raw(self), csids, rgpsids, &mut result__).from_abi(result__)
     }
 }
@@ -316,7 +316,7 @@ pub struct ISecurityInformation2_Vtbl {
 pub struct ISecurityInformation3(::windows_core::IUnknown);
 impl ISecurityInformation3 {
     pub unsafe fn GetFullResourceName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFullResourceName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]

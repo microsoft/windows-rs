@@ -3,7 +3,7 @@
 pub struct IObjectArray(::windows_core::IUnknown);
 impl IObjectArray {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows_core::Result<T>
@@ -49,7 +49,7 @@ pub struct IObjectArray_Vtbl {
 pub struct IObjectCollection(::windows_core::IUnknown);
 impl IObjectCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetAt<T>(&self, uiindex: u32) -> ::windows_core::Result<T>

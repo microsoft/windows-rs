@@ -92,7 +92,7 @@ impl AsyncIFtpAuthorizationProvider {
         (::windows_core::Interface::vtable(self).Begin_GetUserAccessPermission)(::windows_core::Interface::as_raw(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszvirtualpath.into_param().abi(), pszusername.into_param().abi()).ok()
     }
     pub unsafe fn Finish_GetUserAccessPermission(&self) -> ::windows_core::Result<FTP_ACCESS> {
-        let mut result__ = ::windows_core::zeroed::<FTP_ACCESS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Finish_GetUserAccessPermission)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -139,7 +139,7 @@ impl AsyncIFtpHomeDirectoryProvider {
         (::windows_core::Interface::vtable(self).Begin_GetUserHomeDirectoryData)(::windows_core::Interface::as_raw(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi()).ok()
     }
     pub unsafe fn Finish_GetUserHomeDirectoryData(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Finish_GetUserHomeDirectoryData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -224,7 +224,7 @@ impl AsyncIFtpPostprocessProvider {
         (::windows_core::Interface::vtable(self).Begin_HandlePostprocess)(::windows_core::Interface::as_raw(self), ppostprocessparameters).ok()
     }
     pub unsafe fn Finish_HandlePostprocess(&self) -> ::windows_core::Result<FTP_PROCESS_STATUS> {
-        let mut result__ = ::windows_core::zeroed::<FTP_PROCESS_STATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Finish_HandlePostprocess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -271,7 +271,7 @@ impl AsyncIFtpPreprocessProvider {
         (::windows_core::Interface::vtable(self).Begin_HandlePreprocess)(::windows_core::Interface::as_raw(self), ppreprocessparameters).ok()
     }
     pub unsafe fn Finish_HandlePreprocess(&self) -> ::windows_core::Result<FTP_PROCESS_STATUS> {
-        let mut result__ = ::windows_core::zeroed::<FTP_PROCESS_STATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Finish_HandlePreprocess)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -324,7 +324,7 @@ impl AsyncIFtpRoleProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Finish_IsUserInRole(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Finish_IsUserInRole)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -514,7 +514,7 @@ impl IFtpAuthorizationProvider {
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<FTP_ACCESS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUserAccessPermission)(::windows_core::Interface::as_raw(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszvirtualpath.into_param().abi(), pszusername.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -557,7 +557,7 @@ impl IFtpHomeDirectoryProvider {
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUserHomeDirectoryData)(::windows_core::Interface::as_raw(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -634,7 +634,7 @@ impl IFtpPostprocessProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HandlePostprocess(&self, ppostprocessparameters: *const POST_PROCESS_PARAMETERS) -> ::windows_core::Result<FTP_PROCESS_STATUS> {
-        let mut result__ = ::windows_core::zeroed::<FTP_PROCESS_STATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HandlePostprocess)(::windows_core::Interface::as_raw(self), ppostprocessparameters, &mut result__).from_abi(result__)
     }
 }
@@ -677,7 +677,7 @@ impl IFtpPreprocessProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HandlePreprocess(&self, ppreprocessparameters: *const PRE_PROCESS_PARAMETERS) -> ::windows_core::Result<FTP_PROCESS_STATUS> {
-        let mut result__ = ::windows_core::zeroed::<FTP_PROCESS_STATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).HandlePreprocess)(::windows_core::Interface::as_raw(self), ppreprocessparameters, &mut result__).from_abi(result__)
     }
 }
@@ -768,7 +768,7 @@ impl IFtpRoleProvider {
         P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P3: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsUserInRole)(::windows_core::Interface::as_raw(self), pszsessionid.into_param().abi(), pszsitename.into_param().abi(), pszusername.into_param().abi(), pszrole.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -906,7 +906,7 @@ impl IMSAdminBase2W {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OpenKey)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), dwmdaccessrequested, dwmdtimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows_core::Result<()> {
@@ -919,18 +919,18 @@ impl IMSAdminBase2W {
         (::windows_core::Interface::vtable(self).base__.SaveData)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows_core::Result<METADATA_HANDLE_INFO> {
-        let mut result__ = ::windows_core::zeroed::<METADATA_HANDLE_INFO>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetHandleInfo)(::windows_core::Interface::as_raw(self), hmdhandle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSystemChangeNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDataSetNumber<P0>(&self, hmdhandle: u32, pszmdpath: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetDataSetNumber)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -981,7 +981,7 @@ impl IMSAdminBase2W {
         (::windows_core::Interface::vtable(self).base__.DeleteBackup)(::windows_core::Interface::as_raw(self), pszmdbackuplocation.into_param().abi(), dwmdversion).ok()
     }
     pub unsafe fn UnmarshalInterface(&self) -> ::windows_core::Result<IMSAdminBaseW> {
-        let mut result__ = ::windows_core::zeroed::<IMSAdminBaseW>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.UnmarshalInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetServerGuid(&self) -> ::windows_core::Result<()> {
@@ -1169,7 +1169,7 @@ impl IMSAdminBase3W {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.OpenKey)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), dwmdaccessrequested, dwmdtimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows_core::Result<()> {
@@ -1182,18 +1182,18 @@ impl IMSAdminBase3W {
         (::windows_core::Interface::vtable(self).base__.base__.SaveData)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows_core::Result<METADATA_HANDLE_INFO> {
-        let mut result__ = ::windows_core::zeroed::<METADATA_HANDLE_INFO>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetHandleInfo)(::windows_core::Interface::as_raw(self), hmdhandle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetSystemChangeNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDataSetNumber<P0>(&self, hmdhandle: u32, pszmdpath: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetDataSetNumber)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1244,7 +1244,7 @@ impl IMSAdminBase3W {
         (::windows_core::Interface::vtable(self).base__.base__.DeleteBackup)(::windows_core::Interface::as_raw(self), pszmdbackuplocation.into_param().abi(), dwmdversion).ok()
     }
     pub unsafe fn UnmarshalInterface(&self) -> ::windows_core::Result<IMSAdminBaseW> {
-        let mut result__ = ::windows_core::zeroed::<IMSAdminBaseW>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.UnmarshalInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetServerGuid(&self) -> ::windows_core::Result<()> {
@@ -1471,7 +1471,7 @@ impl IMSAdminBaseW {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenKey)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), dwmdaccessrequested, dwmdtimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn CloseKey(&self, hmdhandle: u32) -> ::windows_core::Result<()> {
@@ -1484,18 +1484,18 @@ impl IMSAdminBaseW {
         (::windows_core::Interface::vtable(self).SaveData)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetHandleInfo(&self, hmdhandle: u32) -> ::windows_core::Result<METADATA_HANDLE_INFO> {
-        let mut result__ = ::windows_core::zeroed::<METADATA_HANDLE_INFO>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetHandleInfo)(::windows_core::Interface::as_raw(self), hmdhandle, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSystemChangeNumber(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSystemChangeNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDataSetNumber<P0>(&self, hmdhandle: u32, pszmdpath: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDataSetNumber)(::windows_core::Interface::as_raw(self), hmdhandle, pszmdpath.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1546,7 +1546,7 @@ impl IMSAdminBaseW {
         (::windows_core::Interface::vtable(self).DeleteBackup)(::windows_core::Interface::as_raw(self), pszmdbackuplocation.into_param().abi(), dwmdversion).ok()
     }
     pub unsafe fn UnmarshalInterface(&self) -> ::windows_core::Result<IMSAdminBaseW> {
-        let mut result__ = ::windows_core::zeroed::<IMSAdminBaseW>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UnmarshalInterface)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetServerGuid(&self) -> ::windows_core::Result<()> {

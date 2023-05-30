@@ -66,14 +66,14 @@ impl CharacterGrouping {
     pub fn First(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Label(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Label)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -123,13 +123,13 @@ impl CharacterGroupings {
     pub fn Lookup(&self, text: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Lookup)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(language: &::windows_core::HSTRING) -> ::windows_core::Result<CharacterGroupings> {
         Self::ICharacterGroupingsFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CharacterGroupings>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(language), &mut result__).from_abi(result__)
         })
     }
@@ -138,7 +138,7 @@ impl CharacterGroupings {
     pub fn First(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IIterator<CharacterGrouping>> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IIterable<CharacterGrouping>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IIterator<CharacterGrouping>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).First)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -147,7 +147,7 @@ impl CharacterGroupings {
     pub fn GetAt(&self, index: u32) -> ::windows_core::Result<CharacterGrouping> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CharacterGrouping>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAt)(::windows_core::Interface::as_raw(this), index, &mut result__).from_abi(result__)
         }
     }
@@ -156,7 +156,7 @@ impl CharacterGroupings {
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -165,7 +165,7 @@ impl CharacterGroupings {
     pub fn IndexOf(&self, value: &CharacterGrouping, index: &mut u32) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), index, &mut result__).from_abi(result__)
         }
     }
@@ -174,7 +174,7 @@ impl CharacterGroupings {
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<CharacterGrouping>]) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::Collections::IVectorView<CharacterGrouping>>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMany)(::windows_core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi(result__)
         }
     }

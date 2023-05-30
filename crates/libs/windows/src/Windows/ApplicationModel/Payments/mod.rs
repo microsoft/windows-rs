@@ -816,7 +816,7 @@ impl PaymentAddress {
     pub fn Country(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Country)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -829,7 +829,7 @@ impl PaymentAddress {
     pub fn AddressLines(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AddressLines)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -845,7 +845,7 @@ impl PaymentAddress {
     pub fn Region(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Region)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -856,7 +856,7 @@ impl PaymentAddress {
     pub fn City(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).City)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -867,7 +867,7 @@ impl PaymentAddress {
     pub fn DependentLocality(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DependentLocality)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -878,7 +878,7 @@ impl PaymentAddress {
     pub fn PostalCode(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PostalCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -889,7 +889,7 @@ impl PaymentAddress {
     pub fn SortingCode(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SortingCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -900,7 +900,7 @@ impl PaymentAddress {
     pub fn LanguageCode(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LanguageCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -911,7 +911,7 @@ impl PaymentAddress {
     pub fn Organization(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Organization)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -922,7 +922,7 @@ impl PaymentAddress {
     pub fn Recipient(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Recipient)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -933,7 +933,7 @@ impl PaymentAddress {
     pub fn PhoneNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -946,7 +946,7 @@ impl PaymentAddress {
     pub fn Properties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::ValueSet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Properties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -989,13 +989,13 @@ impl PaymentCanMakePaymentResult {
     pub fn Status(&self) -> ::windows_core::Result<PaymentCanMakePaymentResultStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentCanMakePaymentResultStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(value: PaymentCanMakePaymentResultStatus) -> ::windows_core::Result<PaymentCanMakePaymentResult> {
         Self::IPaymentCanMakePaymentResultFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentCanMakePaymentResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         })
     }
@@ -1043,7 +1043,7 @@ impl PaymentCurrencyAmount {
     pub fn Currency(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Currency)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1054,7 +1054,7 @@ impl PaymentCurrencyAmount {
     pub fn CurrencySystem(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrencySystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1065,7 +1065,7 @@ impl PaymentCurrencyAmount {
     pub fn Value(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1075,13 +1075,13 @@ impl PaymentCurrencyAmount {
     }
     pub fn Create(value: &::windows_core::HSTRING, currency: &::windows_core::HSTRING) -> ::windows_core::Result<PaymentCurrencyAmount> {
         Self::IPaymentCurrencyAmountFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentCurrencyAmount>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), ::core::mem::transmute_copy(currency), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateWithCurrencySystem(value: &::windows_core::HSTRING, currency: &::windows_core::HSTRING, currencysystem: &::windows_core::HSTRING) -> ::windows_core::Result<PaymentCurrencyAmount> {
         Self::IPaymentCurrencyAmountFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentCurrencyAmount>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithCurrencySystem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), ::core::mem::transmute_copy(currency), ::core::mem::transmute_copy(currencysystem), &mut result__).from_abi(result__)
         })
     }
@@ -1136,7 +1136,7 @@ impl PaymentDetails {
     pub fn Total(&self) -> ::windows_core::Result<PaymentItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentItem>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Total)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1149,7 +1149,7 @@ impl PaymentDetails {
     pub fn DisplayItems(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<PaymentItem>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayItems)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1167,7 +1167,7 @@ impl PaymentDetails {
     pub fn ShippingOptions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShippingOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1185,7 +1185,7 @@ impl PaymentDetails {
     pub fn Modifiers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Modifiers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1200,7 +1200,7 @@ impl PaymentDetails {
     }
     pub fn Create(total: &PaymentItem) -> ::windows_core::Result<PaymentDetails> {
         Self::IPaymentDetailsFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentDetails>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(total), &mut result__).from_abi(result__)
         })
     }
@@ -1211,7 +1211,7 @@ impl PaymentDetails {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentItem>>,
     {
         Self::IPaymentDetailsFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentDetails>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithDisplayItems)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(total), displayitems.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1259,7 +1259,7 @@ impl PaymentDetailsModifier {
     pub fn JsonData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).JsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1268,14 +1268,14 @@ impl PaymentDetailsModifier {
     pub fn SupportedMethodIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedMethodIds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Total(&self) -> ::windows_core::Result<PaymentItem> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentItem>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Total)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1284,7 +1284,7 @@ impl PaymentDetailsModifier {
     pub fn AdditionalDisplayItems(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<PaymentItem>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AdditionalDisplayItems)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1295,7 +1295,7 @@ impl PaymentDetailsModifier {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentDetailsModifier>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), ::core::mem::transmute_copy(total), &mut result__).from_abi(result__)
         })
     }
@@ -1307,7 +1307,7 @@ impl PaymentDetailsModifier {
         P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentItem>>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentDetailsModifier>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItems)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), ::core::mem::transmute_copy(total), additionaldisplayitems.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1319,7 +1319,7 @@ impl PaymentDetailsModifier {
         P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentItem>>,
     {
         Self::IPaymentDetailsModifierFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentDetailsModifier>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithAdditionalDisplayItemsAndJsonData)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), ::core::mem::transmute_copy(total), additionaldisplayitems.try_into_param()?.abi(), ::core::mem::transmute_copy(jsondata), &mut result__).from_abi(result__)
         })
     }
@@ -1367,7 +1367,7 @@ impl PaymentItem {
     pub fn Label(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Label)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1378,7 +1378,7 @@ impl PaymentItem {
     pub fn Amount(&self) -> ::windows_core::Result<PaymentCurrencyAmount> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentCurrencyAmount>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Amount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1389,7 +1389,7 @@ impl PaymentItem {
     pub fn Pending(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Pending)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1399,7 +1399,7 @@ impl PaymentItem {
     }
     pub fn Create(label: &::windows_core::HSTRING, amount: &PaymentCurrencyAmount) -> ::windows_core::Result<PaymentItem> {
         Self::IPaymentItemFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentItem>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(amount), &mut result__).from_abi(result__)
         })
     }
@@ -1456,7 +1456,7 @@ impl PaymentMediator {
     pub fn GetSupportedMethodIdsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSupportedMethodIdsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1465,7 +1465,7 @@ impl PaymentMediator {
     pub fn SubmitPaymentRequestAsync(&self, paymentrequest: &PaymentRequest) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SubmitPaymentRequestAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(paymentrequest), &mut result__).from_abi(result__)
         }
     }
@@ -1474,7 +1474,7 @@ impl PaymentMediator {
     pub fn SubmitPaymentRequestWithChangeHandlerAsync(&self, paymentrequest: &PaymentRequest, changehandler: &PaymentRequestChangedHandler) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SubmitPaymentRequestWithChangeHandlerAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(paymentrequest), ::core::mem::transmute_copy(changehandler), &mut result__).from_abi(result__)
         }
     }
@@ -1483,7 +1483,7 @@ impl PaymentMediator {
     pub fn CanMakePaymentAsync(&self, paymentrequest: &PaymentRequest) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>> {
         let this = &::windows_core::ComInterface::cast::<IPaymentMediator2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanMakePaymentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(paymentrequest), &mut result__).from_abi(result__)
         }
     }
@@ -1533,7 +1533,7 @@ impl PaymentMerchantInfo {
     pub fn PackageFullName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PackageFullName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1542,7 +1542,7 @@ impl PaymentMerchantInfo {
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1550,7 +1550,7 @@ impl PaymentMerchantInfo {
     #[cfg(feature = "Foundation")]
     pub fn Create(uri: &super::super::Foundation::Uri) -> ::windows_core::Result<PaymentMerchantInfo> {
         Self::IPaymentMerchantInfoFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentMerchantInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         })
     }
@@ -1600,14 +1600,14 @@ impl PaymentMethodData {
     pub fn SupportedMethodIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedMethodIds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn JsonData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).JsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1618,7 +1618,7 @@ impl PaymentMethodData {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPaymentMethodDataFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentMethodData>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1629,7 +1629,7 @@ impl PaymentMethodData {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IPaymentMethodDataFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentMethodData>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithJsonData)(::windows_core::Interface::as_raw(this), supportedmethodids.try_into_param()?.abi(), ::core::mem::transmute_copy(jsondata), &mut result__).from_abi(result__)
         })
     }
@@ -1684,7 +1684,7 @@ impl PaymentOptions {
     pub fn RequestPayerEmail(&self) -> ::windows_core::Result<PaymentOptionPresence> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentOptionPresence>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPayerEmail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1695,7 +1695,7 @@ impl PaymentOptions {
     pub fn RequestPayerName(&self) -> ::windows_core::Result<PaymentOptionPresence> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentOptionPresence>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPayerName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1706,7 +1706,7 @@ impl PaymentOptions {
     pub fn RequestPayerPhoneNumber(&self) -> ::windows_core::Result<PaymentOptionPresence> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentOptionPresence>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPayerPhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1717,7 +1717,7 @@ impl PaymentOptions {
     pub fn RequestShipping(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestShipping)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1728,7 +1728,7 @@ impl PaymentOptions {
     pub fn ShippingType(&self) -> ::windows_core::Result<PaymentShippingType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentShippingType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShippingType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1775,14 +1775,14 @@ impl PaymentRequest {
     pub fn MerchantInfo(&self) -> ::windows_core::Result<PaymentMerchantInfo> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentMerchantInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MerchantInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Details(&self) -> ::windows_core::Result<PaymentDetails> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentDetails>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Details)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1791,21 +1791,21 @@ impl PaymentRequest {
     pub fn MethodData(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<PaymentMethodData>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<PaymentMethodData>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MethodData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Options(&self) -> ::windows_core::Result<PaymentOptions> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentOptions>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Options)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IPaymentRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1816,7 +1816,7 @@ impl PaymentRequest {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(details), methoddata.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1827,7 +1827,7 @@ impl PaymentRequest {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithMerchantInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(details), methoddata.try_into_param()?.abi(), ::core::mem::transmute_copy(merchantinfo), &mut result__).from_abi(result__)
         })
     }
@@ -1838,7 +1838,7 @@ impl PaymentRequest {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
     {
         Self::IPaymentRequestFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithMerchantInfoAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(details), methoddata.try_into_param()?.abi(), ::core::mem::transmute_copy(merchantinfo), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
@@ -1849,7 +1849,7 @@ impl PaymentRequest {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<PaymentMethodData>>,
     {
         Self::IPaymentRequestFactory2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithMerchantInfoOptionsAndId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(details), methoddata.try_into_param()?.abi(), ::core::mem::transmute_copy(merchantinfo), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         })
     }
@@ -1902,21 +1902,21 @@ impl PaymentRequestChangedArgs {
     pub fn ChangeKind(&self) -> ::windows_core::Result<PaymentRequestChangeKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentRequestChangeKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ChangeKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ShippingAddress(&self) -> ::windows_core::Result<PaymentAddress> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentAddress>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShippingAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SelectedShippingOption(&self) -> ::windows_core::Result<PaymentShippingOption> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentShippingOption>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelectedShippingOption)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1963,7 +1963,7 @@ impl PaymentRequestChangedResult {
     pub fn ChangeAcceptedByMerchant(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ChangeAcceptedByMerchant)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1974,7 +1974,7 @@ impl PaymentRequestChangedResult {
     pub fn Message(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1985,7 +1985,7 @@ impl PaymentRequestChangedResult {
     pub fn UpdatedPaymentDetails(&self) -> ::windows_core::Result<PaymentDetails> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentDetails>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UpdatedPaymentDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1995,13 +1995,13 @@ impl PaymentRequestChangedResult {
     }
     pub fn Create(changeacceptedbymerchant: bool) -> ::windows_core::Result<PaymentRequestChangedResult> {
         Self::IPaymentRequestChangedResultFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentRequestChangedResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), changeacceptedbymerchant, &mut result__).from_abi(result__)
         })
     }
     pub fn CreateWithPaymentDetails(changeacceptedbymerchant: bool, updatedpaymentdetails: &PaymentDetails) -> ::windows_core::Result<PaymentRequestChangedResult> {
         Self::IPaymentRequestChangedResultFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentRequestChangedResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithPaymentDetails)(::windows_core::Interface::as_raw(this), changeacceptedbymerchant, ::core::mem::transmute_copy(updatedpaymentdetails), &mut result__).from_abi(result__)
         })
     }
@@ -2049,14 +2049,14 @@ impl PaymentRequestSubmitResult {
     pub fn Status(&self) -> ::windows_core::Result<PaymentRequestStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentRequestStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Response(&self) -> ::windows_core::Result<PaymentResponse> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentResponse>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Response)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2099,42 +2099,42 @@ impl PaymentResponse {
     pub fn PaymentToken(&self) -> ::windows_core::Result<PaymentToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PaymentToken)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ShippingOption(&self) -> ::windows_core::Result<PaymentShippingOption> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentShippingOption>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShippingOption)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ShippingAddress(&self) -> ::windows_core::Result<PaymentAddress> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentAddress>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShippingAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PayerEmail(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PayerEmail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PayerName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PayerName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PayerPhoneNumber(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PayerPhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2143,7 +2143,7 @@ impl PaymentResponse {
     pub fn CompleteAsync(&self, status: PaymentRequestCompletionStatus) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CompleteAsync)(::windows_core::Interface::as_raw(this), status, &mut result__).from_abi(result__)
         }
     }
@@ -2186,7 +2186,7 @@ impl PaymentShippingOption {
     pub fn Label(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Label)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2197,7 +2197,7 @@ impl PaymentShippingOption {
     pub fn Amount(&self) -> ::windows_core::Result<PaymentCurrencyAmount> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentCurrencyAmount>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Amount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2208,7 +2208,7 @@ impl PaymentShippingOption {
     pub fn Tag(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Tag)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2219,7 +2219,7 @@ impl PaymentShippingOption {
     pub fn IsSelected(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSelected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2229,19 +2229,19 @@ impl PaymentShippingOption {
     }
     pub fn Create(label: &::windows_core::HSTRING, amount: &PaymentCurrencyAmount) -> ::windows_core::Result<PaymentShippingOption> {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentShippingOption>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(amount), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateWithSelected(label: &::windows_core::HSTRING, amount: &PaymentCurrencyAmount, selected: bool) -> ::windows_core::Result<PaymentShippingOption> {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentShippingOption>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithSelected)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(amount), selected, &mut result__).from_abi(result__)
         })
     }
     pub fn CreateWithSelectedAndTag(label: &::windows_core::HSTRING, amount: &PaymentCurrencyAmount, selected: bool, tag: &::windows_core::HSTRING) -> ::windows_core::Result<PaymentShippingOption> {
         Self::IPaymentShippingOptionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentShippingOption>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithSelectedAndTag)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(label), ::core::mem::transmute_copy(amount), selected, ::core::mem::transmute_copy(tag), &mut result__).from_abi(result__)
         })
     }
@@ -2289,26 +2289,26 @@ impl PaymentToken {
     pub fn PaymentMethodId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PaymentMethodId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn JsonDetails(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).JsonDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(paymentmethodid: &::windows_core::HSTRING) -> ::windows_core::Result<PaymentToken> {
         Self::IPaymentTokenFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(paymentmethodid), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateWithJsonDetails(paymentmethodid: &::windows_core::HSTRING, jsondetails: &::windows_core::HSTRING) -> ::windows_core::Result<PaymentToken> {
         Self::IPaymentTokenFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PaymentToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithJsonDetails)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(paymentmethodid), ::core::mem::transmute_copy(jsondetails), &mut result__).from_abi(result__)
         })
     }

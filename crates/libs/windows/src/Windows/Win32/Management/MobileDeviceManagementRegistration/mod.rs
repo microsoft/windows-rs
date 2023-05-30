@@ -14,7 +14,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("mdmregistration.dll" "system" fn DiscoverManagementService(pszupn : ::windows_core::PCWSTR, ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut MANAGEMENT_SERVICE_INFO>();
+    let mut result__ = ::std::mem::zeroed();
     DiscoverManagementService(pszupn.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
@@ -25,7 +25,7 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("mdmregistration.dll" "system" fn DiscoverManagementServiceEx(pszupn : ::windows_core::PCWSTR, pszdiscoveryservicecandidate : ::windows_core::PCWSTR, ppmgmtinfo : *mut *mut MANAGEMENT_SERVICE_INFO) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<*mut MANAGEMENT_SERVICE_INFO>();
+    let mut result__ = ::std::mem::zeroed();
     DiscoverManagementServiceEx(pszupn.into_param().abi(), pszdiscoveryservicecandidate.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
@@ -61,7 +61,7 @@ pub unsafe fn IsDeviceRegisteredWithManagement(pfisdeviceregisteredwithmanagemen
 #[inline]
 pub unsafe fn IsManagementRegistrationAllowed() -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("mdmregistration.dll" "system" fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+    let mut result__ = ::std::mem::zeroed();
     IsManagementRegistrationAllowed(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
@@ -69,7 +69,7 @@ pub unsafe fn IsManagementRegistrationAllowed() -> ::windows_core::Result<super:
 #[inline]
 pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("mdmregistration.dll" "system" fn IsMdmUxWithoutAadAllowed(isenrollmentallowed : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+    let mut result__ = ::std::mem::zeroed();
     IsMdmUxWithoutAadAllowed(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]

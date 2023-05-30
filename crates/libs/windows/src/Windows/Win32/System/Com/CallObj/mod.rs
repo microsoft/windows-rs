@@ -47,7 +47,7 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetParamInfo(&self, iparam: u32) -> ::windows_core::Result<CALLFRAMEPARAMINFO> {
-        let mut result__ = ::windows_core::zeroed::<CALLFRAMEPARAMINFO>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetParamInfo)(::windows_core::Interface::as_raw(self), iparam, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
@@ -58,14 +58,14 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn GetParam(&self, iparam: u32) -> ::windows_core::Result<super::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetParam)(::windows_core::Interface::as_raw(self), iparam, &mut result__).from_abi(result__)
     }
     pub unsafe fn Copy<P0>(&self, copycontrol: CALLFRAME_COPY, pwalker: P0) -> ::windows_core::Result<ICallFrame>
     where
         P0: ::windows_core::IntoParam<ICallFrameWalker>,
     {
-        let mut result__ = ::windows_core::zeroed::<ICallFrame>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Copy)(::windows_core::Interface::as_raw(self), copycontrol, pwalker.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Free<P0, P1, P2, P3>(&self, pframeargsdest: P0, pwalkerdestfree: P1, pwalkercopy: P2, freeflags: u32, pwalkerfree: P3, nullflags: u32) -> ::windows_core::Result<()>
@@ -92,7 +92,7 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMarshalSizeMax(&self, pmshlcontext: *const CALLFRAME_MARSHALCONTEXT, mshlflags: super::MSHLFLAGS) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMarshalSizeMax)(::windows_core::Interface::as_raw(self), pmshlcontext, mshlflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -103,7 +103,7 @@ impl ICallFrame {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unmarshal(&self, pbuffer: &[u8], datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Unmarshal)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _, datarep, pcontext, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -285,7 +285,7 @@ impl ICallIndirect {
         (::windows_core::Interface::vtable(self).GetMethodInfo)(::windows_core::Interface::as_raw(self), imethod, pinfo, pwszmethod).ok()
     }
     pub unsafe fn GetStackSize(&self, imethod: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStackSize)(::windows_core::Interface::as_raw(self), imethod, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -345,7 +345,7 @@ impl ICallInterceptor {
         (::windows_core::Interface::vtable(self).base__.GetMethodInfo)(::windows_core::Interface::as_raw(self), imethod, pinfo, pwszmethod).ok()
     }
     pub unsafe fn GetStackSize(&self, imethod: u32) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStackSize)(::windows_core::Interface::as_raw(self), imethod, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -360,7 +360,7 @@ impl ICallInterceptor {
         (::windows_core::Interface::vtable(self).RegisterSink)(::windows_core::Interface::as_raw(self), psink.into_param().abi()).ok()
     }
     pub unsafe fn GetRegisteredSink(&self) -> ::windows_core::Result<ICallFrameEvents> {
-        let mut result__ = ::windows_core::zeroed::<ICallFrameEvents>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRegisteredSink)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -456,7 +456,7 @@ impl IInterfaceRelated {
         (::windows_core::Interface::vtable(self).SetIID)(::windows_core::Interface::as_raw(self), iid).ok()
     }
     pub unsafe fn GetIID(&self) -> ::windows_core::Result<::windows_core::GUID> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIID)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

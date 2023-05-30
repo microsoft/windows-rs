@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn WscGetAntiMalwareUri() -> ::windows_core::Result<::windows_core::PWSTR> {
     ::windows_targets::link!("wscapi.dll" "system" fn WscGetAntiMalwareUri(ppszuri : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+    let mut result__ = ::std::mem::zeroed();
     WscGetAntiMalwareUri(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
@@ -100,13 +100,13 @@ impl IWSCProductList {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), provider).ok()
     }
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: u32) -> ::windows_core::Result<IWscProduct> {
-        let mut result__ = ::windows_core::zeroed::<IWscProduct>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
@@ -159,33 +159,33 @@ pub struct IWscProduct(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct {
     pub unsafe fn ProductName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProductName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ProductState(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_STATE> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_STATE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProductState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SignatureStatus(&self) -> ::windows_core::Result<WSC_SECURITY_SIGNATURE_STATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_SIGNATURE_STATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SignatureStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemediationPath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RemediationPath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ProductStateTimestamp(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProductStateTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ProductGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProductGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductIsDefault(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ProductIsDefault)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -242,57 +242,57 @@ pub struct IWscProduct2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct2 {
     pub unsafe fn ProductName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ProductName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ProductState(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_STATE> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_STATE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ProductState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SignatureStatus(&self) -> ::windows_core::Result<WSC_SECURITY_SIGNATURE_STATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_SIGNATURE_STATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SignatureStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemediationPath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.RemediationPath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ProductStateTimestamp(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ProductStateTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ProductGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ProductGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductIsDefault(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ProductIsDefault)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AntivirusScanSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AntivirusScanSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AntivirusSettingsSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AntivirusSettingsSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AntivirusProtectionUpdateSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AntivirusProtectionUpdateSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FirewallDomainProfileSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FirewallDomainProfileSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FirewallPrivateProfileSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FirewallPrivateProfileSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FirewallPublicProfileSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FirewallPublicProfileSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -345,61 +345,61 @@ pub struct IWscProduct3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct3 {
     pub unsafe fn ProductName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ProductName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ProductState(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_STATE> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_STATE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ProductState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SignatureStatus(&self) -> ::windows_core::Result<WSC_SECURITY_SIGNATURE_STATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_SIGNATURE_STATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.SignatureStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemediationPath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.RemediationPath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ProductStateTimestamp(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ProductStateTimestamp)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ProductGuid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ProductGuid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProductIsDefault(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ProductIsDefault)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AntivirusScanSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AntivirusScanSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AntivirusSettingsSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AntivirusSettingsSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AntivirusProtectionUpdateSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AntivirusProtectionUpdateSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FirewallDomainProfileSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FirewallDomainProfileSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FirewallPrivateProfileSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FirewallPrivateProfileSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FirewallPublicProfileSubstatus(&self) -> ::windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
-        let mut result__ = ::windows_core::zeroed::<WSC_SECURITY_PRODUCT_SUBSTATUS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.FirewallPublicProfileSubstatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AntivirusDaysUntilExpired(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AntivirusDaysUntilExpired)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

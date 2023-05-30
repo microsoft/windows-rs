@@ -166,7 +166,7 @@ impl ISearchPaneQueryChangedEventArgs {
     pub fn QueryText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -175,7 +175,7 @@ impl ISearchPaneQueryChangedEventArgs {
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Language)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -184,7 +184,7 @@ impl ISearchPaneQueryChangedEventArgs {
     pub fn LinguisticDetails(&self) -> ::windows_core::Result<SearchPaneQueryLinguisticDetails> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SearchPaneQueryLinguisticDetails>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LinguisticDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -668,7 +668,7 @@ impl LocalContentSuggestionSettings {
     pub fn Enabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Enabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -677,7 +677,7 @@ impl LocalContentSuggestionSettings {
     pub fn Locations(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFolder>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<super::super::Storage::StorageFolder>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Locations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -688,7 +688,7 @@ impl LocalContentSuggestionSettings {
     pub fn AqsFilter(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AqsFilter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -697,7 +697,7 @@ impl LocalContentSuggestionSettings {
     pub fn PropertiesToMatch(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PropertiesToMatch)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -748,7 +748,7 @@ impl SearchPane {
     pub fn SearchHistoryEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SearchHistoryEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -763,7 +763,7 @@ impl SearchPane {
     pub fn SearchHistoryContext(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SearchHistoryContext)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -778,7 +778,7 @@ impl SearchPane {
     pub fn PlaceholderText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PlaceholderText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -787,7 +787,7 @@ impl SearchPane {
     pub fn QueryText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -796,7 +796,7 @@ impl SearchPane {
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Language)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -805,7 +805,7 @@ impl SearchPane {
     pub fn Visible(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Visible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -814,7 +814,7 @@ impl SearchPane {
     pub fn VisibilityChanged(&self, handler: &super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneVisibilityChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VisibilityChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -829,7 +829,7 @@ impl SearchPane {
     pub fn QueryChanged(&self, handler: &super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQueryChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -844,7 +844,7 @@ impl SearchPane {
     pub fn SuggestionsRequested(&self, handler: &super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneSuggestionsRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SuggestionsRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -859,7 +859,7 @@ impl SearchPane {
     pub fn QuerySubmitted(&self, handler: &super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneQuerySubmittedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QuerySubmitted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -874,7 +874,7 @@ impl SearchPane {
     pub fn ResultSuggestionChosen(&self, handler: &super::super::Foundation::TypedEventHandler<SearchPane, SearchPaneResultSuggestionChosenEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResultSuggestionChosen)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -913,7 +913,7 @@ impl SearchPane {
     pub fn ShowOnKeyboardInput(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShowOnKeyboardInput)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -922,7 +922,7 @@ impl SearchPane {
     pub fn TrySetQueryText(&self, query: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySetQueryText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(query), &mut result__).from_abi(result__)
         }
     }
@@ -930,7 +930,7 @@ impl SearchPane {
     #[cfg(feature = "deprecated")]
     pub fn GetForCurrentView() -> ::windows_core::Result<SearchPane> {
         Self::ISearchPaneStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SearchPane>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1001,7 +1001,7 @@ impl SearchPaneQueryChangedEventArgs {
     pub fn QueryText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1010,7 +1010,7 @@ impl SearchPaneQueryChangedEventArgs {
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Language)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1019,7 +1019,7 @@ impl SearchPaneQueryChangedEventArgs {
     pub fn LinguisticDetails(&self) -> ::windows_core::Result<SearchPaneQueryLinguisticDetails> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SearchPaneQueryLinguisticDetails>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LinguisticDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1077,21 +1077,21 @@ impl SearchPaneQueryLinguisticDetails {
     pub fn QueryTextAlternatives(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryTextAlternatives)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn QueryTextCompositionStart(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryTextCompositionStart)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn QueryTextCompositionLength(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryTextCompositionLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1138,7 +1138,7 @@ impl SearchPaneQuerySubmittedEventArgs {
     pub fn QueryText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1147,7 +1147,7 @@ impl SearchPaneQuerySubmittedEventArgs {
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Language)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1156,7 +1156,7 @@ impl SearchPaneQuerySubmittedEventArgs {
     pub fn LinguisticDetails(&self) -> ::windows_core::Result<SearchPaneQueryLinguisticDetails> {
         let this = &::windows_core::ComInterface::cast::<ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SearchPaneQueryLinguisticDetails>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LinguisticDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1214,7 +1214,7 @@ impl SearchPaneResultSuggestionChosenEventArgs {
     pub fn Tag(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Tag)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1272,7 +1272,7 @@ impl SearchPaneSuggestionsRequest {
     pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1281,7 +1281,7 @@ impl SearchPaneSuggestionsRequest {
     pub fn SearchSuggestionCollection(&self) -> ::windows_core::Result<SearchSuggestionCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SearchSuggestionCollection>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SearchSuggestionCollection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1290,7 +1290,7 @@ impl SearchPaneSuggestionsRequest {
     pub fn GetDeferral(&self) -> ::windows_core::Result<SearchPaneSuggestionsRequestDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SearchPaneSuggestionsRequestDeferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1403,7 +1403,7 @@ impl SearchPaneSuggestionsRequestedEventArgs {
     pub fn QueryText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<ISearchPaneQueryChangedEventArgs>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1412,7 +1412,7 @@ impl SearchPaneSuggestionsRequestedEventArgs {
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<ISearchPaneQueryChangedEventArgs>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Language)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1421,7 +1421,7 @@ impl SearchPaneSuggestionsRequestedEventArgs {
     pub fn LinguisticDetails(&self) -> ::windows_core::Result<SearchPaneQueryLinguisticDetails> {
         let this = &::windows_core::ComInterface::cast::<ISearchPaneQueryChangedEventArgs>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SearchPaneQueryLinguisticDetails>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LinguisticDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1430,7 +1430,7 @@ impl SearchPaneSuggestionsRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<SearchPaneSuggestionsRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SearchPaneSuggestionsRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1490,7 +1490,7 @@ impl SearchPaneVisibilityChangedEventArgs {
     pub fn Visible(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Visible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1546,21 +1546,21 @@ impl SearchQueryLinguisticDetails {
     pub fn QueryTextAlternatives(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryTextAlternatives)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn QueryTextCompositionStart(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryTextCompositionStart)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn QueryTextCompositionLength(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryTextCompositionLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1571,7 +1571,7 @@ impl SearchQueryLinguisticDetails {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::ISearchQueryLinguisticDetailsFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SearchQueryLinguisticDetails>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), querytextalternatives.try_into_param()?.abi(), querytextcompositionstart, querytextcompositionlength, &mut result__).from_abi(result__)
         })
     }
@@ -1619,7 +1619,7 @@ impl SearchSuggestionCollection {
     pub fn Size(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1688,21 +1688,21 @@ impl SearchSuggestionsRequest {
     pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SearchSuggestionCollection(&self) -> ::windows_core::Result<SearchSuggestionCollection> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SearchSuggestionCollection>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SearchSuggestionCollection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeferral(&self) -> ::windows_core::Result<SearchSuggestionsRequestDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SearchSuggestionsRequestDeferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

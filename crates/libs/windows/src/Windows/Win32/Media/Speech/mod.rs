@@ -12,11 +12,11 @@ impl IEnumSpObjectTokens {
         (::windows_core::Interface::vtable(self).Reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IEnumSpObjectTokens> {
-        let mut result__ = ::windows_core::zeroed::<IEnumSpObjectTokens>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Item(&self, index: u32) -> ::windows_core::Result<ISpObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCount(&self, pcount: *mut u32) -> ::windows_core::Result<()> {
@@ -119,13 +119,13 @@ impl ISpAudio {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pguidformatid: *const ::windows_core::GUID) -> ::windows_core::Result<*mut super::Audio::WAVEFORMATEX> {
-        let mut result__ = ::windows_core::zeroed::<*mut super::Audio::WAVEFORMATEX>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFormat)(::windows_core::Interface::as_raw(self), pguidformatid, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: u64) -> ::windows_core::Result<()> {
@@ -318,7 +318,7 @@ impl ISpDataKey {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStringValue)(::windows_core::Interface::as_raw(self), pszvaluename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows_core::Result<()>
@@ -337,14 +337,14 @@ impl ISpDataKey {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenKey)(::windows_core::Interface::as_raw(self), pszsubkeyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> ::windows_core::Result<ISpDataKey>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateKey)(::windows_core::Interface::as_raw(self), pszsubkey.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteKey<P0>(&self, pszsubkey: P0) -> ::windows_core::Result<()>
@@ -360,11 +360,11 @@ impl ISpDataKey {
         (::windows_core::Interface::vtable(self).DeleteValue)(::windows_core::Interface::as_raw(self), pszvaluename.into_param().abi()).ok()
     }
     pub unsafe fn EnumKeys(&self, index: u32) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumKeys)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumValues(&self, index: u32) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumValues)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
@@ -1005,13 +1005,13 @@ impl ISpMMSysAudio {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pguidformatid: *const ::windows_core::GUID) -> ::windows_core::Result<*mut super::Audio::WAVEFORMATEX> {
-        let mut result__ = ::windows_core::zeroed::<*mut super::Audio::WAVEFORMATEX>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetFormat)(::windows_core::Interface::as_raw(self), pguidformatid, &mut result__).from_abi(result__)
     }
     pub unsafe fn SetState(&self, newstate: SPAUDIOSTATE, ullreserved: u64) -> ::windows_core::Result<()> {
@@ -1416,7 +1416,7 @@ impl ISpObjectToken {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStringValue)(::windows_core::Interface::as_raw(self), pszvaluename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows_core::Result<()>
@@ -1435,14 +1435,14 @@ impl ISpObjectToken {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OpenKey)(::windows_core::Interface::as_raw(self), pszsubkeyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> ::windows_core::Result<ISpDataKey>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateKey)(::windows_core::Interface::as_raw(self), pszsubkey.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteKey<P0>(&self, pszsubkey: P0) -> ::windows_core::Result<()>
@@ -1458,11 +1458,11 @@ impl ISpObjectToken {
         (::windows_core::Interface::vtable(self).base__.DeleteValue)(::windows_core::Interface::as_raw(self), pszvaluename.into_param().abi()).ok()
     }
     pub unsafe fn EnumKeys(&self, index: u32) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumKeys)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumValues(&self, index: u32) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumValues)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1476,11 +1476,11 @@ impl ISpObjectToken {
         (::windows_core::Interface::vtable(self).SetId)(::windows_core::Interface::as_raw(self), pszcategoryid.into_param().abi(), psztokenid.into_param().abi(), fcreateifnotexist.into_param().abi()).ok()
     }
     pub unsafe fn GetId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCategory(&self) -> ::windows_core::Result<ISpObjectTokenCategory> {
-        let mut result__ = ::windows_core::zeroed::<ISpObjectTokenCategory>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCategory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateInstance<P0>(&self, punkouter: P0, dwclscontext: u32, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -1494,7 +1494,7 @@ impl ISpObjectToken {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStorageFileName)(::windows_core::Interface::as_raw(self), clsidcaller, pszvaluename.into_param().abi(), pszfilenamespecifier.into_param().abi(), nfolder, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1618,7 +1618,7 @@ impl ISpObjectTokenCategory {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStringValue)(::windows_core::Interface::as_raw(self), pszvaluename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows_core::Result<()>
@@ -1637,14 +1637,14 @@ impl ISpObjectTokenCategory {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OpenKey)(::windows_core::Interface::as_raw(self), pszsubkeyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> ::windows_core::Result<ISpDataKey>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateKey)(::windows_core::Interface::as_raw(self), pszsubkey.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteKey<P0>(&self, pszsubkey: P0) -> ::windows_core::Result<()>
@@ -1660,11 +1660,11 @@ impl ISpObjectTokenCategory {
         (::windows_core::Interface::vtable(self).base__.DeleteValue)(::windows_core::Interface::as_raw(self), pszvaluename.into_param().abi()).ok()
     }
     pub unsafe fn EnumKeys(&self, index: u32) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumKeys)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumValues(&self, index: u32) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumValues)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1677,11 +1677,11 @@ impl ISpObjectTokenCategory {
         (::windows_core::Interface::vtable(self).SetId)(::windows_core::Interface::as_raw(self), pszcategoryid.into_param().abi(), fcreateifnotexist.into_param().abi()).ok()
     }
     pub unsafe fn GetId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDataKey(&self, spdkl: SPDATAKEYLOCATION) -> ::windows_core::Result<ISpDataKey> {
-        let mut result__ = ::windows_core::zeroed::<ISpDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDataKey)(::windows_core::Interface::as_raw(self), spdkl, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumTokens<P0, P1>(&self, pzsreqattribs: P0, pszoptattribs: P1) -> ::windows_core::Result<IEnumSpObjectTokens>
@@ -1689,7 +1689,7 @@ impl ISpObjectTokenCategory {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IEnumSpObjectTokens>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumTokens)(::windows_core::Interface::as_raw(self), pzsreqattribs.into_param().abi(), pszoptattribs.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDefaultTokenId<P0>(&self, psztokenid: P0) -> ::windows_core::Result<()>
@@ -1699,7 +1699,7 @@ impl ISpObjectTokenCategory {
         (::windows_core::Interface::vtable(self).SetDefaultTokenId)(::windows_core::Interface::as_raw(self), psztokenid.into_param().abi()).ok()
     }
     pub unsafe fn GetDefaultTokenId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultTokenId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1767,7 +1767,7 @@ impl ISpObjectTokenInit {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetStringValue)(::windows_core::Interface::as_raw(self), pszvaluename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows_core::Result<()>
@@ -1786,14 +1786,14 @@ impl ISpObjectTokenInit {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.OpenKey)(::windows_core::Interface::as_raw(self), pszsubkeyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> ::windows_core::Result<ISpDataKey>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.CreateKey)(::windows_core::Interface::as_raw(self), pszsubkey.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteKey<P0>(&self, pszsubkey: P0) -> ::windows_core::Result<()>
@@ -1809,11 +1809,11 @@ impl ISpObjectTokenInit {
         (::windows_core::Interface::vtable(self).base__.base__.DeleteValue)(::windows_core::Interface::as_raw(self), pszvaluename.into_param().abi()).ok()
     }
     pub unsafe fn EnumKeys(&self, index: u32) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumKeys)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumValues(&self, index: u32) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.EnumValues)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1827,11 +1827,11 @@ impl ISpObjectTokenInit {
         (::windows_core::Interface::vtable(self).base__.SetId)(::windows_core::Interface::as_raw(self), pszcategoryid.into_param().abi(), psztokenid.into_param().abi(), fcreateifnotexist.into_param().abi()).ok()
     }
     pub unsafe fn GetId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetCategory(&self) -> ::windows_core::Result<ISpObjectTokenCategory> {
-        let mut result__ = ::windows_core::zeroed::<ISpObjectTokenCategory>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCategory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateInstance<P0>(&self, punkouter: P0, dwclscontext: u32, riid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -1845,7 +1845,7 @@ impl ISpObjectTokenInit {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStorageFileName)(::windows_core::Interface::as_raw(self), clsidcaller, pszvaluename.into_param().abi(), pszfilenamespecifier.into_param().abi(), nfolder, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1937,7 +1937,7 @@ impl ISpObjectWithToken {
         (::windows_core::Interface::vtable(self).SetObjectToken)(::windows_core::Interface::as_raw(self), ptoken.into_param().abi()).ok()
     }
     pub unsafe fn GetObjectToken(&self) -> ::windows_core::Result<ISpObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetObjectToken)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1982,14 +1982,14 @@ impl ISpPhoneConverter {
         (::windows_core::Interface::vtable(self).base__.SetObjectToken)(::windows_core::Interface::as_raw(self), ptoken.into_param().abi()).ok()
     }
     pub unsafe fn GetObjectToken(&self) -> ::windows_core::Result<ISpObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetObjectToken)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PhoneToId<P0>(&self, pszphone: P0) -> ::windows_core::Result<u16>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PhoneToId)(::windows_core::Interface::as_raw(self), pszphone.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn IdToPhone(&self, pid: *const u16, pszphone: ::windows_core::PWSTR) -> ::windows_core::Result<()> {
@@ -2031,7 +2031,7 @@ pub struct ISpPhoneConverter_Vtbl {
 pub struct ISpPhoneticAlphabetConverter(::windows_core::IUnknown);
 impl ISpPhoneticAlphabetConverter {
     pub unsafe fn GetLangId(&self) -> ::windows_core::Result<u16> {
-        let mut result__ = ::windows_core::zeroed::<u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLangId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLangId(&self, langid: u16) -> ::windows_core::Result<()> {
@@ -2049,7 +2049,7 @@ impl ISpPhoneticAlphabetConverter {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetMaxConvertLength)(::windows_core::Interface::as_raw(self), csrclength, bsapi2ups.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -2096,7 +2096,7 @@ impl ISpPhoneticAlphabetSelection {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAlphabetUPS(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsAlphabetUPS)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2151,11 +2151,11 @@ impl ISpPhrase {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows_core::Result<*mut SPPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows_core::Result<*mut SPSERIALIZEDPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPSERIALIZEDPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSerializedPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2215,11 +2215,11 @@ impl ISpPhrase2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows_core::Result<*mut SPPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows_core::Result<*mut SPSERIALIZEDPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPSERIALIZEDPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSerializedPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2242,7 +2242,7 @@ impl ISpPhrase2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> ::windows_core::Result<ISpStreamFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpStreamFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAudio)(::windows_core::Interface::as_raw(self), ulstartelement, celements, &mut result__).from_abi(result__)
     }
 }
@@ -2287,11 +2287,11 @@ impl ISpPhraseAlt {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows_core::Result<*mut SPPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows_core::Result<*mut SPSERIALIZEDPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPSERIALIZEDPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSerializedPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2369,7 +2369,7 @@ impl ISpProperties {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPropertyString)(::windows_core::Interface::as_raw(self), pname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -2467,11 +2467,11 @@ impl ISpRecoContext {
         (::windows_core::Interface::vtable(self).base__.GetInfo)(::windows_core::Interface::as_raw(self), pinfo).ok()
     }
     pub unsafe fn GetRecognizer(&self) -> ::windows_core::Result<ISpRecognizer> {
-        let mut result__ = ::windows_core::zeroed::<ISpRecognizer>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecognizer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateGrammar(&self, ullgrammarid: u64) -> ::windows_core::Result<ISpRecoGrammar> {
-        let mut result__ = ::windows_core::zeroed::<ISpRecoGrammar>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateGrammar)(::windows_core::Interface::as_raw(self), ullgrammarid, &mut result__).from_abi(result__)
     }
     pub unsafe fn GetStatus(&self, pstatus: *mut SPRECOCONTEXTSTATUS) -> ::windows_core::Result<()> {
@@ -2494,7 +2494,7 @@ impl ISpRecoContext {
         (::windows_core::Interface::vtable(self).GetAudioOptions)(::windows_core::Interface::as_raw(self), poptions, paudioformatid, ppcomemwfex).ok()
     }
     pub unsafe fn DeserializeResult(&self, pserializedresult: *const SPSERIALIZEDRESULT) -> ::windows_core::Result<ISpRecoResult> {
-        let mut result__ = ::windows_core::zeroed::<ISpRecoResult>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DeserializeResult)(::windows_core::Interface::as_raw(self), pserializedresult, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2527,7 +2527,7 @@ impl ISpRecoContext {
         (::windows_core::Interface::vtable(self).SetVoice)(::windows_core::Interface::as_raw(self), pvoice.into_param().abi(), fallowformatchanges.into_param().abi()).ok()
     }
     pub unsafe fn GetVoice(&self) -> ::windows_core::Result<ISpVoice> {
-        let mut result__ = ::windows_core::zeroed::<ISpVoice>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVoice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetVoicePurgeEvent(&self, ulleventinterest: u64) -> ::windows_core::Result<()> {
@@ -2700,7 +2700,7 @@ impl ISpRecoGrammar {
         (::windows_core::Interface::vtable(self).GetGrammarId)(::windows_core::Interface::as_raw(self), pullgrammarid).ok()
     }
     pub unsafe fn GetRecoContext(&self) -> ::windows_core::Result<ISpRecoContext> {
-        let mut result__ = ::windows_core::zeroed::<ISpRecoContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecoContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn LoadCmdFromFile<P0>(&self, pszfilename: P0, options: SPLOADOPTIONS) -> ::windows_core::Result<()>
@@ -2937,11 +2937,11 @@ impl ISpRecoResult {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows_core::Result<*mut SPPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows_core::Result<*mut SPSERIALIZEDPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPSERIALIZEDPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetSerializedPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2966,7 +2966,7 @@ impl ISpRecoResult {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> ::windows_core::Result<ISpStreamFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpStreamFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAudio)(::windows_core::Interface::as_raw(self), ulstartelement, celements, &mut result__).from_abi(result__)
     }
     pub unsafe fn SpeakAudio(&self, ulstartelement: u32, celements: u32, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows_core::Result<()> {
@@ -2981,7 +2981,7 @@ impl ISpRecoResult {
         (::windows_core::Interface::vtable(self).ScaleAudio)(::windows_core::Interface::as_raw(self), paudioformatid, pwaveformatex).ok()
     }
     pub unsafe fn GetRecoContext(&self) -> ::windows_core::Result<ISpRecoContext> {
-        let mut result__ = ::windows_core::zeroed::<ISpRecoContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecoContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3036,11 +3036,11 @@ impl ISpRecoResult2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows_core::Result<*mut SPPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows_core::Result<*mut SPSERIALIZEDPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPSERIALIZEDPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetSerializedPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3065,7 +3065,7 @@ impl ISpRecoResult2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> ::windows_core::Result<ISpStreamFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpStreamFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAudio)(::windows_core::Interface::as_raw(self), ulstartelement, celements, &mut result__).from_abi(result__)
     }
     pub unsafe fn SpeakAudio(&self, ulstartelement: u32, celements: u32, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows_core::Result<()> {
@@ -3080,14 +3080,14 @@ impl ISpRecoResult2 {
         (::windows_core::Interface::vtable(self).base__.ScaleAudio)(::windows_core::Interface::as_raw(self), paudioformatid, pwaveformatex).ok()
     }
     pub unsafe fn GetRecoContext(&self) -> ::windows_core::Result<ISpRecoContext> {
-        let mut result__ = ::windows_core::zeroed::<ISpRecoContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRecoContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CommitAlternate<P0>(&self, pphrasealt: P0) -> ::windows_core::Result<ISpRecoResult>
     where
         P0: ::windows_core::IntoParam<ISpPhraseAlt>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpRecoResult>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CommitAlternate)(::windows_core::Interface::as_raw(self), pphrasealt.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CommitText<P0>(&self, ulstartelement: u32, celements: u32, pszcorrecteddata: P0, ecommitflags: u32) -> ::windows_core::Result<()>
@@ -3167,7 +3167,7 @@ impl ISpRecognizer {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetPropertyString)(::windows_core::Interface::as_raw(self), pname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRecognizer<P0>(&self, precognizer: P0) -> ::windows_core::Result<()>
@@ -3177,7 +3177,7 @@ impl ISpRecognizer {
         (::windows_core::Interface::vtable(self).SetRecognizer)(::windows_core::Interface::as_raw(self), precognizer.into_param().abi()).ok()
     }
     pub unsafe fn GetRecognizer(&self) -> ::windows_core::Result<ISpObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecognizer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3190,21 +3190,21 @@ impl ISpRecognizer {
         (::windows_core::Interface::vtable(self).SetInput)(::windows_core::Interface::as_raw(self), punkinput.into_param().abi(), fallowformatchanges.into_param().abi()).ok()
     }
     pub unsafe fn GetInputObjectToken(&self) -> ::windows_core::Result<ISpObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputObjectToken)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInputStream(&self) -> ::windows_core::Result<ISpStreamFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpStreamFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetInputStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateRecoContext(&self) -> ::windows_core::Result<ISpRecoContext> {
-        let mut result__ = ::windows_core::zeroed::<ISpRecoContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateRecoContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetRecoProfile(&self) -> ::windows_core::Result<ISpObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecoProfile)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRecoProfile<P0>(&self, ptoken: P0) -> ::windows_core::Result<()>
@@ -3398,7 +3398,7 @@ impl ISpRegDataKey {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetStringValue)(::windows_core::Interface::as_raw(self), pszvaluename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDWORD<P0>(&self, pszvaluename: P0, dwvalue: u32) -> ::windows_core::Result<()>
@@ -3417,14 +3417,14 @@ impl ISpRegDataKey {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OpenKey)(::windows_core::Interface::as_raw(self), pszsubkeyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateKey<P0>(&self, pszsubkey: P0) -> ::windows_core::Result<ISpDataKey>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.CreateKey)(::windows_core::Interface::as_raw(self), pszsubkey.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteKey<P0>(&self, pszsubkey: P0) -> ::windows_core::Result<()>
@@ -3440,11 +3440,11 @@ impl ISpRegDataKey {
         (::windows_core::Interface::vtable(self).base__.DeleteValue)(::windows_core::Interface::as_raw(self), pszvaluename.into_param().abi()).ok()
     }
     pub unsafe fn EnumKeys(&self, index: u32) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumKeys)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumValues(&self, index: u32) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EnumValues)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
@@ -3619,7 +3619,7 @@ impl ISpShortcut {
         (::windows_core::Interface::vtable(self).GetShortcuts)(::windows_core::Interface::as_raw(self), langid, pshortcutpairlist).ok()
     }
     pub unsafe fn GetGeneration(&self) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGeneration)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetWordsFromGenerationChange(&self, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows_core::Result<()> {
@@ -3733,13 +3733,13 @@ impl ISpStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pguidformatid: *const ::windows_core::GUID) -> ::windows_core::Result<*mut super::Audio::WAVEFORMATEX> {
-        let mut result__ = ::windows_core::zeroed::<*mut super::Audio::WAVEFORMATEX>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFormat)(::windows_core::Interface::as_raw(self), pguidformatid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`*"]
@@ -3753,7 +3753,7 @@ impl ISpStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBaseStream(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBaseStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -3879,13 +3879,13 @@ impl ISpStreamFormat {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pguidformatid: *const ::windows_core::GUID) -> ::windows_core::Result<*mut super::Audio::WAVEFORMATEX> {
-        let mut result__ = ::windows_core::zeroed::<*mut super::Audio::WAVEFORMATEX>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFormat)(::windows_core::Interface::as_raw(self), pguidformatid, &mut result__).from_abi(result__)
     }
 }
@@ -3991,13 +3991,13 @@ impl ISpStreamFormatConverter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows_core::Result<super::super::System::Com::IStream> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::IStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub unsafe fn GetFormat(&self, pguidformatid: *const ::windows_core::GUID) -> ::windows_core::Result<*mut super::Audio::WAVEFORMATEX> {
-        let mut result__ = ::windows_core::zeroed::<*mut super::Audio::WAVEFORMATEX>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetFormat)(::windows_core::Interface::as_raw(self), pguidformatid, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -4013,7 +4013,7 @@ impl ISpStreamFormatConverter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBaseStream(&self) -> ::windows_core::Result<ISpStreamFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpStreamFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBaseStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -4025,11 +4025,11 @@ impl ISpStreamFormatConverter {
         (::windows_core::Interface::vtable(self).ResetSeekPosition)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn ScaleConvertedToBaseOffset(&self, ulloffsetconvertedstream: u64) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ScaleConvertedToBaseOffset)(::windows_core::Interface::as_raw(self), ulloffsetconvertedstream, &mut result__).from_abi(result__)
     }
     pub unsafe fn ScaleBaseToConvertedOffset(&self, ulloffsetbasestream: u64) -> ::windows_core::Result<u64> {
-        let mut result__ = ::windows_core::zeroed::<u64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ScaleBaseToConvertedOffset)(::windows_core::Interface::as_raw(self), ulloffsetbasestream, &mut result__).from_abi(result__)
     }
 }
@@ -4089,7 +4089,7 @@ pub struct ISpStreamFormatConverter_Vtbl {
 pub struct ISpTranscript(::windows_core::IUnknown);
 impl ISpTranscript {
     pub unsafe fn GetTranscript(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTranscript)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AppendTranscript<P0>(&self, psztranscript: P0) -> ::windows_core::Result<()>
@@ -4200,13 +4200,13 @@ impl ISpVoice {
         (::windows_core::Interface::vtable(self).SetOutput)(::windows_core::Interface::as_raw(self), punkoutput.into_param().abi(), fallowformatchanges.into_param().abi()).ok()
     }
     pub unsafe fn GetOutputObjectToken(&self) -> ::windows_core::Result<ISpObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputObjectToken)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetOutputStream(&self) -> ::windows_core::Result<ISpStreamFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpStreamFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOutputStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Pause(&self) -> ::windows_core::Result<()> {
@@ -4222,7 +4222,7 @@ impl ISpVoice {
         (::windows_core::Interface::vtable(self).SetVoice)(::windows_core::Interface::as_raw(self), ptoken.into_param().abi()).ok()
     }
     pub unsafe fn GetVoice(&self) -> ::windows_core::Result<ISpObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVoice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Speak<P0>(&self, pwcs: P0, dwflags: u32, pulstreamnumber: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -4383,11 +4383,11 @@ impl ISpXMLRecoResult {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPhrase(&self) -> ::windows_core::Result<*mut SPPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetSerializedPhrase(&self) -> ::windows_core::Result<*mut SPSERIALIZEDPHRASE> {
-        let mut result__ = ::windows_core::zeroed::<*mut SPSERIALIZEDPHRASE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.GetSerializedPhrase)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4412,7 +4412,7 @@ impl ISpXMLRecoResult {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> ::windows_core::Result<ISpStreamFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpStreamFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAudio)(::windows_core::Interface::as_raw(self), ulstartelement, celements, &mut result__).from_abi(result__)
     }
     pub unsafe fn SpeakAudio(&self, ulstartelement: u32, celements: u32, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows_core::Result<()> {
@@ -4427,7 +4427,7 @@ impl ISpXMLRecoResult {
         (::windows_core::Interface::vtable(self).base__.ScaleAudio)(::windows_core::Interface::as_raw(self), paudioformatid, pwaveformatex).ok()
     }
     pub unsafe fn GetRecoContext(&self) -> ::windows_core::Result<ISpRecoContext> {
-        let mut result__ = ::windows_core::zeroed::<ISpRecoContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetRecoContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetXMLResult(&self, ppszcomemxmlresult: *mut ::windows_core::PWSTR, options: SPXMLRESULTOPTIONS) -> ::windows_core::Result<()> {
@@ -4476,7 +4476,7 @@ impl ISpeechAudio {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Format)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4495,49 +4495,49 @@ impl ISpeechAudio {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Write)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Seek)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(position), origin, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows_core::Result<ISpeechAudioStatus> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioStatus>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BufferInfo(&self) -> ::windows_core::Result<ISpeechAudioBufferInfo> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioBufferInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BufferInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultFormat(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DefaultFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Volume(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Volume)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetVolume(&self, volume: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetVolume)(::windows_core::Interface::as_raw(self), volume).ok()
     }
     pub unsafe fn BufferNotifySize(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BufferNotifySize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetBufferNotifySize(&self, buffernotifysize: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBufferNotifySize)(::windows_core::Interface::as_raw(self), buffernotifysize).ok()
     }
     pub unsafe fn EventHandle(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EventHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetState(&self, state: SpeechAudioState) -> ::windows_core::Result<()> {
@@ -4605,21 +4605,21 @@ pub struct ISpeechAudioBufferInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechAudioBufferInfo {
     pub unsafe fn MinNotification(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MinNotification)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetMinNotification(&self, minnotification: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetMinNotification)(::windows_core::Interface::as_raw(self), minnotification).ok()
     }
     pub unsafe fn BufferSize(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BufferSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetBufferSize(&self, buffersize: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBufferSize)(::windows_core::Interface::as_raw(self), buffersize).ok()
     }
     pub unsafe fn EventBias(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EventBias)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventBias(&self, eventbias: i32) -> ::windows_core::Result<()> {
@@ -4675,14 +4675,14 @@ pub struct ISpeechAudioFormat(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechAudioFormat {
     pub unsafe fn Type(&self) -> ::windows_core::Result<SpeechAudioFormatType> {
-        let mut result__ = ::windows_core::zeroed::<SpeechAudioFormatType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetType(&self, audioformat: SpeechAudioFormatType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetType)(::windows_core::Interface::as_raw(self), audioformat).ok()
     }
     pub unsafe fn Guid(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Guid)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetGuid<P0>(&self, guid: P0) -> ::windows_core::Result<()>
@@ -4694,7 +4694,7 @@ impl ISpeechAudioFormat {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWaveFormatEx(&self) -> ::windows_core::Result<ISpeechWaveFormatEx> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechWaveFormatEx>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetWaveFormatEx)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4761,27 +4761,27 @@ pub struct ISpeechAudioStatus(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechAudioStatus {
     pub unsafe fn FreeBufferSpace(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FreeBufferSpace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NonBlockingIO(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NonBlockingIO)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<SpeechAudioState> {
-        let mut result__ = ::windows_core::zeroed::<SpeechAudioState>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CurrentSeekPosition(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentSeekPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CurrentDevicePosition(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentDevicePosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4841,7 +4841,7 @@ impl ISpeechBaseStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Format)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4860,13 +4860,13 @@ impl ISpeechBaseStream {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Write)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Seek)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(position), origin, &mut result__).from_abi(result__)
     }
 }
@@ -4935,7 +4935,7 @@ impl ISpeechCustomStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Format)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4954,17 +4954,17 @@ impl ISpeechCustomStream {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Write)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Seek)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(position), origin, &mut result__).from_abi(result__)
     }
     pub unsafe fn BaseStream(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BaseStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putref_BaseStream<P0>(&self, punkstream: P0) -> ::windows_core::Result<()>
@@ -5032,7 +5032,7 @@ impl ISpeechDataKey {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetBinaryValue)(::windows_core::Interface::as_raw(self), valuename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetStringValue<P0, P1>(&self, valuename: P0, value: P1) -> ::windows_core::Result<()>
@@ -5046,7 +5046,7 @@ impl ISpeechDataKey {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStringValue)(::windows_core::Interface::as_raw(self), valuename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLongValue<P0>(&self, valuename: P0, value: i32) -> ::windows_core::Result<()>
@@ -5059,7 +5059,7 @@ impl ISpeechDataKey {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLongValue)(::windows_core::Interface::as_raw(self), valuename.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5068,7 +5068,7 @@ impl ISpeechDataKey {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpeechDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OpenKey)(::windows_core::Interface::as_raw(self), subkeyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5077,7 +5077,7 @@ impl ISpeechDataKey {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpeechDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateKey)(::windows_core::Interface::as_raw(self), subkeyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn DeleteKey<P0>(&self, subkeyname: P0) -> ::windows_core::Result<()>
@@ -5093,11 +5093,11 @@ impl ISpeechDataKey {
         (::windows_core::Interface::vtable(self).DeleteValue)(::windows_core::Interface::as_raw(self), valuename.into_param().abi()).ok()
     }
     pub unsafe fn EnumKeys(&self, index: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumKeys)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn EnumValues(&self, index: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumValues)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
 }
@@ -5170,7 +5170,7 @@ impl ISpeechFileStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Format)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5189,13 +5189,13 @@ impl ISpeechFileStream {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Write)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Seek)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(position), origin, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5259,21 +5259,21 @@ pub struct ISpeechGrammarRule(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRule {
     pub unsafe fn Attributes(&self) -> ::windows_core::Result<SpeechRuleAttributes> {
-        let mut result__ = ::windows_core::zeroed::<SpeechRuleAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitialState(&self) -> ::windows_core::Result<ISpeechGrammarRuleState> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechGrammarRuleState>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InitialState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Id(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Clear(&self) -> ::windows_core::Result<()> {
@@ -5289,7 +5289,7 @@ impl ISpeechGrammarRule {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddState(&self) -> ::windows_core::Result<ISpeechGrammarRuleState> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechGrammarRuleState>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AddState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -5351,13 +5351,13 @@ impl ISpeechGrammarRuleState {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Rule(&self) -> ::windows_core::Result<ISpeechGrammarRule> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechGrammarRule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Rule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Transitions(&self) -> ::windows_core::Result<ISpeechGrammarRuleStateTransitions> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechGrammarRuleStateTransitions>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Transitions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5454,43 +5454,43 @@ pub struct ISpeechGrammarRuleStateTransition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRuleStateTransition {
     pub unsafe fn Type(&self) -> ::windows_core::Result<SpeechGrammarRuleStateTransitionType> {
-        let mut result__ = ::windows_core::zeroed::<SpeechGrammarRuleStateTransitionType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Text(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Text)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Rule(&self) -> ::windows_core::Result<ISpeechGrammarRule> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechGrammarRule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Rule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Weight(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Weight)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PropertyName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PropertyName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PropertyId(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PropertyId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PropertyValue(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PropertyValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NextState(&self) -> ::windows_core::Result<ISpeechGrammarRuleState> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechGrammarRuleState>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NextState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -5557,17 +5557,17 @@ pub struct ISpeechGrammarRuleStateTransitions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRuleStateTransitions {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<ISpeechGrammarRuleStateTransition> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechGrammarRuleStateTransition>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -5620,29 +5620,29 @@ pub struct ISpeechGrammarRules(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRules {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn FindRule(&self, rulenameorid: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISpeechGrammarRule> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechGrammarRule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FindRule)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(rulenameorid), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<ISpeechGrammarRule> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechGrammarRule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Dynamic(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Dynamic)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5651,7 +5651,7 @@ impl ISpeechGrammarRules {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpeechGrammarRule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Add)(::windows_core::Interface::as_raw(self), rulename.into_param().abi(), attributes, ruleid, &mut result__).from_abi(result__)
     }
     pub unsafe fn Commit(&self) -> ::windows_core::Result<()> {
@@ -5729,7 +5729,7 @@ pub struct ISpeechLexicon(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexicon {
     pub unsafe fn GenerationId(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GenerationId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5773,7 +5773,7 @@ impl ISpeechLexicon {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpeechLexiconPronunciations>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetPronunciations)(::windows_core::Interface::as_raw(self), bstrword.into_param().abi(), langid, typeflags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5848,25 +5848,25 @@ pub struct ISpeechLexiconPronunciation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconPronunciation {
     pub unsafe fn Type(&self) -> ::windows_core::Result<SpeechLexiconType> {
-        let mut result__ = ::windows_core::zeroed::<SpeechLexiconType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn LangId(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LangId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PartOfSpeech(&self) -> ::windows_core::Result<SpeechPartOfSpeech> {
-        let mut result__ = ::windows_core::zeroed::<SpeechPartOfSpeech>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PartOfSpeech)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PhoneIds(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PhoneIds)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Symbolic(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Symbolic)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -5921,17 +5921,17 @@ pub struct ISpeechLexiconPronunciations(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconPronunciations {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<ISpeechLexiconPronunciation> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechLexiconPronunciation>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -5984,21 +5984,21 @@ pub struct ISpeechLexiconWord(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconWord {
     pub unsafe fn LangId(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LangId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Type(&self) -> ::windows_core::Result<SpeechWordType> {
-        let mut result__ = ::windows_core::zeroed::<SpeechWordType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Word(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Word)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Pronunciations(&self) -> ::windows_core::Result<ISpeechLexiconPronunciations> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechLexiconPronunciations>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Pronunciations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -6052,17 +6052,17 @@ pub struct ISpeechLexiconWords(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconWords {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<ISpeechLexiconWord> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechLexiconWord>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -6117,7 +6117,7 @@ impl ISpeechMMSysAudio {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Format)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6136,70 +6136,70 @@ impl ISpeechMMSysAudio {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Write)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.Seek)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(position), origin, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows_core::Result<ISpeechAudioStatus> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioStatus>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BufferInfo(&self) -> ::windows_core::Result<ISpeechAudioBufferInfo> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioBufferInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.BufferInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultFormat(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.DefaultFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Volume(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Volume)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetVolume(&self, volume: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetVolume)(::windows_core::Interface::as_raw(self), volume).ok()
     }
     pub unsafe fn BufferNotifySize(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.BufferNotifySize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetBufferNotifySize(&self, buffernotifysize: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetBufferNotifySize)(::windows_core::Interface::as_raw(self), buffernotifysize).ok()
     }
     pub unsafe fn EventHandle(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.EventHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetState(&self, state: SpeechAudioState) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetState)(::windows_core::Interface::as_raw(self), state).ok()
     }
     pub unsafe fn DeviceId(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DeviceId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDeviceId(&self, deviceid: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetDeviceId)(::windows_core::Interface::as_raw(self), deviceid).ok()
     }
     pub unsafe fn LineId(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LineId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLineId(&self, lineid: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetLineId)(::windows_core::Interface::as_raw(self), lineid).ok()
     }
     pub unsafe fn MMHandle(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MMHandle)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -6253,7 +6253,7 @@ impl ISpeechMemoryStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Format(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Format)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6272,13 +6272,13 @@ impl ISpeechMemoryStream {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Write(&self, buffer: super::super::System::Com::VARIANT) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Write)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(buffer), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Seek(&self, position: super::super::System::Com::VARIANT, origin: SpeechStreamSeekPositionType) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Seek)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(position), origin, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6289,7 +6289,7 @@ impl ISpeechMemoryStream {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetData(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -6344,23 +6344,23 @@ pub struct ISpeechObjectToken(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechObjectToken {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataKey(&self) -> ::windows_core::Result<ISpeechDataKey> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DataKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Category(&self) -> ::windows_core::Result<ISpeechObjectTokenCategory> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectTokenCategory>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Category)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetDescription(&self, locale: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDescription)(::windows_core::Interface::as_raw(self), locale, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6377,14 +6377,14 @@ impl ISpeechObjectToken {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAttribute)(::windows_core::Interface::as_raw(self), attributename.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn CreateInstance<P0>(&self, punkouter: P0, clscontext: SpeechTokenContext) -> ::windows_core::Result<::windows_core::IUnknown>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateInstance)(::windows_core::Interface::as_raw(self), punkouter.into_param().abi(), clscontext, &mut result__).from_abi(result__)
     }
     pub unsafe fn Remove<P0>(&self, objectstorageclsid: P0) -> ::windows_core::Result<()>
@@ -6399,7 +6399,7 @@ impl ISpeechObjectToken {
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
         P2: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetStorageFileName)(::windows_core::Interface::as_raw(self), objectstorageclsid.into_param().abi(), keyname.into_param().abi(), filename.into_param().abi(), folder, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6419,7 +6419,7 @@ impl ISpeechObjectToken {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsUISupported)(::windows_core::Interface::as_raw(self), typeofui.into_param().abi(), extradata, object.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6438,7 +6438,7 @@ impl ISpeechObjectToken {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).MatchesAttributes)(::windows_core::Interface::as_raw(self), attributes.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -6519,7 +6519,7 @@ pub struct ISpeechObjectTokenCategory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechObjectTokenCategory {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetDefault<P0>(&self, tokenid: P0) -> ::windows_core::Result<()>
@@ -6529,7 +6529,7 @@ impl ISpeechObjectTokenCategory {
         (::windows_core::Interface::vtable(self).SetDefault)(::windows_core::Interface::as_raw(self), tokenid.into_param().abi()).ok()
     }
     pub unsafe fn Default(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Default)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6544,7 +6544,7 @@ impl ISpeechObjectTokenCategory {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDataKey(&self, location: SpeechDataKeyLocation) -> ::windows_core::Result<ISpeechDataKey> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechDataKey>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDataKey)(::windows_core::Interface::as_raw(self), location, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6554,7 +6554,7 @@ impl ISpeechObjectTokenCategory {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectTokens>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnumerateTokens)(::windows_core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -6616,17 +6616,17 @@ pub struct ISpeechObjectTokens(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechObjectTokens {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<ISpeechObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -6679,7 +6679,7 @@ pub struct ISpeechPhoneConverter(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhoneConverter {
     pub unsafe fn LanguageId(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LanguageId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetLanguageId(&self, languageid: i32) -> ::windows_core::Result<()> {
@@ -6691,13 +6691,13 @@ impl ISpeechPhoneConverter {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PhoneToId)(::windows_core::Interface::as_raw(self), phonemes.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn IdToPhone(&self, idarray: super::super::System::Com::VARIANT) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IdToPhone)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(idarray), &mut result__).from_abi(result__)
     }
 }
@@ -6756,21 +6756,21 @@ impl ISpeechPhraseAlternate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoResult(&self) -> ::windows_core::Result<ISpeechRecoResult> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoResult>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RecoResult)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn StartElementInResult(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartElementInResult)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NumberOfElementsInResult(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NumberOfElementsInResult)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PhraseInfo(&self) -> ::windows_core::Result<ISpeechPhraseInfo> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PhraseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Commit(&self) -> ::windows_core::Result<()> {
@@ -6831,17 +6831,17 @@ pub struct ISpeechPhraseAlternates(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseAlternates {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<ISpeechPhraseAlternate> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseAlternate>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -6894,57 +6894,57 @@ pub struct ISpeechPhraseElement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseElement {
     pub unsafe fn AudioTimeOffset(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioTimeOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AudioSizeTime(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioSizeTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AudioStreamOffset(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioStreamOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AudioSizeBytes(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioSizeBytes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RetainedStreamOffset(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RetainedStreamOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RetainedSizeBytes(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RetainedSizeBytes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisplayText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DisplayText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn LexicalForm(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LexicalForm)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Pronunciation(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Pronunciation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DisplayAttributes(&self) -> ::windows_core::Result<SpeechDisplayAttributes> {
-        let mut result__ = ::windows_core::zeroed::<SpeechDisplayAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DisplayAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RequiredConfidence(&self) -> ::windows_core::Result<SpeechEngineConfidence> {
-        let mut result__ = ::windows_core::zeroed::<SpeechEngineConfidence>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RequiredConfidence)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ActualConfidence(&self) -> ::windows_core::Result<SpeechEngineConfidence> {
-        let mut result__ = ::windows_core::zeroed::<SpeechEngineConfidence>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ActualConfidence)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EngineConfidence(&self) -> ::windows_core::Result<f32> {
-        let mut result__ = ::windows_core::zeroed::<f32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EngineConfidence)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -7007,17 +7007,17 @@ pub struct ISpeechPhraseElements(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseElements {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<ISpeechPhraseElement> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -7070,77 +7070,77 @@ pub struct ISpeechPhraseInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseInfo {
     pub unsafe fn LanguageId(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LanguageId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GrammarId(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GrammarId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn StartTime(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StartTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AudioStreamPosition(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioStreamPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AudioSizeBytes(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioSizeBytes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RetainedSizeBytes(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RetainedSizeBytes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AudioSizeTime(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioSizeTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Rule(&self) -> ::windows_core::Result<ISpeechPhraseRule> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseRule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Rule)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows_core::Result<ISpeechPhraseProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Properties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Elements(&self) -> ::windows_core::Result<ISpeechPhraseElements> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseElements>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Elements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Replacements(&self) -> ::windows_core::Result<ISpeechPhraseReplacements> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseReplacements>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Replacements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EngineId(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EngineId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn EnginePrivateData(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EnginePrivateData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SaveToMemory(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SaveToMemory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7149,7 +7149,7 @@ impl ISpeechPhraseInfo {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetText)(::windows_core::Interface::as_raw(self), startelement, elements, usereplacements.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7158,7 +7158,7 @@ impl ISpeechPhraseInfo {
     where
         P0: ::windows_core::IntoParam<super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<SpeechDisplayAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDisplayAttributes)(::windows_core::Interface::as_raw(self), startelement, elements, usereplacements.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -7256,7 +7256,7 @@ impl ISpeechPhraseInfoBuilder {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RestorePhraseFromMemory(&self, phraseinmemory: *const super::super::System::Com::VARIANT) -> ::windows_core::Result<ISpeechPhraseInfo> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RestorePhraseFromMemory)(::windows_core::Interface::as_raw(self), phraseinmemory, &mut result__).from_abi(result__)
     }
 }
@@ -7307,17 +7307,17 @@ pub struct ISpeechPhraseProperties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseProperties {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<ISpeechPhraseProperty> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseProperty>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -7370,45 +7370,45 @@ pub struct ISpeechPhraseProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseProperty {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Id(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FirstElement(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FirstElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NumberOfElements(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NumberOfElements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EngineConfidence(&self) -> ::windows_core::Result<f32> {
-        let mut result__ = ::windows_core::zeroed::<f32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EngineConfidence)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Confidence(&self) -> ::windows_core::Result<SpeechEngineConfidence> {
-        let mut result__ = ::windows_core::zeroed::<SpeechEngineConfidence>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Confidence)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parent(&self) -> ::windows_core::Result<ISpeechPhraseProperty> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseProperty>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Parent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Children(&self) -> ::windows_core::Result<ISpeechPhraseProperties> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseProperties>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Children)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -7473,19 +7473,19 @@ pub struct ISpeechPhraseReplacement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseReplacement {
     pub unsafe fn DisplayAttributes(&self) -> ::windows_core::Result<SpeechDisplayAttributes> {
-        let mut result__ = ::windows_core::zeroed::<SpeechDisplayAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DisplayAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Text(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Text)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FirstElement(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FirstElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NumberOfElements(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NumberOfElements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -7536,17 +7536,17 @@ pub struct ISpeechPhraseReplacements(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseReplacements {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<ISpeechPhraseReplacement> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseReplacement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -7599,39 +7599,39 @@ pub struct ISpeechPhraseRule(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseRule {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Id(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn FirstElement(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FirstElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NumberOfElements(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NumberOfElements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parent(&self) -> ::windows_core::Result<ISpeechPhraseRule> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseRule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Parent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Children(&self) -> ::windows_core::Result<ISpeechPhraseRules> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseRules>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Children)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Confidence(&self) -> ::windows_core::Result<SpeechEngineConfidence> {
-        let mut result__ = ::windows_core::zeroed::<SpeechEngineConfidence>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Confidence)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EngineConfidence(&self) -> ::windows_core::Result<f32> {
-        let mut result__ = ::windows_core::zeroed::<f32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EngineConfidence)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -7692,17 +7692,17 @@ pub struct ISpeechPhraseRules(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseRules {
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Count)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows_core::Result<ISpeechPhraseRule> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseRule>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._NewEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -7757,15 +7757,15 @@ impl ISpeechRecoContext {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recognizer(&self) -> ::windows_core::Result<ISpeechRecognizer> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecognizer>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Recognizer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn AudioInputInterferenceStatus(&self) -> ::windows_core::Result<SpeechInterference> {
-        let mut result__ = ::windows_core::zeroed::<SpeechInterference>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioInputInterferenceStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RequestedUIType(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RequestedUIType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7779,7 +7779,7 @@ impl ISpeechRecoContext {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Voice(&self) -> ::windows_core::Result<ISpeechVoice> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechVoice>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Voice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7793,42 +7793,42 @@ impl ISpeechRecoContext {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowVoiceFormatMatchingOnNextSet(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AllowVoiceFormatMatchingOnNextSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetVoicePurgeEvent(&self, eventinterest: SpeechRecoEvents) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetVoicePurgeEvent)(::windows_core::Interface::as_raw(self), eventinterest).ok()
     }
     pub unsafe fn VoicePurgeEvent(&self) -> ::windows_core::Result<SpeechRecoEvents> {
-        let mut result__ = ::windows_core::zeroed::<SpeechRecoEvents>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VoicePurgeEvent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventInterests(&self, eventinterest: SpeechRecoEvents) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEventInterests)(::windows_core::Interface::as_raw(self), eventinterest).ok()
     }
     pub unsafe fn EventInterests(&self) -> ::windows_core::Result<SpeechRecoEvents> {
-        let mut result__ = ::windows_core::zeroed::<SpeechRecoEvents>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EventInterests)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetCmdMaxAlternates(&self, maxalternates: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetCmdMaxAlternates)(::windows_core::Interface::as_raw(self), maxalternates).ok()
     }
     pub unsafe fn CmdMaxAlternates(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CmdMaxAlternates)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetState(&self, state: SpeechRecoContextState) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetState)(::windows_core::Interface::as_raw(self), state).ok()
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<SpeechRecoContextState> {
-        let mut result__ = ::windows_core::zeroed::<SpeechRecoContextState>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRetainedAudio(&self, option: SpeechRetainedAudioOptions) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRetainedAudio)(::windows_core::Interface::as_raw(self), option).ok()
     }
     pub unsafe fn RetainedAudio(&self) -> ::windows_core::Result<SpeechRetainedAudioOptions> {
-        let mut result__ = ::windows_core::zeroed::<SpeechRetainedAudioOptions>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RetainedAudio)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7842,7 +7842,7 @@ impl ISpeechRecoContext {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RetainedAudioFormat(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RetainedAudioFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Pause(&self) -> ::windows_core::Result<()> {
@@ -7854,13 +7854,13 @@ impl ISpeechRecoContext {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateGrammar(&self, grammarid: super::super::System::Com::VARIANT) -> ::windows_core::Result<ISpeechRecoGrammar> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoGrammar>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateGrammar)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(grammarid), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateResultFromMemory(&self, resultblock: *const super::super::System::Com::VARIANT) -> ::windows_core::Result<ISpeechRecoResult> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoResult>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateResultFromMemory)(::windows_core::Interface::as_raw(self), resultblock, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7975,26 +7975,26 @@ impl ISpeechRecoGrammar {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Id(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoContext(&self) -> ::windows_core::Result<ISpeechRecoContext> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RecoContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetState(&self, state: SpeechGrammarState) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetState)(::windows_core::Interface::as_raw(self), state).ok()
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<SpeechGrammarState> {
-        let mut result__ = ::windows_core::zeroed::<SpeechGrammarState>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Rules(&self) -> ::windows_core::Result<ISpeechGrammarRules> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechGrammarRules>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Rules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Reset(&self, newlanguage: i32) -> ::windows_core::Result<()> {
@@ -8074,7 +8074,7 @@ impl ISpeechRecoGrammar {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<SpeechWordPronounceable>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsPronounceable)(::windows_core::Interface::as_raw(self), word.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -8166,13 +8166,13 @@ impl ISpeechRecoResult {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoContext(&self) -> ::windows_core::Result<ISpeechRecoContext> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RecoContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Times(&self) -> ::windows_core::Result<ISpeechRecoResultTimes> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoResultTimes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Times)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8186,35 +8186,35 @@ impl ISpeechRecoResult {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioFormat(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PhraseInfo(&self) -> ::windows_core::Result<ISpeechPhraseInfo> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PhraseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> ::windows_core::Result<ISpeechPhraseAlternates> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseAlternates>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Alternates)(::windows_core::Interface::as_raw(self), requestcount, startelement, elements, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Audio(&self, startelement: i32, elements: i32) -> ::windows_core::Result<ISpeechMemoryStream> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechMemoryStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Audio)(::windows_core::Interface::as_raw(self), startelement, elements, &mut result__).from_abi(result__)
     }
     pub unsafe fn SpeakAudio(&self, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SpeakAudio)(::windows_core::Interface::as_raw(self), startelement, elements, flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SaveToMemory(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SaveToMemory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> ::windows_core::Result<()> {
@@ -8300,13 +8300,13 @@ impl ISpeechRecoResult2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoContext(&self) -> ::windows_core::Result<ISpeechRecoContext> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.RecoContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Times(&self) -> ::windows_core::Result<ISpeechRecoResultTimes> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoResultTimes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Times)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8320,35 +8320,35 @@ impl ISpeechRecoResult2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioFormat(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AudioFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PhraseInfo(&self) -> ::windows_core::Result<ISpeechPhraseInfo> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PhraseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> ::windows_core::Result<ISpeechPhraseAlternates> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseAlternates>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Alternates)(::windows_core::Interface::as_raw(self), requestcount, startelement, elements, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Audio(&self, startelement: i32, elements: i32) -> ::windows_core::Result<ISpeechMemoryStream> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechMemoryStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Audio)(::windows_core::Interface::as_raw(self), startelement, elements, &mut result__).from_abi(result__)
     }
     pub unsafe fn SpeakAudio(&self, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SpeakAudio)(::windows_core::Interface::as_raw(self), startelement, elements, flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SaveToMemory(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SaveToMemory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> ::windows_core::Result<()> {
@@ -8413,13 +8413,13 @@ impl ISpeechRecoResultDispatch {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoContext(&self) -> ::windows_core::Result<ISpeechRecoContext> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RecoContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Times(&self) -> ::windows_core::Result<ISpeechRecoResultTimes> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoResultTimes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Times)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8433,42 +8433,42 @@ impl ISpeechRecoResultDispatch {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioFormat(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PhraseInfo(&self) -> ::windows_core::Result<ISpeechPhraseInfo> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PhraseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> ::windows_core::Result<ISpeechPhraseAlternates> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseAlternates>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Alternates)(::windows_core::Interface::as_raw(self), requestcount, startelement, elements, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Audio(&self, startelement: i32, elements: i32) -> ::windows_core::Result<ISpeechMemoryStream> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechMemoryStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Audio)(::windows_core::Interface::as_raw(self), startelement, elements, &mut result__).from_abi(result__)
     }
     pub unsafe fn SpeakAudio(&self, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SpeakAudio)(::windows_core::Interface::as_raw(self), startelement, elements, flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SaveToMemory(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SaveToMemory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).DiscardResultInfo)(::windows_core::Interface::as_raw(self), valuetypes).ok()
     }
     pub unsafe fn GetXMLResult(&self, options: SPXMLRESULTOPTIONS) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetXMLResult)(::windows_core::Interface::as_raw(self), options, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8574,23 +8574,23 @@ impl ISpeechRecoResultTimes {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn StreamTime(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).StreamTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Length(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn TickCount(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).TickCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn OffsetFromStart(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).OffsetFromStart)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -8660,7 +8660,7 @@ impl ISpeechRecognizer {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recognizer(&self) -> ::windows_core::Result<ISpeechObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Recognizer)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8674,7 +8674,7 @@ impl ISpeechRecognizer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowAudioInputFormatChangesOnNextSet(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AllowAudioInputFormatChangesOnNextSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8688,7 +8688,7 @@ impl ISpeechRecognizer {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioInput(&self) -> ::windows_core::Result<ISpeechObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioInput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8702,26 +8702,26 @@ impl ISpeechRecognizer {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioInputStream(&self) -> ::windows_core::Result<ISpeechBaseStream> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechBaseStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioInputStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsShared(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsShared)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetState(&self, state: SpeechRecognizerState) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetState)(::windows_core::Interface::as_raw(self), state).ok()
     }
     pub unsafe fn State(&self) -> ::windows_core::Result<SpeechRecognizerState> {
-        let mut result__ = ::windows_core::zeroed::<SpeechRecognizerState>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).State)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows_core::Result<ISpeechRecognizerStatus> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecognizerStatus>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8735,7 +8735,7 @@ impl ISpeechRecognizer {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Profile(&self) -> ::windows_core::Result<ISpeechObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Profile)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -8746,13 +8746,13 @@ impl ISpeechRecognizer {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRecoContext(&self) -> ::windows_core::Result<ISpeechRecoContext> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateRecoContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormat(&self, r#type: SpeechFormatType) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetFormat)(::windows_core::Interface::as_raw(self), r#type, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8761,7 +8761,7 @@ impl ISpeechRecognizer {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetPropertyNumber)(::windows_core::Interface::as_raw(self), name.into_param().abi(), value, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8779,7 +8779,7 @@ impl ISpeechRecognizer {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetPropertyString)(::windows_core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8796,7 +8796,7 @@ impl ISpeechRecognizer {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsUISupported)(::windows_core::Interface::as_raw(self), typeofui.into_param().abi(), extradata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -8815,7 +8815,7 @@ impl ISpeechRecognizer {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectTokens>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetRecognizers)(::windows_core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8825,7 +8825,7 @@ impl ISpeechRecognizer {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectTokens>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAudioInputs)(::windows_core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8835,7 +8835,7 @@ impl ISpeechRecognizer {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectTokens>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetProfiles)(::windows_core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -8982,31 +8982,31 @@ impl ISpeechRecognizerStatus {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioStatus(&self) -> ::windows_core::Result<ISpeechAudioStatus> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioStatus>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CurrentStreamPosition(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentStreamPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn CurrentStreamNumber(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentStreamNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn NumberOfActiveRules(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).NumberOfActiveRules)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn ClsidEngine(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ClsidEngine)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SupportedLanguages(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SupportedLanguages)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -9141,28 +9141,28 @@ impl ISpeechTextSelectionInformation {
         (::windows_core::Interface::vtable(self).SetActiveOffset)(::windows_core::Interface::as_raw(self), activeoffset).ok()
     }
     pub unsafe fn ActiveOffset(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ActiveOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetActiveLength(&self, activelength: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetActiveLength)(::windows_core::Interface::as_raw(self), activelength).ok()
     }
     pub unsafe fn ActiveLength(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ActiveLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSelectionOffset(&self, selectionoffset: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSelectionOffset)(::windows_core::Interface::as_raw(self), selectionoffset).ok()
     }
     pub unsafe fn SelectionOffset(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SelectionOffset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSelectionLength(&self, selectionlength: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSelectionLength)(::windows_core::Interface::as_raw(self), selectionlength).ok()
     }
     pub unsafe fn SelectionLength(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SelectionLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -9219,13 +9219,13 @@ impl ISpeechVoice {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows_core::Result<ISpeechVoiceStatus> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechVoiceStatus>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Voice(&self) -> ::windows_core::Result<ISpeechObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Voice)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9239,7 +9239,7 @@ impl ISpeechVoice {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioOutput(&self) -> ::windows_core::Result<ISpeechObjectToken> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectToken>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioOutput)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9253,7 +9253,7 @@ impl ISpeechVoice {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioOutputStream(&self) -> ::windows_core::Result<ISpeechBaseStream> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechBaseStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AudioOutputStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9265,14 +9265,14 @@ impl ISpeechVoice {
         (::windows_core::Interface::vtable(self).putref_AudioOutputStream)(::windows_core::Interface::as_raw(self), audiooutputstream.into_param().abi()).ok()
     }
     pub unsafe fn Rate(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Rate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetRate(&self, rate: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetRate)(::windows_core::Interface::as_raw(self), rate).ok()
     }
     pub unsafe fn Volume(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Volume)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetVolume(&self, volume: i32) -> ::windows_core::Result<()> {
@@ -9289,11 +9289,11 @@ impl ISpeechVoice {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowAudioOutputFormatChangesOnNextSet(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AllowAudioOutputFormatChangesOnNextSet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn EventInterests(&self) -> ::windows_core::Result<SpeechVoiceEvents> {
-        let mut result__ = ::windows_core::zeroed::<SpeechVoiceEvents>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).EventInterests)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetEventInterests(&self, eventinterestflags: SpeechVoiceEvents) -> ::windows_core::Result<()> {
@@ -9303,28 +9303,28 @@ impl ISpeechVoice {
         (::windows_core::Interface::vtable(self).SetPriority)(::windows_core::Interface::as_raw(self), priority).ok()
     }
     pub unsafe fn Priority(&self) -> ::windows_core::Result<SpeechVoicePriority> {
-        let mut result__ = ::windows_core::zeroed::<SpeechVoicePriority>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Priority)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAlertBoundary(&self, boundary: SpeechVoiceEvents) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAlertBoundary)(::windows_core::Interface::as_raw(self), boundary).ok()
     }
     pub unsafe fn AlertBoundary(&self) -> ::windows_core::Result<SpeechVoiceEvents> {
-        let mut result__ = ::windows_core::zeroed::<SpeechVoiceEvents>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AlertBoundary)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSynchronousSpeakTimeout(&self, mstimeout: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSynchronousSpeakTimeout)(::windows_core::Interface::as_raw(self), mstimeout).ok()
     }
     pub unsafe fn SynchronousSpeakTimeout(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SynchronousSpeakTimeout)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Speak<P0>(&self, text: P0, flags: SpeechVoiceSpeakFlags) -> ::windows_core::Result<i32>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Speak)(::windows_core::Interface::as_raw(self), text.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9333,7 +9333,7 @@ impl ISpeechVoice {
     where
         P0: ::windows_core::IntoParam<ISpeechBaseStream>,
     {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SpeakStream)(::windows_core::Interface::as_raw(self), stream.into_param().abi(), flags, &mut result__).from_abi(result__)
     }
     pub unsafe fn Pause(&self) -> ::windows_core::Result<()> {
@@ -9346,7 +9346,7 @@ impl ISpeechVoice {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), r#type.into_param().abi(), numitems, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9356,7 +9356,7 @@ impl ISpeechVoice {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectTokens>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetVoices)(::windows_core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9366,17 +9366,17 @@ impl ISpeechVoice {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISpeechObjectTokens>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAudioOutputs)(::windows_core::Interface::as_raw(self), requiredattributes.into_param().abi(), optionalattributes.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitUntilDone(&self, mstimeout: i32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).WaitUntilDone)(::windows_core::Interface::as_raw(self), mstimeout, &mut result__).from_abi(result__)
     }
     pub unsafe fn SpeakCompleteEvent(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SpeakCompleteEvent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -9385,7 +9385,7 @@ impl ISpeechVoice {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).IsUISupported)(::windows_core::Interface::as_raw(self), typeofui.into_param().abi(), extradata, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -9518,51 +9518,51 @@ pub struct ISpeechVoiceStatus(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechVoiceStatus {
     pub unsafe fn CurrentStreamNumber(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CurrentStreamNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn LastStreamNumberQueued(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LastStreamNumberQueued)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn LastHResult(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LastHResult)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RunningState(&self) -> ::windows_core::Result<SpeechRunState> {
-        let mut result__ = ::windows_core::zeroed::<SpeechRunState>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).RunningState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InputWordPosition(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InputWordPosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InputWordLength(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InputWordLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InputSentencePosition(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InputSentencePosition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn InputSentenceLength(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).InputSentenceLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn LastBookmark(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LastBookmark)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn LastBookmarkId(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).LastBookmarkId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn PhonemeId(&self) -> ::windows_core::Result<i16> {
-        let mut result__ = ::windows_core::zeroed::<i16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PhonemeId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn VisemeId(&self) -> ::windows_core::Result<i16> {
-        let mut result__ = ::windows_core::zeroed::<i16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).VisemeId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -9621,42 +9621,42 @@ pub struct ISpeechWaveFormatEx(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechWaveFormatEx {
     pub unsafe fn FormatTag(&self) -> ::windows_core::Result<i16> {
-        let mut result__ = ::windows_core::zeroed::<i16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).FormatTag)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetFormatTag(&self, formattag: i16) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetFormatTag)(::windows_core::Interface::as_raw(self), formattag).ok()
     }
     pub unsafe fn Channels(&self) -> ::windows_core::Result<i16> {
-        let mut result__ = ::windows_core::zeroed::<i16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Channels)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetChannels(&self, channels: i16) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetChannels)(::windows_core::Interface::as_raw(self), channels).ok()
     }
     pub unsafe fn SamplesPerSec(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SamplesPerSec)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetSamplesPerSec(&self, samplespersec: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetSamplesPerSec)(::windows_core::Interface::as_raw(self), samplespersec).ok()
     }
     pub unsafe fn AvgBytesPerSec(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AvgBytesPerSec)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetAvgBytesPerSec(&self, avgbytespersec: i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetAvgBytesPerSec)(::windows_core::Interface::as_raw(self), avgbytespersec).ok()
     }
     pub unsafe fn BlockAlign(&self) -> ::windows_core::Result<i16> {
-        let mut result__ = ::windows_core::zeroed::<i16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BlockAlign)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetBlockAlign(&self, blockalign: i16) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetBlockAlign)(::windows_core::Interface::as_raw(self), blockalign).ok()
     }
     pub unsafe fn BitsPerSample(&self) -> ::windows_core::Result<i16> {
-        let mut result__ = ::windows_core::zeroed::<i16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).BitsPerSample)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetBitsPerSample(&self, bitspersample: i16) -> ::windows_core::Result<()> {
@@ -9665,7 +9665,7 @@ impl ISpeechWaveFormatEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ExtraData(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ExtraData)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -9739,13 +9739,13 @@ impl ISpeechXMLRecoResult {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecoContext(&self) -> ::windows_core::Result<ISpeechRecoContext> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoContext>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.RecoContext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Times(&self) -> ::windows_core::Result<ISpeechRecoResultTimes> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechRecoResultTimes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Times)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9759,42 +9759,42 @@ impl ISpeechXMLRecoResult {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AudioFormat(&self) -> ::windows_core::Result<ISpeechAudioFormat> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechAudioFormat>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AudioFormat)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PhraseInfo(&self) -> ::windows_core::Result<ISpeechPhraseInfo> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.PhraseInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Alternates(&self, requestcount: i32, startelement: i32, elements: i32) -> ::windows_core::Result<ISpeechPhraseAlternates> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechPhraseAlternates>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Alternates)(::windows_core::Interface::as_raw(self), requestcount, startelement, elements, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Audio(&self, startelement: i32, elements: i32) -> ::windows_core::Result<ISpeechMemoryStream> {
-        let mut result__ = ::windows_core::zeroed::<ISpeechMemoryStream>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.Audio)(::windows_core::Interface::as_raw(self), startelement, elements, &mut result__).from_abi(result__)
     }
     pub unsafe fn SpeakAudio(&self, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SpeakAudio)(::windows_core::Interface::as_raw(self), startelement, elements, flags, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SaveToMemory(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SaveToMemory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn DiscardResultInfo(&self, valuetypes: SpeechDiscardType) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.DiscardResultInfo)(::windows_core::Interface::as_raw(self), valuetypes).ok()
     }
     pub unsafe fn GetXMLResult(&self, options: SPXMLRESULTOPTIONS) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetXMLResult)(::windows_core::Interface::as_raw(self), options, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]

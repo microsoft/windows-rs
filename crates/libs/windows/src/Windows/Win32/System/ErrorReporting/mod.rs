@@ -53,7 +53,7 @@ where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
     ::windows_targets::link!("kernel32.dll" "system" fn WerGetFlags(hprocess : super::super::Foundation:: HANDLE, pdwflags : *mut WER_FAULT_REPORTING) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<WER_FAULT_REPORTING>();
+    let mut result__ = ::std::mem::zeroed();
     WerGetFlags(hprocess.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
@@ -161,7 +161,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("wer.dll" "system" fn WerReportCreate(pwzeventtype : ::windows_core::PCWSTR, reptype : WER_REPORT_TYPE, preportinformation : *const WER_REPORT_INFORMATION, phreporthandle : *mut HREPORT) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<HREPORT>();
+    let mut result__ = ::std::mem::zeroed();
     WerReportCreate(pwzeventtype.into_param().abi(), reptype, ::core::mem::transmute(preportinformation.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`, `\"Win32_Foundation\"`*"]
@@ -245,7 +245,7 @@ where
     P0: ::windows_core::IntoParam<HREPORTSTORE>,
 {
     ::windows_targets::link!("wer.dll" "system" fn WerStoreGetReportCount(hreportstore : HREPORTSTORE, pdwreportcount : *mut u32) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<u32>();
+    let mut result__ = ::std::mem::zeroed();
     WerStoreGetReportCount(hreportstore.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
@@ -255,14 +255,14 @@ where
     P0: ::windows_core::IntoParam<HREPORTSTORE>,
 {
     ::windows_targets::link!("wer.dll" "system" fn WerStoreGetSizeOnDisk(hreportstore : HREPORTSTORE, pqwsizeinbytes : *mut u64) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<u64>();
+    let mut result__ = ::std::mem::zeroed();
     WerStoreGetSizeOnDisk(hreportstore.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]
 #[inline]
 pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows_core::Result<HREPORTSTORE> {
     ::windows_targets::link!("wer.dll" "system" fn WerStoreOpen(repstoretype : REPORT_STORE_TYPES, phreportstore : *mut HREPORTSTORE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<HREPORTSTORE>();
+    let mut result__ = ::std::mem::zeroed();
     WerStoreOpen(repstoretype, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_ErrorReporting\"`*"]

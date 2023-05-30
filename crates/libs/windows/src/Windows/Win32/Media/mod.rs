@@ -71,7 +71,7 @@ pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, 
 pub struct IReferenceClock(::windows_core::IUnknown);
 impl IReferenceClock {
     pub unsafe fn GetTime(&self) -> ::windows_core::Result<i64> {
-        let mut result__ = ::windows_core::zeroed::<i64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -80,7 +80,7 @@ impl IReferenceClock {
     where
         P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
     {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdviseTime)(::windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -89,7 +89,7 @@ impl IReferenceClock {
     where
         P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
     {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).AdvisePeriodic)(::windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> ::windows_core::Result<()> {
@@ -139,7 +139,7 @@ pub struct IReferenceClock_Vtbl {
 pub struct IReferenceClock2(::windows_core::IUnknown);
 impl IReferenceClock2 {
     pub unsafe fn GetTime(&self) -> ::windows_core::Result<i64> {
-        let mut result__ = ::windows_core::zeroed::<i64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -148,7 +148,7 @@ impl IReferenceClock2 {
     where
         P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
     {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AdviseTime)(::windows_core::Interface::as_raw(self), basetime, streamtime, hevent.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -157,7 +157,7 @@ impl IReferenceClock2 {
     where
         P0: ::windows_core::IntoParam<super::Foundation::HANDLE>,
     {
-        let mut result__ = ::windows_core::zeroed::<usize>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.AdvisePeriodic)(::windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> ::windows_core::Result<()> {
@@ -200,7 +200,7 @@ impl IReferenceClockTimerControl {
         (::windows_core::Interface::vtable(self).SetDefaultTimerResolution)(::windows_core::Interface::as_raw(self), timerresolution).ok()
     }
     pub unsafe fn GetDefaultTimerResolution(&self) -> ::windows_core::Result<i64> {
-        let mut result__ = ::windows_core::zeroed::<i64>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDefaultTimerResolution)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

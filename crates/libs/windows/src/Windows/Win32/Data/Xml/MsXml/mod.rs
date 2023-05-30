@@ -139,7 +139,7 @@ impl IMXNamespaceManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getAllowOverride(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getAllowOverride)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn reset(&self) -> ::windows_core::Result<()> {
@@ -243,15 +243,15 @@ pub struct IMXNamespacePrefixes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXNamespacePrefixes {
     pub unsafe fn get_item(&self, index: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn length(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _newEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._newEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -418,7 +418,7 @@ impl IMXWriter {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn output(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).output)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Setencoding<P0>(&self, strencoding: P0) -> ::windows_core::Result<()>
@@ -428,7 +428,7 @@ impl IMXWriter {
         (::windows_core::Interface::vtable(self).Setencoding)(::windows_core::Interface::as_raw(self), strencoding.into_param().abi()).ok()
     }
     pub unsafe fn encoding(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).encoding)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -442,7 +442,7 @@ impl IMXWriter {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn byteOrderMark(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).byteOrderMark)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -456,7 +456,7 @@ impl IMXWriter {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn indent(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).indent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -470,7 +470,7 @@ impl IMXWriter {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn standalone(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).standalone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -484,7 +484,7 @@ impl IMXWriter {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn omitXMLDeclaration(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).omitXMLDeclaration)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Setversion<P0>(&self, strversion: P0) -> ::windows_core::Result<()>
@@ -494,7 +494,7 @@ impl IMXWriter {
         (::windows_core::Interface::vtable(self).Setversion)(::windows_core::Interface::as_raw(self), strversion.into_param().abi()).ok()
     }
     pub unsafe fn version(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).version)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -508,7 +508,7 @@ impl IMXWriter {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn disableOutputEscaping(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).disableOutputEscaping)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn flush(&self) -> ::windows_core::Result<()> {
@@ -616,7 +616,7 @@ impl IMXXMLFilter {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getFeature)(::windows_core::Interface::as_raw(self), strname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -634,7 +634,7 @@ impl IMXXMLFilter {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getProperty)(::windows_core::Interface::as_raw(self), strname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -646,7 +646,7 @@ impl IMXXMLFilter {
         (::windows_core::Interface::vtable(self).putProperty)(::windows_core::Interface::as_raw(self), strname.into_param().abi(), ::core::mem::transmute(varvalue)).ok()
     }
     pub unsafe fn entityResolver(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).entityResolver)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putref_entityResolver<P0>(&self, oresolver: P0) -> ::windows_core::Result<()>
@@ -656,7 +656,7 @@ impl IMXXMLFilter {
         (::windows_core::Interface::vtable(self).putref_entityResolver)(::windows_core::Interface::as_raw(self), oresolver.into_param().abi()).ok()
     }
     pub unsafe fn contentHandler(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).contentHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putref_contentHandler<P0>(&self, ohandler: P0) -> ::windows_core::Result<()>
@@ -666,7 +666,7 @@ impl IMXXMLFilter {
         (::windows_core::Interface::vtable(self).putref_contentHandler)(::windows_core::Interface::as_raw(self), ohandler.into_param().abi()).ok()
     }
     pub unsafe fn dtdHandler(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).dtdHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putref_dtdHandler<P0>(&self, ohandler: P0) -> ::windows_core::Result<()>
@@ -676,7 +676,7 @@ impl IMXXMLFilter {
         (::windows_core::Interface::vtable(self).putref_dtdHandler)(::windows_core::Interface::as_raw(self), ohandler.into_param().abi()).ok()
     }
     pub unsafe fn errorHandler(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).errorHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putref_errorHandler<P0>(&self, ohandler: P0) -> ::windows_core::Result<()>
@@ -751,7 +751,7 @@ pub struct IMXXMLFilter_Vtbl {
 pub struct ISAXAttributes(::windows_core::IUnknown);
 impl ISAXAttributes {
     pub unsafe fn getLength(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn getURI(&self, nindex: i32, ppwchuri: *mut *mut u16, pcchuri: *mut i32) -> ::windows_core::Result<()> {
@@ -771,14 +771,14 @@ impl ISAXAttributes {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getIndexFromName)(::windows_core::Interface::as_raw(self), pwchuri.into_param().abi(), cchuri, pwchlocalname.into_param().abi(), cchlocalname, &mut result__).from_abi(result__)
     }
     pub unsafe fn getIndexFromQName<P0>(&self, pwchqname: P0, cchqname: i32) -> ::windows_core::Result<i32>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getIndexFromQName)(::windows_core::Interface::as_raw(self), pwchqname.into_param().abi(), cchqname, &mut result__).from_abi(result__)
     }
     pub unsafe fn getType(&self, nindex: i32, ppwchtype: *mut *mut u16, pcchtype: *mut i32) -> ::windows_core::Result<()> {
@@ -1098,7 +1098,7 @@ impl ISAXEntityResolver {
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).resolveEntity)(::windows_core::Interface::as_raw(self), pwchpublicid.into_param().abi(), pwchsystemid.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -1271,19 +1271,19 @@ pub struct ISAXLexicalHandler_Vtbl {
 pub struct ISAXLocator(::windows_core::IUnknown);
 impl ISAXLocator {
     pub unsafe fn getColumnNumber(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getColumnNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn getLineNumber(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getLineNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn getPublicId(&self) -> ::windows_core::Result<*mut u16> {
-        let mut result__ = ::windows_core::zeroed::<*mut u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getPublicId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn getSystemId(&self) -> ::windows_core::Result<*mut u16> {
-        let mut result__ = ::windows_core::zeroed::<*mut u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getSystemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1329,7 +1329,7 @@ impl ISAXXMLFilter {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getFeature)(::windows_core::Interface::as_raw(self), pwchname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1347,7 +1347,7 @@ impl ISAXXMLFilter {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getProperty)(::windows_core::Interface::as_raw(self), pwchname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -1359,7 +1359,7 @@ impl ISAXXMLFilter {
         (::windows_core::Interface::vtable(self).base__.putProperty)(::windows_core::Interface::as_raw(self), pwchname.into_param().abi(), ::core::mem::transmute(varvalue)).ok()
     }
     pub unsafe fn getEntityResolver(&self) -> ::windows_core::Result<ISAXEntityResolver> {
-        let mut result__ = ::windows_core::zeroed::<ISAXEntityResolver>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getEntityResolver)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putEntityResolver<P0>(&self, presolver: P0) -> ::windows_core::Result<()>
@@ -1369,7 +1369,7 @@ impl ISAXXMLFilter {
         (::windows_core::Interface::vtable(self).base__.putEntityResolver)(::windows_core::Interface::as_raw(self), presolver.into_param().abi()).ok()
     }
     pub unsafe fn getContentHandler(&self) -> ::windows_core::Result<ISAXContentHandler> {
-        let mut result__ = ::windows_core::zeroed::<ISAXContentHandler>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getContentHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putContentHandler<P0>(&self, phandler: P0) -> ::windows_core::Result<()>
@@ -1379,7 +1379,7 @@ impl ISAXXMLFilter {
         (::windows_core::Interface::vtable(self).base__.putContentHandler)(::windows_core::Interface::as_raw(self), phandler.into_param().abi()).ok()
     }
     pub unsafe fn getDTDHandler(&self) -> ::windows_core::Result<ISAXDTDHandler> {
-        let mut result__ = ::windows_core::zeroed::<ISAXDTDHandler>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getDTDHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putDTDHandler<P0>(&self, phandler: P0) -> ::windows_core::Result<()>
@@ -1389,7 +1389,7 @@ impl ISAXXMLFilter {
         (::windows_core::Interface::vtable(self).base__.putDTDHandler)(::windows_core::Interface::as_raw(self), phandler.into_param().abi()).ok()
     }
     pub unsafe fn getErrorHandler(&self) -> ::windows_core::Result<ISAXErrorHandler> {
-        let mut result__ = ::windows_core::zeroed::<ISAXErrorHandler>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getErrorHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putErrorHandler<P0>(&self, phandler: P0) -> ::windows_core::Result<()>
@@ -1399,7 +1399,7 @@ impl ISAXXMLFilter {
         (::windows_core::Interface::vtable(self).base__.putErrorHandler)(::windows_core::Interface::as_raw(self), phandler.into_param().abi()).ok()
     }
     pub unsafe fn getBaseURL(&self) -> ::windows_core::Result<*mut u16> {
-        let mut result__ = ::windows_core::zeroed::<*mut u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getBaseURL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putBaseURL<P0>(&self, pwchbaseurl: P0) -> ::windows_core::Result<()>
@@ -1409,7 +1409,7 @@ impl ISAXXMLFilter {
         (::windows_core::Interface::vtable(self).base__.putBaseURL)(::windows_core::Interface::as_raw(self), pwchbaseurl.into_param().abi()).ok()
     }
     pub unsafe fn getSecureBaseURL(&self) -> ::windows_core::Result<*mut u16> {
-        let mut result__ = ::windows_core::zeroed::<*mut u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getSecureBaseURL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putSecureBaseURL<P0>(&self, pwchsecurebaseurl: P0) -> ::windows_core::Result<()>
@@ -1430,7 +1430,7 @@ impl ISAXXMLFilter {
         (::windows_core::Interface::vtable(self).base__.parseURL)(::windows_core::Interface::as_raw(self), pwchurl.into_param().abi()).ok()
     }
     pub unsafe fn getParent(&self) -> ::windows_core::Result<ISAXXMLReader> {
-        let mut result__ = ::windows_core::zeroed::<ISAXXMLReader>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getParent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putParent<P0>(&self, preader: P0) -> ::windows_core::Result<()>
@@ -1480,7 +1480,7 @@ impl ISAXXMLReader {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getFeature)(::windows_core::Interface::as_raw(self), pwchname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1498,7 +1498,7 @@ impl ISAXXMLReader {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getProperty)(::windows_core::Interface::as_raw(self), pwchname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -1510,7 +1510,7 @@ impl ISAXXMLReader {
         (::windows_core::Interface::vtable(self).putProperty)(::windows_core::Interface::as_raw(self), pwchname.into_param().abi(), ::core::mem::transmute(varvalue)).ok()
     }
     pub unsafe fn getEntityResolver(&self) -> ::windows_core::Result<ISAXEntityResolver> {
-        let mut result__ = ::windows_core::zeroed::<ISAXEntityResolver>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getEntityResolver)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putEntityResolver<P0>(&self, presolver: P0) -> ::windows_core::Result<()>
@@ -1520,7 +1520,7 @@ impl ISAXXMLReader {
         (::windows_core::Interface::vtable(self).putEntityResolver)(::windows_core::Interface::as_raw(self), presolver.into_param().abi()).ok()
     }
     pub unsafe fn getContentHandler(&self) -> ::windows_core::Result<ISAXContentHandler> {
-        let mut result__ = ::windows_core::zeroed::<ISAXContentHandler>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getContentHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putContentHandler<P0>(&self, phandler: P0) -> ::windows_core::Result<()>
@@ -1530,7 +1530,7 @@ impl ISAXXMLReader {
         (::windows_core::Interface::vtable(self).putContentHandler)(::windows_core::Interface::as_raw(self), phandler.into_param().abi()).ok()
     }
     pub unsafe fn getDTDHandler(&self) -> ::windows_core::Result<ISAXDTDHandler> {
-        let mut result__ = ::windows_core::zeroed::<ISAXDTDHandler>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getDTDHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putDTDHandler<P0>(&self, phandler: P0) -> ::windows_core::Result<()>
@@ -1540,7 +1540,7 @@ impl ISAXXMLReader {
         (::windows_core::Interface::vtable(self).putDTDHandler)(::windows_core::Interface::as_raw(self), phandler.into_param().abi()).ok()
     }
     pub unsafe fn getErrorHandler(&self) -> ::windows_core::Result<ISAXErrorHandler> {
-        let mut result__ = ::windows_core::zeroed::<ISAXErrorHandler>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getErrorHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putErrorHandler<P0>(&self, phandler: P0) -> ::windows_core::Result<()>
@@ -1550,7 +1550,7 @@ impl ISAXXMLReader {
         (::windows_core::Interface::vtable(self).putErrorHandler)(::windows_core::Interface::as_raw(self), phandler.into_param().abi()).ok()
     }
     pub unsafe fn getBaseURL(&self) -> ::windows_core::Result<*mut u16> {
-        let mut result__ = ::windows_core::zeroed::<*mut u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getBaseURL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putBaseURL<P0>(&self, pwchbaseurl: P0) -> ::windows_core::Result<()>
@@ -1560,7 +1560,7 @@ impl ISAXXMLReader {
         (::windows_core::Interface::vtable(self).putBaseURL)(::windows_core::Interface::as_raw(self), pwchbaseurl.into_param().abi()).ok()
     }
     pub unsafe fn getSecureBaseURL(&self) -> ::windows_core::Result<*mut u16> {
-        let mut result__ = ::windows_core::zeroed::<*mut u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getSecureBaseURL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn putSecureBaseURL<P0>(&self, pwchsecurebaseurl: P0) -> ::windows_core::Result<()>
@@ -1649,31 +1649,31 @@ pub struct ISchema(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchema {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1682,57 +1682,57 @@ impl ISchema {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn targetNamespace(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).targetNamespace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn version(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).version)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn types(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).types)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn elements(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).elements)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributeGroups(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).attributeGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn modelGroups(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).modelGroups)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn notations(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).notations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schemaLocations(&self) -> ::windows_core::Result<ISchemaStringCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaStringCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).schemaLocations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1809,31 +1809,31 @@ pub struct ISchemaAny(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaAny {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1842,29 +1842,29 @@ impl ISchemaAny {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn minOccurs(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.minOccurs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn maxOccurs(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.maxOccurs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn namespaces(&self) -> ::windows_core::Result<ISchemaStringCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaStringCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).namespaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn processContents(&self) -> ::windows_core::Result<SCHEMAPROCESSCONTENTS> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMAPROCESSCONTENTS>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).processContents)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -1916,31 +1916,31 @@ pub struct ISchemaAttribute(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaAttribute {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1949,37 +1949,37 @@ impl ISchemaAttribute {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn r#type(&self) -> ::windows_core::Result<ISchemaType> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).r#type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn scope(&self) -> ::windows_core::Result<ISchemaComplexType> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaComplexType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).scope)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn defaultValue(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).defaultValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn fixedValue(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).fixedValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn r#use(&self) -> ::windows_core::Result<SCHEMAUSE> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMAUSE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).r#use)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isReference(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).isReference)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2041,31 +2041,31 @@ pub struct ISchemaAttributeGroup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaAttributeGroup {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2074,19 +2074,19 @@ impl ISchemaAttributeGroup {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn anyAttribute(&self) -> ::windows_core::Result<ISchemaAny> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaAny>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).anyAttribute)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2141,31 +2141,31 @@ pub struct ISchemaComplexType(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaComplexType {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2174,25 +2174,25 @@ impl ISchemaComplexType {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn baseTypes(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.baseTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn r#final(&self) -> ::windows_core::Result<SCHEMADERIVATIONMETHOD> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMADERIVATIONMETHOD>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.r#final)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn variety(&self) -> ::windows_core::Result<SCHEMATYPEVARIETY> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMATYPEVARIETY>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.variety)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn derivedBy(&self) -> ::windows_core::Result<SCHEMADERIVATIONMETHOD> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMADERIVATIONMETHOD>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.derivedBy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2201,101 +2201,101 @@ impl ISchemaComplexType {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.isValid)(::windows_core::Interface::as_raw(self), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn minExclusive(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.minExclusive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn minInclusive(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.minInclusive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn maxExclusive(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.maxExclusive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn maxInclusive(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.maxInclusive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn totalDigits(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.totalDigits)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn fractionDigits(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.fractionDigits)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn length(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn minLength(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.minLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn maxLength(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.maxLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn enumeration(&self) -> ::windows_core::Result<ISchemaStringCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaStringCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.enumeration)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn whitespace(&self) -> ::windows_core::Result<SCHEMAWHITESPACE> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMAWHITESPACE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.whitespace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn patterns(&self) -> ::windows_core::Result<ISchemaStringCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaStringCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.patterns)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isAbstract(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).isAbstract)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn anyAttribute(&self) -> ::windows_core::Result<ISchemaAny> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaAny>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).anyAttribute)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn contentType(&self) -> ::windows_core::Result<SCHEMACONTENTTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMACONTENTTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).contentType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn contentModel(&self) -> ::windows_core::Result<ISchemaModelGroup> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaModelGroup>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).contentModel)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn prohibitedSubstitutions(&self) -> ::windows_core::Result<SCHEMADERIVATIONMETHOD> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMADERIVATIONMETHOD>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).prohibitedSubstitutions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2360,31 +2360,31 @@ pub struct ISchemaElement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaElement {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2393,77 +2393,77 @@ impl ISchemaElement {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn minOccurs(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.minOccurs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn maxOccurs(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.maxOccurs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn r#type(&self) -> ::windows_core::Result<ISchemaType> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).r#type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn scope(&self) -> ::windows_core::Result<ISchemaComplexType> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaComplexType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).scope)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn defaultValue(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).defaultValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn fixedValue(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).fixedValue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isNillable(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).isNillable)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn identityConstraints(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).identityConstraints)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn substitutionGroup(&self) -> ::windows_core::Result<ISchemaElement> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).substitutionGroup)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn substitutionGroupExclusions(&self) -> ::windows_core::Result<SCHEMADERIVATIONMETHOD> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMADERIVATIONMETHOD>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).substitutionGroupExclusions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn disallowedSubstitutions(&self) -> ::windows_core::Result<SCHEMADERIVATIONMETHOD> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMADERIVATIONMETHOD>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).disallowedSubstitutions)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isAbstract(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).isAbstract)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isReference(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).isReference)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2542,31 +2542,31 @@ pub struct ISchemaIdentityConstraint(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaIdentityConstraint {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2575,23 +2575,23 @@ impl ISchemaIdentityConstraint {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn selector(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).selector)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn fields(&self) -> ::windows_core::Result<ISchemaStringCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaStringCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).fields)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn referencedKey(&self) -> ::windows_core::Result<ISchemaIdentityConstraint> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaIdentityConstraint>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).referencedKey)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2647,31 +2647,31 @@ pub struct ISchemaItem(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaItem {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2680,7 +2680,7 @@ impl ISchemaItem {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -2745,7 +2745,7 @@ impl ISchemaItemCollection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_item(&self, index: i32) -> ::windows_core::Result<ISchemaItem> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItem>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2754,7 +2754,7 @@ impl ISchemaItemCollection {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItem>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).itemByName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2764,15 +2764,15 @@ impl ISchemaItemCollection {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItem>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).itemByQName)(::windows_core::Interface::as_raw(self), name.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn length(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _newEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._newEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2833,31 +2833,31 @@ pub struct ISchemaModelGroup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaModelGroup {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2866,25 +2866,25 @@ impl ISchemaModelGroup {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn minOccurs(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.minOccurs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn maxOccurs(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.maxOccurs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn particles(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).particles)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2935,31 +2935,31 @@ pub struct ISchemaNotation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaNotation {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2968,15 +2968,15 @@ impl ISchemaNotation {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn systemIdentifier(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).systemIdentifier)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn publicIdentifier(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).publicIdentifier)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3025,31 +3025,31 @@ pub struct ISchemaParticle(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaParticle {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3058,19 +3058,19 @@ impl ISchemaParticle {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn minOccurs(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).minOccurs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn maxOccurs(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).maxOccurs)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3125,15 +3125,15 @@ pub struct ISchemaStringCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaStringCollection {
     pub unsafe fn get_item(&self, index: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn length(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _newEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._newEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3183,31 +3183,31 @@ pub struct ISchemaType(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaType {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn namespaceURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.namespaceURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn schema(&self) -> ::windows_core::Result<ISchema> {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.schema)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn id(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.id)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn itemType(&self) -> ::windows_core::Result<SOMITEMTYPE> {
-        let mut result__ = ::windows_core::zeroed::<SOMITEMTYPE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.itemType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn unhandledAttributes(&self) -> ::windows_core::Result<IVBSAXAttributes> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXAttributes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.unhandledAttributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3216,25 +3216,25 @@ impl ISchemaType {
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.writeAnnotation)(::windows_core::Interface::as_raw(self), annotationsink.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn baseTypes(&self) -> ::windows_core::Result<ISchemaItemCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItemCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).baseTypes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn r#final(&self) -> ::windows_core::Result<SCHEMADERIVATIONMETHOD> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMADERIVATIONMETHOD>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).r#final)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn variety(&self) -> ::windows_core::Result<SCHEMATYPEVARIETY> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMATYPEVARIETY>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).variety)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn derivedBy(&self) -> ::windows_core::Result<SCHEMADERIVATIONMETHOD> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMADERIVATIONMETHOD>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).derivedBy)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3243,69 +3243,69 @@ impl ISchemaType {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).isValid)(::windows_core::Interface::as_raw(self), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn minExclusive(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).minExclusive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn minInclusive(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).minInclusive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn maxExclusive(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).maxExclusive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn maxInclusive(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).maxInclusive)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn totalDigits(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).totalDigits)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn fractionDigits(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).fractionDigits)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn length(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn minLength(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).minLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn maxLength(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).maxLength)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn enumeration(&self) -> ::windows_core::Result<ISchemaStringCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaStringCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).enumeration)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn whitespace(&self) -> ::windows_core::Result<SCHEMAWHITESPACE> {
-        let mut result__ = ::windows_core::zeroed::<SCHEMAWHITESPACE>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).whitespace)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn patterns(&self) -> ::windows_core::Result<ISchemaStringCollection> {
-        let mut result__ = ::windows_core::zeroed::<ISchemaStringCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).patterns)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -3415,11 +3415,11 @@ impl IServerXMLHTTPRequest {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getResponseHeader)(::windows_core::Interface::as_raw(self), bstrheader.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn getAllResponseHeaders(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getAllResponseHeaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3431,37 +3431,37 @@ impl IServerXMLHTTPRequest {
         (::windows_core::Interface::vtable(self).base__.abort)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn status(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn statusText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.statusText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn responseXML(&self) -> ::windows_core::Result<super::super::super::System::Com::IDispatch> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::IDispatch>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.responseXML)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn responseText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.responseText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn responseBody(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.responseBody)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn responseStream(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.responseStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn readyState(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.readyState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3478,13 +3478,13 @@ impl IServerXMLHTTPRequest {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn waitForResponse(&self, timeoutinseconds: super::super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).waitForResponse)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(timeoutinseconds), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getOption)(::windows_core::Interface::as_raw(self), option, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3568,11 +3568,11 @@ impl IServerXMLHTTPRequest2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.getResponseHeader)(::windows_core::Interface::as_raw(self), bstrheader.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn getAllResponseHeaders(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.getAllResponseHeaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3584,37 +3584,37 @@ impl IServerXMLHTTPRequest2 {
         (::windows_core::Interface::vtable(self).base__.base__.abort)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn status(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn statusText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.statusText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn responseXML(&self) -> ::windows_core::Result<super::super::super::System::Com::IDispatch> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::IDispatch>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.responseXML)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn responseText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.responseText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn responseBody(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.responseBody)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn responseStream(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.responseStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn readyState(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.readyState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3631,13 +3631,13 @@ impl IServerXMLHTTPRequest2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn waitForResponse(&self, timeoutinseconds: super::super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.waitForResponse)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(timeoutinseconds), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn getOption(&self, option: SERVERXMLHTTP_OPTION) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getOption)(::windows_core::Interface::as_raw(self), option, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3716,7 +3716,7 @@ impl IVBMXNamespaceManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn allowOverride(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).allowOverride)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn reset(&self) -> ::windows_core::Result<()> {
@@ -3747,7 +3747,7 @@ impl IVBMXNamespaceManager {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getDeclaredPrefixes(&self) -> ::windows_core::Result<IMXNamespacePrefixes> {
-        let mut result__ = ::windows_core::zeroed::<IMXNamespacePrefixes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getDeclaredPrefixes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3756,7 +3756,7 @@ impl IVBMXNamespaceManager {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IMXNamespacePrefixes>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getPrefixes)(::windows_core::Interface::as_raw(self), namespaceuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3765,7 +3765,7 @@ impl IVBMXNamespaceManager {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getURI)(::windows_core::Interface::as_raw(self), prefix.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -3775,7 +3775,7 @@ impl IVBMXNamespaceManager {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getURIFromNode)(::windows_core::Interface::as_raw(self), strprefix.into_param().abi(), contextnode.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -3854,19 +3854,19 @@ pub struct IVBSAXAttributes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXAttributes {
     pub unsafe fn length(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn getURI(&self, nindex: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getURI)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn getLocalName(&self, nindex: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getLocalName)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn getQName(&self, nindex: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getQName)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn getIndexFromName<P0, P1>(&self, struri: P0, strlocalname: P1) -> ::windows_core::Result<i32>
@@ -3874,18 +3874,18 @@ impl IVBSAXAttributes {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getIndexFromName)(::windows_core::Interface::as_raw(self), struri.into_param().abi(), strlocalname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn getIndexFromQName<P0>(&self, strqname: P0) -> ::windows_core::Result<i32>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getIndexFromQName)(::windows_core::Interface::as_raw(self), strqname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn getType(&self, nindex: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getType)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn getTypeFromName<P0, P1>(&self, struri: P0, strlocalname: P1) -> ::windows_core::Result<::windows_core::BSTR>
@@ -3893,18 +3893,18 @@ impl IVBSAXAttributes {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getTypeFromName)(::windows_core::Interface::as_raw(self), struri.into_param().abi(), strlocalname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn getTypeFromQName<P0>(&self, strqname: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getTypeFromQName)(::windows_core::Interface::as_raw(self), strqname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn getValue(&self, nindex: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getValue)(::windows_core::Interface::as_raw(self), nindex, &mut result__).from_abi(result__)
     }
     pub unsafe fn getValueFromName<P0, P1>(&self, struri: P0, strlocalname: P1) -> ::windows_core::Result<::windows_core::BSTR>
@@ -3912,14 +3912,14 @@ impl IVBSAXAttributes {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getValueFromName)(::windows_core::Interface::as_raw(self), struri.into_param().abi(), strlocalname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn getValueFromQName<P0>(&self, strqname: P0) -> ::windows_core::Result<::windows_core::BSTR>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getValueFromQName)(::windows_core::Interface::as_raw(self), strqname.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -4393,19 +4393,19 @@ pub struct IVBSAXLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXLocator {
     pub unsafe fn columnNumber(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).columnNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn lineNumber(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).lineNumber)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn publicId(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).publicId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn systemId(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).systemId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4458,7 +4458,7 @@ impl IVBSAXXMLFilter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parent(&self) -> ::windows_core::Result<IVBSAXXMLReader> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXXMLReader>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).parent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4526,7 +4526,7 @@ impl IVBSAXXMLReader {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getFeature)(::windows_core::Interface::as_raw(self), strname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4544,7 +4544,7 @@ impl IVBSAXXMLReader {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getProperty)(::windows_core::Interface::as_raw(self), strname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4558,7 +4558,7 @@ impl IVBSAXXMLReader {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn entityResolver(&self) -> ::windows_core::Result<IVBSAXEntityResolver> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXEntityResolver>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).entityResolver)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4572,7 +4572,7 @@ impl IVBSAXXMLReader {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn contentHandler(&self) -> ::windows_core::Result<IVBSAXContentHandler> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXContentHandler>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).contentHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4586,7 +4586,7 @@ impl IVBSAXXMLReader {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn dtdHandler(&self) -> ::windows_core::Result<IVBSAXDTDHandler> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXDTDHandler>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).dtdHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4600,7 +4600,7 @@ impl IVBSAXXMLReader {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn errorHandler(&self) -> ::windows_core::Result<IVBSAXErrorHandler> {
-        let mut result__ = ::windows_core::zeroed::<IVBSAXErrorHandler>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).errorHandler)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4612,7 +4612,7 @@ impl IVBSAXXMLReader {
         (::windows_core::Interface::vtable(self).putref_errorHandler)(::windows_core::Interface::as_raw(self), ohandler.into_param().abi()).ok()
     }
     pub unsafe fn baseURL(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).baseURL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetbaseURL<P0>(&self, strbaseurl: P0) -> ::windows_core::Result<()>
@@ -4622,7 +4622,7 @@ impl IVBSAXXMLReader {
         (::windows_core::Interface::vtable(self).SetbaseURL)(::windows_core::Interface::as_raw(self), strbaseurl.into_param().abi()).ok()
     }
     pub unsafe fn secureBaseURL(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).secureBaseURL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetsecureBaseURL<P0>(&self, strsecurebaseurl: P0) -> ::windows_core::Result<()>
@@ -4743,11 +4743,11 @@ pub struct IXMLAttribute(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLAttribute {
     pub unsafe fn name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).name)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn value(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).value)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -4814,43 +4814,43 @@ impl IXMLDOMAttribute {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4859,7 +4859,7 @@ impl IXMLDOMAttribute {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4869,7 +4869,7 @@ impl IXMLDOMAttribute {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4878,7 +4878,7 @@ impl IXMLDOMAttribute {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4887,7 +4887,7 @@ impl IXMLDOMAttribute {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4898,7 +4898,7 @@ impl IXMLDOMAttribute {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -4907,7 +4907,7 @@ impl IXMLDOMAttribute {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -4930,7 +4930,7 @@ impl IXMLDOMAttribute {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -4971,7 +4971,7 @@ impl IXMLDOMAttribute {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -4980,7 +4980,7 @@ impl IXMLDOMAttribute {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5089,43 +5089,43 @@ impl IXMLDOMCDATASection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5134,7 +5134,7 @@ impl IXMLDOMCDATASection {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5144,7 +5144,7 @@ impl IXMLDOMCDATASection {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5153,7 +5153,7 @@ impl IXMLDOMCDATASection {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5162,7 +5162,7 @@ impl IXMLDOMCDATASection {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5173,7 +5173,7 @@ impl IXMLDOMCDATASection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -5182,7 +5182,7 @@ impl IXMLDOMCDATASection {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -5205,7 +5205,7 @@ impl IXMLDOMCDATASection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5246,7 +5246,7 @@ impl IXMLDOMCDATASection {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5255,7 +5255,7 @@ impl IXMLDOMCDATASection {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5319,7 +5319,7 @@ impl IXMLDOMCDATASection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn splitText(&self, offset: i32) -> ::windows_core::Result<IXMLDOMText> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMText>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.splitText)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
 }
@@ -5384,43 +5384,43 @@ impl IXMLDOMCharacterData {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5429,7 +5429,7 @@ impl IXMLDOMCharacterData {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5439,7 +5439,7 @@ impl IXMLDOMCharacterData {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5448,7 +5448,7 @@ impl IXMLDOMCharacterData {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5457,7 +5457,7 @@ impl IXMLDOMCharacterData {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5468,7 +5468,7 @@ impl IXMLDOMCharacterData {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -5477,7 +5477,7 @@ impl IXMLDOMCharacterData {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -5500,7 +5500,7 @@ impl IXMLDOMCharacterData {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5541,7 +5541,7 @@ impl IXMLDOMCharacterData {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5550,7 +5550,7 @@ impl IXMLDOMCharacterData {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5681,43 +5681,43 @@ impl IXMLDOMComment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5726,7 +5726,7 @@ impl IXMLDOMComment {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5736,7 +5736,7 @@ impl IXMLDOMComment {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5745,7 +5745,7 @@ impl IXMLDOMComment {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5754,7 +5754,7 @@ impl IXMLDOMComment {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5765,7 +5765,7 @@ impl IXMLDOMComment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -5774,7 +5774,7 @@ impl IXMLDOMComment {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -5797,7 +5797,7 @@ impl IXMLDOMComment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -5838,7 +5838,7 @@ impl IXMLDOMComment {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5847,7 +5847,7 @@ impl IXMLDOMComment {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5970,43 +5970,43 @@ impl IXMLDOMDocument {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6015,7 +6015,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6025,7 +6025,7 @@ impl IXMLDOMDocument {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6034,7 +6034,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6043,7 +6043,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6054,7 +6054,7 @@ impl IXMLDOMDocument {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -6063,7 +6063,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -6086,7 +6086,7 @@ impl IXMLDOMDocument {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6127,7 +6127,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6136,7 +6136,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6164,19 +6164,19 @@ impl IXMLDOMDocument {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn doctype(&self) -> ::windows_core::Result<IXMLDOMDocumentType> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocumentType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).doctype)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn implementation(&self) -> ::windows_core::Result<IXMLDOMImplementation> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMImplementation>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).implementation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn documentElement(&self) -> ::windows_core::Result<IXMLDOMElement> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).documentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6193,13 +6193,13 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createElement)(::windows_core::Interface::as_raw(self), tagname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createDocumentFragment(&self) -> ::windows_core::Result<IXMLDOMDocumentFragment> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocumentFragment>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createDocumentFragment)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6208,7 +6208,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMText>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createTextNode)(::windows_core::Interface::as_raw(self), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6217,7 +6217,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMComment>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createComment)(::windows_core::Interface::as_raw(self), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6226,7 +6226,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMCDATASection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createCDATASection)(::windows_core::Interface::as_raw(self), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6236,7 +6236,7 @@ impl IXMLDOMDocument {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMProcessingInstruction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createProcessingInstruction)(::windows_core::Interface::as_raw(self), target.into_param().abi(), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6245,7 +6245,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMAttribute>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6254,7 +6254,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMEntityReference>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createEntityReference)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6263,7 +6263,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getElementsByTagName)(::windows_core::Interface::as_raw(self), tagname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6273,7 +6273,7 @@ impl IXMLDOMDocument {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createNode)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(r#type), name.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6282,7 +6282,7 @@ impl IXMLDOMDocument {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).nodeFromID)(::windows_core::Interface::as_raw(self), idstring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6296,7 +6296,7 @@ impl IXMLDOMDocument {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parseError(&self) -> ::windows_core::Result<IXMLDOMParseError> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMParseError>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).parseError)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn url(&self, urlstring: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -6570,43 +6570,43 @@ impl IXMLDOMDocument2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6615,7 +6615,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6625,7 +6625,7 @@ impl IXMLDOMDocument2 {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6634,7 +6634,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6643,7 +6643,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6654,7 +6654,7 @@ impl IXMLDOMDocument2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -6663,7 +6663,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -6686,7 +6686,7 @@ impl IXMLDOMDocument2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6727,7 +6727,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6736,7 +6736,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6764,19 +6764,19 @@ impl IXMLDOMDocument2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn doctype(&self) -> ::windows_core::Result<IXMLDOMDocumentType> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocumentType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.doctype)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn implementation(&self) -> ::windows_core::Result<IXMLDOMImplementation> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMImplementation>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.implementation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn documentElement(&self) -> ::windows_core::Result<IXMLDOMElement> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.documentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6793,13 +6793,13 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.createElement)(::windows_core::Interface::as_raw(self), tagname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createDocumentFragment(&self) -> ::windows_core::Result<IXMLDOMDocumentFragment> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocumentFragment>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.createDocumentFragment)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6808,7 +6808,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMText>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.createTextNode)(::windows_core::Interface::as_raw(self), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6817,7 +6817,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMComment>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.createComment)(::windows_core::Interface::as_raw(self), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6826,7 +6826,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMCDATASection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.createCDATASection)(::windows_core::Interface::as_raw(self), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6836,7 +6836,7 @@ impl IXMLDOMDocument2 {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMProcessingInstruction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.createProcessingInstruction)(::windows_core::Interface::as_raw(self), target.into_param().abi(), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6845,7 +6845,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMAttribute>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.createAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6854,7 +6854,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMEntityReference>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.createEntityReference)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6863,7 +6863,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getElementsByTagName)(::windows_core::Interface::as_raw(self), tagname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6873,7 +6873,7 @@ impl IXMLDOMDocument2 {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.createNode)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(r#type), name.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6882,7 +6882,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nodeFromID)(::windows_core::Interface::as_raw(self), idstring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -6896,7 +6896,7 @@ impl IXMLDOMDocument2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parseError(&self) -> ::windows_core::Result<IXMLDOMParseError> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMParseError>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parseError)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn url(&self, urlstring: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -6988,13 +6988,13 @@ impl IXMLDOMDocument2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn namespaces(&self) -> ::windows_core::Result<IXMLDOMSchemaCollection> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMSchemaCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).namespaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn schemas(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).schemas)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7005,7 +7005,7 @@ impl IXMLDOMDocument2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn validate(&self) -> ::windows_core::Result<IXMLDOMParseError> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMParseError>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).validate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7022,7 +7022,7 @@ impl IXMLDOMDocument2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getProperty)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -7111,43 +7111,43 @@ impl IXMLDOMDocument3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7156,7 +7156,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7166,7 +7166,7 @@ impl IXMLDOMDocument3 {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7175,7 +7175,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7184,7 +7184,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7195,7 +7195,7 @@ impl IXMLDOMDocument3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -7204,7 +7204,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -7227,7 +7227,7 @@ impl IXMLDOMDocument3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7268,7 +7268,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7277,7 +7277,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7305,19 +7305,19 @@ impl IXMLDOMDocument3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn doctype(&self) -> ::windows_core::Result<IXMLDOMDocumentType> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocumentType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.doctype)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn implementation(&self) -> ::windows_core::Result<IXMLDOMImplementation> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMImplementation>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.implementation)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn documentElement(&self) -> ::windows_core::Result<IXMLDOMElement> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.documentElement)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7334,13 +7334,13 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.createElement)(::windows_core::Interface::as_raw(self), tagname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createDocumentFragment(&self) -> ::windows_core::Result<IXMLDOMDocumentFragment> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocumentFragment>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.createDocumentFragment)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7349,7 +7349,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMText>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.createTextNode)(::windows_core::Interface::as_raw(self), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7358,7 +7358,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMComment>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.createComment)(::windows_core::Interface::as_raw(self), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7367,7 +7367,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMCDATASection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.createCDATASection)(::windows_core::Interface::as_raw(self), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7377,7 +7377,7 @@ impl IXMLDOMDocument3 {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMProcessingInstruction>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.createProcessingInstruction)(::windows_core::Interface::as_raw(self), target.into_param().abi(), data.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7386,7 +7386,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMAttribute>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.createAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7395,7 +7395,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMEntityReference>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.createEntityReference)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7404,7 +7404,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.getElementsByTagName)(::windows_core::Interface::as_raw(self), tagname.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7414,7 +7414,7 @@ impl IXMLDOMDocument3 {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.createNode)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(r#type), name.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7423,7 +7423,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.nodeFromID)(::windows_core::Interface::as_raw(self), idstring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7437,7 +7437,7 @@ impl IXMLDOMDocument3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parseError(&self) -> ::windows_core::Result<IXMLDOMParseError> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMParseError>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.parseError)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn url(&self, urlstring: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -7529,13 +7529,13 @@ impl IXMLDOMDocument3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn namespaces(&self) -> ::windows_core::Result<IXMLDOMSchemaCollection> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMSchemaCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.namespaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn schemas(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.schemas)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7546,7 +7546,7 @@ impl IXMLDOMDocument3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn validate(&self) -> ::windows_core::Result<IXMLDOMParseError> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMParseError>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.validate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7563,7 +7563,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.getProperty)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7572,7 +7572,7 @@ impl IXMLDOMDocument3 {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMParseError>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).validateNode)(::windows_core::Interface::as_raw(self), node.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -7582,7 +7582,7 @@ impl IXMLDOMDocument3 {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).importNode)(::windows_core::Interface::as_raw(self), node.into_param().abi(), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -7655,43 +7655,43 @@ impl IXMLDOMDocumentFragment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7700,7 +7700,7 @@ impl IXMLDOMDocumentFragment {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7710,7 +7710,7 @@ impl IXMLDOMDocumentFragment {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7719,7 +7719,7 @@ impl IXMLDOMDocumentFragment {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7728,7 +7728,7 @@ impl IXMLDOMDocumentFragment {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7739,7 +7739,7 @@ impl IXMLDOMDocumentFragment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -7748,7 +7748,7 @@ impl IXMLDOMDocumentFragment {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -7771,7 +7771,7 @@ impl IXMLDOMDocumentFragment {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7812,7 +7812,7 @@ impl IXMLDOMDocumentFragment {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7821,7 +7821,7 @@ impl IXMLDOMDocumentFragment {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7908,43 +7908,43 @@ impl IXMLDOMDocumentType {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -7953,7 +7953,7 @@ impl IXMLDOMDocumentType {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7963,7 +7963,7 @@ impl IXMLDOMDocumentType {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7972,7 +7972,7 @@ impl IXMLDOMDocumentType {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7981,7 +7981,7 @@ impl IXMLDOMDocumentType {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7992,7 +7992,7 @@ impl IXMLDOMDocumentType {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -8001,7 +8001,7 @@ impl IXMLDOMDocumentType {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -8024,7 +8024,7 @@ impl IXMLDOMDocumentType {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -8065,7 +8065,7 @@ impl IXMLDOMDocumentType {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8074,7 +8074,7 @@ impl IXMLDOMDocumentType {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8105,13 +8105,13 @@ impl IXMLDOMDocumentType {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn entities(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).entities)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn notations(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).notations)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -8185,43 +8185,43 @@ impl IXMLDOMElement {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -8230,7 +8230,7 @@ impl IXMLDOMElement {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8240,7 +8240,7 @@ impl IXMLDOMElement {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8249,7 +8249,7 @@ impl IXMLDOMElement {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8258,7 +8258,7 @@ impl IXMLDOMElement {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8269,7 +8269,7 @@ impl IXMLDOMElement {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -8278,7 +8278,7 @@ impl IXMLDOMElement {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -8301,7 +8301,7 @@ impl IXMLDOMElement {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -8342,7 +8342,7 @@ impl IXMLDOMElement {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8351,7 +8351,7 @@ impl IXMLDOMElement {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8407,7 +8407,7 @@ impl IXMLDOMElement {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMAttribute>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getAttributeNode)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8416,7 +8416,7 @@ impl IXMLDOMElement {
     where
         P0: ::windows_core::IntoParam<IXMLDOMAttribute>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMAttribute>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).setAttributeNode)(::windows_core::Interface::as_raw(self), domattribute.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8425,7 +8425,7 @@ impl IXMLDOMElement {
     where
         P0: ::windows_core::IntoParam<IXMLDOMAttribute>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMAttribute>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).removeAttributeNode)(::windows_core::Interface::as_raw(self), domattribute.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8434,7 +8434,7 @@ impl IXMLDOMElement {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getElementsByTagName)(::windows_core::Interface::as_raw(self), tagname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn normalize(&self) -> ::windows_core::Result<()> {
@@ -8529,43 +8529,43 @@ impl IXMLDOMEntity {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -8574,7 +8574,7 @@ impl IXMLDOMEntity {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8584,7 +8584,7 @@ impl IXMLDOMEntity {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8593,7 +8593,7 @@ impl IXMLDOMEntity {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8602,7 +8602,7 @@ impl IXMLDOMEntity {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8613,7 +8613,7 @@ impl IXMLDOMEntity {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -8622,7 +8622,7 @@ impl IXMLDOMEntity {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -8645,7 +8645,7 @@ impl IXMLDOMEntity {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -8686,7 +8686,7 @@ impl IXMLDOMEntity {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8695,7 +8695,7 @@ impl IXMLDOMEntity {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8804,43 +8804,43 @@ impl IXMLDOMEntityReference {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -8849,7 +8849,7 @@ impl IXMLDOMEntityReference {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8859,7 +8859,7 @@ impl IXMLDOMEntityReference {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8868,7 +8868,7 @@ impl IXMLDOMEntityReference {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8877,7 +8877,7 @@ impl IXMLDOMEntityReference {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8888,7 +8888,7 @@ impl IXMLDOMEntityReference {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -8897,7 +8897,7 @@ impl IXMLDOMEntityReference {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -8920,7 +8920,7 @@ impl IXMLDOMEntityReference {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -8961,7 +8961,7 @@ impl IXMLDOMEntityReference {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8970,7 +8970,7 @@ impl IXMLDOMEntityReference {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9100,7 +9100,7 @@ impl IXMLDOMNamedNodeMap {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getNamedItem)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9109,7 +9109,7 @@ impl IXMLDOMNamedNodeMap {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).setNamedItem)(::windows_core::Interface::as_raw(self), newitem.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9118,13 +9118,13 @@ impl IXMLDOMNamedNodeMap {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).removeNamedItem)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_item(&self, index: i32) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn length(&self, listlength: *mut i32) -> ::windows_core::Result<()> {
@@ -9137,7 +9137,7 @@ impl IXMLDOMNamedNodeMap {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getQualifiedItem)(::windows_core::Interface::as_raw(self), basename.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9147,20 +9147,20 @@ impl IXMLDOMNamedNodeMap {
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).removeQualifiedItem)(::windows_core::Interface::as_raw(self), basename.into_param().abi(), namespaceuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).nextNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn _newEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._newEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -9256,43 +9256,43 @@ impl IXMLDOMNode {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -9301,7 +9301,7 @@ impl IXMLDOMNode {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9311,7 +9311,7 @@ impl IXMLDOMNode {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9320,7 +9320,7 @@ impl IXMLDOMNode {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9329,7 +9329,7 @@ impl IXMLDOMNode {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9340,7 +9340,7 @@ impl IXMLDOMNode {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -9349,7 +9349,7 @@ impl IXMLDOMNode {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -9372,7 +9372,7 @@ impl IXMLDOMNode {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -9413,7 +9413,7 @@ impl IXMLDOMNode {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9422,7 +9422,7 @@ impl IXMLDOMNode {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9607,7 +9607,7 @@ impl IXMLDOMNodeList {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_item(&self, index: i32) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn length(&self, listlength: *mut i32) -> ::windows_core::Result<()> {
@@ -9616,14 +9616,14 @@ impl IXMLDOMNodeList {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).nextNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn _newEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._newEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -9699,43 +9699,43 @@ impl IXMLDOMNotation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -9744,7 +9744,7 @@ impl IXMLDOMNotation {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9754,7 +9754,7 @@ impl IXMLDOMNotation {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9763,7 +9763,7 @@ impl IXMLDOMNotation {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9772,7 +9772,7 @@ impl IXMLDOMNotation {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9783,7 +9783,7 @@ impl IXMLDOMNotation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -9792,7 +9792,7 @@ impl IXMLDOMNotation {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -9815,7 +9815,7 @@ impl IXMLDOMNotation {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -9856,7 +9856,7 @@ impl IXMLDOMNotation {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9865,7 +9865,7 @@ impl IXMLDOMNotation {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10044,21 +10044,21 @@ impl IXMLDOMParseError2 {
         (::windows_core::Interface::vtable(self).base__.filepos)(::windows_core::Interface::as_raw(self), fileposition).ok()
     }
     pub unsafe fn errorXPath(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).errorXPath)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn allErrors(&self) -> ::windows_core::Result<IXMLDOMParseErrorCollection> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMParseErrorCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).allErrors)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn errorParameters(&self, index: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).errorParameters)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn errorParametersCount(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).errorParametersCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -10114,24 +10114,24 @@ impl IXMLDOMParseErrorCollection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_item(&self, index: i32) -> ::windows_core::Result<IXMLDOMParseError2> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMParseError2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn length(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn next(&self) -> ::windows_core::Result<IXMLDOMParseError2> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMParseError2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).next)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn _newEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._newEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -10207,43 +10207,43 @@ impl IXMLDOMProcessingInstruction {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -10252,7 +10252,7 @@ impl IXMLDOMProcessingInstruction {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10262,7 +10262,7 @@ impl IXMLDOMProcessingInstruction {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10271,7 +10271,7 @@ impl IXMLDOMProcessingInstruction {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10280,7 +10280,7 @@ impl IXMLDOMProcessingInstruction {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10291,7 +10291,7 @@ impl IXMLDOMProcessingInstruction {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -10300,7 +10300,7 @@ impl IXMLDOMProcessingInstruction {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -10323,7 +10323,7 @@ impl IXMLDOMProcessingInstruction {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -10364,7 +10364,7 @@ impl IXMLDOMProcessingInstruction {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10373,7 +10373,7 @@ impl IXMLDOMProcessingInstruction {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10470,7 +10470,7 @@ impl IXMLDOMSchemaCollection {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get)(::windows_core::Interface::as_raw(self), namespaceuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn remove<P0>(&self, namespaceuri: P0) -> ::windows_core::Result<()>
@@ -10480,11 +10480,11 @@ impl IXMLDOMSchemaCollection {
         (::windows_core::Interface::vtable(self).remove)(::windows_core::Interface::as_raw(self), namespaceuri.into_param().abi()).ok()
     }
     pub unsafe fn length(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn get_namespaceURI(&self, index: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).get_namespaceURI)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10496,7 +10496,7 @@ impl IXMLDOMSchemaCollection {
         (::windows_core::Interface::vtable(self).addCollection)(::windows_core::Interface::as_raw(self), othercollection.into_param().abi()).ok()
     }
     pub unsafe fn _newEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._newEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -10572,7 +10572,7 @@ impl IXMLDOMSchemaCollection2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get)(::windows_core::Interface::as_raw(self), namespaceuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn remove<P0>(&self, namespaceuri: P0) -> ::windows_core::Result<()>
@@ -10582,11 +10582,11 @@ impl IXMLDOMSchemaCollection2 {
         (::windows_core::Interface::vtable(self).base__.remove)(::windows_core::Interface::as_raw(self), namespaceuri.into_param().abi()).ok()
     }
     pub unsafe fn length(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn get_namespaceURI(&self, index: i32) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_namespaceURI)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10598,7 +10598,7 @@ impl IXMLDOMSchemaCollection2 {
         (::windows_core::Interface::vtable(self).base__.addCollection)(::windows_core::Interface::as_raw(self), othercollection.into_param().abi()).ok()
     }
     pub unsafe fn _newEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._newEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn validate(&self) -> ::windows_core::Result<()> {
@@ -10615,7 +10615,7 @@ impl IXMLDOMSchemaCollection2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn validateOnLoad(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).validateOnLoad)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10624,7 +10624,7 @@ impl IXMLDOMSchemaCollection2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISchema>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getSchema)(::windows_core::Interface::as_raw(self), namespaceuri.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10633,7 +10633,7 @@ impl IXMLDOMSchemaCollection2 {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<ISchemaItem>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getDeclaration)(::windows_core::Interface::as_raw(self), node.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -10699,7 +10699,7 @@ impl IXMLDOMSelection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_item(&self, index: i32) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.get_item)(::windows_core::Interface::as_raw(self), index, &mut result__).from_abi(result__)
     }
     pub unsafe fn length(&self, listlength: *mut i32) -> ::windows_core::Result<()> {
@@ -10708,18 +10708,18 @@ impl IXMLDOMSelection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn _newEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__._newEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn expr(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).expr)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Setexpr<P0>(&self, expression: P0) -> ::windows_core::Result<()>
@@ -10731,7 +10731,7 @@ impl IXMLDOMSelection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn context(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).context)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10745,7 +10745,7 @@ impl IXMLDOMSelection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn peekNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).peekNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10754,13 +10754,13 @@ impl IXMLDOMSelection {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).matches)(::windows_core::Interface::as_raw(self), pnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeNext(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).removeNext)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn removeAll(&self) -> ::windows_core::Result<()> {
@@ -10769,7 +10769,7 @@ impl IXMLDOMSelection {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn clone(&self) -> ::windows_core::Result<IXMLDOMSelection> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMSelection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).clone)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -10778,7 +10778,7 @@ impl IXMLDOMSelection {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getProperty)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -10886,43 +10886,43 @@ impl IXMLDOMText {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -10931,7 +10931,7 @@ impl IXMLDOMText {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10941,7 +10941,7 @@ impl IXMLDOMText {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10950,7 +10950,7 @@ impl IXMLDOMText {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10959,7 +10959,7 @@ impl IXMLDOMText {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10970,7 +10970,7 @@ impl IXMLDOMText {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -10979,7 +10979,7 @@ impl IXMLDOMText {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -11002,7 +11002,7 @@ impl IXMLDOMText {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -11043,7 +11043,7 @@ impl IXMLDOMText {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -11052,7 +11052,7 @@ impl IXMLDOMText {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11116,7 +11116,7 @@ impl IXMLDOMText {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn splitText(&self, offset: i32) -> ::windows_core::Result<IXMLDOMText> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMText>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).splitText)(::windows_core::Interface::as_raw(self), offset, &mut result__).from_abi(result__)
     }
 }
@@ -11169,7 +11169,7 @@ impl IXMLDSOControl {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn XMLDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).XMLDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -11259,23 +11259,23 @@ impl IXMLDocument {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn root(&self) -> ::windows_core::Result<IXMLElement> {
-        let mut result__ = ::windows_core::zeroed::<IXMLElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).root)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn fileSize(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).fileSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn fileModifiedDate(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).fileModifiedDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn fileUpdatedDate(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).fileUpdatedDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn URL(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).URL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetURL<P0>(&self, p: P0) -> ::windows_core::Result<()>
@@ -11285,15 +11285,15 @@ impl IXMLDocument {
         (::windows_core::Interface::vtable(self).SetURL)(::windows_core::Interface::as_raw(self), p.into_param().abi()).ok()
     }
     pub unsafe fn mimeType(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).mimeType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn readyState(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).readyState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn charset(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).charset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Setcharset<P0>(&self, p: P0) -> ::windows_core::Result<()>
@@ -11303,21 +11303,21 @@ impl IXMLDocument {
         (::windows_core::Interface::vtable(self).Setcharset)(::windows_core::Interface::as_raw(self), p.into_param().abi()).ok()
     }
     pub unsafe fn version(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).version)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn doctype(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).doctype)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn dtdURL(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).dtdURL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn createElement(&self, vtype: super::super::super::System::Com::VARIANT, var1: super::super::super::System::Com::VARIANT) -> ::windows_core::Result<IXMLElement> {
-        let mut result__ = ::windows_core::zeroed::<IXMLElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createElement)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vtype), ::core::mem::transmute(var1), &mut result__).from_abi(result__)
     }
 }
@@ -11386,23 +11386,23 @@ impl IXMLDocument2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn root(&self) -> ::windows_core::Result<IXMLElement2> {
-        let mut result__ = ::windows_core::zeroed::<IXMLElement2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).root)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn fileSize(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).fileSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn fileModifiedDate(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).fileModifiedDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn fileUpdatedDate(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).fileUpdatedDate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn URL(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).URL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetURL<P0>(&self, p: P0) -> ::windows_core::Result<()>
@@ -11412,15 +11412,15 @@ impl IXMLDocument2 {
         (::windows_core::Interface::vtable(self).SetURL)(::windows_core::Interface::as_raw(self), p.into_param().abi()).ok()
     }
     pub unsafe fn mimeType(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).mimeType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn readyState(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).readyState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn charset(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).charset)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Setcharset<P0>(&self, p: P0) -> ::windows_core::Result<()>
@@ -11430,27 +11430,27 @@ impl IXMLDocument2 {
         (::windows_core::Interface::vtable(self).Setcharset)(::windows_core::Interface::as_raw(self), p.into_param().abi()).ok()
     }
     pub unsafe fn version(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).version)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn doctype(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).doctype)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn dtdURL(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).dtdURL)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn createElement(&self, vtype: super::super::super::System::Com::VARIANT, var1: super::super::super::System::Com::VARIANT) -> ::windows_core::Result<IXMLElement2> {
-        let mut result__ = ::windows_core::zeroed::<IXMLElement2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createElement)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vtype), ::core::mem::transmute(var1), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn r#async(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).r#async)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11533,7 +11533,7 @@ pub struct IXMLElement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLElement {
     pub unsafe fn tagName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).tagName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SettagName<P0>(&self, p: P0) -> ::windows_core::Result<()>
@@ -11545,7 +11545,7 @@ impl IXMLElement {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parent(&self) -> ::windows_core::Result<IXMLElement> {
-        let mut result__ = ::windows_core::zeroed::<IXMLElement>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).parent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -11562,7 +11562,7 @@ impl IXMLElement {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getAttribute)(::windows_core::Interface::as_raw(self), strpropertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn removeAttribute<P0>(&self, strpropertyname: P0) -> ::windows_core::Result<()>
@@ -11574,15 +11574,15 @@ impl IXMLElement {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn children(&self) -> ::windows_core::Result<IXMLElementCollection> {
-        let mut result__ = ::windows_core::zeroed::<IXMLElementCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).children)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn r#type(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).r#type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn text(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).text)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Settext<P0>(&self, p: P0) -> ::windows_core::Result<()>
@@ -11681,7 +11681,7 @@ pub struct IXMLElement2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLElement2 {
     pub unsafe fn tagName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).tagName)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn SettagName<P0>(&self, p: P0) -> ::windows_core::Result<()>
@@ -11693,7 +11693,7 @@ impl IXMLElement2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parent(&self) -> ::windows_core::Result<IXMLElement2> {
-        let mut result__ = ::windows_core::zeroed::<IXMLElement2>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).parent)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -11710,7 +11710,7 @@ impl IXMLElement2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getAttribute)(::windows_core::Interface::as_raw(self), strpropertyname.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn removeAttribute<P0>(&self, strpropertyname: P0) -> ::windows_core::Result<()>
@@ -11722,15 +11722,15 @@ impl IXMLElement2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn children(&self) -> ::windows_core::Result<IXMLElementCollection> {
-        let mut result__ = ::windows_core::zeroed::<IXMLElementCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).children)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn r#type(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).r#type)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn text(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).text)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Settext<P0>(&self, p: P0) -> ::windows_core::Result<()>
@@ -11758,7 +11758,7 @@ impl IXMLElement2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLElementCollection> {
-        let mut result__ = ::windows_core::zeroed::<IXMLElementCollection>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -11842,17 +11842,17 @@ impl IXMLElementCollection {
         (::windows_core::Interface::vtable(self).Setlength)(::windows_core::Interface::as_raw(self), v).ok()
     }
     pub unsafe fn length(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).length)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn _newEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::IUnknown>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self)._newEnum)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn item(&self, var1: super::super::super::System::Com::VARIANT, var2: super::super::super::System::Com::VARIANT) -> ::windows_core::Result<super::super::super::System::Com::IDispatch> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::IDispatch>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).item)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(var1), ::core::mem::transmute(var2), &mut result__).from_abi(result__)
     }
 }
@@ -11962,11 +11962,11 @@ impl IXMLHTTPRequest {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getResponseHeader)(::windows_core::Interface::as_raw(self), bstrheader.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn getAllResponseHeaders(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getAllResponseHeaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -11978,37 +11978,37 @@ impl IXMLHTTPRequest {
         (::windows_core::Interface::vtable(self).abort)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn status(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).status)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn statusText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).statusText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn responseXML(&self) -> ::windows_core::Result<super::super::super::System::Com::IDispatch> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::IDispatch>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).responseXML)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn responseText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).responseText)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn responseBody(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).responseBody)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn responseStream(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).responseStream)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn readyState(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).readyState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -12118,7 +12118,7 @@ impl IXMLHTTPRequest2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCookie(&self, pcookie: *const XHR_COOKIE) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).SetCookie)(::windows_core::Interface::as_raw(self), pcookie, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -12140,7 +12140,7 @@ impl IXMLHTTPRequest2 {
         (::windows_core::Interface::vtable(self).SetRequestHeader)(::windows_core::Interface::as_raw(self), pwszheader.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
     pub unsafe fn GetAllResponseHeaders(&self) -> ::windows_core::Result<*mut u16> {
-        let mut result__ = ::windows_core::zeroed::<*mut u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetAllResponseHeaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12156,7 +12156,7 @@ impl IXMLHTTPRequest2 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<*mut u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetResponseHeader)(::windows_core::Interface::as_raw(self), pwszheader.into_param().abi(), &mut result__).from_abi(result__)
     }
 }
@@ -12322,7 +12322,7 @@ impl IXMLHTTPRequest3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCookie(&self, pcookie: *const XHR_COOKIE) -> ::windows_core::Result<u32> {
-        let mut result__ = ::windows_core::zeroed::<u32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.SetCookie)(::windows_core::Interface::as_raw(self), pcookie, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -12344,7 +12344,7 @@ impl IXMLHTTPRequest3 {
         (::windows_core::Interface::vtable(self).base__.SetRequestHeader)(::windows_core::Interface::as_raw(self), pwszheader.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
     pub unsafe fn GetAllResponseHeaders(&self) -> ::windows_core::Result<*mut u16> {
-        let mut result__ = ::windows_core::zeroed::<*mut u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetAllResponseHeaders)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12360,7 +12360,7 @@ impl IXMLHTTPRequest3 {
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<*mut u16>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetResponseHeader)(::windows_core::Interface::as_raw(self), pwszheader.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn SetClientCertificate<P0>(&self, pbclientcertificatehash: &[u8], pwszpin: P0) -> ::windows_core::Result<()>
@@ -12498,13 +12498,13 @@ impl IXSLProcessor {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn input(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).input)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerTemplate(&self) -> ::windows_core::Result<IXSLTemplate> {
-        let mut result__ = ::windows_core::zeroed::<IXSLTemplate>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ownerTemplate)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn setStartMode<P0, P1>(&self, mode: P0, namespaceuri: P1) -> ::windows_core::Result<()>
@@ -12515,11 +12515,11 @@ impl IXSLProcessor {
         (::windows_core::Interface::vtable(self).setStartMode)(::windows_core::Interface::as_raw(self), mode.into_param().abi(), namespaceuri.into_param().abi()).ok()
     }
     pub unsafe fn startMode(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).startMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn startModeURI(&self) -> ::windows_core::Result<::windows_core::BSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::BSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).startModeURI)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -12530,20 +12530,20 @@ impl IXSLProcessor {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn output(&self) -> ::windows_core::Result<super::super::super::System::Com::VARIANT> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::System::Com::VARIANT>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).output)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn transform(&self) -> ::windows_core::Result<super::super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).transform)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn reset(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).reset)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn readyState(&self) -> ::windows_core::Result<i32> {
-        let mut result__ = ::windows_core::zeroed::<i32>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).readyState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -12567,7 +12567,7 @@ impl IXSLProcessor {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn stylesheet(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).stylesheet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -12665,13 +12665,13 @@ impl IXSLTemplate {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn stylesheet(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).stylesheet)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createProcessor(&self) -> ::windows_core::Result<IXSLProcessor> {
-        let mut result__ = ::windows_core::zeroed::<IXSLProcessor>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).createProcessor)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -12748,43 +12748,43 @@ impl IXTLRuntime {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn parentNode(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.parentNode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn childNodes(&self) -> ::windows_core::Result<IXMLDOMNodeList> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.childNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn firstChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.firstChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn lastChild(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.lastChild)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn previousSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.previousSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn nextSibling(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.nextSibling)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn attributes(&self) -> ::windows_core::Result<IXMLDOMNamedNodeMap> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNamedNodeMap>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.attributes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -12793,7 +12793,7 @@ impl IXTLRuntime {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.insertBefore)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), ::core::mem::transmute(refchild), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -12803,7 +12803,7 @@ impl IXTLRuntime {
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
         P1: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.replaceChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), oldchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -12812,7 +12812,7 @@ impl IXTLRuntime {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.removeChild)(::windows_core::Interface::as_raw(self), childnode.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -12821,7 +12821,7 @@ impl IXTLRuntime {
     where
         P0: ::windows_core::IntoParam<IXMLDOMNode>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.appendChild)(::windows_core::Interface::as_raw(self), newchild.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12832,7 +12832,7 @@ impl IXTLRuntime {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ownerDocument(&self) -> ::windows_core::Result<IXMLDOMDocument> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMDocument>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.ownerDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -12841,7 +12841,7 @@ impl IXTLRuntime {
     where
         P0: ::windows_core::IntoParam<super::super::super::Foundation::VARIANT_BOOL>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.cloneNode)(::windows_core::Interface::as_raw(self), deep.into_param().abi(), &mut result__).from_abi(result__)
     }
     pub unsafe fn nodeTypeString(&self, nodetype: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -12864,7 +12864,7 @@ impl IXTLRuntime {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn definition(&self) -> ::windows_core::Result<IXMLDOMNode> {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.definition)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
@@ -12905,7 +12905,7 @@ impl IXTLRuntime {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNodeList>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectNodes)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -12914,7 +12914,7 @@ impl IXTLRuntime {
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        let mut result__ = ::windows_core::zeroed::<IXMLDOMNode>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.selectSingleNode)(::windows_core::Interface::as_raw(self), querystring.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]

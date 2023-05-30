@@ -130,7 +130,7 @@ where
 #[inline]
 pub unsafe fn NdfGetTraceFile(handle: *const ::core::ffi::c_void) -> ::windows_core::Result<::windows_core::PCWSTR> {
     ::windows_targets::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const ::core::ffi::c_void, tracefilelocation : *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<::windows_core::PCWSTR>();
+    let mut result__ = ::std::mem::zeroed();
     NdfGetTraceFile(handle, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
@@ -191,7 +191,7 @@ impl INetDiagHelper {
         (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), rgattributes.len() as _, ::core::mem::transmute(rgattributes.as_ptr())).ok()
     }
     pub unsafe fn GetDiagnosticsInfo(&self) -> ::windows_core::Result<*mut DiagnosticsInfo> {
-        let mut result__ = ::windows_core::zeroed::<*mut DiagnosticsInfo>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetDiagnosticsInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -243,7 +243,7 @@ impl INetDiagHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLifeTime(&self) -> ::windows_core::Result<LIFE_TIME> {
-        let mut result__ = ::windows_core::zeroed::<LIFE_TIME>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetLifeTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -254,7 +254,7 @@ impl INetDiagHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCacheTime(&self) -> ::windows_core::Result<super::super::Foundation::FILETIME> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::FILETIME>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCacheTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]

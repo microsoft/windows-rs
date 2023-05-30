@@ -8,7 +8,7 @@ impl ICustomGameControllerFactory {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateGameController)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -156,35 +156,35 @@ impl IGameControllerProvider {
     pub fn FirmwareVersionInfo(&self) -> ::windows_core::Result<GameControllerVersionInfo> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameControllerVersionInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirmwareVersionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareProductId(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareProductId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareVendorId(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareVendorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareVersionInfo(&self) -> ::windows_core::Result<GameControllerVersionInfo> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameControllerVersionInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareVersionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsConnected(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsConnected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -498,7 +498,7 @@ impl GameControllerFactoryManager {
         P1: ::windows_core::TryIntoParam<super::IGameController>,
     {
         Self::IGameControllerFactoryManagerStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::IGameController>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetFactoryControllerFromGameController)(::windows_core::Interface::as_raw(this), factory.try_into_param()?.abi(), gamecontroller.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -523,21 +523,21 @@ impl GipFirmwareUpdateResult {
     pub fn ExtendedErrorCode(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FinalComponentId(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FinalComponentId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<GipFirmwareUpdateStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GipFirmwareUpdateStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -580,35 +580,35 @@ impl GipGameControllerProvider {
     pub fn FirmwareVersionInfo(&self) -> ::windows_core::Result<GameControllerVersionInfo> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameControllerVersionInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirmwareVersionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareProductId(&self) -> ::windows_core::Result<u16> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareProductId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareVendorId(&self) -> ::windows_core::Result<u16> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareVendorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareVersionInfo(&self) -> ::windows_core::Result<GameControllerVersionInfo> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameControllerVersionInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareVersionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsConnected(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsConnected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -628,7 +628,7 @@ impl GipGameControllerProvider {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UpdateFirmwareAsync)(::windows_core::Interface::as_raw(this), firmwareimage.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -672,49 +672,49 @@ impl HidGameControllerProvider {
     pub fn FirmwareVersionInfo(&self) -> ::windows_core::Result<GameControllerVersionInfo> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameControllerVersionInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirmwareVersionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareProductId(&self) -> ::windows_core::Result<u16> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareProductId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareVendorId(&self) -> ::windows_core::Result<u16> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareVendorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareVersionInfo(&self) -> ::windows_core::Result<GameControllerVersionInfo> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameControllerVersionInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareVersionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsConnected(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsConnected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsageId(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UsageId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UsagePage(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UsagePage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -770,35 +770,35 @@ impl XusbGameControllerProvider {
     pub fn FirmwareVersionInfo(&self) -> ::windows_core::Result<GameControllerVersionInfo> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameControllerVersionInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirmwareVersionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareProductId(&self) -> ::windows_core::Result<u16> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareProductId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareVendorId(&self) -> ::windows_core::Result<u16> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareVendorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HardwareVersionInfo(&self) -> ::windows_core::Result<GameControllerVersionInfo> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GameControllerVersionInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HardwareVersionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsConnected(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IGameControllerProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsConnected)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

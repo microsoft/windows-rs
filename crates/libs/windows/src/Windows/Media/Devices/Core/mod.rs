@@ -550,7 +550,7 @@ impl CameraIntrinsics {
     pub fn FocalLength(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector2>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FocalLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -559,7 +559,7 @@ impl CameraIntrinsics {
     pub fn PrincipalPoint(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector2>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrincipalPoint)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -568,7 +568,7 @@ impl CameraIntrinsics {
     pub fn RadialDistortion(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RadialDistortion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -577,21 +577,21 @@ impl CameraIntrinsics {
     pub fn TangentialDistortion(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector2>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TangentialDistortion)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ImageWidth(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ImageWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ImageHeight(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ImageHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -600,7 +600,7 @@ impl CameraIntrinsics {
     pub fn ProjectOntoFrame(&self, coordinate: super::super::super::Foundation::Numerics::Vector3) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProjectOntoFrame)(::windows_core::Interface::as_raw(this), coordinate, &mut result__).from_abi(result__)
         }
     }
@@ -609,7 +609,7 @@ impl CameraIntrinsics {
     pub fn UnprojectAtUnitDepth(&self, pixelcoordinate: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector2> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector2>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnprojectAtUnitDepth)(::windows_core::Interface::as_raw(this), pixelcoordinate, &mut result__).from_abi(result__)
         }
     }
@@ -630,7 +630,7 @@ impl CameraIntrinsics {
     pub fn UndistortedProjectionTransform(&self) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Matrix4x4> {
         let this = &::windows_core::ComInterface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Matrix4x4>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UndistortedProjectionTransform)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -639,7 +639,7 @@ impl CameraIntrinsics {
     pub fn DistortPoint(&self, input: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = &::windows_core::ComInterface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DistortPoint)(::windows_core::Interface::as_raw(this), input, &mut result__).from_abi(result__)
         }
     }
@@ -654,7 +654,7 @@ impl CameraIntrinsics {
     pub fn UndistortPoint(&self, input: super::super::super::Foundation::Point) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = &::windows_core::ComInterface::cast::<ICameraIntrinsics2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UndistortPoint)(::windows_core::Interface::as_raw(this), input, &mut result__).from_abi(result__)
         }
     }
@@ -668,7 +668,7 @@ impl CameraIntrinsics {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Create(focallength: super::super::super::Foundation::Numerics::Vector2, principalpoint: super::super::super::Foundation::Numerics::Vector2, radialdistortion: super::super::super::Foundation::Numerics::Vector3, tangentialdistortion: super::super::super::Foundation::Numerics::Vector2, imagewidth: u32, imageheight: u32) -> ::windows_core::Result<CameraIntrinsics> {
         Self::ICameraIntrinsicsFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CameraIntrinsics>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), focallength, principalpoint, radialdistortion, tangentialdistortion, imagewidth, imageheight, &mut result__).from_abi(result__)
         })
     }
@@ -724,7 +724,7 @@ impl DepthCorrelatedCoordinateMapper {
     pub fn UnprojectPoint(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Numerics::Vector3>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnprojectPoint)(::windows_core::Interface::as_raw(this), sourcepoint, ::core::mem::transmute_copy(targetcoordinatesystem), &mut result__).from_abi(result__)
         }
     }
@@ -739,7 +739,7 @@ impl DepthCorrelatedCoordinateMapper {
     pub fn MapPoint(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem, targetcameraintrinsics: &CameraIntrinsics) -> ::windows_core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Point>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MapPoint)(::windows_core::Interface::as_raw(this), sourcepoint, ::core::mem::transmute_copy(targetcoordinatesystem), ::core::mem::transmute_copy(targetcameraintrinsics), &mut result__).from_abi(result__)
         }
     }
@@ -790,42 +790,42 @@ impl FrameControlCapabilities {
     pub fn Exposure(&self) -> ::windows_core::Result<FrameExposureCapabilities> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameExposureCapabilities>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Exposure)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExposureCompensation(&self) -> ::windows_core::Result<FrameExposureCompensationCapabilities> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameExposureCompensationCapabilities>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExposureCompensation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsoSpeed(&self) -> ::windows_core::Result<FrameIsoSpeedCapabilities> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameIsoSpeedCapabilities>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsoSpeed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Focus(&self) -> ::windows_core::Result<FrameFocusCapabilities> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameFocusCapabilities>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Focus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PhotoConfirmationSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhotoConfirmationSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Flash(&self) -> ::windows_core::Result<FrameFlashCapabilities> {
         let this = &::windows_core::ComInterface::cast::<IFrameControlCapabilities2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameFlashCapabilities>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Flash)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -873,28 +873,28 @@ impl FrameController {
     pub fn ExposureControl(&self) -> ::windows_core::Result<FrameExposureControl> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameExposureControl>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExposureControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExposureCompensationControl(&self) -> ::windows_core::Result<FrameExposureCompensationControl> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameExposureCompensationControl>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExposureCompensationControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsoSpeedControl(&self) -> ::windows_core::Result<FrameIsoSpeedControl> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameIsoSpeedControl>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsoSpeedControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FocusControl(&self) -> ::windows_core::Result<FrameFocusControl> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameFocusControl>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FocusControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -903,7 +903,7 @@ impl FrameController {
     pub fn PhotoConfirmationEnabled(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhotoConfirmationEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -919,7 +919,7 @@ impl FrameController {
     pub fn FlashControl(&self) -> ::windows_core::Result<FrameFlashControl> {
         let this = &::windows_core::ComInterface::cast::<IFrameController2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameFlashControl>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlashControl)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -962,7 +962,7 @@ impl FrameExposureCapabilities {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -971,7 +971,7 @@ impl FrameExposureCapabilities {
     pub fn Min(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Min)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -980,7 +980,7 @@ impl FrameExposureCapabilities {
     pub fn Max(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Max)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -989,7 +989,7 @@ impl FrameExposureCapabilities {
     pub fn Step(&self) -> ::windows_core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Step)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1030,28 +1030,28 @@ impl FrameExposureCompensationCapabilities {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Min(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Min)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Max(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Max)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Step(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Step)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1094,7 +1094,7 @@ impl FrameExposureCompensationControl {
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<f32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1144,7 +1144,7 @@ impl FrameExposureControl {
     pub fn Auto(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Auto)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1157,7 +1157,7 @@ impl FrameExposureControl {
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1207,21 +1207,21 @@ impl FrameFlashCapabilities {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RedEyeReductionSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RedEyeReductionSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PowerSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PowerSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1262,7 +1262,7 @@ impl FrameFlashControl {
     pub fn Mode(&self) -> ::windows_core::Result<FrameFlashMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameFlashMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Mode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1273,7 +1273,7 @@ impl FrameFlashControl {
     pub fn Auto(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Auto)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1284,7 +1284,7 @@ impl FrameFlashControl {
     pub fn RedEyeReduction(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RedEyeReduction)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1295,7 +1295,7 @@ impl FrameFlashControl {
     pub fn PowerPercent(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PowerPercent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1340,28 +1340,28 @@ impl FrameFocusCapabilities {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Min(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Min)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Max(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Max)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Step(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Step)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1404,7 +1404,7 @@ impl FrameFocusControl {
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1454,28 +1454,28 @@ impl FrameIsoSpeedCapabilities {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Min(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Min)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Max(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Max)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Step(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Step)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1516,7 +1516,7 @@ impl FrameIsoSpeedControl {
     pub fn Auto(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Auto)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1529,7 +1529,7 @@ impl FrameIsoSpeedControl {
     pub fn Value(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1579,21 +1579,21 @@ impl VariablePhotoSequenceController {
     pub fn Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxPhotosPerSecond(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxPhotosPerSecond)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PhotosPerSecondLimit(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhotosPerSecondLimit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1609,7 +1609,7 @@ impl VariablePhotoSequenceController {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::MediaProperties::MediaRatio>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows_core::Interface::as_raw(this), captureproperties.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1618,14 +1618,14 @@ impl VariablePhotoSequenceController {
     pub fn GetCurrentFrameRate(&self) -> ::windows_core::Result<super::super::MediaProperties::MediaRatio> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::MediaProperties::MediaRatio>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCurrentFrameRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FrameCapabilities(&self) -> ::windows_core::Result<FrameControlCapabilities> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<FrameControlCapabilities>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FrameCapabilities)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1634,7 +1634,7 @@ impl VariablePhotoSequenceController {
     pub fn DesiredFrameControllers(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVector<FrameController>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVector<FrameController>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredFrameControllers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

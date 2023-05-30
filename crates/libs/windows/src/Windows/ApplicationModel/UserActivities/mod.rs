@@ -282,7 +282,7 @@ impl IUserActivityContentInfo {
     pub fn ToJson(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ToJson)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -595,21 +595,21 @@ impl UserActivity {
     pub fn State(&self) -> ::windows_core::Result<UserActivityState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivityState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ActivityId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivityId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VisualElements(&self) -> ::windows_core::Result<UserActivityVisualElements> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivityVisualElements>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VisualElements)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -618,7 +618,7 @@ impl UserActivity {
     pub fn ContentUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContentUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -631,7 +631,7 @@ impl UserActivity {
     pub fn ContentType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -644,7 +644,7 @@ impl UserActivity {
     pub fn FallbackUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FallbackUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -659,7 +659,7 @@ impl UserActivity {
     pub fn ActivationUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivationUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -672,7 +672,7 @@ impl UserActivity {
     pub fn ContentInfo(&self) -> ::windows_core::Result<IUserActivityContentInfo> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IUserActivityContentInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContentInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -688,28 +688,28 @@ impl UserActivity {
     pub fn SaveAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SaveAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateSession(&self) -> ::windows_core::Result<UserActivitySession> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivitySession>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateSession)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ToJson(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IUserActivity2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ToJson)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsRoamable(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IUserActivity3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsRoamable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -719,13 +719,13 @@ impl UserActivity {
     }
     pub fn CreateWithActivityId(activityid: &::windows_core::HSTRING) -> ::windows_core::Result<UserActivity> {
         Self::IUserActivityFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivity>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithActivityId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activityid), &mut result__).from_abi(result__)
         })
     }
     pub fn TryParseFromJson(json: &::windows_core::HSTRING) -> ::windows_core::Result<UserActivity> {
         Self::IUserActivityStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivity>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryParseFromJson)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(json), &mut result__).from_abi(result__)
         })
     }
@@ -733,7 +733,7 @@ impl UserActivity {
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryParseFromJsonArray(json: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<UserActivity>> {
         Self::IUserActivityStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<UserActivity>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryParseFromJsonArray)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(json), &mut result__).from_abi(result__)
         })
     }
@@ -744,7 +744,7 @@ impl UserActivity {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<UserActivity>>,
     {
         Self::IUserActivityStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ToJsonArray)(::windows_core::Interface::as_raw(this), activities.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -806,7 +806,7 @@ impl UserActivityAttribution {
     pub fn IconUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IconUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -819,7 +819,7 @@ impl UserActivityAttribution {
     pub fn AlternateText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AlternateText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -830,7 +830,7 @@ impl UserActivityAttribution {
     pub fn AddImageQuery(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AddImageQuery)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -842,7 +842,7 @@ impl UserActivityAttribution {
     #[cfg(feature = "Foundation")]
     pub fn CreateWithUri(iconuri: &super::super::Foundation::Uri) -> ::windows_core::Result<UserActivityAttribution> {
         Self::IUserActivityAttributionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivityAttribution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(iconuri), &mut result__).from_abi(result__)
         })
     }
@@ -892,7 +892,7 @@ impl UserActivityChannel {
     pub fn GetOrCreateUserActivityAsync(&self, activityid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<UserActivity>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<UserActivity>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOrCreateUserActivityAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activityid), &mut result__).from_abi(result__)
         }
     }
@@ -901,7 +901,7 @@ impl UserActivityChannel {
     pub fn DeleteActivityAsync(&self, activityid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeleteActivityAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activityid), &mut result__).from_abi(result__)
         }
     }
@@ -910,7 +910,7 @@ impl UserActivityChannel {
     pub fn DeleteAllActivitiesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeleteAllActivitiesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -919,7 +919,7 @@ impl UserActivityChannel {
     pub fn GetRecentUserActivitiesAsync(&self, maxuniqueactivities: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &::windows_core::ComInterface::cast::<IUserActivityChannel2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetRecentUserActivitiesAsync)(::windows_core::Interface::as_raw(this), maxuniqueactivities, &mut result__).from_abi(result__)
         }
     }
@@ -928,13 +928,13 @@ impl UserActivityChannel {
     pub fn GetSessionHistoryItemsForUserActivityAsync(&self, activityid: &::windows_core::HSTRING, starttime: super::super::Foundation::DateTime) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &::windows_core::ComInterface::cast::<IUserActivityChannel2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSessionHistoryItemsForUserActivityAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(activityid), starttime, &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows_core::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivityChannel>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -945,7 +945,7 @@ impl UserActivityChannel {
     #[cfg(feature = "Security_Credentials")]
     pub fn TryGetForWebAccount(account: &super::super::Security::Credentials::WebAccount) -> ::windows_core::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivityChannel>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryGetForWebAccount)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(account), &mut result__).from_abi(result__)
         })
     }
@@ -953,7 +953,7 @@ impl UserActivityChannel {
     #[cfg(feature = "System")]
     pub fn GetForUser(user: &super::super::System::User) -> ::windows_core::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivityChannel>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
@@ -1011,13 +1011,13 @@ impl UserActivityContentInfo {
     pub fn ToJson(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ToJson)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FromJson(value: &::windows_core::HSTRING) -> ::windows_core::Result<UserActivityContentInfo> {
         Self::IUserActivityContentInfoStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivityContentInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromJson)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -1108,7 +1108,7 @@ impl UserActivityRequestManager {
     pub fn UserActivityRequested(&self, handler: &super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UserActivityRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1120,7 +1120,7 @@ impl UserActivityRequestManager {
     }
     pub fn GetForCurrentView() -> ::windows_core::Result<UserActivityRequestManager> {
         Self::IUserActivityRequestManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivityRequestManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1166,7 +1166,7 @@ impl UserActivityRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<UserActivityRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivityRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1175,7 +1175,7 @@ impl UserActivityRequestedEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1224,7 +1224,7 @@ impl UserActivitySession {
     pub fn ActivityId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivityId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1269,7 +1269,7 @@ impl UserActivitySessionHistoryItem {
     pub fn UserActivity(&self) -> ::windows_core::Result<UserActivity> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivity>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UserActivity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1278,7 +1278,7 @@ impl UserActivitySessionHistoryItem {
     pub fn StartTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1287,7 +1287,7 @@ impl UserActivitySessionHistoryItem {
     pub fn EndTime(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1330,7 +1330,7 @@ impl UserActivityVisualElements {
     pub fn DisplayText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1341,7 +1341,7 @@ impl UserActivityVisualElements {
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1354,7 +1354,7 @@ impl UserActivityVisualElements {
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::UI::Color>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1367,7 +1367,7 @@ impl UserActivityVisualElements {
     pub fn Attribution(&self) -> ::windows_core::Result<UserActivityAttribution> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserActivityAttribution>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Attribution)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1389,14 +1389,14 @@ impl UserActivityVisualElements {
     pub fn Content(&self) -> ::windows_core::Result<super::super::UI::Shell::IAdaptiveCard> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::UI::Shell::IAdaptiveCard>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Content)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AttributionDisplayText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IUserActivityVisualElements2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AttributionDisplayText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

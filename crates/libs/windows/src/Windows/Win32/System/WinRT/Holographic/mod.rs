@@ -8,7 +8,7 @@ impl IHolographicCameraInterop {
     where
         P0: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::Direct3D12::ID3D12Resource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDirect3D12BackBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -18,7 +18,7 @@ impl IHolographicCameraInterop {
         P0: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
         P1: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::Direct3D12::ID3D12Resource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedBackBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, pprotectedresourcesession.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]
@@ -167,7 +167,7 @@ impl IHolographicQuadLayerInterop {
     where
         P0: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::Direct3D12::ID3D12Resource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDirect3D12ContentBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -177,7 +177,7 @@ impl IHolographicQuadLayerInterop {
         P0: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12Device>,
         P1: ::windows_core::IntoParam<super::super::super::Graphics::Direct3D12::ID3D12ProtectedResourceSession>,
     {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::Direct3D12::ID3D12Resource>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateDirect3D12HardwareProtectedContentBufferResource)(::windows_core::Interface::as_raw(self), pdevice.into_param().abi(), ptexture2ddesc, pprotectedresourcesession.into_param().abi(), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D12\"`*"]

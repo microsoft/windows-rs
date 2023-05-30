@@ -132,14 +132,14 @@ impl AddAppointmentOperation {
     pub fn AppointmentInformation(&self) -> ::windows_core::Result<super::Appointment> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Appointment>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AppointmentInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SourcePackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourcePackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -196,31 +196,31 @@ pub struct AppointmentsProviderLaunchActionVerbs;
 impl AppointmentsProviderLaunchActionVerbs {
     pub fn AddAppointment() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AddAppointment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ReplaceAppointment() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReplaceAppointment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn RemoveAppointment() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoveAppointment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ShowTimeFrame() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShowTimeFrame)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn ShowAppointmentDetails() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShowAppointmentDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -245,7 +245,7 @@ impl RemoveAppointmentOperation {
     pub fn AppointmentId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AppointmentId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -254,14 +254,14 @@ impl RemoveAppointmentOperation {
     pub fn InstanceStartDate(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstanceStartDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SourcePackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourcePackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -320,14 +320,14 @@ impl ReplaceAppointmentOperation {
     pub fn AppointmentId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AppointmentId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AppointmentInformation(&self) -> ::windows_core::Result<super::Appointment> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Appointment>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AppointmentInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -336,14 +336,14 @@ impl ReplaceAppointmentOperation {
     pub fn InstanceStartDate(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstanceStartDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SourcePackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourcePackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

@@ -138,7 +138,7 @@ impl EndpointPair {
     pub fn LocalHostName(&self) -> ::windows_core::Result<HostName> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<HostName>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LocalHostName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -149,7 +149,7 @@ impl EndpointPair {
     pub fn LocalServiceName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LocalServiceName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -160,7 +160,7 @@ impl EndpointPair {
     pub fn RemoteHostName(&self) -> ::windows_core::Result<HostName> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<HostName>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoteHostName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -171,7 +171,7 @@ impl EndpointPair {
     pub fn RemoteServiceName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoteServiceName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -181,7 +181,7 @@ impl EndpointPair {
     }
     pub fn CreateEndpointPair(localhostname: &HostName, localservicename: &::windows_core::HSTRING, remotehostname: &HostName, remoteservicename: &::windows_core::HSTRING) -> ::windows_core::Result<EndpointPair> {
         Self::IEndpointPairFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<EndpointPair>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateEndpointPair)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(localhostname), ::core::mem::transmute_copy(localservicename), ::core::mem::transmute_copy(remotehostname), ::core::mem::transmute_copy(remoteservicename), &mut result__).from_abi(result__)
         })
     }
@@ -231,54 +231,54 @@ impl HostName {
     pub fn IPInformation(&self) -> ::windows_core::Result<Connectivity::IPInformation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<Connectivity::IPInformation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IPInformation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RawName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RawName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanonicalName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanonicalName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Type(&self) -> ::windows_core::Result<HostNameType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<HostNameType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsEqual(&self, hostname: &HostName) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEqual)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostname), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateHostName(hostname: &::windows_core::HSTRING) -> ::windows_core::Result<HostName> {
         Self::IHostNameFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<HostName>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateHostName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostname), &mut result__).from_abi(result__)
         })
     }
     pub fn Compare(value1: &::windows_core::HSTRING, value2: &::windows_core::HSTRING) -> ::windows_core::Result<i32> {
         Self::IHostNameStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Compare)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value1), ::core::mem::transmute_copy(value2), &mut result__).from_abi(result__)
         })
     }
@@ -287,7 +287,7 @@ impl HostName {
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<super::Foundation::IStringable>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ToString)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

@@ -67,13 +67,13 @@ pub struct PlatformTelemetryClient;
 impl PlatformTelemetryClient {
     pub fn Register(id: &::windows_core::HSTRING) -> ::windows_core::Result<PlatformTelemetryRegistrationResult> {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlatformTelemetryRegistrationResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Register)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         })
     }
     pub fn RegisterWithSettings(id: &::windows_core::HSTRING, settings: &PlatformTelemetryRegistrationSettings) -> ::windows_core::Result<PlatformTelemetryRegistrationResult> {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlatformTelemetryRegistrationResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RegisterWithSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(settings), &mut result__).from_abi(result__)
         })
     }
@@ -93,7 +93,7 @@ impl PlatformTelemetryRegistrationResult {
     pub fn Status(&self) -> ::windows_core::Result<PlatformTelemetryRegistrationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<PlatformTelemetryRegistrationStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -143,7 +143,7 @@ impl PlatformTelemetryRegistrationSettings {
     pub fn StorageSize(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StorageSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -154,7 +154,7 @@ impl PlatformTelemetryRegistrationSettings {
     pub fn UploadQuotaSize(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UploadQuotaSize)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

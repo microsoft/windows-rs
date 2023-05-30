@@ -60,7 +60,7 @@ where
 #[inline]
 pub unsafe fn HidD_GetHidGuid() -> ::windows_core::GUID {
     ::windows_targets::link!("hid.dll" "system" fn HidD_GetHidGuid(hidguid : *mut ::windows_core::GUID) -> ());
-    let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+    let mut result__ = ::std::mem::zeroed();
     HidD_GetHidGuid(&mut result__);
     ::std::mem::transmute(result__)
 }

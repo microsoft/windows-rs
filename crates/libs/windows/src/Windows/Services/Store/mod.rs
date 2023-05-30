@@ -1214,14 +1214,14 @@ impl StoreAcquireLicenseResult {
     pub fn StorePackageLicense(&self) -> ::windows_core::Result<StorePackageLicense> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StorePackageLicense>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StorePackageLicense)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1264,21 +1264,21 @@ impl StoreAppLicense {
     pub fn SkuStoreId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SkuStoreId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsActive(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsActive)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsTrial(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsTrial)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1287,14 +1287,14 @@ impl StoreAppLicense {
     pub fn ExpirationDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExpirationDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedJsonData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedJsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1303,7 +1303,7 @@ impl StoreAppLicense {
     pub fn AddOnLicenses(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, StoreLicense>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, StoreLicense>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AddOnLicenses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1312,28 +1312,28 @@ impl StoreAppLicense {
     pub fn TrialTimeRemaining(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrialTimeRemaining)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsTrialOwnedByThisUser(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsTrialOwnedByThisUser)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TrialUniqueId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrialUniqueId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsDiscLicense(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IStoreAppLicense2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDiscLicense)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1376,7 +1376,7 @@ impl StoreAvailability {
     pub fn StoreId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StoreId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1385,21 +1385,21 @@ impl StoreAvailability {
     pub fn EndDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Price(&self) -> ::windows_core::Result<StorePrice> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StorePrice>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Price)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedJsonData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedJsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1408,7 +1408,7 @@ impl StoreAvailability {
     pub fn RequestPurchaseAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPurchaseAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1417,7 +1417,7 @@ impl StoreAvailability {
     pub fn RequestPurchaseWithPurchasePropertiesAsync(&self, storepurchaseproperties: &StorePurchaseProperties) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storepurchaseproperties), &mut result__).from_abi(result__)
         }
     }
@@ -1460,21 +1460,21 @@ impl StoreCanAcquireLicenseResult {
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LicensableSku(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LicensableSku)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<StoreCanLicenseStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreCanLicenseStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1517,21 +1517,21 @@ impl StoreCollectionData {
     pub fn IsTrial(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsTrial)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CampaignId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CampaignId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DeveloperOfferId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeveloperOfferId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1540,7 +1540,7 @@ impl StoreCollectionData {
     pub fn AcquiredDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AcquiredDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1549,7 +1549,7 @@ impl StoreCollectionData {
     pub fn StartDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1558,7 +1558,7 @@ impl StoreCollectionData {
     pub fn EndDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EndDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1567,14 +1567,14 @@ impl StoreCollectionData {
     pub fn TrialTimeRemaining(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrialTimeRemaining)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedJsonData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedJsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1617,28 +1617,28 @@ impl StoreConsumableResult {
     pub fn Status(&self) -> ::windows_core::Result<StoreConsumableStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreConsumableStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TrackingId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrackingId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BalanceRemaining(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BalanceRemaining)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1683,7 +1683,7 @@ impl StoreContext {
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::System::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1692,7 +1692,7 @@ impl StoreContext {
     pub fn OfflineLicensesChanged(&self, handler: &super::super::Foundation::TypedEventHandler<StoreContext, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OfflineLicensesChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1707,7 +1707,7 @@ impl StoreContext {
     pub fn GetCustomerPurchaseIdAsync(&self, serviceticket: &::windows_core::HSTRING, publisheruserid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCustomerPurchaseIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(serviceticket), ::core::mem::transmute_copy(publisheruserid), &mut result__).from_abi(result__)
         }
     }
@@ -1716,7 +1716,7 @@ impl StoreContext {
     pub fn GetCustomerCollectionsIdAsync(&self, serviceticket: &::windows_core::HSTRING, publisheruserid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCustomerCollectionsIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(serviceticket), ::core::mem::transmute_copy(publisheruserid), &mut result__).from_abi(result__)
         }
     }
@@ -1725,7 +1725,7 @@ impl StoreContext {
     pub fn GetAppLicenseAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreAppLicense>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreAppLicense>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAppLicenseAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1734,7 +1734,7 @@ impl StoreContext {
     pub fn GetStoreProductForCurrentAppAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreProductResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetStoreProductForCurrentAppAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1747,7 +1747,7 @@ impl StoreContext {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetStoreProductsAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), storeids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1759,7 +1759,7 @@ impl StoreContext {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAssociatedStoreProductsAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1771,7 +1771,7 @@ impl StoreContext {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAssociatedStoreProductsWithPagingAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), maxitemstoretrieveperpage, &mut result__).from_abi(result__)
         }
     }
@@ -1783,7 +1783,7 @@ impl StoreContext {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetUserCollectionAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1795,7 +1795,7 @@ impl StoreContext {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetUserCollectionWithPagingAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), maxitemstoretrieveperpage, &mut result__).from_abi(result__)
         }
     }
@@ -1804,7 +1804,7 @@ impl StoreContext {
     pub fn ReportConsumableFulfillmentAsync(&self, productstoreid: &::windows_core::HSTRING, quantity: u32, trackingid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportConsumableFulfillmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productstoreid), quantity, trackingid, &mut result__).from_abi(result__)
         }
     }
@@ -1813,7 +1813,7 @@ impl StoreContext {
     pub fn GetConsumableBalanceRemainingAsync(&self, productstoreid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreConsumableResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetConsumableBalanceRemainingAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productstoreid), &mut result__).from_abi(result__)
         }
     }
@@ -1822,7 +1822,7 @@ impl StoreContext {
     pub fn AcquireStoreLicenseForOptionalPackageAsync(&self, optionalpackage: &super::super::ApplicationModel::Package) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AcquireStoreLicenseForOptionalPackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(optionalpackage), &mut result__).from_abi(result__)
         }
     }
@@ -1831,7 +1831,7 @@ impl StoreContext {
     pub fn RequestPurchaseAsync(&self, storeid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPurchaseAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storeid), &mut result__).from_abi(result__)
         }
     }
@@ -1840,7 +1840,7 @@ impl StoreContext {
     pub fn RequestPurchaseWithPurchasePropertiesAsync(&self, storeid: &::windows_core::HSTRING, storepurchaseproperties: &StorePurchaseProperties) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storeid), ::core::mem::transmute_copy(storepurchaseproperties), &mut result__).from_abi(result__)
         }
     }
@@ -1849,7 +1849,7 @@ impl StoreContext {
     pub fn GetAppAndOptionalStorePackageUpdatesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAppAndOptionalStorePackageUpdatesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1861,7 +1861,7 @@ impl StoreContext {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestDownloadStorePackageUpdatesAsync)(::windows_core::Interface::as_raw(this), storepackageupdates.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1873,7 +1873,7 @@ impl StoreContext {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackageUpdatesAsync)(::windows_core::Interface::as_raw(this), storepackageupdates.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1885,7 +1885,7 @@ impl StoreContext {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesAsync)(::windows_core::Interface::as_raw(this), storeids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1897,14 +1897,14 @@ impl StoreContext {
     {
         let this = &::windows_core::ComInterface::cast::<IStoreContext2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreProductResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindStoreProductForPackageAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), ::core::mem::transmute_copy(package), &mut result__).from_abi(result__)
         }
     }
     pub fn CanSilentlyDownloadStorePackageUpdates(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanSilentlyDownloadStorePackageUpdates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1916,7 +1916,7 @@ impl StoreContext {
     {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySilentDownloadStorePackageUpdatesAsync)(::windows_core::Interface::as_raw(this), storepackageupdates.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1928,7 +1928,7 @@ impl StoreContext {
     {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySilentDownloadAndInstallStorePackageUpdatesAsync)(::windows_core::Interface::as_raw(this), storepackageupdates.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1937,7 +1937,7 @@ impl StoreContext {
     pub fn CanAcquireStoreLicenseForOptionalPackageAsync(&self, optionalpackage: &super::super::ApplicationModel::Package) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanAcquireStoreLicenseForOptionalPackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(optionalpackage), &mut result__).from_abi(result__)
         }
     }
@@ -1946,7 +1946,7 @@ impl StoreContext {
     pub fn CanAcquireStoreLicenseAsync(&self, productstoreid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanAcquireStoreLicenseAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productstoreid), &mut result__).from_abi(result__)
         }
     }
@@ -1959,7 +1959,7 @@ impl StoreContext {
     {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetStoreProductsWithOptionsAsync)(::windows_core::Interface::as_raw(this), productkinds.try_into_param()?.abi(), storeids.try_into_param()?.abi(), ::core::mem::transmute_copy(storeproductoptions), &mut result__).from_abi(result__)
         }
     }
@@ -1968,7 +1968,7 @@ impl StoreContext {
     pub fn GetAssociatedStoreQueueItemsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAssociatedStoreQueueItemsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1980,7 +1980,7 @@ impl StoreContext {
     {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetStoreQueueItemsAsync)(::windows_core::Interface::as_raw(this), storeids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1992,7 +1992,7 @@ impl StoreContext {
     {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync)(::windows_core::Interface::as_raw(this), storeids.try_into_param()?.abi(), ::core::mem::transmute_copy(storepackageinstalloptions), &mut result__).from_abi(result__)
         }
     }
@@ -2004,7 +2004,7 @@ impl StoreContext {
     {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DownloadAndInstallStorePackagesAsync)(::windows_core::Interface::as_raw(this), storeids.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -2013,7 +2013,7 @@ impl StoreContext {
     pub fn RequestUninstallStorePackageAsync(&self, package: &super::super::ApplicationModel::Package) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestUninstallStorePackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(package), &mut result__).from_abi(result__)
         }
     }
@@ -2022,7 +2022,7 @@ impl StoreContext {
     pub fn RequestUninstallStorePackageByStoreIdAsync(&self, storeid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestUninstallStorePackageByStoreIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storeid), &mut result__).from_abi(result__)
         }
     }
@@ -2031,7 +2031,7 @@ impl StoreContext {
     pub fn UninstallStorePackageAsync(&self, package: &super::super::ApplicationModel::Package) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UninstallStorePackageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(package), &mut result__).from_abi(result__)
         }
     }
@@ -2040,7 +2040,7 @@ impl StoreContext {
     pub fn UninstallStorePackageByStoreIdAsync(&self, storeid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UninstallStorePackageByStoreIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storeid), &mut result__).from_abi(result__)
         }
     }
@@ -2049,7 +2049,7 @@ impl StoreContext {
     pub fn RequestRateAndReviewAppAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>> {
         let this = &::windows_core::ComInterface::cast::<IStoreContext4>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestRateAndReviewAppAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2061,13 +2061,13 @@ impl StoreContext {
     {
         let this = &::windows_core::ComInterface::cast::<IStoreContext4>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetInstallOrderForAssociatedStoreQueueItemsAsync)(::windows_core::Interface::as_raw(this), items.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows_core::Result<StoreContext> {
         Self::IStoreContextStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreContext>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -2075,7 +2075,7 @@ impl StoreContext {
     #[cfg(feature = "System")]
     pub fn GetForUser(user: &super::super::System::User) -> ::windows_core::Result<StoreContext> {
         Self::IStoreContextStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreContext>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
@@ -2125,35 +2125,35 @@ impl StoreImage {
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ImagePurposeTag(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ImagePurposeTag)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Width(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Width)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Height(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Caption(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Caption)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2196,14 +2196,14 @@ impl StoreLicense {
     pub fn SkuStoreId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SkuStoreId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsActive(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsActive)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2212,21 +2212,21 @@ impl StoreLicense {
     pub fn ExpirationDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExpirationDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedJsonData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedJsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InAppOfferToken(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InAppOfferToken)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2276,7 +2276,7 @@ impl StorePackageInstallOptions {
     pub fn AllowForcedAppRestart(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowForcedAppRestart)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2331,7 +2331,7 @@ impl StorePackageLicense {
     pub fn LicenseLost(&self, handler: &super::super::Foundation::TypedEventHandler<StorePackageLicense, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LicenseLost)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2346,14 +2346,14 @@ impl StorePackageLicense {
     pub fn Package(&self) -> ::windows_core::Result<super::super::ApplicationModel::Package> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::ApplicationModel::Package>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Package)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsValid(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsValid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2404,14 +2404,14 @@ impl StorePackageUpdate {
     pub fn Package(&self) -> ::windows_core::Result<super::super::ApplicationModel::Package> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::ApplicationModel::Package>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Package)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Mandatory(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Mandatory)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2454,7 +2454,7 @@ impl StorePackageUpdateResult {
     pub fn OverallState(&self) -> ::windows_core::Result<StorePackageUpdateState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StorePackageUpdateState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OverallState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2463,7 +2463,7 @@ impl StorePackageUpdateResult {
     pub fn StorePackageUpdateStatuses(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StorePackageUpdateStatus>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<StorePackageUpdateStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StorePackageUpdateStatuses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2472,7 +2472,7 @@ impl StorePackageUpdateResult {
     pub fn StoreQueueItems(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreQueueItem>> {
         let this = &::windows_core::ComInterface::cast::<IStorePackageUpdateResult2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StoreQueueItems)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2515,21 +2515,21 @@ impl StorePrice {
     pub fn FormattedBasePrice(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormattedBasePrice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FormattedPrice(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormattedPrice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsOnSale(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsOnSale)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2538,21 +2538,21 @@ impl StorePrice {
     pub fn SaleEndDate(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SaleEndDate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CurrencyCode(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrencyCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FormattedRecurrencePrice(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormattedRecurrencePrice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2595,42 +2595,42 @@ impl StoreProduct {
     pub fn StoreId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StoreId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Language)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProductKind(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProductKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HasDigitalDownload(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasDigitalDownload)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2639,7 +2639,7 @@ impl StoreProduct {
     pub fn Keywords(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Keywords)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2648,7 +2648,7 @@ impl StoreProduct {
     pub fn Images(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreImage>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<StoreImage>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Images)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2657,7 +2657,7 @@ impl StoreProduct {
     pub fn Videos(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<StoreVideo>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Videos)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2666,28 +2666,28 @@ impl StoreProduct {
     pub fn Skus(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreSku>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<StoreSku>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Skus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsInUserCollection(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsInUserCollection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Price(&self) -> ::windows_core::Result<StorePrice> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StorePrice>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Price)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedJsonData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedJsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2696,7 +2696,7 @@ impl StoreProduct {
     pub fn LinkUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LinkUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2705,7 +2705,7 @@ impl StoreProduct {
     pub fn GetIsAnySkuInstalledAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetIsAnySkuInstalledAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2714,7 +2714,7 @@ impl StoreProduct {
     pub fn RequestPurchaseAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPurchaseAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2723,14 +2723,14 @@ impl StoreProduct {
     pub fn RequestPurchaseWithPurchasePropertiesAsync(&self, storepurchaseproperties: &StorePurchaseProperties) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storepurchaseproperties), &mut result__).from_abi(result__)
         }
     }
     pub fn InAppOfferToken(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InAppOfferToken)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2782,7 +2782,7 @@ impl StoreProductOptions {
     pub fn ActionFilters(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActionFilters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2827,21 +2827,21 @@ impl StoreProductPagedQueryResult {
     pub fn Products(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, StoreProduct>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, StoreProduct>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Products)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HasMoreResults(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasMoreResults)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2850,7 +2850,7 @@ impl StoreProductPagedQueryResult {
     pub fn GetNextAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetNextAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2895,14 +2895,14 @@ impl StoreProductQueryResult {
     pub fn Products(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, StoreProduct>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, StoreProduct>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Products)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2945,14 +2945,14 @@ impl StoreProductResult {
     pub fn Product(&self) -> ::windows_core::Result<StoreProduct> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreProduct>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Product)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3002,7 +3002,7 @@ impl StorePurchaseProperties {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3013,7 +3013,7 @@ impl StorePurchaseProperties {
     pub fn ExtendedJsonData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedJsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3023,7 +3023,7 @@ impl StorePurchaseProperties {
     }
     pub fn Create(name: &::windows_core::HSTRING) -> ::windows_core::Result<StorePurchaseProperties> {
         Self::IStorePurchasePropertiesFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<StorePurchaseProperties>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
@@ -3071,14 +3071,14 @@ impl StorePurchaseResult {
     pub fn Status(&self) -> ::windows_core::Result<StorePurchaseStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StorePurchaseStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3121,28 +3121,28 @@ impl StoreQueueItem {
     pub fn ProductId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProductId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InstallKind(&self) -> ::windows_core::Result<StoreQueueItemKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreQueueItemKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstallKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetCurrentStatus(&self) -> ::windows_core::Result<StoreQueueItemStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreQueueItemStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCurrentStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3151,7 +3151,7 @@ impl StoreQueueItem {
     pub fn Completed(&self, handler: &super::super::Foundation::TypedEventHandler<StoreQueueItem, StoreQueueItemCompletedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -3166,7 +3166,7 @@ impl StoreQueueItem {
     pub fn StatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<StoreQueueItem, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -3181,7 +3181,7 @@ impl StoreQueueItem {
     pub fn CancelInstallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStoreQueueItem2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CancelInstallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3190,7 +3190,7 @@ impl StoreQueueItem {
     pub fn PauseInstallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStoreQueueItem2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PauseInstallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3199,7 +3199,7 @@ impl StoreQueueItem {
     pub fn ResumeInstallAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IStoreQueueItem2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResumeInstallAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3242,7 +3242,7 @@ impl StoreQueueItemCompletedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<StoreQueueItemStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreQueueItemStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3285,28 +3285,28 @@ impl StoreQueueItemStatus {
     pub fn PackageInstallState(&self) -> ::windows_core::Result<StoreQueueItemState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreQueueItemState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PackageInstallState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PackageInstallExtendedState(&self) -> ::windows_core::Result<StoreQueueItemExtendedState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreQueueItemExtendedState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PackageInstallExtendedState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UpdateStatus(&self) -> ::windows_core::Result<StorePackageUpdateStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StorePackageUpdateStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UpdateStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3349,28 +3349,28 @@ impl StoreRateAndReviewResult {
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedJsonData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedJsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn WasUpdated(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WasUpdated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<StoreRateAndReviewStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreRateAndReviewStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3413,7 +3413,7 @@ impl StoreRequestHelper {
     #[cfg(feature = "Foundation")]
     pub fn SendRequestAsync(context: &StoreContext, requestkind: u32, parametersasjson: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>> {
         Self::IStoreRequestHelperStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SendRequestAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(context), requestkind, ::core::mem::transmute_copy(parametersasjson), &mut result__).from_abi(result__)
         })
     }
@@ -3433,14 +3433,14 @@ impl StoreSendRequestResult {
     pub fn Response(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Response)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3449,7 +3449,7 @@ impl StoreSendRequestResult {
     pub fn HttpStatusCode(&self) -> ::windows_core::Result<super::super::Web::Http::HttpStatusCode> {
         let this = &::windows_core::ComInterface::cast::<IStoreSendRequestResult2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Web::Http::HttpStatusCode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HttpStatusCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3492,42 +3492,42 @@ impl StoreSku {
     pub fn StoreId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StoreId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Language)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsTrial(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsTrial)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CustomDeveloperData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CustomDeveloperData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3536,7 +3536,7 @@ impl StoreSku {
     pub fn Images(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreImage>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<StoreImage>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Images)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3545,7 +3545,7 @@ impl StoreSku {
     pub fn Videos(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreVideo>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<StoreVideo>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Videos)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3554,28 +3554,28 @@ impl StoreSku {
     pub fn Availabilities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<StoreAvailability>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<StoreAvailability>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Availabilities)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Price(&self) -> ::windows_core::Result<StorePrice> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StorePrice>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Price)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedJsonData(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedJsonData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsInUserCollection(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsInUserCollection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3584,14 +3584,14 @@ impl StoreSku {
     pub fn BundledSkus(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BundledSkus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CollectionData(&self) -> ::windows_core::Result<StoreCollectionData> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreCollectionData>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CollectionData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3600,7 +3600,7 @@ impl StoreSku {
     pub fn GetIsInstalledAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetIsInstalledAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3609,7 +3609,7 @@ impl StoreSku {
     pub fn RequestPurchaseAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPurchaseAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3618,21 +3618,21 @@ impl StoreSku {
     pub fn RequestPurchaseWithPurchasePropertiesAsync(&self, storepurchaseproperties: &StorePurchaseProperties) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<StorePurchaseResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storepurchaseproperties), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSubscription(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSubscription)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SubscriptionInfo(&self) -> ::windows_core::Result<StoreSubscriptionInfo> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreSubscriptionInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SubscriptionInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3675,35 +3675,35 @@ impl StoreSubscriptionInfo {
     pub fn BillingPeriod(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BillingPeriod)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BillingPeriodUnit(&self) -> ::windows_core::Result<StoreDurationUnit> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreDurationUnit>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BillingPeriodUnit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HasTrialPeriod(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasTrialPeriod)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TrialPeriod(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrialPeriod)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TrialPeriodUnit(&self) -> ::windows_core::Result<StoreDurationUnit> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreDurationUnit>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrialPeriodUnit)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3746,14 +3746,14 @@ impl StoreUninstallStorePackageResult {
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<StoreUninstallStorePackageStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreUninstallStorePackageStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3798,42 +3798,42 @@ impl StoreVideo {
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn VideoPurposeTag(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoPurposeTag)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Width(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Width)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Height(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Height)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Caption(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Caption)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PreviewImage(&self) -> ::windows_core::Result<StoreImage> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<StoreImage>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreviewImage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

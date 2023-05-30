@@ -71,7 +71,7 @@ pub struct NamedPolicy;
 impl NamedPolicy {
     pub fn GetPolicyFromPath(area: &::windows_core::HSTRING, name: &::windows_core::HSTRING) -> ::windows_core::Result<NamedPolicyData> {
         Self::INamedPolicyStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<NamedPolicyData>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPolicyFromPath)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(area), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
@@ -79,7 +79,7 @@ impl NamedPolicy {
     #[cfg(feature = "System")]
     pub fn GetPolicyFromPathForUser(user: &super::super::System::User, area: &::windows_core::HSTRING, name: &::windows_core::HSTRING) -> ::windows_core::Result<NamedPolicyData> {
         Self::INamedPolicyStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<NamedPolicyData>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPolicyFromPathForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(area), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
@@ -99,35 +99,35 @@ impl NamedPolicyData {
     pub fn Area(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Area)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<NamedPolicyKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<NamedPolicyKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsManaged(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsManaged)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsUserPolicy(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsUserPolicy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -136,14 +136,14 @@ impl NamedPolicyData {
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::System::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetBoolean(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetBoolean)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -152,28 +152,28 @@ impl NamedPolicyData {
     pub fn GetBinary(&self) -> ::windows_core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetBinary)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetInt32(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetInt32)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetInt64(&self) -> ::windows_core::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetInt64)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetString)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -182,7 +182,7 @@ impl NamedPolicyData {
     pub fn Changed(&self, changedhandler: &super::super::Foundation::TypedEventHandler<NamedPolicyData, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(changedhandler), &mut result__).from_abi(result__)
         }
     }

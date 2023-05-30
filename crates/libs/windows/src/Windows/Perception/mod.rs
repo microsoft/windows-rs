@@ -109,7 +109,7 @@ impl PerceptionTimestamp {
     pub fn TargetTime(&self) -> ::windows_core::Result<super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TargetTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -118,7 +118,7 @@ impl PerceptionTimestamp {
     pub fn PredictionAmount(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PredictionAmount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -127,7 +127,7 @@ impl PerceptionTimestamp {
     pub fn SystemRelativeTargetTime(&self) -> ::windows_core::Result<super::Foundation::TimeSpan> {
         let this = &::windows_core::ComInterface::cast::<IPerceptionTimestamp2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemRelativeTargetTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -170,7 +170,7 @@ impl PerceptionTimestampHelper {
     #[cfg(feature = "Foundation")]
     pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> ::windows_core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PerceptionTimestamp>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromHistoricalTargetTime)(::windows_core::Interface::as_raw(this), targettime, &mut result__).from_abi(result__)
         })
     }
@@ -178,7 +178,7 @@ impl PerceptionTimestampHelper {
     #[cfg(feature = "Foundation")]
     pub fn FromSystemRelativeTargetTime(targettime: super::Foundation::TimeSpan) -> ::windows_core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PerceptionTimestamp>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromSystemRelativeTargetTime)(::windows_core::Interface::as_raw(this), targettime, &mut result__).from_abi(result__)
         })
     }

@@ -5,14 +5,14 @@ impl IBuffer {
     pub fn Capacity(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Capacity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Length(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Length)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -109,7 +109,7 @@ impl IContentTypeProvider {
     pub fn ContentType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -153,14 +153,14 @@ impl IDataReader {
     pub fn UnconsumedBufferLength(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnconsumedBufferLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UnicodeEncoding(&self) -> ::windows_core::Result<UnicodeEncoding> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UnicodeEncoding>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnicodeEncoding)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -171,7 +171,7 @@ impl IDataReader {
     pub fn ByteOrder(&self) -> ::windows_core::Result<ByteOrder> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ByteOrder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ByteOrder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -182,7 +182,7 @@ impl IDataReader {
     pub fn InputStreamOptions(&self) -> ::windows_core::Result<InputStreamOptions> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<InputStreamOptions>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InputStreamOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -193,7 +193,7 @@ impl IDataReader {
     pub fn ReadByte(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadByte)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -204,84 +204,84 @@ impl IDataReader {
     pub fn ReadBuffer(&self, length: u32) -> ::windows_core::Result<IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadBuffer)(::windows_core::Interface::as_raw(this), length, &mut result__).from_abi(result__)
         }
     }
     pub fn ReadBoolean(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadBoolean)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadGuid(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadGuid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadInt16(&self) -> ::windows_core::Result<i16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadInt16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadInt32(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadInt32)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadInt64(&self) -> ::windows_core::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadInt64)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadUInt16(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadUInt16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadUInt32(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadUInt32)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadUInt64(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadUInt64)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadSingle(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadSingle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadDouble(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadDouble)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadString(&self, codeunitcount: u32) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadString)(::windows_core::Interface::as_raw(this), codeunitcount, &mut result__).from_abi(result__)
         }
     }
@@ -290,7 +290,7 @@ impl IDataReader {
     pub fn ReadDateTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadDateTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -299,7 +299,7 @@ impl IDataReader {
     pub fn ReadTimeSpan(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadTimeSpan)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -308,21 +308,21 @@ impl IDataReader {
     pub fn LoadAsync(&self, count: u32) -> ::windows_core::Result<DataReaderLoadOperation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DataReaderLoadOperation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LoadAsync)(::windows_core::Interface::as_raw(this), count, &mut result__).from_abi(result__)
         }
     }
     pub fn DetachBuffer(&self) -> ::windows_core::Result<IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetachBuffer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DetachStream(&self) -> ::windows_core::Result<IInputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IInputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetachStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -440,14 +440,14 @@ impl IDataWriter {
     pub fn UnstoredBufferLength(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnstoredBufferLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UnicodeEncoding(&self) -> ::windows_core::Result<UnicodeEncoding> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UnicodeEncoding>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnicodeEncoding)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -458,7 +458,7 @@ impl IDataWriter {
     pub fn ByteOrder(&self) -> ::windows_core::Result<ByteOrder> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ByteOrder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ByteOrder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -543,14 +543,14 @@ impl IDataWriter {
     pub fn WriteString(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
     pub fn MeasureString(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MeasureString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
@@ -559,7 +559,7 @@ impl IDataWriter {
     pub fn StoreAsync(&self) -> ::windows_core::Result<DataWriterStoreOperation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DataWriterStoreOperation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StoreAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -568,21 +568,21 @@ impl IDataWriter {
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DetachBuffer(&self) -> ::windows_core::Result<IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetachBuffer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DetachStream(&self) -> ::windows_core::Result<IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IOutputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetachStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -740,7 +740,7 @@ impl IInputStream {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
@@ -797,7 +797,7 @@ impl IInputStreamReference {
     pub fn OpenSequentialReadAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IInputStream>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IInputStream>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenSequentialReadAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -849,7 +849,7 @@ impl IOutputStream {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -858,7 +858,7 @@ impl IOutputStream {
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -922,7 +922,7 @@ impl IPropertySetSerializer {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Serialize)(::windows_core::Interface::as_raw(this), propertyset.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -983,7 +983,7 @@ impl IRandomAccessStream {
     pub fn Size(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -994,21 +994,21 @@ impl IRandomAccessStream {
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows_core::Result<IInputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IInputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows_core::Result<IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IOutputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn Position(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1019,21 +1019,21 @@ impl IRandomAccessStream {
     pub fn CloneStream(&self) -> ::windows_core::Result<IRandomAccessStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IRandomAccessStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanRead(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanWrite(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanWrite)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1051,7 +1051,7 @@ impl IRandomAccessStream {
     {
         let this = &::windows_core::ComInterface::cast::<IInputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
@@ -1063,7 +1063,7 @@ impl IRandomAccessStream {
     {
         let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1072,7 +1072,7 @@ impl IRandomAccessStream {
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1130,7 +1130,7 @@ impl IRandomAccessStreamReference {
     pub fn OpenReadAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenReadAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1239,7 +1239,7 @@ impl IRandomAccessStreamWithContentType {
     pub fn ContentType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContentTypeProvider>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContentType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1251,7 +1251,7 @@ impl IRandomAccessStreamWithContentType {
     {
         let this = &::windows_core::ComInterface::cast::<IInputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
@@ -1263,7 +1263,7 @@ impl IRandomAccessStreamWithContentType {
     {
         let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -1272,14 +1272,14 @@ impl IRandomAccessStreamWithContentType {
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Size(&self) -> ::windows_core::Result<u64> {
         let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1290,21 +1290,21 @@ impl IRandomAccessStreamWithContentType {
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows_core::Result<IInputStream> {
         let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IInputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows_core::Result<IOutputStream> {
         let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IOutputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn Position(&self) -> ::windows_core::Result<u64> {
         let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1315,21 +1315,21 @@ impl IRandomAccessStreamWithContentType {
     pub fn CloneStream(&self) -> ::windows_core::Result<IRandomAccessStream> {
         let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IRandomAccessStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanRead(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanWrite(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IRandomAccessStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanWrite)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1378,14 +1378,14 @@ impl Buffer {
     pub fn Capacity(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Capacity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Length(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Length)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1395,7 +1395,7 @@ impl Buffer {
     }
     pub fn Create(capacity: u32) -> ::windows_core::Result<Buffer> {
         Self::IBufferFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<Buffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), capacity, &mut result__).from_abi(result__)
         })
     }
@@ -1406,7 +1406,7 @@ impl Buffer {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::IMemoryBuffer>,
     {
         Self::IBufferStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<Buffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateCopyFromMemoryBuffer)(::windows_core::Interface::as_raw(this), input.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1417,7 +1417,7 @@ impl Buffer {
         P0: ::windows_core::TryIntoParam<IBuffer>,
     {
         Self::IBufferStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::MemoryBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateMemoryBufferOverIBuffer)(::windows_core::Interface::as_raw(this), input.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1477,14 +1477,14 @@ impl DataReader {
     pub fn UnconsumedBufferLength(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnconsumedBufferLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UnicodeEncoding(&self) -> ::windows_core::Result<UnicodeEncoding> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UnicodeEncoding>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnicodeEncoding)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1495,7 +1495,7 @@ impl DataReader {
     pub fn ByteOrder(&self) -> ::windows_core::Result<ByteOrder> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ByteOrder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ByteOrder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1506,7 +1506,7 @@ impl DataReader {
     pub fn InputStreamOptions(&self) -> ::windows_core::Result<InputStreamOptions> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<InputStreamOptions>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InputStreamOptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1517,7 +1517,7 @@ impl DataReader {
     pub fn ReadByte(&self) -> ::windows_core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u8>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadByte)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1528,84 +1528,84 @@ impl DataReader {
     pub fn ReadBuffer(&self, length: u32) -> ::windows_core::Result<IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadBuffer)(::windows_core::Interface::as_raw(this), length, &mut result__).from_abi(result__)
         }
     }
     pub fn ReadBoolean(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadBoolean)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadGuid(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadGuid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadInt16(&self) -> ::windows_core::Result<i16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadInt16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadInt32(&self) -> ::windows_core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadInt32)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadInt64(&self) -> ::windows_core::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<i64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadInt64)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadUInt16(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadUInt16)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadUInt32(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadUInt32)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadUInt64(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadUInt64)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadSingle(&self) -> ::windows_core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadSingle)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadDouble(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadDouble)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReadString(&self, codeunitcount: u32) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadString)(::windows_core::Interface::as_raw(this), codeunitcount, &mut result__).from_abi(result__)
         }
     }
@@ -1614,7 +1614,7 @@ impl DataReader {
     pub fn ReadDateTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadDateTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1623,7 +1623,7 @@ impl DataReader {
     pub fn ReadTimeSpan(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadTimeSpan)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1632,21 +1632,21 @@ impl DataReader {
     pub fn LoadAsync(&self, count: u32) -> ::windows_core::Result<DataReaderLoadOperation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DataReaderLoadOperation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LoadAsync)(::windows_core::Interface::as_raw(this), count, &mut result__).from_abi(result__)
         }
     }
     pub fn DetachBuffer(&self) -> ::windows_core::Result<IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetachBuffer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DetachStream(&self) -> ::windows_core::Result<IInputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IInputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetachStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1655,7 +1655,7 @@ impl DataReader {
         P0: ::windows_core::TryIntoParam<IInputStream>,
     {
         Self::IDataReaderFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<DataReader>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateDataReader)(::windows_core::Interface::as_raw(this), inputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1664,7 +1664,7 @@ impl DataReader {
         P0: ::windows_core::TryIntoParam<IBuffer>,
     {
         Self::IDataReaderStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<DataReader>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromBuffer)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -1724,7 +1724,7 @@ impl DataReaderLoadOperation {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1733,7 +1733,7 @@ impl DataReaderLoadOperation {
     pub fn Status(&self) -> ::windows_core::Result<super::super::Foundation::AsyncStatus> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::AsyncStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1742,7 +1742,7 @@ impl DataReaderLoadOperation {
     pub fn ErrorCode(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1769,7 +1769,7 @@ impl DataReaderLoadOperation {
     pub fn Completed(&self) -> ::windows_core::Result<super::super::Foundation::AsyncOperationCompletedHandler<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::AsyncOperationCompletedHandler<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1778,7 +1778,7 @@ impl DataReaderLoadOperation {
     pub fn GetResults(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetResults)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1880,14 +1880,14 @@ impl DataWriter {
     pub fn UnstoredBufferLength(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnstoredBufferLength)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UnicodeEncoding(&self) -> ::windows_core::Result<UnicodeEncoding> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<UnicodeEncoding>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnicodeEncoding)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1898,7 +1898,7 @@ impl DataWriter {
     pub fn ByteOrder(&self) -> ::windows_core::Result<ByteOrder> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ByteOrder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ByteOrder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1983,14 +1983,14 @@ impl DataWriter {
     pub fn WriteString(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
     pub fn MeasureString(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MeasureString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
@@ -1999,7 +1999,7 @@ impl DataWriter {
     pub fn StoreAsync(&self) -> ::windows_core::Result<DataWriterStoreOperation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DataWriterStoreOperation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StoreAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2008,21 +2008,21 @@ impl DataWriter {
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DetachBuffer(&self) -> ::windows_core::Result<IBuffer> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IBuffer>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetachBuffer)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DetachStream(&self) -> ::windows_core::Result<IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IOutputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetachStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2031,7 +2031,7 @@ impl DataWriter {
         P0: ::windows_core::TryIntoParam<IOutputStream>,
     {
         Self::IDataWriterFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<DataWriter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateDataWriter)(::windows_core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -2086,7 +2086,7 @@ impl DataWriterStoreOperation {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2095,7 +2095,7 @@ impl DataWriterStoreOperation {
     pub fn Status(&self) -> ::windows_core::Result<super::super::Foundation::AsyncStatus> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::AsyncStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2104,7 +2104,7 @@ impl DataWriterStoreOperation {
     pub fn ErrorCode(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ErrorCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2131,7 +2131,7 @@ impl DataWriterStoreOperation {
     pub fn Completed(&self) -> ::windows_core::Result<super::super::Foundation::AsyncOperationCompletedHandler<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::AsyncOperationCompletedHandler<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2140,7 +2140,7 @@ impl DataWriterStoreOperation {
     pub fn GetResults(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetResults)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2240,7 +2240,7 @@ impl FileInputStream {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
@@ -2297,7 +2297,7 @@ impl FileOutputStream {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -2306,7 +2306,7 @@ impl FileOutputStream {
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2359,7 +2359,7 @@ impl FileRandomAccessStream {
     #[cfg(feature = "Foundation")]
     pub fn OpenAsync(filepath: &::windows_core::HSTRING, accessmode: super::FileAccessMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), accessmode, &mut result__).from_abi(result__)
         })
     }
@@ -2367,7 +2367,7 @@ impl FileRandomAccessStream {
     #[cfg(feature = "Foundation")]
     pub fn OpenWithOptionsAsync(filepath: &::windows_core::HSTRING, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), accessmode, sharingoptions, opendisposition, &mut result__).from_abi(result__)
         })
     }
@@ -2375,7 +2375,7 @@ impl FileRandomAccessStream {
     #[cfg(feature = "Foundation")]
     pub fn OpenTransactedWriteAsync(filepath: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenTransactedWriteAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         })
     }
@@ -2383,7 +2383,7 @@ impl FileRandomAccessStream {
     #[cfg(feature = "Foundation")]
     pub fn OpenTransactedWriteWithOptionsAsync(filepath: &::windows_core::HSTRING, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), openoptions, opendisposition, &mut result__).from_abi(result__)
         })
     }
@@ -2391,7 +2391,7 @@ impl FileRandomAccessStream {
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn OpenForUserAsync(user: &super::super::System::User, filepath: &::windows_core::HSTRING, accessmode: super::FileAccessMode) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenForUserAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(filepath), accessmode, &mut result__).from_abi(result__)
         })
     }
@@ -2399,7 +2399,7 @@ impl FileRandomAccessStream {
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn OpenForUserWithOptionsAsync(user: &super::super::System::User, filepath: &::windows_core::HSTRING, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenForUserWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(filepath), accessmode, sharingoptions, opendisposition, &mut result__).from_abi(result__)
         })
     }
@@ -2407,7 +2407,7 @@ impl FileRandomAccessStream {
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn OpenTransactedWriteForUserAsync(user: &super::super::System::User, filepath: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenTransactedWriteForUserAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         })
     }
@@ -2415,7 +2415,7 @@ impl FileRandomAccessStream {
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn OpenTransactedWriteForUserWithOptionsAsync(user: &super::super::System::User, filepath: &::windows_core::HSTRING, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenTransactedWriteForUserWithOptionsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(filepath), openoptions, opendisposition, &mut result__).from_abi(result__)
         })
     }
@@ -2427,7 +2427,7 @@ impl FileRandomAccessStream {
     {
         let this = &::windows_core::ComInterface::cast::<IInputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
@@ -2439,7 +2439,7 @@ impl FileRandomAccessStream {
     {
         let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -2448,14 +2448,14 @@ impl FileRandomAccessStream {
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Size(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2466,21 +2466,21 @@ impl FileRandomAccessStream {
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows_core::Result<IInputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IInputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows_core::Result<IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IOutputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn Position(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2491,21 +2491,21 @@ impl FileRandomAccessStream {
     pub fn CloneStream(&self) -> ::windows_core::Result<IRandomAccessStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IRandomAccessStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanRead(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanWrite(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanWrite)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2576,7 +2576,7 @@ impl InMemoryRandomAccessStream {
     {
         let this = &::windows_core::ComInterface::cast::<IInputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
@@ -2588,7 +2588,7 @@ impl InMemoryRandomAccessStream {
     {
         let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -2597,14 +2597,14 @@ impl InMemoryRandomAccessStream {
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Size(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2615,21 +2615,21 @@ impl InMemoryRandomAccessStream {
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows_core::Result<IInputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IInputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows_core::Result<IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IOutputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn Position(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2640,21 +2640,21 @@ impl InMemoryRandomAccessStream {
     pub fn CloneStream(&self) -> ::windows_core::Result<IRandomAccessStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IRandomAccessStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanRead(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanWrite(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanWrite)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2713,7 +2713,7 @@ impl InputStreamOverStream {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
@@ -2770,7 +2770,7 @@ impl OutputStreamOverStream {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -2779,7 +2779,7 @@ impl OutputStreamOverStream {
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2829,7 +2829,7 @@ impl RandomAccessStream {
         P1: ::windows_core::TryIntoParam<IOutputStream>,
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CopyAsync)(::windows_core::Interface::as_raw(this), source.try_into_param()?.abi(), destination.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -2841,7 +2841,7 @@ impl RandomAccessStream {
         P1: ::windows_core::TryIntoParam<IOutputStream>,
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CopySizeAsync)(::windows_core::Interface::as_raw(this), source.try_into_param()?.abi(), destination.try_into_param()?.abi(), bytestocopy, &mut result__).from_abi(result__)
         })
     }
@@ -2853,7 +2853,7 @@ impl RandomAccessStream {
         P1: ::windows_core::TryIntoParam<IOutputStream>,
     {
         Self::IRandomAccessStreamStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CopyAndCloseAsync)(::windows_core::Interface::as_raw(this), source.try_into_param()?.abi(), destination.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -2884,7 +2884,7 @@ impl RandomAccessStreamOverStream {
     {
         let this = &::windows_core::ComInterface::cast::<IInputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), count, options, &mut result__).from_abi(result__)
         }
     }
@@ -2896,7 +2896,7 @@ impl RandomAccessStreamOverStream {
     {
         let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WriteAsync)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -2905,14 +2905,14 @@ impl RandomAccessStreamOverStream {
     pub fn FlushAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows_core::ComInterface::cast::<IOutputStream>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FlushAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Size(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2923,21 +2923,21 @@ impl RandomAccessStreamOverStream {
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows_core::Result<IInputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IInputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetInputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows_core::Result<IOutputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IOutputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetOutputStreamAt)(::windows_core::Interface::as_raw(this), position, &mut result__).from_abi(result__)
         }
     }
     pub fn Position(&self) -> ::windows_core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Position)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2948,21 +2948,21 @@ impl RandomAccessStreamOverStream {
     pub fn CloneStream(&self) -> ::windows_core::Result<IRandomAccessStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IRandomAccessStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CloneStream)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanRead(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanRead)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanWrite(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanWrite)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3012,7 +3012,7 @@ impl RandomAccessStreamReference {
     pub fn OpenReadAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OpenReadAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3021,7 +3021,7 @@ impl RandomAccessStreamReference {
         P0: ::windows_core::TryIntoParam<super::IStorageFile>,
     {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<RandomAccessStreamReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateFromFile)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -3029,7 +3029,7 @@ impl RandomAccessStreamReference {
     #[cfg(feature = "Foundation")]
     pub fn CreateFromUri(uri: &super::super::Foundation::Uri) -> ::windows_core::Result<RandomAccessStreamReference> {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<RandomAccessStreamReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateFromUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         })
     }
@@ -3038,7 +3038,7 @@ impl RandomAccessStreamReference {
         P0: ::windows_core::TryIntoParam<IRandomAccessStream>,
     {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<RandomAccessStreamReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateFromStream)(::windows_core::Interface::as_raw(this), stream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }

@@ -742,28 +742,28 @@ impl IContactField {
     pub fn Type(&self) -> ::windows_core::Result<ContactFieldType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactFieldType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Category(&self) -> ::windows_core::Result<ContactFieldCategory> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactFieldCategory>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Category)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Value(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -810,21 +810,21 @@ impl IContactFieldFactory {
     pub fn CreateField_Default(&self, value: &::windows_core::HSTRING, r#type: ContactFieldType) -> ::windows_core::Result<ContactField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateField_Default)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), r#type, &mut result__).from_abi(result__)
         }
     }
     pub fn CreateField_Category(&self, value: &::windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows_core::Result<ContactField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateField_Category)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), r#type, category, &mut result__).from_abi(result__)
         }
     }
     pub fn CreateField_Custom(&self, name: &::windows_core::HSTRING, value: &::windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows_core::Result<ContactField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateField_Custom)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), r#type, category, &mut result__).from_abi(result__)
         }
     }
@@ -963,14 +963,14 @@ impl IContactInstantMessageFieldFactory {
     pub fn CreateInstantMessage_Default(&self, username: &::windows_core::HSTRING) -> ::windows_core::Result<ContactInstantMessageField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactInstantMessageField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstantMessage_Default)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateInstantMessage_Category(&self, username: &::windows_core::HSTRING, category: ContactFieldCategory) -> ::windows_core::Result<ContactInstantMessageField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactInstantMessageField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstantMessage_Category)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, &mut result__).from_abi(result__)
         }
     }
@@ -979,7 +979,7 @@ impl IContactInstantMessageFieldFactory {
     pub fn CreateInstantMessage_All(&self, username: &::windows_core::HSTRING, category: ContactFieldCategory, service: &::windows_core::HSTRING, displaytext: &::windows_core::HSTRING, verb: &super::super::Foundation::Uri) -> ::windows_core::Result<ContactInstantMessageField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactInstantMessageField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstantMessage_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(displaytext), ::core::mem::transmute_copy(verb), &mut result__).from_abi(result__)
         }
     }
@@ -1561,21 +1561,21 @@ impl IContactLocationFieldFactory {
     pub fn CreateLocation_Default(&self, unstructuredaddress: &::windows_core::HSTRING) -> ::windows_core::Result<ContactLocationField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactLocationField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateLocation_Default)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(unstructuredaddress), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateLocation_Category(&self, unstructuredaddress: &::windows_core::HSTRING, category: ContactFieldCategory) -> ::windows_core::Result<ContactLocationField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactLocationField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateLocation_Category)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(unstructuredaddress), category, &mut result__).from_abi(result__)
         }
     }
     pub fn CreateLocation_All(&self, unstructuredaddress: &::windows_core::HSTRING, category: ContactFieldCategory, street: &::windows_core::HSTRING, city: &::windows_core::HSTRING, region: &::windows_core::HSTRING, country: &::windows_core::HSTRING, postalcode: &::windows_core::HSTRING) -> ::windows_core::Result<ContactLocationField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactLocationField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateLocation_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(unstructuredaddress), category, ::core::mem::transmute_copy(street), ::core::mem::transmute_copy(city), ::core::mem::transmute_copy(region), ::core::mem::transmute_copy(country), ::core::mem::transmute_copy(postalcode), &mut result__).from_abi(result__)
         }
     }
@@ -2622,7 +2622,7 @@ impl AggregateContactManager {
     pub fn FindRawContactsAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindRawContactsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
         }
     }
@@ -2631,7 +2631,7 @@ impl AggregateContactManager {
     pub fn TryLinkContactsAsync(&self, primarycontact: &Contact, secondarycontact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<Contact>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryLinkContactsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(primarycontact), ::core::mem::transmute_copy(secondarycontact), &mut result__).from_abi(result__)
         }
     }
@@ -2640,7 +2640,7 @@ impl AggregateContactManager {
     pub fn UnlinkRawContactAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnlinkRawContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
         }
     }
@@ -2649,7 +2649,7 @@ impl AggregateContactManager {
     pub fn TrySetPreferredSourceForPictureAsync(&self, aggregatecontact: &Contact, rawcontact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySetPreferredSourceForPictureAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(aggregatecontact), ::core::mem::transmute_copy(rawcontact), &mut result__).from_abi(result__)
         }
     }
@@ -2658,7 +2658,7 @@ impl AggregateContactManager {
     pub fn SetRemoteIdentificationInformationAsync(&self, contactlistid: &::windows_core::HSTRING, remotesourceid: &::windows_core::HSTRING, accountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IAggregateContactManager2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetRemoteIdentificationInformationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contactlistid), ::core::mem::transmute_copy(remotesourceid), ::core::mem::transmute_copy(accountid), &mut result__).from_abi(result__)
         }
     }
@@ -2708,7 +2708,7 @@ impl Contact {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2721,7 +2721,7 @@ impl Contact {
     pub fn Thumbnail(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Thumbnail)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2739,14 +2739,14 @@ impl Contact {
     pub fn Fields(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<IContactField>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<IContactField>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Fields)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2757,7 +2757,7 @@ impl Contact {
     pub fn Notes(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Notes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2770,7 +2770,7 @@ impl Contact {
     pub fn Phones(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ContactPhone>> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<ContactPhone>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Phones)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2779,7 +2779,7 @@ impl Contact {
     pub fn Emails(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ContactEmail>> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<ContactEmail>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Emails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2788,7 +2788,7 @@ impl Contact {
     pub fn Addresses(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ContactAddress>> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<ContactAddress>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Addresses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2797,7 +2797,7 @@ impl Contact {
     pub fn ConnectedServiceAccounts(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ContactConnectedServiceAccount>> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<ContactConnectedServiceAccount>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConnectedServiceAccounts)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2806,7 +2806,7 @@ impl Contact {
     pub fn ImportantDates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ContactDate>> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<ContactDate>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ImportantDates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2815,7 +2815,7 @@ impl Contact {
     pub fn DataSuppliers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DataSuppliers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2824,7 +2824,7 @@ impl Contact {
     pub fn JobInfo(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ContactJobInfo>> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<ContactJobInfo>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).JobInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2833,7 +2833,7 @@ impl Contact {
     pub fn SignificantOthers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ContactSignificantOther>> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<ContactSignificantOther>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignificantOthers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2842,7 +2842,7 @@ impl Contact {
     pub fn Websites(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ContactWebsite>> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<ContactWebsite>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Websites)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2851,14 +2851,14 @@ impl Contact {
     pub fn ProviderProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows_core::ComInterface::cast::<IContact2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IPropertySet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProviderProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ContactListId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContactListId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2867,7 +2867,7 @@ impl Contact {
     pub fn DisplayPictureUserUpdateTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayPictureUserUpdateTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2880,21 +2880,21 @@ impl Contact {
     pub fn IsMe(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsMe)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AggregateId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AggregateId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoteId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoteId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2905,7 +2905,7 @@ impl Contact {
     pub fn RingToneToken(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RingToneToken)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2916,7 +2916,7 @@ impl Contact {
     pub fn IsDisplayPictureManuallySet(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDisplayPictureManuallySet)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2925,7 +2925,7 @@ impl Contact {
     pub fn LargeDisplayPicture(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LargeDisplayPicture)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2934,7 +2934,7 @@ impl Contact {
     pub fn SmallDisplayPicture(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SmallDisplayPicture)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2943,7 +2943,7 @@ impl Contact {
     pub fn SourceDisplayPicture(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamReference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceDisplayPicture)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2959,7 +2959,7 @@ impl Contact {
     pub fn TextToneToken(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TextToneToken)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2970,21 +2970,21 @@ impl Contact {
     pub fn IsAggregate(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsAggregate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FullName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FullName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayNameOverride(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayNameOverride)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2995,7 +2995,7 @@ impl Contact {
     pub fn Nickname(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Nickname)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3006,14 +3006,14 @@ impl Contact {
     pub fn SortName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContact3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SortName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FirstName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactName>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FirstName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3024,7 +3024,7 @@ impl Contact {
     pub fn LastName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactName>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3035,7 +3035,7 @@ impl Contact {
     pub fn MiddleName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactName>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MiddleName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3046,7 +3046,7 @@ impl Contact {
     pub fn YomiGivenName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactName>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).YomiGivenName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3057,7 +3057,7 @@ impl Contact {
     pub fn YomiFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactName>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).YomiFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3068,7 +3068,7 @@ impl Contact {
     pub fn HonorificNameSuffix(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactName>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HonorificNameSuffix)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3079,7 +3079,7 @@ impl Contact {
     pub fn HonorificNamePrefix(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactName>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HonorificNamePrefix)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3090,14 +3090,14 @@ impl Contact {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactName>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn YomiDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactName>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).YomiDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3147,7 +3147,7 @@ impl ContactAddress {
     pub fn StreetAddress(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StreetAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3158,7 +3158,7 @@ impl ContactAddress {
     pub fn Locality(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Locality)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3169,7 +3169,7 @@ impl ContactAddress {
     pub fn Region(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Region)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3180,7 +3180,7 @@ impl ContactAddress {
     pub fn Country(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Country)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3191,7 +3191,7 @@ impl ContactAddress {
     pub fn PostalCode(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PostalCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3202,7 +3202,7 @@ impl ContactAddress {
     pub fn Kind(&self) -> ::windows_core::Result<ContactAddressKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactAddressKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3213,7 +3213,7 @@ impl ContactAddress {
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3267,21 +3267,21 @@ impl ContactAnnotation {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AnnotationListId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AnnotationListId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ContactId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContactId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3292,7 +3292,7 @@ impl ContactAnnotation {
     pub fn RemoteId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoteId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3303,7 +3303,7 @@ impl ContactAnnotation {
     pub fn SupportedOperations(&self) -> ::windows_core::Result<ContactAnnotationOperations> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactAnnotationOperations>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedOperations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3314,7 +3314,7 @@ impl ContactAnnotation {
     pub fn IsDisabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDisabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3323,14 +3323,14 @@ impl ContactAnnotation {
     pub fn ProviderProperties(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::ValueSet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProviderProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ContactListId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactAnnotation2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContactListId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3377,21 +3377,21 @@ impl ContactAnnotationList {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ProviderPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProviderPackageFamilyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UserDataAccountId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UserDataAccountId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3400,7 +3400,7 @@ impl ContactAnnotationList {
     pub fn DeleteAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeleteAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3409,7 +3409,7 @@ impl ContactAnnotationList {
     pub fn TrySaveAnnotationAsync(&self, annotation: &ContactAnnotation) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrySaveAnnotationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(annotation), &mut result__).from_abi(result__)
         }
     }
@@ -3418,7 +3418,7 @@ impl ContactAnnotationList {
     pub fn GetAnnotationAsync(&self, annotationid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactAnnotation>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAnnotationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(annotationid), &mut result__).from_abi(result__)
         }
     }
@@ -3427,7 +3427,7 @@ impl ContactAnnotationList {
     pub fn FindAnnotationsByRemoteIdAsync(&self, remoteid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindAnnotationsByRemoteIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(remoteid), &mut result__).from_abi(result__)
         }
     }
@@ -3436,7 +3436,7 @@ impl ContactAnnotationList {
     pub fn FindAnnotationsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindAnnotationsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3445,7 +3445,7 @@ impl ContactAnnotationList {
     pub fn DeleteAnnotationAsync(&self, annotation: &ContactAnnotation) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeleteAnnotationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(annotation), &mut result__).from_abi(result__)
         }
     }
@@ -3490,7 +3490,7 @@ impl ContactAnnotationStore {
     pub fn FindContactIdsByEmailAsync(&self, emailaddress: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindContactIdsByEmailAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(emailaddress), &mut result__).from_abi(result__)
         }
     }
@@ -3499,7 +3499,7 @@ impl ContactAnnotationStore {
     pub fn FindContactIdsByPhoneNumberAsync(&self, phonenumber: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindContactIdsByPhoneNumberAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(phonenumber), &mut result__).from_abi(result__)
         }
     }
@@ -3508,7 +3508,7 @@ impl ContactAnnotationStore {
     pub fn FindAnnotationsForContactAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindAnnotationsForContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
         }
     }
@@ -3517,7 +3517,7 @@ impl ContactAnnotationStore {
     pub fn DisableAnnotationAsync(&self, annotation: &ContactAnnotation) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisableAnnotationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(annotation), &mut result__).from_abi(result__)
         }
     }
@@ -3526,7 +3526,7 @@ impl ContactAnnotationStore {
     pub fn CreateAnnotationListAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAnnotationListAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3535,7 +3535,7 @@ impl ContactAnnotationStore {
     pub fn CreateAnnotationListInAccountAsync(&self, userdataaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAnnotationListInAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(userdataaccountid), &mut result__).from_abi(result__)
         }
     }
@@ -3544,7 +3544,7 @@ impl ContactAnnotationStore {
     pub fn GetAnnotationListAsync(&self, annotationlistid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAnnotationListAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(annotationlistid), &mut result__).from_abi(result__)
         }
     }
@@ -3553,7 +3553,7 @@ impl ContactAnnotationStore {
     pub fn FindAnnotationListsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotationList>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotationList>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindAnnotationListsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3562,7 +3562,7 @@ impl ContactAnnotationStore {
     pub fn FindAnnotationsForContactListAsync(&self, contactlistid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
         let this = &::windows_core::ComInterface::cast::<IContactAnnotationStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindAnnotationsForContactListAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contactlistid), &mut result__).from_abi(result__)
         }
     }
@@ -3607,14 +3607,14 @@ impl ContactBatch {
     pub fn Contacts(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<Contact>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<Contact>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Contacts)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Status(&self) -> ::windows_core::Result<ContactBatchStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactBatchStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3712,7 +3712,7 @@ impl ContactCardOptions {
     pub fn HeaderKind(&self) -> ::windows_core::Result<ContactCardHeaderKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactCardHeaderKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HeaderKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3723,7 +3723,7 @@ impl ContactCardOptions {
     pub fn InitialTabKind(&self) -> ::windows_core::Result<ContactCardTabKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactCardTabKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InitialTabKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3736,7 +3736,7 @@ impl ContactCardOptions {
     pub fn ServerSearchContactListIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<IContactCardOptions2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ServerSearchContactListIds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3779,14 +3779,14 @@ impl ContactChange {
     pub fn ChangeType(&self) -> ::windows_core::Result<ContactChangeType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactChangeType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ChangeType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Contact(&self) -> ::windows_core::Result<Contact> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<Contact>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Contact)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3839,7 +3839,7 @@ impl ContactChangeReader {
     pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactChange>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactChange>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadBatchAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3886,7 +3886,7 @@ impl ContactChangeTracker {
     pub fn GetChangeReader(&self) -> ::windows_core::Result<ContactChangeReader> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactChangeReader>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetChangeReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3897,7 +3897,7 @@ impl ContactChangeTracker {
     pub fn IsTracking(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IContactChangeTracker2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsTracking)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3980,7 +3980,7 @@ impl ContactChangedEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<ContactChangedDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactChangedDeferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4030,7 +4030,7 @@ impl ContactConnectedServiceAccount {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4041,7 +4041,7 @@ impl ContactConnectedServiceAccount {
     pub fn ServiceName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ServiceName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4097,7 +4097,7 @@ impl ContactDate {
     pub fn Day(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Day)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4115,7 +4115,7 @@ impl ContactDate {
     pub fn Month(&self) -> ::windows_core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Month)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4133,7 +4133,7 @@ impl ContactDate {
     pub fn Year(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Year)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4149,7 +4149,7 @@ impl ContactDate {
     pub fn Kind(&self) -> ::windows_core::Result<ContactDateKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactDateKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4160,7 +4160,7 @@ impl ContactDate {
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4214,7 +4214,7 @@ impl ContactEmail {
     pub fn Address(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Address)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4225,7 +4225,7 @@ impl ContactEmail {
     pub fn Kind(&self) -> ::windows_core::Result<ContactEmailKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactEmailKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4236,7 +4236,7 @@ impl ContactEmail {
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4283,46 +4283,46 @@ impl ContactField {
     pub fn Type(&self) -> ::windows_core::Result<ContactFieldType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactFieldType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Category(&self) -> ::windows_core::Result<ContactFieldCategory> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactFieldCategory>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Category)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Value(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateField_Default(value: &::windows_core::HSTRING, r#type: ContactFieldType) -> ::windows_core::Result<ContactField> {
         Self::IContactFieldFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateField_Default)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), r#type, &mut result__).from_abi(result__)
         })
     }
     pub fn CreateField_Category(value: &::windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows_core::Result<ContactField> {
         Self::IContactFieldFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateField_Category)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), r#type, category, &mut result__).from_abi(result__)
         })
     }
     pub fn CreateField_Custom(name: &::windows_core::HSTRING, value: &::windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows_core::Result<ContactField> {
         Self::IContactFieldFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateField_Custom)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), r#type, category, &mut result__).from_abi(result__)
         })
     }
@@ -4378,35 +4378,35 @@ impl ContactFieldFactory {
     pub fn CreateField_Default(&self, value: &::windows_core::HSTRING, r#type: ContactFieldType) -> ::windows_core::Result<ContactField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateField_Default)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), r#type, &mut result__).from_abi(result__)
         }
     }
     pub fn CreateField_Category(&self, value: &::windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows_core::Result<ContactField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateField_Category)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), r#type, category, &mut result__).from_abi(result__)
         }
     }
     pub fn CreateField_Custom(&self, name: &::windows_core::HSTRING, value: &::windows_core::HSTRING, r#type: ContactFieldType, category: ContactFieldCategory) -> ::windows_core::Result<ContactField> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateField_Custom)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(value), r#type, category, &mut result__).from_abi(result__)
         }
     }
     pub fn CreateInstantMessage_Default(&self, username: &::windows_core::HSTRING) -> ::windows_core::Result<ContactInstantMessageField> {
         let this = &::windows_core::ComInterface::cast::<IContactInstantMessageFieldFactory>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactInstantMessageField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstantMessage_Default)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateInstantMessage_Category(&self, username: &::windows_core::HSTRING, category: ContactFieldCategory) -> ::windows_core::Result<ContactInstantMessageField> {
         let this = &::windows_core::ComInterface::cast::<IContactInstantMessageFieldFactory>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactInstantMessageField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstantMessage_Category)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, &mut result__).from_abi(result__)
         }
     }
@@ -4415,28 +4415,28 @@ impl ContactFieldFactory {
     pub fn CreateInstantMessage_All(&self, username: &::windows_core::HSTRING, category: ContactFieldCategory, service: &::windows_core::HSTRING, displaytext: &::windows_core::HSTRING, verb: &super::super::Foundation::Uri) -> ::windows_core::Result<ContactInstantMessageField> {
         let this = &::windows_core::ComInterface::cast::<IContactInstantMessageFieldFactory>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactInstantMessageField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstantMessage_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(displaytext), ::core::mem::transmute_copy(verb), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateLocation_Default(&self, unstructuredaddress: &::windows_core::HSTRING) -> ::windows_core::Result<ContactLocationField> {
         let this = &::windows_core::ComInterface::cast::<IContactLocationFieldFactory>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactLocationField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateLocation_Default)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(unstructuredaddress), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateLocation_Category(&self, unstructuredaddress: &::windows_core::HSTRING, category: ContactFieldCategory) -> ::windows_core::Result<ContactLocationField> {
         let this = &::windows_core::ComInterface::cast::<IContactLocationFieldFactory>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactLocationField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateLocation_Category)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(unstructuredaddress), category, &mut result__).from_abi(result__)
         }
     }
     pub fn CreateLocation_All(&self, unstructuredaddress: &::windows_core::HSTRING, category: ContactFieldCategory, street: &::windows_core::HSTRING, city: &::windows_core::HSTRING, region: &::windows_core::HSTRING, country: &::windows_core::HSTRING, postalcode: &::windows_core::HSTRING) -> ::windows_core::Result<ContactLocationField> {
         let this = &::windows_core::ComInterface::cast::<IContactLocationFieldFactory>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactLocationField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateLocation_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(unstructuredaddress), category, ::core::mem::transmute_copy(street), ::core::mem::transmute_copy(city), ::core::mem::transmute_copy(region), ::core::mem::transmute_copy(country), ::core::mem::transmute_copy(postalcode), &mut result__).from_abi(result__)
         }
     }
@@ -4517,7 +4517,7 @@ impl ContactInformation {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4526,7 +4526,7 @@ impl ContactInformation {
     pub fn GetThumbnailAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetThumbnailAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4535,7 +4535,7 @@ impl ContactInformation {
     pub fn Emails(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ContactField>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Emails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4544,7 +4544,7 @@ impl ContactInformation {
     pub fn PhoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ContactField>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhoneNumbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4553,7 +4553,7 @@ impl ContactInformation {
     pub fn Locations(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactLocationField>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ContactLocationField>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Locations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4562,7 +4562,7 @@ impl ContactInformation {
     pub fn InstantMessages(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactInstantMessageField>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ContactInstantMessageField>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstantMessages)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4571,7 +4571,7 @@ impl ContactInformation {
     pub fn CustomFields(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ContactField>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CustomFields)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4580,7 +4580,7 @@ impl ContactInformation {
     pub fn QueryCustomFields(&self, customname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ContactField>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).QueryCustomFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(customname), &mut result__).from_abi(result__)
         }
     }
@@ -4621,49 +4621,49 @@ impl ContactInstantMessageField {
     pub fn Type(&self) -> ::windows_core::Result<ContactFieldType> {
         let this = &::windows_core::ComInterface::cast::<IContactField>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactFieldType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Category(&self) -> ::windows_core::Result<ContactFieldCategory> {
         let this = &::windows_core::ComInterface::cast::<IContactField>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactFieldCategory>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Category)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactField>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Value(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactField>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UserName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UserName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Service(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Service)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4672,19 +4672,19 @@ impl ContactInstantMessageField {
     pub fn LaunchUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LaunchUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateInstantMessage_Default(username: &::windows_core::HSTRING) -> ::windows_core::Result<ContactInstantMessageField> {
         Self::IContactInstantMessageFieldFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactInstantMessageField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstantMessage_Default)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateInstantMessage_Category(username: &::windows_core::HSTRING, category: ContactFieldCategory) -> ::windows_core::Result<ContactInstantMessageField> {
         Self::IContactInstantMessageFieldFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactInstantMessageField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstantMessage_Category)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, &mut result__).from_abi(result__)
         })
     }
@@ -4692,7 +4692,7 @@ impl ContactInstantMessageField {
     #[cfg(feature = "Foundation")]
     pub fn CreateInstantMessage_All(username: &::windows_core::HSTRING, category: ContactFieldCategory, service: &::windows_core::HSTRING, displaytext: &::windows_core::HSTRING, verb: &super::super::Foundation::Uri) -> ::windows_core::Result<ContactInstantMessageField> {
         Self::IContactInstantMessageFieldFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactInstantMessageField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateInstantMessage_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(displaytext), ::core::mem::transmute_copy(verb), &mut result__).from_abi(result__)
         })
     }
@@ -4748,7 +4748,7 @@ impl ContactJobInfo {
     pub fn CompanyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CompanyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4759,7 +4759,7 @@ impl ContactJobInfo {
     pub fn CompanyYomiName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CompanyYomiName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4770,7 +4770,7 @@ impl ContactJobInfo {
     pub fn Department(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Department)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4781,7 +4781,7 @@ impl ContactJobInfo {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Title)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4792,7 +4792,7 @@ impl ContactJobInfo {
     pub fn Manager(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Manager)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4803,7 +4803,7 @@ impl ContactJobInfo {
     pub fn Office(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Office)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4814,7 +4814,7 @@ impl ContactJobInfo {
     pub fn CompanyAddress(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CompanyAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4825,7 +4825,7 @@ impl ContactJobInfo {
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4870,31 +4870,31 @@ pub struct ContactLaunchActionVerbs;
 impl ContactLaunchActionVerbs {
     pub fn Call() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IContactLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Call)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Message() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IContactLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Map() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IContactLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Map)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn Post() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IContactLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Post)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn VideoCall() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IContactLaunchActionVerbsStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoCall)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -4914,14 +4914,14 @@ impl ContactList {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4932,14 +4932,14 @@ impl ContactList {
     pub fn SourceDisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SourceDisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsHidden(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsHidden)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4950,7 +4950,7 @@ impl ContactList {
     pub fn OtherAppReadAccess(&self) -> ::windows_core::Result<ContactListOtherAppReadAccess> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactListOtherAppReadAccess>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OtherAppReadAccess)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4961,7 +4961,7 @@ impl ContactList {
     pub fn OtherAppWriteAccess(&self) -> ::windows_core::Result<ContactListOtherAppWriteAccess> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactListOtherAppWriteAccess>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OtherAppWriteAccess)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4972,28 +4972,28 @@ impl ContactList {
     pub fn ChangeTracker(&self) -> ::windows_core::Result<ContactChangeTracker> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactChangeTracker>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ChangeTracker)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SyncManager(&self) -> ::windows_core::Result<ContactListSyncManager> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactListSyncManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SyncManager)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SupportsServerSearch(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportsServerSearch)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UserDataAccountId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UserDataAccountId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5002,7 +5002,7 @@ impl ContactList {
     pub fn ContactChanged(&self, value: &super::super::Foundation::TypedEventHandler<ContactList, ContactChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContactChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
@@ -5017,7 +5017,7 @@ impl ContactList {
     pub fn SaveAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SaveAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5026,7 +5026,7 @@ impl ContactList {
     pub fn DeleteAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeleteAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5035,7 +5035,7 @@ impl ContactList {
     pub fn GetContactFromRemoteIdAsync(&self, remoteid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<Contact>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetContactFromRemoteIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(remoteid), &mut result__).from_abi(result__)
         }
     }
@@ -5044,21 +5044,21 @@ impl ContactList {
     pub fn GetMeContactAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<Contact>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMeContactAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetContactReader(&self) -> ::windows_core::Result<ContactReader> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactReader>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetContactReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetContactReaderWithOptions(&self, options: &ContactQueryOptions) -> ::windows_core::Result<ContactReader> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactReader>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetContactReaderWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         }
     }
@@ -5067,7 +5067,7 @@ impl ContactList {
     pub fn SaveContactAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SaveContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
         }
     }
@@ -5076,7 +5076,7 @@ impl ContactList {
     pub fn DeleteContactAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeleteContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
         }
     }
@@ -5085,7 +5085,7 @@ impl ContactList {
     pub fn GetContactAsync(&self, contactid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<Contact>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contactid), &mut result__).from_abi(result__)
         }
     }
@@ -5094,7 +5094,7 @@ impl ContactList {
     pub fn RegisterSyncManagerAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IContactList2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RegisterSyncManagerAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5105,21 +5105,21 @@ impl ContactList {
     pub fn SyncConstraints(&self) -> ::windows_core::Result<ContactListSyncConstraints> {
         let this = &::windows_core::ComInterface::cast::<IContactList2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactListSyncConstraints>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SyncConstraints)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LimitedWriteOperations(&self) -> ::windows_core::Result<ContactListLimitedWriteOperations> {
         let this = &::windows_core::ComInterface::cast::<IContactList3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactListLimitedWriteOperations>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LimitedWriteOperations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetChangeTracker(&self, identity: &::windows_core::HSTRING) -> ::windows_core::Result<ContactChangeTracker> {
         let this = &::windows_core::ComInterface::cast::<IContactList3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactChangeTracker>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetChangeTracker)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(identity), &mut result__).from_abi(result__)
         }
     }
@@ -5164,7 +5164,7 @@ impl ContactListLimitedWriteOperations {
     pub fn TryCreateOrUpdateContactAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryCreateOrUpdateContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
         }
     }
@@ -5173,7 +5173,7 @@ impl ContactListLimitedWriteOperations {
     pub fn TryDeleteContactAsync(&self, contactid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryDeleteContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contactid), &mut result__).from_abi(result__)
         }
     }
@@ -5216,7 +5216,7 @@ impl ContactListSyncConstraints {
     pub fn CanSyncDescriptions(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanSyncDescriptions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5229,7 +5229,7 @@ impl ContactListSyncConstraints {
     pub fn MaxHomePhoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxHomePhoneNumbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5247,7 +5247,7 @@ impl ContactListSyncConstraints {
     pub fn MaxMobilePhoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxMobilePhoneNumbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5265,7 +5265,7 @@ impl ContactListSyncConstraints {
     pub fn MaxWorkPhoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxWorkPhoneNumbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5283,7 +5283,7 @@ impl ContactListSyncConstraints {
     pub fn MaxOtherPhoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxOtherPhoneNumbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5301,7 +5301,7 @@ impl ContactListSyncConstraints {
     pub fn MaxPagerPhoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxPagerPhoneNumbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5319,7 +5319,7 @@ impl ContactListSyncConstraints {
     pub fn MaxBusinessFaxPhoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxBusinessFaxPhoneNumbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5337,7 +5337,7 @@ impl ContactListSyncConstraints {
     pub fn MaxHomeFaxPhoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxHomeFaxPhoneNumbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5355,7 +5355,7 @@ impl ContactListSyncConstraints {
     pub fn MaxCompanyPhoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxCompanyPhoneNumbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5373,7 +5373,7 @@ impl ContactListSyncConstraints {
     pub fn MaxAssistantPhoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxAssistantPhoneNumbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5391,7 +5391,7 @@ impl ContactListSyncConstraints {
     pub fn MaxRadioPhoneNumbers(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxRadioPhoneNumbers)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5409,7 +5409,7 @@ impl ContactListSyncConstraints {
     pub fn MaxPersonalEmailAddresses(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxPersonalEmailAddresses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5427,7 +5427,7 @@ impl ContactListSyncConstraints {
     pub fn MaxWorkEmailAddresses(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxWorkEmailAddresses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5445,7 +5445,7 @@ impl ContactListSyncConstraints {
     pub fn MaxOtherEmailAddresses(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxOtherEmailAddresses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5463,7 +5463,7 @@ impl ContactListSyncConstraints {
     pub fn MaxHomeAddresses(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxHomeAddresses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5481,7 +5481,7 @@ impl ContactListSyncConstraints {
     pub fn MaxWorkAddresses(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxWorkAddresses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5499,7 +5499,7 @@ impl ContactListSyncConstraints {
     pub fn MaxOtherAddresses(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxOtherAddresses)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5517,7 +5517,7 @@ impl ContactListSyncConstraints {
     pub fn MaxBirthdayDates(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxBirthdayDates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5535,7 +5535,7 @@ impl ContactListSyncConstraints {
     pub fn MaxAnniversaryDates(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxAnniversaryDates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5553,7 +5553,7 @@ impl ContactListSyncConstraints {
     pub fn MaxOtherDates(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxOtherDates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5571,7 +5571,7 @@ impl ContactListSyncConstraints {
     pub fn MaxOtherRelationships(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxOtherRelationships)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5589,7 +5589,7 @@ impl ContactListSyncConstraints {
     pub fn MaxSpouseRelationships(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxSpouseRelationships)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5607,7 +5607,7 @@ impl ContactListSyncConstraints {
     pub fn MaxPartnerRelationships(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxPartnerRelationships)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5625,7 +5625,7 @@ impl ContactListSyncConstraints {
     pub fn MaxSiblingRelationships(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxSiblingRelationships)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5643,7 +5643,7 @@ impl ContactListSyncConstraints {
     pub fn MaxParentRelationships(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxParentRelationships)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5661,7 +5661,7 @@ impl ContactListSyncConstraints {
     pub fn MaxChildRelationships(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxChildRelationships)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5679,7 +5679,7 @@ impl ContactListSyncConstraints {
     pub fn MaxJobInfo(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxJobInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5697,7 +5697,7 @@ impl ContactListSyncConstraints {
     pub fn MaxWebsites(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxWebsites)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5749,7 +5749,7 @@ impl ContactListSyncManager {
     pub fn Status(&self) -> ::windows_core::Result<ContactListSyncStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactListSyncStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5758,7 +5758,7 @@ impl ContactListSyncManager {
     pub fn LastSuccessfulSyncTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastSuccessfulSyncTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5767,7 +5767,7 @@ impl ContactListSyncManager {
     pub fn LastAttemptedSyncTime(&self) -> ::windows_core::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::DateTime>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LastAttemptedSyncTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5776,7 +5776,7 @@ impl ContactListSyncManager {
     pub fn SyncAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SyncAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5785,7 +5785,7 @@ impl ContactListSyncManager {
     pub fn SyncStatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<ContactListSyncManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SyncStatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -5850,88 +5850,88 @@ impl ContactLocationField {
     pub fn Type(&self) -> ::windows_core::Result<ContactFieldType> {
         let this = &::windows_core::ComInterface::cast::<IContactField>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactFieldType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Type)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Category(&self) -> ::windows_core::Result<ContactFieldCategory> {
         let this = &::windows_core::ComInterface::cast::<IContactField>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactFieldCategory>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Category)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactField>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Value(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactField>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Value)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn UnstructuredAddress(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnstructuredAddress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Street(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Street)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn City(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).City)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Region(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Region)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Country(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Country)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PostalCode(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PostalCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateLocation_Default(unstructuredaddress: &::windows_core::HSTRING) -> ::windows_core::Result<ContactLocationField> {
         Self::IContactLocationFieldFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactLocationField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateLocation_Default)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(unstructuredaddress), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateLocation_Category(unstructuredaddress: &::windows_core::HSTRING, category: ContactFieldCategory) -> ::windows_core::Result<ContactLocationField> {
         Self::IContactLocationFieldFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactLocationField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateLocation_Category)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(unstructuredaddress), category, &mut result__).from_abi(result__)
         })
     }
     pub fn CreateLocation_All(unstructuredaddress: &::windows_core::HSTRING, category: ContactFieldCategory, street: &::windows_core::HSTRING, city: &::windows_core::HSTRING, region: &::windows_core::HSTRING, country: &::windows_core::HSTRING, postalcode: &::windows_core::HSTRING) -> ::windows_core::Result<ContactLocationField> {
         Self::IContactLocationFieldFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactLocationField>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateLocation_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(unstructuredaddress), category, ::core::mem::transmute_copy(street), ::core::mem::transmute_copy(city), ::core::mem::transmute_copy(region), ::core::mem::transmute_copy(country), ::core::mem::transmute_copy(postalcode), &mut result__).from_abi(result__)
         })
     }
@@ -5990,7 +5990,7 @@ impl ContactManager {
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowDelayLoadedContactCard(contact: &Contact, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<ContactCardDelayedDataLoader> {
         Self::IContactManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactCardDelayedDataLoader>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShowDelayLoadedContactCard)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), selection, preferredplacement, &mut result__).from_abi(result__)
         })
     }
@@ -5998,7 +5998,7 @@ impl ContactManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         Self::IContactManagerStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactStore>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -6006,7 +6006,7 @@ impl ContactManager {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ConvertContactToVCardAsync(contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
         Self::IContactManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConvertContactToVCardAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
         })
     }
@@ -6014,7 +6014,7 @@ impl ContactManager {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ConvertContactToVCardAsyncWithMaxBytes(contact: &Contact, maxbytes: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
         Self::IContactManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), maxbytes, &mut result__).from_abi(result__)
         })
     }
@@ -6025,7 +6025,7 @@ impl ContactManager {
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         Self::IContactManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<Contact>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConvertVCardToContactAsync)(::windows_core::Interface::as_raw(this), vcard.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -6033,7 +6033,7 @@ impl ContactManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsyncWithAccessType(accesstype: ContactStoreAccessType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         Self::IContactManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactStore>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestStoreAsyncWithAccessType)(::windows_core::Interface::as_raw(this), accesstype, &mut result__).from_abi(result__)
         })
     }
@@ -6041,13 +6041,13 @@ impl ContactManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestAnnotationStoreAsync(accesstype: ContactAnnotationStoreAccessType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>> {
         Self::IContactManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAnnotationStoreAsync)(::windows_core::Interface::as_raw(this), accesstype, &mut result__).from_abi(result__)
         })
     }
     pub fn IsShowContactCardSupported() -> ::windows_core::Result<bool> {
         Self::IContactManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsShowContactCardSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -6058,7 +6058,7 @@ impl ContactManager {
     }
     pub fn IsShowDelayLoadedContactCardSupported() -> ::windows_core::Result<bool> {
         Self::IContactManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsShowDelayLoadedContactCardSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -6066,7 +6066,7 @@ impl ContactManager {
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowDelayLoadedContactCardWithOptions(contact: &Contact, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: &ContactCardOptions) -> ::windows_core::Result<ContactCardDelayedDataLoader> {
         Self::IContactManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactCardDelayedDataLoader>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShowDelayLoadedContactCardWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), selection, preferredplacement, ::core::mem::transmute_copy(contactcardoptions), &mut result__).from_abi(result__)
         })
     }
@@ -6075,7 +6075,7 @@ impl ContactManager {
     }
     pub fn SystemDisplayNameOrder() -> ::windows_core::Result<ContactNameOrder> {
         Self::IContactManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactNameOrder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemDisplayNameOrder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -6084,7 +6084,7 @@ impl ContactManager {
     }
     pub fn SystemSortOrder() -> ::windows_core::Result<ContactNameOrder> {
         Self::IContactManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactNameOrder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemSortOrder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -6095,7 +6095,7 @@ impl ContactManager {
     #[cfg(feature = "System")]
     pub fn GetForUser(user: &super::super::System::User) -> ::windows_core::Result<ContactManagerForUser> {
         Self::IContactManagerStatics4(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactManagerForUser>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
@@ -6103,13 +6103,13 @@ impl ContactManager {
     #[cfg(feature = "Foundation")]
     pub fn IsShowFullContactCardSupportedAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IContactManagerStatics5(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsShowFullContactCardSupportedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn IncludeMiddleNameInSystemDisplayAndSort() -> ::windows_core::Result<bool> {
         Self::IContactManagerStatics5(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IncludeMiddleNameInSystemDisplayAndSort)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -6154,7 +6154,7 @@ impl ContactManagerForUser {
     pub fn ConvertContactToVCardAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConvertContactToVCardAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
         }
     }
@@ -6163,7 +6163,7 @@ impl ContactManagerForUser {
     pub fn ConvertContactToVCardAsyncWithMaxBytes(&self, contact: &Contact, maxbytes: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), maxbytes, &mut result__).from_abi(result__)
         }
     }
@@ -6175,7 +6175,7 @@ impl ContactManagerForUser {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<Contact>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConvertVCardToContactAsync)(::windows_core::Interface::as_raw(this), vcard.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -6184,7 +6184,7 @@ impl ContactManagerForUser {
     pub fn RequestStoreAsync(&self, accesstype: ContactStoreAccessType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactStore>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestStoreAsync)(::windows_core::Interface::as_raw(this), accesstype, &mut result__).from_abi(result__)
         }
     }
@@ -6193,14 +6193,14 @@ impl ContactManagerForUser {
     pub fn RequestAnnotationStoreAsync(&self, accesstype: ContactAnnotationStoreAccessType) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAnnotationStoreAsync)(::windows_core::Interface::as_raw(this), accesstype, &mut result__).from_abi(result__)
         }
     }
     pub fn SystemDisplayNameOrder(&self) -> ::windows_core::Result<ContactNameOrder> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactNameOrder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemDisplayNameOrder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6211,7 +6211,7 @@ impl ContactManagerForUser {
     pub fn SystemSortOrder(&self) -> ::windows_core::Result<ContactNameOrder> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactNameOrder>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemSortOrder)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6224,7 +6224,7 @@ impl ContactManagerForUser {
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::System::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6271,7 +6271,7 @@ impl ContactMatchReason {
     pub fn Field(&self) -> ::windows_core::Result<ContactMatchReasonKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactMatchReasonKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Field)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6280,14 +6280,14 @@ impl ContactMatchReason {
     pub fn Segments(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Segments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Text)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6336,7 +6336,7 @@ impl ContactPanel {
     pub fn HeaderColor(&self) -> ::windows_core::Result<super::super::Foundation::IReference<super::super::UI::Color>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<super::super::UI::Color>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HeaderColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6354,7 +6354,7 @@ impl ContactPanel {
     pub fn LaunchFullAppRequested(&self, handler: &super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelLaunchFullAppRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LaunchFullAppRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -6369,7 +6369,7 @@ impl ContactPanel {
     pub fn Closing(&self, handler: &super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelClosingEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Closing)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -6420,7 +6420,7 @@ impl ContactPanelClosingEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6463,7 +6463,7 @@ impl ContactPanelLaunchFullAppRequestedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Handled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6517,7 +6517,7 @@ impl ContactPhone {
     pub fn Number(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Number)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6528,7 +6528,7 @@ impl ContactPhone {
     pub fn Kind(&self) -> ::windows_core::Result<ContactPhoneKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactPhoneKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6539,7 +6539,7 @@ impl ContactPhone {
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6593,7 +6593,7 @@ impl ContactPicker {
     pub fn CommitButtonText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CommitButtonText)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6604,7 +6604,7 @@ impl ContactPicker {
     pub fn SelectionMode(&self) -> ::windows_core::Result<ContactSelectionMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactSelectionMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelectionMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6617,7 +6617,7 @@ impl ContactPicker {
     pub fn DesiredFields(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredFields)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6626,7 +6626,7 @@ impl ContactPicker {
     pub fn PickSingleContactAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactInformation>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactInformation>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PickSingleContactAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6635,7 +6635,7 @@ impl ContactPicker {
     pub fn PickMultipleContactsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactInformation>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactInformation>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PickMultipleContactsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6644,7 +6644,7 @@ impl ContactPicker {
     pub fn DesiredFieldsWithContactFieldType(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<ContactFieldType>> {
         let this = &::windows_core::ComInterface::cast::<IContactPicker2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<ContactFieldType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredFieldsWithContactFieldType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6653,7 +6653,7 @@ impl ContactPicker {
     pub fn PickContactAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = &::windows_core::ComInterface::cast::<IContactPicker2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<Contact>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PickContactAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6662,7 +6662,7 @@ impl ContactPicker {
     pub fn PickContactsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<Contact>>> {
         let this = &::windows_core::ComInterface::cast::<IContactPicker2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<Contact>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PickContactsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6671,7 +6671,7 @@ impl ContactPicker {
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = &::windows_core::ComInterface::cast::<IContactPicker3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::System::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6679,7 +6679,7 @@ impl ContactPicker {
     #[cfg(feature = "System")]
     pub fn CreateForUser(user: &super::super::System::User) -> ::windows_core::Result<ContactPicker> {
         Self::IContactPickerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactPicker>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
@@ -6687,7 +6687,7 @@ impl ContactPicker {
     #[cfg(feature = "Foundation")]
     pub fn IsSupportedAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IContactPickerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSupportedAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -6740,7 +6740,7 @@ impl ContactQueryOptions {
     pub fn TextSearch(&self) -> ::windows_core::Result<ContactQueryTextSearch> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactQueryTextSearch>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TextSearch)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6749,14 +6749,14 @@ impl ContactQueryOptions {
     pub fn ContactListIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContactListIds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IncludeContactsFromHiddenLists(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IncludeContactsFromHiddenLists)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6767,7 +6767,7 @@ impl ContactQueryOptions {
     pub fn DesiredFields(&self) -> ::windows_core::Result<ContactQueryDesiredFields> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactQueryDesiredFields>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredFields)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6778,7 +6778,7 @@ impl ContactQueryOptions {
     pub fn DesiredOperations(&self) -> ::windows_core::Result<ContactAnnotationOperations> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactAnnotationOperations>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredOperations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6791,19 +6791,19 @@ impl ContactQueryOptions {
     pub fn AnnotationListIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AnnotationListIds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateWithText(text: &::windows_core::HSTRING) -> ::windows_core::Result<ContactQueryOptions> {
         Self::IContactQueryOptionsFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactQueryOptions>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateWithTextAndFields(text: &::windows_core::HSTRING, fields: ContactQuerySearchFields) -> ::windows_core::Result<ContactQueryOptions> {
         Self::IContactQueryOptionsFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactQueryOptions>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithTextAndFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), fields, &mut result__).from_abi(result__)
         })
     }
@@ -6851,7 +6851,7 @@ impl ContactQueryTextSearch {
     pub fn Fields(&self) -> ::windows_core::Result<ContactQuerySearchFields> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactQuerySearchFields>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Fields)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6862,7 +6862,7 @@ impl ContactQueryTextSearch {
     pub fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Text)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6873,7 +6873,7 @@ impl ContactQueryTextSearch {
     pub fn SearchScope(&self) -> ::windows_core::Result<ContactQuerySearchScope> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactQuerySearchScope>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SearchScope)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6922,7 +6922,7 @@ impl ContactReader {
     pub fn ReadBatchAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactBatch>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactBatch>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReadBatchAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6931,7 +6931,7 @@ impl ContactReader {
     pub fn GetMatchingPropertiesWithMatchReason(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactMatchReason>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ContactMatchReason>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMatchingPropertiesWithMatchReason)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
         }
     }
@@ -6981,7 +6981,7 @@ impl ContactSignificantOther {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6992,7 +6992,7 @@ impl ContactSignificantOther {
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -7003,7 +7003,7 @@ impl ContactSignificantOther {
     pub fn Relationship(&self) -> ::windows_core::Result<ContactRelationship> {
         let this = &::windows_core::ComInterface::cast::<IContactSignificantOther2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactRelationship>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Relationship)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -7052,7 +7052,7 @@ impl ContactStore {
     pub fn FindContactsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindContactsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -7061,7 +7061,7 @@ impl ContactStore {
     pub fn FindContactsWithSearchTextAsync(&self, searchtext: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindContactsWithSearchTextAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(searchtext), &mut result__).from_abi(result__)
         }
     }
@@ -7070,14 +7070,14 @@ impl ContactStore {
     pub fn GetContactAsync(&self, contactid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<Contact>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contactid), &mut result__).from_abi(result__)
         }
     }
     pub fn ChangeTracker(&self) -> ::windows_core::Result<ContactChangeTracker> {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactChangeTracker>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ChangeTracker)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -7086,7 +7086,7 @@ impl ContactStore {
     pub fn ContactChanged(&self, value: &super::super::Foundation::TypedEventHandler<ContactStore, ContactChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContactChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
@@ -7099,7 +7099,7 @@ impl ContactStore {
     pub fn AggregateContactManager(&self) -> ::windows_core::Result<AggregateContactManager> {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<AggregateContactManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AggregateContactManager)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -7108,7 +7108,7 @@ impl ContactStore {
     pub fn FindContactListsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactList>>> {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactList>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindContactListsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -7117,7 +7117,7 @@ impl ContactStore {
     pub fn GetContactListAsync(&self, contactlistid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactList>> {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactList>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetContactListAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contactlistid), &mut result__).from_abi(result__)
         }
     }
@@ -7126,7 +7126,7 @@ impl ContactStore {
     pub fn CreateContactListAsync(&self, displayname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactList>> {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactList>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateContactListAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
         }
     }
@@ -7135,21 +7135,21 @@ impl ContactStore {
     pub fn GetMeContactAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<Contact>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMeContactAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetContactReader(&self) -> ::windows_core::Result<ContactReader> {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactReader>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetContactReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetContactReaderWithOptions(&self, options: &ContactQueryOptions) -> ::windows_core::Result<ContactReader> {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactReader>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetContactReaderWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         }
     }
@@ -7158,14 +7158,14 @@ impl ContactStore {
     pub fn CreateContactListInAccountAsync(&self, displayname: &::windows_core::HSTRING, userdataaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ContactList>> {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ContactList>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateContactListInAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(userdataaccountid), &mut result__).from_abi(result__)
         }
     }
     pub fn GetChangeTracker(&self, identity: &::windows_core::HSTRING) -> ::windows_core::Result<ContactChangeTracker> {
         let this = &::windows_core::ComInterface::cast::<IContactStore3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactChangeTracker>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetChangeTracker)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(identity), &mut result__).from_abi(result__)
         }
     }
@@ -7252,7 +7252,7 @@ impl ContactWebsite {
     pub fn Uri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -7265,7 +7265,7 @@ impl ContactWebsite {
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Description)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -7276,7 +7276,7 @@ impl ContactWebsite {
     pub fn RawValue(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IContactWebsite2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RawValue)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -7332,7 +7332,7 @@ impl FullContactCardOptions {
     pub fn DesiredRemainingView(&self) -> ::windows_core::Result<super::super::UI::ViewManagement::ViewSizePreference> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::UI::ViewManagement::ViewSizePreference>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DesiredRemainingView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -7383,7 +7383,7 @@ impl KnownContactField {
     #[cfg(feature = "deprecated")]
     pub fn Email() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Email)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -7391,7 +7391,7 @@ impl KnownContactField {
     #[cfg(feature = "deprecated")]
     pub fn PhoneNumber() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PhoneNumber)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -7399,7 +7399,7 @@ impl KnownContactField {
     #[cfg(feature = "deprecated")]
     pub fn Location() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Location)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -7407,7 +7407,7 @@ impl KnownContactField {
     #[cfg(feature = "deprecated")]
     pub fn InstantMessage() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstantMessage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -7415,7 +7415,7 @@ impl KnownContactField {
     #[cfg(feature = "deprecated")]
     pub fn ConvertNameToType(name: &::windows_core::HSTRING) -> ::windows_core::Result<ContactFieldType> {
         Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContactFieldType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConvertNameToType)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
@@ -7423,7 +7423,7 @@ impl KnownContactField {
     #[cfg(feature = "deprecated")]
     pub fn ConvertTypeToName(r#type: ContactFieldType) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConvertTypeToName)(::windows_core::Interface::as_raw(this), r#type, &mut result__).from_abi(result__)
         })
     }
@@ -7447,7 +7447,7 @@ impl PinnedContactIdsQueryResult {
     pub fn ContactIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ContactIds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -7492,21 +7492,21 @@ impl PinnedContactManager {
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::System::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsPinSurfaceSupported(&self, surface: PinnedContactSurface) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPinSurfaceSupported)(::windows_core::Interface::as_raw(this), surface, &mut result__).from_abi(result__)
         }
     }
     pub fn IsContactPinned(&self, contact: &Contact, surface: PinnedContactSurface) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsContactPinned)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), surface, &mut result__).from_abi(result__)
         }
     }
@@ -7515,7 +7515,7 @@ impl PinnedContactManager {
     pub fn RequestPinContactAsync(&self, contact: &Contact, surface: PinnedContactSurface) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPinContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), surface, &mut result__).from_abi(result__)
         }
     }
@@ -7527,7 +7527,7 @@ impl PinnedContactManager {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestPinContactsAsync)(::windows_core::Interface::as_raw(this), contacts.try_into_param()?.abi(), surface, &mut result__).from_abi(result__)
         }
     }
@@ -7536,7 +7536,7 @@ impl PinnedContactManager {
     pub fn RequestUnpinContactAsync(&self, contact: &Contact, surface: PinnedContactSurface) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestUnpinContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), surface, &mut result__).from_abi(result__)
         }
     }
@@ -7549,13 +7549,13 @@ impl PinnedContactManager {
     pub fn GetPinnedContactIdsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PinnedContactIdsQueryResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<PinnedContactIdsQueryResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetPinnedContactIdsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows_core::Result<PinnedContactManager> {
         Self::IPinnedContactManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PinnedContactManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -7563,13 +7563,13 @@ impl PinnedContactManager {
     #[cfg(feature = "System")]
     pub fn GetForUser(user: &super::super::System::User) -> ::windows_core::Result<PinnedContactManager> {
         Self::IPinnedContactManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PinnedContactManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
         })
     }
     pub fn IsSupported() -> ::windows_core::Result<bool> {
         Self::IPinnedContactManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }

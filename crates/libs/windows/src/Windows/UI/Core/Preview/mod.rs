@@ -120,7 +120,7 @@ impl CoreAppWindowPreview {
     #[cfg(feature = "UI_WindowManagement")]
     pub fn GetIdFromWindow(window: &super::super::WindowManagement::AppWindow) -> ::windows_core::Result<i32> {
         Self::ICoreAppWindowPreviewStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<i32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetIdFromWindow)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(window), &mut result__).from_abi(result__)
         })
     }
@@ -168,7 +168,7 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Handled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -181,7 +181,7 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -226,7 +226,7 @@ impl SystemNavigationManagerPreview {
     pub fn CloseRequested(&self, handler: &super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CloseRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -238,7 +238,7 @@ impl SystemNavigationManagerPreview {
     }
     pub fn GetForCurrentView() -> ::windows_core::Result<SystemNavigationManagerPreview> {
         Self::ISystemNavigationManagerPreviewStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SystemNavigationManagerPreview>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }

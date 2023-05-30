@@ -127,8 +127,3 @@ pub type AbiType<T> = <T as Type<T>>::Abi;
 pub unsafe fn from_abi<T: Type<T>>(abi: T::Abi) -> Result<T> {
     T::from_abi(abi)
 }
-
-#[doc(hidden)]
-pub fn zeroed<T: Type<T>>() -> T::Abi {
-    unsafe { std::mem::zeroed() }
-}

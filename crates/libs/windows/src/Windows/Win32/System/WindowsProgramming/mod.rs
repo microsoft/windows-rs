@@ -1135,7 +1135,7 @@ where
 #[inline]
 pub unsafe fn QueryAuxiliaryCounterFrequency() -> ::windows_core::Result<u64> {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-2.dll" "system" fn QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency : *mut u64) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<u64>();
+    let mut result__ = ::std::mem::zeroed();
     QueryAuxiliaryCounterFrequency(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1156,7 +1156,7 @@ pub unsafe fn QueryIdleProcessorCycleTimeEx(group: u16, bufferlength: *mut u32, 
 #[inline]
 pub unsafe fn QueryInterruptTime() -> u64 {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTime(lpinterrupttime : *mut u64) -> ());
-    let mut result__ = ::windows_core::zeroed::<u64>();
+    let mut result__ = ::std::mem::zeroed();
     QueryInterruptTime(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1164,7 +1164,7 @@ pub unsafe fn QueryInterruptTime() -> u64 {
 #[inline]
 pub unsafe fn QueryInterruptTimePrecise() -> u64 {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryInterruptTimePrecise(lpinterrupttimeprecise : *mut u64) -> ());
-    let mut result__ = ::windows_core::zeroed::<u64>();
+    let mut result__ = ::std::mem::zeroed();
     QueryInterruptTimePrecise(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1199,7 +1199,7 @@ pub unsafe fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64) -> super::super
 #[inline]
 pub unsafe fn QueryUnbiasedInterruptTimePrecise() -> u64 {
     ::windows_targets::link!("api-ms-win-core-realtime-l1-1-1.dll" "system" fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise : *mut u64) -> ());
-    let mut result__ = ::windows_core::zeroed::<u64>();
+    let mut result__ = ::std::mem::zeroed();
     QueryUnbiasedInterruptTimePrecise(&mut result__);
     ::std::mem::transmute(result__)
 }
@@ -1875,7 +1875,7 @@ pub unsafe fn WldpIsClassInApprovedList(classid: *const ::windows_core::GUID, ho
 #[inline]
 pub unsafe fn WldpIsDynamicCodePolicyEnabled() -> ::windows_core::Result<super::super::Foundation::BOOL> {
     ::windows_targets::link!("wldp.dll" "system" fn WldpIsDynamicCodePolicyEnabled(isenabled : *mut super::super::Foundation:: BOOL) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+    let mut result__ = ::std::mem::zeroed();
     WldpIsDynamicCodePolicyEnabled(&mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -2154,14 +2154,14 @@ impl ICameraUIControl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Suspend(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).Suspend)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn Resume(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Resume)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetCurrentViewType(&self) -> ::windows_core::Result<CameraUIControlViewType> {
-        let mut result__ = ::windows_core::zeroed::<CameraUIControlViewType>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCurrentViewType)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn GetActiveItem(&self, pbstractiveitempath: ::core::option::Option<*mut ::windows_core::BSTR>) -> ::windows_core::Result<()> {
@@ -2170,7 +2170,7 @@ impl ICameraUIControl {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelectedItems(&self) -> ::windows_core::Result<*mut super::Com::SAFEARRAY> {
-        let mut result__ = ::windows_core::zeroed::<*mut super::Com::SAFEARRAY>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSelectedItems)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn RemoveCapturedItem<P0>(&self, pszpath: P0) -> ::windows_core::Result<()>
@@ -2335,7 +2335,7 @@ impl IContainerActivationHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanActivateClientVM(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::VARIANT_BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanActivateClientVM)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2517,7 +2517,7 @@ impl IEditionUpgradeHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanUpgrade(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CanUpgrade)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     pub unsafe fn UpdateOperatingSystem<P0>(&self, contentid: P0) -> ::windows_core::Result<()>
@@ -2530,13 +2530,13 @@ impl IEditionUpgradeHelper {
         (::windows_core::Interface::vtable(self).ShowProductKeyUI)(::windows_core::Interface::as_raw(self)).ok()
     }
     pub unsafe fn GetOsProductContentId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
-        let mut result__ = ::windows_core::zeroed::<::windows_core::PWSTR>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetOsProductContentId)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGenuineLocalStatus(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetGenuineLocalStatus)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -2627,7 +2627,7 @@ impl IWindowsLockModeHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSMode(&self) -> ::windows_core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::windows_core::zeroed::<super::super::Foundation::BOOL>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetSMode)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

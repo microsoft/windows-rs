@@ -125,14 +125,14 @@ impl HdmiDisplayInformation {
     pub fn GetSupportedDisplayModes(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSupportedDisplayModes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetCurrentDisplayMode(&self) -> ::windows_core::Result<HdmiDisplayMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<HdmiDisplayMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCurrentDisplayMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -141,7 +141,7 @@ impl HdmiDisplayInformation {
     pub fn SetDefaultDisplayModeAsync(&self) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetDefaultDisplayModeAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -150,7 +150,7 @@ impl HdmiDisplayInformation {
     pub fn RequestSetCurrentDisplayModeAsync(&self, mode: &HdmiDisplayMode) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(mode), &mut result__).from_abi(result__)
         }
     }
@@ -159,7 +159,7 @@ impl HdmiDisplayInformation {
     pub fn RequestSetCurrentDisplayModeWithHdrAsync(&self, mode: &HdmiDisplayMode, hdroption: HdmiDisplayHdrOption) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(mode), hdroption, &mut result__).from_abi(result__)
         }
     }
@@ -168,7 +168,7 @@ impl HdmiDisplayInformation {
     pub fn RequestSetCurrentDisplayModeWithHdrAndMetadataAsync(&self, mode: &HdmiDisplayMode, hdroption: HdmiDisplayHdrOption, hdrmetadata: HdmiDisplayHdr2086Metadata) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestSetCurrentDisplayModeWithHdrAndMetadataAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(mode), hdroption, hdrmetadata, &mut result__).from_abi(result__)
         }
     }
@@ -177,7 +177,7 @@ impl HdmiDisplayInformation {
     pub fn DisplayModesChanged(&self, value: &super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayModesChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
@@ -189,7 +189,7 @@ impl HdmiDisplayInformation {
     }
     pub fn GetForCurrentView() -> ::windows_core::Result<HdmiDisplayInformation> {
         Self::IHdmiDisplayInformationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<HdmiDisplayInformation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -237,84 +237,84 @@ impl HdmiDisplayMode {
     pub fn ResolutionWidthInRawPixels(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolutionWidthInRawPixels)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ResolutionHeightInRawPixels(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ResolutionHeightInRawPixels)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RefreshRate(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RefreshRate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn StereoEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StereoEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn BitsPerPixel(&self) -> ::windows_core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BitsPerPixel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsEqual(&self, mode: &HdmiDisplayMode) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEqual)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(mode), &mut result__).from_abi(result__)
         }
     }
     pub fn ColorSpace(&self) -> ::windows_core::Result<HdmiDisplayColorSpace> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<HdmiDisplayColorSpace>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ColorSpace)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn PixelEncoding(&self) -> ::windows_core::Result<HdmiDisplayPixelEncoding> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<HdmiDisplayPixelEncoding>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PixelEncoding)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSdrLuminanceSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSdrLuminanceSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsSmpte2084Supported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSmpte2084Supported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Is2086MetadataSupported(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Is2086MetadataSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsDolbyVisionLowLatencySupported(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IHdmiDisplayMode2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsDolbyVisionLowLatencySupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

@@ -88,7 +88,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("prntvpt.dll" "system" fn PTOpenProvider(pszprintername : ::windows_core::PCWSTR, dwversion : u32, phprovider : *mut super::super::super::Storage::Xps:: HPTPROVIDER) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::super::Storage::Xps::HPTPROVIDER>();
+    let mut result__ = ::std::mem::zeroed();
     PTOpenProvider(pszprintername.into_param().abi(), dwversion, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
@@ -108,7 +108,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("prntvpt.dll" "system" fn PTQuerySchemaVersionSupport(pszprintername : ::windows_core::PCWSTR, pmaxversion : *mut u32) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<u32>();
+    let mut result__ = ::std::mem::zeroed();
     PTQuerySchemaVersionSupport(pszprintername.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]

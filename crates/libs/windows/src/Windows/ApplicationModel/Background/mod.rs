@@ -533,21 +533,21 @@ impl IBackgroundTaskInstance {
     pub fn InstanceId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Task(&self) -> ::windows_core::Result<BackgroundTaskRegistration> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskRegistration>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Task)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Progress(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -558,7 +558,7 @@ impl IBackgroundTaskInstance {
     pub fn TriggerDetails(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TriggerDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -567,7 +567,7 @@ impl IBackgroundTaskInstance {
     pub fn Canceled(&self, cancelhandler: &BackgroundTaskCanceledEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Canceled)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(cancelhandler), &mut result__).from_abi(result__)
         }
     }
@@ -580,14 +580,14 @@ impl IBackgroundTaskInstance {
     pub fn SuspendedCount(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SuspendedCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeferral(&self) -> ::windows_core::Result<BackgroundTaskDeferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskDeferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -645,28 +645,28 @@ impl IBackgroundTaskInstance2 {
     pub fn GetThrottleCount(&self, counter: BackgroundTaskThrottleCounter) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetThrottleCount)(::windows_core::Interface::as_raw(this), counter, &mut result__).from_abi(result__)
         }
     }
     pub fn InstanceId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Task(&self) -> ::windows_core::Result<BackgroundTaskRegistration> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskRegistration>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Task)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Progress(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -677,7 +677,7 @@ impl IBackgroundTaskInstance2 {
     pub fn TriggerDetails(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TriggerDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -686,7 +686,7 @@ impl IBackgroundTaskInstance2 {
     pub fn Canceled(&self, cancelhandler: &BackgroundTaskCanceledEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Canceled)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(cancelhandler), &mut result__).from_abi(result__)
         }
     }
@@ -699,14 +699,14 @@ impl IBackgroundTaskInstance2 {
     pub fn SuspendedCount(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SuspendedCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeferral(&self) -> ::windows_core::Result<BackgroundTaskDeferral> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskDeferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -753,28 +753,28 @@ impl IBackgroundTaskInstance4 {
     pub fn User(&self) -> ::windows_core::Result<super::super::System::User> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::System::User>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn InstanceId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Task(&self) -> ::windows_core::Result<BackgroundTaskRegistration> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskRegistration>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Task)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Progress(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -785,7 +785,7 @@ impl IBackgroundTaskInstance4 {
     pub fn TriggerDetails(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TriggerDetails)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -794,7 +794,7 @@ impl IBackgroundTaskInstance4 {
     pub fn Canceled(&self, cancelhandler: &BackgroundTaskCanceledEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Canceled)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(cancelhandler), &mut result__).from_abi(result__)
         }
     }
@@ -807,14 +807,14 @@ impl IBackgroundTaskInstance4 {
     pub fn SuspendedCount(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SuspendedCount)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeferral(&self) -> ::windows_core::Result<BackgroundTaskDeferral> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskInstance>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskDeferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -883,14 +883,14 @@ impl IBackgroundTaskRegistration {
     pub fn TaskId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TaskId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -899,7 +899,7 @@ impl IBackgroundTaskRegistration {
     pub fn Progress(&self, handler: &BackgroundTaskProgressEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -914,7 +914,7 @@ impl IBackgroundTaskRegistration {
     pub fn Completed(&self, handler: &BackgroundTaskCompletedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -986,21 +986,21 @@ impl IBackgroundTaskRegistration2 {
     pub fn Trigger(&self) -> ::windows_core::Result<IBackgroundTrigger> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IBackgroundTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Trigger)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TaskId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TaskId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1009,7 +1009,7 @@ impl IBackgroundTaskRegistration2 {
     pub fn Progress(&self, handler: &BackgroundTaskProgressEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1024,7 +1024,7 @@ impl IBackgroundTaskRegistration2 {
     pub fn Completed(&self, handler: &BackgroundTaskCompletedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1079,21 +1079,21 @@ impl IBackgroundTaskRegistration3 {
     pub fn TaskGroup(&self) -> ::windows_core::Result<BackgroundTaskRegistrationGroup> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskRegistrationGroup>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TaskGroup)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TaskId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TaskId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1102,7 +1102,7 @@ impl IBackgroundTaskRegistration3 {
     pub fn Progress(&self, handler: &BackgroundTaskProgressEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1117,7 +1117,7 @@ impl IBackgroundTaskRegistration3 {
     pub fn Completed(&self, handler: &BackgroundTaskCompletedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -2771,14 +2771,14 @@ impl ActivitySensorTrigger {
     pub fn SubscribedActivities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<super::super::Devices::Sensors::ActivityType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<super::super::Devices::Sensors::ActivityType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SubscribedActivities)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ReportInterval(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ReportInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2787,20 +2787,20 @@ impl ActivitySensorTrigger {
     pub fn SupportedActivities(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<super::super::Devices::Sensors::ActivityType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<super::super::Devices::Sensors::ActivityType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedActivities)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MinimumReportInterval(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinimumReportInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(reportintervalinmilliseconds: u32) -> ::windows_core::Result<ActivitySensorTrigger> {
         Self::IActivitySensorTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivitySensorTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), reportintervalinmilliseconds, &mut result__).from_abi(result__)
         })
     }
@@ -2849,13 +2849,13 @@ impl AlarmApplicationManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AlarmAccessStatus>> {
         Self::IAlarmApplicationManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<AlarmAccessStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetAccessStatus() -> ::windows_core::Result<AlarmAccessStatus> {
         Self::IAlarmApplicationManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AlarmAccessStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAccessStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -2879,13 +2879,13 @@ impl AppBroadcastTrigger {
     pub fn ProviderInfo(&self) -> ::windows_core::Result<AppBroadcastTriggerProviderInfo> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<AppBroadcastTriggerProviderInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProviderInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateAppBroadcastTrigger(providerkey: &::windows_core::HSTRING) -> ::windows_core::Result<AppBroadcastTrigger> {
         Self::IAppBroadcastTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<AppBroadcastTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAppBroadcastTrigger)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(providerkey), &mut result__).from_abi(result__)
         })
     }
@@ -2938,7 +2938,7 @@ impl AppBroadcastTriggerProviderInfo {
     pub fn DisplayNameResource(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayNameResource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2949,7 +2949,7 @@ impl AppBroadcastTriggerProviderInfo {
     pub fn LogoResource(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LogoResource)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2964,7 +2964,7 @@ impl AppBroadcastTriggerProviderInfo {
     pub fn VideoKeyFrameInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).VideoKeyFrameInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2975,7 +2975,7 @@ impl AppBroadcastTriggerProviderInfo {
     pub fn MaxVideoBitrate(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxVideoBitrate)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2986,7 +2986,7 @@ impl AppBroadcastTriggerProviderInfo {
     pub fn MaxVideoWidth(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxVideoWidth)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2997,7 +2997,7 @@ impl AppBroadcastTriggerProviderInfo {
     pub fn MaxVideoHeight(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxVideoHeight)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3049,7 +3049,7 @@ impl ApplicationTrigger {
     pub fn RequestAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3058,7 +3058,7 @@ impl ApplicationTrigger {
     pub fn RequestAsyncWithArguments(&self, arguments: &super::super::Foundation::Collections::ValueSet) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ApplicationTriggerResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAsyncWithArguments)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(arguments), &mut result__).from_abi(result__)
         }
     }
@@ -3104,7 +3104,7 @@ impl ApplicationTriggerDetails {
     pub fn Arguments(&self) -> ::windows_core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::ValueSet>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Arguments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3191,7 +3191,7 @@ impl BackgroundExecutionManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>> {
         Self::IBackgroundExecutionManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAccessAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -3199,7 +3199,7 @@ impl BackgroundExecutionManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessForApplicationAsync(applicationid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>> {
         Self::IBackgroundExecutionManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<BackgroundAccessStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAccessForApplicationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), &mut result__).from_abi(result__)
         })
     }
@@ -3211,13 +3211,13 @@ impl BackgroundExecutionManager {
     }
     pub fn GetAccessStatus() -> ::windows_core::Result<BackgroundAccessStatus> {
         Self::IBackgroundExecutionManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundAccessStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAccessStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetAccessStatusForApplication(applicationid: &::windows_core::HSTRING) -> ::windows_core::Result<BackgroundAccessStatus> {
         Self::IBackgroundExecutionManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundAccessStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAccessStatusForApplication)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), &mut result__).from_abi(result__)
         })
     }
@@ -3225,7 +3225,7 @@ impl BackgroundExecutionManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessKindAsync(requestedaccess: BackgroundAccessRequestKind, reason: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IBackgroundExecutionManagerStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAccessKindAsync)(::windows_core::Interface::as_raw(this), requestedaccess, ::core::mem::transmute_copy(reason), &mut result__).from_abi(result__)
         })
     }
@@ -3233,19 +3233,19 @@ impl BackgroundExecutionManager {
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessKindForModernStandbyAsync(requestedaccess: BackgroundAccessRequestKind, reason: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IBackgroundExecutionManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAccessKindForModernStandbyAsync)(::windows_core::Interface::as_raw(this), requestedaccess, ::core::mem::transmute_copy(reason), &mut result__).from_abi(result__)
         })
     }
     pub fn GetAccessStatusForModernStandby() -> ::windows_core::Result<BackgroundAccessStatus> {
         Self::IBackgroundExecutionManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundAccessStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAccessStatusForModernStandby)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetAccessStatusForModernStandbyForApplication(applicationid: &::windows_core::HSTRING) -> ::windows_core::Result<BackgroundAccessStatus> {
         Self::IBackgroundExecutionManagerStatics3(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundAccessStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAccessStatusForModernStandbyForApplication)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), &mut result__).from_abi(result__)
         })
     }
@@ -3286,7 +3286,7 @@ impl BackgroundTaskBuilder {
     pub fn TaskEntryPoint(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TaskEntryPoint)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3311,14 +3311,14 @@ impl BackgroundTaskBuilder {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Register(&self) -> ::windows_core::Result<BackgroundTaskRegistration> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskRegistration>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Register)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3329,7 +3329,7 @@ impl BackgroundTaskBuilder {
     pub fn CancelOnConditionLoss(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskBuilder2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CancelOnConditionLoss)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3340,14 +3340,14 @@ impl BackgroundTaskBuilder {
     pub fn IsNetworkRequested(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskBuilder3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsNetworkRequested)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TaskGroup(&self) -> ::windows_core::Result<BackgroundTaskRegistrationGroup> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskBuilder4>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskRegistrationGroup>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TaskGroup)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3396,7 +3396,7 @@ impl BackgroundTaskCompletedEventArgs {
     pub fn InstanceId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3483,14 +3483,14 @@ impl BackgroundTaskProgressEventArgs {
     pub fn InstanceId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InstanceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Progress(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3533,14 +3533,14 @@ impl BackgroundTaskRegistration {
     pub fn TaskId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TaskId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3549,7 +3549,7 @@ impl BackgroundTaskRegistration {
     pub fn Progress(&self, handler: &BackgroundTaskProgressEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Progress)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -3564,7 +3564,7 @@ impl BackgroundTaskRegistration {
     pub fn Completed(&self, handler: &BackgroundTaskCompletedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -3581,14 +3581,14 @@ impl BackgroundTaskRegistration {
     pub fn Trigger(&self) -> ::windows_core::Result<IBackgroundTrigger> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IBackgroundTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Trigger)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TaskGroup(&self) -> ::windows_core::Result<BackgroundTaskRegistrationGroup> {
         let this = &::windows_core::ComInterface::cast::<IBackgroundTaskRegistration3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskRegistrationGroup>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TaskGroup)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3596,7 +3596,7 @@ impl BackgroundTaskRegistration {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllTasks() -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::GUID, IBackgroundTaskRegistration>> {
         Self::IBackgroundTaskRegistrationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IMapView<::windows_core::GUID, IBackgroundTaskRegistration>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllTasks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -3604,13 +3604,13 @@ impl BackgroundTaskRegistration {
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllTaskGroups() -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, BackgroundTaskRegistrationGroup>> {
         Self::IBackgroundTaskRegistrationStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, BackgroundTaskRegistrationGroup>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllTaskGroups)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetTaskGroup(groupid: &::windows_core::HSTRING) -> ::windows_core::Result<BackgroundTaskRegistrationGroup> {
         Self::IBackgroundTaskRegistrationStatics2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskRegistrationGroup>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetTaskGroup)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(groupid), &mut result__).from_abi(result__)
         })
     }
@@ -3666,14 +3666,14 @@ impl BackgroundTaskRegistrationGroup {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3682,7 +3682,7 @@ impl BackgroundTaskRegistrationGroup {
     pub fn BackgroundActivated(&self, handler: &super::super::Foundation::TypedEventHandler<BackgroundTaskRegistrationGroup, super::Activation::BackgroundActivatedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BackgroundActivated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -3697,19 +3697,19 @@ impl BackgroundTaskRegistrationGroup {
     pub fn AllTasks(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IMapView<::windows_core::GUID, BackgroundTaskRegistration>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IMapView<::windows_core::GUID, BackgroundTaskRegistration>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllTasks)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(id: &::windows_core::HSTRING) -> ::windows_core::Result<BackgroundTaskRegistrationGroup> {
         Self::IBackgroundTaskRegistrationGroupFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskRegistrationGroup>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateWithName(id: &::windows_core::HSTRING, name: &::windows_core::HSTRING) -> ::windows_core::Result<BackgroundTaskRegistrationGroup> {
         Self::IBackgroundTaskRegistrationGroupFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundTaskRegistrationGroup>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithName)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
@@ -3755,7 +3755,7 @@ pub struct BackgroundWorkCost;
 impl BackgroundWorkCost {
     pub fn CurrentBackgroundWorkCost() -> ::windows_core::Result<BackgroundWorkCostValue> {
         Self::IBackgroundWorkCostStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<BackgroundWorkCostValue>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CurrentBackgroundWorkCost)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -3784,7 +3784,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     pub fn Advertisement(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisement>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Advertisement)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3793,7 +3793,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     pub fn PreferredTransmitPowerLevelInDBm(&self) -> ::windows_core::Result<super::super::Foundation::IReference<i16>> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IReference<i16>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreferredTransmitPowerLevelInDBm)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3809,7 +3809,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     pub fn UseExtendedFormat(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UseExtendedFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3820,7 +3820,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     pub fn IsAnonymous(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsAnonymous)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3831,7 +3831,7 @@ impl BluetoothLEAdvertisementPublisherTrigger {
     pub fn IncludeTransmitPowerLevel(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IncludeTransmitPowerLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3888,7 +3888,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn MinSamplingInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinSamplingInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3897,7 +3897,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn MaxSamplingInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxSamplingInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3906,7 +3906,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn MinOutOfRangeTimeout(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MinOutOfRangeTimeout)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3915,7 +3915,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn MaxOutOfRangeTimeout(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaxOutOfRangeTimeout)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3924,7 +3924,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn SignalStrengthFilter(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Bluetooth::BluetoothSignalStrengthFilter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignalStrengthFilter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3939,7 +3939,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn AdvertisementFilter(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementFilter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AdvertisementFilter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -3952,7 +3952,7 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn AllowExtendedAdvertisements(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IBluetoothLEAdvertisementWatcherTrigger2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowExtendedAdvertisements)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4046,7 +4046,7 @@ impl CachedFileUpdaterTriggerDetails {
     pub fn UpdateTarget(&self) -> ::windows_core::Result<super::super::Storage::Provider::CachedFileTarget> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Provider::CachedFileTarget>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UpdateTarget)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4055,14 +4055,14 @@ impl CachedFileUpdaterTriggerDetails {
     pub fn UpdateRequest(&self) -> ::windows_core::Result<super::super::Storage::Provider::FileUpdateRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Provider::FileUpdateRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UpdateRequest)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanRequestUserInput(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanRequestUserInput)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4290,7 +4290,7 @@ impl ContentPrefetchTrigger {
     pub fn WaitInterval(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WaitInterval)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4298,7 +4298,7 @@ impl ContentPrefetchTrigger {
     #[cfg(feature = "Foundation")]
     pub fn Create(waitinterval: super::super::Foundation::TimeSpan) -> ::windows_core::Result<ContentPrefetchTrigger> {
         Self::IContentPrefetchTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ContentPrefetchTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), waitinterval, &mut result__).from_abi(result__)
         })
     }
@@ -4387,20 +4387,20 @@ impl CustomSystemEventTrigger {
     pub fn TriggerId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TriggerId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Recurrence(&self) -> ::windows_core::Result<CustomSystemEventTriggerRecurrence> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CustomSystemEventTriggerRecurrence>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Recurrence)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(triggerid: &::windows_core::HSTRING, recurrence: CustomSystemEventTriggerRecurrence) -> ::windows_core::Result<CustomSystemEventTrigger> {
         Self::ICustomSystemEventTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CustomSystemEventTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(triggerid), recurrence, &mut result__).from_abi(result__)
         })
     }
@@ -4447,21 +4447,21 @@ impl DeviceConnectionChangeTrigger {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanMaintainConnection(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanMaintainConnection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn MaintainConnection(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MaintainConnection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4473,7 +4473,7 @@ impl DeviceConnectionChangeTrigger {
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>> {
         Self::IDeviceConnectionChangeTriggerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<DeviceConnectionChangeTrigger>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
@@ -4526,7 +4526,7 @@ impl DeviceManufacturerNotificationTrigger {
     pub fn TriggerQualifier(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TriggerQualifier)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4535,7 +4535,7 @@ impl DeviceManufacturerNotificationTrigger {
     pub fn OneShot(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OneShot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4543,7 +4543,7 @@ impl DeviceManufacturerNotificationTrigger {
     #[cfg(feature = "deprecated")]
     pub fn Create(triggerqualifier: &::windows_core::HSTRING, oneshot: bool) -> ::windows_core::Result<DeviceManufacturerNotificationTrigger> {
         Self::IDeviceManufacturerNotificationTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<DeviceManufacturerNotificationTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(triggerqualifier), oneshot, &mut result__).from_abi(result__)
         })
     }
@@ -4610,7 +4610,7 @@ impl DeviceServicingTrigger {
     pub fn RequestAsyncSimple(&self, deviceid: &::windows_core::HSTRING, expectedduration: super::super::Foundation::TimeSpan) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAsyncSimple)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), expectedduration, &mut result__).from_abi(result__)
         }
     }
@@ -4619,7 +4619,7 @@ impl DeviceServicingTrigger {
     pub fn RequestAsyncWithArguments(&self, deviceid: &::windows_core::HSTRING, expectedduration: super::super::Foundation::TimeSpan, arguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAsyncWithArguments)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), expectedduration, ::core::mem::transmute_copy(arguments), &mut result__).from_abi(result__)
         }
     }
@@ -4672,7 +4672,7 @@ impl DeviceUseTrigger {
     pub fn RequestAsyncSimple(&self, deviceid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAsyncSimple)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         }
     }
@@ -4681,7 +4681,7 @@ impl DeviceUseTrigger {
     pub fn RequestAsyncWithArguments(&self, deviceid: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<DeviceTriggerResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAsyncWithArguments)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), ::core::mem::transmute_copy(arguments), &mut result__).from_abi(result__)
         }
     }
@@ -4805,7 +4805,7 @@ impl GattCharacteristicNotificationTrigger {
     pub fn Characteristic(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Characteristic)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4814,7 +4814,7 @@ impl GattCharacteristicNotificationTrigger {
     pub fn EventTriggeringMode(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode> {
         let this = &::windows_core::ComInterface::cast::<IGattCharacteristicNotificationTrigger2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EventTriggeringMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4822,7 +4822,7 @@ impl GattCharacteristicNotificationTrigger {
     #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
     pub fn Create(characteristic: &super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic) -> ::windows_core::Result<GattCharacteristicNotificationTrigger> {
         Self::IGattCharacteristicNotificationTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<GattCharacteristicNotificationTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(characteristic), &mut result__).from_abi(result__)
         })
     }
@@ -4830,7 +4830,7 @@ impl GattCharacteristicNotificationTrigger {
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     pub fn CreateWithEventTriggeringMode(characteristic: &super::super::Devices::Bluetooth::GenericAttributeProfile::GattCharacteristic, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode) -> ::windows_core::Result<GattCharacteristicNotificationTrigger> {
         Self::IGattCharacteristicNotificationTriggerFactory2(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<GattCharacteristicNotificationTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithEventTriggeringMode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(characteristic), eventtriggeringmode, &mut result__).from_abi(result__)
         })
     }
@@ -4884,7 +4884,7 @@ impl GattServiceProviderTrigger {
     pub fn TriggerId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TriggerId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4893,7 +4893,7 @@ impl GattServiceProviderTrigger {
     pub fn Service(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattLocalService> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Bluetooth::GenericAttributeProfile::GattLocalService>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Service)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4908,7 +4908,7 @@ impl GattServiceProviderTrigger {
     pub fn AdvertisingParameters(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Bluetooth::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AdvertisingParameters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4916,7 +4916,7 @@ impl GattServiceProviderTrigger {
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync(triggerid: &::windows_core::HSTRING, serviceuuid: ::windows_core::GUID) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>> {
         Self::IGattServiceProviderTriggerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<GattServiceProviderTriggerResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(triggerid), serviceuuid, &mut result__).from_abi(result__)
         })
     }
@@ -4965,7 +4965,7 @@ impl GattServiceProviderTriggerResult {
     pub fn Trigger(&self) -> ::windows_core::Result<GattServiceProviderTrigger> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<GattServiceProviderTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Trigger)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -4974,7 +4974,7 @@ impl GattServiceProviderTriggerResult {
     pub fn Error(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::BluetoothError> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Bluetooth::BluetoothError>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Error)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5026,7 +5026,7 @@ impl GeovisitTrigger {
     pub fn MonitoringScope(&self) -> ::windows_core::Result<super::super::Devices::Geolocation::VisitMonitoringScope> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Geolocation::VisitMonitoringScope>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MonitoringScope)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5076,13 +5076,13 @@ impl LocationTrigger {
     pub fn TriggerType(&self) -> ::windows_core::Result<LocationTriggerType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<LocationTriggerType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TriggerType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(triggertype: LocationTriggerType) -> ::windows_core::Result<LocationTrigger> {
         Self::ILocationTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<LocationTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), triggertype, &mut result__).from_abi(result__)
         })
     }
@@ -5131,20 +5131,20 @@ impl MaintenanceTrigger {
     pub fn FreshnessTime(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FreshnessTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OneShot(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OneShot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(freshnesstime: u32, oneshot: bool) -> ::windows_core::Result<MaintenanceTrigger> {
         Self::IMaintenanceTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<MaintenanceTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), freshnesstime, oneshot, &mut result__).from_abi(result__)
         })
     }
@@ -5200,7 +5200,7 @@ impl MediaProcessingTrigger {
     pub fn RequestAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5209,7 +5209,7 @@ impl MediaProcessingTrigger {
     pub fn RequestAsyncWithArguments(&self, arguments: &super::super::Foundation::Collections::ValueSet) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<MediaProcessingTriggerResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAsyncWithArguments)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(arguments), &mut result__).from_abi(result__)
         }
     }
@@ -5557,13 +5557,13 @@ impl NetworkOperatorNotificationTrigger {
     pub fn NetworkAccountId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NetworkAccountId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(networkaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<NetworkOperatorNotificationTrigger> {
         Self::INetworkOperatorNotificationTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<NetworkOperatorNotificationTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(networkaccountid), &mut result__).from_abi(result__)
         })
     }
@@ -5654,7 +5654,7 @@ impl PhoneTrigger {
     pub fn OneShot(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OneShot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5663,7 +5663,7 @@ impl PhoneTrigger {
     pub fn TriggerType(&self) -> ::windows_core::Result<super::Calls::Background::PhoneTriggerType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::Calls::Background::PhoneTriggerType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TriggerType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5671,7 +5671,7 @@ impl PhoneTrigger {
     #[cfg(feature = "ApplicationModel_Calls_Background")]
     pub fn Create(r#type: super::Calls::Background::PhoneTriggerType, oneshot: bool) -> ::windows_core::Result<PhoneTrigger> {
         Self::IPhoneTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PhoneTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), r#type, oneshot, &mut result__).from_abi(result__)
         })
     }
@@ -5726,7 +5726,7 @@ impl PushNotificationTrigger {
     }
     pub fn Create(applicationid: &::windows_core::HSTRING) -> ::windows_core::Result<PushNotificationTrigger> {
         Self::IPushNotificationTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<PushNotificationTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), &mut result__).from_abi(result__)
         })
     }
@@ -5828,7 +5828,7 @@ impl RfcommConnectionTrigger {
     pub fn InboundConnection(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Background::RfcommInboundConnectionInformation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Bluetooth::Background::RfcommInboundConnectionInformation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InboundConnection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5837,14 +5837,14 @@ impl RfcommConnectionTrigger {
     pub fn OutboundConnection(&self) -> ::windows_core::Result<super::super::Devices::Bluetooth::Background::RfcommOutboundConnectionInformation> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Bluetooth::Background::RfcommOutboundConnectionInformation>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OutboundConnection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn AllowMultipleConnections(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowMultipleConnections)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5857,7 +5857,7 @@ impl RfcommConnectionTrigger {
     pub fn ProtectionLevel(&self) -> ::windows_core::Result<super::super::Networking::Sockets::SocketProtectionLevel> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Networking::Sockets::SocketProtectionLevel>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProtectionLevel)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5872,7 +5872,7 @@ impl RfcommConnectionTrigger {
     pub fn RemoteHostName(&self) -> ::windows_core::Result<super::super::Networking::HostName> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Networking::HostName>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoteHostName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -5980,7 +5980,7 @@ impl SensorDataThresholdTrigger {
         P0: ::windows_core::TryIntoParam<super::super::Devices::Sensors::ISensorDataThreshold>,
     {
         Self::ISensorDataThresholdTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SensorDataThresholdTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), threshold.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -6031,7 +6031,7 @@ impl SmartCardTrigger {
     pub fn TriggerType(&self) -> ::windows_core::Result<super::super::Devices::SmartCards::SmartCardTriggerType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::SmartCards::SmartCardTriggerType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TriggerType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6039,7 +6039,7 @@ impl SmartCardTrigger {
     #[cfg(feature = "Devices_SmartCards")]
     pub fn Create(triggertype: super::super::Devices::SmartCards::SmartCardTriggerType) -> ::windows_core::Result<SmartCardTrigger> {
         Self::ISmartCardTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SmartCardTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), triggertype, &mut result__).from_abi(result__)
         })
     }
@@ -6087,7 +6087,7 @@ impl SmsMessageReceivedTrigger {
     #[cfg(feature = "Devices_Sms")]
     pub fn Create(filterrules: &super::super::Devices::Sms::SmsFilterRules) -> ::windows_core::Result<SmsMessageReceivedTrigger> {
         Self::ISmsMessageReceivedTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SmsMessageReceivedTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filterrules), &mut result__).from_abi(result__)
         })
     }
@@ -6143,7 +6143,7 @@ impl SocketActivityTrigger {
     pub fn IsWakeFromLowPowerSupported(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<ISocketActivityTrigger>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsWakeFromLowPowerSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -6188,7 +6188,7 @@ impl StorageLibraryChangeTrackerTrigger {
     #[cfg(feature = "Storage")]
     pub fn Create(tracker: &super::super::Storage::StorageLibraryChangeTracker) -> ::windows_core::Result<StorageLibraryChangeTrackerTrigger> {
         Self::IStorageLibraryChangeTrackerTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<StorageLibraryChangeTrackerTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tracker), &mut result__).from_abi(result__)
         })
     }
@@ -6238,7 +6238,7 @@ impl StorageLibraryContentChangedTrigger {
     #[cfg(feature = "Storage")]
     pub fn Create(storagelibrary: &super::super::Storage::StorageLibrary) -> ::windows_core::Result<StorageLibraryContentChangedTrigger> {
         Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<StorageLibraryContentChangedTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(storagelibrary), &mut result__).from_abi(result__)
         })
     }
@@ -6249,7 +6249,7 @@ impl StorageLibraryContentChangedTrigger {
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<super::super::Storage::StorageLibrary>>,
     {
         Self::IStorageLibraryContentChangedTriggerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<StorageLibraryContentChangedTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateFromLibraries)(::windows_core::Interface::as_raw(this), storagelibraries.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -6296,13 +6296,13 @@ impl SystemCondition {
     pub fn ConditionType(&self) -> ::windows_core::Result<SystemConditionType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SystemConditionType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ConditionType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(conditiontype: SystemConditionType) -> ::windows_core::Result<SystemCondition> {
         Self::ISystemConditionFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SystemCondition>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), conditiontype, &mut result__).from_abi(result__)
         })
     }
@@ -6349,20 +6349,20 @@ impl SystemTrigger {
     pub fn OneShot(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OneShot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TriggerType(&self) -> ::windows_core::Result<SystemTriggerType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<SystemTriggerType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TriggerType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(triggertype: SystemTriggerType, oneshot: bool) -> ::windows_core::Result<SystemTrigger> {
         Self::ISystemTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<SystemTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), triggertype, oneshot, &mut result__).from_abi(result__)
         })
     }
@@ -6453,20 +6453,20 @@ impl TimeTrigger {
     pub fn FreshnessTime(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FreshnessTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn OneShot(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).OneShot)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Create(freshnesstime: u32, oneshot: bool) -> ::windows_core::Result<TimeTrigger> {
         Self::ITimeTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<TimeTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), freshnesstime, oneshot, &mut result__).from_abi(result__)
         })
     }
@@ -6519,7 +6519,7 @@ impl ToastNotificationActionTrigger {
     }
     pub fn Create(applicationid: &::windows_core::HSTRING) -> ::windows_core::Result<ToastNotificationActionTrigger> {
         Self::IToastNotificationActionTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ToastNotificationActionTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), &mut result__).from_abi(result__)
         })
     }
@@ -6574,7 +6574,7 @@ impl ToastNotificationHistoryChangedTrigger {
     }
     pub fn Create(applicationid: &::windows_core::HSTRING) -> ::windows_core::Result<ToastNotificationHistoryChangedTrigger> {
         Self::IToastNotificationHistoryChangedTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ToastNotificationHistoryChangedTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), &mut result__).from_abi(result__)
         })
     }
@@ -6624,7 +6624,7 @@ impl UserNotificationChangedTrigger {
     #[cfg(feature = "UI_Notifications")]
     pub fn Create(notificationkinds: super::super::UI::Notifications::NotificationKinds) -> ::windows_core::Result<UserNotificationChangedTrigger> {
         Self::IUserNotificationChangedTriggerFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<UserNotificationChangedTrigger>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), notificationkinds, &mut result__).from_abi(result__)
         })
     }

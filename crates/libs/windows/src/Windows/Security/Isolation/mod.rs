@@ -731,7 +731,7 @@ impl IsolatedWindowsEnvironment {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -740,7 +740,7 @@ impl IsolatedWindowsEnvironment {
     pub fn StartProcessSilentlyAsync(&self, hostexepath: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartProcessSilentlyAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, &mut result__).from_abi(result__)
         }
     }
@@ -749,7 +749,7 @@ impl IsolatedWindowsEnvironment {
     pub fn StartProcessSilentlyWithTelemetryAsync(&self, hostexepath: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
@@ -758,7 +758,7 @@ impl IsolatedWindowsEnvironment {
     pub fn ShareFolderAsync(&self, hostfolder: &::windows_core::HSTRING, requestoptions: &IsolatedWindowsEnvironmentShareFolderRequestOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShareFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostfolder), ::core::mem::transmute_copy(requestoptions), &mut result__).from_abi(result__)
         }
     }
@@ -767,7 +767,7 @@ impl IsolatedWindowsEnvironment {
     pub fn ShareFolderWithTelemetryAsync(&self, hostfolder: &::windows_core::HSTRING, requestoptions: &IsolatedWindowsEnvironmentShareFolderRequestOptions, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostfolder), ::core::mem::transmute_copy(requestoptions), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
@@ -776,7 +776,7 @@ impl IsolatedWindowsEnvironment {
     pub fn LaunchFileWithUIAsync(&self, appexepath: &::windows_core::HSTRING, argumentstemplate: &::windows_core::HSTRING, filepath: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LaunchFileWithUIAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         }
     }
@@ -785,7 +785,7 @@ impl IsolatedWindowsEnvironment {
     pub fn LaunchFileWithUIAndTelemetryAsync(&self, appexepath: &::windows_core::HSTRING, argumentstemplate: &::windows_core::HSTRING, filepath: &::windows_core::HSTRING, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
@@ -794,7 +794,7 @@ impl IsolatedWindowsEnvironment {
     pub fn TerminateAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TerminateAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -803,7 +803,7 @@ impl IsolatedWindowsEnvironment {
     pub fn TerminateWithTelemetryAsync(&self, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TerminateWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
@@ -825,7 +825,7 @@ impl IsolatedWindowsEnvironment {
     {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PostMessageToReceiverAsync)(::windows_core::Interface::as_raw(this), receiverid, message.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -837,14 +837,14 @@ impl IsolatedWindowsEnvironment {
     {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(::windows_core::Interface::as_raw(this), receiverid, message.try_into_param()?.abi(), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
     pub fn GetUserInfo(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentUserInfo> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentUserInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetUserInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -853,7 +853,7 @@ impl IsolatedWindowsEnvironment {
     pub fn ShareFileAsync(&self, filepath: &::windows_core::HSTRING, options: &IsolatedWindowsEnvironmentShareFileRequestOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShareFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         }
     }
@@ -862,7 +862,7 @@ impl IsolatedWindowsEnvironment {
     pub fn ShareFileWithTelemetryAsync(&self, filepath: &::windows_core::HSTRING, options: &IsolatedWindowsEnvironmentShareFileRequestOptions, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShareFileWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         }
     }
@@ -874,7 +874,7 @@ impl IsolatedWindowsEnvironment {
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync(options: &IsolatedWindowsEnvironmentOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
         })
     }
@@ -882,13 +882,13 @@ impl IsolatedWindowsEnvironment {
     #[cfg(feature = "Foundation")]
     pub fn CreateWithTelemetryAsync(options: &IsolatedWindowsEnvironmentOptions, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
         })
     }
     pub fn GetById(environmentid: &::windows_core::HSTRING) -> ::windows_core::Result<IsolatedWindowsEnvironment> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironment>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetById)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(environmentid), &mut result__).from_abi(result__)
         })
     }
@@ -896,7 +896,7 @@ impl IsolatedWindowsEnvironment {
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindByOwnerId(environmentownerid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FindByOwnerId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(environmentownerid), &mut result__).from_abi(result__)
         })
     }
@@ -944,21 +944,21 @@ impl IsolatedWindowsEnvironmentCreateResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentCreateStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentCreateStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Environment(&self) -> ::windows_core::Result<IsolatedWindowsEnvironment> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironment>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Environment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1005,14 +1005,14 @@ impl IsolatedWindowsEnvironmentFile {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HostPath(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HostPath)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1023,14 +1023,14 @@ impl IsolatedWindowsEnvironmentFile {
     pub fn GuestPath(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentFile2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GuestPath)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsReadOnly(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentFile2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1071,7 +1071,7 @@ pub struct IsolatedWindowsEnvironmentHost;
 impl IsolatedWindowsEnvironmentHost {
     pub fn IsReady() -> ::windows_core::Result<bool> {
         Self::IIsolatedWindowsEnvironmentHostStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsReady)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1079,7 +1079,7 @@ impl IsolatedWindowsEnvironmentHost {
     #[cfg(feature = "Foundation_Collections")]
     pub fn HostErrors() -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironmentHostError>> {
         Self::IIsolatedWindowsEnvironmentHostStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironmentHostError>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HostErrors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1099,21 +1099,21 @@ impl IsolatedWindowsEnvironmentLaunchFileResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentLaunchFileStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentLaunchFileStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn File(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentFile> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentFile>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).File)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1163,7 +1163,7 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn EnvironmentOwnerId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnvironmentOwnerId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1174,7 +1174,7 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AllowedClipboardFormats(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentAllowedClipboardFormats> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentAllowedClipboardFormats>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowedClipboardFormats)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1185,7 +1185,7 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn ClipboardCopyPasteDirections(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentClipboardCopyPasteDirections> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentClipboardCopyPasteDirections>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClipboardCopyPasteDirections)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1196,7 +1196,7 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AvailablePrinters(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentAvailablePrinters> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentAvailablePrinters>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AvailablePrinters)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1207,14 +1207,14 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn SharedHostFolderPath(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SharedHostFolderPath)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn SharedFolderNameInEnvironment(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SharedFolderNameInEnvironment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1225,7 +1225,7 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn PersistUserProfile(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PersistUserProfile)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1236,7 +1236,7 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AllowGraphicsHardwareAcceleration(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowGraphicsHardwareAcceleration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1247,7 +1247,7 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AllowCameraAndMicrophoneAccess(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowCameraAndMicrophoneAccess)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1258,7 +1258,7 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn WindowAnnotationOverride(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WindowAnnotationOverride)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1269,7 +1269,7 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AllowedClipboardFormatsToEnvironment(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentAllowedClipboardFormats> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentAllowedClipboardFormats>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowedClipboardFormatsToEnvironment)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1280,7 +1280,7 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn AllowedClipboardFormatsToHost(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentAllowedClipboardFormats> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentAllowedClipboardFormats>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowedClipboardFormatsToHost)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1291,7 +1291,7 @@ impl IsolatedWindowsEnvironmentOptions {
     pub fn CreationPriority(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentCreationPriority> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentOptions3>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentCreationPriority>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreationPriority)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1336,7 +1336,7 @@ pub struct IsolatedWindowsEnvironmentOwnerRegistration;
 impl IsolatedWindowsEnvironmentOwnerRegistration {
     pub fn Register(ownername: &::windows_core::HSTRING, ownerregistrationdata: &IsolatedWindowsEnvironmentOwnerRegistrationData) -> ::windows_core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult> {
         Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentOwnerRegistrationResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Register)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(ownername), ::core::mem::transmute_copy(ownerregistrationdata), &mut result__).from_abi(result__)
         })
     }
@@ -1368,7 +1368,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     pub fn ShareableFolders(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ShareableFolders)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1377,7 +1377,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     pub fn ProcessesRunnableAsSystem(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProcessesRunnableAsSystem)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1386,7 +1386,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     pub fn ProcessesRunnableAsUser(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProcessesRunnableAsUser)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1395,7 +1395,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationData {
     pub fn ActivationFileExtensions(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ActivationFileExtensions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1438,14 +1438,14 @@ impl IsolatedWindowsEnvironmentOwnerRegistrationResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentOwnerRegistrationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentOwnerRegistrationStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1488,14 +1488,14 @@ impl IsolatedWindowsEnvironmentPostMessageResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentPostMessageStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentPostMessageStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1538,14 +1538,14 @@ impl IsolatedWindowsEnvironmentProcess {
     pub fn State(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentProcessState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentProcessState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExitCode(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExitCode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1562,7 +1562,7 @@ impl IsolatedWindowsEnvironmentProcess {
     pub fn WaitForExitAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).WaitForExitAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1612,7 +1612,7 @@ impl IsolatedWindowsEnvironmentShareFileRequestOptions {
     pub fn AllowWrite(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowWrite)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1659,21 +1659,21 @@ impl IsolatedWindowsEnvironmentShareFileResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentShareFileStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentShareFileStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn File(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentFile> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentFile>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).File)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1723,7 +1723,7 @@ impl IsolatedWindowsEnvironmentShareFolderRequestOptions {
     pub fn AllowWrite(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AllowWrite)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1770,14 +1770,14 @@ impl IsolatedWindowsEnvironmentShareFolderResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentShareFolderStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentShareFolderStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1820,21 +1820,21 @@ impl IsolatedWindowsEnvironmentStartProcessResult {
     pub fn Status(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentStartProcessStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentStartProcessStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ExtendedError(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HRESULT>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ExtendedError)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Process(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentProcess> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IsolatedWindowsEnvironmentProcess>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Process)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1884,7 +1884,7 @@ impl IsolatedWindowsEnvironmentTelemetryParameters {
     pub fn CorrelationId(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CorrelationId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1931,14 +1931,14 @@ impl IsolatedWindowsEnvironmentUserInfo {
     pub fn EnvironmentUserSid(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnvironmentUserSid)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn EnvironmentUserName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).EnvironmentUserName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1947,7 +1947,7 @@ impl IsolatedWindowsEnvironmentUserInfo {
     pub fn TryWaitForSignInAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryWaitForSignInAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1956,7 +1956,7 @@ impl IsolatedWindowsEnvironmentUserInfo {
     pub fn TryWaitForSignInWithProgressAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<bool, IsolatedWindowsEnvironmentSignInProgress>> {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironmentUserInfo2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperationWithProgress<bool, IsolatedWindowsEnvironmentSignInProgress>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TryWaitForSignInWithProgressAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2005,7 +2005,7 @@ impl IsolatedWindowsHostMessenger {
     }
     pub fn GetFileId(filepath: &::windows_core::HSTRING) -> ::windows_core::Result<::windows_core::GUID> {
         Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::GUID>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetFileId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
         })
     }

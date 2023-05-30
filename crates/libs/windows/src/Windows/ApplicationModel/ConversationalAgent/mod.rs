@@ -676,28 +676,28 @@ impl ActivationSignalDetectionConfiguration {
     pub fn SignalId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignalId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn ModelId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ModelId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisplayName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsActive(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsActive)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -710,14 +710,14 @@ impl ActivationSignalDetectionConfiguration {
     pub fn SetEnabledAsync(&self, value: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetEnabledAsync)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn AvailabilityInfo(&self) -> ::windows_core::Result<DetectionConfigurationAvailabilityInfo> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DetectionConfigurationAvailabilityInfo>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AvailabilityInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -726,7 +726,7 @@ impl ActivationSignalDetectionConfiguration {
     pub fn AvailabilityChanged(&self, handler: &super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AvailabilityChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -753,14 +753,14 @@ impl ActivationSignalDetectionConfiguration {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetModelDataAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(datatype), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetModelDataType(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetModelDataType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -769,7 +769,7 @@ impl ActivationSignalDetectionConfiguration {
     pub fn GetModelDataTypeAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetModelDataTypeAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -778,7 +778,7 @@ impl ActivationSignalDetectionConfiguration {
     pub fn GetModelData(&self) -> ::windows_core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IInputStream>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetModelData)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -787,7 +787,7 @@ impl ActivationSignalDetectionConfiguration {
     pub fn GetModelDataAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IInputStream>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IInputStream>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetModelDataAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -800,28 +800,28 @@ impl ActivationSignalDetectionConfiguration {
     pub fn ClearModelDataAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClearModelDataAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TrainingStepsCompleted(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrainingStepsCompleted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TrainingStepsRemaining(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrainingStepsRemaining)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn TrainingDataFormat(&self) -> ::windows_core::Result<ActivationSignalDetectionTrainingDataFormat> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivationSignalDetectionTrainingDataFormat>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrainingDataFormat)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -833,7 +833,7 @@ impl ActivationSignalDetectionConfiguration {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DetectionConfigurationTrainingStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ApplyTrainingData)(::windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -845,7 +845,7 @@ impl ActivationSignalDetectionConfiguration {
     {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ApplyTrainingDataAsync)(::windows_core::Interface::as_raw(this), trainingdataformat, trainingdata.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -858,7 +858,7 @@ impl ActivationSignalDetectionConfiguration {
     pub fn ClearTrainingDataAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClearTrainingDataAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -870,7 +870,7 @@ impl ActivationSignalDetectionConfiguration {
     {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivationSignalDetectionConfigurationSetModelDataResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetModelDataWithResult)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(datatype), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -882,7 +882,7 @@ impl ActivationSignalDetectionConfiguration {
     {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetModelDataWithResultAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(datatype), data.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
@@ -891,21 +891,21 @@ impl ActivationSignalDetectionConfiguration {
     pub fn SetEnabledWithResultAsync(&self, value: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>> {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetEnabledWithResultAsync)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn SetEnabledWithResult(&self, value: bool) -> ::windows_core::Result<ActivationSignalDetectionConfigurationStateChangeResult> {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivationSignalDetectionConfigurationStateChangeResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetEnabledWithResult)(::windows_core::Interface::as_raw(this), value, &mut result__).from_abi(result__)
         }
     }
     pub fn TrainingStepCompletionMaxAllowedTime(&self) -> ::windows_core::Result<u32> {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetectionConfiguration2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TrainingStepCompletionMaxAllowedTime)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -956,14 +956,14 @@ impl ActivationSignalDetectionConfigurationCreationResult {
     pub fn Status(&self) -> ::windows_core::Result<ActivationSignalDetectionConfigurationCreationStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivationSignalDetectionConfigurationCreationStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Status)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Configuration(&self) -> ::windows_core::Result<ActivationSignalDetectionConfiguration> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivationSignalDetectionConfiguration>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Configuration)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1006,21 +1006,21 @@ impl ActivationSignalDetector {
     pub fn ProviderId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ProviderId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Kind(&self) -> ::windows_core::Result<ActivationSignalDetectorKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivationSignalDetectorKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CanCreateConfigurations(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CanCreateConfigurations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1029,7 +1029,7 @@ impl ActivationSignalDetector {
     pub fn SupportedModelDataTypes(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedModelDataTypes)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1038,7 +1038,7 @@ impl ActivationSignalDetector {
     pub fn SupportedTrainingDataFormats(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionTrainingDataFormat>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionTrainingDataFormat>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedTrainingDataFormats)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1047,7 +1047,7 @@ impl ActivationSignalDetector {
     pub fn SupportedPowerStates(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectorPowerState>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectorPowerState>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedPowerStates)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1056,7 +1056,7 @@ impl ActivationSignalDetector {
     pub fn GetSupportedModelIdsForSignalId(&self, signalid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSupportedModelIdsForSignalId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), &mut result__).from_abi(result__)
         }
     }
@@ -1065,7 +1065,7 @@ impl ActivationSignalDetector {
     pub fn GetSupportedModelIdsForSignalIdAsync(&self, signalid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSupportedModelIdsForSignalIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), &mut result__).from_abi(result__)
         }
     }
@@ -1078,7 +1078,7 @@ impl ActivationSignalDetector {
     pub fn CreateConfigurationAsync(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateConfigurationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
         }
     }
@@ -1087,7 +1087,7 @@ impl ActivationSignalDetector {
     pub fn GetConfigurations(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetConfigurations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1096,14 +1096,14 @@ impl ActivationSignalDetector {
     pub fn GetConfigurationsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetConfigurationsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetConfiguration(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING) -> ::windows_core::Result<ActivationSignalDetectionConfiguration> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivationSignalDetectionConfiguration>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetConfiguration)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), &mut result__).from_abi(result__)
         }
     }
@@ -1112,7 +1112,7 @@ impl ActivationSignalDetector {
     pub fn GetConfigurationAsync(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfiguration>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfiguration>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetConfigurationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), &mut result__).from_abi(result__)
         }
     }
@@ -1125,7 +1125,7 @@ impl ActivationSignalDetector {
     pub fn RemoveConfigurationAsync(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoveConfigurationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), &mut result__).from_abi(result__)
         }
     }
@@ -1134,7 +1134,7 @@ impl ActivationSignalDetector {
     pub fn GetAvailableModelIdsForSignalIdAsync(&self, signalid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>> {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAvailableModelIdsForSignalIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), &mut result__).from_abi(result__)
         }
     }
@@ -1143,7 +1143,7 @@ impl ActivationSignalDetector {
     pub fn GetAvailableModelIdsForSignalId(&self, signalid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>> {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAvailableModelIdsForSignalId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), &mut result__).from_abi(result__)
         }
     }
@@ -1152,14 +1152,14 @@ impl ActivationSignalDetector {
     pub fn CreateConfigurationWithResultAsync(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>> {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateConfigurationWithResultAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateConfigurationWithResult(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING) -> ::windows_core::Result<ActivationSignalDetectionConfigurationCreationResult> {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivationSignalDetectionConfigurationCreationResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateConfigurationWithResult)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
         }
     }
@@ -1168,21 +1168,21 @@ impl ActivationSignalDetector {
     pub fn RemoveConfigurationWithResultAsync(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>> {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoveConfigurationWithResultAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveConfigurationWithResult(&self, signalid: &::windows_core::HSTRING, modelid: &::windows_core::HSTRING) -> ::windows_core::Result<ActivationSignalDetectionConfigurationRemovalResult> {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivationSignalDetectionConfigurationRemovalResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RemoveConfigurationWithResult)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalid), ::core::mem::transmute_copy(modelid), &mut result__).from_abi(result__)
         }
     }
     pub fn DetectorId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IActivationSignalDetector2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetectorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1227,7 +1227,7 @@ impl ConversationalAgentDetectorManager {
     pub fn GetAllActivationSignalDetectors(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAllActivationSignalDetectors)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1236,7 +1236,7 @@ impl ConversationalAgentDetectorManager {
     pub fn GetAllActivationSignalDetectorsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAllActivationSignalDetectorsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1245,7 +1245,7 @@ impl ConversationalAgentDetectorManager {
     pub fn GetActivationSignalDetectors(&self, kind: ActivationSignalDetectorKind) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetActivationSignalDetectors)(::windows_core::Interface::as_raw(this), kind, &mut result__).from_abi(result__)
         }
     }
@@ -1254,14 +1254,14 @@ impl ConversationalAgentDetectorManager {
     pub fn GetActivationSignalDetectorsAsync(&self, kind: ActivationSignalDetectorKind) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetActivationSignalDetectorsAsync)(::windows_core::Interface::as_raw(this), kind, &mut result__).from_abi(result__)
         }
     }
     pub fn GetActivationSignalDetectorFromId(&self, detectorid: &::windows_core::HSTRING) -> ::windows_core::Result<ActivationSignalDetector> {
         let this = &::windows_core::ComInterface::cast::<IConversationalAgentDetectorManager2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivationSignalDetector>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetActivationSignalDetectorFromId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(detectorid), &mut result__).from_abi(result__)
         }
     }
@@ -1270,13 +1270,13 @@ impl ConversationalAgentDetectorManager {
     pub fn GetActivationSignalDetectorFromIdAsync(&self, detectorid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>> {
         let this = &::windows_core::ComInterface::cast::<IConversationalAgentDetectorManager2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ActivationSignalDetector>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetActivationSignalDetectorFromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(detectorid), &mut result__).from_abi(result__)
         }
     }
     pub fn Default() -> ::windows_core::Result<ConversationalAgentDetectorManager> {
         Self::IConversationalAgentDetectorManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ConversationalAgentDetectorManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Default)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1332,7 +1332,7 @@ impl ConversationalAgentSession {
     pub fn SessionInterrupted(&self, handler: &super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SessionInterrupted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1347,7 +1347,7 @@ impl ConversationalAgentSession {
     pub fn SignalDetected(&self, handler: &super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignalDetected)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1362,7 +1362,7 @@ impl ConversationalAgentSession {
     pub fn SystemStateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemStateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1375,56 +1375,56 @@ impl ConversationalAgentSession {
     pub fn AgentState(&self) -> ::windows_core::Result<ConversationalAgentState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ConversationalAgentState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).AgentState)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Signal(&self) -> ::windows_core::Result<ConversationalAgentSignal> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ConversationalAgentSignal>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Signal)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsIndicatorLightAvailable(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsIndicatorLightAvailable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsScreenAvailable(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsScreenAvailable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsUserAuthenticated(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsUserAuthenticated)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsVoiceActivationAvailable(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsVoiceActivationAvailable)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsInterruptible(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsInterruptible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsInterrupted(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsInterrupted)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1433,14 +1433,14 @@ impl ConversationalAgentSession {
     pub fn RequestInterruptibleAsync(&self, interruptible: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestInterruptibleAsync)(::windows_core::Interface::as_raw(this), interruptible, &mut result__).from_abi(result__)
         }
     }
     pub fn RequestInterruptible(&self, interruptible: bool) -> ::windows_core::Result<ConversationalAgentSessionUpdateResponse> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ConversationalAgentSessionUpdateResponse>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestInterruptible)(::windows_core::Interface::as_raw(this), interruptible, &mut result__).from_abi(result__)
         }
     }
@@ -1449,14 +1449,14 @@ impl ConversationalAgentSession {
     pub fn RequestAgentStateChangeAsync(&self, state: ConversationalAgentState) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAgentStateChangeAsync)(::windows_core::Interface::as_raw(this), state, &mut result__).from_abi(result__)
         }
     }
     pub fn RequestAgentStateChange(&self, state: ConversationalAgentState) -> ::windows_core::Result<ConversationalAgentSessionUpdateResponse> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ConversationalAgentSessionUpdateResponse>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestAgentStateChange)(::windows_core::Interface::as_raw(this), state, &mut result__).from_abi(result__)
         }
     }
@@ -1465,14 +1465,14 @@ impl ConversationalAgentSession {
     pub fn RequestForegroundActivationAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestForegroundActivationAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn RequestForegroundActivation(&self) -> ::windows_core::Result<ConversationalAgentSessionUpdateResponse> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ConversationalAgentSessionUpdateResponse>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestForegroundActivation)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1481,14 +1481,14 @@ impl ConversationalAgentSession {
     pub fn GetAudioClientAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::IInspectable>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::IInspectable>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAudioClientAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetAudioClient(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAudioClient)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1497,7 +1497,7 @@ impl ConversationalAgentSession {
     pub fn CreateAudioDeviceInputNodeAsync(&self, graph: &super::super::Media::Audio::AudioGraph) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAudioDeviceInputNodeAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(graph), &mut result__).from_abi(result__)
         }
     }
@@ -1506,7 +1506,7 @@ impl ConversationalAgentSession {
     pub fn CreateAudioDeviceInputNode(&self, graph: &super::super::Media::Audio::AudioGraph) -> ::windows_core::Result<super::super::Media::Audio::AudioDeviceInputNode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Media::Audio::AudioDeviceInputNode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateAudioDeviceInputNode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(graph), &mut result__).from_abi(result__)
         }
     }
@@ -1515,14 +1515,14 @@ impl ConversationalAgentSession {
     pub fn GetAudioCaptureDeviceIdAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAudioCaptureDeviceIdAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetAudioCaptureDeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAudioCaptureDeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1531,14 +1531,14 @@ impl ConversationalAgentSession {
     pub fn GetAudioRenderDeviceIdAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAudioRenderDeviceIdAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetAudioRenderDeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetAudioRenderDeviceId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1547,14 +1547,14 @@ impl ConversationalAgentSession {
     pub fn GetSignalModelIdAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSignalModelIdAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetSignalModelId(&self) -> ::windows_core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<u32>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSignalModelId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1563,14 +1563,14 @@ impl ConversationalAgentSession {
     pub fn SetSignalModelIdAsync(&self, signalmodelid: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetSignalModelIdAsync)(::windows_core::Interface::as_raw(this), signalmodelid, &mut result__).from_abi(result__)
         }
     }
     pub fn SetSignalModelId(&self, signalmodelid: u32) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetSignalModelId)(::windows_core::Interface::as_raw(this), signalmodelid, &mut result__).from_abi(result__)
         }
     }
@@ -1579,7 +1579,7 @@ impl ConversationalAgentSession {
     pub fn GetSupportedSignalModelIdsAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSupportedSignalModelIdsAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1588,7 +1588,7 @@ impl ConversationalAgentSession {
     pub fn GetSupportedSignalModelIds(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<u32>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSupportedSignalModelIds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1597,14 +1597,14 @@ impl ConversationalAgentSession {
     pub fn RequestActivationAsync(&self, activationkind: ConversationalAgentActivationKind) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>> {
         let this = &::windows_core::ComInterface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestActivationAsync)(::windows_core::Interface::as_raw(this), activationkind, &mut result__).from_abi(result__)
         }
     }
     pub fn RequestActivation(&self, activationkind: ConversationalAgentActivationKind) -> ::windows_core::Result<ConversationalAgentActivationResult> {
         let this = &::windows_core::ComInterface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ConversationalAgentActivationResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestActivation)(::windows_core::Interface::as_raw(this), activationkind, &mut result__).from_abi(result__)
         }
     }
@@ -1613,7 +1613,7 @@ impl ConversationalAgentSession {
     pub fn SetSupportLockScreenActivationAsync(&self, lockscreenactivationsupported: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows_core::ComInterface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncAction>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SetSupportLockScreenActivationAsync)(::windows_core::Interface::as_raw(this), lockscreenactivationsupported, &mut result__).from_abi(result__)
         }
     }
@@ -1626,7 +1626,7 @@ impl ConversationalAgentSession {
     pub fn GetMissingPrerequisites(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>> {
         let this = &::windows_core::ComInterface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMissingPrerequisites)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1635,7 +1635,7 @@ impl ConversationalAgentSession {
     pub fn GetMissingPrerequisitesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>> {
         let this = &::windows_core::ComInterface::cast::<IConversationalAgentSession2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetMissingPrerequisitesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1643,13 +1643,13 @@ impl ConversationalAgentSession {
     #[cfg(feature = "Foundation")]
     pub fn GetCurrentSessionAsync() -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>> {
         Self::IConversationalAgentSessionStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<ConversationalAgentSession>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCurrentSessionAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
     pub fn GetCurrentSessionSync() -> ::windows_core::Result<ConversationalAgentSession> {
         Self::IConversationalAgentSessionStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<ConversationalAgentSession>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetCurrentSessionSync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1734,7 +1734,7 @@ impl ConversationalAgentSignal {
     pub fn IsSignalVerificationRequired(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsSignalVerificationRequired)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1745,7 +1745,7 @@ impl ConversationalAgentSignal {
     pub fn SignalId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignalId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1756,7 +1756,7 @@ impl ConversationalAgentSignal {
     pub fn SignalName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignalName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1767,7 +1767,7 @@ impl ConversationalAgentSignal {
     pub fn SignalContext(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::IInspectable>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignalContext)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1783,7 +1783,7 @@ impl ConversationalAgentSignal {
     pub fn SignalStart(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignalStart)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1798,7 +1798,7 @@ impl ConversationalAgentSignal {
     pub fn SignalEnd(&self) -> ::windows_core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::TimeSpan>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SignalEnd)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1811,14 +1811,14 @@ impl ConversationalAgentSignal {
     pub fn DetectorId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IConversationalAgentSignal2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetectorId)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn DetectorKind(&self) -> ::windows_core::Result<ActivationSignalDetectorKind> {
         let this = &::windows_core::ComInterface::cast::<IConversationalAgentSignal2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ActivationSignalDetectorKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DetectorKind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1896,7 +1896,7 @@ impl ConversationalAgentSystemStateChangedEventArgs {
     pub fn SystemStateChangeType(&self) -> ::windows_core::Result<ConversationalAgentSystemStateChangeType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<ConversationalAgentSystemStateChangeType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SystemStateChangeType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1939,7 +1939,7 @@ impl DetectionConfigurationAvailabilityChangedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<DetectionConfigurationAvailabilityChangeKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<DetectionConfigurationAvailabilityChangeKind>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Kind)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1982,28 +1982,28 @@ impl DetectionConfigurationAvailabilityInfo {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HasSystemResourceAccess(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasSystemResourceAccess)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HasPermission(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasPermission)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn HasLockScreenPermission(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HasLockScreenPermission)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -2012,7 +2012,7 @@ impl DetectionConfigurationAvailabilityInfo {
     pub fn UnavailableSystemResources(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>> {
         let this = &::windows_core::ComInterface::cast::<IDetectionConfigurationAvailabilityInfo2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnavailableSystemResources)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

@@ -38,7 +38,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("fltlib.dll" "system" fn FilterConnectCommunicationPort(lpportname : ::windows_core::PCWSTR, dwoptions : u32, lpcontext : *const ::core::ffi::c_void, wsizeofcontext : u16, lpsecurityattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, hport : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<super::super::Foundation::HANDLE>();
+    let mut result__ = ::std::mem::zeroed();
     FilterConnectCommunicationPort(lpportname.into_param().abi(), dwoptions, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())), wsizeofcontext, ::core::mem::transmute(lpsecurityattributes.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
@@ -48,7 +48,7 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("fltlib.dll" "system" fn FilterCreate(lpfiltername : ::windows_core::PCWSTR, hfilter : *mut HFILTER) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<HFILTER>();
+    let mut result__ = ::std::mem::zeroed();
     FilterCreate(lpfiltername.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
@@ -134,7 +134,7 @@ where
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("fltlib.dll" "system" fn FilterInstanceCreate(lpfiltername : ::windows_core::PCWSTR, lpvolumename : ::windows_core::PCWSTR, lpinstancename : ::windows_core::PCWSTR, hinstance : *mut HFILTER_INSTANCE) -> ::windows_core::HRESULT);
-    let mut result__ = ::windows_core::zeroed::<HFILTER_INSTANCE>();
+    let mut result__ = ::std::mem::zeroed();
     FilterInstanceCreate(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]

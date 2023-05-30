@@ -362,7 +362,7 @@ impl WebUICommandBar {
     pub fn Visible(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Visible)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -373,7 +373,7 @@ impl WebUICommandBar {
     pub fn Opacity(&self) -> ::windows_core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<f64>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Opacity)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -384,7 +384,7 @@ impl WebUICommandBar {
     pub fn ForegroundColor(&self) -> ::windows_core::Result<super::super::Color> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Color>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ForegroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -395,7 +395,7 @@ impl WebUICommandBar {
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::Color> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Color>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -406,7 +406,7 @@ impl WebUICommandBar {
     pub fn ClosedDisplayMode(&self) -> ::windows_core::Result<WebUICommandBarClosedDisplayMode> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<WebUICommandBarClosedDisplayMode>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ClosedDisplayMode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -417,7 +417,7 @@ impl WebUICommandBar {
     pub fn IsOpen(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsOpen)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -430,7 +430,7 @@ impl WebUICommandBar {
     pub fn Size(&self) -> ::windows_core::Result<super::super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Size>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -439,7 +439,7 @@ impl WebUICommandBar {
     pub fn PrimaryCommands(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PrimaryCommands)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -448,7 +448,7 @@ impl WebUICommandBar {
     pub fn SecondaryCommands(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SecondaryCommands)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -457,7 +457,7 @@ impl WebUICommandBar {
     pub fn MenuOpened(&self, handler: &MenuOpenedEventHandler) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MenuOpened)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -472,7 +472,7 @@ impl WebUICommandBar {
     pub fn MenuClosed(&self, handler: &MenuClosedEventHandler) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).MenuClosed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -487,7 +487,7 @@ impl WebUICommandBar {
     pub fn SizeChanged(&self, handler: &SizeChangedEventHandler) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SizeChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -499,7 +499,7 @@ impl WebUICommandBar {
     }
     pub fn GetForCurrentView() -> ::windows_core::Result<WebUICommandBar> {
         Self::IWebUICommandBarStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<WebUICommandBar>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -556,7 +556,7 @@ impl WebUICommandBarBitmapIcon {
     pub fn Uri(&self) -> ::windows_core::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Uri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -570,7 +570,7 @@ impl WebUICommandBarBitmapIcon {
     #[cfg(feature = "Foundation")]
     pub fn Create(uri: &super::super::super::Foundation::Uri) -> ::windows_core::Result<WebUICommandBarBitmapIcon> {
         Self::IWebUICommandBarBitmapIconFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<WebUICommandBarBitmapIcon>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
         })
     }
@@ -626,7 +626,7 @@ impl WebUICommandBarConfirmationButton {
     pub fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Text)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -639,7 +639,7 @@ impl WebUICommandBarConfirmationButton {
     pub fn ItemInvoked(&self, handler: &super::super::super::Foundation::TypedEventHandler<WebUICommandBarConfirmationButton, WebUICommandBarItemInvokedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ItemInvoked)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -696,7 +696,7 @@ impl WebUICommandBarIconButton {
     pub fn Enabled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Enabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -707,7 +707,7 @@ impl WebUICommandBarIconButton {
     pub fn Label(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Label)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -718,7 +718,7 @@ impl WebUICommandBarIconButton {
     pub fn IsToggleButton(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsToggleButton)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -729,7 +729,7 @@ impl WebUICommandBarIconButton {
     pub fn IsChecked(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsChecked)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -740,7 +740,7 @@ impl WebUICommandBarIconButton {
     pub fn Icon(&self) -> ::windows_core::Result<IWebUICommandBarIcon> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<IWebUICommandBarIcon>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Icon)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -756,7 +756,7 @@ impl WebUICommandBarIconButton {
     pub fn ItemInvoked(&self, handler: &super::super::super::Foundation::TypedEventHandler<WebUICommandBarIconButton, WebUICommandBarItemInvokedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ItemInvoked)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -806,7 +806,7 @@ impl WebUICommandBarItemInvokedEventArgs {
     pub fn IsPrimaryCommand(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsPrimaryCommand)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -851,7 +851,7 @@ impl WebUICommandBarSizeChangedEventArgs {
     pub fn Size(&self) -> ::windows_core::Result<super::super::super::Foundation::Size> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Size>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Size)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -901,7 +901,7 @@ impl WebUICommandBarSymbolIcon {
     pub fn Symbol(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Symbol)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -911,7 +911,7 @@ impl WebUICommandBarSymbolIcon {
     }
     pub fn Create(symbol: &::windows_core::HSTRING) -> ::windows_core::Result<WebUICommandBarSymbolIcon> {
         Self::IWebUICommandBarSymbolIconFactory(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<WebUICommandBarSymbolIcon>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(symbol), &mut result__).from_abi(result__)
         })
     }

@@ -66,19 +66,19 @@ impl IPrintWorkflowConfigurationNative {
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn PrinterQueue(&self) -> ::windows_core::Result<super::super::super::Graphics::Printing::IPrinterQueue> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::Printing::IPrinterQueue>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).PrinterQueue)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn DriverProperties(&self) -> ::windows_core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::Printing::IPrinterPropertyBag>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DriverProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Printing", feature = "Win32_System_Com"))]
     pub unsafe fn UserProperties(&self) -> ::windows_core::Result<super::super::super::Graphics::Printing::IPrinterPropertyBag> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Graphics::Printing::IPrinterPropertyBag>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).UserProperties)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -135,7 +135,7 @@ impl IPrintWorkflowObjectModelSourceFileContentNative {
     #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
     #[cfg(feature = "Win32_Storage_Xps")]
     pub unsafe fn ObjectFactory(&self) -> ::windows_core::Result<super::super::super::Storage::Xps::IXpsOMObjectFactory1> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Storage::Xps::IXpsOMObjectFactory1>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).ObjectFactory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }
@@ -179,7 +179,7 @@ impl IPrintWorkflowXpsObjectModelTargetPackageNative {
     #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
     #[cfg(feature = "Win32_Storage_Xps")]
     pub unsafe fn DocumentPackageTarget(&self) -> ::windows_core::Result<super::super::super::Storage::Xps::IXpsDocumentPackageTarget> {
-        let mut result__ = ::windows_core::zeroed::<super::super::super::Storage::Xps::IXpsDocumentPackageTarget>();
+        let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).DocumentPackageTarget)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
 }

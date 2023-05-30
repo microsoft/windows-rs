@@ -260,21 +260,21 @@ impl CastingConnection {
     pub fn State(&self) -> ::windows_core::Result<CastingConnectionState> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CastingConnectionState>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).State)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Device(&self) -> ::windows_core::Result<CastingDevice> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CastingDevice>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Device)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Source(&self) -> ::windows_core::Result<CastingSource> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CastingSource>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Source)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -287,7 +287,7 @@ impl CastingConnection {
     pub fn StateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<CastingConnection, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -302,7 +302,7 @@ impl CastingConnection {
     pub fn ErrorOccurred(&self, handler: &super::super::Foundation::TypedEventHandler<CastingConnection, CastingConnectionErrorOccurredEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ErrorOccurred)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -317,7 +317,7 @@ impl CastingConnection {
     pub fn RequestStartCastingAsync(&self, value: &CastingSource) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).RequestStartCastingAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         }
     }
@@ -326,7 +326,7 @@ impl CastingConnection {
     pub fn DisconnectAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DisconnectAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -377,14 +377,14 @@ impl CastingConnectionErrorOccurredEventArgs {
     pub fn ErrorStatus(&self) -> ::windows_core::Result<CastingConnectionErrorStatus> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CastingConnectionErrorStatus>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ErrorStatus)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Message(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Message)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -427,14 +427,14 @@ impl CastingDevice {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Id)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn FriendlyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FriendlyName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -443,7 +443,7 @@ impl CastingDevice {
     pub fn Icon(&self) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Icon)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -452,20 +452,20 @@ impl CastingDevice {
     pub fn GetSupportedCastingPlaybackTypesAsync(&self) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CastingPlaybackTypes>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<CastingPlaybackTypes>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetSupportedCastingPlaybackTypesAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateCastingConnection(&self) -> ::windows_core::Result<CastingConnection> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CastingConnection>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateCastingConnection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeviceSelector(r#type: CastingPlaybackTypes) -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::ICastingDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), r#type, &mut result__).from_abi(result__)
         })
     }
@@ -473,7 +473,7 @@ impl CastingDevice {
     #[cfg(feature = "Foundation")]
     pub fn GetDeviceSelectorFromCastingSourceAsync(castingsource: &CastingSource) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
         Self::ICastingDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeviceSelectorFromCastingSourceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(castingsource), &mut result__).from_abi(result__)
         })
     }
@@ -481,7 +481,7 @@ impl CastingDevice {
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(value: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CastingDevice>> {
         Self::ICastingDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<CastingDevice>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
         })
     }
@@ -489,7 +489,7 @@ impl CastingDevice {
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn DeviceInfoSupportsCastingAsync(device: &super::super::Devices::Enumeration::DeviceInformation) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ICastingDeviceStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::IAsyncOperation<bool>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).DeviceInfoSupportsCastingAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(device), &mut result__).from_abi(result__)
         })
     }
@@ -544,7 +544,7 @@ impl CastingDevicePicker {
     pub fn Filter(&self) -> ::windows_core::Result<CastingDevicePickerFilter> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CastingDevicePickerFilter>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Filter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -553,7 +553,7 @@ impl CastingDevicePicker {
     pub fn Appearance(&self) -> ::windows_core::Result<super::super::Devices::Enumeration::DevicePickerAppearance> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Devices::Enumeration::DevicePickerAppearance>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Appearance)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -562,7 +562,7 @@ impl CastingDevicePicker {
     pub fn CastingDeviceSelected(&self, handler: &super::super::Foundation::TypedEventHandler<CastingDevicePicker, CastingDeviceSelectedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CastingDeviceSelected)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -577,7 +577,7 @@ impl CastingDevicePicker {
     pub fn CastingDevicePickerDismissed(&self, handler: &super::super::Foundation::TypedEventHandler<CastingDevicePicker, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CastingDevicePickerDismissed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -642,7 +642,7 @@ impl CastingDevicePickerFilter {
     pub fn SupportsAudio(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportsAudio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -653,7 +653,7 @@ impl CastingDevicePickerFilter {
     pub fn SupportsVideo(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportsVideo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -664,7 +664,7 @@ impl CastingDevicePickerFilter {
     pub fn SupportsPictures(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportsPictures)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -677,7 +677,7 @@ impl CastingDevicePickerFilter {
     pub fn SupportedCastingSources(&self) -> ::windows_core::Result<super::super::Foundation::Collections::IVector<CastingSource>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Collections::IVector<CastingSource>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SupportedCastingSources)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -720,7 +720,7 @@ impl CastingDeviceSelectedEventArgs {
     pub fn SelectedCastingDevice(&self) -> ::windows_core::Result<CastingDevice> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CastingDevice>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelectedCastingDevice)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -765,7 +765,7 @@ impl CastingSource {
     pub fn PreferredSourceUri(&self) -> ::windows_core::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::Foundation::Uri>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreferredSourceUri)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

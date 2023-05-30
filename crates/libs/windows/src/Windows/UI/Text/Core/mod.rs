@@ -579,7 +579,7 @@ impl CoreTextCompositionCompletedEventArgs {
     pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -588,7 +588,7 @@ impl CoreTextCompositionCompletedEventArgs {
     pub fn CompositionSegments(&self) -> ::windows_core::Result<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Collections::IVectorView<CoreTextCompositionSegment>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CompositionSegments)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -597,7 +597,7 @@ impl CoreTextCompositionCompletedEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -640,14 +640,14 @@ impl CoreTextCompositionSegment {
     pub fn PreconversionString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).PreconversionString)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Range(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Range)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -690,7 +690,7 @@ impl CoreTextCompositionStartedEventArgs {
     pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -699,7 +699,7 @@ impl CoreTextCompositionStartedEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -742,7 +742,7 @@ impl CoreTextEditContext {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Name)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -753,7 +753,7 @@ impl CoreTextEditContext {
     pub fn InputScope(&self) -> ::windows_core::Result<CoreTextInputScope> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextInputScope>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InputScope)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -764,7 +764,7 @@ impl CoreTextEditContext {
     pub fn IsReadOnly(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsReadOnly)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -775,7 +775,7 @@ impl CoreTextEditContext {
     pub fn InputPaneDisplayPolicy(&self) -> ::windows_core::Result<CoreTextInputPaneDisplayPolicy> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextInputPaneDisplayPolicy>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InputPaneDisplayPolicy)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -788,7 +788,7 @@ impl CoreTextEditContext {
     pub fn TextRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TextRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -803,7 +803,7 @@ impl CoreTextEditContext {
     pub fn SelectionRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelectionRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -818,7 +818,7 @@ impl CoreTextEditContext {
     pub fn LayoutRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextLayoutRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LayoutRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -833,7 +833,7 @@ impl CoreTextEditContext {
     pub fn TextUpdating(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextTextUpdatingEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TextUpdating)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -848,7 +848,7 @@ impl CoreTextEditContext {
     pub fn SelectionUpdating(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextSelectionUpdatingEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).SelectionUpdating)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -863,7 +863,7 @@ impl CoreTextEditContext {
     pub fn FormatUpdating(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextFormatUpdatingEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FormatUpdating)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -878,7 +878,7 @@ impl CoreTextEditContext {
     pub fn CompositionStarted(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionStartedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CompositionStarted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -893,7 +893,7 @@ impl CoreTextEditContext {
     pub fn CompositionCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, CoreTextCompositionCompletedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CompositionCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -908,7 +908,7 @@ impl CoreTextEditContext {
     pub fn FocusRemoved(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).FocusRemoved)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -943,7 +943,7 @@ impl CoreTextEditContext {
     pub fn NotifyFocusLeaveCompleted(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextEditContext, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows_core::ComInterface::cast::<ICoreTextEditContext2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NotifyFocusLeaveCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -992,7 +992,7 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn Range(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Range)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1001,7 +1001,7 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn TextColor(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TextColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1010,7 +1010,7 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn BackgroundColor(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).BackgroundColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1019,7 +1019,7 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn UnderlineColor(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::super::ViewManagement::UIElementType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnderlineColor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1028,21 +1028,21 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn UnderlineType(&self) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::UnderlineType>> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::IReference<super::UnderlineType>>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).UnderlineType)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Reason(&self) -> ::windows_core::Result<CoreTextFormatUpdatingReason> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextFormatUpdatingReason>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Reason)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Result(&self) -> ::windows_core::Result<CoreTextFormatUpdatingResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextFormatUpdatingResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Result)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1053,7 +1053,7 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1062,7 +1062,7 @@ impl CoreTextFormatUpdatingEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1107,7 +1107,7 @@ impl CoreTextLayoutBounds {
     pub fn TextBounds(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Rect>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).TextBounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1122,7 +1122,7 @@ impl CoreTextLayoutBounds {
     pub fn ControlBounds(&self) -> ::windows_core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Rect>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).ControlBounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1171,21 +1171,21 @@ impl CoreTextLayoutRequest {
     pub fn Range(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Range)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LayoutBounds(&self) -> ::windows_core::Result<CoreTextLayoutBounds> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextLayoutBounds>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LayoutBounds)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1194,14 +1194,14 @@ impl CoreTextLayoutRequest {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn LayoutBoundsVisualPixels(&self) -> ::windows_core::Result<CoreTextLayoutBounds> {
         let this = &::windows_core::ComInterface::cast::<ICoreTextLayoutRequest2>(self)?;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextLayoutBounds>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).LayoutBoundsVisualPixels)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1244,7 +1244,7 @@ impl CoreTextLayoutRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<CoreTextLayoutRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextLayoutRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1287,7 +1287,7 @@ impl CoreTextSelectionRequest {
     pub fn Selection(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Selection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1298,7 +1298,7 @@ impl CoreTextSelectionRequest {
     pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1307,7 +1307,7 @@ impl CoreTextSelectionRequest {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1350,7 +1350,7 @@ impl CoreTextSelectionRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<CoreTextSelectionRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextSelectionRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1393,14 +1393,14 @@ impl CoreTextSelectionUpdatingEventArgs {
     pub fn Selection(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Selection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Result(&self) -> ::windows_core::Result<CoreTextSelectionUpdatingResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextSelectionUpdatingResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Result)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1411,7 +1411,7 @@ impl CoreTextSelectionUpdatingEventArgs {
     pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1420,7 +1420,7 @@ impl CoreTextSelectionUpdatingEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1461,7 +1461,7 @@ pub struct CoreTextServicesConstants;
 impl CoreTextServicesConstants {
     pub fn HiddenCharacter() -> ::windows_core::Result<u16> {
         Self::ICoreTextServicesStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<u16>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).HiddenCharacter)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1483,7 +1483,7 @@ impl CoreTextServicesManager {
     pub fn InputLanguage(&self) -> ::windows_core::Result<super::super::super::Globalization::Language> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::Language>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InputLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1492,7 +1492,7 @@ impl CoreTextServicesManager {
     pub fn InputLanguageChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<CoreTextServicesManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::EventRegistrationToken>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InputLanguageChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
         }
     }
@@ -1505,13 +1505,13 @@ impl CoreTextServicesManager {
     pub fn CreateEditContext(&self) -> ::windows_core::Result<CoreTextEditContext> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextEditContext>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).CreateEditContext)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn GetForCurrentView() -> ::windows_core::Result<CoreTextServicesManager> {
         Self::ICoreTextServicesManagerStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextServicesManager>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetForCurrentView)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
@@ -1559,14 +1559,14 @@ impl CoreTextTextRequest {
     pub fn Range(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Range)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Text)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1577,7 +1577,7 @@ impl CoreTextTextRequest {
     pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1586,7 +1586,7 @@ impl CoreTextTextRequest {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1629,7 +1629,7 @@ impl CoreTextTextRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<CoreTextTextRequest> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextTextRequest>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1672,21 +1672,21 @@ impl CoreTextTextUpdatingEventArgs {
     pub fn Range(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Range)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Text)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn NewSelection(&self) -> ::windows_core::Result<CoreTextRange> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextRange>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).NewSelection)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1695,14 +1695,14 @@ impl CoreTextTextUpdatingEventArgs {
     pub fn InputLanguage(&self) -> ::windows_core::Result<super::super::super::Globalization::Language> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Globalization::Language>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).InputLanguage)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
     pub fn Result(&self) -> ::windows_core::Result<CoreTextTextUpdatingResult> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<CoreTextTextUpdatingResult>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Result)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1713,7 +1713,7 @@ impl CoreTextTextUpdatingEventArgs {
     pub fn IsCanceled(&self) -> ::windows_core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<bool>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).IsCanceled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
@@ -1722,7 +1722,7 @@ impl CoreTextTextUpdatingEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
-            let mut result__ = ::windows_core::zeroed::<super::super::super::Foundation::Deferral>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetDeferral)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }

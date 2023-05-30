@@ -35,7 +35,7 @@ impl GameControllerProviderInfo {
         P0: ::windows_core::TryIntoParam<super::Custom::IGameControllerProvider>,
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetParentProviderId)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
@@ -46,7 +46,7 @@ impl GameControllerProviderInfo {
         P0: ::windows_core::TryIntoParam<super::Custom::IGameControllerProvider>,
     {
         Self::IGameControllerProviderInfoStatics(|this| unsafe {
-            let mut result__ = ::windows_core::zeroed::<::windows_core::HSTRING>();
+            let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).GetProviderId)(::windows_core::Interface::as_raw(this), provider.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
