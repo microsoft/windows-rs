@@ -26,7 +26,7 @@ impl Module {
     pub fn read(input: &[String], filter: &Filter) -> Result<Self> {
         let mut module = Module::default();
         winmd::read_winmd(&mut module, input, filter)?;
-        idl::read_idl(&mut module, input, filter)?;
+        module.read_idl(input, filter)?;
         Ok(module)
     }
 
@@ -88,7 +88,8 @@ pub struct TypeRef {
     pub namespace: String,
     pub name: String,
     pub generics: Vec<Type>,
-    // store an optional `assembly` for the name of the winmd/idl file where the type originates
+    // TODO: store an `assembly` for the name of the winmd/idl file where the type originates?
+    // pub assembly: String,
 }
 
 #[derive(Debug, Clone)]

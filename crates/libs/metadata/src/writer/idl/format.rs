@@ -169,6 +169,7 @@ impl Printer {
     fn idl_class(&mut self, _member: &IdlClass) {}
 
     fn trait_item_fn(&mut self, method: &syn::TraitItemFn) {
+        self.attrs(&method.attrs);
         self.signature(&method.sig);
     }
 

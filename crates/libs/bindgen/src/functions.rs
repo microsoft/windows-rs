@@ -270,7 +270,7 @@ fn handle_last_error(gen: &Gen, def: MethodDef, signature: &Signature) -> bool {
         if gen
             .reader
             .impl_map_flags(map)
-            .contains(PInvokeAttributes::LAST_ERROR)
+            .contains(PInvokeAttributes::SupportsLastError)
         {
             if let Type::TypeDef((return_type, _)) = &signature.return_type {
                 if gen.reader.type_def_is_handle(*return_type) {

@@ -119,7 +119,7 @@ fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
         if gen
             .reader
             .param_flags(param.def)
-            .contains(ParamAttributes::INPUT)
+            .contains(ParamAttributes::In)
         {
             if param.ty.is_winrt_array() {
                 result.combine(&quote! { #name: &[#default_type], });
@@ -152,7 +152,7 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
         let param = if gen
             .reader
             .param_flags(param.def)
-            .contains(ParamAttributes::INPUT)
+            .contains(ParamAttributes::In)
         {
             if param.ty.is_winrt_array() {
                 if gen.reader.type_is_blittable(&param.ty) {
@@ -245,7 +245,7 @@ fn gen_winrt_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
     if gen
         .reader
         .param_flags(param.def)
-        .contains(ParamAttributes::INPUT)
+        .contains(ParamAttributes::In)
     {
         if param.ty.is_winrt_array() {
             quote! { ::core::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as _) }

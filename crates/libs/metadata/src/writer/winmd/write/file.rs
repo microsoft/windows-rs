@@ -56,7 +56,7 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> R
             major_version: 1,
             minor_version: 1,
             length: 20,
-            version: *b"WindowsRuntime\0\0\0\0\0\0",
+            version: *b"WindowsRuntime 1.4\0\0",
             streams: 4,
             ..Default::default()
         };

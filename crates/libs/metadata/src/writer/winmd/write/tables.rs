@@ -4,6 +4,7 @@ use super::{coded_index_size, Error, Result, Write};
 
 #[derive(Default)]
 pub struct Tables {
+    pub Assembly: Vec<Assembly>,
     pub AssemblyRef: Vec<AssemblyRef>,
     pub ClassLayout: Vec<ClassLayout>,
     pub Constant: Vec<Constant>,
@@ -22,6 +23,19 @@ pub struct Tables {
     pub TypeDef: Vec<TypeDef>,
     pub TypeRef: Vec<TypeRef>,
     pub TypeSpec: Vec<TypeSpec>,
+}
+
+#[derive(Default)]
+pub struct Assembly {
+    pub HashAlgId: u32,
+    pub MajorVersion: u16,
+    pub MinorVersion: u16,
+    pub BuildNumber: u16,
+    pub RevisionNumber: u16,
+    pub Flags: u32,
+    pub PublicKey: u32,
+    pub Name: u32,
+    pub Culture: u32,
 }
 
 #[derive(Default)]
@@ -185,6 +199,7 @@ impl Tables {
         1 << 0x1A | // ModuleRef
         1 << 0x1B | // TypeSpec
         1 << 0x1C | // ImplMap
+        1 << 0x20 | // Assembly
         1 << 0x23 | // AssemblyRef
         1 << 0x29 | // NestedClass
         1 << 0x2A; // GenericParam
@@ -217,6 +232,7 @@ impl Tables {
         buffer.write_u32(self.ModuleRef.len() as _);
         buffer.write_u32(self.TypeSpec.len() as _);
         buffer.write_u32(self.ImplMap.len() as _);
+        buffer.write_u32(self.Assembly.len() as _);
         buffer.write_u32(self.AssemblyRef.len() as _);
         buffer.write_u32(self.NestedClass.len() as _);
         buffer.write_u32(self.GenericParam.len() as _);
@@ -271,6 +287,18 @@ impl Tables {
             buffer.write_u16(x.Type);
             buffer.write_code(x.Parent, has_constant);
             buffer.write_u32(x.Value);
+        }
+
+        for x in self.Assembly {
+            buffer.write_u32(x.HashAlgId);
+            buffer.write_u16(x.MajorVersion);
+            buffer.write_u16(x.MinorVersion);
+            buffer.write_u16(x.BuildNumber);
+            buffer.write_u16(x.RevisionNumber);
+            buffer.write_u32(x.Flags);
+            buffer.write_u32(x.PublicKey);
+            buffer.write_u32(x.Name);
+            buffer.write_u32(x.Culture);
         }
 
         for x in self.AssemblyRef {

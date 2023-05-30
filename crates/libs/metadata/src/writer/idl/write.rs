@@ -172,6 +172,7 @@ fn interface_to_idl(module: &Module, name: &str, ty: &TypeDef) -> TokenStream {
     let name = to_ident(name);
 
     let methods = ty.methods.iter().map(|method| {
+        let attributes = attributes_to_idl(module, &method.attributes);
         let name = to_ident(&method.name);
         let params = method.params.iter().map(|param| {
             let name = to_ident(&param.name);
@@ -185,6 +186,7 @@ fn interface_to_idl(module: &Module, name: &str, ty: &TypeDef) -> TokenStream {
             quote! {}
         };
         quote! {
+            #attributes
             fn #name(#(#params),*) #return_type;
         }
     });

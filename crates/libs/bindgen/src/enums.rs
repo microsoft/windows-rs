@@ -17,7 +17,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             if gen
                 .reader
                 .field_flags(field)
-                .contains(FieldAttributes::LITERAL)
+                .contains(FieldAttributes::Literal)
             {
                 let field_name = to_ident(gen.reader.field_name(field));
                 let constant = gen.reader.field_constant(field).unwrap();
@@ -185,7 +185,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         if gen
             .reader
             .type_def_flags(def)
-            .contains(TypeAttributes::WINRT)
+            .contains(TypeAttributes::WindowsRuntime)
         {
             let signature =
                 Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());

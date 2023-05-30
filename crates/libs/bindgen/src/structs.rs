@@ -50,16 +50,16 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
         let name = to_ident(gen.reader.field_name(f));
         let ty = gen.reader.field_type(f, Some(def));
 
-        if gen.reader.field_flags(f).contains(FieldAttributes::LITERAL) {
+        if gen.reader.field_flags(f).contains(FieldAttributes::Literal) {
             quote! {}
         } else if !gen.sys
-            && flags.contains(TypeAttributes::EXPLICIT_LAYOUT)
+            && flags.contains(TypeAttributes::ExplicitLayout)
             && !gen.reader.field_is_copyable(f, def)
         {
             let ty = gen.type_default_name(&ty);
             quote! { pub #name: ::std::mem::ManuallyDrop<#ty>, }
         } else if !gen.sys
-            && !flags.contains(TypeAttributes::WINRT)
+            && !flags.contains(TypeAttributes::WindowsRuntime)
             && !gen.reader.field_is_blittable(f, def)
         {
             if let Type::Win32Array((ty, len)) = ty {
@@ -75,7 +75,7 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
         }
     });
 
-    let struct_or_union = if flags.contains(TypeAttributes::EXPLICIT_LAYOUT) {
+    let struct_or_union = if flags.contains(TypeAttributes::ExplicitLayout) {
         quote! { union }
     } else {
         quote! { struct }
@@ -139,7 +139,7 @@ fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
         if gen
             .reader
             .type_def_flags(def)
-            .contains(TypeAttributes::WINRT)
+            .contains(TypeAttributes::WindowsRuntime)
         {
             let signature =
                 Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
@@ -168,7 +168,7 @@ fn gen_compare_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) ->
     } else {
         let fields = gen.reader.type_def_fields(def).filter_map(|f| {
             let name = to_ident(gen.reader.field_name(f));
-            if gen.reader.field_flags(f).contains(FieldAttributes::LITERAL) {
+            if gen.reader.field_flags(f).contains(FieldAttributes::Literal) {
                 None
             } else {
                 Some(quote! { self.#name == other.#name })
@@ -199,7 +199,7 @@ fn gen_debug(gen: &Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenSt
         let features = gen.cfg_features(cfg);
 
         let fields = gen.reader.type_def_fields(def).filter_map(|f| {
-            if gen.reader.field_flags(f).contains(FieldAttributes::LITERAL) {
+            if gen.reader.field_flags(f).contains(FieldAttributes::Literal) {
                 None
             } else {
                 let name = gen.reader.field_name(f);
@@ -244,7 +244,7 @@ fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> Tok
     } else if !gen
         .reader
         .type_def_flags(def)
-        .contains(TypeAttributes::WINRT)
+        .contains(TypeAttributes::WindowsRuntime)
     {
         quote! {
             #features
@@ -257,7 +257,7 @@ fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> Tok
     } else {
         let fields = gen.reader.type_def_fields(def).map(|f| {
             let name = to_ident(gen.reader.field_name(f));
-            if gen.reader.field_flags(f).contains(FieldAttributes::LITERAL) {
+            if gen.reader.field_flags(f).contains(FieldAttributes::Literal) {
                 quote! {}
             } else if gen.reader.field_is_blittable(f, def) {
                 quote! { #name: self.#name }
@@ -286,7 +286,7 @@ fn gen_struct_constants(
     let features = gen.cfg_features(cfg);
 
     let constants = gen.reader.type_def_fields(def).filter_map(|f| {
-        if gen.reader.field_flags(f).contains(FieldAttributes::LITERAL) {
+        if gen.reader.field_flags(f).contains(FieldAttributes::Literal) {
             if let Some(constant) = gen.reader.field_constant(f) {
                 let name = to_ident(gen.reader.field_name(f));
                 let value = gen.typed_value(&gen.reader.constant_value(constant));
