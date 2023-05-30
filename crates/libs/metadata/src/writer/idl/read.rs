@@ -67,7 +67,8 @@ impl Module {
                     self.insert(namespace, 0).types.entry(ident).or_default();
                 }
                 ReadPhase::Define => {
-                    let mut def = TypeDef { extends: None, ..Default::default() };
+                    let flags = TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::WindowsRuntime | TypeAttributes::Abstract;
+                    let mut def = TypeDef { flags, extends: None, ..Default::default() };
 
                     for method in &ty.methods {
                         let name = method.sig.ident.to_string();
@@ -89,8 +90,9 @@ impl Module {
 
                         let ty = if let syn::ReturnType::Type(_, ty) = &method.sig.output { self.read_ty(namespace, ty)? } else { Type::Void };
                         let return_type = Param { ty, ..Default::default() };
+                        let flags = MethodAttributes::Public;
 
-                        def.methods.push(Method { name, params, return_type, ..Default::default() });
+                        def.methods.push(Method { flags, name, params, return_type, ..Default::default() });
                     }
 
                     self.insert(namespace, 0).types.entry(ident).or_default().push(def);
