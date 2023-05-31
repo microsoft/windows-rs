@@ -7,6 +7,8 @@ pub struct Error {
     span: Option<(usize, usize)>,
 }
 
+impl std::error::Error for Error {}
+
 impl From<Error> for std::io::Error {
     fn from(error: Error) -> Self {
         std::io::Error::new(std::io::ErrorKind::Other, error.message.as_str())
