@@ -58,7 +58,7 @@ targets = []
 rustc-args = ["--cfg", "docsrs"]
 
 [dependencies]
-windows-core = { path = "../core", version = "0.48.0" }
+windows-core = { path = "../core", version = "0.50.0" }
 windows-targets = { path = "../targets", version = "0.48.0" }
 windows-implement = { path = "../implement",  version = "0.48.0", optional = true }
 windows-interface = { path = "../interface",  version = "0.48.0", optional = true }
