@@ -3173,11 +3173,14 @@ impl PrintTaskOptionDetails {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OptionChanged(&self, eventhandler: &super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn OptionChanged<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, PrintTaskOptionChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OptionChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OptionChanged)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3188,11 +3191,14 @@ impl PrintTaskOptionDetails {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BeginValidation(&self, eventhandler: &super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn BeginValidation<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BeginValidation)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BeginValidation)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3208,10 +3214,13 @@ impl PrintTaskOptionDetails {
             (::windows_core::Interface::vtable(this).CreateToggleOption)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(optionid), ::core::mem::transmute_copy(displayname), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetFromPrintTaskOptions(printtaskoptions: &super::PrintTaskOptions) -> ::windows_core::Result<PrintTaskOptionDetails> {
+    pub fn GetFromPrintTaskOptions<P0>(printtaskoptions: P0) -> ::windows_core::Result<PrintTaskOptionDetails>
+    where
+        P0: ::windows_core::IntoParam<super::PrintTaskOptions>,
+    {
         Self::IPrintTaskOptionDetailsStatic(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetFromPrintTaskOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(printtaskoptions), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetFromPrintTaskOptions)(::windows_core::Interface::as_raw(this), printtaskoptions.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

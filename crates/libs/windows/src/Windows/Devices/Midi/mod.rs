@@ -1059,11 +1059,14 @@ impl MidiInPort {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageReceived(&self, handler: &super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MessageReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MessageReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MessageReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2079,18 +2082,24 @@ impl MidiSynthesizer {
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
-    pub fn CreateFromAudioDeviceAsync(audiodevice: &super::Enumeration::DeviceInformation) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>> {
+    pub fn CreateFromAudioDeviceAsync<P0>(audiodevice: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>
+    where
+        P0: ::windows_core::IntoParam<super::Enumeration::DeviceInformation>,
+    {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromAudioDeviceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(audiodevice), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromAudioDeviceAsync)(::windows_core::Interface::as_raw(this), audiodevice.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn IsSynthesizer(mididevice: &super::Enumeration::DeviceInformation) -> ::windows_core::Result<bool> {
+    pub fn IsSynthesizer<P0>(mididevice: P0) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<super::Enumeration::DeviceInformation>,
+    {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsSynthesizer)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(mididevice), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsSynthesizer)(::windows_core::Interface::as_raw(this), mididevice.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

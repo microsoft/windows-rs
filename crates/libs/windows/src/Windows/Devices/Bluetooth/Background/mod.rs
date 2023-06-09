@@ -680,9 +680,12 @@ impl RfcommInboundConnectionInformation {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn SetLocalServiceId(&self, value: &super::Rfcomm::RfcommServiceId) -> ::windows_core::Result<()> {
+    pub fn SetLocalServiceId<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::Rfcomm::RfcommServiceId>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetLocalServiceId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetLocalServiceId)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ServiceCapabilities(&self) -> ::windows_core::Result<super::BluetoothServiceCapabilities> {
         let this = self;
@@ -742,9 +745,12 @@ impl RfcommOutboundConnectionInformation {
     }
     #[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
-    pub fn SetRemoteServiceId(&self, value: &super::Rfcomm::RfcommServiceId) -> ::windows_core::Result<()> {
+    pub fn SetRemoteServiceId<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::Rfcomm::RfcommServiceId>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetRemoteServiceId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetRemoteServiceId)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for RfcommOutboundConnectionInformation {

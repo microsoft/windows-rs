@@ -200,11 +200,14 @@ impl LockApplicationHost {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Unlocking(&self, handler: &super::super::Foundation::TypedEventHandler<LockApplicationHost, LockScreenUnlockingEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Unlocking<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<LockApplicationHost, LockScreenUnlockingEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Unlocking)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Unlocking)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -336,11 +339,14 @@ pub struct LockScreenInfo(::windows_core::IUnknown);
 impl LockScreenInfo {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LockScreenImageChanged(&self, handler: &super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn LockScreenImageChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LockScreenImageChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LockScreenImageChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -360,11 +366,14 @@ impl LockScreenInfo {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BadgesChanged(&self, handler: &super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BadgesChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BadgesChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BadgesChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -384,11 +393,14 @@ impl LockScreenInfo {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DetailTextChanged(&self, handler: &super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DetailTextChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DetailTextChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DetailTextChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -408,11 +420,14 @@ impl LockScreenInfo {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AlarmIconChanged(&self, handler: &super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AlarmIconChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AlarmIconChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AlarmIconChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

@@ -1144,9 +1144,12 @@ impl WindowsUpdateAdministrator {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RevokeWindowsUpdateActionApproval)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(updateid), ::core::mem::transmute_copy(action)).ok() }
     }
-    pub fn ApproveWindowsUpdate(&self, updateid: &::windows_core::HSTRING, approvaldata: &WindowsUpdateApprovalData) -> ::windows_core::Result<()> {
+    pub fn ApproveWindowsUpdate<P0>(&self, updateid: &::windows_core::HSTRING, approvaldata: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<WindowsUpdateApprovalData>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ApproveWindowsUpdate)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(updateid), ::core::mem::transmute_copy(approvaldata)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ApproveWindowsUpdate)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(updateid), approvaldata.into_param().abi()).ok() }
     }
     pub fn RevokeWindowsUpdateApproval(&self, updateid: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
@@ -1185,10 +1188,13 @@ impl WindowsUpdateAdministrator {
             (::windows_core::Interface::vtable(this).GetRegisteredAdministratorName)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn RequestRestart(restartoptions: &WindowsUpdateRestartRequestOptions) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn RequestRestart<P0>(restartoptions: P0) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<WindowsUpdateRestartRequestOptions>,
+    {
         Self::IWindowsUpdateAdministratorStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestRestart)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(restartoptions), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestRestart)(::windows_core::Interface::as_raw(this), restartoptions.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CancelRestartRequest(requestrestarttoken: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -1618,11 +1624,14 @@ pub struct WindowsUpdateManager(::windows_core::IUnknown);
 impl WindowsUpdateManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ScanningStateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ScanningStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ScanningStateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ScanningStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1633,11 +1642,14 @@ impl WindowsUpdateManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WorkingStateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn WorkingStateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WorkingStateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WorkingStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1648,11 +1660,14 @@ impl WindowsUpdateManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ProgressChanged(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateProgressChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ProgressChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateProgressChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProgressChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProgressChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1663,11 +1678,14 @@ impl WindowsUpdateManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AttentionRequiredReasonChanged(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateAttentionRequiredReasonChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AttentionRequiredReasonChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateAttentionRequiredReasonChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AttentionRequiredReasonChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AttentionRequiredReasonChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1678,11 +1696,14 @@ impl WindowsUpdateManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ActionCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateActionCompletedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ActionCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateActionCompletedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ActionCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ActionCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1693,11 +1714,14 @@ impl WindowsUpdateManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ScanCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateScanCompletedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ScanCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowsUpdateManager, WindowsUpdateScanCompletedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ScanCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ScanCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1897,9 +1921,12 @@ impl WindowsUpdateRestartRequestOptions {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMoreInfoUrl(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetMoreInfoUrl<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetMoreInfoUrl)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetMoreInfoUrl)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn ComplianceDeadlineInDays(&self) -> ::windows_core::Result<i32> {
         let this = self;
@@ -1947,10 +1974,13 @@ impl WindowsUpdateRestartRequestOptions {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstance(title: &::windows_core::HSTRING, description: &::windows_core::HSTRING, moreinfourl: &super::super::Foundation::Uri, compliancedeadlineindays: i32, compliancegraceperiodindays: i32) -> ::windows_core::Result<WindowsUpdateRestartRequestOptions> {
+    pub fn CreateInstance<P0>(title: &::windows_core::HSTRING, description: &::windows_core::HSTRING, moreinfourl: P0, compliancedeadlineindays: i32, compliancegraceperiodindays: i32) -> ::windows_core::Result<WindowsUpdateRestartRequestOptions>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         Self::IWindowsUpdateRestartRequestOptionsFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(description), ::core::mem::transmute_copy(moreinfourl), compliancedeadlineindays, compliancegraceperiodindays, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(description), moreinfourl.into_param().abi(), compliancedeadlineindays, compliancegraceperiodindays, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

@@ -1075,8 +1075,11 @@ impl AccessoryManager {
     {
         Self::IAccessoryManager2(|this| unsafe { (::windows_core::Interface::vtable(this).EnableEmailNotificationFolderFilter)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(emailaccount), folders.try_into_param()?.abi()).ok() })
     }
-    pub fn UpdateEmailReadStatus(messageentryid: &BinaryId, isread: bool) -> ::windows_core::Result<()> {
-        Self::IAccessoryManager2(|this| unsafe { (::windows_core::Interface::vtable(this).UpdateEmailReadStatus)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messageentryid), isread).ok() })
+    pub fn UpdateEmailReadStatus<P0>(messageentryid: P0, isread: bool) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<BinaryId>,
+    {
+        Self::IAccessoryManager2(|this| unsafe { (::windows_core::Interface::vtable(this).UpdateEmailReadStatus)(::windows_core::Interface::as_raw(this), messageentryid.into_param().abi(), isread).ok() })
     }
     pub fn SnoozeAlarmByInstanceId(instanceid: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         Self::IAccessoryManager3(|this| unsafe { (::windows_core::Interface::vtable(this).SnoozeAlarmByInstanceId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(instanceid)).ok() })

@@ -835,23 +835,32 @@ impl AppWindow {
             (::windows_core::Interface::vtable(this).GetDisplayRegions)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn RequestMoveToDisplayRegion(&self, displayregion: &DisplayRegion) -> ::windows_core::Result<()> {
+    pub fn RequestMoveToDisplayRegion<P0>(&self, displayregion: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<DisplayRegion>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).RequestMoveToDisplayRegion)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(displayregion)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RequestMoveToDisplayRegion)(::windows_core::Interface::as_raw(this), displayregion.into_param().abi()).ok() }
     }
     pub fn RequestMoveAdjacentToCurrentView(&self) -> ::windows_core::Result<()> {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RequestMoveAdjacentToCurrentView)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn RequestMoveAdjacentToWindow(&self, anchorwindow: &AppWindow) -> ::windows_core::Result<()> {
+    pub fn RequestMoveAdjacentToWindow<P0>(&self, anchorwindow: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<AppWindow>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).RequestMoveAdjacentToWindow)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(anchorwindow)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RequestMoveAdjacentToWindow)(::windows_core::Interface::as_raw(this), anchorwindow.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestMoveRelativeToWindowContent(&self, anchorwindow: &AppWindow, contentoffset: super::super::Foundation::Point) -> ::windows_core::Result<()> {
+    pub fn RequestMoveRelativeToWindowContent<P0>(&self, anchorwindow: P0, contentoffset: super::super::Foundation::Point) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<AppWindow>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).RequestMoveRelativeToWindowContent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(anchorwindow), contentoffset).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RequestMoveRelativeToWindowContent)(::windows_core::Interface::as_raw(this), anchorwindow.into_param().abi(), contentoffset).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -861,9 +870,12 @@ impl AppWindow {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestMoveRelativeToDisplayRegion(&self, displayregion: &DisplayRegion, displayregionoffset: super::super::Foundation::Point) -> ::windows_core::Result<()> {
+    pub fn RequestMoveRelativeToDisplayRegion<P0>(&self, displayregion: P0, displayregionoffset: super::super::Foundation::Point) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<DisplayRegion>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).RequestMoveRelativeToDisplayRegion)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(displayregion), displayregionoffset).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RequestMoveRelativeToDisplayRegion)(::windows_core::Interface::as_raw(this), displayregion.into_param().abi(), displayregionoffset).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -882,11 +894,14 @@ impl AppWindow {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed(&self, handler: &super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -897,11 +912,14 @@ impl AppWindow {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -912,11 +930,14 @@ impl AppWindow {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CloseRequested(&self, handler: &super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CloseRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CloseRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CloseRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1876,11 +1897,14 @@ impl DisplayRegion {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed(&self, handler: &super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2032,11 +2056,14 @@ impl WindowingEnvironment {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed(&self, handler: &super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Changed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

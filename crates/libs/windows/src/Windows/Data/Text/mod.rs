@@ -606,9 +606,12 @@ impl SelectableWordsSegmenter {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Tokenize(&self, text: &::windows_core::HSTRING, startindex: u32, handler: &SelectableWordSegmentsTokenizingHandler) -> ::windows_core::Result<()> {
+    pub fn Tokenize<P0>(&self, text: &::windows_core::HSTRING, startindex: u32, handler: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<SelectableWordSegmentsTokenizingHandler>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Tokenize)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Tokenize)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, handler.into_param().abi()).ok() }
     }
     pub fn CreateWithLanguage(language: &::windows_core::HSTRING) -> ::windows_core::Result<SelectableWordsSegmenter> {
         Self::ISelectableWordsSegmenterFactory(|this| unsafe {
@@ -1249,9 +1252,12 @@ impl WordsSegmenter {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Tokenize(&self, text: &::windows_core::HSTRING, startindex: u32, handler: &WordSegmentsTokenizingHandler) -> ::windows_core::Result<()> {
+    pub fn Tokenize<P0>(&self, text: &::windows_core::HSTRING, startindex: u32, handler: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<WordSegmentsTokenizingHandler>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Tokenize)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Tokenize)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(text), startindex, handler.into_param().abi()).ok() }
     }
     pub fn CreateWithLanguage(language: &::windows_core::HSTRING) -> ::windows_core::Result<WordsSegmenter> {
         Self::IWordsSegmenterFactory(|this| unsafe {

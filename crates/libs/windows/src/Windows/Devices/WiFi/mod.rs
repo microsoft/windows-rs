@@ -386,11 +386,14 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AvailableNetworksChanged(&self, args: &super::super::Foundation::TypedEventHandler<WiFiAdapter, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AvailableNetworksChanged<P0>(&self, args: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<WiFiAdapter, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AvailableNetworksChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(args), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AvailableNetworksChanged)(::windows_core::Interface::as_raw(this), args.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -401,29 +404,40 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectAsync(&self, availablenetwork: &WiFiAvailableNetwork, reconnectionkind: WiFiReconnectionKind) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectAsync<P0>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
+    where
+        P0: ::windows_core::IntoParam<WiFiAvailableNetwork>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConnectAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(availablenetwork), reconnectionkind, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConnectAsync)(::windows_core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn ConnectWithPasswordCredentialAsync(&self, availablenetwork: &WiFiAvailableNetwork, reconnectionkind: WiFiReconnectionKind, passwordcredential: &super::super::Security::Credentials::PasswordCredential) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectWithPasswordCredentialAsync<P0, P1>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
+    where
+        P0: ::windows_core::IntoParam<WiFiAvailableNetwork>,
+        P1: ::windows_core::IntoParam<super::super::Security::Credentials::PasswordCredential>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(availablenetwork), reconnectionkind, ::core::mem::transmute_copy(passwordcredential), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAsync)(::windows_core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn ConnectWithPasswordCredentialAndSsidAsync(&self, availablenetwork: &WiFiAvailableNetwork, reconnectionkind: WiFiReconnectionKind, passwordcredential: &super::super::Security::Credentials::PasswordCredential, ssid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectWithPasswordCredentialAndSsidAsync<P0, P1>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P1, ssid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
+    where
+        P0: ::windows_core::IntoParam<WiFiAvailableNetwork>,
+        P1: ::windows_core::IntoParam<super::super::Security::Credentials::PasswordCredential>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(availablenetwork), reconnectionkind, ::core::mem::transmute_copy(passwordcredential), ::core::mem::transmute_copy(ssid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAsync)(::windows_core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), ::core::mem::transmute_copy(ssid), &mut result__).from_abi(result__)
         }
     }
     pub fn Disconnect(&self) -> ::windows_core::Result<()> {
@@ -432,20 +446,27 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetWpsConfigurationAsync(&self, availablenetwork: &WiFiAvailableNetwork) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>> {
+    pub fn GetWpsConfigurationAsync<P0>(&self, availablenetwork: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>>
+    where
+        P0: ::windows_core::IntoParam<WiFiAvailableNetwork>,
+    {
         let this = &::windows_core::ComInterface::cast::<IWiFiAdapter2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetWpsConfigurationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(availablenetwork), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetWpsConfigurationAsync)(::windows_core::Interface::as_raw(this), availablenetwork.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync(&self, availablenetwork: &WiFiAvailableNetwork, reconnectionkind: WiFiReconnectionKind, passwordcredential: &super::super::Security::Credentials::PasswordCredential, ssid: &::windows_core::HSTRING, connectionmethod: WiFiConnectionMethod) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync<P0, P1>(&self, availablenetwork: P0, reconnectionkind: WiFiReconnectionKind, passwordcredential: P1, ssid: &::windows_core::HSTRING, connectionmethod: WiFiConnectionMethod) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>
+    where
+        P0: ::windows_core::IntoParam<WiFiAvailableNetwork>,
+        P1: ::windows_core::IntoParam<super::super::Security::Credentials::PasswordCredential>,
+    {
         let this = &::windows_core::ComInterface::cast::<IWiFiAdapter2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(availablenetwork), reconnectionkind, ::core::mem::transmute_copy(passwordcredential), ::core::mem::transmute_copy(ssid), connectionmethod, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync)(::windows_core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), ::core::mem::transmute_copy(ssid), connectionmethod, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -848,9 +869,12 @@ impl WiFiOnDemandHotspotNetwork {
             (::windows_core::Interface::vtable(this).GetProperties)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn UpdateProperties(&self, newproperties: &WiFiOnDemandHotspotNetworkProperties) -> ::windows_core::Result<()> {
+    pub fn UpdateProperties<P0>(&self, newproperties: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<WiFiOnDemandHotspotNetworkProperties>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).UpdateProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(newproperties)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).UpdateProperties)(::windows_core::Interface::as_raw(this), newproperties.into_param().abi()).ok() }
     }
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
         let this = self;
@@ -997,9 +1021,12 @@ impl WiFiOnDemandHotspotNetworkProperties {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetPassword(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows_core::Result<()> {
+    pub fn SetPassword<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Security::Credentials::PasswordCredential>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetPassword)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetPassword)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for WiFiOnDemandHotspotNetworkProperties {

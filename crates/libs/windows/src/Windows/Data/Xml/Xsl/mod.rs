@@ -97,10 +97,13 @@ impl XsltProcessor {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateInstance(document: &super::Dom::XmlDocument) -> ::windows_core::Result<XsltProcessor> {
+    pub fn CreateInstance<P0>(document: P0) -> ::windows_core::Result<XsltProcessor>
+    where
+        P0: ::windows_core::IntoParam<super::Dom::XmlDocument>,
+    {
         Self::IXsltProcessorFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(document), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstance)(::windows_core::Interface::as_raw(this), document.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

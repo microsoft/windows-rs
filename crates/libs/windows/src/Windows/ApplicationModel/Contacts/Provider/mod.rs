@@ -86,11 +86,14 @@ pub struct ContactPickerUI(::windows_core::IUnknown);
 impl ContactPickerUI {
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn AddContact(&self, id: &::windows_core::HSTRING, contact: &super::Contact) -> ::windows_core::Result<AddContactResult> {
+    pub fn AddContact<P0>(&self, id: &::windows_core::HSTRING, contact: P0) -> ::windows_core::Result<AddContactResult>
+    where
+        P0: ::windows_core::IntoParam<super::Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AddContact)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AddContact)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), contact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveContact(&self, id: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -122,11 +125,14 @@ impl ContactPickerUI {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContactRemoved(&self, handler: &super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ContactRemoved<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ContactRemoved)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ContactRemoved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -135,11 +141,14 @@ impl ContactPickerUI {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveContactRemoved)(::windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AddContact2(&self, contact: &super::Contact) -> ::windows_core::Result<AddContactResult> {
+    pub fn AddContact2<P0>(&self, contact: P0) -> ::windows_core::Result<AddContactResult>
+    where
+        P0: ::windows_core::IntoParam<super::Contact>,
+    {
         let this = &::windows_core::ComInterface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AddContact)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AddContact)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]

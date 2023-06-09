@@ -1019,10 +1019,13 @@ impl ApplicationLanguages {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub fn GetLanguagesForUser(user: &super::System::User) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<::windows_core::HSTRING>> {
+    pub fn GetLanguagesForUser<P0>(user: P0) -> ::windows_core::Result<super::Foundation::Collections::IVectorView<::windows_core::HSTRING>>
+    where
+        P0: ::windows_core::IntoParam<super::System::User>,
+    {
         Self::IApplicationLanguagesStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetLanguagesForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetLanguagesForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1587,11 +1590,14 @@ impl Calendar {
             (::windows_core::Interface::vtable(this).NanosecondAsPaddedString)(::windows_core::Interface::as_raw(this), mindigits, &mut result__).from_abi(result__)
         }
     }
-    pub fn Compare(&self, other: &Calendar) -> ::windows_core::Result<i32> {
+    pub fn Compare<P0>(&self, other: P0) -> ::windows_core::Result<i32>
+    where
+        P0: ::windows_core::IntoParam<Calendar>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Compare)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(other), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Compare)(::windows_core::Interface::as_raw(this), other.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1603,9 +1609,12 @@ impl Calendar {
             (::windows_core::Interface::vtable(this).CompareDateTime)(::windows_core::Interface::as_raw(this), other, &mut result__).from_abi(result__)
         }
     }
-    pub fn CopyTo(&self, other: &Calendar) -> ::windows_core::Result<()> {
+    pub fn CopyTo<P0>(&self, other: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<Calendar>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).CopyTo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(other)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).CopyTo)(::windows_core::Interface::as_raw(this), other.into_param().abi()).ok() }
     }
     pub fn FirstMinuteInThisHour(&self) -> ::windows_core::Result<i32> {
         let this = self;

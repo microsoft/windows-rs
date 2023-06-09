@@ -710,20 +710,26 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendOutputReportAsync(&self, outputreport: &HidOutputReport) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn SendOutputReportAsync<P0>(&self, outputreport: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    where
+        P0: ::windows_core::IntoParam<HidOutputReport>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendOutputReportAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(outputreport), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendOutputReportAsync)(::windows_core::Interface::as_raw(this), outputreport.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendFeatureReportAsync(&self, featurereport: &HidFeatureReport) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn SendFeatureReportAsync<P0>(&self, featurereport: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<u32>>
+    where
+        P0: ::windows_core::IntoParam<HidFeatureReport>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendFeatureReportAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(featurereport), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendFeatureReportAsync)(::windows_core::Interface::as_raw(this), featurereport.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -746,11 +752,14 @@ impl HidDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InputReportReceived(&self, reporthandler: &super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn InputReportReceived<P0>(&self, reporthandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<HidDevice, HidInputReportReceivedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).InputReportReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(reporthandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).InputReportReceived)(::windows_core::Interface::as_raw(this), reporthandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -854,11 +863,14 @@ impl HidFeatureReport {
             (::windows_core::Interface::vtable(this).GetBooleanControl)(::windows_core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
-    pub fn GetBooleanControlByDescription(&self, controldescription: &HidBooleanControlDescription) -> ::windows_core::Result<HidBooleanControl> {
+    pub fn GetBooleanControlByDescription<P0>(&self, controldescription: P0) -> ::windows_core::Result<HidBooleanControl>
+    where
+        P0: ::windows_core::IntoParam<HidBooleanControlDescription>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetBooleanControlByDescription)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetBooleanControlByDescription)(::windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows_core::Result<HidNumericControl> {
@@ -868,11 +880,14 @@ impl HidFeatureReport {
             (::windows_core::Interface::vtable(this).GetNumericControl)(::windows_core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
-    pub fn GetNumericControlByDescription(&self, controldescription: &HidNumericControlDescription) -> ::windows_core::Result<HidNumericControl> {
+    pub fn GetNumericControlByDescription<P0>(&self, controldescription: P0) -> ::windows_core::Result<HidNumericControl>
+    where
+        P0: ::windows_core::IntoParam<HidNumericControlDescription>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetNumericControlByDescription)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetNumericControlByDescription)(::windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -952,11 +967,14 @@ impl HidInputReport {
             (::windows_core::Interface::vtable(this).GetBooleanControl)(::windows_core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
-    pub fn GetBooleanControlByDescription(&self, controldescription: &HidBooleanControlDescription) -> ::windows_core::Result<HidBooleanControl> {
+    pub fn GetBooleanControlByDescription<P0>(&self, controldescription: P0) -> ::windows_core::Result<HidBooleanControl>
+    where
+        P0: ::windows_core::IntoParam<HidBooleanControlDescription>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetBooleanControlByDescription)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetBooleanControlByDescription)(::windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows_core::Result<HidNumericControl> {
@@ -966,11 +984,14 @@ impl HidInputReport {
             (::windows_core::Interface::vtable(this).GetNumericControl)(::windows_core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
-    pub fn GetNumericControlByDescription(&self, controldescription: &HidNumericControlDescription) -> ::windows_core::Result<HidNumericControl> {
+    pub fn GetNumericControlByDescription<P0>(&self, controldescription: P0) -> ::windows_core::Result<HidNumericControl>
+    where
+        P0: ::windows_core::IntoParam<HidNumericControlDescription>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetNumericControlByDescription)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetNumericControlByDescription)(::windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1327,11 +1348,14 @@ impl HidOutputReport {
             (::windows_core::Interface::vtable(this).GetBooleanControl)(::windows_core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
-    pub fn GetBooleanControlByDescription(&self, controldescription: &HidBooleanControlDescription) -> ::windows_core::Result<HidBooleanControl> {
+    pub fn GetBooleanControlByDescription<P0>(&self, controldescription: P0) -> ::windows_core::Result<HidBooleanControl>
+    where
+        P0: ::windows_core::IntoParam<HidBooleanControlDescription>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetBooleanControlByDescription)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetBooleanControlByDescription)(::windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetNumericControl(&self, usagepage: u16, usageid: u16) -> ::windows_core::Result<HidNumericControl> {
@@ -1341,11 +1365,14 @@ impl HidOutputReport {
             (::windows_core::Interface::vtable(this).GetNumericControl)(::windows_core::Interface::as_raw(this), usagepage, usageid, &mut result__).from_abi(result__)
         }
     }
-    pub fn GetNumericControlByDescription(&self, controldescription: &HidNumericControlDescription) -> ::windows_core::Result<HidNumericControl> {
+    pub fn GetNumericControlByDescription<P0>(&self, controldescription: P0) -> ::windows_core::Result<HidNumericControl>
+    where
+        P0: ::windows_core::IntoParam<HidNumericControlDescription>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetNumericControlByDescription)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(controldescription), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetNumericControlByDescription)(::windows_core::Interface::as_raw(this), controldescription.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }

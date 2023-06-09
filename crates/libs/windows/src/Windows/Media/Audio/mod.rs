@@ -1263,9 +1263,12 @@ pub struct IAudioNodeListener_Vtbl {
 #[repr(transparent)]
 pub struct IAudioNodeWithListener(::windows_core::IUnknown);
 impl IAudioNodeWithListener {
-    pub fn SetListener(&self, value: &AudioNodeListener) -> ::windows_core::Result<()> {
+    pub fn SetListener<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<AudioNodeListener>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetListener)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetListener)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Listener(&self) -> ::windows_core::Result<AudioNodeListener> {
         let this = self;
@@ -2533,9 +2536,12 @@ impl AudioDeviceOutputNode {
         let this = &::windows_core::ComInterface::cast::<IAudioNode>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).EnableEffectsByDefinition)(::windows_core::Interface::as_raw(this), definition.try_into_param()?.abi()).ok() }
     }
-    pub fn SetListener(&self, value: &AudioNodeListener) -> ::windows_core::Result<()> {
+    pub fn SetListener<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<AudioNodeListener>,
+    {
         let this = &::windows_core::ComInterface::cast::<IAudioNodeWithListener>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetListener)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetListener)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Listener(&self) -> ::windows_core::Result<AudioNodeListener> {
         let this = &::windows_core::ComInterface::cast::<IAudioNodeWithListener>(self)?;
@@ -2690,11 +2696,14 @@ impl AudioFileInputNode {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FileCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<AudioFileInputNode, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn FileCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioFileInputNode, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FileCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FileCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3053,9 +3062,12 @@ impl AudioFrameInputNode {
             (::windows_core::Interface::vtable(this).PlaybackSpeedFactor)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn AddFrame(&self, frame: &super::AudioFrame) -> ::windows_core::Result<()> {
+    pub fn AddFrame<P0>(&self, frame: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::AudioFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).AddFrame)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(frame)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).AddFrame)(::windows_core::Interface::as_raw(this), frame.into_param().abi()).ok() }
     }
     pub fn DiscardQueuedFrames(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -3070,11 +3082,14 @@ impl AudioFrameInputNode {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioFrameCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<AudioFrameInputNode, AudioFrameCompletedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioFrameCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, AudioFrameCompletedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AudioFrameCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AudioFrameCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3085,11 +3100,14 @@ impl AudioFrameInputNode {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn QuantumStarted(&self, handler: &super::super::Foundation::TypedEventHandler<AudioFrameInputNode, FrameInputNodeQuantumStartedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn QuantumStarted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioFrameInputNode, FrameInputNodeQuantumStartedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).QuantumStarted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).QuantumStarted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3383,11 +3401,14 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn CreateFrameInputNodeWithFormat(&self, encodingproperties: &super::MediaProperties::AudioEncodingProperties) -> ::windows_core::Result<AudioFrameInputNode> {
+    pub fn CreateFrameInputNodeWithFormat<P0>(&self, encodingproperties: P0) -> ::windows_core::Result<AudioFrameInputNode>
+    where
+        P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFrameInputNodeWithFormat)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(encodingproperties), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFrameInputNodeWithFormat)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Capture\"`*"]
@@ -3401,20 +3422,27 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn CreateDeviceInputNodeWithFormatAsync(&self, category: super::Capture::MediaCategory, encodingproperties: &super::MediaProperties::AudioEncodingProperties) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>> {
+    pub fn CreateDeviceInputNodeWithFormatAsync<P0>(&self, category: super::Capture::MediaCategory, encodingproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
+    where
+        P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAsync)(::windows_core::Interface::as_raw(this), category, ::core::mem::transmute_copy(encodingproperties), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAsync)(::windows_core::Interface::as_raw(this), category, encodingproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn CreateDeviceInputNodeWithFormatOnDeviceAsync(&self, category: super::Capture::MediaCategory, encodingproperties: &super::MediaProperties::AudioEncodingProperties, device: &super::super::Devices::Enumeration::DeviceInformation) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>> {
+    pub fn CreateDeviceInputNodeWithFormatOnDeviceAsync<P0, P1>(&self, category: super::Capture::MediaCategory, encodingproperties: P0, device: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
+    where
+        P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
+        P1: ::windows_core::IntoParam<super::super::Devices::Enumeration::DeviceInformation>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatOnDeviceAsync)(::windows_core::Interface::as_raw(this), category, ::core::mem::transmute_copy(encodingproperties), ::core::mem::transmute_copy(device), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatOnDeviceAsync)(::windows_core::Interface::as_raw(this), category, encodingproperties.into_param().abi(), device.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateFrameOutputNode(&self) -> ::windows_core::Result<AudioFrameOutputNode> {
@@ -3426,11 +3454,14 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn CreateFrameOutputNodeWithFormat(&self, encodingproperties: &super::MediaProperties::AudioEncodingProperties) -> ::windows_core::Result<AudioFrameOutputNode> {
+    pub fn CreateFrameOutputNodeWithFormat<P0>(&self, encodingproperties: P0) -> ::windows_core::Result<AudioFrameOutputNode>
+    where
+        P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFrameOutputNodeWithFormat)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(encodingproperties), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFrameOutputNodeWithFormat)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3468,14 +3499,15 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
-    pub fn CreateFileOutputNodeWithFileProfileAsync<P0>(&self, file: P0, fileencodingprofile: &super::MediaProperties::MediaEncodingProfile) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>>
+    pub fn CreateFileOutputNodeWithFileProfileAsync<P0, P1>(&self, file: P0, fileencodingprofile: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileOutputNodeResult>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
+        P1: ::windows_core::IntoParam<super::MediaProperties::MediaEncodingProfile>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFileOutputNodeWithFileProfileAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), ::core::mem::transmute_copy(fileencodingprofile), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFileOutputNodeWithFileProfileAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), fileencodingprofile.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateSubmixNode(&self) -> ::windows_core::Result<AudioSubmixNode> {
@@ -3487,11 +3519,14 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn CreateSubmixNodeWithFormat(&self, encodingproperties: &super::MediaProperties::AudioEncodingProperties) -> ::windows_core::Result<AudioSubmixNode> {
+    pub fn CreateSubmixNodeWithFormat<P0>(&self, encodingproperties: P0) -> ::windows_core::Result<AudioSubmixNode>
+    where
+        P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateSubmixNodeWithFormat)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(encodingproperties), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateSubmixNodeWithFormat)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn Start(&self) -> ::windows_core::Result<()> {
@@ -3508,11 +3543,14 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn QuantumStarted(&self, handler: &super::super::Foundation::TypedEventHandler<AudioGraph, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn QuantumStarted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioGraph, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).QuantumStarted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).QuantumStarted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3523,11 +3561,14 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn QuantumProcessed(&self, handler: &super::super::Foundation::TypedEventHandler<AudioGraph, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn QuantumProcessed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioGraph, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).QuantumProcessed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).QuantumProcessed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3538,11 +3579,14 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UnrecoverableErrorOccurred(&self, handler: &super::super::Foundation::TypedEventHandler<AudioGraph, AudioGraphUnrecoverableErrorOccurredEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn UnrecoverableErrorOccurred<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioGraph, AudioGraphUnrecoverableErrorOccurredEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UnrecoverableErrorOccurred)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UnrecoverableErrorOccurred)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3599,41 +3643,55 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn CreateFrameInputNodeWithFormatAndEmitter(&self, encodingproperties: &super::MediaProperties::AudioEncodingProperties, emitter: &AudioNodeEmitter) -> ::windows_core::Result<AudioFrameInputNode> {
-        let this = &::windows_core::ComInterface::cast::<IAudioGraph2>(self)?;
-        unsafe {
-            let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFrameInputNodeWithFormatAndEmitter)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(encodingproperties), ::core::mem::transmute_copy(emitter), &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
-    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync(&self, category: super::Capture::MediaCategory, encodingproperties: &super::MediaProperties::AudioEncodingProperties, device: &super::super::Devices::Enumeration::DeviceInformation, emitter: &AudioNodeEmitter) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>> {
-        let this = &::windows_core::ComInterface::cast::<IAudioGraph2>(self)?;
-        unsafe {
-            let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync)(::windows_core::Interface::as_raw(this), category, ::core::mem::transmute_copy(encodingproperties), ::core::mem::transmute_copy(device), ::core::mem::transmute_copy(emitter), &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateFileInputNodeWithEmitterAsync<P0>(&self, file: P0, emitter: &AudioNodeEmitter) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>>
+    pub fn CreateFrameInputNodeWithFormatAndEmitter<P0, P1>(&self, encodingproperties: P0, emitter: P1) -> ::windows_core::Result<AudioFrameInputNode>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
+        P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
+        P1: ::windows_core::IntoParam<AudioNodeEmitter>,
     {
         let this = &::windows_core::ComInterface::cast::<IAudioGraph2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFileInputNodeWithEmitterAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), ::core::mem::transmute_copy(emitter), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFrameInputNodeWithFormatAndEmitter)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), emitter.into_param().abi(), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    pub fn CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync<P0, P1, P2>(&self, category: super::Capture::MediaCategory, encodingproperties: P0, device: P1, emitter: P2) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioDeviceInputNodeResult>>
+    where
+        P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
+        P1: ::windows_core::IntoParam<super::super::Devices::Enumeration::DeviceInformation>,
+        P2: ::windows_core::IntoParam<AudioNodeEmitter>,
+    {
+        let this = &::windows_core::ComInterface::cast::<IAudioGraph2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).CreateDeviceInputNodeWithFormatAndEmitterOnDeviceAsync)(::windows_core::Interface::as_raw(this), category, encodingproperties.into_param().abi(), device.into_param().abi(), emitter.into_param().abi(), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    pub fn CreateFileInputNodeWithEmitterAsync<P0, P1>(&self, file: P0, emitter: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioFileInputNodeResult>>
+    where
+        P0: ::windows_core::TryIntoParam<super::super::Storage::IStorageFile>,
+        P1: ::windows_core::IntoParam<AudioNodeEmitter>,
+    {
+        let this = &::windows_core::ComInterface::cast::<IAudioGraph2>(self)?;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).CreateFileInputNodeWithEmitterAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), emitter.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn CreateSubmixNodeWithFormatAndEmitter(&self, encodingproperties: &super::MediaProperties::AudioEncodingProperties, emitter: &AudioNodeEmitter) -> ::windows_core::Result<AudioSubmixNode> {
+    pub fn CreateSubmixNodeWithFormatAndEmitter<P0, P1>(&self, encodingproperties: P0, emitter: P1) -> ::windows_core::Result<AudioSubmixNode>
+    where
+        P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
+        P1: ::windows_core::IntoParam<AudioNodeEmitter>,
+    {
         let this = &::windows_core::ComInterface::cast::<IAudioGraph2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateSubmixNodeWithFormatAndEmitter)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(encodingproperties), ::core::mem::transmute_copy(emitter), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateSubmixNodeWithFormatAndEmitter)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), emitter.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3647,28 +3705,38 @@ impl AudioGraph {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
-    pub fn CreateMediaSourceAudioInputNodeAsync(&self, mediasource: &super::Core::MediaSource) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>> {
+    pub fn CreateMediaSourceAudioInputNodeAsync<P0>(&self, mediasource: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>
+    where
+        P0: ::windows_core::IntoParam<super::Core::MediaSource>,
+    {
         let this = &::windows_core::ComInterface::cast::<IAudioGraph3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateMediaSourceAudioInputNodeAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(mediasource), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateMediaSourceAudioInputNodeAsync)(::windows_core::Interface::as_raw(this), mediasource.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
-    pub fn CreateMediaSourceAudioInputNodeWithEmitterAsync(&self, mediasource: &super::Core::MediaSource, emitter: &AudioNodeEmitter) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>> {
+    pub fn CreateMediaSourceAudioInputNodeWithEmitterAsync<P0, P1>(&self, mediasource: P0, emitter: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateMediaSourceAudioInputNodeResult>>
+    where
+        P0: ::windows_core::IntoParam<super::Core::MediaSource>,
+        P1: ::windows_core::IntoParam<AudioNodeEmitter>,
+    {
         let this = &::windows_core::ComInterface::cast::<IAudioGraph3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateMediaSourceAudioInputNodeWithEmitterAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(mediasource), ::core::mem::transmute_copy(emitter), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateMediaSourceAudioInputNodeWithEmitterAsync)(::windows_core::Interface::as_raw(this), mediasource.into_param().abi(), emitter.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateAsync(settings: &AudioGraphSettings) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioGraphResult>> {
+    pub fn CreateAsync<P0>(settings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<CreateAudioGraphResult>>
+    where
+        P0: ::windows_core::IntoParam<AudioGraphSettings>,
+    {
         Self::IAudioGraphStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(settings), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), settings.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3842,9 +3910,12 @@ impl AudioGraphSettings {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetEncodingProperties(&self, value: &super::MediaProperties::AudioEncodingProperties) -> ::windows_core::Result<()> {
+    pub fn SetEncodingProperties<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetEncodingProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetEncodingProperties)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
@@ -3857,9 +3928,12 @@ impl AudioGraphSettings {
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn SetPrimaryRenderDevice(&self, value: &super::super::Devices::Enumeration::DeviceInformation) -> ::windows_core::Result<()> {
+    pub fn SetPrimaryRenderDevice<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Devices::Enumeration::DeviceInformation>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetPrimaryRenderDevice)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetPrimaryRenderDevice)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn QuantumSizeSelectionMode(&self) -> ::windows_core::Result<QuantumSizeSelectionMode> {
         let this = self;
@@ -4129,10 +4203,14 @@ impl AudioNodeEmitter {
         let this = &::windows_core::ComInterface::cast::<IAudioNodeEmitter2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).SetSpatialAudioModel)(::windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateAudioNodeEmitter(shape: &AudioNodeEmitterShape, decaymodel: &AudioNodeEmitterDecayModel, settings: AudioNodeEmitterSettings) -> ::windows_core::Result<AudioNodeEmitter> {
+    pub fn CreateAudioNodeEmitter<P0, P1>(shape: P0, decaymodel: P1, settings: AudioNodeEmitterSettings) -> ::windows_core::Result<AudioNodeEmitter>
+    where
+        P0: ::windows_core::IntoParam<AudioNodeEmitterShape>,
+        P1: ::windows_core::IntoParam<AudioNodeEmitterDecayModel>,
+    {
         Self::IAudioNodeEmitterFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAudioNodeEmitter)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(shape), ::core::mem::transmute_copy(decaymodel), settings, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAudioNodeEmitter)(::windows_core::Interface::as_raw(this), shape.into_param().abi(), decaymodel.into_param().abi(), settings, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4575,11 +4653,14 @@ impl AudioPlaybackConnection {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<AudioPlaybackConnection, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioPlaybackConnection, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4701,11 +4782,14 @@ pub struct AudioStateMonitor(::windows_core::IUnknown);
 impl AudioStateMonitor {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SoundLevelChanged(&self, handler: &super::super::Foundation::TypedEventHandler<AudioStateMonitor, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SoundLevelChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioStateMonitor, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SoundLevelChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SoundLevelChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5369,10 +5453,13 @@ impl EchoEffectDefinition {
             (::windows_core::Interface::vtable(this).Delay)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Create(audiograph: &AudioGraph) -> ::windows_core::Result<EchoEffectDefinition> {
+    pub fn Create<P0>(audiograph: P0) -> ::windows_core::Result<EchoEffectDefinition>
+    where
+        P0: ::windows_core::IntoParam<AudioGraph>,
+    {
         Self::IEchoEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(audiograph), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), audiograph.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5514,10 +5601,13 @@ impl EqualizerEffectDefinition {
             (::windows_core::Interface::vtable(this).Bands)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Create(audiograph: &AudioGraph) -> ::windows_core::Result<EqualizerEffectDefinition> {
+    pub fn Create<P0>(audiograph: P0) -> ::windows_core::Result<EqualizerEffectDefinition>
+    where
+        P0: ::windows_core::IntoParam<AudioGraph>,
+    {
         Self::IEqualizerEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(audiograph), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), audiograph.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5646,10 +5736,13 @@ impl LimiterEffectDefinition {
             (::windows_core::Interface::vtable(this).Loudness)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Create(audiograph: &AudioGraph) -> ::windows_core::Result<LimiterEffectDefinition> {
+    pub fn Create<P0>(audiograph: P0) -> ::windows_core::Result<LimiterEffectDefinition>
+    where
+        P0: ::windows_core::IntoParam<AudioGraph>,
+    {
         Self::ILimiterEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(audiograph), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), audiograph.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5908,11 +6001,14 @@ impl MediaSourceAudioInputNode {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MediaSourceCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<MediaSourceAudioInputNode, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MediaSourceCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MediaSourceAudioInputNode, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MediaSourceCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MediaSourceCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6233,10 +6329,13 @@ impl ReverbEffectDefinition {
             (::windows_core::Interface::vtable(this).DisableLateField)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Create(audiograph: &AudioGraph) -> ::windows_core::Result<ReverbEffectDefinition> {
+    pub fn Create<P0>(audiograph: P0) -> ::windows_core::Result<ReverbEffectDefinition>
+    where
+        P0: ::windows_core::IntoParam<AudioGraph>,
+    {
         Self::IReverbEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(audiograph), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), audiograph.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -6371,11 +6470,14 @@ impl SpatialAudioDeviceConfiguration {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConfigurationChanged(&self, handler: &super::super::Foundation::TypedEventHandler<SpatialAudioDeviceConfiguration, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ConfigurationChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SpatialAudioDeviceConfiguration, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConfigurationChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConfigurationChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

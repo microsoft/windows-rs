@@ -746,29 +746,39 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartProcessSilentlyWithTelemetryAsync(&self, hostexepath: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
+    pub fn StartProcessSilentlyWithTelemetryAsync<P0>(&self, hostexepath: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>
+    where
+        P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostexepath), ::core::mem::transmute_copy(arguments), activator, telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFolderAsync(&self, hostfolder: &::windows_core::HSTRING, requestoptions: &IsolatedWindowsEnvironmentShareFolderRequestOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
+    pub fn ShareFolderAsync<P0>(&self, hostfolder: &::windows_core::HSTRING, requestoptions: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
+    where
+        P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentShareFolderRequestOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShareFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostfolder), ::core::mem::transmute_copy(requestoptions), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShareFolderAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostfolder), requestoptions.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFolderWithTelemetryAsync(&self, hostfolder: &::windows_core::HSTRING, requestoptions: &IsolatedWindowsEnvironmentShareFolderRequestOptions, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
+    pub fn ShareFolderWithTelemetryAsync<P0, P1>(&self, hostfolder: &::windows_core::HSTRING, requestoptions: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>
+    where
+        P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentShareFolderRequestOptions>,
+        P1: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostfolder), ::core::mem::transmute_copy(requestoptions), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(hostfolder), requestoptions.into_param().abi(), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -782,11 +792,14 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFileWithUIAndTelemetryAsync(&self, appexepath: &::windows_core::HSTRING, argumentstemplate: &::windows_core::HSTRING, filepath: &::windows_core::HSTRING, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
+    pub fn LaunchFileWithUIAndTelemetryAsync<P0>(&self, appexepath: &::windows_core::HSTRING, argumentstemplate: &::windows_core::HSTRING, filepath: &::windows_core::HSTRING, telemetryparameters: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>
+    where
+        P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(appexepath), ::core::mem::transmute_copy(argumentstemplate), ::core::mem::transmute_copy(filepath), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -800,18 +813,24 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TerminateWithTelemetryAsync(&self, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn TerminateWithTelemetryAsync<P0>(&self, telemetryparameters: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TerminateWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TerminateWithTelemetryAsync)(::windows_core::Interface::as_raw(this), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterMessageReceiver(&self, receiverid: ::windows_core::GUID, messagereceivedcallback: &MessageReceivedCallback) -> ::windows_core::Result<()> {
+    pub fn RegisterMessageReceiver<P0>(&self, receiverid: ::windows_core::GUID, messagereceivedcallback: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<MessageReceivedCallback>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).RegisterMessageReceiver)(::windows_core::Interface::as_raw(this), receiverid, ::core::mem::transmute_copy(messagereceivedcallback)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).RegisterMessageReceiver)(::windows_core::Interface::as_raw(this), receiverid, messagereceivedcallback.into_param().abi()).ok() }
     }
     pub fn UnregisterMessageReceiver(&self, receiverid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         let this = self;
@@ -831,14 +850,15 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PostMessageToReceiverWithTelemetryAsync<P0>(&self, receiverid: ::windows_core::GUID, message: P0, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
+    pub fn PostMessageToReceiverWithTelemetryAsync<P0, P1>(&self, receiverid: ::windows_core::GUID, message: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>
     where
         P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::IInspectable>>,
+        P1: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
     {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(::windows_core::Interface::as_raw(this), receiverid, message.try_into_param()?.abi(), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(::windows_core::Interface::as_raw(this), receiverid, message.try_into_param()?.abi(), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetUserInfo(&self) -> ::windows_core::Result<IsolatedWindowsEnvironmentUserInfo> {
@@ -850,20 +870,27 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFileAsync(&self, filepath: &::windows_core::HSTRING, options: &IsolatedWindowsEnvironmentShareFileRequestOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
+    pub fn ShareFileAsync<P0>(&self, filepath: &::windows_core::HSTRING, options: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
+    where
+        P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentShareFileRequestOptions>,
+    {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShareFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShareFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFileWithTelemetryAsync(&self, filepath: &::windows_core::HSTRING, options: &IsolatedWindowsEnvironmentShareFileRequestOptions, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
+    pub fn ShareFileWithTelemetryAsync<P0, P1>(&self, filepath: &::windows_core::HSTRING, options: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>
+    where
+        P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentShareFileRequestOptions>,
+        P1: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
+    {
         let this = &::windows_core::ComInterface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShareFileWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShareFileWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), options.into_param().abi(), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn ChangePriority(&self, priority: IsolatedWindowsEnvironmentCreationPriority) -> ::windows_core::Result<()> {
@@ -872,18 +899,25 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateAsync(options: &IsolatedWindowsEnvironmentOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
+    pub fn CreateAsync<P0>(options: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
+    where
+        P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentOptions>,
+    {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithTelemetryAsync(options: &IsolatedWindowsEnvironmentOptions, telemetryparameters: &IsolatedWindowsEnvironmentTelemetryParameters) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
+    pub fn CreateWithTelemetryAsync<P0, P1>(options: P0, telemetryparameters: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>
+    where
+        P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentOptions>,
+        P1: ::windows_core::IntoParam<IsolatedWindowsEnvironmentTelemetryParameters>,
+    {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithTelemetryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), ::core::mem::transmute_copy(telemetryparameters), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithTelemetryAsync)(::windows_core::Interface::as_raw(this), options.into_param().abi(), telemetryparameters.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn GetById(environmentid: &::windows_core::HSTRING) -> ::windows_core::Result<IsolatedWindowsEnvironment> {
@@ -1334,10 +1368,13 @@ unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOptions {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 pub struct IsolatedWindowsEnvironmentOwnerRegistration;
 impl IsolatedWindowsEnvironmentOwnerRegistration {
-    pub fn Register(ownername: &::windows_core::HSTRING, ownerregistrationdata: &IsolatedWindowsEnvironmentOwnerRegistrationData) -> ::windows_core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult> {
+    pub fn Register<P0>(ownername: &::windows_core::HSTRING, ownerregistrationdata: P0) -> ::windows_core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult>
+    where
+        P0: ::windows_core::IntoParam<IsolatedWindowsEnvironmentOwnerRegistrationData>,
+    {
         Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Register)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(ownername), ::core::mem::transmute_copy(ownerregistrationdata), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Register)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(ownername), ownerregistrationdata.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn Unregister(ownername: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -2011,8 +2048,11 @@ impl IsolatedWindowsHostMessenger {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterHostMessageReceiver(receiverid: ::windows_core::GUID, hostmessagereceivedcallback: &HostMessageReceivedCallback) -> ::windows_core::Result<()> {
-        Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).RegisterHostMessageReceiver)(::windows_core::Interface::as_raw(this), receiverid, ::core::mem::transmute_copy(hostmessagereceivedcallback)).ok() })
+    pub fn RegisterHostMessageReceiver<P0>(receiverid: ::windows_core::GUID, hostmessagereceivedcallback: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<HostMessageReceivedCallback>,
+    {
+        Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).RegisterHostMessageReceiver)(::windows_core::Interface::as_raw(this), receiverid, hostmessagereceivedcallback.into_param().abi()).ok() })
     }
     pub fn UnregisterHostMessageReceiver(receiverid: ::windows_core::GUID) -> ::windows_core::Result<()> {
         Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (::windows_core::Interface::vtable(this).UnregisterHostMessageReceiver)(::windows_core::Interface::as_raw(this), receiverid).ok() })

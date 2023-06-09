@@ -179,98 +179,126 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn RetrieveServiceDocumentAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetrieveServiceDocumentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
-    pub fn RetrieveMediaResourceAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetrieveMediaResourceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn RetrieveResourceAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetrieveResourceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn CreateResourceAsync(&self, uri: &super::super::Foundation::Uri, description: &::windows_core::HSTRING, item: &super::Syndication::SyndicationItem) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateResourceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(description), ::core::mem::transmute_copy(item), &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
-    pub fn CreateMediaResourceAsync<P0>(&self, uri: &super::super::Foundation::Uri, mediatype: &::windows_core::HSTRING, description: &::windows_core::HSTRING, mediastream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
+    pub fn RetrieveServiceDocumentAsync<P0>(&self, uri: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateMediaResourceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(mediatype), ::core::mem::transmute_copy(description), mediastream.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetrieveServiceDocumentAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
-    pub fn UpdateMediaResourceAsync<P0>(&self, uri: &super::super::Foundation::Uri, mediatype: &::windows_core::HSTRING, mediastream: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    pub fn RetrieveMediaResourceAsync<P0>(&self, uri: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, super::Syndication::RetrievalProgress>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UpdateMediaResourceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(mediatype), mediastream.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetrieveMediaResourceAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn UpdateResourceAsync(&self, uri: &super::super::Foundation::Uri, item: &super::Syndication::SyndicationItem) -> ::windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>> {
+    pub fn RetrieveResourceAsync<P0>(&self, uri: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::RetrievalProgress>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UpdateResourceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(item), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetrieveResourceAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn UpdateResourceItemAsync(&self, item: &super::Syndication::SyndicationItem) -> ::windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>> {
+    pub fn CreateResourceAsync<P0, P1>(&self, uri: P0, description: &::windows_core::HSTRING, item: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+        P1: ::windows_core::IntoParam<super::Syndication::SyndicationItem>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UpdateResourceItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(item), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateResourceAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), ::core::mem::transmute_copy(description), item.into_param().abi(), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
+    pub fn CreateMediaResourceAsync<P0, P1>(&self, uri: P0, mediatype: &::windows_core::HSTRING, description: &::windows_core::HSTRING, mediastream: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationItem, super::Syndication::TransferProgress>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+        P1: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).CreateMediaResourceAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), ::core::mem::transmute_copy(mediatype), ::core::mem::transmute_copy(description), mediastream.try_into_param()?.abi(), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Syndication\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Syndication"))]
+    pub fn UpdateMediaResourceAsync<P0, P1>(&self, uri: P0, mediatype: &::windows_core::HSTRING, mediastream: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+        P1: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).UpdateMediaResourceAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), ::core::mem::transmute_copy(mediatype), mediastream.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn DeleteResourceAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>> {
+    pub fn UpdateResourceAsync<P0, P1>(&self, uri: P0, item: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+        P1: ::windows_core::IntoParam<super::Syndication::SyndicationItem>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeleteResourceAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UpdateResourceAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), item.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn DeleteResourceItemAsync(&self, item: &super::Syndication::SyndicationItem) -> ::windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>> {
+    pub fn UpdateResourceItemAsync<P0>(&self, item: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    where
+        P0: ::windows_core::IntoParam<super::Syndication::SyndicationItem>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeleteResourceItemAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(item), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UpdateResourceItemAsync)(::windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
+    pub fn DeleteResourceAsync<P0>(&self, uri: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).DeleteResourceAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
+    pub fn DeleteResourceItemAsync<P0>(&self, item: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncActionWithProgress<super::Syndication::TransferProgress>>
+    where
+        P0: ::windows_core::IntoParam<super::Syndication::SyndicationItem>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).DeleteResourceItemAsync)(::windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn CancelAsyncOperations(&self) -> ::windows_core::Result<()> {
@@ -279,10 +307,13 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn CreateAtomPubClientWithCredentials(servercredential: &super::super::Security::Credentials::PasswordCredential) -> ::windows_core::Result<AtomPubClient> {
+    pub fn CreateAtomPubClientWithCredentials<P0>(servercredential: P0) -> ::windows_core::Result<AtomPubClient>
+    where
+        P0: ::windows_core::IntoParam<super::super::Security::Credentials::PasswordCredential>,
+    {
         Self::IAtomPubClientFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAtomPubClientWithCredentials)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(servercredential), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAtomPubClientWithCredentials)(::windows_core::Interface::as_raw(this), servercredential.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
@@ -296,9 +327,12 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "Web_Syndication"))]
-    pub fn SetServerCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows_core::Result<()> {
+    pub fn SetServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Security::Credentials::PasswordCredential>,
+    {
         let this = &::windows_core::ComInterface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetServerCredential)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetServerCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "Web_Syndication"))]
@@ -311,9 +345,12 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Security_Credentials", feature = "Web_Syndication"))]
-    pub fn SetProxyCredential(&self, value: &super::super::Security::Credentials::PasswordCredential) -> ::windows_core::Result<()> {
+    pub fn SetProxyCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Security::Credentials::PasswordCredential>,
+    {
         let this = &::windows_core::ComInterface::cast::<super::Syndication::ISyndicationClient>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetProxyCredential)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetProxyCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Syndication\"`*"]
     #[cfg(feature = "Web_Syndication")]
@@ -368,11 +405,14 @@ impl AtomPubClient {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn RetrieveFeedAsync(&self, uri: &super::super::Foundation::Uri) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>> {
+    pub fn RetrieveFeedAsync<P0>(&self, uri: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Syndication::SyndicationFeed, super::Syndication::RetrievalProgress>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<super::Syndication::ISyndicationClient>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RetrieveFeedAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RetrieveFeedAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc(hidden)]
@@ -525,9 +565,12 @@ impl ResourceCollection {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Syndication"))]
@@ -674,9 +717,12 @@ impl ServiceDocument {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Syndication"))]
@@ -814,9 +860,12 @@ impl Workspace {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Syndication"))]
-    pub fn SetBaseUri(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetBaseUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<super::Syndication::ISyndicationNode>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBaseUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Web_Syndication\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Syndication"))]

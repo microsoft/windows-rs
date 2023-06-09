@@ -57,10 +57,13 @@ impl PowerManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PowerSavingModeChanged(changehandler: &super::super::super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PowerSavingModeChanged<P0>(changehandler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
+    {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PowerSavingModeChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(changehandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PowerSavingModeChanged)(::windows_core::Interface::as_raw(this), changehandler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

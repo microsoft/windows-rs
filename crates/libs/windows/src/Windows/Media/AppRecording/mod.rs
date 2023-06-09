@@ -196,20 +196,26 @@ impl AppRecordingManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn StartRecordingToFileAsync(&self, file: &super::super::Storage::StorageFile) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>> {
+    pub fn StartRecordingToFileAsync<P0>(&self, file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFile>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartRecordingToFileAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(file), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartRecordingToFileAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn RecordTimeSpanToFileAsync(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: &super::super::Storage::StorageFile) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>> {
+    pub fn RecordTimeSpanToFileAsync<P0>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFile>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RecordTimeSpanToFileAsync)(::windows_core::Interface::as_raw(this), starttime, duration, ::core::mem::transmute_copy(file), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RecordTimeSpanToFileAsync)(::windows_core::Interface::as_raw(this), starttime, duration, file.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -223,14 +229,15 @@ impl AppRecordingManager {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn SaveScreenshotToFilesAsync<P0>(&self, folder: &super::super::Storage::StorageFolder, filenameprefix: &::windows_core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
+    pub fn SaveScreenshotToFilesAsync<P0, P1>(&self, folder: P0, filenameprefix: &::windows_core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFolder>,
+        P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SaveScreenshotToFilesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(folder), ::core::mem::transmute_copy(filenameprefix), option, requestedformats.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SaveScreenshotToFilesAsync)(::windows_core::Interface::as_raw(this), folder.into_param().abi(), ::core::mem::transmute_copy(filenameprefix), option, requestedformats.try_into_param()?.abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDefault() -> ::windows_core::Result<AppRecordingManager> {

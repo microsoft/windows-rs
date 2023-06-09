@@ -917,11 +917,15 @@ impl DepthMediaFrame {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Media_Devices_Core", feature = "Perception_Spatial"))]
-    pub fn TryCreateCoordinateMapper(&self, cameraintrinsics: &super::super::Devices::Core::CameraIntrinsics, coordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<super::super::Devices::Core::DepthCorrelatedCoordinateMapper> {
+    pub fn TryCreateCoordinateMapper<P0, P1>(&self, cameraintrinsics: P0, coordinatesystem: P1) -> ::windows_core::Result<super::super::Devices::Core::DepthCorrelatedCoordinateMapper>
+    where
+        P0: ::windows_core::IntoParam<super::super::Devices::Core::CameraIntrinsics>,
+        P1: ::windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryCreateCoordinateMapper)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(cameraintrinsics), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryCreateCoordinateMapper)(::windows_core::Interface::as_raw(this), cameraintrinsics.into_param().abi(), coordinatesystem.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn MaxReliableDepth(&self) -> ::windows_core::Result<u32> {
@@ -1208,11 +1212,14 @@ impl MediaFrameReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FrameArrived(&self, handler: &super::super::super::Foundation::TypedEventHandler<MediaFrameReader, MediaFrameArrivedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn FrameArrived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<MediaFrameReader, MediaFrameArrivedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FrameArrived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FrameArrived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1442,20 +1449,26 @@ impl MediaFrameSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetFormatAsync(&self, format: &MediaFrameFormat) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SetFormatAsync<P0>(&self, format: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<MediaFrameFormat>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetFormatAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(format), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetFormatAsync)(::windows_core::Interface::as_raw(this), format.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FormatChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<MediaFrameSource, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn FormatChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<MediaFrameSource, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FormatChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FormatChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1466,11 +1479,14 @@ impl MediaFrameSource {
     }
     #[doc = "*Required features: `\"Media_Devices_Core\"`*"]
     #[cfg(feature = "Media_Devices_Core")]
-    pub fn TryGetCameraIntrinsics(&self, format: &MediaFrameFormat) -> ::windows_core::Result<super::super::Devices::Core::CameraIntrinsics> {
+    pub fn TryGetCameraIntrinsics<P0>(&self, format: P0) -> ::windows_core::Result<super::super::Devices::Core::CameraIntrinsics>
+    where
+        P0: ::windows_core::IntoParam<MediaFrameFormat>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryGetCameraIntrinsics)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(format), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryGetCameraIntrinsics)(::windows_core::Interface::as_raw(this), format.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -1814,11 +1830,14 @@ impl MediaFrameSourceInfo {
     }
     #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"UI_WindowManagement\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "UI_WindowManagement"))]
-    pub fn GetRelativePanel(&self, displayregion: &super::super::super::UI::WindowManagement::DisplayRegion) -> ::windows_core::Result<super::super::super::Devices::Enumeration::Panel> {
+    pub fn GetRelativePanel<P0>(&self, displayregion: P0) -> ::windows_core::Result<super::super::super::Devices::Enumeration::Panel>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::UI::WindowManagement::DisplayRegion>,
+    {
         let this = &::windows_core::ComInterface::cast::<IMediaFrameSourceInfo3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetRelativePanel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(displayregion), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetRelativePanel)(::windows_core::Interface::as_raw(this), displayregion.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn IsShareable(&self) -> ::windows_core::Result<bool> {
@@ -1907,11 +1926,14 @@ impl MultiSourceMediaFrameReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FrameArrived(&self, handler: &super::super::super::Foundation::TypedEventHandler<MultiSourceMediaFrameReader, MultiSourceMediaFrameArrivedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn FrameArrived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<MultiSourceMediaFrameReader, MultiSourceMediaFrameArrivedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FrameArrived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FrameArrived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

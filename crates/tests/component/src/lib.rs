@@ -42,16 +42,19 @@ impl bindings::IClass_Impl for Class {
         a: Option<&IInspectable>,
         b: Option<&bindings::Class>,
         c: Option<&IStringable>,
+        d: Option<&bindings::Callback>,
     ) -> Result<()> {
-        let a = a.unwrap();
-        let b = b.unwrap();
-        let c = c.unwrap();
+        let a = a.ok_or_else(|| Error::from(E_INVALIDARG))?;
+        let b = b.ok_or_else(|| Error::from(E_INVALIDARG))?;
+        let c = c.ok_or_else(|| Error::from(E_INVALIDARG))?;
+        let d = d.ok_or_else(|| Error::from(E_INVALIDARG))?;
 
         let a: IUnknown = a.can_clone_into();
         let b: IUnknown = b.can_clone_into();
         assert_eq!(a, b);
-
         assert_eq!(c.ToString()?, "client");
+        assert_eq!(d.Invoke(123)?, 123);
+
         Ok(())
     }
 }

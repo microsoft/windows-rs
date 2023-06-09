@@ -857,9 +857,12 @@ impl JumpListItem {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLogo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetLogo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetLogo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetLogo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn CreateWithArguments(arguments: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING) -> ::windows_core::Result<JumpListItem> {
         Self::IJumpListItemStatics(|this| unsafe {
@@ -971,9 +974,12 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetLogo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetLogo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetLogo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetLogo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -986,9 +992,12 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetSmallLogo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetSmallLogo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetSmallLogo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSmallLogo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1001,9 +1010,12 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetWideLogo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetWideLogo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetWideLogo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetWideLogo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1016,9 +1028,12 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLockScreenBadgeLogo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetLockScreenBadgeLogo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetLockScreenBadgeLogo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetLockScreenBadgeLogo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1197,11 +1212,14 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn VisualElementsRequested(&self, handler: &super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn VisualElementsRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>>,
+    {
         let this = &::windows_core::ComInterface::cast::<ISecondaryTile2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).VisualElementsRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).VisualElementsRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1212,18 +1230,25 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateTile(tileid: &::windows_core::HSTRING, shortname: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, tileoptions: TileOptions, logoreference: &super::super::Foundation::Uri) -> ::windows_core::Result<SecondaryTile> {
+    pub fn CreateTile<P0>(tileid: &::windows_core::HSTRING, shortname: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, tileoptions: TileOptions, logoreference: P0) -> ::windows_core::Result<SecondaryTile>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateTile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), ::core::mem::transmute_copy(shortname), ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(arguments), tileoptions, ::core::mem::transmute_copy(logoreference), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateTile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), ::core::mem::transmute_copy(shortname), ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(arguments), tileoptions, logoreference.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateWideTile(tileid: &::windows_core::HSTRING, shortname: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, tileoptions: TileOptions, logoreference: &super::super::Foundation::Uri, widelogoreference: &super::super::Foundation::Uri) -> ::windows_core::Result<SecondaryTile> {
+    pub fn CreateWideTile<P0, P1>(tileid: &::windows_core::HSTRING, shortname: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, tileoptions: TileOptions, logoreference: P0, widelogoreference: P1) -> ::windows_core::Result<SecondaryTile>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWideTile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), ::core::mem::transmute_copy(shortname), ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(arguments), tileoptions, ::core::mem::transmute_copy(logoreference), ::core::mem::transmute_copy(widelogoreference), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWideTile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), ::core::mem::transmute_copy(shortname), ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(arguments), tileoptions, logoreference.into_param().abi(), widelogoreference.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn CreateWithId(tileid: &::windows_core::HSTRING) -> ::windows_core::Result<SecondaryTile> {
@@ -1234,10 +1259,13 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateMinimalTile(tileid: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, square150x150logo: &super::super::Foundation::Uri, desiredsize: TileSize) -> ::windows_core::Result<SecondaryTile> {
+    pub fn CreateMinimalTile<P0>(tileid: &::windows_core::HSTRING, displayname: &::windows_core::HSTRING, arguments: &::windows_core::HSTRING, square150x150logo: P0, desiredsize: TileSize) -> ::windows_core::Result<SecondaryTile>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         Self::ISecondaryTileFactory2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateMinimalTile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(arguments), ::core::mem::transmute_copy(square150x150logo), desiredsize, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateMinimalTile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), ::core::mem::transmute_copy(displayname), ::core::mem::transmute_copy(arguments), square150x150logo.into_param().abi(), desiredsize, &mut result__).from_abi(result__)
         })
     }
     pub fn Exists(tileid: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
@@ -1323,9 +1351,12 @@ pub struct SecondaryTileVisualElements(::windows_core::IUnknown);
 impl SecondaryTileVisualElements {
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetSquare30x30Logo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetSquare30x30Logo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetSquare30x30Logo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSquare30x30Logo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1338,9 +1369,12 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetSquare70x70Logo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetSquare70x70Logo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetSquare70x70Logo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSquare70x70Logo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1353,9 +1387,12 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSquare150x150Logo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetSquare150x150Logo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetSquare150x150Logo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSquare150x150Logo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1368,9 +1405,12 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetWide310x150Logo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetWide310x150Logo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetWide310x150Logo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetWide310x150Logo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1383,9 +1423,12 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSquare310x310Logo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetSquare310x310Logo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetSquare310x310Logo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSquare310x310Logo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1453,9 +1496,12 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSquare71x71Logo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetSquare71x71Logo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<ISecondaryTileVisualElements2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetSquare71x71Logo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSquare71x71Logo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1468,9 +1514,12 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSquare44x44Logo(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetSquare44x44Logo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<ISecondaryTileVisualElements3>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetSquare44x44Logo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSquare44x44Logo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1535,29 +1584,38 @@ impl StartScreenManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn SupportsAppListEntry(&self, applistentry: &super::super::ApplicationModel::Core::AppListEntry) -> ::windows_core::Result<bool> {
+    pub fn SupportsAppListEntry<P0>(&self, applistentry: P0) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<super::super::ApplicationModel::Core::AppListEntry>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SupportsAppListEntry)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applistentry), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SupportsAppListEntry)(::windows_core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
-    pub fn ContainsAppListEntryAsync(&self, applistentry: &super::super::ApplicationModel::Core::AppListEntry) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ContainsAppListEntryAsync<P0>(&self, applistentry: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<super::super::ApplicationModel::Core::AppListEntry>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ContainsAppListEntryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applistentry), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ContainsAppListEntryAsync)(::windows_core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
-    pub fn RequestAddAppListEntryAsync(&self, applistentry: &super::super::ApplicationModel::Core::AppListEntry) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestAddAppListEntryAsync<P0>(&self, applistentry: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<super::super::ApplicationModel::Core::AppListEntry>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestAddAppListEntryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(applistentry), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestAddAppListEntryAsync)(::windows_core::Interface::as_raw(this), applistentry.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1586,10 +1644,13 @@ impl StartScreenManager {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser(user: &super::super::System::User) -> ::windows_core::Result<StartScreenManager> {
+    pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<StartScreenManager>
+    where
+        P0: ::windows_core::IntoParam<super::super::System::User>,
+    {
         Self::IStartScreenManagerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1635,9 +1696,12 @@ pub struct TileMixedRealityModel(::windows_core::IUnknown);
 impl TileMixedRealityModel {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

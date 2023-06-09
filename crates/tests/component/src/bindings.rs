@@ -18,7 +18,7 @@ impl ::core::clone::Clone for IClass {
 }
 unsafe impl ::windows_core::ComInterface for IClass {
     const IID: ::windows_core::GUID =
-        ::windows_core::GUID::from_u128(0x8e698df5_82fa_5cf4_8fc9_06e4a38c7178);
+        ::windows_core::GUID::from_u128(0x97540591_1323_59c0_9ae0_f510cae62e54);
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -63,6 +63,7 @@ pub struct IClass_Vtbl {
         a: *mut ::core::ffi::c_void,
         b: *mut ::core::ffi::c_void,
         c: *mut ::core::ffi::c_void,
+        d: *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
@@ -163,18 +164,21 @@ impl Class {
             .and_then(|| result__.assume_init())
         }
     }
-    pub fn Input<P0, P1>(&self, a: P0, b: &Class, c: P1) -> ::windows_core::Result<()>
+    pub fn Input<P0, P1, P2, P3>(&self, a: P0, b: P1, c: P2, d: P3) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::IInspectable>,
-        P1: ::windows_core::TryIntoParam<::windows::Foundation::IStringable>,
+        P1: ::windows_core::IntoParam<Class>,
+        P2: ::windows_core::TryIntoParam<::windows::Foundation::IStringable>,
+        P3: ::windows_core::IntoParam<Callback>,
     {
         let this = self;
         unsafe {
             (::windows_core::Interface::vtable(this).Input)(
                 ::windows_core::Interface::as_raw(this),
                 a.into_param().abi(),
-                ::core::mem::transmute_copy(b),
+                b.into_param().abi(),
                 c.try_into_param()?.abi(),
+                d.into_param().abi(),
             )
             .ok()
         }
@@ -194,7 +198,7 @@ impl ::core::fmt::Debug for Class {
 impl ::windows_core::RuntimeType for Class {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::from_slice(
-            b"rc(test_component.Class;{8e698df5-82fa-5cf4-8fc9-06e4a38c7178})",
+            b"rc(test_component.Class;{97540591-1323-59c0-9ae0-f510cae62e54})",
         );
 }
 impl ::core::clone::Clone for Class {
@@ -280,6 +284,132 @@ impl ::windows_core::RuntimeType for Flags {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::from_slice(b"enum(test_component.Flags;u4)");
 }
+#[repr(transparent)]
+pub struct Callback(pub ::windows_core::IUnknown);
+impl Callback {
+    pub fn new<F: FnMut(i32) -> ::windows_core::Result<i32> + ::core::marker::Send + 'static>(
+        invoke: F,
+    ) -> Self {
+        let com = CallbackBox::<F> {
+            vtable: &CallbackBox::<F>::VTABLE,
+            count: ::windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
+    }
+    pub fn Invoke(&self, a: i32) -> ::windows_core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).Invoke)(
+                ::windows_core::Interface::as_raw(this),
+                a,
+                &mut result__,
+            )
+            .from_abi(result__)
+        }
+    }
+}
+#[repr(C)]
+struct CallbackBox<F: FnMut(i32) -> ::windows_core::Result<i32> + ::core::marker::Send + 'static> {
+    vtable: *const Callback_Vtbl,
+    invoke: F,
+    count: ::windows_core::imp::RefCount,
+}
+impl<F: FnMut(i32) -> ::windows_core::Result<i32> + ::core::marker::Send + 'static> CallbackBox<F> {
+    const VTABLE: Callback_Vtbl = Callback_Vtbl {
+        base__: ::windows_core::IUnknown_Vtbl {
+            QueryInterface: Self::QueryInterface,
+            AddRef: Self::AddRef,
+            Release: Self::Release,
+        },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut ::core::ffi::c_void,
+        iid: &::windows_core::GUID,
+        interface: *mut *const ::core::ffi::c_void,
+    ) -> ::windows_core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<Callback as ::windows_core::ComInterface>::IID
+            || iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID
+            || iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID
+        {
+            &mut (*this).vtable as *mut _ as _
+        } else {
+            ::core::ptr::null_mut()
+        };
+        if (*interface).is_null() {
+            ::windows_core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows_core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::std::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut ::core::ffi::c_void,
+        a: i32,
+        result__: *mut i32,
+    ) -> ::windows_core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        match ((*this).invoke)(a) {
+            ::core::result::Result::Ok(ok__) => {
+                ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                ::windows_core::HRESULT(0)
+            }
+            ::core::result::Result::Err(err) => err.into(),
+        }
+    }
+}
+impl ::core::cmp::PartialEq for Callback {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Callback {}
+impl ::core::fmt::Debug for Callback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Callback").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for Callback {
+    type Vtable = Callback_Vtbl;
+}
+impl ::core::clone::Clone for Callback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for Callback {
+    const IID: ::windows_core::GUID =
+        ::windows_core::GUID::from_u128(0xe39afc7e_93f1_5a1d_92ef_bd5f71c62cb8);
+}
+impl ::windows_core::RuntimeType for Callback {
+    const SIGNATURE: ::windows_core::imp::ConstBuffer =
+        ::windows_core::imp::ConstBuffer::from_slice(b"{e39afc7e-93f1-5a1d-92ef-bd5f71c62cb8}");
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct Callback_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        this: *mut ::core::ffi::c_void,
+        a: i32,
+        result__: *mut i32,
+    ) -> ::windows_core::HRESULT,
+}
 pub trait IClass_Impl: Sized {
     fn Property(&self) -> ::windows_core::Result<i32>;
     fn SetProperty(&self, value: i32) -> ::windows_core::Result<()>;
@@ -301,6 +431,7 @@ pub trait IClass_Impl: Sized {
         a: ::core::option::Option<&::windows_core::IInspectable>,
         b: ::core::option::Option<&Class>,
         c: ::core::option::Option<&::windows::Foundation::IStringable>,
+        d: ::core::option::Option<&Callback>,
     ) -> ::windows_core::Result<()>;
 }
 impl ::windows_core::RuntimeName for IClass {
@@ -445,6 +576,7 @@ impl IClass_Vtbl {
             a: *mut ::core::ffi::c_void,
             b: *mut ::core::ffi::c_void,
             c: *mut ::core::ffi::c_void,
+            d: *mut ::core::ffi::c_void,
         ) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
@@ -452,6 +584,7 @@ impl IClass_Vtbl {
                 ::windows_core::from_raw_borrowed(&a),
                 ::windows_core::from_raw_borrowed(&b),
                 ::windows_core::from_raw_borrowed(&c),
+                ::windows_core::from_raw_borrowed(&d),
             )
             .into()
         }

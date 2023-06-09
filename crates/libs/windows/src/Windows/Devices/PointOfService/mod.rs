@@ -3490,27 +3490,39 @@ impl IReceiptOrSlipJob {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmap(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment) -> ::windows_core::Result<()> {
+    pub fn SetBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignment).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthStandardAlign(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()> {
+    pub fn SetBitmapCustomWidthStandardAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignment, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetCustomAlignedBitmap(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32) -> ::windows_core::Result<()> {
+    pub fn SetCustomAlignedBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignmentdistance).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthCustomAlign(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()> {
+    pub fn SetBitmapCustomWidthCustomAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignmentdistance, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> ::windows_core::Result<()> {
         let this = self;
@@ -3530,27 +3542,39 @@ impl IReceiptOrSlipJob {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmap(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment) -> ::windows_core::Result<()> {
+    pub fn PrintBitmap<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).PrintBitmap)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignment).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintBitmap)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthStandardAlign(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()> {
+    pub fn PrintBitmapCustomWidthStandardAlign<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignment, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment, width).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintCustomAlignedBitmap(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32) -> ::windows_core::Result<()> {
+    pub fn PrintCustomAlignedBitmap<P0>(&self, bitmap: P0, alignmentdistance: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignmentdistance).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()> {
+    pub fn PrintBitmapCustomWidthCustomAlign<P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignmentdistance, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
     pub fn Print(&self, data: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IPosPrinterJob>(self)?;
@@ -3935,11 +3959,14 @@ impl BarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated(&self, handler: &super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StatusUpdated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StatusUpdated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5154,11 +5181,14 @@ impl CashDrawer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated(&self, handler: &super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StatusUpdated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StatusUpdated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5385,11 +5415,14 @@ impl CashDrawerCloseAlarm {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AlarmTimeoutExpired(&self, handler: &super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AlarmTimeoutExpired<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AlarmTimeoutExpired)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AlarmTimeoutExpired)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5489,11 +5522,14 @@ pub struct CashDrawerEventSource(::windows_core::IUnknown);
 impl CashDrawerEventSource {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DrawerClosed(&self, handler: &super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DrawerClosed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DrawerClosed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DrawerClosed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5504,11 +5540,14 @@ impl CashDrawerEventSource {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DrawerOpened(&self, handler: &super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DrawerOpened<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DrawerOpened)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DrawerOpened)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5795,11 +5834,14 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DataReceived(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DataReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DataReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DataReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5810,11 +5852,14 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TriggerPressed(&self, handler: &super::super::Foundation::EventHandler<ClaimedBarcodeScanner>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TriggerPressed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TriggerPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TriggerPressed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5825,11 +5870,14 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TriggerReleased(&self, handler: &super::super::Foundation::EventHandler<ClaimedBarcodeScanner>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TriggerReleased<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TriggerReleased)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TriggerReleased)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5840,11 +5888,14 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested(&self, handler: &super::super::Foundation::EventHandler<ClaimedBarcodeScanner>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReleaseDeviceRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReleaseDeviceRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5855,11 +5906,14 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImagePreviewReceived(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ImagePreviewReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ImagePreviewReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ImagePreviewReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5870,11 +5924,14 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ErrorOccurred(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ErrorOccurred<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ErrorOccurred)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ErrorOccurred)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5912,11 +5969,14 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSymbologyAttributesAsync(&self, barcodesymbology: u32, attributes: &BarcodeSymbologyAttributes) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SetSymbologyAttributesAsync<P0>(&self, barcodesymbology: u32, attributes: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<BarcodeSymbologyAttributes>,
+    {
         let this = &::windows_core::ComInterface::cast::<IClaimedBarcodeScanner2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetSymbologyAttributesAsync)(::windows_core::Interface::as_raw(this), barcodesymbology, ::core::mem::transmute_copy(attributes), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetSymbologyAttributesAsync)(::windows_core::Interface::as_raw(this), barcodesymbology, attributes.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5945,11 +6005,14 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>>,
+    {
         let this = &::windows_core::ComInterface::cast::<IClaimedBarcodeScanner4>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6127,11 +6190,14 @@ impl ClaimedCashDrawer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReleaseDeviceRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReleaseDeviceRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6142,11 +6208,14 @@ impl ClaimedCashDrawer {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>>,
+    {
         let this = &::windows_core::ComInterface::cast::<IClaimedCashDrawer2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6458,11 +6527,14 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReleaseDeviceRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReleaseDeviceRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6503,11 +6575,14 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs>>,
+    {
         let this = &::windows_core::ComInterface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StatusUpdated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StatusUpdated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6559,11 +6634,14 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUpdateAttributesAsync(&self, attributes: &LineDisplayAttributes) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUpdateAttributesAsync<P0>(&self, attributes: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<LineDisplayAttributes>,
+    {
         let this = &::windows_core::ComInterface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(attributes), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(::windows_core::Interface::as_raw(this), attributes.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6595,38 +6673,50 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryStoreStorageFileBitmapAsync(&self, bitmap: &super::super::Storage::StorageFile) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
+    pub fn TryStoreStorageFileBitmapAsync<P0>(&self, bitmap: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFile>,
+    {
         let this = &::windows_core::ComInterface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryStoreStorageFileBitmapAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryStoreStorageFileBitmapAsync)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryStoreStorageFileBitmapWithAlignmentAsync(&self, bitmap: &super::super::Storage::StorageFile, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
+    pub fn TryStoreStorageFileBitmapWithAlignmentAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFile>,
+    {
         let this = &::windows_core::ComInterface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), horizontalalignment, verticalalignment, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAsync)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync(&self, bitmap: &super::super::Storage::StorageFile, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
+    pub fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFile>,
+    {
         let this = &::windows_core::ComInterface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAndWidthAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), horizontalalignment, verticalalignment, widthinpixels, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAndWidthAsync)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, widthinpixels, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>>,
+    {
         let this = &::windows_core::ComInterface::cast::<IClaimedLineDisplay3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6903,11 +6993,14 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BankCardDataReceived(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BankCardDataReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).BankCardDataReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).BankCardDataReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6918,11 +7011,14 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AamvaCardDataReceived(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AamvaCardDataReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AamvaCardDataReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AamvaCardDataReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6933,11 +7029,14 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn VendorSpecificDataReceived(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn VendorSpecificDataReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).VendorSpecificDataReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).VendorSpecificDataReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6948,11 +7047,14 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested(&self, handler: &super::super::Foundation::EventHandler<ClaimedMagneticStripeReader>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<ClaimedMagneticStripeReader>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReleaseDeviceRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReleaseDeviceRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6963,11 +7065,14 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ErrorOccurred(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ErrorOccurred<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ErrorOccurred)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ErrorOccurred)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6978,11 +7083,14 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>>,
+    {
         let this = &::windows_core::ComInterface::cast::<IClaimedMagneticStripeReader2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7198,11 +7306,14 @@ impl ClaimedPosPrinter {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReleaseDeviceRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReleaseDeviceRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7213,11 +7324,14 @@ impl ClaimedPosPrinter {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed(&self, handler: &super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>>,
+    {
         let this = &::windows_core::ComInterface::cast::<IClaimedPosPrinter2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Closed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7751,9 +7865,12 @@ unsafe impl ::core::marker::Sync for ClaimedSlipPrinter {}
 #[repr(transparent)]
 pub struct JournalPrintJob(::windows_core::IUnknown);
 impl JournalPrintJob {
-    pub fn Print(&self, data: &::windows_core::HSTRING, printoptions: &PosPrinterPrintOptions) -> ::windows_core::Result<()> {
+    pub fn Print<P0>(&self, data: &::windows_core::HSTRING, printoptions: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<PosPrinterPrintOptions>,
+    {
         let this = &::windows_core::ComInterface::cast::<IJournalPrintJob>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).Print)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(data), ::core::mem::transmute_copy(printoptions)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Print)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(data), printoptions.into_param().abi()).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IJournalPrintJob>(self)?;
@@ -8229,9 +8346,12 @@ impl LineDisplayAttributes {
             (::windows_core::Interface::vtable(this).CurrentWindow)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetCurrentWindow(&self, value: &LineDisplayWindow) -> ::windows_core::Result<()> {
+    pub fn SetCurrentWindow<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LineDisplayWindow>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCurrentWindow)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCurrentWindow)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for LineDisplayAttributes {
@@ -8489,11 +8609,14 @@ impl LineDisplayCursor {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUpdateAttributesAsync(&self, attributes: &LineDisplayCursorAttributes) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUpdateAttributesAsync<P0>(&self, attributes: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<LineDisplayCursorAttributes>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(attributes), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryUpdateAttributesAsync)(::windows_core::Interface::as_raw(this), attributes.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -9038,56 +9161,74 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayStoredBitmapAtCursorAsync(&self, bitmap: &LineDisplayStoredBitmap) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStoredBitmapAtCursorAsync<P0>(&self, bitmap: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<LineDisplayStoredBitmap>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryDisplayStoredBitmapAtCursorAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryDisplayStoredBitmapAtCursorAsync)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtCursorAsync(&self, bitmap: &super::super::Storage::StorageFile) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtCursorAsync<P0>(&self, bitmap: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFile>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorAsync)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync(&self, bitmap: &super::super::Storage::StorageFile, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFile>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), horizontalalignment, verticalalignment, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync(&self, bitmap: &super::super::Storage::StorageFile, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFile>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), horizontalalignment, verticalalignment, widthinpixels, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, widthinpixels, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtPointAsync(&self, bitmap: &super::super::Storage::StorageFile, offsetinpixels: super::super::Foundation::Point) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtPointAsync<P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFile>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), offsetinpixels, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointAsync)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), offsetinpixels, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtPointWithWidthAsync(&self, bitmap: &super::super::Storage::StorageFile, offsetinpixels: super::super::Foundation::Point, widthinpixels: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point, widthinpixels: i32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFile>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointWithWidthAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), offsetinpixels, widthinpixels, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointWithWidthAsync)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), offsetinpixels, widthinpixels, &mut result__).from_abi(result__)
         }
     }
 }
@@ -9201,11 +9342,14 @@ impl MagneticStripeReader {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated(&self, handler: &super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StatusUpdated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StatusUpdated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -10153,11 +10297,14 @@ impl PosPrinter {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated(&self, handler: &super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StatusUpdated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StatusUpdated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -10804,27 +10951,39 @@ impl ReceiptPrintJob {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmap(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment) -> ::windows_core::Result<()> {
+    pub fn SetBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = &::windows_core::ComInterface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignment).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthStandardAlign(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()> {
+    pub fn SetBitmapCustomWidthStandardAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = &::windows_core::ComInterface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignment, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetCustomAlignedBitmap(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32) -> ::windows_core::Result<()> {
+    pub fn SetCustomAlignedBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = &::windows_core::ComInterface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignmentdistance).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthCustomAlign(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()> {
+    pub fn SetBitmapCustomWidthCustomAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = &::windows_core::ComInterface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignmentdistance, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IReceiptOrSlipJob>(self)?;
@@ -10844,27 +11003,39 @@ impl ReceiptPrintJob {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmap(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment) -> ::windows_core::Result<()> {
+    pub fn PrintBitmap<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = &::windows_core::ComInterface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).PrintBitmap)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignment).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintBitmap)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthStandardAlign(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()> {
+    pub fn PrintBitmapCustomWidthStandardAlign<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = &::windows_core::ComInterface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignment, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment, width).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintCustomAlignedBitmap(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32) -> ::windows_core::Result<()> {
+    pub fn PrintCustomAlignedBitmap<P0>(&self, bitmap: P0, alignmentdistance: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = &::windows_core::ComInterface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignmentdistance).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()> {
+    pub fn PrintBitmapCustomWidthCustomAlign<P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = &::windows_core::ComInterface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignmentdistance, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
     pub fn MarkFeed(&self, kind: PosPrinterMarkFeedKind) -> ::windows_core::Result<()> {
         let this = self;
@@ -10882,9 +11053,12 @@ impl ReceiptPrintJob {
         let this = &::windows_core::ComInterface::cast::<IReceiptPrintJob2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).StampPaper)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Print2(&self, data: &::windows_core::HSTRING, printoptions: &PosPrinterPrintOptions) -> ::windows_core::Result<()> {
+    pub fn Print2<P0>(&self, data: &::windows_core::HSTRING, printoptions: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<PosPrinterPrintOptions>,
+    {
         let this = &::windows_core::ComInterface::cast::<IReceiptPrintJob2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).Print)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(data), ::core::mem::transmute_copy(printoptions)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Print)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(data), printoptions.into_param().abi()).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<IReceiptPrintJob2>(self)?;
@@ -11230,27 +11404,39 @@ impl SlipPrintJob {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmap(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment) -> ::windows_core::Result<()> {
+    pub fn SetBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignment).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthStandardAlign(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()> {
+    pub fn SetBitmapCustomWidthStandardAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignment, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetCustomAlignedBitmap(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32) -> ::windows_core::Result<()> {
+    pub fn SetCustomAlignedBitmap<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignmentdistance).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthCustomAlign(&self, bitmapnumber: u32, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()> {
+    pub fn SetBitmapCustomWidthCustomAlign<P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, ::core::mem::transmute_copy(bitmap), alignmentdistance, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> ::windows_core::Result<()> {
         let this = self;
@@ -11270,31 +11456,46 @@ impl SlipPrintJob {
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmap(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment) -> ::windows_core::Result<()> {
+    pub fn PrintBitmap<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).PrintBitmap)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignment).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintBitmap)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthStandardAlign(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()> {
+    pub fn PrintBitmapCustomWidthStandardAlign<P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignment, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignment, width).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintCustomAlignedBitmap(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32) -> ::windows_core::Result<()> {
+    pub fn PrintCustomAlignedBitmap<P0>(&self, bitmap: P0, alignmentdistance: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignmentdistance).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthCustomAlign(&self, bitmap: &super::super::Graphics::Imaging::BitmapFrame, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()> {
+    pub fn PrintBitmapCustomWidthCustomAlign<P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::BitmapFrame>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), alignmentdistance, width).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
-    pub fn Print2(&self, data: &::windows_core::HSTRING, printoptions: &PosPrinterPrintOptions) -> ::windows_core::Result<()> {
+    pub fn Print2<P0>(&self, data: &::windows_core::HSTRING, printoptions: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<PosPrinterPrintOptions>,
+    {
         let this = &::windows_core::ComInterface::cast::<ISlipPrintJob>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).Print)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(data), ::core::mem::transmute_copy(printoptions)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Print)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(data), printoptions.into_param().abi()).ok() }
     }
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows_core::Result<()> {
         let this = &::windows_core::ComInterface::cast::<ISlipPrintJob>(self)?;

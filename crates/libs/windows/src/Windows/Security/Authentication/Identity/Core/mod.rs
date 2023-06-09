@@ -256,11 +256,14 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ApproveSessionUsingAuthSessionInfoAsync(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: &MicrosoftAccountMultiFactorSessionInfo) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn ApproveSessionUsingAuthSessionInfoAsync<P0>(&self, sessionauthentictionstatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationsessioninfo: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    where
+        P0: ::windows_core::IntoParam<MicrosoftAccountMultiFactorSessionInfo>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ApproveSessionUsingAuthSessionInfoAsync)(::windows_core::Interface::as_raw(this), sessionauthentictionstatus, ::core::mem::transmute_copy(authenticationsessioninfo), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ApproveSessionUsingAuthSessionInfoAsync)(::windows_core::Interface::as_raw(this), sessionauthentictionstatus, authenticationsessioninfo.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -274,11 +277,14 @@ impl MicrosoftAccountMultiFactorAuthenticationManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DenySessionUsingAuthSessionInfoAsync(&self, authenticationsessioninfo: &MicrosoftAccountMultiFactorSessionInfo) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>> {
+    pub fn DenySessionUsingAuthSessionInfoAsync<P0>(&self, authenticationsessioninfo: P0) -> ::windows_core::Result<super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>>
+    where
+        P0: ::windows_core::IntoParam<MicrosoftAccountMultiFactorSessionInfo>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DenySessionUsingAuthSessionInfoAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(authenticationsessioninfo), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DenySessionUsingAuthSessionInfoAsync)(::windows_core::Interface::as_raw(this), authenticationsessioninfo.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

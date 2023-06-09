@@ -690,10 +690,13 @@ impl FileOpenPicker {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForUser(user: &super::super::System::User) -> ::windows_core::Result<FileOpenPicker> {
+    pub fn CreateForUser<P0>(user: P0) -> ::windows_core::Result<FileOpenPicker>
+    where
+        P0: ::windows_core::IntoParam<super::super::System::User>,
+    {
         Self::IFileOpenPickerStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -920,11 +923,14 @@ impl FilePickerSelectedFilesArray {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf(&self, value: &super::StorageFile, index: &mut u32) -> ::windows_core::Result<bool> {
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<super::StorageFile>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), index, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IndexOf)(::windows_core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1070,9 +1076,12 @@ impl FileSavePicker {
             (::windows_core::Interface::vtable(this).SuggestedSaveFile)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetSuggestedSaveFile(&self, value: &super::StorageFile) -> ::windows_core::Result<()> {
+    pub fn SetSuggestedSaveFile<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::StorageFile>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetSuggestedSaveFile)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSuggestedSaveFile)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn SuggestedFileName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -1131,10 +1140,13 @@ impl FileSavePicker {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForUser(user: &super::super::System::User) -> ::windows_core::Result<FileSavePicker> {
+    pub fn CreateForUser<P0>(user: P0) -> ::windows_core::Result<FileSavePicker>
+    where
+        P0: ::windows_core::IntoParam<super::super::System::User>,
+    {
         Self::IFileSavePickerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -1273,10 +1285,13 @@ impl FolderPicker {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForUser(user: &super::super::System::User) -> ::windows_core::Result<FolderPicker> {
+    pub fn CreateForUser<P0>(user: P0) -> ::windows_core::Result<FolderPicker>
+    where
+        P0: ::windows_core::IntoParam<super::super::System::User>,
+    {
         Self::IFolderPickerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

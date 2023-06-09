@@ -2333,11 +2333,14 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).GetConversationReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetConversationReaderWithOptions(&self, options: &EmailQueryOptions) -> ::windows_core::Result<EmailConversationReader> {
+    pub fn GetConversationReaderWithOptions<P0>(&self, options: P0) -> ::windows_core::Result<EmailConversationReader>
+    where
+        P0: ::windows_core::IntoParam<EmailQueryOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2356,11 +2359,14 @@ impl EmailFolder {
             (::windows_core::Interface::vtable(this).GetMessageReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetMessageReaderWithOptions(&self, options: &EmailQueryOptions) -> ::windows_core::Result<EmailMessageReader> {
+    pub fn GetMessageReaderWithOptions<P0>(&self, options: P0) -> ::windows_core::Result<EmailMessageReader>
+    where
+        P0: ::windows_core::IntoParam<EmailQueryOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2374,20 +2380,26 @@ impl EmailFolder {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryMoveAsync(&self, newparentfolder: &EmailFolder) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryMoveAsync<P0>(&self, newparentfolder: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<EmailFolder>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryMoveAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(newparentfolder), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryMoveAsync)(::windows_core::Interface::as_raw(this), newparentfolder.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryMoveWithNewNameAsync(&self, newparentfolder: &EmailFolder, newfoldername: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryMoveWithNewNameAsync<P0>(&self, newparentfolder: P0, newfoldername: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<EmailFolder>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryMoveWithNewNameAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(newparentfolder), ::core::mem::transmute_copy(newfoldername), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryMoveWithNewNameAsync)(::windows_core::Interface::as_raw(this), newparentfolder.into_param().abi(), ::core::mem::transmute_copy(newfoldername), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2401,11 +2413,14 @@ impl EmailFolder {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveMessageAsync(&self, message: &EmailMessage) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveMessageAsync<P0>(&self, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<EmailMessage>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SaveMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SaveMessageAsync)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2583,16 +2598,22 @@ impl EmailIrmInfo {
             (::windows_core::Interface::vtable(this).Template)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetTemplate(&self, value: &EmailIrmTemplate) -> ::windows_core::Result<()> {
+    pub fn SetTemplate<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<EmailIrmTemplate>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetTemplate)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetTemplate)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Create(expiration: super::super::Foundation::DateTime, irmtemplate: &EmailIrmTemplate) -> ::windows_core::Result<EmailIrmInfo> {
+    pub fn Create<P0>(expiration: super::super::Foundation::DateTime, irmtemplate: P0) -> ::windows_core::Result<EmailIrmInfo>
+    where
+        P0: ::windows_core::IntoParam<EmailIrmTemplate>,
+    {
         Self::IEmailIrmInfoFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), expiration, ::core::mem::transmute_copy(irmtemplate), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), expiration, irmtemplate.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -2910,11 +2931,14 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).GetConversationReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetConversationReaderWithOptions(&self, options: &EmailQueryOptions) -> ::windows_core::Result<EmailConversationReader> {
+    pub fn GetConversationReaderWithOptions<P0>(&self, options: P0) -> ::windows_core::Result<EmailConversationReader>
+    where
+        P0: ::windows_core::IntoParam<EmailQueryOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetMessageReader(&self) -> ::windows_core::Result<EmailMessageReader> {
@@ -2924,11 +2948,14 @@ impl EmailMailbox {
             (::windows_core::Interface::vtable(this).GetMessageReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetMessageReaderWithOptions(&self, options: &EmailQueryOptions) -> ::windows_core::Result<EmailMessageReader> {
+    pub fn GetMessageReaderWithOptions<P0>(&self, options: P0) -> ::windows_core::Result<EmailMessageReader>
+    where
+        P0: ::windows_core::IntoParam<EmailQueryOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3068,20 +3095,26 @@ impl EmailMailbox {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendMessageAsync(&self, message: &EmailMessage) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SendMessageAsync<P0>(&self, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<EmailMessage>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SendMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SendMessageAsync)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveDraftAsync(&self, message: &EmailMessage) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveDraftAsync<P0>(&self, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<EmailMessage>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SaveDraftAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SaveDraftAsync)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3113,41 +3146,51 @@ impl EmailMailbox {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUpdateMeetingResponseAsync(&self, meeting: &EmailMessage, response: EmailMeetingResponseType, subject: &::windows_core::HSTRING, comment: &::windows_core::HSTRING, sendupdate: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryUpdateMeetingResponseAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(meeting), response, ::core::mem::transmute_copy(subject), ::core::mem::transmute_copy(comment), sendupdate, &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn TryForwardMeetingAsync<P0>(&self, meeting: &EmailMessage, recipients: P0, subject: &::windows_core::HSTRING, forwardheadertype: EmailMessageBodyKind, forwardheader: &::windows_core::HSTRING, comment: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    pub fn TryUpdateMeetingResponseAsync<P0>(&self, meeting: P0, response: EmailMeetingResponseType, subject: &::windows_core::HSTRING, comment: &::windows_core::HSTRING, sendupdate: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<EmailRecipient>>,
+        P0: ::windows_core::IntoParam<EmailMessage>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryForwardMeetingAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(meeting), recipients.try_into_param()?.abi(), ::core::mem::transmute_copy(subject), forwardheadertype, ::core::mem::transmute_copy(forwardheader), ::core::mem::transmute_copy(comment), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryUpdateMeetingResponseAsync)(::windows_core::Interface::as_raw(this), meeting.into_param().abi(), response, ::core::mem::transmute_copy(subject), ::core::mem::transmute_copy(comment), sendupdate, &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn TryForwardMeetingAsync<P0, P1>(&self, meeting: P0, recipients: P1, subject: &::windows_core::HSTRING, forwardheadertype: EmailMessageBodyKind, forwardheader: &::windows_core::HSTRING, comment: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<EmailMessage>,
+        P1: ::windows_core::TryIntoParam<super::super::Foundation::Collections::IIterable<EmailRecipient>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).TryForwardMeetingAsync)(::windows_core::Interface::as_raw(this), meeting.into_param().abi(), recipients.try_into_param()?.abi(), ::core::mem::transmute_copy(subject), forwardheadertype, ::core::mem::transmute_copy(forwardheader), ::core::mem::transmute_copy(comment), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryProposeNewTimeForMeetingAsync(&self, meeting: &EmailMessage, newstarttime: super::super::Foundation::DateTime, newduration: super::super::Foundation::TimeSpan, subject: &::windows_core::HSTRING, comment: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryProposeNewTimeForMeetingAsync<P0>(&self, meeting: P0, newstarttime: super::super::Foundation::DateTime, newduration: super::super::Foundation::TimeSpan, subject: &::windows_core::HSTRING, comment: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<EmailMessage>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryProposeNewTimeForMeetingAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(meeting), newstarttime, newduration, ::core::mem::transmute_copy(subject), ::core::mem::transmute_copy(comment), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryProposeNewTimeForMeetingAsync)(::windows_core::Interface::as_raw(this), meeting.into_param().abi(), newstarttime, newduration, ::core::mem::transmute_copy(subject), ::core::mem::transmute_copy(comment), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MailboxChanged(&self, phandler: &super::super::Foundation::TypedEventHandler<EmailMailbox, EmailMailboxChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MailboxChanged<P0>(&self, phandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<EmailMailbox, EmailMailboxChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MailboxChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(phandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MailboxChanged)(::windows_core::Interface::as_raw(this), phandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3158,20 +3201,26 @@ impl EmailMailbox {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SmartSendMessageAsync(&self, message: &EmailMessage, smartsend: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SmartSendMessageAsync<P0>(&self, message: P0, smartsend: bool) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<EmailMessage>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SmartSendMessageAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), smartsend, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SmartSendMessageAsync)(::windows_core::Interface::as_raw(this), message.into_param().abi(), smartsend, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrySetAutoReplySettingsAsync(&self, autoreplysettings: &EmailMailboxAutoReplySettings) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySetAutoReplySettingsAsync<P0>(&self, autoreplysettings: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<EmailMailboxAutoReplySettings>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TrySetAutoReplySettingsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(autoreplysettings), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TrySetAutoReplySettingsAsync)(::windows_core::Interface::as_raw(this), autoreplysettings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3797,9 +3846,12 @@ impl EmailMailboxChangeReader {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AcceptChanges)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn AcceptChangesThrough(&self, lastchangetoacknowledge: &EmailMailboxChange) -> ::windows_core::Result<()> {
+    pub fn AcceptChangesThrough<P0>(&self, lastchangetoacknowledge: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<EmailMailboxChange>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).AcceptChangesThrough)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(lastchangetoacknowledge)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).AcceptChangesThrough)(::windows_core::Interface::as_raw(this), lastchangetoacknowledge.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4189,11 +4241,14 @@ impl EmailMailboxSyncManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SyncStatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<EmailMailboxSyncManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SyncStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<EmailMailboxSyncManager, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SyncStatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SyncStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4255,10 +4310,13 @@ pub struct EmailManager;
 impl EmailManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShowComposeNewEmailAsync(message: &EmailMessage) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowComposeNewEmailAsync<P0>(message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<EmailMessage>,
+    {
         Self::IEmailManagerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShowComposeNewEmailAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShowComposeNewEmailAsync)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4271,10 +4329,13 @@ impl EmailManager {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser(user: &super::super::System::User) -> ::windows_core::Result<EmailManagerForUser> {
+    pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<EmailManagerForUser>
+    where
+        P0: ::windows_core::IntoParam<super::super::System::User>,
+    {
         Self::IEmailManagerStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4302,11 +4363,14 @@ pub struct EmailManagerForUser(::windows_core::IUnknown);
 impl EmailManagerForUser {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShowComposeNewEmailAsync(&self, message: &EmailMessage) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowComposeNewEmailAsync<P0>(&self, message: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<EmailMessage>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShowComposeNewEmailAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShowComposeNewEmailAsync)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4523,9 +4587,12 @@ impl EmailMeetingInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
     #[cfg(feature = "ApplicationModel_Appointments")]
-    pub fn SetRecurrence(&self, value: &super::Appointments::AppointmentRecurrence) -> ::windows_core::Result<()> {
+    pub fn SetRecurrence<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::Appointments::AppointmentRecurrence>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetRecurrence)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetRecurrence)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn RemoteChangeNumber(&self) -> ::windows_core::Result<u64> {
         let this = self;
@@ -4783,9 +4850,12 @@ impl EmailMessage {
             (::windows_core::Interface::vtable(this).IrmInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetIrmInfo(&self, value: &EmailIrmInfo) -> ::windows_core::Result<()> {
+    pub fn SetIrmInfo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<EmailIrmInfo>,
+    {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetIrmInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetIrmInfo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn IsDraftMessage(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage2>(self)?;
@@ -4888,9 +4958,12 @@ impl EmailMessage {
             (::windows_core::Interface::vtable(this).Sender)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetSender(&self, value: &EmailRecipient) -> ::windows_core::Result<()> {
+    pub fn SetSender<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<EmailRecipient>,
+    {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetSender)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSender)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4917,9 +4990,12 @@ impl EmailMessage {
             (::windows_core::Interface::vtable(this).MeetingInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetMeetingInfo(&self, value: &EmailMeetingInfo) -> ::windows_core::Result<()> {
+    pub fn SetMeetingInfo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<EmailMeetingInfo>,
+    {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetMeetingInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetMeetingInfo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -4984,9 +5060,12 @@ impl EmailMessage {
             (::windows_core::Interface::vtable(this).SentRepresenting)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetSentRepresenting(&self, value: &EmailRecipient) -> ::windows_core::Result<()> {
+    pub fn SetSentRepresenting<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<EmailRecipient>,
+    {
         let this = &::windows_core::ComInterface::cast::<IEmailMessage4>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetSentRepresenting)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSentRepresenting)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for EmailMessage {
@@ -5469,11 +5548,14 @@ impl EmailStore {
             (::windows_core::Interface::vtable(this).GetConversationReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetConversationReaderWithOptions(&self, options: &EmailQueryOptions) -> ::windows_core::Result<EmailConversationReader> {
+    pub fn GetConversationReaderWithOptions<P0>(&self, options: P0) -> ::windows_core::Result<EmailConversationReader>
+    where
+        P0: ::windows_core::IntoParam<EmailQueryOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetMessageReader(&self) -> ::windows_core::Result<EmailMessageReader> {
@@ -5483,11 +5565,14 @@ impl EmailStore {
             (::windows_core::Interface::vtable(this).GetMessageReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetMessageReaderWithOptions(&self, options: &EmailQueryOptions) -> ::windows_core::Result<EmailMessageReader> {
+    pub fn GetMessageReaderWithOptions<P0>(&self, options: P0) -> ::windows_core::Result<EmailMessageReader>
+    where
+        P0: ::windows_core::IntoParam<EmailQueryOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

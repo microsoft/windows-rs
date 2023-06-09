@@ -2077,9 +2077,12 @@ impl ContentLinkInfo {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn LinkContentKind(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -2485,9 +2488,12 @@ impl RichEditTextRange {
             (::windows_core::Interface::vtable(this).ContentLinkInfo)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetContentLinkInfo(&self, value: &ContentLinkInfo) -> ::windows_core::Result<()> {
+    pub fn SetContentLinkInfo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ContentLinkInfo>,
+    {
         let this = &::windows_core::ComInterface::cast::<IRichEditTextRange>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetContentLinkInfo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetContentLinkInfo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Character(&self) -> ::windows_core::Result<u16> {
         let this = self;

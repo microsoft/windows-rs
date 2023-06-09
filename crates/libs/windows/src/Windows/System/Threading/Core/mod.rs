@@ -117,26 +117,35 @@ impl PreallocatedWorkItem {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWorkItem(handler: &super::WorkItemHandler) -> ::windows_core::Result<PreallocatedWorkItem> {
+    pub fn CreateWorkItem<P0>(handler: P0) -> ::windows_core::Result<PreallocatedWorkItem>
+    where
+        P0: ::windows_core::IntoParam<super::WorkItemHandler>,
+    {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWorkItem)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWorkItem)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWorkItemWithPriority(handler: &super::WorkItemHandler, priority: super::WorkItemPriority) -> ::windows_core::Result<PreallocatedWorkItem> {
+    pub fn CreateWorkItemWithPriority<P0>(handler: P0, priority: super::WorkItemPriority) -> ::windows_core::Result<PreallocatedWorkItem>
+    where
+        P0: ::windows_core::IntoParam<super::WorkItemHandler>,
+    {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWorkItemWithPriority)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), priority, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWorkItemWithPriority)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), priority, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWorkItemWithPriorityAndOptions(handler: &super::WorkItemHandler, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows_core::Result<PreallocatedWorkItem> {
+    pub fn CreateWorkItemWithPriorityAndOptions<P0>(handler: P0, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> ::windows_core::Result<PreallocatedWorkItem>
+    where
+        P0: ::windows_core::IntoParam<super::WorkItemHandler>,
+    {
         Self::IPreallocatedWorkItemFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWorkItemWithPriorityAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), priority, options, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWorkItemWithPriorityAndOptions)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), priority, options, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -188,32 +197,44 @@ impl SignalNotifier {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Terminate)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn AttachToEvent(name: &::windows_core::HSTRING, handler: &SignalHandler) -> ::windows_core::Result<SignalNotifier> {
+    pub fn AttachToEvent<P0>(name: &::windows_core::HSTRING, handler: P0) -> ::windows_core::Result<SignalNotifier>
+    where
+        P0: ::windows_core::IntoParam<SignalHandler>,
+    {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AttachToEvent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AttachToEvent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AttachToEventWithTimeout(name: &::windows_core::HSTRING, handler: &SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<SignalNotifier> {
+    pub fn AttachToEventWithTimeout<P0>(name: &::windows_core::HSTRING, handler: P0, timeout: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<SignalNotifier>
+    where
+        P0: ::windows_core::IntoParam<SignalHandler>,
+    {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AttachToEventWithTimeout)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), timeout, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AttachToEventWithTimeout)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into_param().abi(), timeout, &mut result__).from_abi(result__)
         })
     }
-    pub fn AttachToSemaphore(name: &::windows_core::HSTRING, handler: &SignalHandler) -> ::windows_core::Result<SignalNotifier> {
+    pub fn AttachToSemaphore<P0>(name: &::windows_core::HSTRING, handler: P0) -> ::windows_core::Result<SignalNotifier>
+    where
+        P0: ::windows_core::IntoParam<SignalHandler>,
+    {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AttachToSemaphore)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AttachToSemaphore)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AttachToSemaphoreWithTimeout(name: &::windows_core::HSTRING, handler: &SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<SignalNotifier> {
+    pub fn AttachToSemaphoreWithTimeout<P0>(name: &::windows_core::HSTRING, handler: P0, timeout: super::super::super::Foundation::TimeSpan) -> ::windows_core::Result<SignalNotifier>
+    where
+        P0: ::windows_core::IntoParam<SignalHandler>,
+    {
         Self::ISignalNotifierStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AttachToSemaphoreWithTimeout)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(handler), timeout, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AttachToSemaphoreWithTimeout)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), handler.into_param().abi(), timeout, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -261,9 +282,12 @@ impl SignalHandler {
         let com = SignalHandlerBox::<F> { vtable: &SignalHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, signalnotifier: &SignalNotifier, timedout: bool) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0>(&self, signalnotifier: P0, timedout: bool) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<SignalNotifier>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(signalnotifier), timedout).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), signalnotifier.into_param().abi(), timedout).ok() }
     }
 }
 #[repr(C)]

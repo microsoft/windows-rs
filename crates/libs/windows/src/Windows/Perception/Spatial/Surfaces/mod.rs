@@ -268,11 +268,14 @@ impl SpatialSurfaceInfo {
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryGetBounds(&self, coordinatesystem: &super::SpatialCoordinateSystem) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>> {
+    pub fn TryGetBounds<P0>(&self, coordinatesystem: P0) -> ::windows_core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>
+    where
+        P0: ::windows_core::IntoParam<super::SpatialCoordinateSystem>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryGetBounds)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryGetBounds)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -286,11 +289,14 @@ impl SpatialSurfaceInfo {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryComputeLatestMeshWithOptionsAsync(&self, maxtrianglespercubicmeter: f64, options: &SpatialSurfaceMeshOptions) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>> {
+    pub fn TryComputeLatestMeshWithOptionsAsync<P0>(&self, maxtrianglespercubicmeter: f64, options: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>
+    where
+        P0: ::windows_core::IntoParam<SpatialSurfaceMeshOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryComputeLatestMeshWithOptionsAsync)(::windows_core::Interface::as_raw(this), maxtrianglespercubicmeter, ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryComputeLatestMeshWithOptionsAsync)(::windows_core::Interface::as_raw(this), maxtrianglespercubicmeter, options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -621,9 +627,12 @@ impl SpatialSurfaceObserver {
             (::windows_core::Interface::vtable(this).GetObservedSurfaces)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetBoundingVolume(&self, bounds: &super::SpatialBoundingVolume) -> ::windows_core::Result<()> {
+    pub fn SetBoundingVolume<P0>(&self, bounds: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::SpatialBoundingVolume>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetBoundingVolume)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bounds)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBoundingVolume)(::windows_core::Interface::as_raw(this), bounds.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -636,11 +645,14 @@ impl SpatialSurfaceObserver {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ObservedSurfacesChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ObservedSurfacesChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SpatialSurfaceObserver, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ObservedSurfacesChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ObservedSurfacesChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

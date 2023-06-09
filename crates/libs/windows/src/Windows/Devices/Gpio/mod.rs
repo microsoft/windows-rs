@@ -304,10 +304,13 @@ impl GpioChangeCounter {
             (::windows_core::Interface::vtable(this).Reset)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Create(pin: &GpioPin) -> ::windows_core::Result<GpioChangeCounter> {
+    pub fn Create<P0>(pin: P0) -> ::windows_core::Result<GpioChangeCounter>
+    where
+        P0: ::windows_core::IntoParam<GpioPin>,
+    {
         Self::IGpioChangeCounterFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(pin), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), pin.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -453,16 +456,22 @@ impl GpioChangeReader {
             (::windows_core::Interface::vtable(this).WaitForItemsAsync)(::windows_core::Interface::as_raw(this), count, &mut result__).from_abi(result__)
         }
     }
-    pub fn Create(pin: &GpioPin) -> ::windows_core::Result<GpioChangeReader> {
+    pub fn Create<P0>(pin: P0) -> ::windows_core::Result<GpioChangeReader>
+    where
+        P0: ::windows_core::IntoParam<GpioPin>,
+    {
         Self::IGpioChangeReaderFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(pin), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), pin.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn CreateWithCapacity(pin: &GpioPin, mincapacity: i32) -> ::windows_core::Result<GpioChangeReader> {
+    pub fn CreateWithCapacity<P0>(pin: P0, mincapacity: i32) -> ::windows_core::Result<GpioChangeReader>
+    where
+        P0: ::windows_core::IntoParam<GpioPin>,
+    {
         Self::IGpioChangeReaderFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithCapacity)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(pin), mincapacity, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithCapacity)(::windows_core::Interface::as_raw(this), pin.into_param().abi(), mincapacity, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -615,11 +624,14 @@ impl GpioPin {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ValueChanged(&self, handler: &super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ValueChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ValueChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ValueChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

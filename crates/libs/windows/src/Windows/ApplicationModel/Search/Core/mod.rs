@@ -264,9 +264,12 @@ impl SearchSuggestionManager {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetSearchHistoryContext)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    pub fn SetLocalContentSuggestionSettings(&self, settings: &super::LocalContentSuggestionSettings) -> ::windows_core::Result<()> {
+    pub fn SetLocalContentSuggestionSettings<P0>(&self, settings: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::LocalContentSuggestionSettings>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetLocalContentSuggestionSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(settings)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetLocalContentSuggestionSettings)(::windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
     }
     pub fn SetQuery(&self, querytext: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
@@ -276,9 +279,12 @@ impl SearchSuggestionManager {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetQueryWithLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(querytext), ::core::mem::transmute_copy(language)).ok() }
     }
-    pub fn SetQueryWithSearchQueryLinguisticDetails(&self, querytext: &::windows_core::HSTRING, language: &::windows_core::HSTRING, linguisticdetails: &super::SearchQueryLinguisticDetails) -> ::windows_core::Result<()> {
+    pub fn SetQueryWithSearchQueryLinguisticDetails<P0>(&self, querytext: &::windows_core::HSTRING, language: &::windows_core::HSTRING, linguisticdetails: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::SearchQueryLinguisticDetails>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(querytext), ::core::mem::transmute_copy(language), ::core::mem::transmute_copy(linguisticdetails)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(querytext), ::core::mem::transmute_copy(language), linguisticdetails.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -303,11 +309,14 @@ impl SearchSuggestionManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SuggestionsRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SuggestionsRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, SearchSuggestionsRequestedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SuggestionsRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SuggestionsRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -318,11 +327,14 @@ impl SearchSuggestionManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestingFocusOnKeyboardInput(&self, handler: &super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn RequestingFocusOnKeyboardInput<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<SearchSuggestionManager, RequestingFocusOnKeyboardInputEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestingFocusOnKeyboardInput)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestingFocusOnKeyboardInput)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

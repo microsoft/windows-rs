@@ -411,10 +411,13 @@ pub struct ComponentRenewal;
 impl ComponentRenewal {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RenewSystemComponentsAsync(information: &RevocationAndRenewalInformation) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>> {
+    pub fn RenewSystemComponentsAsync<P0>(information: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<RenewalStatus, u32>>
+    where
+        P0: ::windows_core::IntoParam<RevocationAndRenewalInformation>,
+    {
         Self::IComponentRenewalStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RenewSystemComponentsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(information), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RenewSystemComponentsAsync)(::windows_core::Interface::as_raw(this), information.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -470,11 +473,14 @@ impl HdcpSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ProtectionChanged(&self, handler: &super::super::Foundation::TypedEventHandler<HdcpSession, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ProtectionChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<HdcpSession, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ProtectionChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ProtectionChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -530,11 +536,14 @@ impl MediaProtectionManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ServiceRequested(&self, handler: &ServiceRequestedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ServiceRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<ServiceRequestedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ServiceRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ServiceRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -545,11 +554,14 @@ impl MediaProtectionManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RebootNeeded(&self, handler: &RebootNeededEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RebootNeeded<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<RebootNeededEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RebootNeeded)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RebootNeeded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -560,11 +572,14 @@ impl MediaProtectionManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ComponentLoadFailed(&self, handler: &ComponentLoadFailedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ComponentLoadFailed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<ComponentLoadFailedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ComponentLoadFailed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ComponentLoadFailed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1185,9 +1200,13 @@ impl ComponentLoadFailedEventHandler {
         let com = ComponentLoadFailedEventHandlerBox::<F> { vtable: &ComponentLoadFailedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, sender: &MediaProtectionManager, e: &ComponentLoadFailedEventArgs) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<MediaProtectionManager>,
+        P1: ::windows_core::IntoParam<ComponentLoadFailedEventArgs>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender), ::core::mem::transmute_copy(e)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1267,9 +1286,12 @@ impl RebootNeededEventHandler {
         let com = RebootNeededEventHandlerBox::<F> { vtable: &RebootNeededEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, sender: &MediaProtectionManager) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0>(&self, sender: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<MediaProtectionManager>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1349,9 +1371,13 @@ impl ServiceRequestedEventHandler {
         let com = ServiceRequestedEventHandlerBox::<F> { vtable: &ServiceRequestedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, sender: &MediaProtectionManager, e: &ServiceRequestedEventArgs) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<MediaProtectionManager>,
+        P1: ::windows_core::IntoParam<ServiceRequestedEventArgs>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender), ::core::mem::transmute_copy(e)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]

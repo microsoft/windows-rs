@@ -429,11 +429,14 @@ impl SerialDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ErrorReceived(&self, reporthandler: &super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ErrorReceived<P0>(&self, reporthandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ErrorReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(reporthandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ErrorReceived)(::windows_core::Interface::as_raw(this), reporthandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -444,11 +447,14 @@ impl SerialDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PinChanged(&self, reporthandler: &super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PinChanged<P0>(&self, reporthandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PinChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(reporthandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PinChanged)(::windows_core::Interface::as_raw(this), reporthandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

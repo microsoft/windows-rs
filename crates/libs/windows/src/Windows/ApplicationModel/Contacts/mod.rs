@@ -976,11 +976,14 @@ impl IContactInstantMessageFieldFactory {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstantMessage_All(&self, username: &::windows_core::HSTRING, category: ContactFieldCategory, service: &::windows_core::HSTRING, displaytext: &::windows_core::HSTRING, verb: &super::super::Foundation::Uri) -> ::windows_core::Result<ContactInstantMessageField> {
+    pub fn CreateInstantMessage_All<P0>(&self, username: &::windows_core::HSTRING, category: ContactFieldCategory, service: &::windows_core::HSTRING, displaytext: &::windows_core::HSTRING, verb: P0) -> ::windows_core::Result<ContactInstantMessageField>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstantMessage_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(displaytext), ::core::mem::transmute_copy(verb), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstantMessage_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(displaytext), verb.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -2619,38 +2622,52 @@ pub struct AggregateContactManager(::windows_core::IUnknown);
 impl AggregateContactManager {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindRawContactsAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
+    pub fn FindRawContactsAsync<P0>(&self, contact: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FindRawContactsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FindRawContactsAsync)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryLinkContactsAsync(&self, primarycontact: &Contact, secondarycontact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
+    pub fn TryLinkContactsAsync<P0, P1>(&self, primarycontact: P0, secondarycontact: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<Contact>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+        P1: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryLinkContactsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(primarycontact), ::core::mem::transmute_copy(secondarycontact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryLinkContactsAsync)(::windows_core::Interface::as_raw(this), primarycontact.into_param().abi(), secondarycontact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UnlinkRawContactAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UnlinkRawContactAsync<P0>(&self, contact: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UnlinkRawContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UnlinkRawContactAsync)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrySetPreferredSourceForPictureAsync(&self, aggregatecontact: &Contact, rawcontact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySetPreferredSourceForPictureAsync<P0, P1>(&self, aggregatecontact: P0, rawcontact: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+        P1: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TrySetPreferredSourceForPictureAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(aggregatecontact), ::core::mem::transmute_copy(rawcontact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TrySetPreferredSourceForPictureAsync)(::windows_core::Interface::as_raw(this), aggregatecontact.into_param().abi(), rawcontact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3406,11 +3423,14 @@ impl ContactAnnotationList {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrySaveAnnotationAsync(&self, annotation: &ContactAnnotation) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySaveAnnotationAsync<P0>(&self, annotation: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<ContactAnnotation>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TrySaveAnnotationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(annotation), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TrySaveAnnotationAsync)(::windows_core::Interface::as_raw(this), annotation.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3442,11 +3462,14 @@ impl ContactAnnotationList {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteAnnotationAsync(&self, annotation: &ContactAnnotation) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteAnnotationAsync<P0>(&self, annotation: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<ContactAnnotation>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeleteAnnotationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(annotation), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeleteAnnotationAsync)(::windows_core::Interface::as_raw(this), annotation.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3505,20 +3528,26 @@ impl ContactAnnotationStore {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAnnotationsForContactAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
+    pub fn FindAnnotationsForContactAsync<P0>(&self, contact: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FindAnnotationsForContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FindAnnotationsForContactAsync)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DisableAnnotationAsync(&self, annotation: &ContactAnnotation) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DisableAnnotationAsync<P0>(&self, annotation: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<ContactAnnotation>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DisableAnnotationAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(annotation), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DisableAnnotationAsync)(::windows_core::Interface::as_raw(this), annotation.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3660,9 +3689,12 @@ impl ContactCardDelayedDataLoader {
         let this = &::windows_core::ComInterface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SetData(&self, contact: &Contact) -> ::windows_core::Result<()> {
+    pub fn SetData<P0>(&self, contact: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), contact.into_param().abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ContactCardDelayedDataLoader {
@@ -3830,9 +3862,12 @@ impl ContactChangeReader {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).AcceptChanges)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn AcceptChangesThrough(&self, lastchangetoaccept: &ContactChange) -> ::windows_core::Result<()> {
+    pub fn AcceptChangesThrough<P0>(&self, lastchangetoaccept: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ContactChange>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).AcceptChangesThrough)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(lastchangetoaccept)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).AcceptChangesThrough)(::windows_core::Interface::as_raw(this), lastchangetoaccept.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4412,11 +4447,14 @@ impl ContactFieldFactory {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstantMessage_All(&self, username: &::windows_core::HSTRING, category: ContactFieldCategory, service: &::windows_core::HSTRING, displaytext: &::windows_core::HSTRING, verb: &super::super::Foundation::Uri) -> ::windows_core::Result<ContactInstantMessageField> {
+    pub fn CreateInstantMessage_All<P0>(&self, username: &::windows_core::HSTRING, category: ContactFieldCategory, service: &::windows_core::HSTRING, displaytext: &::windows_core::HSTRING, verb: P0) -> ::windows_core::Result<ContactInstantMessageField>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<IContactInstantMessageFieldFactory>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstantMessage_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(displaytext), ::core::mem::transmute_copy(verb), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstantMessage_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(displaytext), verb.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn CreateLocation_Default(&self, unstructuredaddress: &::windows_core::HSTRING) -> ::windows_core::Result<ContactLocationField> {
@@ -4690,10 +4728,13 @@ impl ContactInstantMessageField {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstantMessage_All(username: &::windows_core::HSTRING, category: ContactFieldCategory, service: &::windows_core::HSTRING, displaytext: &::windows_core::HSTRING, verb: &super::super::Foundation::Uri) -> ::windows_core::Result<ContactInstantMessageField> {
+    pub fn CreateInstantMessage_All<P0>(username: &::windows_core::HSTRING, category: ContactFieldCategory, service: &::windows_core::HSTRING, displaytext: &::windows_core::HSTRING, verb: P0) -> ::windows_core::Result<ContactInstantMessageField>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         Self::IContactInstantMessageFieldFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateInstantMessage_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(displaytext), ::core::mem::transmute_copy(verb), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateInstantMessage_All)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, ::core::mem::transmute_copy(service), ::core::mem::transmute_copy(displaytext), verb.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4999,11 +5040,14 @@ impl ContactList {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContactChanged(&self, value: &super::super::Foundation::TypedEventHandler<ContactList, ContactChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ContactChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ContactList, ContactChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ContactChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ContactChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5055,29 +5099,38 @@ impl ContactList {
             (::windows_core::Interface::vtable(this).GetContactReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetContactReaderWithOptions(&self, options: &ContactQueryOptions) -> ::windows_core::Result<ContactReader> {
+    pub fn GetContactReaderWithOptions<P0>(&self, options: P0) -> ::windows_core::Result<ContactReader>
+    where
+        P0: ::windows_core::IntoParam<ContactQueryOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetContactReaderWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetContactReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveContactAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveContactAsync<P0>(&self, contact: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SaveContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SaveContactAsync)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteContactAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteContactAsync<P0>(&self, contact: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeleteContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeleteContactAsync)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5161,11 +5214,14 @@ pub struct ContactListLimitedWriteOperations(::windows_core::IUnknown);
 impl ContactListLimitedWriteOperations {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryCreateOrUpdateContactAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryCreateOrUpdateContactAsync<P0>(&self, contact: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryCreateOrUpdateContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryCreateOrUpdateContactAsync)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5782,11 +5838,14 @@ impl ContactListSyncManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SyncStatusChanged(&self, handler: &super::super::Foundation::TypedEventHandler<ContactListSyncManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SyncStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ContactListSyncManager, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SyncStatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SyncStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5978,20 +6037,29 @@ pub struct ContactManager;
 impl ContactManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShowContactCard(contact: &Contact, selection: super::super::Foundation::Rect) -> ::windows_core::Result<()> {
-        Self::IContactManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).ShowContactCard)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), selection).ok() })
+    pub fn ShowContactCard<P0>(contact: P0, selection: super::super::Foundation::Rect) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
+        Self::IContactManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).ShowContactCard)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), selection).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn ShowContactCardWithPlacement(contact: &Contact, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<()> {
-        Self::IContactManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).ShowContactCardWithPlacement)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), selection, preferredplacement).ok() })
+    pub fn ShowContactCardWithPlacement<P0>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
+        Self::IContactManagerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).ShowContactCardWithPlacement)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), selection, preferredplacement).ok() })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn ShowDelayLoadedContactCard(contact: &Contact, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<ContactCardDelayedDataLoader> {
+    pub fn ShowDelayLoadedContactCard<P0>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows_core::Result<ContactCardDelayedDataLoader>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         Self::IContactManagerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShowDelayLoadedContactCard)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), selection, preferredplacement, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShowDelayLoadedContactCard)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), selection, preferredplacement, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6004,18 +6072,24 @@ impl ContactManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ConvertContactToVCardAsync(contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
+    pub fn ConvertContactToVCardAsync<P0>(contact: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConvertContactToVCardAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConvertContactToVCardAsync)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ConvertContactToVCardAsyncWithMaxBytes(contact: &Contact, maxbytes: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
+    pub fn ConvertContactToVCardAsyncWithMaxBytes<P0>(contact: P0, maxbytes: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), maxbytes, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), maxbytes, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -6053,8 +6127,12 @@ impl ContactManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn ShowContactCardWithOptions(contact: &Contact, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: &ContactCardOptions) -> ::windows_core::Result<()> {
-        Self::IContactManagerStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).ShowContactCardWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), selection, preferredplacement, ::core::mem::transmute_copy(contactcardoptions)).ok() })
+    pub fn ShowContactCardWithOptions<P0, P1>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+        P1: ::windows_core::IntoParam<ContactCardOptions>,
+    {
+        Self::IContactManagerStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).ShowContactCardWithOptions)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), selection, preferredplacement, contactcardoptions.into_param().abi()).ok() })
     }
     pub fn IsShowDelayLoadedContactCardSupported() -> ::windows_core::Result<bool> {
         Self::IContactManagerStatics3(|this| unsafe {
@@ -6064,14 +6142,22 @@ impl ContactManager {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn ShowDelayLoadedContactCardWithOptions(contact: &Contact, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: &ContactCardOptions) -> ::windows_core::Result<ContactCardDelayedDataLoader> {
+    pub fn ShowDelayLoadedContactCardWithOptions<P0, P1>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: P1) -> ::windows_core::Result<ContactCardDelayedDataLoader>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+        P1: ::windows_core::IntoParam<ContactCardOptions>,
+    {
         Self::IContactManagerStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShowDelayLoadedContactCardWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), selection, preferredplacement, ::core::mem::transmute_copy(contactcardoptions), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShowDelayLoadedContactCardWithOptions)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), selection, preferredplacement, contactcardoptions.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn ShowFullContactCard(contact: &Contact, fullcontactcardoptions: &FullContactCardOptions) -> ::windows_core::Result<()> {
-        Self::IContactManagerStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).ShowFullContactCard)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), ::core::mem::transmute_copy(fullcontactcardoptions)).ok() })
+    pub fn ShowFullContactCard<P0, P1>(contact: P0, fullcontactcardoptions: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+        P1: ::windows_core::IntoParam<FullContactCardOptions>,
+    {
+        Self::IContactManagerStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).ShowFullContactCard)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), fullcontactcardoptions.into_param().abi()).ok() })
     }
     pub fn SystemDisplayNameOrder() -> ::windows_core::Result<ContactNameOrder> {
         Self::IContactManagerStatics3(|this| unsafe {
@@ -6093,10 +6179,13 @@ impl ContactManager {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser(user: &super::super::System::User) -> ::windows_core::Result<ContactManagerForUser> {
+    pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<ContactManagerForUser>
+    where
+        P0: ::windows_core::IntoParam<super::super::System::User>,
+    {
         Self::IContactManagerStatics4(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6151,20 +6240,26 @@ pub struct ContactManagerForUser(::windows_core::IUnknown);
 impl ContactManagerForUser {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ConvertContactToVCardAsync(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
+    pub fn ConvertContactToVCardAsync<P0>(&self, contact: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConvertContactToVCardAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConvertContactToVCardAsync)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ConvertContactToVCardAsyncWithMaxBytes(&self, contact: &Contact, maxbytes: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
+    pub fn ConvertContactToVCardAsyncWithMaxBytes<P0>(&self, contact: P0, maxbytes: u32) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), maxbytes, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), maxbytes, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -6228,9 +6323,13 @@ impl ContactManagerForUser {
             (::windows_core::Interface::vtable(this).User)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn ShowFullContactCard(&self, contact: &Contact, fullcontactcardoptions: &FullContactCardOptions) -> ::windows_core::Result<()> {
+    pub fn ShowFullContactCard<P0, P1>(&self, contact: P0, fullcontactcardoptions: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+        P1: ::windows_core::IntoParam<FullContactCardOptions>,
+    {
         let this = &::windows_core::ComInterface::cast::<IContactManagerForUser2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).ShowFullContactCard)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), ::core::mem::transmute_copy(fullcontactcardoptions)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ShowFullContactCard)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), fullcontactcardoptions.into_param().abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ContactManagerForUser {
@@ -6351,11 +6450,14 @@ impl ContactPanel {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFullAppRequested(&self, handler: &super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelLaunchFullAppRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn LaunchFullAppRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelLaunchFullAppRequestedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LaunchFullAppRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LaunchFullAppRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6366,11 +6468,14 @@ impl ContactPanel {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closing(&self, handler: &super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelClosingEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closing<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ContactPanel, ContactPanelClosingEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Closing)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Closing)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6677,10 +6782,13 @@ impl ContactPicker {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForUser(user: &super::super::System::User) -> ::windows_core::Result<ContactPicker> {
+    pub fn CreateForUser<P0>(user: P0) -> ::windows_core::Result<ContactPicker>
+    where
+        P0: ::windows_core::IntoParam<super::super::System::User>,
+    {
         Self::IContactPickerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6928,11 +7036,14 @@ impl ContactReader {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMatchingPropertiesWithMatchReason(&self, contact: &Contact) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactMatchReason>> {
+    pub fn GetMatchingPropertiesWithMatchReason<P0>(&self, contact: P0) -> ::windows_core::Result<super::super::Foundation::Collections::IVectorView<ContactMatchReason>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetMatchingPropertiesWithMatchReason)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetMatchingPropertiesWithMatchReason)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -7083,11 +7194,14 @@ impl ContactStore {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContactChanged(&self, value: &super::super::Foundation::TypedEventHandler<ContactStore, ContactChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ContactChanged<P0>(&self, value: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<ContactStore, ContactChangedEventArgs>>,
+    {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ContactChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ContactChanged)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7146,11 +7260,14 @@ impl ContactStore {
             (::windows_core::Interface::vtable(this).GetContactReader)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn GetContactReaderWithOptions(&self, options: &ContactQueryOptions) -> ::windows_core::Result<ContactReader> {
+    pub fn GetContactReaderWithOptions<P0>(&self, options: P0) -> ::windows_core::Result<ContactReader>
+    where
+        P0: ::windows_core::IntoParam<ContactQueryOptions>,
+    {
         let this = &::windows_core::ComInterface::cast::<IContactStore2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetContactReaderWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetContactReaderWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -7258,9 +7375,12 @@ impl ContactWebsite {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = self;
@@ -7503,20 +7623,26 @@ impl PinnedContactManager {
             (::windows_core::Interface::vtable(this).IsPinSurfaceSupported)(::windows_core::Interface::as_raw(this), surface, &mut result__).from_abi(result__)
         }
     }
-    pub fn IsContactPinned(&self, contact: &Contact, surface: PinnedContactSurface) -> ::windows_core::Result<bool> {
+    pub fn IsContactPinned<P0>(&self, contact: P0, surface: PinnedContactSurface) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsContactPinned)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), surface, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsContactPinned)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), surface, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestPinContactAsync(&self, contact: &Contact, surface: PinnedContactSurface) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestPinContactAsync<P0>(&self, contact: P0, surface: PinnedContactSurface) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestPinContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), surface, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestPinContactAsync)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), surface, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -7533,16 +7659,22 @@ impl PinnedContactManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestUnpinContactAsync(&self, contact: &Contact, surface: PinnedContactSurface) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestUnpinContactAsync<P0>(&self, contact: P0, surface: PinnedContactSurface) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<bool>>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestUnpinContactAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact), surface, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestUnpinContactAsync)(::windows_core::Interface::as_raw(this), contact.into_param().abi(), surface, &mut result__).from_abi(result__)
         }
     }
-    pub fn SignalContactActivity(&self, contact: &Contact) -> ::windows_core::Result<()> {
+    pub fn SignalContactActivity<P0>(&self, contact: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<Contact>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SignalContactActivity)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(contact)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SignalContactActivity)(::windows_core::Interface::as_raw(this), contact.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7561,10 +7693,13 @@ impl PinnedContactManager {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser(user: &super::super::System::User) -> ::windows_core::Result<PinnedContactManager> {
+    pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<PinnedContactManager>
+    where
+        P0: ::windows_core::IntoParam<super::super::System::User>,
+    {
         Self::IPinnedContactManagerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn IsSupported() -> ::windows_core::Result<bool> {

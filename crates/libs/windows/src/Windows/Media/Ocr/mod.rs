@@ -140,11 +140,14 @@ pub struct OcrEngine(::windows_core::IUnknown);
 impl OcrEngine {
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
-    pub fn RecognizeAsync(&self, bitmap: &super::super::Graphics::Imaging::SoftwareBitmap) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<OcrResult>> {
+    pub fn RecognizeAsync<P0>(&self, bitmap: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<OcrResult>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Graphics::Imaging::SoftwareBitmap>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RecognizeAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bitmap), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RecognizeAsync)(::windows_core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
@@ -172,18 +175,24 @@ impl OcrEngine {
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
     #[cfg(feature = "Globalization")]
-    pub fn IsLanguageSupported(language: &super::super::Globalization::Language) -> ::windows_core::Result<bool> {
+    pub fn IsLanguageSupported<P0>(language: P0) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<super::super::Globalization::Language>,
+    {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsLanguageSupported)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(language), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IsLanguageSupported)(::windows_core::Interface::as_raw(this), language.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization\"`*"]
     #[cfg(feature = "Globalization")]
-    pub fn TryCreateFromLanguage(language: &super::super::Globalization::Language) -> ::windows_core::Result<OcrEngine> {
+    pub fn TryCreateFromLanguage<P0>(language: P0) -> ::windows_core::Result<OcrEngine>
+    where
+        P0: ::windows_core::IntoParam<super::super::Globalization::Language>,
+    {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryCreateFromLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(language), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryCreateFromLanguage)(::windows_core::Interface::as_raw(this), language.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn TryCreateFromUserProfileLanguages() -> ::windows_core::Result<OcrEngine> {
