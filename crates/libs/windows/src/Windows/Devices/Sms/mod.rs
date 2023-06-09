@@ -209,11 +209,14 @@ impl ISmsDevice {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CalculateLength(&self, message: &SmsTextMessage) -> ::windows_core::Result<SmsEncodedLength> {
+    pub fn CalculateLength<P0>(&self, message: P0) -> ::windows_core::Result<SmsEncodedLength>
+    where
+        P0: ::windows_core::IntoParam<SmsTextMessage>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CalculateLength)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CalculateLength)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -254,11 +257,14 @@ impl ISmsDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsMessageReceived(&self, eventhandler: &SmsMessageReceivedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SmsMessageReceived<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<SmsMessageReceivedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SmsMessageReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SmsMessageReceived)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -269,11 +275,14 @@ impl ISmsDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsDeviceStatusChanged(&self, eventhandler: &SmsDeviceStatusChangedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SmsDeviceStatusChanged<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<SmsDeviceStatusChangedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SmsDeviceStatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SmsDeviceStatusChanged)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1391,9 +1400,12 @@ pub struct DeleteSmsMessageOperation(::windows_core::IUnknown);
 impl DeleteSmsMessageOperation {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncActionCompletedHandler) -> ::windows_core::Result<()> {
+    pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::AsyncActionCompletedHandler>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1531,9 +1543,12 @@ pub struct DeleteSmsMessagesOperation(::windows_core::IUnknown);
 impl DeleteSmsMessagesOperation {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncActionCompletedHandler) -> ::windows_core::Result<()> {
+    pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::AsyncActionCompletedHandler>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1710,9 +1725,12 @@ impl GetSmsDeviceOperation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncOperationCompletedHandler<SmsDevice>) -> ::windows_core::Result<()> {
+    pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::AsyncOperationCompletedHandler<SmsDevice>>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1853,9 +1871,12 @@ impl GetSmsMessageOperation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncOperationCompletedHandler<ISmsMessage>) -> ::windows_core::Result<()> {
+    pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::AsyncOperationCompletedHandler<ISmsMessage>>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1996,9 +2017,12 @@ impl GetSmsMessagesOperation {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProgress(&self, handler: &super::super::Foundation::AsyncOperationProgressHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>) -> ::windows_core::Result<()> {
+    pub fn SetProgress<P0>(&self, handler: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::AsyncOperationProgressHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetProgress)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetProgress)(::windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2011,9 +2035,12 @@ impl GetSmsMessagesOperation {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncOperationWithProgressCompletedHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>) -> ::windows_core::Result<()> {
+    pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::AsyncOperationWithProgressCompletedHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2115,9 +2142,12 @@ pub struct SendSmsMessageOperation(::windows_core::IUnknown);
 impl SendSmsMessageOperation {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted(&self, handler: &super::super::Foundation::AsyncActionCompletedHandler) -> ::windows_core::Result<()> {
+    pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::AsyncActionCompletedHandler>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2727,11 +2757,14 @@ impl SmsDevice {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CalculateLength(&self, message: &SmsTextMessage) -> ::windows_core::Result<SmsEncodedLength> {
+    pub fn CalculateLength<P0>(&self, message: P0) -> ::windows_core::Result<SmsEncodedLength>
+    where
+        P0: ::windows_core::IntoParam<SmsTextMessage>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CalculateLength)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CalculateLength)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -2772,11 +2805,14 @@ impl SmsDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsMessageReceived(&self, eventhandler: &SmsMessageReceivedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SmsMessageReceived<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<SmsMessageReceivedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SmsMessageReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SmsMessageReceived)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2787,11 +2823,14 @@ impl SmsDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsDeviceStatusChanged(&self, eventhandler: &SmsDeviceStatusChangedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SmsDeviceStatusChanged<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<SmsDeviceStatusChangedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SmsDeviceStatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SmsDeviceStatusChanged)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2959,11 +2998,14 @@ impl SmsDevice2 {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeviceStatusChanged(&self, eventhandler: &super::super::Foundation::TypedEventHandler<SmsDevice2, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DeviceStatusChanged<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SmsDevice2, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeviceStatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeviceStatusChanged)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3521,11 +3563,14 @@ impl SmsMessageRegistration {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageReceived(&self, eventhandler: &super::super::Foundation::TypedEventHandler<SmsMessageRegistration, SmsMessageReceivedTriggerDetails>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MessageReceived<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<SmsMessageRegistration, SmsMessageReceivedTriggerDetails>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MessageReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MessageReceived)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3542,10 +3587,13 @@ impl SmsMessageRegistration {
             (::windows_core::Interface::vtable(this).AllRegistrations)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn Register(id: &::windows_core::HSTRING, filterrules: &SmsFilterRules) -> ::windows_core::Result<SmsMessageRegistration> {
+    pub fn Register<P0>(id: &::windows_core::HSTRING, filterrules: P0) -> ::windows_core::Result<SmsMessageRegistration>
+    where
+        P0: ::windows_core::IntoParam<SmsFilterRules>,
+    {
         Self::ISmsMessageRegistrationStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Register)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(filterrules), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Register)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), filterrules.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -4014,10 +4062,13 @@ impl SmsTextMessage {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn FromBinaryMessage(binarymessage: &SmsBinaryMessage) -> ::windows_core::Result<SmsTextMessage> {
+    pub fn FromBinaryMessage<P0>(binarymessage: P0) -> ::windows_core::Result<SmsTextMessage>
+    where
+        P0: ::windows_core::IntoParam<SmsBinaryMessage>,
+    {
         Self::ISmsTextMessageStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FromBinaryMessage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(binarymessage), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FromBinaryMessage)(::windows_core::Interface::as_raw(this), binarymessage.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -4932,9 +4983,12 @@ impl SmsDeviceStatusChangedEventHandler {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Invoke(&self, sender: &SmsDevice) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0>(&self, sender: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<SmsDevice>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5031,9 +5085,13 @@ impl SmsMessageReceivedEventHandler {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Invoke(&self, sender: &SmsDevice, e: &SmsMessageReceivedEventArgs) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<SmsDevice>,
+        P1: ::windows_core::IntoParam<SmsMessageReceivedEventArgs>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender), ::core::mem::transmute_copy(e)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]

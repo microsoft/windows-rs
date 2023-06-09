@@ -498,9 +498,12 @@ impl PrintTicketFeature {
             (::windows_core::Interface::vtable(this).GetSelectedOption)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetSelectedOption(&self, value: &PrintTicketOption) -> ::windows_core::Result<()> {
+    pub fn SetSelectedOption<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<PrintTicketOption>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetSelectedOption)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetSelectedOption)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn SelectionType(&self) -> ::windows_core::Result<PrintTicketFeatureSelectionType> {
         let this = self;
@@ -753,9 +756,12 @@ impl PrintTicketParameterInitializer {
             (::windows_core::Interface::vtable(this).XmlNode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetValue(&self, value: &PrintTicketValue) -> ::windows_core::Result<()> {
+    pub fn SetValue<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<PrintTicketValue>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetValue)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetValue)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Value(&self) -> ::windows_core::Result<PrintTicketValue> {
         let this = self;
@@ -1038,11 +1044,14 @@ impl WorkflowPrintTicket {
             (::windows_core::Interface::vtable(this).SetParameterInitializerAsString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(xmlnamespace), ::core::mem::transmute_copy(stringvalue), &mut result__).from_abi(result__)
         }
     }
-    pub fn MergeAndValidateTicket(&self, deltashematicket: &WorkflowPrintTicket) -> ::windows_core::Result<WorkflowPrintTicket> {
+    pub fn MergeAndValidateTicket<P0>(&self, deltashematicket: P0) -> ::windows_core::Result<WorkflowPrintTicket>
+    where
+        P0: ::windows_core::IntoParam<WorkflowPrintTicket>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MergeAndValidateTicket)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deltashematicket), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MergeAndValidateTicket)(::windows_core::Interface::as_raw(this), deltashematicket.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }

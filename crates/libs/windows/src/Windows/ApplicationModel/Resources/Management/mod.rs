@@ -283,36 +283,49 @@ pub struct ResourceIndexer(::windows_core::IUnknown);
 impl ResourceIndexer {
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn IndexFilePath(&self, filepath: &super::super::super::Foundation::Uri) -> ::windows_core::Result<IndexedResourceCandidate> {
+    pub fn IndexFilePath<P0>(&self, filepath: P0) -> ::windows_core::Result<IndexedResourceCandidate>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IndexFilePath)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IndexFilePath)(::windows_core::Interface::as_raw(this), filepath.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn IndexFileContentsAsync(&self, file: &super::super::super::Foundation::Uri) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>> {
+    pub fn IndexFileContentsAsync<P0>(&self, file: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IndexFileContentsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(file), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).IndexFileContentsAsync)(::windows_core::Interface::as_raw(this), file.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateResourceIndexer(projectroot: &super::super::super::Foundation::Uri) -> ::windows_core::Result<ResourceIndexer> {
+    pub fn CreateResourceIndexer<P0>(projectroot: P0) -> ::windows_core::Result<ResourceIndexer>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
+    {
         Self::IResourceIndexerFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateResourceIndexer)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(projectroot), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateResourceIndexer)(::windows_core::Interface::as_raw(this), projectroot.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateResourceIndexerWithExtension(projectroot: &super::super::super::Foundation::Uri, extensiondllpath: &super::super::super::Foundation::Uri) -> ::windows_core::Result<ResourceIndexer> {
+    pub fn CreateResourceIndexerWithExtension<P0, P1>(projectroot: P0, extensiondllpath: P1) -> ::windows_core::Result<ResourceIndexer>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
+        P1: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
+    {
         Self::IResourceIndexerFactory2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateResourceIndexerWithExtension)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(projectroot), ::core::mem::transmute_copy(extensiondllpath), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateResourceIndexerWithExtension)(::windows_core::Interface::as_raw(this), projectroot.into_param().abi(), extensiondllpath.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

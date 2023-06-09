@@ -254,13 +254,19 @@ impl IBasicAudioEffect {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetEncodingProperties(&self, encodingproperties: &super::MediaProperties::AudioEncodingProperties) -> ::windows_core::Result<()> {
+    pub fn SetEncodingProperties<P0>(&self, encodingproperties: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::MediaProperties::AudioEncodingProperties>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetEncodingProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(encodingproperties)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetEncodingProperties)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi()).ok() }
     }
-    pub fn ProcessFrame(&self, context: &ProcessAudioFrameContext) -> ::windows_core::Result<()> {
+    pub fn ProcessFrame<P0>(&self, context: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ProcessAudioFrameContext>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ProcessFrame)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(context)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ProcessFrame)(::windows_core::Interface::as_raw(this), context.into_param().abi()).ok() }
     }
     pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows_core::Result<()> {
         let this = self;
@@ -360,16 +366,20 @@ impl IBasicVideoEffect {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<P0>(&self, encodingproperties: &super::MediaProperties::VideoEncodingProperties, device: P0) -> ::windows_core::Result<()>
+    pub fn SetEncodingProperties<P0, P1>(&self, encodingproperties: P0, device: P1) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
+        P0: ::windows_core::IntoParam<super::MediaProperties::VideoEncodingProperties>,
+        P1: ::windows_core::TryIntoParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetEncodingProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(encodingproperties), device.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetEncodingProperties)(::windows_core::Interface::as_raw(this), encodingproperties.into_param().abi(), device.try_into_param()?.abi()).ok() }
     }
-    pub fn ProcessFrame(&self, context: &ProcessVideoFrameContext) -> ::windows_core::Result<()> {
+    pub fn ProcessFrame<P0>(&self, context: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ProcessVideoFrameContext>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ProcessFrame)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(context)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ProcessFrame)(::windows_core::Interface::as_raw(this), context.into_param().abi()).ok() }
     }
     pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows_core::Result<()> {
         let this = self;
@@ -540,16 +550,20 @@ impl IVideoCompositor {
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<P0>(&self, backgroundproperties: &super::MediaProperties::VideoEncodingProperties, device: P0) -> ::windows_core::Result<()>
+    pub fn SetEncodingProperties<P0, P1>(&self, backgroundproperties: P0, device: P1) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
+        P0: ::windows_core::IntoParam<super::MediaProperties::VideoEncodingProperties>,
+        P1: ::windows_core::TryIntoParam<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetEncodingProperties)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(backgroundproperties), device.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetEncodingProperties)(::windows_core::Interface::as_raw(this), backgroundproperties.into_param().abi(), device.try_into_param()?.abi()).ok() }
     }
-    pub fn CompositeFrame(&self, context: &CompositeVideoFrameContext) -> ::windows_core::Result<()> {
+    pub fn CompositeFrame<P0>(&self, context: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<CompositeVideoFrameContext>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).CompositeFrame)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(context)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).CompositeFrame)(::windows_core::Interface::as_raw(this), context.into_param().abi()).ok() }
     }
     pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows_core::Result<()> {
         let this = self;
@@ -911,11 +925,14 @@ pub struct AudioCaptureEffectsManager(::windows_core::IUnknown);
 impl AudioCaptureEffectsManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioCaptureEffectsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioCaptureEffectsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AudioCaptureEffectsChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AudioCaptureEffectsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1133,11 +1150,14 @@ pub struct AudioRenderEffectsManager(::windows_core::IUnknown);
 impl AudioRenderEffectsManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioRenderEffectsChanged(&self, handler: &super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioRenderEffectsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AudioRenderEffectsChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AudioRenderEffectsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

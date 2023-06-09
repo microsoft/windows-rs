@@ -621,24 +621,26 @@ impl GeotagHelper {
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn SetGeotagFromGeolocatorAsync<P0>(file: P0, geolocator: &super::super::Devices::Geolocation::Geolocator) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetGeotagFromGeolocatorAsync<P0, P1>(file: P0, geolocator: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::TryIntoParam<super::IStorageFile>,
+        P1: ::windows_core::IntoParam<super::super::Devices::Geolocation::Geolocator>,
     {
         Self::IGeotagHelperStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetGeotagFromGeolocatorAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), ::core::mem::transmute_copy(geolocator), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetGeotagFromGeolocatorAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), geolocator.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn SetGeotagAsync<P0>(file: P0, geopoint: &super::super::Devices::Geolocation::Geopoint) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn SetGeotagAsync<P0, P1>(file: P0, geopoint: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::TryIntoParam<super::IStorageFile>,
+        P1: ::windows_core::IntoParam<super::super::Devices::Geolocation::Geopoint>,
     {
         Self::IGeotagHelperStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetGeotagAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), ::core::mem::transmute_copy(geopoint), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetGeotagAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), geopoint.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

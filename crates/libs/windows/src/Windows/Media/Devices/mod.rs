@@ -1972,9 +1972,12 @@ impl AdvancedPhotoControl {
             (::windows_core::Interface::vtable(this).Mode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Configure(&self, settings: &AdvancedPhotoCaptureSettings) -> ::windows_core::Result<()> {
+    pub fn Configure<P0>(&self, settings: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<AdvancedPhotoCaptureSettings>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Configure)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(settings)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Configure)(::windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for AdvancedPhotoControl {
@@ -2234,11 +2237,14 @@ pub struct AudioDeviceModulesManager(::windows_core::IUnknown);
 impl AudioDeviceModulesManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ModuleNotificationReceived(&self, handler: &super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ModuleNotificationReceived<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ModuleNotificationReceived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ModuleNotificationReceived)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2343,11 +2349,14 @@ impl CallControl {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AnswerRequested(&self, handler: &CallControlEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AnswerRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<CallControlEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AnswerRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AnswerRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2358,11 +2367,14 @@ impl CallControl {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HangUpRequested(&self, handler: &CallControlEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn HangUpRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<CallControlEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HangUpRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HangUpRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2373,11 +2385,14 @@ impl CallControl {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DialRequested(&self, handler: &DialRequestedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DialRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<DialRequestedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DialRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DialRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2388,11 +2403,14 @@ impl CallControl {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RedialRequested(&self, handler: &RedialRequestedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RedialRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<RedialRequestedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RedialRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RedialRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2403,11 +2421,14 @@ impl CallControl {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn KeypadPressed(&self, handler: &KeypadPressedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn KeypadPressed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<KeypadPressedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).KeypadPressed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).KeypadPressed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2418,11 +2439,14 @@ impl CallControl {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioTransferRequested(&self, handler: &CallControlEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioTransferRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<CallControlEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AudioTransferRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AudioTransferRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2500,11 +2524,14 @@ impl CameraOcclusionInfo {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged(&self, handler: &super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2979,9 +3006,12 @@ impl DigitalWindowControl {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).Configure)(::windows_core::Interface::as_raw(this), digitalwindowmode).ok() }
     }
-    pub fn ConfigureWithBounds(&self, digitalwindowmode: DigitalWindowMode, digitalwindowbounds: &DigitalWindowBounds) -> ::windows_core::Result<()> {
+    pub fn ConfigureWithBounds<P0>(&self, digitalwindowmode: DigitalWindowMode, digitalwindowbounds: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<DigitalWindowBounds>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ConfigureWithBounds)(::windows_core::Interface::as_raw(this), digitalwindowmode, ::core::mem::transmute_copy(digitalwindowbounds)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ConfigureWithBounds)(::windows_core::Interface::as_raw(this), digitalwindowmode, digitalwindowbounds.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3546,9 +3576,12 @@ impl FocusControl {
             (::windows_core::Interface::vtable(this).LockAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Configure(&self, settings: &FocusSettings) -> ::windows_core::Result<()> {
+    pub fn Configure<P0>(&self, settings: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<FocusSettings>,
+    {
         let this = &::windows_core::ComInterface::cast::<IFocusControl2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).Configure)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(settings)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Configure)(::windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for FocusControl {
@@ -4301,10 +4334,13 @@ impl MediaDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DefaultAudioCaptureDeviceChanged(handler: &super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, DefaultAudioCaptureDeviceChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DefaultAudioCaptureDeviceChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, DefaultAudioCaptureDeviceChangedEventArgs>>,
+    {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4314,10 +4350,13 @@ impl MediaDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DefaultAudioRenderDeviceChanged(handler: &super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, DefaultAudioRenderDeviceChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DefaultAudioRenderDeviceChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, DefaultAudioRenderDeviceChangedEventArgs>>,
+    {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5787,9 +5826,12 @@ impl ZoomControl {
             (::windows_core::Interface::vtable(this).Mode)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn Configure(&self, settings: &ZoomSettings) -> ::windows_core::Result<()> {
+    pub fn Configure<P0>(&self, settings: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ZoomSettings>,
+    {
         let this = &::windows_core::ComInterface::cast::<IZoomControl2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).Configure)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(settings)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Configure)(::windows_core::Interface::as_raw(this), settings.into_param().abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for ZoomControl {
@@ -6759,9 +6801,12 @@ impl CallControlEventHandler {
         let com = CallControlEventHandlerBox::<F> { vtable: &CallControlEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, sender: &CallControl) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0>(&self, sender: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<CallControl>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -6841,9 +6886,13 @@ impl DialRequestedEventHandler {
         let com = DialRequestedEventHandlerBox::<F> { vtable: &DialRequestedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, sender: &CallControl, e: &DialRequestedEventArgs) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<CallControl>,
+        P1: ::windows_core::IntoParam<DialRequestedEventArgs>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender), ::core::mem::transmute_copy(e)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -6923,9 +6972,13 @@ impl KeypadPressedEventHandler {
         let com = KeypadPressedEventHandlerBox::<F> { vtable: &KeypadPressedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, sender: &CallControl, e: &KeypadPressedEventArgs) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<CallControl>,
+        P1: ::windows_core::IntoParam<KeypadPressedEventArgs>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender), ::core::mem::transmute_copy(e)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -7005,9 +7058,13 @@ impl RedialRequestedEventHandler {
         let com = RedialRequestedEventHandlerBox::<F> { vtable: &RedialRequestedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, sender: &CallControl, e: &RedialRequestedEventArgs) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0, P1>(&self, sender: P0, e: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<CallControl>,
+        P1: ::windows_core::IntoParam<RedialRequestedEventArgs>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender), ::core::mem::transmute_copy(e)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
     }
 }
 #[repr(C)]

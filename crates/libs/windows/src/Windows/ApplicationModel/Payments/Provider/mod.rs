@@ -159,9 +159,12 @@ impl PaymentAppCanMakePaymentTriggerDetails {
             (::windows_core::Interface::vtable(this).Request)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn ReportCanMakePaymentResult(&self, value: &super::PaymentCanMakePaymentResult) -> ::windows_core::Result<()> {
+    pub fn ReportCanMakePaymentResult<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::PaymentCanMakePaymentResult>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).ReportCanMakePaymentResult)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).ReportCanMakePaymentResult)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for PaymentAppCanMakePaymentTriggerDetails {
@@ -309,29 +312,38 @@ impl PaymentTransaction {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateShippingAddressAsync(&self, shippingaddress: &super::PaymentAddress) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>> {
+    pub fn UpdateShippingAddressAsync<P0>(&self, shippingaddress: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>
+    where
+        P0: ::windows_core::IntoParam<super::PaymentAddress>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UpdateShippingAddressAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(shippingaddress), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UpdateShippingAddressAsync)(::windows_core::Interface::as_raw(this), shippingaddress.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateSelectedShippingOptionAsync(&self, selectedshippingoption: &super::PaymentShippingOption) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>> {
+    pub fn UpdateSelectedShippingOptionAsync<P0>(&self, selectedshippingoption: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::PaymentRequestChangedResult>>
+    where
+        P0: ::windows_core::IntoParam<super::PaymentShippingOption>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UpdateSelectedShippingOptionAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(selectedshippingoption), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UpdateSelectedShippingOptionAsync)(::windows_core::Interface::as_raw(this), selectedshippingoption.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AcceptAsync(&self, paymenttoken: &super::PaymentToken) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>> {
+    pub fn AcceptAsync<P0>(&self, paymenttoken: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<PaymentTransactionAcceptResult>>
+    where
+        P0: ::windows_core::IntoParam<super::PaymentToken>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AcceptAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(paymenttoken), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AcceptAsync)(::windows_core::Interface::as_raw(this), paymenttoken.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn Reject(&self) -> ::windows_core::Result<()> {

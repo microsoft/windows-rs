@@ -46,8 +46,11 @@ pub struct WindowManagementPreview(::windows_core::IUnknown);
 impl WindowManagementPreview {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPreferredMinSize(window: &super::AppWindow, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows_core::Result<()> {
-        Self::IWindowManagementPreviewStatics(|this| unsafe { (::windows_core::Interface::vtable(this).SetPreferredMinSize)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(window), preferredframeminsize).ok() })
+    pub fn SetPreferredMinSize<P0>(window: P0, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::AppWindow>,
+    {
+        Self::IWindowManagementPreviewStatics(|this| unsafe { (::windows_core::Interface::vtable(this).SetPreferredMinSize)(::windows_core::Interface::as_raw(this), window.into_param().abi(), preferredframeminsize).ok() })
     }
     #[doc(hidden)]
     pub fn IWindowManagementPreviewStatics<R, F: FnOnce(&IWindowManagementPreviewStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {

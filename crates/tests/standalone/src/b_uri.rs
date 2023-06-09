@@ -981,13 +981,16 @@ impl Uri {
             .from_abi(result__)
         }
     }
-    pub fn Equals(&self, puri: &Uri) -> ::windows_core::Result<bool> {
+    pub fn Equals<P0>(&self, puri: P0) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<Uri>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Equals)(
                 ::windows_core::Interface::as_raw(this),
-                ::core::mem::transmute_copy(puri),
+                puri.into_param().abi(),
                 &mut result__,
             )
             .from_abi(result__)

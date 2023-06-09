@@ -383,34 +383,51 @@ impl RfcommDeviceService {
             (::windows_core::Interface::vtable(this).FromIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
         })
     }
-    pub fn GetDeviceSelector(serviceid: &RfcommServiceId) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn GetDeviceSelector<P0>(serviceid: P0) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<RfcommServiceId>,
+    {
         Self::IRfcommDeviceServiceStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(serviceid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceSelector)(::windows_core::Interface::as_raw(this), serviceid.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDevice(bluetoothdevice: &super::BluetoothDevice) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn GetDeviceSelectorForBluetoothDevice<P0>(bluetoothdevice: P0) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<super::BluetoothDevice>,
+    {
         Self::IRfcommDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDevice)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bluetoothdevice), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDevice)(::windows_core::Interface::as_raw(this), bluetoothdevice.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDeviceWithCacheMode(bluetoothdevice: &super::BluetoothDevice, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn GetDeviceSelectorForBluetoothDeviceWithCacheMode<P0>(bluetoothdevice: P0, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<super::BluetoothDevice>,
+    {
         Self::IRfcommDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceWithCacheMode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bluetoothdevice), cachemode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceWithCacheMode)(::windows_core::Interface::as_raw(this), bluetoothdevice.into_param().abi(), cachemode, &mut result__).from_abi(result__)
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDeviceAndServiceId(bluetoothdevice: &super::BluetoothDevice, serviceid: &RfcommServiceId) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn GetDeviceSelectorForBluetoothDeviceAndServiceId<P0, P1>(bluetoothdevice: P0, serviceid: P1) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<super::BluetoothDevice>,
+        P1: ::windows_core::IntoParam<RfcommServiceId>,
+    {
         Self::IRfcommDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceAndServiceId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bluetoothdevice), ::core::mem::transmute_copy(serviceid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceAndServiceId)(::windows_core::Interface::as_raw(this), bluetoothdevice.into_param().abi(), serviceid.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode(bluetoothdevice: &super::BluetoothDevice, serviceid: &RfcommServiceId, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode<P0, P1>(bluetoothdevice: P0, serviceid: P1, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<super::BluetoothDevice>,
+        P1: ::windows_core::IntoParam<RfcommServiceId>,
+    {
         Self::IRfcommDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bluetoothdevice), ::core::mem::transmute_copy(serviceid), cachemode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode)(::windows_core::Interface::as_raw(this), bluetoothdevice.into_param().abi(), serviceid.into_param().abi(), cachemode, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -641,9 +658,12 @@ impl RfcommServiceProvider {
     }
     #[doc = "*Required features: `\"Networking_Sockets\"`*"]
     #[cfg(feature = "Networking_Sockets")]
-    pub fn StartAdvertising(&self, listener: &super::super::super::Networking::Sockets::StreamSocketListener) -> ::windows_core::Result<()> {
+    pub fn StartAdvertising<P0>(&self, listener: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Networking::Sockets::StreamSocketListener>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).StartAdvertising)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(listener)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).StartAdvertising)(::windows_core::Interface::as_raw(this), listener.into_param().abi()).ok() }
     }
     pub fn StopAdvertising(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -651,16 +671,22 @@ impl RfcommServiceProvider {
     }
     #[doc = "*Required features: `\"Networking_Sockets\"`*"]
     #[cfg(feature = "Networking_Sockets")]
-    pub fn StartAdvertisingWithRadioDiscoverability(&self, listener: &super::super::super::Networking::Sockets::StreamSocketListener, radiodiscoverable: bool) -> ::windows_core::Result<()> {
+    pub fn StartAdvertisingWithRadioDiscoverability<P0>(&self, listener: P0, radiodiscoverable: bool) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Networking::Sockets::StreamSocketListener>,
+    {
         let this = &::windows_core::ComInterface::cast::<IRfcommServiceProvider2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).StartAdvertisingWithRadioDiscoverability)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(listener), radiodiscoverable).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).StartAdvertisingWithRadioDiscoverability)(::windows_core::Interface::as_raw(this), listener.into_param().abi(), radiodiscoverable).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateAsync(serviceid: &RfcommServiceId) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<RfcommServiceProvider>> {
+    pub fn CreateAsync<P0>(serviceid: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<RfcommServiceProvider>>
+    where
+        P0: ::windows_core::IntoParam<RfcommServiceId>,
+    {
         Self::IRfcommServiceProviderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(serviceid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateAsync)(::windows_core::Interface::as_raw(this), serviceid.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

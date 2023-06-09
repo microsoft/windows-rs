@@ -915,9 +915,12 @@ impl WalletItem {
     }
     #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetBarcode(&self, value: &WalletBarcode) -> ::windows_core::Result<()> {
+    pub fn SetBarcode<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<WalletBarcode>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetBarcode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBarcode)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1455,11 +1458,14 @@ pub struct WalletItemStore(::windows_core::IUnknown);
 impl WalletItemStore {
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn AddAsync(&self, id: &::windows_core::HSTRING, item: &WalletItem) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn AddAsync<P0>(&self, id: &::windows_core::HSTRING, item: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<WalletItem>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AddAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(item), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AddAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), item.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
@@ -1539,11 +1545,14 @@ impl WalletItemStore {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn UpdateAsync(&self, item: &WalletItem) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UpdateAsync<P0>(&self, item: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<WalletItem>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UpdateAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(item), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UpdateAsync)(::windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }

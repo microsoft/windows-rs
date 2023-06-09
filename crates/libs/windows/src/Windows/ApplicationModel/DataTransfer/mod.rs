@@ -1337,8 +1337,11 @@ impl Clipboard {
             (::windows_core::Interface::vtable(this).GetContent)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn SetContent(content: &DataPackage) -> ::windows_core::Result<()> {
-        Self::IClipboardStatics(|this| unsafe { (::windows_core::Interface::vtable(this).SetContent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(content)).ok() })
+    pub fn SetContent<P0>(content: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<DataPackage>,
+    {
+        Self::IClipboardStatics(|this| unsafe { (::windows_core::Interface::vtable(this).SetContent)(::windows_core::Interface::as_raw(this), content.into_param().abi()).ok() })
     }
     pub fn Flush() -> ::windows_core::Result<()> {
         Self::IClipboardStatics(|this| unsafe { (::windows_core::Interface::vtable(this).Flush)(::windows_core::Interface::as_raw(this)).ok() })
@@ -1348,10 +1351,13 @@ impl Clipboard {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContentChanged(handler: &super::super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ContentChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
+    {
         Self::IClipboardStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ContentChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ContentChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1373,16 +1379,22 @@ impl Clipboard {
             (::windows_core::Interface::vtable(this).ClearHistory)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn DeleteItemFromHistory(item: &ClipboardHistoryItem) -> ::windows_core::Result<bool> {
+    pub fn DeleteItemFromHistory<P0>(item: P0) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<ClipboardHistoryItem>,
+    {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeleteItemFromHistory)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(item), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeleteItemFromHistory)(::windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn SetHistoryItemAsContent(item: &ClipboardHistoryItem) -> ::windows_core::Result<SetHistoryItemAsContentStatus> {
+    pub fn SetHistoryItemAsContent<P0>(item: P0) -> ::windows_core::Result<SetHistoryItemAsContentStatus>
+    where
+        P0: ::windows_core::IntoParam<ClipboardHistoryItem>,
+    {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetHistoryItemAsContent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(item), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetHistoryItemAsContent)(::windows_core::Interface::as_raw(this), item.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn IsHistoryEnabled() -> ::windows_core::Result<bool> {
@@ -1397,18 +1409,25 @@ impl Clipboard {
             (::windows_core::Interface::vtable(this).IsRoamingEnabled)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn SetContentWithOptions(content: &DataPackage, options: &ClipboardContentOptions) -> ::windows_core::Result<bool> {
+    pub fn SetContentWithOptions<P0, P1>(content: P0, options: P1) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<DataPackage>,
+        P1: ::windows_core::IntoParam<ClipboardContentOptions>,
+    {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetContentWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(content), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetContentWithOptions)(::windows_core::Interface::as_raw(this), content.into_param().abi(), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HistoryChanged(handler: &super::super::Foundation::EventHandler<ClipboardHistoryChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn HistoryChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<ClipboardHistoryChangedEventArgs>>,
+    {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HistoryChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HistoryChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1418,10 +1437,13 @@ impl Clipboard {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RoamingEnabledChanged(handler: &super::super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RoamingEnabledChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
+    {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RoamingEnabledChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RoamingEnabledChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1431,10 +1453,13 @@ impl Clipboard {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HistoryEnabledChanged(handler: &super::super::Foundation::EventHandler<::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn HistoryEnabledChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::EventHandler<::windows_core::IInspectable>>,
+    {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HistoryEnabledChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HistoryEnabledChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1723,11 +1748,14 @@ impl DataPackage {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OperationCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<DataPackage, OperationCompletedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn OperationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DataPackage, OperationCompletedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).OperationCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).OperationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1738,11 +1766,14 @@ impl DataPackage {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Destroyed(&self, handler: &super::super::Foundation::TypedEventHandler<DataPackage, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Destroyed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DataPackage, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Destroyed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Destroyed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1758,9 +1789,12 @@ impl DataPackage {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(formatid), value.into_param().abi()).ok() }
     }
-    pub fn SetDataProvider(&self, formatid: &::windows_core::HSTRING, delayrenderer: &DataProviderHandler) -> ::windows_core::Result<()> {
+    pub fn SetDataProvider<P0>(&self, formatid: &::windows_core::HSTRING, delayrenderer: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<DataProviderHandler>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetDataProvider)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(formatid), ::core::mem::transmute_copy(delayrenderer)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetDataProvider)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(formatid), delayrenderer.into_param().abi()).ok() }
     }
     pub fn SetText(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
@@ -1768,9 +1802,12 @@ impl DataPackage {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetUri(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn SetHtmlFormat(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
         let this = self;
@@ -1791,9 +1828,12 @@ impl DataPackage {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetBitmap(&self, value: &super::super::Storage::Streams::RandomAccessStreamReference) -> ::windows_core::Result<()> {
+    pub fn SetBitmap<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::RandomAccessStreamReference>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetBitmap)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetBitmap)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
@@ -1815,23 +1855,32 @@ impl DataPackage {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetApplicationLink(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetApplicationLink<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<IDataPackage2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetApplicationLink)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetApplicationLink)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetWebLink(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetWebLink<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<IDataPackage2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetWebLink)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetWebLink)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<DataPackage, ShareCompletedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ShareCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DataPackage, ShareCompletedEventArgs>>,
+    {
         let this = &::windows_core::ComInterface::cast::<IDataPackage3>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShareCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShareCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1842,11 +1891,14 @@ impl DataPackage {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareCanceled(&self, handler: &super::super::Foundation::TypedEventHandler<DataPackage, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ShareCanceled<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DataPackage, ::windows_core::IInspectable>>,
+    {
         let this = &::windows_core::ComInterface::cast::<IDataPackage4>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShareCanceled)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShareCanceled)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1962,9 +2014,12 @@ impl DataPackagePropertySet {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetApplicationListingUri(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetApplicationListingUri<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetApplicationListingUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetApplicationListingUri)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1977,9 +2032,12 @@ impl DataPackagePropertySet {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetContentSourceWebLink(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetContentSourceWebLink<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<IDataPackagePropertySet2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetContentSourceWebLink)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetContentSourceWebLink)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1992,9 +2050,12 @@ impl DataPackagePropertySet {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetContentSourceApplicationLink(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetContentSourceApplicationLink<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<IDataPackagePropertySet2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetContentSourceApplicationLink)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetContentSourceApplicationLink)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn PackageFamilyName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IDataPackagePropertySet2>(self)?;
@@ -2710,9 +2771,12 @@ impl DataRequest {
             (::windows_core::Interface::vtable(this).Data)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetData(&self, value: &DataPackage) -> ::windows_core::Result<()> {
+    pub fn SetData<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<DataPackage>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2855,11 +2919,14 @@ pub struct DataTransferManager(::windows_core::IUnknown);
 impl DataTransferManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DataRequested(&self, handler: &super::super::Foundation::TypedEventHandler<DataTransferManager, DataRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DataRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DataTransferManager, DataRequestedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DataRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DataRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2870,11 +2937,14 @@ impl DataTransferManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TargetApplicationChosen(&self, handler: &super::super::Foundation::TypedEventHandler<DataTransferManager, TargetApplicationChosenEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TargetApplicationChosen<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DataTransferManager, TargetApplicationChosenEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TargetApplicationChosen)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TargetApplicationChosen)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2885,11 +2955,14 @@ impl DataTransferManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareProvidersRequested(&self, handler: &super::super::Foundation::TypedEventHandler<DataTransferManager, ShareProvidersRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ShareProvidersRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<DataTransferManager, ShareProvidersRequestedEventArgs>>,
+    {
         let this = &::windows_core::ComInterface::cast::<IDataTransferManager2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShareProvidersRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShareProvidersRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2913,8 +2986,11 @@ impl DataTransferManager {
             (::windows_core::Interface::vtable(this).IsSupported)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn ShowShareUIWithOptions(options: &ShareUIOptions) -> ::windows_core::Result<()> {
-        Self::IDataTransferManagerStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).ShowShareUIWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(options)).ok() })
+    pub fn ShowShareUIWithOptions<P0>(options: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ShareUIOptions>,
+    {
+        Self::IDataTransferManagerStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).ShowShareUIWithOptions)(::windows_core::Interface::as_raw(this), options.into_param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IDataTransferManagerStatics<R, F: FnOnce(&IDataTransferManagerStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
@@ -3123,10 +3199,14 @@ impl ShareProvider {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"UI\"`*"]
     #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
-    pub fn Create(title: &::windows_core::HSTRING, displayicon: &super::super::Storage::Streams::RandomAccessStreamReference, backgroundcolor: super::super::UI::Color, handler: &ShareProviderHandler) -> ::windows_core::Result<ShareProvider> {
+    pub fn Create<P0, P1>(title: &::windows_core::HSTRING, displayicon: P0, backgroundcolor: super::super::UI::Color, handler: P1) -> ::windows_core::Result<ShareProvider>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::Streams::RandomAccessStreamReference>,
+        P1: ::windows_core::IntoParam<ShareProviderHandler>,
+    {
         Self::IShareProviderFactory(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(displayicon), backgroundcolor, ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(title), displayicon.into_param().abi(), backgroundcolor, handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3724,9 +3804,12 @@ impl DataProviderHandler {
         let com = DataProviderHandlerBox::<F> { vtable: &DataProviderHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, request: &DataProviderRequest) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0>(&self, request: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<DataProviderRequest>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(request)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), request.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -3806,9 +3889,12 @@ impl ShareProviderHandler {
         let com = ShareProviderHandlerBox::<F> { vtable: &ShareProviderHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, operation: &ShareProviderOperation) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0>(&self, operation: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ShareProviderOperation>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(operation)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), operation.into_param().abi()).ok() }
     }
 }
 #[repr(C)]

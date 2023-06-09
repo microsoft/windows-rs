@@ -971,10 +971,13 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateDateTimeArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn CreateResolution(value: &IppResolution) -> ::windows_core::Result<IppAttributeValue> {
+    pub fn CreateResolution<P0>(value: P0) -> ::windows_core::Result<IppAttributeValue>
+    where
+        P0: ::windows_core::IntoParam<IppResolution>,
+    {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateResolution)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateResolution)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -988,10 +991,13 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateResolutionArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn CreateRangeOfInteger(value: &IppIntegerRange) -> ::windows_core::Result<IppAttributeValue> {
+    pub fn CreateRangeOfInteger<P0>(value: P0) -> ::windows_core::Result<IppAttributeValue>
+    where
+        P0: ::windows_core::IntoParam<IppIntegerRange>,
+    {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateRangeOfInteger)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateRangeOfInteger)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1027,10 +1033,13 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateCollectionArray)(::windows_core::Interface::as_raw(this), memberattributesarray.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn CreateTextWithLanguage(value: &IppTextWithLanguage) -> ::windows_core::Result<IppAttributeValue> {
+    pub fn CreateTextWithLanguage<P0>(value: P0) -> ::windows_core::Result<IppAttributeValue>
+    where
+        P0: ::windows_core::IntoParam<IppTextWithLanguage>,
+    {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateTextWithLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateTextWithLanguage)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1044,10 +1053,13 @@ impl IppAttributeValue {
             (::windows_core::Interface::vtable(this).CreateTextWithLanguageArray)(::windows_core::Interface::as_raw(this), values.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn CreateNameWithLanguage(value: &IppTextWithLanguage) -> ::windows_core::Result<IppAttributeValue> {
+    pub fn CreateNameWithLanguage<P0>(value: P0) -> ::windows_core::Result<IppAttributeValue>
+    where
+        P0: ::windows_core::IntoParam<IppTextWithLanguage>,
+    {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateNameWithLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateNameWithLanguage)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1114,10 +1126,13 @@ impl IppAttributeValue {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateUri(value: &super::super::Foundation::Uri) -> ::windows_core::Result<IppAttributeValue> {
+    pub fn CreateUri<P0>(value: P0) -> ::windows_core::Result<IppAttributeValue>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         Self::IIppAttributeValueStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateUri)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateUri)(::windows_core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1715,23 +1730,28 @@ impl PdlPassthroughProvider {
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     #[cfg(feature = "Graphics_Printing")]
-    pub fn StartPrintJobWithTaskOptions(&self, jobname: &::windows_core::HSTRING, pdlcontenttype: &::windows_core::HSTRING, taskoptions: &super::super::Graphics::Printing::PrintTaskOptions, pageconfigurationsettings: &PageConfigurationSettings) -> ::windows_core::Result<PdlPassthroughTarget> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartPrintJobWithTaskOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(jobname), ::core::mem::transmute_copy(pdlcontenttype), ::core::mem::transmute_copy(taskoptions), ::core::mem::transmute_copy(pageconfigurationsettings), &mut result__).from_abi(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn StartPrintJobWithPrintTicket<P0>(&self, jobname: &::windows_core::HSTRING, pdlcontenttype: &::windows_core::HSTRING, printticket: P0, pageconfigurationsettings: &PageConfigurationSettings) -> ::windows_core::Result<PdlPassthroughTarget>
+    pub fn StartPrintJobWithTaskOptions<P0, P1>(&self, jobname: &::windows_core::HSTRING, pdlcontenttype: &::windows_core::HSTRING, taskoptions: P0, pageconfigurationsettings: P1) -> ::windows_core::Result<PdlPassthroughTarget>
     where
-        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+        P0: ::windows_core::IntoParam<super::super::Graphics::Printing::PrintTaskOptions>,
+        P1: ::windows_core::IntoParam<PageConfigurationSettings>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartPrintJobWithPrintTicket)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(jobname), ::core::mem::transmute_copy(pdlcontenttype), printticket.try_into_param()?.abi(), ::core::mem::transmute_copy(pageconfigurationsettings), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartPrintJobWithTaskOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(jobname), ::core::mem::transmute_copy(pdlcontenttype), taskoptions.into_param().abi(), pageconfigurationsettings.into_param().abi(), &mut result__).from_abi(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn StartPrintJobWithPrintTicket<P0, P1>(&self, jobname: &::windows_core::HSTRING, pdlcontenttype: &::windows_core::HSTRING, printticket: P0, pageconfigurationsettings: P1) -> ::windows_core::Result<PdlPassthroughTarget>
+    where
+        P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IInputStream>,
+        P1: ::windows_core::IntoParam<PageConfigurationSettings>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).StartPrintJobWithPrintTicket)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(jobname), ::core::mem::transmute_copy(pdlcontenttype), printticket.try_into_param()?.abi(), pageconfigurationsettings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }

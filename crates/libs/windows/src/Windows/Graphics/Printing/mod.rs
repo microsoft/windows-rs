@@ -885,11 +885,14 @@ pub struct PrintManager(::windows_core::IUnknown);
 impl PrintManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrintTaskRequested(&self, eventhandler: &super::super::Foundation::TypedEventHandler<PrintManager, PrintTaskRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PrintTaskRequested<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PrintManager, PrintTaskRequestedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PrintTaskRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PrintTaskRequested)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1227,11 +1230,14 @@ impl PrintTask {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Previewing(&self, eventhandler: &super::super::Foundation::TypedEventHandler<PrintTask, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Previewing<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PrintTask, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Previewing)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Previewing)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1242,11 +1248,14 @@ impl PrintTask {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Submitting(&self, eventhandler: &super::super::Foundation::TypedEventHandler<PrintTask, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Submitting<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PrintTask, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Submitting)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Submitting)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1257,11 +1266,14 @@ impl PrintTask {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Progressing(&self, eventhandler: &super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskProgressingEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Progressing<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskProgressingEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Progressing)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Progressing)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1272,11 +1284,14 @@ impl PrintTask {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Completed(&self, eventhandler: &super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskCompletedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Completed<P0>(&self, eventhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskCompletedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Completed)(::windows_core::Interface::as_raw(this), eventhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1410,11 +1425,14 @@ impl PrintTaskOptions {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetPagePrintTicket(&self, printpageinfo: &PrintPageInfo) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStream> {
+    pub fn GetPagePrintTicket<P0>(&self, printpageinfo: P0) -> ::windows_core::Result<super::super::Storage::Streams::IRandomAccessStream>
+    where
+        P0: ::windows_core::IntoParam<PrintPageInfo>,
+    {
         let this = &::windows_core::ComInterface::cast::<IPrintTaskOptions>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPagePrintTicket)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(printpageinfo), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetPagePrintTicket)(::windows_core::Interface::as_raw(this), printpageinfo.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn PageRangeOptions(&self) -> ::windows_core::Result<PrintPageRangeOptions> {
@@ -1677,11 +1695,14 @@ impl PrintTaskRequest {
             (::windows_core::Interface::vtable(this).Deadline)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn CreatePrintTask(&self, title: &::windows_core::HSTRING, handler: &PrintTaskSourceRequestedHandler) -> ::windows_core::Result<PrintTask> {
+    pub fn CreatePrintTask<P0>(&self, title: &::windows_core::HSTRING, handler: P0) -> ::windows_core::Result<PrintTask>
+    where
+        P0: ::windows_core::IntoParam<PrintTaskSourceRequestedHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreatePrintTask)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(title), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreatePrintTask)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(title), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetDeferral(&self) -> ::windows_core::Result<PrintTaskRequestedDeferral> {
@@ -2692,9 +2713,12 @@ impl PrintTaskSourceRequestedHandler {
         let com = PrintTaskSourceRequestedHandlerBox::<F> { vtable: &PrintTaskSourceRequestedHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, args: &PrintTaskSourceRequestedArgs) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0>(&self, args: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<PrintTaskSourceRequestedArgs>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(args)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), args.into_param().abi()).ok() }
     }
 }
 #[repr(C)]

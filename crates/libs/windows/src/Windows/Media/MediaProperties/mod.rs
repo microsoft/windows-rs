@@ -1448,9 +1448,12 @@ impl MediaEncodingProfile {
         static SHARED: ::windows_core::imp::FactoryCache<MediaEncodingProfile, ::windows_core::imp::IGenericFactory> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetAudio(&self, value: &AudioEncodingProperties) -> ::windows_core::Result<()> {
+    pub fn SetAudio<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<AudioEncodingProperties>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetAudio)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetAudio)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Audio(&self) -> ::windows_core::Result<AudioEncodingProperties> {
         let this = self;
@@ -1459,9 +1462,12 @@ impl MediaEncodingProfile {
             (::windows_core::Interface::vtable(this).Audio)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetVideo(&self, value: &VideoEncodingProperties) -> ::windows_core::Result<()> {
+    pub fn SetVideo<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<VideoEncodingProperties>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetVideo)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetVideo)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Video(&self) -> ::windows_core::Result<VideoEncodingProperties> {
         let this = self;
@@ -1470,9 +1476,12 @@ impl MediaEncodingProfile {
             (::windows_core::Interface::vtable(this).Video)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetContainer(&self, value: &ContainerEncodingProperties) -> ::windows_core::Result<()> {
+    pub fn SetContainer<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ContainerEncodingProperties>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetContainer)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetContainer)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn Container(&self) -> ::windows_core::Result<ContainerEncodingProperties> {
         let this = self;

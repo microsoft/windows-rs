@@ -156,11 +156,14 @@ impl IFileLoggingSession {
             (::windows_core::Interface::vtable(this).CloseAndSaveToFileAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn LogFileGenerated(&self, handler: &super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>) -> ::windows_core::Result<super::EventRegistrationToken> {
+    pub fn LogFileGenerated<P0>(&self, handler: P0) -> ::windows_core::Result<super::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LogFileGenerated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LogFileGenerated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveLogFileGenerated(&self, token: super::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -363,11 +366,14 @@ impl ILoggingChannel {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).LogValuePairWithLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value1), value2, level).ok() }
     }
-    pub fn LoggingEnabled(&self, handler: &super::TypedEventHandler<ILoggingChannel, ::windows_core::IInspectable>) -> ::windows_core::Result<super::EventRegistrationToken> {
+    pub fn LoggingEnabled<P0>(&self, handler: P0) -> ::windows_core::Result<super::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::TypedEventHandler<ILoggingChannel, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoggingEnabled)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoggingEnabled)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveLoggingEnabled(&self, token: super::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -848,17 +854,27 @@ impl ILoggingTarget {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).LogEvent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname)).ok() }
     }
-    pub fn LogEventWithFields(&self, eventname: &::windows_core::HSTRING, fields: &LoggingFields) -> ::windows_core::Result<()> {
+    pub fn LogEventWithFields<P0>(&self, eventname: &::windows_core::HSTRING, fields: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), ::core::mem::transmute_copy(fields)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), fields.into_param().abi()).ok() }
     }
-    pub fn LogEventWithFieldsAndLevel(&self, eventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel) -> ::windows_core::Result<()> {
+    pub fn LogEventWithFieldsAndLevel<P0>(&self, eventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), ::core::mem::transmute_copy(fields), level).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), fields.into_param().abi(), level).ok() }
     }
-    pub fn LogEventWithFieldsAndOptions(&self, eventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel, options: &LoggingOptions) -> ::windows_core::Result<()> {
+    pub fn LogEventWithFieldsAndOptions<P0, P1>(&self, eventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel, options: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+        P1: ::windows_core::IntoParam<LoggingOptions>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), ::core::mem::transmute_copy(fields), level, ::core::mem::transmute_copy(options)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), fields.into_param().abi(), level, options.into_param().abi()).ok() }
     }
     pub fn StartActivity(&self, starteventname: &::windows_core::HSTRING) -> ::windows_core::Result<LoggingActivity> {
         let this = self;
@@ -867,25 +883,35 @@ impl ILoggingTarget {
             (::windows_core::Interface::vtable(this).StartActivity)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), &mut result__).from_abi(result__)
         }
     }
-    pub fn StartActivityWithFields(&self, starteventname: &::windows_core::HSTRING, fields: &LoggingFields) -> ::windows_core::Result<LoggingActivity> {
+    pub fn StartActivityWithFields<P0>(&self, starteventname: &::windows_core::HSTRING, fields: P0) -> ::windows_core::Result<LoggingActivity>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartActivityWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), ::core::mem::transmute_copy(fields), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartActivityWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), fields.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    pub fn StartActivityWithFieldsAndLevel(&self, starteventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel) -> ::windows_core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndLevel<P0>(&self, starteventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel) -> ::windows_core::Result<LoggingActivity>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), ::core::mem::transmute_copy(fields), level, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), fields.into_param().abi(), level, &mut result__).from_abi(result__)
         }
     }
-    pub fn StartActivityWithFieldsAndOptions(&self, starteventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel, options: &LoggingOptions) -> ::windows_core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndOptions<P0, P1>(&self, starteventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel, options: P1) -> ::windows_core::Result<LoggingActivity>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+        P1: ::windows_core::IntoParam<LoggingOptions>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), ::core::mem::transmute_copy(fields), level, ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), fields.into_param().abi(), level, options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -970,10 +996,13 @@ impl AsyncCausalityTracer {
     pub fn TraceSynchronousWorkCompletion(tracelevel: CausalityTraceLevel, source: CausalitySource, work: CausalitySynchronousWork) -> ::windows_core::Result<()> {
         Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows_core::Interface::vtable(this).TraceSynchronousWorkCompletion)(::windows_core::Interface::as_raw(this), tracelevel, source, work).ok() })
     }
-    pub fn TracingStatusChanged(handler: &super::EventHandler<TracingStatusChangedEventArgs>) -> ::windows_core::Result<super::EventRegistrationToken> {
+    pub fn TracingStatusChanged<P0>(handler: P0) -> ::windows_core::Result<super::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::EventHandler<TracingStatusChangedEventArgs>>,
+    {
         Self::IAsyncCausalityTracerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TracingStatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TracingStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn RemoveTracingStatusChanged(cookie: super::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -1101,11 +1130,14 @@ impl FileLoggingSession {
             (::windows_core::Interface::vtable(this).CloseAndSaveToFileAsync)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         }
     }
-    pub fn LogFileGenerated(&self, handler: &super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>) -> ::windows_core::Result<super::EventRegistrationToken> {
+    pub fn LogFileGenerated<P0>(&self, handler: P0) -> ::windows_core::Result<super::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LogFileGenerated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LogFileGenerated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveLogFileGenerated(&self, token: super::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -1235,13 +1267,20 @@ impl LoggingActivity {
         let this = &::windows_core::ComInterface::cast::<ILoggingActivity2>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).StopActivity)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(stopeventname)).ok() }
     }
-    pub fn StopActivityWithFields(&self, stopeventname: &::windows_core::HSTRING, fields: &LoggingFields) -> ::windows_core::Result<()> {
+    pub fn StopActivityWithFields<P0>(&self, stopeventname: &::windows_core::HSTRING, fields: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingActivity2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).StopActivityWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(stopeventname), ::core::mem::transmute_copy(fields)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).StopActivityWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(stopeventname), fields.into_param().abi()).ok() }
     }
-    pub fn StopActivityWithFieldsAndOptions(&self, stopeventname: &::windows_core::HSTRING, fields: &LoggingFields, options: &LoggingOptions) -> ::windows_core::Result<()> {
+    pub fn StopActivityWithFieldsAndOptions<P0, P1>(&self, stopeventname: &::windows_core::HSTRING, fields: P0, options: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+        P1: ::windows_core::IntoParam<LoggingOptions>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingActivity2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).StopActivityWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(stopeventname), ::core::mem::transmute_copy(fields), ::core::mem::transmute_copy(options)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).StopActivityWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(stopeventname), fields.into_param().abi(), options.into_param().abi()).ok() }
     }
     pub fn CreateLoggingActivity<P0>(activityname: &::windows_core::HSTRING, loggingchannel: P0) -> ::windows_core::Result<LoggingActivity>
     where
@@ -1286,17 +1325,27 @@ impl LoggingActivity {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).LogEvent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname)).ok() }
     }
-    pub fn LogEventWithFields(&self, eventname: &::windows_core::HSTRING, fields: &LoggingFields) -> ::windows_core::Result<()> {
+    pub fn LogEventWithFields<P0>(&self, eventname: &::windows_core::HSTRING, fields: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), ::core::mem::transmute_copy(fields)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), fields.into_param().abi()).ok() }
     }
-    pub fn LogEventWithFieldsAndLevel(&self, eventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel) -> ::windows_core::Result<()> {
+    pub fn LogEventWithFieldsAndLevel<P0>(&self, eventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), ::core::mem::transmute_copy(fields), level).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), fields.into_param().abi(), level).ok() }
     }
-    pub fn LogEventWithFieldsAndOptions(&self, eventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel, options: &LoggingOptions) -> ::windows_core::Result<()> {
+    pub fn LogEventWithFieldsAndOptions<P0, P1>(&self, eventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel, options: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+        P1: ::windows_core::IntoParam<LoggingOptions>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), ::core::mem::transmute_copy(fields), level, ::core::mem::transmute_copy(options)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), fields.into_param().abi(), level, options.into_param().abi()).ok() }
     }
     pub fn StartActivity(&self, starteventname: &::windows_core::HSTRING) -> ::windows_core::Result<LoggingActivity> {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
@@ -1305,25 +1354,35 @@ impl LoggingActivity {
             (::windows_core::Interface::vtable(this).StartActivity)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), &mut result__).from_abi(result__)
         }
     }
-    pub fn StartActivityWithFields(&self, starteventname: &::windows_core::HSTRING, fields: &LoggingFields) -> ::windows_core::Result<LoggingActivity> {
+    pub fn StartActivityWithFields<P0>(&self, starteventname: &::windows_core::HSTRING, fields: P0) -> ::windows_core::Result<LoggingActivity>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartActivityWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), ::core::mem::transmute_copy(fields), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartActivityWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), fields.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    pub fn StartActivityWithFieldsAndLevel(&self, starteventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel) -> ::windows_core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndLevel<P0>(&self, starteventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel) -> ::windows_core::Result<LoggingActivity>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), ::core::mem::transmute_copy(fields), level, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), fields.into_param().abi(), level, &mut result__).from_abi(result__)
         }
     }
-    pub fn StartActivityWithFieldsAndOptions(&self, starteventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel, options: &LoggingOptions) -> ::windows_core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndOptions<P0, P1>(&self, starteventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel, options: P1) -> ::windows_core::Result<LoggingActivity>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+        P1: ::windows_core::IntoParam<LoggingOptions>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), ::core::mem::transmute_copy(fields), level, ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), fields.into_param().abi(), level, options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc(hidden)]
@@ -1410,11 +1469,14 @@ impl LoggingChannel {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).LogValuePairWithLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value1), value2, level).ok() }
     }
-    pub fn LoggingEnabled(&self, handler: &super::TypedEventHandler<ILoggingChannel, ::windows_core::IInspectable>) -> ::windows_core::Result<super::EventRegistrationToken> {
+    pub fn LoggingEnabled<P0>(&self, handler: P0) -> ::windows_core::Result<super::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::TypedEventHandler<ILoggingChannel, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoggingEnabled)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoggingEnabled)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn RemoveLoggingEnabled(&self, token: super::EventRegistrationToken) -> ::windows_core::Result<()> {
@@ -1436,16 +1498,22 @@ impl LoggingChannel {
             (::windows_core::Interface::vtable(this).Create)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), &mut result__).from_abi(result__)
         })
     }
-    pub fn CreateWithOptions(name: &::windows_core::HSTRING, options: &LoggingChannelOptions) -> ::windows_core::Result<LoggingChannel> {
+    pub fn CreateWithOptions<P0>(name: &::windows_core::HSTRING, options: P0) -> ::windows_core::Result<LoggingChannel>
+    where
+        P0: ::windows_core::IntoParam<LoggingChannelOptions>,
+    {
         Self::ILoggingChannelFactory2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), options.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn CreateWithOptionsAndId(name: &::windows_core::HSTRING, options: &LoggingChannelOptions, id: ::windows_core::GUID) -> ::windows_core::Result<LoggingChannel> {
+    pub fn CreateWithOptionsAndId<P0>(name: &::windows_core::HSTRING, options: P0, id: ::windows_core::GUID) -> ::windows_core::Result<LoggingChannel>
+    where
+        P0: ::windows_core::IntoParam<LoggingChannelOptions>,
+    {
         Self::ILoggingChannelFactory2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithOptionsAndId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), ::core::mem::transmute_copy(options), id, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithOptionsAndId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), options.into_param().abi(), id, &mut result__).from_abi(result__)
         })
     }
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
@@ -1473,17 +1541,27 @@ impl LoggingChannel {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).LogEvent)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname)).ok() }
     }
-    pub fn LogEventWithFields(&self, eventname: &::windows_core::HSTRING, fields: &LoggingFields) -> ::windows_core::Result<()> {
+    pub fn LogEventWithFields<P0>(&self, eventname: &::windows_core::HSTRING, fields: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), ::core::mem::transmute_copy(fields)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), fields.into_param().abi()).ok() }
     }
-    pub fn LogEventWithFieldsAndLevel(&self, eventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel) -> ::windows_core::Result<()> {
+    pub fn LogEventWithFieldsAndLevel<P0>(&self, eventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), ::core::mem::transmute_copy(fields), level).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), fields.into_param().abi(), level).ok() }
     }
-    pub fn LogEventWithFieldsAndOptions(&self, eventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel, options: &LoggingOptions) -> ::windows_core::Result<()> {
+    pub fn LogEventWithFieldsAndOptions<P0, P1>(&self, eventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel, options: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+        P1: ::windows_core::IntoParam<LoggingOptions>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), ::core::mem::transmute_copy(fields), level, ::core::mem::transmute_copy(options)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).LogEventWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(eventname), fields.into_param().abi(), level, options.into_param().abi()).ok() }
     }
     pub fn StartActivity(&self, starteventname: &::windows_core::HSTRING) -> ::windows_core::Result<LoggingActivity> {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
@@ -1492,25 +1570,35 @@ impl LoggingChannel {
             (::windows_core::Interface::vtable(this).StartActivity)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), &mut result__).from_abi(result__)
         }
     }
-    pub fn StartActivityWithFields(&self, starteventname: &::windows_core::HSTRING, fields: &LoggingFields) -> ::windows_core::Result<LoggingActivity> {
+    pub fn StartActivityWithFields<P0>(&self, starteventname: &::windows_core::HSTRING, fields: P0) -> ::windows_core::Result<LoggingActivity>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartActivityWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), ::core::mem::transmute_copy(fields), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartActivityWithFields)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), fields.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    pub fn StartActivityWithFieldsAndLevel(&self, starteventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel) -> ::windows_core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndLevel<P0>(&self, starteventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel) -> ::windows_core::Result<LoggingActivity>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), ::core::mem::transmute_copy(fields), level, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndLevel)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), fields.into_param().abi(), level, &mut result__).from_abi(result__)
         }
     }
-    pub fn StartActivityWithFieldsAndOptions(&self, starteventname: &::windows_core::HSTRING, fields: &LoggingFields, level: LoggingLevel, options: &LoggingOptions) -> ::windows_core::Result<LoggingActivity> {
+    pub fn StartActivityWithFieldsAndOptions<P0, P1>(&self, starteventname: &::windows_core::HSTRING, fields: P0, level: LoggingLevel, options: P1) -> ::windows_core::Result<LoggingActivity>
+    where
+        P0: ::windows_core::IntoParam<LoggingFields>,
+        P1: ::windows_core::IntoParam<LoggingOptions>,
+    {
         let this = &::windows_core::ComInterface::cast::<ILoggingTarget>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), ::core::mem::transmute_copy(fields), level, ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StartActivityWithFieldsAndOptions)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(starteventname), fields.into_param().abi(), level, options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc(hidden)]

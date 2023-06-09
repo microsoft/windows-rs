@@ -1009,13 +1009,16 @@ impl Calendar {
             .from_abi(result__)
         }
     }
-    pub fn Compare(&self, other: &Calendar) -> ::windows_core::Result<i32> {
+    pub fn Compare<P0>(&self, other: P0) -> ::windows_core::Result<i32>
+    where
+        P0: ::windows_core::IntoParam<Calendar>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
             (::windows_core::Interface::vtable(this).Compare)(
                 ::windows_core::Interface::as_raw(this),
-                ::core::mem::transmute_copy(other),
+                other.into_param().abi(),
                 &mut result__,
             )
             .from_abi(result__)
@@ -1033,12 +1036,15 @@ impl Calendar {
             .from_abi(result__)
         }
     }
-    pub fn CopyTo(&self, other: &Calendar) -> ::windows_core::Result<()> {
+    pub fn CopyTo<P0>(&self, other: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<Calendar>,
+    {
         let this = self;
         unsafe {
             (::windows_core::Interface::vtable(this).CopyTo)(
                 ::windows_core::Interface::as_raw(this),
-                ::core::mem::transmute_copy(other),
+                other.into_param().abi(),
             )
             .ok()
         }

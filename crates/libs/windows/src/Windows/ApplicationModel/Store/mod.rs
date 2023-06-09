@@ -754,10 +754,13 @@ impl CurrentApp {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestProductPurchaseWithDisplayPropertiesAsync(productid: &::windows_core::HSTRING, offerid: &::windows_core::HSTRING, displayproperties: &ProductPurchaseDisplayProperties) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
+    pub fn RequestProductPurchaseWithDisplayPropertiesAsync<P0>(productid: &::windows_core::HSTRING, offerid: &::windows_core::HSTRING, displayproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>
+    where
+        P0: ::windows_core::IntoParam<ProductPurchaseDisplayProperties>,
+    {
         Self::ICurrentAppWithConsumables(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(offerid), ::core::mem::transmute_copy(displayproperties), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(offerid), displayproperties.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -862,10 +865,13 @@ impl CurrentAppSimulator {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn ReloadSimulatorAsync(simulatorsettingsfile: &super::super::Storage::StorageFile) -> ::windows_core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ReloadSimulatorAsync<P0>(simulatorsettingsfile: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<super::super::Storage::StorageFile>,
+    {
         Self::ICurrentAppSimulator(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReloadSimulatorAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(simulatorsettingsfile), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReloadSimulatorAsync)(::windows_core::Interface::as_raw(this), simulatorsettingsfile.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -916,10 +922,13 @@ impl CurrentAppSimulator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestProductPurchaseWithDisplayPropertiesAsync(productid: &::windows_core::HSTRING, offerid: &::windows_core::HSTRING, displayproperties: &ProductPurchaseDisplayProperties) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
+    pub fn RequestProductPurchaseWithDisplayPropertiesAsync<P0>(productid: &::windows_core::HSTRING, offerid: &::windows_core::HSTRING, displayproperties: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>
+    where
+        P0: ::windows_core::IntoParam<ProductPurchaseDisplayProperties>,
+    {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(offerid), ::core::mem::transmute_copy(displayproperties), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(offerid), displayproperties.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -992,11 +1001,14 @@ impl LicenseInformation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LicenseChanged(&self, handler: &LicenseChangedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn LicenseChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<LicenseChangedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LicenseChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LicenseChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1383,9 +1395,12 @@ impl ProductPurchaseDisplayProperties {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetImage(&self, value: &super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetImage<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetImage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetImage)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn CreateProductPurchaseDisplayProperties(name: &::windows_core::HSTRING) -> ::windows_core::Result<ProductPurchaseDisplayProperties> {
         Self::IProductPurchaseDisplayPropertiesFactory(|this| unsafe {

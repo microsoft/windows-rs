@@ -473,10 +473,13 @@ impl PeerFinder {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TriggeredConnectionStateChanged(handler: &super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, TriggeredConnectionStateChangedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TriggeredConnectionStateChanged<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, TriggeredConnectionStateChangedEventArgs>>,
+    {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TriggeredConnectionStateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TriggeredConnectionStateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -486,10 +489,13 @@ impl PeerFinder {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectionRequested(handler: &super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, ConnectionRequestedEventArgs>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ConnectionRequested<P0>(handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<::windows_core::IInspectable, ConnectionRequestedEventArgs>>,
+    {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConnectionRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConnectionRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -507,10 +513,13 @@ impl PeerFinder {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
-    pub fn ConnectAsync(peerinformation: &PeerInformation) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>> {
+    pub fn ConnectAsync<P0>(peerinformation: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>>
+    where
+        P0: ::windows_core::IntoParam<PeerInformation>,
+    {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ConnectAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(peerinformation), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ConnectAsync)(::windows_core::Interface::as_raw(this), peerinformation.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn Role() -> ::windows_core::Result<PeerRole> {
@@ -637,11 +646,14 @@ pub struct PeerWatcher(::windows_core::IUnknown);
 impl PeerWatcher {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added(&self, handler: &super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Added<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Added)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Added)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -652,11 +664,14 @@ impl PeerWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed(&self, handler: &super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Removed<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Removed)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Removed)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -667,11 +682,14 @@ impl PeerWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Updated(&self, handler: &super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Updated<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Updated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Updated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -682,11 +700,14 @@ impl PeerWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted(&self, handler: &super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).EnumerationCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).EnumerationCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -697,11 +718,14 @@ impl PeerWatcher {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped(&self, handler: &super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Stopped<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).Stopped)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).Stopped)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -761,11 +785,14 @@ unsafe impl ::core::marker::Sync for PeerWatcher {}
 #[repr(transparent)]
 pub struct ProximityDevice(::windows_core::IUnknown);
 impl ProximityDevice {
-    pub fn SubscribeForMessage(&self, messagetype: &::windows_core::HSTRING, messagereceivedhandler: &MessageReceivedHandler) -> ::windows_core::Result<i64> {
+    pub fn SubscribeForMessage<P0>(&self, messagetype: &::windows_core::HSTRING, messagereceivedhandler: P0) -> ::windows_core::Result<i64>
+    where
+        P0: ::windows_core::IntoParam<MessageReceivedHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SubscribeForMessage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetype), ::core::mem::transmute_copy(messagereceivedhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SubscribeForMessage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetype), messagereceivedhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn PublishMessage(&self, messagetype: &::windows_core::HSTRING, message: &::windows_core::HSTRING) -> ::windows_core::Result<i64> {
@@ -775,11 +802,14 @@ impl ProximityDevice {
             (::windows_core::Interface::vtable(this).PublishMessage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetype), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
         }
     }
-    pub fn PublishMessageWithCallback(&self, messagetype: &::windows_core::HSTRING, message: &::windows_core::HSTRING, messagetransmittedhandler: &MessageTransmittedHandler) -> ::windows_core::Result<i64> {
+    pub fn PublishMessageWithCallback<P0>(&self, messagetype: &::windows_core::HSTRING, message: &::windows_core::HSTRING, messagetransmittedhandler: P0) -> ::windows_core::Result<i64>
+    where
+        P0: ::windows_core::IntoParam<MessageTransmittedHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PublishMessageWithCallback)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetype), ::core::mem::transmute_copy(message), ::core::mem::transmute_copy(messagetransmittedhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PublishMessageWithCallback)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetype), ::core::mem::transmute_copy(message), messagetransmittedhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -796,32 +826,40 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn PublishBinaryMessageWithCallback<P0>(&self, messagetype: &::windows_core::HSTRING, message: P0, messagetransmittedhandler: &MessageTransmittedHandler) -> ::windows_core::Result<i64>
+    pub fn PublishBinaryMessageWithCallback<P0, P1>(&self, messagetype: &::windows_core::HSTRING, message: P0, messagetransmittedhandler: P1) -> ::windows_core::Result<i64>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<MessageTransmittedHandler>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PublishBinaryMessageWithCallback)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetype), message.try_into_param()?.abi(), ::core::mem::transmute_copy(messagetransmittedhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PublishBinaryMessageWithCallback)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetype), message.try_into_param()?.abi(), messagetransmittedhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PublishUriMessage(&self, message: &super::super::Foundation::Uri) -> ::windows_core::Result<i64> {
+    pub fn PublishUriMessage<P0>(&self, message: P0) -> ::windows_core::Result<i64>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PublishUriMessage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PublishUriMessage)(::windows_core::Interface::as_raw(this), message.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PublishUriMessageWithCallback(&self, message: &super::super::Foundation::Uri, messagetransmittedhandler: &MessageTransmittedHandler) -> ::windows_core::Result<i64> {
+    pub fn PublishUriMessageWithCallback<P0, P1>(&self, message: P0, messagetransmittedhandler: P1) -> ::windows_core::Result<i64>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::Uri>,
+        P1: ::windows_core::IntoParam<MessageTransmittedHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PublishUriMessageWithCallback)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(message), ::core::mem::transmute_copy(messagetransmittedhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PublishUriMessageWithCallback)(::windows_core::Interface::as_raw(this), message.into_param().abi(), messagetransmittedhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn StopSubscribingForMessage(&self, subscriptionid: i64) -> ::windows_core::Result<()> {
@@ -834,11 +872,14 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeviceArrived(&self, arrivedhandler: &DeviceArrivedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DeviceArrived<P0>(&self, arrivedhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<DeviceArrivedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeviceArrived)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(arrivedhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeviceArrived)(::windows_core::Interface::as_raw(this), arrivedhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -849,11 +890,14 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeviceDeparted(&self, departedhandler: &DeviceDepartedEventHandler) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DeviceDeparted<P0>(&self, departedhandler: P0) -> ::windows_core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<DeviceDepartedEventHandler>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).DeviceDeparted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(departedhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).DeviceDeparted)(::windows_core::Interface::as_raw(this), departedhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1234,9 +1278,12 @@ impl DeviceArrivedEventHandler {
         let com = DeviceArrivedEventHandlerBox::<F> { vtable: &DeviceArrivedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, sender: &ProximityDevice) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0>(&self, sender: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ProximityDevice>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1316,9 +1363,12 @@ impl DeviceDepartedEventHandler {
         let com = DeviceDepartedEventHandlerBox::<F> { vtable: &DeviceDepartedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, sender: &ProximityDevice) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0>(&self, sender: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ProximityDevice>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1398,9 +1448,13 @@ impl MessageReceivedHandler {
         let com = MessageReceivedHandlerBox::<F> { vtable: &MessageReceivedHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, sender: &ProximityDevice, message: &ProximityMessage) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0, P1>(&self, sender: P0, message: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ProximityDevice>,
+        P1: ::windows_core::IntoParam<ProximityMessage>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender), ::core::mem::transmute_copy(message)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi(), message.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1480,9 +1534,12 @@ impl MessageTransmittedHandler {
         let com = MessageTransmittedHandlerBox::<F> { vtable: &MessageTransmittedHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, sender: &ProximityDevice, messageid: i64) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0>(&self, sender: P0, messageid: i64) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<ProximityDevice>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(sender), messageid).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), sender.into_param().abi(), messageid).ok() }
     }
 }
 #[repr(C)]

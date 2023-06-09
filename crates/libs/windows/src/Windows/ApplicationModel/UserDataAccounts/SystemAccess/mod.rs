@@ -404,9 +404,12 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetIncomingServerCredential(&self, value: &super::super::super::Security::Credentials::PasswordCredential) -> ::windows_core::Result<()> {
+    pub fn SetIncomingServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Security::Credentials::PasswordCredential>,
+    {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetIncomingServerCredential)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetIncomingServerCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -419,9 +422,12 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetOutgoingServerCredential(&self, value: &super::super::super::Security::Credentials::PasswordCredential) -> ::windows_core::Result<()> {
+    pub fn SetOutgoingServerCredential<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Security::Credentials::PasswordCredential>,
+    {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetOutgoingServerCredential)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetOutgoingServerCredential)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn OAuthRefreshToken(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -591,9 +597,12 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCardDavServerUrl(&self, value: &super::super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetCardDavServerUrl<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetCardDavServerUrl)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCardDavServerUrl)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn CardDavRequiresSsl(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -617,9 +626,12 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCalDavServerUrl(&self, value: &super::super::super::Foundation::Uri) -> ::windows_core::Result<()> {
+    pub fn SetCalDavServerUrl<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
+    {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetCalDavServerUrl)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCalDavServerUrl)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     pub fn CalDavRequiresSsl(&self) -> ::windows_core::Result<bool> {
         let this = &::windows_core::ComInterface::cast::<IDeviceAccountConfiguration2>(self)?;
@@ -776,10 +788,13 @@ impl UserDataAccountSystemAccessManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateDeviceAccountAsync(account: &DeviceAccountConfiguration) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>> {
+    pub fn CreateDeviceAccountAsync<P0>(account: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<::windows_core::HSTRING>>
+    where
+        P0: ::windows_core::IntoParam<DeviceAccountConfiguration>,
+    {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateDeviceAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(account), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateDeviceAccountAsync)(::windows_core::Interface::as_raw(this), account.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

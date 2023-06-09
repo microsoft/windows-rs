@@ -71,10 +71,13 @@ impl PlatformTelemetryClient {
             (::windows_core::Interface::vtable(this).Register)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), &mut result__).from_abi(result__)
         })
     }
-    pub fn RegisterWithSettings(id: &::windows_core::HSTRING, settings: &PlatformTelemetryRegistrationSettings) -> ::windows_core::Result<PlatformTelemetryRegistrationResult> {
+    pub fn RegisterWithSettings<P0>(id: &::windows_core::HSTRING, settings: P0) -> ::windows_core::Result<PlatformTelemetryRegistrationResult>
+    where
+        P0: ::windows_core::IntoParam<PlatformTelemetryRegistrationSettings>,
+    {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RegisterWithSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), ::core::mem::transmute_copy(settings), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RegisterWithSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(id), settings.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

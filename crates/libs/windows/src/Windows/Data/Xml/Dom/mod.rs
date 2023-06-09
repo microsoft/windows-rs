@@ -3087,9 +3087,12 @@ impl XmlDocument {
         let this = &::windows_core::ComInterface::cast::<IXmlDocumentIO>(self)?;
         unsafe { (::windows_core::Interface::vtable(this).LoadXml)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(xml)).ok() }
     }
-    pub fn LoadXmlWithSettings(&self, xml: &::windows_core::HSTRING, loadsettings: &XmlLoadSettings) -> ::windows_core::Result<()> {
+    pub fn LoadXmlWithSettings<P0>(&self, xml: &::windows_core::HSTRING, loadsettings: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<XmlLoadSettings>,
+    {
         let this = &::windows_core::ComInterface::cast::<IXmlDocumentIO>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).LoadXmlWithSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(xml), ::core::mem::transmute_copy(loadsettings)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).LoadXmlWithSettings)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(xml), loadsettings.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
@@ -3114,27 +3117,35 @@ impl XmlDocument {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadXmlFromBufferWithSettings<P0>(&self, buffer: P0, loadsettings: &XmlLoadSettings) -> ::windows_core::Result<()>
+    pub fn LoadXmlFromBufferWithSettings<P0, P1>(&self, buffer: P0, loadsettings: P1) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<XmlLoadSettings>,
     {
         let this = &::windows_core::ComInterface::cast::<IXmlDocumentIO2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).LoadXmlFromBufferWithSettings)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), ::core::mem::transmute_copy(loadsettings)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).LoadXmlFromBufferWithSettings)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi(), loadsettings.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LoadFromUriAsync(uri: &super::super::super::Foundation::Uri) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
+    pub fn LoadFromUriAsync<P0>(uri: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
+    {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoadFromUriAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoadFromUriAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LoadFromUriWithSettingsAsync(uri: &super::super::super::Foundation::Uri, loadsettings: &XmlLoadSettings) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>> {
+    pub fn LoadFromUriWithSettingsAsync<P0, P1>(uri: P0, loadsettings: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::Uri>,
+        P1: ::windows_core::IntoParam<XmlLoadSettings>,
+    {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoadFromUriWithSettingsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(uri), ::core::mem::transmute_copy(loadsettings), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoadFromUriWithSettingsAsync)(::windows_core::Interface::as_raw(this), uri.into_param().abi(), loadsettings.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -3150,13 +3161,14 @@ impl XmlDocument {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn LoadFromFileWithSettingsAsync<P0>(file: P0, loadsettings: &XmlLoadSettings) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
+    pub fn LoadFromFileWithSettingsAsync<P0, P1>(file: P0, loadsettings: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<XmlDocument>>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Storage::IStorageFile>,
+        P1: ::windows_core::IntoParam<XmlLoadSettings>,
     {
         Self::IXmlDocumentStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).LoadFromFileWithSettingsAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), ::core::mem::transmute_copy(loadsettings), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).LoadFromFileWithSettingsAsync)(::windows_core::Interface::as_raw(this), file.try_into_param()?.abi(), loadsettings.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn NodeValue(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
@@ -4049,18 +4061,24 @@ impl XmlElement {
             (::windows_core::Interface::vtable(this).GetAttributeNode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(attributename), &mut result__).from_abi(result__)
         }
     }
-    pub fn SetAttributeNode(&self, newattribute: &XmlAttribute) -> ::windows_core::Result<XmlAttribute> {
+    pub fn SetAttributeNode<P0>(&self, newattribute: P0) -> ::windows_core::Result<XmlAttribute>
+    where
+        P0: ::windows_core::IntoParam<XmlAttribute>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetAttributeNode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(newattribute), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetAttributeNode)(::windows_core::Interface::as_raw(this), newattribute.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
-    pub fn RemoveAttributeNode(&self, attributenode: &XmlAttribute) -> ::windows_core::Result<XmlAttribute> {
+    pub fn RemoveAttributeNode<P0>(&self, attributenode: P0) -> ::windows_core::Result<XmlAttribute>
+    where
+        P0: ::windows_core::IntoParam<XmlAttribute>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RemoveAttributeNode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(attributenode), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RemoveAttributeNode)(::windows_core::Interface::as_raw(this), attributenode.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetElementsByTagName(&self, tagname: &::windows_core::HSTRING) -> ::windows_core::Result<XmlNodeList> {
@@ -4094,11 +4112,14 @@ impl XmlElement {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).RemoveAttributeNS)(::windows_core::Interface::as_raw(this), namespaceuri.into_param().abi(), ::core::mem::transmute_copy(localname)).ok() }
     }
-    pub fn SetAttributeNodeNS(&self, newattribute: &XmlAttribute) -> ::windows_core::Result<XmlAttribute> {
+    pub fn SetAttributeNodeNS<P0>(&self, newattribute: P0) -> ::windows_core::Result<XmlAttribute>
+    where
+        P0: ::windows_core::IntoParam<XmlAttribute>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SetAttributeNodeNS)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(newattribute), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SetAttributeNodeNS)(::windows_core::Interface::as_raw(this), newattribute.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn GetAttributeNodeNS<P0>(&self, namespaceuri: P0, localname: &::windows_core::HSTRING) -> ::windows_core::Result<XmlAttribute>

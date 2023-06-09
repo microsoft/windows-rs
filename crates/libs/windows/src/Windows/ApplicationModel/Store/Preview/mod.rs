@@ -483,10 +483,13 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn HasStoreWebAccountForUser(user: &super::super::super::System::User) -> ::windows_core::Result<bool> {
+    pub fn HasStoreWebAccountForUser<P0>(user: P0) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+    {
         Self::IStoreConfigurationStatics3(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).HasStoreWebAccountForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).HasStoreWebAccountForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -499,32 +502,42 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn SetStoreWebAccountIdForUser(user: &super::super::super::System::User, webaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
-        Self::IStoreConfigurationStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).SetStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(webaccountid)).ok() })
+    pub fn SetStoreWebAccountIdForUser<P0>(user: P0, webaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+    {
+        Self::IStoreConfigurationStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).SetStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(webaccountid)).ok() })
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn IsStoreWebAccountIdForUser(user: &super::super::super::System::User, webaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<bool> {
-        Self::IStoreConfigurationStatics3(|this| unsafe {
-            let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).IsStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(webaccountid), &mut result__).from_abi(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn GetPurchasePromptingPolicyForUser(user: &super::super::super::System::User) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>> {
-        Self::IStoreConfigurationStatics3(|this| unsafe {
-            let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetPurchasePromptingPolicyForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn SetPurchasePromptingPolicyForUser<P0>(user: &super::super::super::System::User, value: P0) -> ::windows_core::Result<()>
+    pub fn IsStoreWebAccountIdForUser<P0>(user: P0, webaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<bool>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<u32>>,
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
     {
-        Self::IStoreConfigurationStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).SetPurchasePromptingPolicyForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), value.try_into_param()?.abi()).ok() })
+        Self::IStoreConfigurationStatics3(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).IsStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(webaccountid), &mut result__).from_abi(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "System"))]
+    pub fn GetPurchasePromptingPolicyForUser<P0>(user: P0) -> ::windows_core::Result<super::super::super::Foundation::IReference<u32>>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+    {
+        Self::IStoreConfigurationStatics3(|this| unsafe {
+            let mut result__ = ::std::mem::zeroed();
+            (::windows_core::Interface::vtable(this).GetPurchasePromptingPolicyForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "System"))]
+    pub fn SetPurchasePromptingPolicyForUser<P0, P1>(user: P0, value: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+        P1: ::windows_core::TryIntoParam<super::super::super::Foundation::IReference<u32>>,
+    {
+        Self::IStoreConfigurationStatics3(|this| unsafe { (::windows_core::Interface::vtable(this).SetPurchasePromptingPolicyForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), value.try_into_param()?.abi()).ok() })
     }
     pub fn GetStoreWebAccountId() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IStoreConfigurationStatics4(|this| unsafe {
@@ -534,10 +547,13 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetStoreWebAccountIdForUser(user: &super::super::super::System::User) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn GetStoreWebAccountIdForUser<P0>(user: P0) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+    {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn SetEnterpriseStoreWebAccountId(webaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -545,8 +561,11 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn SetEnterpriseStoreWebAccountIdForUser(user: &super::super::super::System::User, webaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
-        Self::IStoreConfigurationStatics4(|this| unsafe { (::windows_core::Interface::vtable(this).SetEnterpriseStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(webaccountid)).ok() })
+    pub fn SetEnterpriseStoreWebAccountIdForUser<P0>(user: P0, webaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+    {
+        Self::IStoreConfigurationStatics4(|this| unsafe { (::windows_core::Interface::vtable(this).SetEnterpriseStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(webaccountid)).ok() })
     }
     pub fn GetEnterpriseStoreWebAccountId() -> ::windows_core::Result<::windows_core::HSTRING> {
         Self::IStoreConfigurationStatics4(|this| unsafe {
@@ -556,10 +575,13 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetEnterpriseStoreWebAccountIdForUser(user: &super::super::super::System::User) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn GetEnterpriseStoreWebAccountIdForUser<P0>(user: P0) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+    {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetEnterpriseStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetEnterpriseStoreWebAccountIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn ShouldRestrictToEnterpriseStoreOnly() -> ::windows_core::Result<bool> {
@@ -570,10 +592,13 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn ShouldRestrictToEnterpriseStoreOnlyForUser(user: &super::super::super::System::User) -> ::windows_core::Result<bool> {
+    pub fn ShouldRestrictToEnterpriseStoreOnlyForUser<P0>(user: P0) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+    {
         Self::IStoreConfigurationStatics4(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ShouldRestrictToEnterpriseStoreOnlyForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ShouldRestrictToEnterpriseStoreOnlyForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn IsPinToDesktopSupported() -> ::windows_core::Result<bool> {
@@ -599,8 +624,11 @@ impl StoreConfiguration {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn PinToDesktopForUser(user: &super::super::super::System::User, apppackagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
-        Self::IStoreConfigurationStatics5(|this| unsafe { (::windows_core::Interface::vtable(this).PinToDesktopForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(apppackagefamilyname)).ok() })
+    pub fn PinToDesktopForUser<P0>(user: P0, apppackagefamilyname: &::windows_core::HSTRING) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+    {
+        Self::IStoreConfigurationStatics5(|this| unsafe { (::windows_core::Interface::vtable(this).PinToDesktopForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(apppackagefamilyname)).ok() })
     }
     #[doc(hidden)]
     pub fn IStoreConfigurationStatics<R, F: FnOnce(&IStoreConfigurationStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
@@ -943,24 +971,27 @@ pub struct WebAuthenticationCoreManagerHelper;
 impl WebAuthenticationCoreManagerHelper {
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"UI_Xaml\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
-    pub fn RequestTokenWithUIElementHostingAsync<P0>(request: &super::super::super::Security::Authentication::Web::Core::WebTokenRequest, uielement: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
+    pub fn RequestTokenWithUIElementHostingAsync<P0, P1>(request: P0, uielement: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::UI::Xaml::UIElement>,
+        P0: ::windows_core::IntoParam<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>,
+        P1: ::windows_core::TryIntoParam<super::super::super::UI::Xaml::UIElement>,
     {
         Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestTokenWithUIElementHostingAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(request), uielement.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestTokenWithUIElementHostingAsync)(::windows_core::Interface::as_raw(this), request.into_param().abi(), uielement.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`, `\"UI_Xaml\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
-    pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<P0>(request: &super::super::super::Security::Authentication::Web::Core::WebTokenRequest, webaccount: &super::super::super::Security::Credentials::WebAccount, uielement: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
+    pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<P0, P1, P2>(request: P0, webaccount: P1, uielement: P2) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::UI::Xaml::UIElement>,
+        P0: ::windows_core::IntoParam<super::super::super::Security::Authentication::Web::Core::WebTokenRequest>,
+        P1: ::windows_core::IntoParam<super::super::super::Security::Credentials::WebAccount>,
+        P2: ::windows_core::TryIntoParam<super::super::super::UI::Xaml::UIElement>,
     {
         Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestTokenWithUIElementHostingAndWebAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(request), ::core::mem::transmute_copy(webaccount), uielement.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestTokenWithUIElementHostingAndWebAccountAsync)(::windows_core::Interface::as_raw(this), request.into_param().abi(), webaccount.into_param().abi(), uielement.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

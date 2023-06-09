@@ -721,33 +721,47 @@ impl DepthCorrelatedCoordinateMapper {
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn UnprojectPoint(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3> {
+    pub fn UnprojectPoint<P0>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: P0) -> ::windows_core::Result<super::super::super::Foundation::Numerics::Vector3>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UnprojectPoint)(::windows_core::Interface::as_raw(this), sourcepoint, ::core::mem::transmute_copy(targetcoordinatesystem), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UnprojectPoint)(::windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn UnprojectPoints(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem, results: &mut [super::super::super::Foundation::Numerics::Vector3]) -> ::windows_core::Result<()> {
+    pub fn UnprojectPoints<P0>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: P0, results: &mut [super::super::super::Foundation::Numerics::Vector3]) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).UnprojectPoints)(::windows_core::Interface::as_raw(this), sourcepoints.len() as u32, sourcepoints.as_ptr(), ::core::mem::transmute_copy(targetcoordinatesystem), results.len() as u32, results.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).UnprojectPoints)(::windows_core::Interface::as_raw(this), sourcepoints.len() as u32, sourcepoints.as_ptr(), targetcoordinatesystem.into_param().abi(), results.len() as u32, results.as_mut_ptr()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
-    pub fn MapPoint(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem, targetcameraintrinsics: &CameraIntrinsics) -> ::windows_core::Result<super::super::super::Foundation::Point> {
+    pub fn MapPoint<P0, P1>(&self, sourcepoint: super::super::super::Foundation::Point, targetcoordinatesystem: P0, targetcameraintrinsics: P1) -> ::windows_core::Result<super::super::super::Foundation::Point>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P1: ::windows_core::IntoParam<CameraIntrinsics>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MapPoint)(::windows_core::Interface::as_raw(this), sourcepoint, ::core::mem::transmute_copy(targetcoordinatesystem), ::core::mem::transmute_copy(targetcameraintrinsics), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MapPoint)(::windows_core::Interface::as_raw(this), sourcepoint, targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Perception_Spatial"))]
-    pub fn MapPoints(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: &super::super::super::Perception::Spatial::SpatialCoordinateSystem, targetcameraintrinsics: &CameraIntrinsics, results: &mut [super::super::super::Foundation::Point]) -> ::windows_core::Result<()> {
+    pub fn MapPoints<P0, P1>(&self, sourcepoints: &[super::super::super::Foundation::Point], targetcoordinatesystem: P0, targetcameraintrinsics: P1, results: &mut [super::super::super::Foundation::Point]) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
+        P1: ::windows_core::IntoParam<CameraIntrinsics>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).MapPoints)(::windows_core::Interface::as_raw(this), sourcepoints.len() as u32, sourcepoints.as_ptr(), ::core::mem::transmute_copy(targetcoordinatesystem), ::core::mem::transmute_copy(targetcameraintrinsics), results.len() as u32, results.as_mut_ptr()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).MapPoints)(::windows_core::Interface::as_raw(this), sourcepoints.len() as u32, sourcepoints.as_ptr(), targetcoordinatesystem.into_param().abi(), targetcameraintrinsics.into_param().abi(), results.len() as u32, results.as_mut_ptr()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for DepthCorrelatedCoordinateMapper {

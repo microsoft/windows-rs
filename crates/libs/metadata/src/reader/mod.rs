@@ -999,13 +999,6 @@ impl<'a> Reader<'a> {
         // nested structs. Fortunately, this is rare enough that this check is sufficient.
         self.type_def_kind(row) == TypeKind::Struct && !self.type_def_is_handle(row)
     }
-    fn type_def_is_borrowed(&self, row: TypeDef) -> bool {
-        match self.type_def_kind(row) {
-            TypeKind::Class => self.type_def_is_composable(row),
-            TypeKind::Delegate => false,
-            _ => !self.type_def_is_blittable(row),
-        }
-    }
     pub fn type_def_is_trivially_convertible(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Struct => self.type_def_is_handle(row),
@@ -1849,7 +1842,7 @@ impl<'a> Reader<'a> {
     }
     fn type_is_borrowed(&self, ty: &Type) -> bool {
         match ty {
-            Type::TypeDef((row, _)) => self.type_def_is_borrowed(*row),
+            Type::TypeDef((row, _)) => !self.type_def_is_blittable(*row),
             Type::BSTR | Type::PCSTR | Type::PCWSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => true,
             _ => false,
         }

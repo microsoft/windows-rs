@@ -1888,11 +1888,14 @@ impl GattCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ValueChanged(&self, valuechangedhandler: &super::super::super::Foundation::TypedEventHandler<GattCharacteristic, GattValueChangedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ValueChanged<P0>(&self, valuechangedhandler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattCharacteristic, GattValueChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ValueChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(valuechangedhandler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ValueChanged)(::windows_core::Interface::as_raw(this), valuechangedhandler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3122,28 +3125,40 @@ impl GattDeviceService {
             (::windows_core::Interface::vtable(this).FromIdWithSharingModeAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), sharingmode, &mut result__).from_abi(result__)
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDeviceId(bluetoothdeviceid: &super::BluetoothDeviceId) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn GetDeviceSelectorForBluetoothDeviceId<P0>(bluetoothdeviceid: P0) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<super::BluetoothDeviceId>,
+    {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bluetoothdeviceid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceId)(::windows_core::Interface::as_raw(this), bluetoothdeviceid.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode(bluetoothdeviceid: &super::BluetoothDeviceId, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode<P0>(bluetoothdeviceid: P0, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<super::BluetoothDeviceId>,
+    {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdWithCacheMode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bluetoothdeviceid), cachemode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdWithCacheMode)(::windows_core::Interface::as_raw(this), bluetoothdeviceid.into_param().abi(), cachemode, &mut result__).from_abi(result__)
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuid(bluetoothdeviceid: &super::BluetoothDeviceId, serviceuuid: ::windows_core::GUID) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuid<P0>(bluetoothdeviceid: P0, serviceuuid: ::windows_core::GUID) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<super::BluetoothDeviceId>,
+    {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuid)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bluetoothdeviceid), serviceuuid, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuid)(::windows_core::Interface::as_raw(this), bluetoothdeviceid.into_param().abi(), serviceuuid, &mut result__).from_abi(result__)
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode(bluetoothdeviceid: &super::BluetoothDeviceId, serviceuuid: ::windows_core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<::windows_core::HSTRING> {
+    pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode<P0>(bluetoothdeviceid: P0, serviceuuid: ::windows_core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows_core::Result<::windows_core::HSTRING>
+    where
+        P0: ::windows_core::IntoParam<super::BluetoothDeviceId>,
+    {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(bluetoothdeviceid), serviceuuid, cachemode, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(::windows_core::Interface::as_raw(this), bluetoothdeviceid.into_param().abi(), serviceuuid, cachemode, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -3294,11 +3309,14 @@ impl GattLocalCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateDescriptorAsync(&self, descriptoruuid: ::windows_core::GUID, parameters: &GattLocalDescriptorParameters) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>> {
+    pub fn CreateDescriptorAsync<P0>(&self, descriptoruuid: ::windows_core::GUID, parameters: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>
+    where
+        P0: ::windows_core::IntoParam<GattLocalDescriptorParameters>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateDescriptorAsync)(::windows_core::Interface::as_raw(this), descriptoruuid, ::core::mem::transmute_copy(parameters), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateDescriptorAsync)(::windows_core::Interface::as_raw(this), descriptoruuid, parameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3337,11 +3355,14 @@ impl GattLocalCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SubscribedClientsChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SubscribedClientsChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SubscribedClientsChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SubscribedClientsChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3352,11 +3373,14 @@ impl GattLocalCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattReadRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattReadRequestedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3367,11 +3391,14 @@ impl GattLocalCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattWriteRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn WriteRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattWriteRequestedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3394,14 +3421,15 @@ impl GattLocalCharacteristic {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn NotifyValueForSubscribedClientAsync<P0>(&self, value: P0, subscribedclient: &GattSubscribedClient) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>
+    pub fn NotifyValueForSubscribedClientAsync<P0, P1>(&self, value: P0, subscribedclient: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>
     where
         P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P1: ::windows_core::IntoParam<GattSubscribedClient>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).NotifyValueForSubscribedClientAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), ::core::mem::transmute_copy(subscribedclient), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).NotifyValueForSubscribedClientAsync)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi(), subscribedclient.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }
@@ -3636,11 +3664,14 @@ impl GattLocalDescriptor {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattReadRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ReadRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattReadRequestedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).ReadRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).ReadRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3651,11 +3682,14 @@ impl GattLocalDescriptor {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattWriteRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn WriteRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattWriteRequestedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).WriteRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).WriteRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3842,11 +3876,14 @@ impl GattLocalService {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateCharacteristicAsync(&self, characteristicuuid: ::windows_core::GUID, parameters: &GattLocalCharacteristicParameters) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>> {
+    pub fn CreateCharacteristicAsync<P0>(&self, characteristicuuid: ::windows_core::GUID, parameters: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>
+    where
+        P0: ::windows_core::IntoParam<GattLocalCharacteristicParameters>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateCharacteristicAsync)(::windows_core::Interface::as_raw(this), characteristicuuid, ::core::mem::transmute_copy(parameters), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateCharacteristicAsync)(::windows_core::Interface::as_raw(this), characteristicuuid, parameters.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4357,11 +4394,14 @@ impl GattReadRequest {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<GattReadRequest, GattRequestStateChangedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattReadRequest, GattRequestStateChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4550,12 +4590,13 @@ impl GattReliableWriteTransaction {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValue<P0>(&self, characteristic: &GattCharacteristic, value: P0) -> ::windows_core::Result<()>
+    pub fn WriteValue<P0, P1>(&self, characteristic: P0, value: P1) -> ::windows_core::Result<()>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
+        P0: ::windows_core::IntoParam<GattCharacteristic>,
+        P1: ::windows_core::TryIntoParam<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).WriteValue)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(characteristic), value.try_into_param()?.abi()).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).WriteValue)(::windows_core::Interface::as_raw(this), characteristic.into_param().abi(), value.try_into_param()?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4677,11 +4718,14 @@ impl GattServiceProvider {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AdvertisementStatusChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<GattServiceProvider, GattServiceProviderAdvertisementStatusChangedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn AdvertisementStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattServiceProvider, GattServiceProviderAdvertisementStatusChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AdvertisementStatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AdvertisementStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4694,9 +4738,12 @@ impl GattServiceProvider {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).StartAdvertising)(::windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn StartAdvertisingWithParameters(&self, parameters: &GattServiceProviderAdvertisingParameters) -> ::windows_core::Result<()> {
+    pub fn StartAdvertisingWithParameters<P0>(&self, parameters: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<GattServiceProviderAdvertisingParameters>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).StartAdvertisingWithParameters)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(parameters)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).StartAdvertisingWithParameters)(::windows_core::Interface::as_raw(this), parameters.into_param().abi()).ok() }
     }
     pub fn StopAdvertising(&self) -> ::windows_core::Result<()> {
         let this = self;
@@ -5130,11 +5177,14 @@ impl GattSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MaxPduSizeChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<GattSession, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn MaxPduSizeChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattSession, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MaxPduSizeChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MaxPduSizeChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5145,11 +5195,14 @@ impl GattSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SessionStatusChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<GattSession, GattSessionStatusChangedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SessionStatusChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattSession, GattSessionStatusChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).SessionStatusChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).SessionStatusChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5160,10 +5213,13 @@ impl GattSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromDeviceIdAsync(deviceid: &super::BluetoothDeviceId) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattSession>> {
+    pub fn FromDeviceIdAsync<P0>(deviceid: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GattSession>>
+    where
+        P0: ::windows_core::IntoParam<super::BluetoothDeviceId>,
+    {
         Self::IGattSessionStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FromDeviceIdAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FromDeviceIdAsync)(::windows_core::Interface::as_raw(this), deviceid.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -5275,11 +5331,14 @@ impl GattSubscribedClient {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MaxNotificationSizeChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<GattSubscribedClient, ::windows_core::IInspectable>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn MaxNotificationSizeChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattSubscribedClient, ::windows_core::IInspectable>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MaxNotificationSizeChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MaxNotificationSizeChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5410,11 +5469,14 @@ impl GattWriteRequest {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<GattWriteRequest, GattRequestStateChangedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<GattWriteRequest, GattRequestStateChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).StateChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

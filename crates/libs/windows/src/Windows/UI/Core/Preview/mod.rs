@@ -118,10 +118,13 @@ pub struct CoreAppWindowPreview(::windows_core::IUnknown);
 impl CoreAppWindowPreview {
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
     #[cfg(feature = "UI_WindowManagement")]
-    pub fn GetIdFromWindow(window: &super::super::WindowManagement::AppWindow) -> ::windows_core::Result<i32> {
+    pub fn GetIdFromWindow<P0>(window: P0) -> ::windows_core::Result<i32>
+    where
+        P0: ::windows_core::IntoParam<super::super::WindowManagement::AppWindow>,
+    {
         Self::ICoreAppWindowPreviewStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetIdFromWindow)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(window), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetIdFromWindow)(::windows_core::Interface::as_raw(this), window.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -223,11 +226,14 @@ pub struct SystemNavigationManagerPreview(::windows_core::IUnknown);
 impl SystemNavigationManagerPreview {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CloseRequested(&self, handler: &super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn CloseRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CloseRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CloseRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

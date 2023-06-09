@@ -28,10 +28,13 @@ pub struct InputActivationListenerPreview;
 impl InputActivationListenerPreview {
     #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
     #[cfg(feature = "UI_WindowManagement")]
-    pub fn CreateForApplicationWindow(window: &super::super::WindowManagement::AppWindow) -> ::windows_core::Result<super::InputActivationListener> {
+    pub fn CreateForApplicationWindow<P0>(window: P0) -> ::windows_core::Result<super::InputActivationListener>
+    where
+        P0: ::windows_core::IntoParam<super::super::WindowManagement::AppWindow>,
+    {
         Self::IInputActivationListenerPreviewStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateForApplicationWindow)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(window), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateForApplicationWindow)(::windows_core::Interface::as_raw(this), window.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

@@ -170,26 +170,35 @@ impl SpatialGraphInteropPreview {
             (::windows_core::Interface::vtable(this).CreateLocatorForNode)(::windows_core::Interface::as_raw(this), nodeid, &mut result__).from_abi(result__)
         })
     }
-    pub fn TryCreateFrameOfReference(coordinatesystem: &super::SpatialCoordinateSystem) -> ::windows_core::Result<SpatialGraphInteropFrameOfReferencePreview> {
+    pub fn TryCreateFrameOfReference<P0>(coordinatesystem: P0) -> ::windows_core::Result<SpatialGraphInteropFrameOfReferencePreview>
+    where
+        P0: ::windows_core::IntoParam<super::SpatialCoordinateSystem>,
+    {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryCreateFrameOfReference)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryCreateFrameOfReference)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryCreateFrameOfReferenceWithPosition(coordinatesystem: &super::SpatialCoordinateSystem, relativeposition: super::super::super::Foundation::Numerics::Vector3) -> ::windows_core::Result<SpatialGraphInteropFrameOfReferencePreview> {
+    pub fn TryCreateFrameOfReferenceWithPosition<P0>(coordinatesystem: P0, relativeposition: super::super::super::Foundation::Numerics::Vector3) -> ::windows_core::Result<SpatialGraphInteropFrameOfReferencePreview>
+    where
+        P0: ::windows_core::IntoParam<super::SpatialCoordinateSystem>,
+    {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPosition)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), relativeposition, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPosition)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), relativeposition, &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryCreateFrameOfReferenceWithPositionAndOrientation(coordinatesystem: &super::SpatialCoordinateSystem, relativeposition: super::super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::super::Foundation::Numerics::Quaternion) -> ::windows_core::Result<SpatialGraphInteropFrameOfReferencePreview> {
+    pub fn TryCreateFrameOfReferenceWithPositionAndOrientation<P0>(coordinatesystem: P0, relativeposition: super::super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::super::Foundation::Numerics::Quaternion) -> ::windows_core::Result<SpatialGraphInteropFrameOfReferencePreview>
+    where
+        P0: ::windows_core::IntoParam<super::SpatialCoordinateSystem>,
+    {
         Self::ISpatialGraphInteropPreviewStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPositionAndOrientation)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), relativeposition, relativeorientation, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryCreateFrameOfReferenceWithPositionAndOrientation)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), relativeposition, relativeorientation, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

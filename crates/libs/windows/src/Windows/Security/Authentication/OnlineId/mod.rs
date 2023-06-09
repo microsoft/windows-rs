@@ -236,11 +236,14 @@ impl OnlineIdAuthenticator {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AuthenticateUserAsync(&self, request: &OnlineIdServiceTicketRequest) -> ::windows_core::Result<UserAuthenticationOperation> {
+    pub fn AuthenticateUserAsync<P0>(&self, request: P0) -> ::windows_core::Result<UserAuthenticationOperation>
+    where
+        P0: ::windows_core::IntoParam<OnlineIdServiceTicketRequest>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AuthenticateUserAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(request), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AuthenticateUserAsync)(::windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -456,10 +459,13 @@ impl OnlineIdSystemAuthenticator {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser(user: &super::super::super::System::User) -> ::windows_core::Result<OnlineIdSystemAuthenticatorForUser> {
+    pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<OnlineIdSystemAuthenticatorForUser>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+    {
         Self::IOnlineIdSystemAuthenticatorStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -477,11 +483,14 @@ pub struct OnlineIdSystemAuthenticatorForUser(::windows_core::IUnknown);
 impl OnlineIdSystemAuthenticatorForUser {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetTicketAsync(&self, request: &OnlineIdServiceTicketRequest) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>> {
+    pub fn GetTicketAsync<P0>(&self, request: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>
+    where
+        P0: ::windows_core::IntoParam<OnlineIdServiceTicketRequest>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetTicketAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(request), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetTicketAsync)(::windows_core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn SetApplicationId(&self, value: ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -651,9 +660,12 @@ pub struct SignOutUserOperation(::windows_core::IUnknown);
 impl SignOutUserOperation {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted(&self, handler: &super::super::super::Foundation::AsyncActionCompletedHandler) -> ::windows_core::Result<()> {
+    pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::AsyncActionCompletedHandler>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -834,9 +846,12 @@ impl UserAuthenticationOperation {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted(&self, handler: &super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>) -> ::windows_core::Result<()> {
+    pub fn SetCompleted<P0>(&self, handler: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetCompleted)(::windows_core::Interface::as_raw(this), handler.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

@@ -380,10 +380,13 @@ pub struct LocalLocationFinder;
 impl LocalLocationFinder {
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindLocalLocationsAsync(searchterm: &::windows_core::HSTRING, searcharea: &super::super::super::Devices::Geolocation::Geocircle, localcategory: &::windows_core::HSTRING, maxresults: u32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>> {
+    pub fn FindLocalLocationsAsync<P0>(searchterm: &::windows_core::HSTRING, searcharea: P0, localcategory: &::windows_core::HSTRING, maxresults: u32) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Devices::Geolocation::Geocircle>,
+    {
         Self::ILocalLocationFinderStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).FindLocalLocationsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(searchterm), ::core::mem::transmute_copy(searcharea), ::core::mem::transmute_copy(localcategory), maxresults, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).FindLocalLocationsAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(searchterm), searcharea.into_param().abi(), ::core::mem::transmute_copy(localcategory), maxresults, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -574,10 +577,13 @@ unsafe impl ::core::marker::Sync for LocalLocationRatingInfo {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 pub struct PlaceInfoHelper;
 impl PlaceInfoHelper {
-    pub fn CreateFromLocalLocation(location: &LocalLocation) -> ::windows_core::Result<super::PlaceInfo> {
+    pub fn CreateFromLocalLocation<P0>(location: P0) -> ::windows_core::Result<super::PlaceInfo>
+    where
+        P0: ::windows_core::IntoParam<LocalLocation>,
+    {
         Self::IPlaceInfoHelperStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateFromLocalLocation)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(location), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateFromLocalLocation)(::windows_core::Interface::as_raw(this), location.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

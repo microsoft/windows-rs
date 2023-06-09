@@ -39,7 +39,9 @@ fn test() -> Result<()> {
     assert_eq!(a, d[..]);
 
     let c: IStringable = Stringable.into();
-    class.Input(&class, &class, &c)?;
+    let d = Callback::new(|input| Ok(input));
+    class.Input(&class, &class, &c, &d)?;
+    assert!(class.Input(None, None, None, None).is_err());
 
     // This explicitly queries for IInspectable.
     let inspectable: IInspectable = class.cast()?;

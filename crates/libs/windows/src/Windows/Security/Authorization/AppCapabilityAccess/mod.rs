@@ -145,11 +145,14 @@ impl AppCapability {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AccessChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<AppCapability, AppCapabilityAccessChangedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn AccessChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<AppCapability, AppCapabilityAccessChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AccessChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AccessChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -182,13 +185,14 @@ impl AppCapability {
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
-    pub fn RequestAccessForCapabilitiesForUserAsync<P0>(user: &super::super::super::System::User, capabilitynames: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, AppCapabilityAccessStatus>>>
+    pub fn RequestAccessForCapabilitiesForUserAsync<P0, P1>(user: P0, capabilitynames: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<::windows_core::HSTRING, AppCapabilityAccessStatus>>>
     where
-        P0: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+        P1: ::windows_core::TryIntoParam<super::super::super::Foundation::Collections::IIterable<::windows_core::HSTRING>>,
     {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), capabilitynames.try_into_param()?.abi(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(::windows_core::Interface::as_raw(this), user.into_param().abi(), capabilitynames.try_into_param()?.abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn Create(capabilityname: &::windows_core::HSTRING) -> ::windows_core::Result<AppCapability> {
@@ -199,10 +203,13 @@ impl AppCapability {
     }
     #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateWithProcessIdForUser(user: &super::super::super::System::User, capabilityname: &::windows_core::HSTRING, pid: u32) -> ::windows_core::Result<AppCapability> {
+    pub fn CreateWithProcessIdForUser<P0>(user: P0, capabilityname: &::windows_core::HSTRING, pid: u32) -> ::windows_core::Result<AppCapability>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::System::User>,
+    {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).CreateWithProcessIdForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), ::core::mem::transmute_copy(capabilityname), pid, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).CreateWithProcessIdForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), ::core::mem::transmute_copy(capabilityname), pid, &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

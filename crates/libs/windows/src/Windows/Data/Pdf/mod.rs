@@ -306,14 +306,15 @@ impl PdfPage {
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RenderWithOptionsToStreamAsync<P0>(&self, outputstream: P0, options: &PdfPageRenderOptions) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
+    pub fn RenderWithOptionsToStreamAsync<P0, P1>(&self, outputstream: P0, options: P1) -> ::windows_core::Result<super::super::Foundation::IAsyncAction>
     where
         P0: ::windows_core::TryIntoParam<super::super::Storage::Streams::IRandomAccessStream>,
+        P1: ::windows_core::IntoParam<PdfPageRenderOptions>,
     {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RenderWithOptionsToStreamAsync)(::windows_core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), ::core::mem::transmute_copy(options), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RenderWithOptionsToStreamAsync)(::windows_core::Interface::as_raw(this), outputstream.try_into_param()?.abi(), options.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]

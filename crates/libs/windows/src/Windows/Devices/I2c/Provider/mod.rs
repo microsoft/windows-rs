@@ -2,11 +2,14 @@
 #[repr(transparent)]
 pub struct II2cControllerProvider(::windows_core::IUnknown);
 impl II2cControllerProvider {
-    pub fn GetDeviceProvider(&self, settings: &ProviderI2cConnectionSettings) -> ::windows_core::Result<II2cDeviceProvider> {
+    pub fn GetDeviceProvider<P0>(&self, settings: P0) -> ::windows_core::Result<II2cDeviceProvider>
+    where
+        P0: ::windows_core::IntoParam<ProviderI2cConnectionSettings>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetDeviceProvider)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(settings), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetDeviceProvider)(::windows_core::Interface::as_raw(this), settings.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
 }

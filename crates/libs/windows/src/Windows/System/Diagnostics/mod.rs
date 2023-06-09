@@ -549,11 +549,14 @@ pub struct DiagnosticInvoker(::windows_core::IUnknown);
 impl DiagnosticInvoker {
     #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
-    pub fn RunDiagnosticActionAsync(&self, context: &super::super::Data::Json::JsonObject) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
+    pub fn RunDiagnosticActionAsync<P0>(&self, context: P0) -> ::windows_core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
+    where
+        P0: ::windows_core::IntoParam<super::super::Data::Json::JsonObject>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).RunDiagnosticActionAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(context), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).RunDiagnosticActionAsync)(::windows_core::Interface::as_raw(this), context.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -571,10 +574,13 @@ impl DiagnosticInvoker {
             (::windows_core::Interface::vtable(this).GetDefault)(::windows_core::Interface::as_raw(this), &mut result__).from_abi(result__)
         })
     }
-    pub fn GetForUser(user: &super::User) -> ::windows_core::Result<DiagnosticInvoker> {
+    pub fn GetForUser<P0>(user: P0) -> ::windows_core::Result<DiagnosticInvoker>
+    where
+        P0: ::windows_core::IntoParam<super::User>,
+    {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(user), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetForUser)(::windows_core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     pub fn IsSupported() -> ::windows_core::Result<bool> {

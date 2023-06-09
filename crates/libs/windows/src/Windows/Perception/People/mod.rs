@@ -280,11 +280,14 @@ impl HandMeshObserver {
         let this = self;
         unsafe { (::windows_core::Interface::vtable(this).GetTriangleIndices)(::windows_core::Interface::as_raw(this), indices.len() as u32, indices.as_mut_ptr()).ok() }
     }
-    pub fn GetVertexStateForPose(&self, handpose: &HandPose) -> ::windows_core::Result<HandMeshVertexState> {
+    pub fn GetVertexStateForPose<P0>(&self, handpose: P0) -> ::windows_core::Result<HandMeshVertexState>
+    where
+        P0: ::windows_core::IntoParam<HandPose>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GetVertexStateForPose)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handpose), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GetVertexStateForPose)(::windows_core::Interface::as_raw(this), handpose.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     pub fn NeutralPose(&self) -> ::windows_core::Result<HandPose> {
@@ -404,20 +407,26 @@ pub struct HandPose(::windows_core::IUnknown);
 impl HandPose {
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetJoint(&self, coordinatesystem: &super::Spatial::SpatialCoordinateSystem, joint: HandJointKind, jointpose: &mut JointPose) -> ::windows_core::Result<bool> {
+    pub fn TryGetJoint<P0>(&self, coordinatesystem: P0, joint: HandJointKind, jointpose: &mut JointPose) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<super::Spatial::SpatialCoordinateSystem>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryGetJoint)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), joint, jointpose, &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryGetJoint)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), joint, jointpose, &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetJoints(&self, coordinatesystem: &super::Spatial::SpatialCoordinateSystem, joints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows_core::Result<bool> {
+    pub fn TryGetJoints<P0>(&self, coordinatesystem: P0, joints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows_core::Result<bool>
+    where
+        P0: ::windows_core::IntoParam<super::Spatial::SpatialCoordinateSystem>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).TryGetJoints)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(coordinatesystem), joints.len() as u32, joints.as_ptr(), jointposes.len() as u32, jointposes.as_mut_ptr(), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).TryGetJoints)(::windows_core::Interface::as_raw(this), coordinatesystem.into_param().abi(), joints.len() as u32, joints.as_ptr(), jointposes.len() as u32, jointposes.as_mut_ptr(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]

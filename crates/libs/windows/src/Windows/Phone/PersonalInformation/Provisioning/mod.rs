@@ -80,10 +80,13 @@ pub struct ContactPartnerProvisioningManager;
 impl ContactPartnerProvisioningManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AssociateNetworkAccountAsync(store: &super::ContactStore, networkname: &::windows_core::HSTRING, networkaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn AssociateNetworkAccountAsync<P0>(store: P0, networkname: &::windows_core::HSTRING, networkaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<super::ContactStore>,
+    {
         Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AssociateNetworkAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(store), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AssociateNetworkAccountAsync)(::windows_core::Interface::as_raw(this), store.into_param().abi(), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -99,10 +102,13 @@ impl ContactPartnerProvisioningManager {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AssociateSocialNetworkAccountAsync(store: &super::ContactStore, networkname: &::windows_core::HSTRING, networkaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn AssociateSocialNetworkAccountAsync<P0>(store: P0, networkname: &::windows_core::HSTRING, networkaccountid: &::windows_core::HSTRING) -> ::windows_core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::windows_core::IntoParam<super::ContactStore>,
+    {
         Self::IContactPartnerProvisioningManagerStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).AssociateSocialNetworkAccountAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(store), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).AssociateSocialNetworkAccountAsync)(::windows_core::Interface::as_raw(this), store.into_param().abi(), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]

@@ -387,11 +387,14 @@ impl PrintSupportExtensionSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrintTicketValidationRequested(&self, handler: &super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PrintTicketValidationRequested<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PrintTicketValidationRequested)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PrintTicketValidationRequested)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -402,11 +405,14 @@ impl PrintSupportExtensionSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrintDeviceCapabilitiesChanged(&self, handler: &super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PrintDeviceCapabilitiesChanged<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>>,
+    {
         let this = self;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PrintDeviceCapabilitiesChanged)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PrintDeviceCapabilitiesChanged)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -421,11 +427,14 @@ impl PrintSupportExtensionSession {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrinterSelected(&self, handler: &super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrinterSelectedEventArgs>) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PrinterSelected<P0>(&self, handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrinterSelectedEventArgs>>,
+    {
         let this = &::windows_core::ComInterface::cast::<IPrintSupportExtensionSession2>(self)?;
         unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).PrinterSelected)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).PrinterSelected)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -524,9 +533,12 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn UpdatePrintDeviceCapabilities(&self, updatedpdc: &super::super::super::Data::Xml::Dom::XmlDocument) -> ::windows_core::Result<()> {
+    pub fn UpdatePrintDeviceCapabilities<P0>(&self, updatedpdc: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Data::Xml::Dom::XmlDocument>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).UpdatePrintDeviceCapabilities)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(updatedpdc)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).UpdatePrintDeviceCapabilities)(::windows_core::Interface::as_raw(this), updatedpdc.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -564,13 +576,19 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     }
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn UpdatePrintDeviceResources(&self, updatedpdr: &super::super::super::Data::Xml::Dom::XmlDocument) -> ::windows_core::Result<()> {
+    pub fn UpdatePrintDeviceResources<P0>(&self, updatedpdr: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::super::Data::Xml::Dom::XmlDocument>,
+    {
         let this = &::windows_core::ComInterface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).UpdatePrintDeviceResources)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(updatedpdr)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).UpdatePrintDeviceResources)(::windows_core::Interface::as_raw(this), updatedpdr.into_param().abi()).ok() }
     }
-    pub fn SetPrintDeviceCapabilitiesUpdatePolicy(&self, updatepolicy: &PrintSupportPrintDeviceCapabilitiesUpdatePolicy) -> ::windows_core::Result<()> {
+    pub fn SetPrintDeviceCapabilitiesUpdatePolicy<P0>(&self, updatepolicy: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<PrintSupportPrintDeviceCapabilitiesUpdatePolicy>,
+    {
         let this = &::windows_core::ComInterface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
-        unsafe { (::windows_core::Interface::vtable(this).SetPrintDeviceCapabilitiesUpdatePolicy)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(updatepolicy)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetPrintDeviceCapabilitiesUpdatePolicy)(::windows_core::Interface::as_raw(this), updatepolicy.into_param().abi()).ok() }
     }
 }
 impl ::core::cmp::PartialEq for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
@@ -806,9 +824,12 @@ impl PrintSupportPrinterSelectedEventArgs {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn SetPrintTicket(&self, value: &super::PrintTicket::WorkflowPrintTicket) -> ::windows_core::Result<()> {
+    pub fn SetPrintTicket<P0>(&self, value: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::PrintTicket::WorkflowPrintTicket>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).SetPrintTicket)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).SetPrintTicket)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1060,9 +1081,12 @@ impl PrintSupportSettingsUISession {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn UpdatePrintTicket(&self, printticket: &super::PrintTicket::WorkflowPrintTicket) -> ::windows_core::Result<()> {
+    pub fn UpdatePrintTicket<P0>(&self, printticket: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::PrintTicket::WorkflowPrintTicket>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).UpdatePrintTicket)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(printticket)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).UpdatePrintTicket)(::windows_core::Interface::as_raw(this), printticket.into_param().abi()).ok() }
     }
     pub fn SessionInfo(&self) -> ::windows_core::Result<PrintSupportSessionInfo> {
         let this = self;

@@ -358,10 +358,13 @@ impl GameList {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GameAdded(handler: &GameListChangedEventHandler) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn GameAdded<P0>(handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<GameListChangedEventHandler>,
+    {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GameAdded)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GameAdded)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -371,10 +374,13 @@ impl GameList {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GameRemoved(handler: &GameListRemovedEventHandler) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn GameRemoved<P0>(handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<GameListRemovedEventHandler>,
+    {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GameRemoved)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GameRemoved)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -384,10 +390,13 @@ impl GameList {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GameUpdated(handler: &GameListChangedEventHandler) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn GameUpdated<P0>(handler: P0) -> ::windows_core::Result<super::super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::windows_core::IntoParam<GameListChangedEventHandler>,
+    {
         Self::IGameListStatics(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).GameUpdated)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(handler), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).GameUpdated)(::windows_core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -397,18 +406,25 @@ impl GameList {
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MergeEntriesAsync(left: &GameListEntry, right: &GameListEntry) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameListEntry>> {
+    pub fn MergeEntriesAsync<P0, P1>(left: P0, right: P1) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<GameListEntry>>
+    where
+        P0: ::windows_core::IntoParam<GameListEntry>,
+        P1: ::windows_core::IntoParam<GameListEntry>,
+    {
         Self::IGameListStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).MergeEntriesAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(left), ::core::mem::transmute_copy(right), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).MergeEntriesAsync)(::windows_core::Interface::as_raw(this), left.into_param().abi(), right.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UnmergeEntryAsync(mergedentry: &GameListEntry) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>> {
+    pub fn UnmergeEntryAsync<P0>(mergedentry: P0) -> ::windows_core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>>
+    where
+        P0: ::windows_core::IntoParam<GameListEntry>,
+    {
         Self::IGameListStatics2(|this| unsafe {
             let mut result__ = ::std::mem::zeroed();
-            (::windows_core::Interface::vtable(this).UnmergeEntryAsync)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(mergedentry), &mut result__).from_abi(result__)
+            (::windows_core::Interface::vtable(this).UnmergeEntryAsync)(::windows_core::Interface::as_raw(this), mergedentry.into_param().abi(), &mut result__).from_abi(result__)
         })
     }
     #[doc(hidden)]
@@ -895,9 +911,12 @@ impl GameListChangedEventHandler {
         let com = GameListChangedEventHandlerBox::<F> { vtable: &GameListChangedEventHandlerBox::<F>::VTABLE, count: ::windows_core::imp::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::std::boxed::Box::new(com)) }
     }
-    pub fn Invoke(&self, game: &GameListEntry) -> ::windows_core::Result<()> {
+    pub fn Invoke<P0>(&self, game: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<GameListEntry>,
+    {
         let this = self;
-        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(game)).ok() }
+        unsafe { (::windows_core::Interface::vtable(this).Invoke)(::windows_core::Interface::as_raw(this), game.into_param().abi()).ok() }
     }
 }
 #[repr(C)]
