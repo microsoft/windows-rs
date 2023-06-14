@@ -96,7 +96,7 @@ impl SignatureParamKind {
     }
 }
 
-#[derive(PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum AsyncKind {
     None,
     Action,

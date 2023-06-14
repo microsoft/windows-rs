@@ -60,6 +60,29 @@ impl<'a> Gen<'a> {
     }
 
     //
+    // TypeRef
+    //
+
+    pub fn type_ref_name(&self, ref_: TypeRef) -> TokenStream {
+        self.type_ref_name_imp(ref_, "")
+    }
+    pub fn type_ref_vtbl_name(&self, ref_: TypeRef) -> TokenStream {
+        self.type_ref_name_imp(ref_, "_Vtbl")
+    }
+    pub fn type_ref_name_imp(&self, ref_: TypeRef, suffix: &str) -> TokenStream {
+        let type_name = self.reader.type_ref_type_name(ref_);
+
+        assert!(!type_name.namespace.is_empty());
+
+        let mut namespace = self.namespace(type_name.namespace);
+        let mut name = to_ident(type_name.name);
+        name.push_str(suffix);
+
+        namespace.combine(&name);
+        namespace
+    }
+
+    //
     // Type
     //
 
@@ -156,13 +179,14 @@ impl<'a> Gen<'a> {
             Type::WinrtArray(ty) => self.type_name(ty),
             Type::WinrtArrayRef(ty) => self.type_name(ty),
             Type::ConstRef(ty) => self.type_name(ty),
-            _ => unimplemented!(),
+            Type::TypeRef(TypeDefOrRef::TypeRef(ref_)) => self.type_ref_name(*ref_),
+            x => unimplemented!("{:?}", x),
         }
     }
     pub fn type_vtbl_name(&self, ty: &Type) -> TokenStream {
         match ty {
             Type::TypeDef((def, generics)) => self.type_def_vtbl_name(*def, generics),
-            _ => unimplemented!(),
+            x => unimplemented!("{:?}", x),
         }
     }
     pub fn type_abi_name(&self, ty: &Type) -> TokenStream {
@@ -524,7 +548,7 @@ impl<'a> Gen<'a> {
                 tokens.push('\"');
                 tokens.into()
             }
-            _ => unimplemented!(),
+            x => unimplemented!("{:?}", x),
         }
     }
     pub fn typed_value(&self, value: &Value) -> TokenStream {
@@ -544,7 +568,7 @@ impl<'a> Gen<'a> {
             Value::String(_) => {
                 quote! { &str = #literal }
             }
-            _ => unimplemented!(),
+            x => unimplemented!("{:?}", x),
         }
     }
 
@@ -638,7 +662,7 @@ impl<'a> Gen<'a> {
                 AsyncKind::OperationWithProgress => {
                     quote! { AsyncOperationWithProgressCompletedHandler }
                 }
-                _ => unimplemented!(),
+                x => unimplemented!("{:?}", x),
             };
 
             let namespace = self.namespace("Windows.Foundation");
