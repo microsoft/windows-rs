@@ -5,7 +5,7 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies.windows]
-path = "../../libs/windows"
+version = "0.48"
 features = [
     "Data_Xml_Dom",
     "Win32_Foundation",
@@ -15,7 +15,7 @@ features = [
 ]
 
 [dependencies.windows-sys]
-path = "../../libs/sys"
+version = "0.48"
 features = [
     "Win32_Foundation",
     "Win32_Security",
