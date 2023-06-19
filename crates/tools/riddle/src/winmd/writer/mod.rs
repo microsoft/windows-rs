@@ -350,13 +350,13 @@ mod tests {
 
         usize_blob(0x80 - 2, &mut blob);
         usize_blob(0x80 - 1, &mut blob);
-        usize_blob(0x80 - 0, &mut blob);
+        usize_blob(0x80, &mut blob);
         usize_blob(0x80 + 1, &mut blob);
         usize_blob(0x80 + 2, &mut blob);
 
         usize_blob(0x4000 - 2, &mut blob);
         usize_blob(0x4000 - 1, &mut blob);
-        usize_blob(0x4000 - 0, &mut blob);
+        usize_blob(0x4000, &mut blob);
         usize_blob(0x4000 + 1, &mut blob);
         usize_blob(0x4000 + 2, &mut blob);
 
@@ -371,13 +371,13 @@ mod tests {
 
         assert_eq!(blob.read_usize(), 0x80 - 2);
         assert_eq!(blob.read_usize(), 0x80 - 1);
-        assert_eq!(blob.read_usize(), 0x80 - 0);
+        assert_eq!(blob.read_usize(), 0x80);
         assert_eq!(blob.read_usize(), 0x80 + 1);
         assert_eq!(blob.read_usize(), 0x80 + 2);
 
         assert_eq!(blob.read_usize(), 0x4000 - 2);
         assert_eq!(blob.read_usize(), 0x4000 - 1);
-        assert_eq!(blob.read_usize(), 0x4000 - 0);
+        assert_eq!(blob.read_usize(), 0x4000);
         assert_eq!(blob.read_usize(), 0x4000 + 1);
         assert_eq!(blob.read_usize(), 0x4000 + 2);
 

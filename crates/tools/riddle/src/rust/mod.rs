@@ -147,7 +147,7 @@ use std::fmt::Write;
 use try_format::*;
 
 fn namespace(gen: &Gen, tree: &Tree) -> String {
-    let mut gen = &mut gen.clone();
+    let gen = &mut gen.clone();
     gen.namespace = tree.namespace;
     let mut tokens = TokenStream::new();
 
@@ -286,7 +286,7 @@ fn namespace(gen: &Gen, tree: &Tree) -> String {
 }
 
 fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
-    let mut gen = &mut gen.clone();
+    let gen = &mut gen.clone();
     gen.namespace = tree.namespace;
     let mut types = BTreeMap::<&str, TokenStream>::new();
 
