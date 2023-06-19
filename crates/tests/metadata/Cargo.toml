@@ -22,3 +22,6 @@ features = [
     "Win32_System_SystemServices",
     "Win32_Foundation",
 ]
+
+[dependencies.tool_lib]
+path = "../../tools/lib"

@@ -138,17 +138,40 @@ fn main() {
     );
 }
 
-fn write_sys(filename: &str, apis: &[&str]) {
-    let bindings = windows_bindgen::standalone_sys(apis);
-    std::fs::write(filename, bindings).unwrap();
+fn write_sys(output: &str, filter: &[&str]) {
+    riddle(output, filter, &["FLATTEN", "SYS"]);
 }
 
-fn write_win(filename: &str, apis: &[&str]) {
-    let bindings = windows_bindgen::standalone_win(apis);
-    std::fs::write(filename, bindings).unwrap();
+fn write_win(output: &str, filter: &[&str]) {
+    riddle(output, filter, &["FLATTEN"]);
 }
 
-fn write_std(filename: &str, apis: &[&str]) {
-    let bindings = windows_bindgen::standalone_std(apis);
-    std::fs::write(filename, bindings).unwrap();
+fn write_std(output: &str, filter: &[&str]) {
+    riddle(output, filter, &["FLATTEN", "STD"]);
+}
+
+fn riddle(output: &str, filter: &[&str], config: &[&str]) {
+    let mut command = std::process::Command::new("cargo.exe");
+
+    command.args([
+        "run",
+        "-p",
+        "riddle",
+        "--target-dir",
+        "target", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
+        "--",
+        "-in",
+        "../../libs/metadata/default",
+        "-out",
+        output,
+        "-filter",
+    ]);
+
+    command.args(filter);
+    command.arg("-config");
+    command.args(config);
+
+    if !command.status().unwrap().success() {
+        panic!("Failed to run riddle");
+    }
 }

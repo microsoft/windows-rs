@@ -1,5 +1,13 @@
 namespace test_component
 {
+    namespace Nested
+    {
+       interface IThing
+       {
+           void Method();
+       };
+    }
+
     delegate Int32 Callback(Int32 a);
 
     runtimeclass Class

@@ -1,0 +1,20 @@
+-in crates/libs/metadata/default
+-out crates/libs/windows/src/lib.rs
+-config PACKAGE
+
+-filter
+    Windows
+    !Windows.AI.MachineLearning.Preview
+    !Windows.ApplicationModel.SocialInfo
+    !Windows.Devices.AllJoyn
+    !Windows.Devices.Perception
+    !Windows.Security.Authentication.Identity.Provider
+    !Windows.Services.Cortana
+    !Windows.System.Power.Diagnostics
+    !Windows.System.Preview
+    !Windows.UI.Xaml
+    !Windows.Win32.Foundation.Metadata
+    !Windows.Win32.System.Diagnostics.Debug.WebApp
+    !Windows.Win32.System.WinRT.Xaml
+    !Windows.Win32.Web.MsHtml
+    !Windows.Win32.UI.Xaml

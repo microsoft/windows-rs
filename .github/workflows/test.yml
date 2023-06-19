@@ -96,8 +96,8 @@ jobs:
           cargo test -p test_enums &&
           cargo test -p test_error &&
           cargo test -p test_event &&
-          cargo test -p test_extensions &&
           cargo clean &&
+          cargo test -p test_extensions &&
           cargo test -p test_handles &&
           cargo test -p test_helpers &&
           cargo test -p test_implement &&
@@ -141,14 +141,12 @@ jobs:
           cargo test -p tool_windows &&
           cargo test -p tool_yml &&
           cargo test -p windows &&
-          cargo test -p windows-bindgen &&
           cargo test -p windows-core &&
           cargo test -p windows-implement &&
           cargo test -p windows-interface &&
           cargo test -p windows-metadata &&
           cargo test -p windows-sys &&
           cargo test -p windows-targets &&
-          cargo test -p windows-tokens &&
           cargo test -p windows_aarch64_gnullvm &&
           cargo test -p windows_aarch64_msvc &&
           cargo test -p windows_i686_gnu &&

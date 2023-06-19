@@ -9,3 +9,13 @@ repository = "https://github.com/microsoft/windows-rs"
 
 [dependencies]
 metadata = { package = "windows-metadata", path = "../../libs/metadata", version = "0.49.0" }
+rayon = "1.7"
+
+[dependencies.syn]
+version = "2.0"
+features = ["full", "extra-traits"]
+
+[dependencies.proc-macro2]
+version = "1.0"
+features = ["span-locations"]
+

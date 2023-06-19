@@ -39,7 +39,7 @@ fn test() -> Result<()> {
     assert_eq!(a, d[..]);
 
     let c: IStringable = Stringable.into();
-    let d = Callback::new(|input| Ok(input));
+    let d = Callback::new(Ok);
     class.Input(&class, &class, &c, &d)?;
     assert!(class.Input(None, None, None, None).is_err());
 

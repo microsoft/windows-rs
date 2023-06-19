@@ -49,11 +49,11 @@ impl<'a> Filter<'a> {
         false
     }
 
-    pub fn includes_type(&self, reader: &reader::Reader, ty: reader::TypeDef) -> bool {
+    pub fn includes_type(&self, reader: &Reader, ty: TypeDef) -> bool {
         self.includes_type_name(reader.type_def_type_name(ty))
     }
 
-    pub fn includes_type_name(&self, type_name: reader::TypeName) -> bool {
+    pub fn includes_type_name(&self, type_name: TypeName) -> bool {
         if self.is_empty() {
             return true;
         }
@@ -65,6 +65,10 @@ impl<'a> Filter<'a> {
         }
 
         false
+    }
+
+    pub fn includes(&self) -> impl Iterator<Item = &str> + '_ {
+        self.0.iter().filter_map(|(name, include)| if *include { Some(*name) } else { None })
     }
 
     fn is_empty(&self) -> bool {
@@ -93,7 +97,7 @@ mod tests {
     use super::*;
 
     fn includes_type_name(filter: &Filter, full_name: &str) -> bool {
-        filter.includes_type_name(reader::TypeName::parse(full_name))
+        filter.includes_type_name(TypeName::parse(full_name))
     }
 
     #[test]

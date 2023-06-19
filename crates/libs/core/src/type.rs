@@ -26,10 +26,6 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized {
     /// # Safety
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
     fn from_default(default: &Self::Default) -> Result<Self>;
-
-    // TODO: this only used by ManuallyDrop
-    /// # Safety
-    unsafe fn from_abi_ref(abi: &Self::Abi) -> Option<&Self>;
 }
 
 impl<T> Type<T, ReferenceType> for T
@@ -44,14 +40,6 @@ where
             Ok(std::mem::transmute_copy(&abi))
         } else {
             Err(Error::OK)
-        }
-    }
-
-    unsafe fn from_abi_ref(abi: &Self::Abi) -> Option<&Self> {
-        if !abi.is_null() {
-            Some(std::mem::transmute(abi))
-        } else {
-            None
         }
     }
 
@@ -71,10 +59,6 @@ where
         Ok(abi.assume_init())
     }
 
-    unsafe fn from_abi_ref(abi: &Self::Abi) -> Option<&Self> {
-        Some(std::mem::transmute(abi))
-    }
-
     fn from_default(default: &Self::Default) -> Result<Self> {
         Ok(default.clone())
     }
@@ -89,10 +73,6 @@ where
 
     unsafe fn from_abi(abi: Self) -> Result<Self> {
         Ok(abi)
-    }
-
-    unsafe fn from_abi_ref(abi: &Self::Abi) -> Option<&Self> {
-        Some(abi)
     }
 
     fn from_default(default: &Self) -> Result<Self> {

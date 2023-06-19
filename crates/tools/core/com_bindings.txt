@@ -1,0 +1,26 @@
+-in crates/libs/metadata/default
+-out crates/libs/core/src/imp/com_bindings.rs
+-config FLATTEN
+
+-filter
+    Windows.Foundation.IReference
+    Windows.Foundation.IStringable
+    Windows.Foundation.PropertyValue
+    Windows.Win32.Foundation.CLASS_E_CLASSNOTAVAILABLE
+    Windows.Win32.Foundation.CO_E_NOTINITIALIZED
+    Windows.Win32.Foundation.E_BOUNDS
+    Windows.Win32.Foundation.E_NOINTERFACE
+    Windows.Win32.Foundation.E_OUTOFMEMORY
+    Windows.Win32.Foundation.JSCRIPT_E_CANTEXECUTE
+    Windows.Win32.Foundation.RPC_E_DISCONNECTED
+    Windows.Win32.System.Com.CoCreateGuid
+    Windows.Win32.System.Com.GetErrorInfo
+    Windows.Win32.System.Com.IAgileObject
+    Windows.Win32.System.Com.IErrorInfo
+    Windows.Win32.System.Com.SetErrorInfo
+    Windows.Win32.System.WinRT.AGILEREFERENCE_DEFAULT
+    Windows.Win32.System.WinRT.IAgileReference
+    Windows.Win32.System.WinRT.ILanguageExceptionErrorInfo2
+    Windows.Win32.System.WinRT.IRestrictedErrorInfo
+    Windows.Win32.System.WinRT.IWeakReferenceSource
+    Windows.Win32.System.WinRT.RoGetAgileReference

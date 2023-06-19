@@ -3,7 +3,12 @@ use std::io::prelude::*;
 use std::process::{Command, Stdio};
 
 fn main() {
-    const ALL_PLATFORMS: [&str; 4] = ["x86_64_gnu", "i686_gnu", "x86_64_gnullvm", "aarch64_gnullvm"];
+    const ALL_PLATFORMS: [&str; 4] = [
+        "x86_64_gnu",
+        "i686_gnu",
+        "x86_64_gnullvm",
+        "aarch64_gnullvm",
+    ];
     let mut platforms = BTreeSet::new();
     for platform in std::env::args().skip(1) {
         if ALL_PLATFORMS.contains(&&*platform) {
@@ -21,9 +26,18 @@ fn main() {
     };
 
     for platform in platforms {
-        let tools = if platform.ends_with("_gnu") { &["dlltool", "ar", "objcopy"][..] } else { &["llvm-dlltool", "llvm-ar"][..] };
+        let tools = if platform.ends_with("_gnu") {
+            &["dlltool", "ar", "objcopy"][..]
+        } else {
+            &["llvm-dlltool", "llvm-ar"][..]
+        };
         for tool in tools {
-            if Command::new(tool).stdout(Stdio::null()).stderr(Stdio::null()).spawn().is_err() {
+            if Command::new(tool)
+                .stdout(Stdio::null())
+                .stderr(Stdio::null())
+                .spawn()
+                .is_err()
+            {
                 eprintln!("Could not find {tool}. Is it in your $PATH?");
                 std::process::exit(1);
             }
@@ -52,7 +66,13 @@ fn build_platform(platform: &str, dlltool: &str, ar: &str) {
     }
 }
 
-fn build_library(output: &std::path::Path, dlltool: &str, library: &str, functions: &BTreeMap<String, lib::CallingConvention>, platform: &str) {
+fn build_library(
+    output: &std::path::Path,
+    dlltool: &str,
+    library: &str,
+    functions: &BTreeMap<String, lib::CallingConvention>,
+    platform: &str,
+) {
     println!("{library}");
 
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
@@ -73,8 +93,12 @@ EXPORTS
 
     for (function, calling_convention) in functions {
         match calling_convention {
-            lib::CallingConvention::Stdcall(params) if platform.eq("i686_gnu") => def.write_all(format!("{function}@{params} @ 0\n").as_bytes()).unwrap(),
-            _ => def.write_all(format!("{function} @ 0\n").as_bytes()).unwrap(),
+            lib::CallingConvention::Stdcall(params) if platform.eq("i686_gnu") => def
+                .write_all(format!("{function}@{params} @ 0\n").as_bytes())
+                .unwrap(),
+            _ => def
+                .write_all(format!("{function} @ 0\n").as_bytes())
+                .unwrap(),
         }
     }
 
@@ -140,15 +164,21 @@ EXPORTS
     std::fs::remove_file(output.join(format!("{library}.def"))).unwrap();
 }
 
-fn build_mri(output: &std::path::Path, ar: &str, libraries: &BTreeMap<String, BTreeMap<String, lib::CallingConvention>>) {
+fn build_mri(
+    output: &std::path::Path,
+    ar: &str,
+    libraries: &BTreeMap<String, BTreeMap<String, lib::CallingConvention>>,
+) {
     let mri_path = output.join("unified.mri");
     let mut mri = std::fs::File::create(&mri_path).unwrap();
     println!("Generating {}", mri_path.to_string_lossy());
 
-    mri.write_all(format!("CREATE libwindows.{}.a\n", std::env!("CARGO_PKG_VERSION")).as_bytes()).unwrap();
+    mri.write_all(format!("CREATE libwindows.{}.a\n", std::env!("CARGO_PKG_VERSION")).as_bytes())
+        .unwrap();
 
     for library in libraries.keys() {
-        mri.write_all(format!("ADDLIB lib{library}.a\n").as_bytes()).unwrap();
+        mri.write_all(format!("ADDLIB lib{library}.a\n").as_bytes())
+            .unwrap();
     }
 
     mri.write_all(b"SAVE\nEND\n").unwrap();

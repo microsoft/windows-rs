@@ -9,6 +9,3 @@ path = "../../libs/core"
 
 [dependencies.windows-targets]
 path = "../../libs/targets"
-
-[build-dependencies.windows-bindgen]
-path = "../../libs/bindgen"

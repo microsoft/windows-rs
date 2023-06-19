@@ -15,9 +15,7 @@ features = [
     "Win32_Foundation",
 ]
 
-[build-dependencies]
-bindgen = { package = "windows-bindgen", path = "../../libs/bindgen" }
-metadata = { package = "windows-metadata", path = "../../libs/metadata" }
-
+# TODO: this causes a warning about lack of linkage target. The point is to ensure that this binary dependency is built first but 
+# I'm not sure how to do that without this spurious warning.
 [build-dependencies.test_component]
 path = "../component"

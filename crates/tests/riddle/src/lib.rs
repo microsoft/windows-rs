@@ -1,6 +1,7 @@
 use std::process::Command;
 
-pub fn run_riddle(idl: &str) -> String {
+pub fn run_riddle(idl: &str) -> Vec<windows_metadata::File> {
+    let before = std::fs::read_to_string(idl).expect("Failed to read input");
     let mut command = Command::new("cargo.exe");
 
     command
@@ -18,18 +19,21 @@ pub fn run_riddle(idl: &str) -> String {
         .into_owned();
 
     let mut command = Command::new("riddle.exe");
-    command.arg("-in").arg(idl).arg("-out").arg(&winmd);
+    command.args(["-in", idl, "-out", &winmd, "-filter", "Test"]);
 
-    if !command.status().unwrap().success() {
-        panic!("Failed to run riddle");
-    }
+    assert!(command.status().unwrap().success());
 
     let mut command = Command::new("riddle.exe");
-    command.arg("-in").arg(&winmd).arg("-out").arg(idl);
+    command.args(["-in", &winmd, "-out", idl, "-filter", "Test"]);
+    assert!(command.status().unwrap().success());
 
-    if !command.status().unwrap().success() {
-        panic!("Failed to run riddle");
-    }
+    let after = std::fs::read_to_string(idl).expect("Failed to read output");
+    assert_eq!(before, after);
 
-    winmd
+    let mut files = tool_lib::default_metadata();
+    files.push(
+        windows_metadata::File::new(std::fs::read(winmd).expect("failed to read winmd"))
+            .expect("failed to parse winmd"),
+    );
+    files
 }

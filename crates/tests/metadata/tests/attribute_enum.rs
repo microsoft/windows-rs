@@ -1,8 +1,8 @@
-use metadata::reader::{Attribute, File, Reader, TypeName, Value};
+use metadata::{Attribute, Reader, TypeName, Value};
 
 #[test]
 fn attribute_enum() {
-    let files = File::with_default(&[]).unwrap();
+    let files = tool_lib::default_metadata();
     let reader = &Reader::new(&files);
 
     let method = reader
