@@ -26,7 +26,7 @@ impl File {
         writer::Writer::new(self).into_string()
     }
 
-    pub fn to_winmd(mut self) -> Result<Vec<u8>> {
+    pub fn into_winmd(mut self) -> Result<Vec<u8>> {
         self.canonicalize()?;
         to_winmd::idl_to_winmd(&self)
     }

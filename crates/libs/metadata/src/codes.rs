@@ -1,6 +1,6 @@
 use super::*;
 
-pub trait Decode {
+pub(crate) trait Decode {
     fn decode(file: usize, code: usize) -> Self;
 }
 

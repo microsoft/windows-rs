@@ -238,7 +238,7 @@ fn read_file_lines(path: &str) -> Result<Vec<String>> {
 fn read_idl_file(path: &str) -> Result<metadata::File> {
     read_file_text(path)
         .and_then(|source| idl::File::parse_str(&source))
-        .and_then(|file| file.to_winmd())
+        .and_then(|file| file.into_winmd())
         .map(|bytes| {
             // TODO: Write bytes to file if you need to debug the intermediate .winmd file like so:
             // _ = write_to_file("temp.winmd", &bytes);
