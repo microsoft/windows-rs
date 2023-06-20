@@ -2,6 +2,7 @@
 name = "sample_message_box_sys"
 version = "0.0.0"
 edition = "2018"
+publish = false
 
 [dependencies.windows-sys]
 path = "../../../libs/sys"
