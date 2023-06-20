@@ -12,7 +12,7 @@ env:
 jobs:
   generation:
     name: tool_${{ matrix.tool }}
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         tool: [windows, sys, yml, license, core, metadata]
