@@ -1821,12 +1821,14 @@ impl<'a> Reader<'a> {
             Type::U64 => "u8".to_string(),
             Type::F32 => "f4".to_string(),
             Type::F64 => "f8".to_string(),
+            Type::ISize => "is".to_string(),
+            Type::USize => "us".to_string(),
             Type::String => "string".to_string(),
             Type::IInspectable => "cinterface(IInspectable)".to_string(),
             Type::GUID => "g16".to_string(),
             Type::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
             Type::TypeDef(row, generics) => self.type_def_signature(*row, generics),
-            _ => unimplemented!(),
+            rest => todo!("{:?}", rest),
         }
     }
     pub fn type_is_nullable(&self, ty: &Type) -> bool {
