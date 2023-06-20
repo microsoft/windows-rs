@@ -17,7 +17,6 @@ enum ArgKind {
     Output,
     Filter,
     Config,
-    Etc,
 }
 
 fn main() {
@@ -64,7 +63,6 @@ Options:
             ArgKind::None => match arg.as_str() {
                 "-in" => kind = ArgKind::Input,
                 "-out" => kind = ArgKind::Output,
-                "-etc" => kind = ArgKind::Etc,
                 "-filter" => kind = ArgKind::Filter,
                 "-config" => kind = ArgKind::Config,
                 "-format" => format = true,
@@ -76,10 +74,6 @@ Options:
                 } else {
                     return Err(Error::new("too many outputs"));
                 }
-            }
-            ArgKind::Etc => {
-                // TODO: Move arg reader to a separate type so we can recursively call it here
-                // with the contents of the file.
             }
             ArgKind::Input => input.push(arg.as_str()),
             ArgKind::Filter => {
