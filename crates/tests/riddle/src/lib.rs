@@ -2,7 +2,7 @@ use std::process::Command;
 
 pub fn run_riddle(idl: &str) -> Vec<windows_metadata::File> {
     let before = std::fs::read_to_string(idl).expect("Failed to read input");
-    let mut command = Command::new("cargo.exe");
+    let mut command = Command::new("cargo");
 
     command
         .arg("install")

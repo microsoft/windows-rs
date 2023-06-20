@@ -22,7 +22,7 @@ fn main() {
 
     // TODO: this looks more complicated but soon the midlrt step above should disappear and then overall it should be simpler...
 
-    let mut command = std::process::Command::new("cargo.exe");
+    let mut command = std::process::Command::new("cargo");
 
     command.args([
         "run",
