@@ -1,4 +1,4 @@
-#![allow(clippy::enum_variant_names)]
+#![allow(dead_code)]
 
 /// A `ResolutionScope` is an index into a certain table indicating the scope in which a TypeRef can be resolved.
 #[derive(Clone)]

@@ -162,9 +162,3 @@ impl<const LEN: usize> StreamHeader<LEN> {
         self.offset + self.size
     }
 }
-
-fn guid_stream() -> Vec<u8> {
-    let mut buffer = Vec::new();
-    buffer.resize(16, 0); // zero guid
-    buffer
-}

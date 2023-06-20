@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 mod args;
 mod error;
 mod idl;
@@ -242,8 +240,8 @@ fn read_idl_file(path: &str) -> Result<metadata::File> {
         .and_then(|source| idl::File::parse_str(&source))
         .and_then(|file| file.to_winmd())
         .map(|bytes| {
-            // Write bytes to file if you need to debug the intermediate .winmd file like so:
-            _ = write_to_file("temp.winmd", &bytes);
+            // TODO: Write bytes to file if you need to debug the intermediate .winmd file like so:
+            // _ = write_to_file("temp.winmd", &bytes);
 
             // Unwrapping here is fine since `idl_to_winmd` should have produced a valid winmd
             metadata::File::new(bytes).unwrap()
@@ -293,10 +291,4 @@ fn extension(path: &str) -> &str {
 fn directory(path: &str) -> &str {
     path.rsplit_once(&['/', '\\'])
         .map_or("", |(directory, _)| directory)
-}
-
-fn explode(path: &str) -> (&str, &str, &str) {
-    let (directory, file_name) = path.rsplit_once(&['/', '\\']).unwrap_or(("", path));
-    let (file_name, extension) = file_name.rsplit_once('.').unwrap_or((file_name, ""));
-    (directory, file_name, extension)
 }
