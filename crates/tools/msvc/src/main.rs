@@ -54,7 +54,11 @@ changes can sneak in undetected.
     }
 
     // Clear out timestamps in the resulting library.
-    let mut archive = std::fs::File::options().read(true).write(true).open(output.join("windows.lib")).unwrap();
+    let mut archive = std::fs::File::options()
+        .read(true)
+        .write(true)
+        .open(output.join("windows.lib"))
+        .unwrap();
     let len = archive.metadata().unwrap().len();
     let mut header = [0u8; 8];
     archive.read_exact(&mut header).unwrap();
@@ -64,7 +68,16 @@ changes can sneak in undetected.
         assert_eq!(archive.write(b"-1          ").unwrap(), 12); // replace archive timestamp
         let mut buf = [0u8; 32];
         archive.read_exact(&mut buf).unwrap(); // remainder of the archive member header
-        let mut size = i64::from_str(std::str::from_utf8(buf[20..][..10].split(u8::is_ascii_whitespace).next().unwrap()).unwrap()).unwrap();
+        let mut size = i64::from_str(
+            std::str::from_utf8(
+                buf[20..][..10]
+                    .split(u8::is_ascii_whitespace)
+                    .next()
+                    .unwrap(),
+            )
+            .unwrap(),
+        )
+        .unwrap();
         // The first two members are indexes, skip them.
         if num > 3 {
             archive.read_exact(&mut buf[..4]).unwrap(); // member header
@@ -82,10 +95,21 @@ changes can sneak in undetected.
 
     std::fs::remove_dir_all(format!("crates/targets/{platform}/lib")).unwrap();
     std::fs::create_dir_all(format!("crates/targets/{platform}/lib")).unwrap();
-    std::fs::rename(output.join("windows.lib"), format!("crates/targets/{platform}/lib/windows.{}.lib", std::env!("CARGO_PKG_VERSION"))).unwrap();
+    std::fs::rename(
+        output.join("windows.lib"),
+        format!(
+            "crates/targets/{platform}/lib/windows.{}.lib",
+            std::env!("CARGO_PKG_VERSION")
+        ),
+    )
+    .unwrap();
 }
 
-fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, lib::CallingConvention>) {
+fn build_library(
+    output: &std::path::Path,
+    library: &str,
+    functions: &BTreeMap<String, lib::CallingConvention>,
+) {
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
 
     let mut path = std::path::PathBuf::from(output);

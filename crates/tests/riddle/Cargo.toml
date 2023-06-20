@@ -6,3 +6,6 @@ edition = "2018"
 
 [dependencies.windows-metadata]
 path = "../../libs/metadata"
+
+[dependencies.tool_lib]
+path = "../../tools/lib"

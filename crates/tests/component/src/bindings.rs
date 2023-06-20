@@ -5,6 +5,99 @@
     dead_code,
     clippy::all
 )]
+pub mod Nested {
+    #![allow(
+        non_snake_case,
+        non_upper_case_globals,
+        non_camel_case_types,
+        dead_code,
+        clippy::all
+    )]
+    #[repr(transparent)]
+    pub struct IThing(::windows_core::IUnknown);
+    impl IThing {
+        pub fn Method(&self) -> ::windows_core::Result<()> {
+            let this = self;
+            unsafe {
+                (::windows_core::Interface::vtable(this).Method)(::windows_core::Interface::as_raw(
+                    this,
+                ))
+                .ok()
+            }
+        }
+    }
+    ::windows_core::imp::interface_hierarchy!(
+        IThing,
+        ::windows_core::IUnknown,
+        ::windows_core::IInspectable
+    );
+    impl ::core::cmp::PartialEq for IThing {
+        fn eq(&self, other: &Self) -> bool {
+            self.0 == other.0
+        }
+    }
+    impl ::core::cmp::Eq for IThing {}
+    impl ::core::fmt::Debug for IThing {
+        fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+            f.debug_tuple("IThing").field(&self.0).finish()
+        }
+    }
+    impl ::windows_core::RuntimeType for IThing {
+        const SIGNATURE: ::windows_core::imp::ConstBuffer =
+            ::windows_core::imp::ConstBuffer::from_slice(b"{5448be22-9873-5ae6-9106-f6e8455d2fdd}");
+    }
+    unsafe impl ::windows_core::Interface for IThing {
+        type Vtable = IThing_Vtbl;
+    }
+    impl ::core::clone::Clone for IThing {
+        fn clone(&self) -> Self {
+            Self(self.0.clone())
+        }
+    }
+    unsafe impl ::windows_core::ComInterface for IThing {
+        const IID: ::windows_core::GUID =
+            ::windows_core::GUID::from_u128(0x5448be22_9873_5ae6_9106_f6e8455d2fdd);
+    }
+    #[repr(C)]
+    #[doc(hidden)]
+    pub struct IThing_Vtbl {
+        pub base__: ::windows_core::IInspectable_Vtbl,
+        pub Method:
+            unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    }
+    pub trait IThing_Impl: Sized {
+        fn Method(&self) -> ::windows_core::Result<()>;
+    }
+    impl ::windows_core::RuntimeName for IThing {
+        const NAME: &'static str = "test_component.Nested.IThing";
+    }
+    impl IThing_Vtbl {
+        pub const fn new<
+            Identity: ::windows_core::IUnknownImpl<Impl = Impl>,
+            Impl: IThing_Impl,
+            const OFFSET: isize,
+        >() -> IThing_Vtbl {
+            unsafe extern "system" fn Method<
+                Identity: ::windows_core::IUnknownImpl<Impl = Impl>,
+                Impl: IThing_Impl,
+                const OFFSET: isize,
+            >(
+                this: *mut ::core::ffi::c_void,
+            ) -> ::windows_core::HRESULT {
+                let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+                let this = (*this).get_impl();
+                this.Method().into()
+            }
+            Self {
+                base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IThing, OFFSET>(),
+                Method: Method::<Identity, Impl, OFFSET>,
+            }
+        }
+        pub fn matches(iid: &::windows_core::GUID) -> bool {
+            iid == &<IThing as ::windows_core::ComInterface>::IID
+        }
+    }
+}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IClass(::windows_core::IUnknown);

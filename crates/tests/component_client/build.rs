@@ -1,16 +1,23 @@
-use std::fs::*;
+fn main() {
+    let mut command = std::process::Command::new("cargo.exe");
 
-fn main() -> std::io::Result<()> {
-    create_dir_all(".windows/winmd")?;
-    copy(
-        "../component/.windows/winmd/component.winmd",
-        ".windows/winmd/component.winmd",
-    )?;
-
-    let files = metadata::reader::File::with_default(&[".windows/winmd/component.winmd"])?;
-    write(
+    command.args([
+        "run",
+        "-p",
+        "riddle",
+        "--target-dir",
+        "target",
+        "--",
+        "-in",
+        "../component/component.winmd",
+        &format!("{}\\System32\\WinMetadata", env!("windir")),
+        "-out",
         "src/bindings.rs",
-        bindgen::component("test_component", &files),
-    )?;
-    Ok(())
+        "-filter",
+        "test_component",
+    ]);
+
+    if !command.status().unwrap().success() {
+        panic!("Failed to run riddle");
+    }
 }

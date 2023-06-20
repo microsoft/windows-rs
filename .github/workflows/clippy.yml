@@ -134,14 +134,12 @@ jobs:
           cargo clippy -p tool_windows &&
           cargo clippy -p tool_yml &&
           cargo clippy -p windows &&
-          cargo clippy -p windows-bindgen &&
           cargo clippy -p windows-core &&
           cargo clippy -p windows-implement &&
           cargo clippy -p windows-interface &&
           cargo clippy -p windows-metadata &&
           cargo clippy -p windows-sys &&
           cargo clippy -p windows-targets &&
-          cargo clippy -p windows-tokens &&
           cargo clippy -p windows_aarch64_gnullvm &&
           cargo clippy -p windows_aarch64_msvc &&
           cargo clippy -p windows_i686_gnu &&

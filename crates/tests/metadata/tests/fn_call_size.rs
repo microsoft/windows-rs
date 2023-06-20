@@ -1,11 +1,11 @@
-use metadata::reader::*;
+use metadata::*;
 
 #[test]
 fn size() {
     // Note: you can double check these export names from a Visual Studio x86 command prompt as follows:
     // dumpbin /exports kernel32.lib | findstr /i RtmConvertIpv6AddressAndLengthToNetAddress
 
-    let files = File::with_default(&[]).unwrap();
+    let files = tool_lib::default_metadata();
     let reader = &Reader::new(&files);
 
     assert_eq!(

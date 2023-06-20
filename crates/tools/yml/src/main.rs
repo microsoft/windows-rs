@@ -130,7 +130,11 @@ fn find<P: AsRef<Path>>(path: P, regex: &Regex, filter: bool) -> Vec<String> {
                     names.append(&mut find(file.path(), regex, filter));
                 } else if file.file_name() == "Cargo.toml" {
                     let text = std::fs::read_to_string(file.path()).expect("Cargo.toml");
-                    let name = regex.captures(&text).expect("captures").get(1).expect("name");
+                    let name = regex
+                        .captures(&text)
+                        .expect("captures")
+                        .get(1)
+                        .expect("name");
                     if !filter || !name.as_str().ends_with("_x") {
                         names.push(name.as_str().to_string());
                     }

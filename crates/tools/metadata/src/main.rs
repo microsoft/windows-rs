@@ -1,54 +1,14 @@
 fn main() {
-    let bindings = [
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_COR20_HEADER",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_DLLCHARACTERISTICS_NO_SEH",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_DLLCHARACTERISTICS_NX_COMPAT",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_FILE_32BIT_MACHINE",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_FILE_DLL",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_FILE_EXECUTABLE_IMAGE",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_FILE_HEADER",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_NT_OPTIONAL_HDR32_MAGIC",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_NT_OPTIONAL_HDR64_MAGIC",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_OPTIONAL_HEADER32",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_OPTIONAL_HEADER64",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_SECTION_HEADER",
-        "Windows.Win32.System.Diagnostics.Debug.IMAGE_SUBSYSTEM_WINDOWS_CUI",
-        "Windows.Win32.System.SystemInformation.IMAGE_FILE_MACHINE_I386",
-        "Windows.Win32.System.SystemServices.IMAGE_DOS_HEADER",
-        "Windows.Win32.System.SystemServices.IMAGE_DOS_SIGNATURE",
-        "Windows.Win32.System.SystemServices.IMAGE_NT_SIGNATURE",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_ARRAY",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_BOOLEAN",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_BYREF",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_CHAR",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_CLASS",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_CMOD_OPT",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_CMOD_REQD",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_GENERICINST",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_I",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_I1",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_I2",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_I4",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_I8",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_OBJECT",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_PTR",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_R4",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_R8",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_STRING",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_SZARRAY",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_U",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_U1",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_U2",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_U4",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_U8",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_VALUETYPE",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_VALUETYPE",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_VAR",
-        "Windows.Win32.System.WinRT.Metadata.ELEMENT_TYPE_VOID",
-    ];
+    let mut command = std::process::Command::new("cargo.exe");
 
-    let bindings = windows_bindgen::standalone_sys(&bindings);
-    std::fs::write("crates/libs/metadata/src/bindings.rs", bindings).unwrap();
+    command.args([
+        "run",
+        "-p",
+        "riddle",
+        "--",
+        "-etc",
+        "crates/tools/metadata/bindings.txt",
+    ]);
+
+    assert!(command.status().unwrap().success());
 }
