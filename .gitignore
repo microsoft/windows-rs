@@ -1,6 +1,6 @@
-.vscode
-.vs
-target
-temp
+/.vscode
+/.vs
+/target
+/temp
 *.lock
 *.winmd
