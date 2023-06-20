@@ -318,18 +318,6 @@ fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
     try_format(tokens.into_string())
 }
 
-// /// Generates bindings for a specific component namespace.
-// fn component(namespace_name: &str, files: &[File]) -> String {
-//     let reader = &Reader::new(files);
-//     let tree = reader.tree(namespace_name, &Default::default());
-//     let mut gen = Gen::new(reader);
-//     gen.namespace = tree.namespace;
-//     gen.implement = true;
-//     let mut bindings = namespace(&gen, &tree);
-//     bindings.push_str(&namespace_impl(&gen, &tree));
-//     try_format(bindings)
-// }
-
 fn allow() -> TokenStream {
     quote! {
         #![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]
