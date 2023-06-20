@@ -65,7 +65,7 @@ fn gen_file(gen: &Gen) -> Result<()> {
 
     if gen.flatten {
         let tokens = standalone::standalone_imp(gen, gen.filter.includes());
-        crate::write_to_file(gen.output, tokens)
+        crate::write_to_file(gen.output, try_format(tokens))
     } else {
         let mut tokens = String::new();
         let root = Tree::new(gen.reader, gen.filter);
@@ -74,7 +74,7 @@ fn gen_file(gen: &Gen) -> Result<()> {
             tokens.push_str(&namespace(gen, tree));
         }
 
-        crate::write_to_file(gen.output, tokens)
+        crate::write_to_file(gen.output, try_format(tokens))
     }
 }
 
@@ -97,11 +97,11 @@ fn gen_package(gen: &Gen) -> Result<()> {
             tokens.push_str("#[cfg(feature = \"implement\")]\n::core::include!(\"impl.rs\");\n");
         }
         let output = format!("{directory}/mod.rs");
-        crate::write_to_file(&output, tokens)?;
+        crate::write_to_file(&output, try_format(tokens))?;
         if !gen.sys {
             let tokens = namespace_impl(gen, tree);
             let output = format!("{directory}/impl.rs");
-            crate::write_to_file(&output, tokens)?;
+            crate::write_to_file(&output, try_format(tokens))?;
         }
         Ok::<(), Error>(())
     })?;
@@ -277,7 +277,7 @@ fn namespace(gen: &Gen, tree: &Tree) -> String {
         tokens.push_str(&namespace_impl(gen, tree));
     }
 
-    try_format(tokens.into_string())
+    tokens.into_string()
 }
 
 fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
@@ -310,7 +310,7 @@ fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
     };
 
     tokens.combine(&extensions::gen_impl(tree.namespace));
-    try_format(tokens.into_string())
+    tokens.into_string()
 }
 
 fn allow() -> TokenStream {
