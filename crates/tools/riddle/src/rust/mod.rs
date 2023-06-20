@@ -64,11 +64,6 @@ fn gen_file(gen: &Gen) -> Result<()> {
     // there should be a simple way to generate the with or without namespaces.
 
     if gen.flatten {
-        // TODO: may need to harmonize right away since the filter doesn't map nicely to the standalone_imp...
-        // maybe just enumerate filter includes for now?
-
-        // gen.namespace = "Windows.";
-
         let tokens = standalone::standalone_imp(gen, gen.filter.includes());
         crate::write_to_file(gen.output, tokens)
     } else {
@@ -317,18 +312,6 @@ fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
     tokens.combine(&extensions::gen_impl(tree.namespace));
     try_format(tokens.into_string())
 }
-
-// /// Generates bindings for a specific component namespace.
-// fn component(namespace_name: &str, files: &[File]) -> String {
-//     let reader = &Reader::new(files);
-//     let tree = reader.tree(namespace_name, &Default::default());
-//     let mut gen = Gen::new(reader);
-//     gen.namespace = tree.namespace;
-//     gen.implement = true;
-//     let mut bindings = namespace(&gen, &tree);
-//     bindings.push_str(&namespace_impl(&gen, &tree));
-//     try_format(bindings)
-// }
 
 fn allow() -> TokenStream {
     quote! {

@@ -1,3 +1,5 @@
+#![allow(non_upper_case_globals)]
+
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct TypeName<'a> {
     pub namespace: &'a str,
@@ -51,7 +53,7 @@ impl<'a> TypeName<'a> {
     }
 
     pub fn new(namespace: &'a str, name: &'a str) -> Self {
-        Self { namespace, name: trim_tick(name) }
+        Self { namespace, name: crate::trim_tick(name) }
     }
 
     pub fn parse(full_name: &'a str) -> Self {
@@ -63,13 +65,5 @@ impl<'a> TypeName<'a> {
 impl<'a> std::fmt::Display for TypeName<'a> {
     fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(fmt, "{}.{}", self.namespace, self.name)
-    }
-}
-
-pub fn trim_tick(name: &str) -> &str {
-    if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
-        &name[..name.len() - 2]
-    } else {
-        name
     }
 }

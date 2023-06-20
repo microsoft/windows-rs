@@ -1,8 +1,8 @@
 [package]
 name = "test_sys"
 version = "0.0.0"
-authors = ["Microsoft"]
 edition = "2018"
+publish = false
 
 [dependencies.windows-sys]
 path = "../../libs/sys"

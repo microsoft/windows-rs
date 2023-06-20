@@ -1,8 +1,8 @@
 [package]
 name = "test_readme"
 version = "0.0.0"
-authors = ["Microsoft"]
 edition = "2018"
+publish = false
 
 [dependencies.windows]
 version = "0.48"

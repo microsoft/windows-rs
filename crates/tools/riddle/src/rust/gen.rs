@@ -573,7 +573,7 @@ impl<'a> Gen<'a> {
         _phantoms: &TokenStream,
         features: &TokenStream,
     ) -> TokenStream {
-        let name = trim_tick(self.reader.type_def_name(def));
+        let name = crate::trim_tick(self.reader.type_def_name(def));
         quote! {
             #features
             impl<#constraints> ::core::cmp::PartialEq for #ident {

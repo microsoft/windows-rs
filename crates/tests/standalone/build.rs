@@ -158,7 +158,7 @@ fn riddle(output: &str, filter: &[&str], config: &[&str]) {
         "-p",
         "riddle",
         "--target-dir",
-        "target", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
+        "../../../target/test_standalone", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
         "--",
         "-in",
         "../../libs/metadata/default",

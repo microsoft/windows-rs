@@ -10,37 +10,37 @@ pub struct File {
 }
 
 #[derive(Default)]
-pub struct Table {
-    pub offset: usize,
+pub(crate) struct Table {
+    offset: usize,
     pub len: usize,
-    pub width: usize,
-    pub columns: [Column; 6],
+    width: usize,
+    columns: [Column; 6],
 }
 
 #[derive(Default)]
-pub struct Column {
+struct Column {
     pub offset: usize,
     pub width: usize,
 }
 
-pub const TABLE_CONSTANT: usize = 0;
-pub const TABLE_CUSTOMATTRIBUTE: usize = 1;
-pub const TABLE_FIELD: usize = 2;
-pub const TABLE_GENERICPARAM: usize = 3;
-pub const TABLE_INTERFACEIMPL: usize = 4;
-pub const TABLE_MEMBERREF: usize = 5;
-pub const TABLE_METHODDEF: usize = 6;
-pub const TABLE_PARAM: usize = 7;
-pub const TABLE_TYPEDEF: usize = 8;
-pub const TABLE_TYPEREF: usize = 9;
-pub const TABLE_TYPESPEC: usize = 10;
-pub const TABLE_IMPLMAP: usize = 11;
-pub const TABLE_MODULEREF: usize = 12;
-pub const TABLE_NESTEDCLASS: usize = 13;
-pub const TABLE_MODULE: usize = 14;
-pub const TABLE_ASSEMBLYREF: usize = 15;
-pub const TABLE_CLASSLAYOUT: usize = 16;
-pub const TABLE_LEN: usize = 17;
+pub(crate) const TABLE_CONSTANT: usize = 0;
+pub(crate) const TABLE_CUSTOMATTRIBUTE: usize = 1;
+pub(crate) const TABLE_FIELD: usize = 2;
+pub(crate) const TABLE_GENERICPARAM: usize = 3;
+pub(crate) const TABLE_INTERFACEIMPL: usize = 4;
+pub(crate) const TABLE_MEMBERREF: usize = 5;
+pub(crate) const TABLE_METHODDEF: usize = 6;
+pub(crate) const TABLE_PARAM: usize = 7;
+pub(crate) const TABLE_TYPEDEF: usize = 8;
+pub(crate) const TABLE_TYPEREF: usize = 9;
+pub(crate) const TABLE_TYPESPEC: usize = 10;
+pub(crate) const TABLE_IMPLMAP: usize = 11;
+pub(crate) const TABLE_MODULEREF: usize = 12;
+pub(crate) const TABLE_NESTEDCLASS: usize = 13;
+pub(crate) const TABLE_MODULE: usize = 14;
+pub(crate) const TABLE_ASSEMBLYREF: usize = 15;
+pub(crate) const TABLE_CLASSLAYOUT: usize = 16;
+pub(crate) const TABLE_LEN: usize = 17;
 
 type Result<T> = std::result::Result<T, ()>;
 
@@ -310,7 +310,7 @@ impl File {
         Ok(result)
     }
 
-    pub fn usize(&self, row: usize, table: usize, column: usize) -> usize {
+    pub(crate) fn usize(&self, row: usize, table: usize, column: usize) -> usize {
         let table = &self.tables[table];
         let column = &table.columns[column];
         let offset = table.offset + row * table.width + column.offset;
@@ -331,7 +331,7 @@ impl File {
     /// * When the offset in the string table is out of bounds.
     /// * When no null terminator can be found in the string table.
     /// * When the null-terminated string is not valid utf-8.
-    pub fn str(&self, row: usize, table: usize, column: usize) -> &str {
+    pub(crate) fn str(&self, row: usize, table: usize, column: usize) -> &str {
         let offset = self.strings + self.usize(row, table, column);
 
         let bytes = &self.bytes[offset..];
@@ -339,7 +339,7 @@ impl File {
         std::str::from_utf8(&bytes[..nul_pos]).expect("expected valid utf-8 C-string")
     }
 
-    pub fn blob(&self, row: usize, table: usize, column: usize) -> &[u8] {
+    pub(crate) fn blob(&self, row: usize, table: usize, column: usize) -> &[u8] {
         let offset = self.blobs + self.usize(row, table, column);
         let initial_byte = self.bytes[offset];
         let (blob_size, blob_size_bytes) = match initial_byte >> 5 {
@@ -356,7 +356,7 @@ impl File {
         &self.bytes[offset..offset + blob_size]
     }
 
-    pub fn equal_range(&self, table: usize, column: usize, value: usize) -> (usize, usize) {
+    pub(crate) fn equal_range(&self, table: usize, column: usize, value: usize) -> (usize, usize) {
         let mut first = 0;
         let mut last = self.tables[table].len;
         let mut count = last;
@@ -401,7 +401,7 @@ impl File {
         first
     }
 
-    pub fn upper_bound_of(&self, table: usize, mut first: usize, last: usize, column: usize, value: usize) -> usize {
+    fn upper_bound_of(&self, table: usize, mut first: usize, last: usize, column: usize, value: usize) -> usize {
         let mut count = last - first;
         while count > 0 {
             let count2 = count / 2;

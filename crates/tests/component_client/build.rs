@@ -6,7 +6,7 @@ fn main() {
         "-p",
         "riddle",
         "--target-dir",
-        "target",
+        "../../../target/test_component_client", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
         "--",
         "-in",
         "../component/component.winmd",

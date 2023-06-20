@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 mod args;
 mod error;
 mod idl;
@@ -17,7 +15,6 @@ enum ArgKind {
     Output,
     Filter,
     Config,
-    Etc,
 }
 
 fn main() {
@@ -64,7 +61,6 @@ Options:
             ArgKind::None => match arg.as_str() {
                 "-in" => kind = ArgKind::Input,
                 "-out" => kind = ArgKind::Output,
-                "-etc" => kind = ArgKind::Etc,
                 "-filter" => kind = ArgKind::Filter,
                 "-config" => kind = ArgKind::Config,
                 "-format" => format = true,
@@ -76,10 +72,6 @@ Options:
                 } else {
                     return Err(Error::new("too many outputs"));
                 }
-            }
-            ArgKind::Etc => {
-                // TODO: Move arg reader to a separate type so we can recursively call it here
-                // with the contents of the file.
             }
             ArgKind::Input => input.push(arg.as_str()),
             ArgKind::Filter => {
@@ -246,10 +238,10 @@ fn read_file_lines(path: &str) -> Result<Vec<String>> {
 fn read_idl_file(path: &str) -> Result<metadata::File> {
     read_file_text(path)
         .and_then(|source| idl::File::parse_str(&source))
-        .and_then(|file| file.to_winmd())
+        .and_then(|file| file.into_winmd())
         .map(|bytes| {
-            // Write bytes to file if you need to debug the intermediate .winmd file like so:
-            _ = write_to_file("temp.winmd", &bytes);
+            // TODO: Write bytes to file if you need to debug the intermediate .winmd file like so:
+            // _ = write_to_file("temp.winmd", &bytes);
 
             // Unwrapping here is fine since `idl_to_winmd` should have produced a valid winmd
             metadata::File::new(bytes).unwrap()
@@ -301,8 +293,10 @@ fn directory(path: &str) -> &str {
         .map_or("", |(directory, _)| directory)
 }
 
-fn explode(path: &str) -> (&str, &str, &str) {
-    let (directory, file_name) = path.rsplit_once(&['/', '\\']).unwrap_or(("", path));
-    let (file_name, extension) = file_name.rsplit_once('.').unwrap_or((file_name, ""));
-    (directory, file_name, extension)
+fn trim_tick(name: &str) -> &str {
+    if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
+        &name[..name.len() - 2]
+    } else {
+        name
+    }
 }

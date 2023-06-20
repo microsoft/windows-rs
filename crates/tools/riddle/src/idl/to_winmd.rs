@@ -377,7 +377,7 @@ fn syn_path(namespace: &str, path: &syn::Path) -> winmd::Type {
         }
     }
 
-    // TODO: Here we assume that paths are absoluate since there's now way to disambiguate between nested and absoluate paths
+    // TODO: Here we assume that paths are absolute since there's no way to disambiguate between nested and absolute paths
     // The canonicalize function preprocesses the IDL to make this work
 
     let mut builder = vec![];

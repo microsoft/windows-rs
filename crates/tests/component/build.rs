@@ -29,7 +29,7 @@ fn main() {
         "-p",
         "riddle",
         "--target-dir",
-        "target", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
+        "../../../target/test_component", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
         "--",
         "-in",
         "component.winmd",

@@ -1,5 +1,3 @@
-#![allow(non_upper_case_globals)]
-
 #[doc(hidden)]
 pub mod imp;
 
@@ -14,22 +12,21 @@ mod r#type;
 mod type_name;
 
 pub use attributes::*;
-pub use blob::*;
+pub use blob::Blob;
 pub use codes::*;
 pub use file::*;
-pub use filter::*;
-pub use guid::*;
-pub use r#type::*;
-pub use row::*;
-pub use type_name::*;
-
+pub use filter::Filter;
+pub use guid::GUID;
 use imp::*;
+pub use r#type::Type;
+use row::Row;
 use std::collections::*;
+pub use type_name::TypeName;
 
 macro_rules! tables {
     ($($name:ident,)*) => ($(
         #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
-        pub struct $name(pub Row);
+        pub struct $name(Row);
     )*)
 }
 
@@ -1903,6 +1900,14 @@ impl<'a> Reader<'a> {
             Type::TypeDef(row, _) => self.type_def_is_handle(*row) || self.type_def_kind(*row) == TypeKind::Enum,
             _ => false,
         }
+    }
+}
+
+fn trim_tick(name: &str) -> &str {
+    if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
+        &name[..name.len() - 2]
+    } else {
+        name
     }
 }
 
