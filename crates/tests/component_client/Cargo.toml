@@ -16,6 +16,6 @@ features = [
 ]
 
 # TODO: this causes a warning about lack of linkage target. The point is to ensure that this binary dependency is built first but 
-# I'm not sure how to do that without this spurious warning.
+# Cargo doesn't respect cdylib targets. https://github.com/rust-lang/cargo/issues/7825
 [build-dependencies.test_component]
 path = "../component"
