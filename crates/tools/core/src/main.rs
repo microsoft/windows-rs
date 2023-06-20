@@ -1,5 +1,5 @@
 fn main() {
-    let mut command = std::process::Command::new("cargo.exe");
+    let mut command = std::process::Command::new("cargo");
 
     command.args([
         "run",
@@ -12,7 +12,7 @@ fn main() {
 
     assert!(command.status().unwrap().success());
 
-    let mut command = std::process::Command::new("cargo.exe");
+    let mut command = std::process::Command::new("cargo");
 
     command.args([
         "run",
