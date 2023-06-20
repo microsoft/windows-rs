@@ -151,7 +151,7 @@ fn write_std(output: &str, filter: &[&str]) {
 }
 
 fn riddle(output: &str, filter: &[&str], config: &[&str]) {
-    let mut command = std::process::Command::new("cargo.exe");
+    let mut command = std::process::Command::new("cargo");
 
     command.args([
         "run",
