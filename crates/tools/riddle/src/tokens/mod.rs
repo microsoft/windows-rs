@@ -441,14 +441,6 @@ pub fn to_ident(name: &str) -> TokenStream {
         | "try" | "async" | "await" | "dyn" => format!("r#{name}").into(),
         "Self" | "self" => format!("{name}_").into(),
         "_" => "unused".into(),
-        _ => trim_tick(name).into(),
-    }
-}
-
-fn trim_tick(name: &str) -> &str {
-    if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
-        &name[..name.len() - 2]
-    } else {
-        name
+        _ => crate::trim_tick(name).into(),
     }
 }

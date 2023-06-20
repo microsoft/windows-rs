@@ -34,7 +34,7 @@ pub enum Type {
     PCSTR,
     PCWSTR,
     BSTR,
-    TypeName, // TODO: maybe call this DeferredTypeName since its used to indicate that the type name follows in the blob's value stream.
+    TypeName,
     TypeRef(TypeName),
     GenericParam(String),
     MutPtr(Box<Self>, usize),

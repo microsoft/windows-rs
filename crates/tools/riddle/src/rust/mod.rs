@@ -64,11 +64,6 @@ fn gen_file(gen: &Gen) -> Result<()> {
     // there should be a simple way to generate the with or without namespaces.
 
     if gen.flatten {
-        // TODO: may need to harmonize right away since the filter doesn't map nicely to the standalone_imp...
-        // maybe just enumerate filter includes for now?
-
-        // gen.namespace = "Windows.";
-
         let tokens = standalone::standalone_imp(gen, gen.filter.includes());
         crate::write_to_file(gen.output, tokens)
     } else {
