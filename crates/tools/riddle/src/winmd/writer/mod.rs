@@ -133,7 +133,7 @@ impl Writer {
     //             blob.extend_from_slice(value.as_bytes());
     //             blob
     //         }
-    //         _ => todo!("{:?}", value),
+    //         rest => unimplemented!("{rest:?}"),
     //     };
 
     //     self.blobs.insert(&blob)
@@ -309,7 +309,7 @@ impl Writer {
                 }
                 self.type_blob(ty, blob);
             }
-            _ => todo!("{:?}", ty),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 }

@@ -117,7 +117,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
                             ));
                         }
                     }
-                    _ => unimplemented!(),
+                    rest => unimplemented!("{rest:?}"),
                 }
 
                 bases -= 1;

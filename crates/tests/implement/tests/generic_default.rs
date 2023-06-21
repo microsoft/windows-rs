@@ -50,7 +50,7 @@ where
     <T as Type<T>>::Default: PartialEq,
 {
     fn First(&self) -> Result<IIterator<T>> {
-        todo!()
+        unimplemented!()
     }
 }
 

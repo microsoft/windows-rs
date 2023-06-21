@@ -10,19 +10,19 @@ impl GUID {
         fn unwrap_u32(value: &Value) -> u32 {
             match value {
                 Value::U32(value) => *value,
-                _ => unimplemented!(),
+                rest => unimplemented!("{rest:?}"),
             }
         }
         fn unwrap_u16(value: &Value) -> u16 {
             match value {
                 Value::U16(value) => *value,
-                _ => unimplemented!(),
+                rest => unimplemented!("{rest:?}"),
             }
         }
         fn unwrap_u8(value: &Value) -> u8 {
             match value {
                 Value::U8(value) => *value,
-                _ => unimplemented!(),
+                rest => unimplemented!("{rest:?}"),
             }
         }
         Self(unwrap_u32(&args[0].1), unwrap_u16(&args[1].1), unwrap_u16(&args[2].1), unwrap_u8(&args[3].1), unwrap_u8(&args[4].1), unwrap_u8(&args[5].1), unwrap_u8(&args[6].1), unwrap_u8(&args[7].1), unwrap_u8(&args[8].1), unwrap_u8(&args[9].1), unwrap_u8(&args[10].1))

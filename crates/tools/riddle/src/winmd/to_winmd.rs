@@ -74,6 +74,6 @@ fn writer_type(reader: &metadata::Reader, ty: &metadata::Type) -> winmd::Type {
             name: reader.type_def_name(*def).to_string(),
             generics: generics.iter().map(|ty| writer_type(reader, ty)).collect(),
         }),
-        rest => todo!("{:?}", rest),
+        rest => unimplemented!("{rest:?}"),
     }
 }

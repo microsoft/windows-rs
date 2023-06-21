@@ -30,34 +30,34 @@ impl IBackgroundTask_Impl for Borrowed {
 
 impl IBackgroundTaskInstance_Impl for Borrowed {
     fn InstanceId(&self) -> Result<GUID> {
-        todo!()
+        unimplemented!()
     }
     fn Task(&self) -> Result<BackgroundTaskRegistration> {
-        todo!()
+        unimplemented!()
     }
     fn Progress(&self) -> Result<u32> {
-        todo!()
+        unimplemented!()
     }
     fn SetProgress(&self, _value: u32) -> Result<()> {
-        todo!()
+        unimplemented!()
     }
     fn TriggerDetails(&self) -> Result<IInspectable> {
-        todo!()
+        unimplemented!()
     }
     fn Canceled(
         &self,
         _cancelhandler: Option<&BackgroundTaskCanceledEventHandler>,
     ) -> Result<EventRegistrationToken> {
-        todo!()
+        unimplemented!()
     }
     fn RemoveCanceled(&self, _cookie: &EventRegistrationToken) -> Result<()> {
-        todo!()
+        unimplemented!()
     }
     fn SuspendedCount(&self) -> Result<u32> {
         Ok(*self.0.read().unwrap())
     }
     fn GetDeferral(&self) -> Result<BackgroundTaskDeferral> {
-        todo!()
+        unimplemented!()
     }
 }
 

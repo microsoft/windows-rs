@@ -8,22 +8,22 @@ struct DataObject();
 
 impl IDataObject_Impl for DataObject {
     fn GetData(&self, _: *const FORMATETC) -> Result<STGMEDIUM> {
-        todo!()
+        unimplemented!()
     }
     fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
-        todo!()
+        unimplemented!()
     }
     fn QueryGetData(&self, _: *const FORMATETC) -> HRESULT {
-        todo!()
+        unimplemented!()
     }
     fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, _: *mut FORMATETC) -> HRESULT {
-        todo!()
+        unimplemented!()
     }
     fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<()> {
-        todo!()
+        unimplemented!()
     }
     fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
-        todo!()
+        unimplemented!()
     }
     fn DAdvise(
         &self,
@@ -37,10 +37,10 @@ impl IDataObject_Impl for DataObject {
         Ok(123)
     }
     fn DUnadvise(&self, _: u32) -> Result<()> {
-        todo!()
+        unimplemented!()
     }
     fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
-        todo!()
+        unimplemented!()
     }
 }
 
@@ -68,7 +68,7 @@ impl IDropTarget_Impl for DropTarget {
         }
     }
     fn DragOver(&self, _: MODIFIERKEYS_FLAGS, _: &POINTL, _: *mut DROPEFFECT) -> Result<()> {
-        todo!()
+        unimplemented!()
     }
     fn DragLeave(&self) -> Result<()> {
         Ok(())
@@ -80,7 +80,7 @@ impl IDropTarget_Impl for DropTarget {
         _: &POINTL,
         _: *mut DROPEFFECT,
     ) -> Result<()> {
-        todo!()
+        unimplemented!()
     }
 }
 

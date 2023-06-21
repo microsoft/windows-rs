@@ -170,13 +170,13 @@ impl<'a> Gen<'a> {
             Type::WinrtArray(ty) => self.type_name(ty),
             Type::WinrtArrayRef(ty) => self.type_name(ty),
             Type::ConstRef(ty) => self.type_name(ty),
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         }
     }
     pub fn type_vtbl_name(&self, ty: &Type) -> TokenStream {
         match ty {
             Type::TypeDef(def, generics) => self.type_def_vtbl_name(*def, generics),
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         }
     }
     pub fn type_abi_name(&self, ty: &Type) -> TokenStream {
@@ -538,7 +538,7 @@ impl<'a> Gen<'a> {
                 tokens.push('\"');
                 tokens.into()
             }
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         }
     }
     pub fn typed_value(&self, value: &Value) -> TokenStream {
@@ -558,7 +558,7 @@ impl<'a> Gen<'a> {
             Value::String(_) => {
                 quote! { &str = #literal }
             }
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 
@@ -652,7 +652,7 @@ impl<'a> Gen<'a> {
                 AsyncKind::OperationWithProgress => {
                     quote! { AsyncOperationWithProgressCompletedHandler }
                 }
-                _ => unimplemented!(),
+                rest => unimplemented!("{rest:?}"),
             };
 
             let namespace = self.namespace("Windows.Foundation");

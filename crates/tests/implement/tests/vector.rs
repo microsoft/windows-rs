@@ -53,7 +53,7 @@ where
         }
     }
     fn GetMany(&self, _startindex: u32, _items: &mut [T::Default]) -> Result<u32> {
-        todo!();
+        unimplemented!();
     }
 }
 
@@ -162,7 +162,7 @@ where
     <T as Type<T>>::Default: PartialEq + Clone,
 {
     fn First(&self) -> Result<IIterator<T>> {
-        todo!()
+        unimplemented!()
     }
 }
 

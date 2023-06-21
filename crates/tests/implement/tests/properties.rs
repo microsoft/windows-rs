@@ -19,16 +19,16 @@ impl IPropertyStore_Impl for Object {
         Ok(123)
     }
     fn GetAt(&self, _: u32, _: *mut PROPERTYKEY) -> Result<()> {
-        todo!()
+        unimplemented!()
     }
     fn GetValue(&self, _: *const PROPERTYKEY) -> Result<PROPVARIANT> {
-        todo!()
+        unimplemented!()
     }
     fn SetValue(&self, _: *const PROPERTYKEY, _: *const PROPVARIANT) -> Result<()> {
-        todo!()
+        unimplemented!()
     }
     fn Commit(&self) -> Result<()> {
-        todo!()
+        unimplemented!()
     }
 }
 

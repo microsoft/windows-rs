@@ -135,7 +135,7 @@ fn constant(gen: &Gen, def: Field) -> Option<String> {
             let args = gen.reader.attribute_args(attribute);
             match &args[0].1 {
                 Value::String(value) => value.clone(),
-                _ => unimplemented!(),
+                rest => unimplemented!("{rest:?}"),
             }
         })
 }

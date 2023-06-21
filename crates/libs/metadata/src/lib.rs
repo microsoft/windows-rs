@@ -102,7 +102,7 @@ impl SignatureParamKind {
     }
 }
 
-#[derive(PartialEq, Eq)]
+#[derive(PartialEq, Eq, Debug)]
 pub enum AsyncKind {
     None,
     Action,
@@ -330,7 +330,7 @@ impl<'a> Reader<'a> {
                 // It's impossible to know the type of a TypeRef so we just assume 32-bit integer which covers System.* attribute args
                 // reasonably well but the solution is to follow the WinRT metadata and define replacements for those attribute types.
                 Type::TypeRef(code) => Value::EnumRef(code, Box::new(values.read_integer(Type::I32))),
-                rest => todo!("{:?}", rest),
+                rest => unimplemented!("{rest:?}"),
             };
 
             args.push((String::new(), arg));
@@ -355,7 +355,7 @@ impl<'a> Reader<'a> {
                     name = values.read_str().into();
                     Value::EnumDef(def, Box::new(values.read_integer(self.type_def_underlying_type(def))))
                 }
-                _ => todo!("{:?}", arg_type),
+                rest => unimplemented!("{rest:?}"),
             };
             args.push((name, arg));
         }
@@ -396,7 +396,7 @@ impl<'a> Reader<'a> {
             Type::F32 => Value::F32(blob.read_f32()),
             Type::F64 => Value::F64(blob.read_f64()),
             Type::String => Value::String(blob.read_string()),
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 
@@ -1327,7 +1327,7 @@ impl<'a> Reader<'a> {
                         result.insert(0, Type::IUnknown);
                         break;
                     }
-                    _ => unimplemented!(),
+                    rest => unimplemented!("{rest:?}"),
                 }
             }
         }
@@ -1638,7 +1638,7 @@ impl<'a> Reader<'a> {
         match code {
             TypeDefOrRef::TypeDef(row) => TypeName::new(self.type_def_namespace(row), self.type_def_name(row)),
             TypeDefOrRef::TypeRef(row) => TypeName::new(self.type_ref_namespace(row), self.type_ref_name(row)),
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         }
     }
     fn type_stdcall(&self, ty: &Type) -> usize {
@@ -1798,7 +1798,7 @@ impl<'a> Reader<'a> {
 
                 Type::TypeDef(def, args)
             }
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         }
     }
     pub fn type_name(&self, ty: &Type) -> &str {
@@ -1828,7 +1828,7 @@ impl<'a> Reader<'a> {
             Type::GUID => "g16".to_string(),
             Type::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
             Type::TypeDef(row, generics) => self.type_def_signature(*row, generics),
-            rest => todo!("{:?}", rest),
+            rest => unimplemented!("{rest:?}"),
         }
     }
     pub fn type_is_nullable(&self, ty: &Type) -> bool {
