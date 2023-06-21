@@ -30,6 +30,7 @@ pub fn from_reader(
     gen.std = config.remove("STD").is_some();
     gen.sys = gen.std || config.remove("SYS").is_some();
     gen.implement = config.remove("IMPLEMENT").is_some();
+    gen.minimal = config.remove("MINIMAL").is_some();
 
     // TODO: get rid of this hack so it can work with any metadata
     if gen.flatten {

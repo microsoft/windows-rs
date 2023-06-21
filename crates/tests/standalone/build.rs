@@ -139,15 +139,15 @@ fn main() {
 }
 
 fn write_sys(output: &str, filter: &[&str]) {
-    riddle(output, filter, &["FLATTEN", "SYS"]);
+    riddle(output, filter, &["FLATTEN", "SYS", "MINIMAL"]);
 }
 
 fn write_win(output: &str, filter: &[&str]) {
-    riddle(output, filter, &["FLATTEN"]);
+    riddle(output, filter, &["FLATTEN", "MINIMAL"]);
 }
 
 fn write_std(output: &str, filter: &[&str]) {
-    riddle(output, filter, &["FLATTEN", "STD"]);
+    riddle(output, filter, &["FLATTEN", "STD", "MINIMAL"]);
 }
 
 fn riddle(output: &str, filter: &[&str], config: &[&str]) {

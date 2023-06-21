@@ -68,7 +68,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
                 #(#fields)*
             }
         });
-    } else if gen.package {
+    } else if !gen.minimal {
         if gen.sys {
             let fields = fields.iter().map(|(field_name, value)| {
                 quote! {

@@ -1427,6 +1427,7 @@ impl PropertyValue {
             (::windows_core::Interface::vtable(this).CreateRectArray)(::windows_core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), &mut result__).from_abi(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPropertyValueStatics<R, F: FnOnce(&IPropertyValueStatics) -> ::windows_core::Result<R>>(callback: F) -> ::windows_core::Result<R> {
         static SHARED: ::windows_core::imp::FactoryCache<PropertyValue, IPropertyValueStatics> = ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)

@@ -1058,6 +1058,7 @@ impl Uri {
             .from_abi(result__)
         }
     }
+    #[doc(hidden)]
     pub fn IUriEscapeStatics<R, F: FnOnce(&IUriEscapeStatics) -> ::windows_core::Result<R>>(
         callback: F,
     ) -> ::windows_core::Result<R> {
@@ -1065,6 +1066,7 @@ impl Uri {
             ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+    #[doc(hidden)]
     pub fn IUriRuntimeClassFactory<
         R,
         F: FnOnce(&IUriRuntimeClassFactory) -> ::windows_core::Result<R>,
@@ -1218,6 +1220,7 @@ impl WwwFormUrlDecoder {
             .from_abi(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWwwFormUrlDecoderRuntimeClassFactory<
         R,
         F: FnOnce(&IWwwFormUrlDecoderRuntimeClassFactory) -> ::windows_core::Result<R>,
