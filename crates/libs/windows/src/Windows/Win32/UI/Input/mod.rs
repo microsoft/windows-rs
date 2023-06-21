@@ -853,5 +853,3 @@ impl ::core::default::Default for RID_DEVICE_INFO_MOUSE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

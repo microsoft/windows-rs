@@ -352,5 +352,3 @@ impl ::core::default::Default for PWM_PIN_SET_POLARITY_INPUT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

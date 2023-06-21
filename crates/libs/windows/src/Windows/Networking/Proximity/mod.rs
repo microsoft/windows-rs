@@ -1613,5 +1613,3 @@ pub struct MessageTransmittedHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, messageid: i64) -> ::windows_core::HRESULT,
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -1071,5 +1071,3 @@ impl ::core::fmt::Debug for StatelessAppServiceResponseStatus {
 impl ::windows_core::RuntimeType for StatelessAppServiceResponseStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.StatelessAppServiceResponseStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

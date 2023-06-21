@@ -195,5 +195,3 @@ impl ::core::fmt::Debug for UserNotificationListenerAccessStatus {
 impl ::windows_core::RuntimeType for UserNotificationListenerAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.Management.UserNotificationListenerAccessStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

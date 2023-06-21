@@ -2277,5 +2277,3 @@ impl ::core::fmt::Debug for MiracastTransmitterAuthorizationStatus {
 impl ::windows_core::RuntimeType for MiracastTransmitterAuthorizationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Miracast.MiracastTransmitterAuthorizationStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

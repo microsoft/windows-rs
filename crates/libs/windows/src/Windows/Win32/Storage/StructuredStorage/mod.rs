@@ -135,5 +135,3 @@ impl ::core::fmt::Debug for JET_TABLEID {
 impl ::windows_core::TypeKind for JET_TABLEID {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

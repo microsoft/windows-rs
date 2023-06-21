@@ -12,5 +12,3 @@ pub mod Etw;
 pub mod ProcessSnapshotting;
 #[cfg(feature = "Win32_System_Diagnostics_ToolHelp")]
 pub mod ToolHelp;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

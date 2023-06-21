@@ -32,5 +32,3 @@ pub mod TextServices;
 pub mod WindowsAndMessaging;
 #[cfg(feature = "Win32_UI_Wpf")]
 pub mod Wpf;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

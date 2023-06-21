@@ -7582,5 +7582,3 @@ pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = ::core::option::Opti
 pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, joiner: ::windows_core::PCSTR, opts: alljoyn_sessionopts) -> i32>;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub type alljoyn_sessionportlistener_sessionjoined_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, id: u32, joiner: ::windows_core::PCSTR) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -97,5 +97,3 @@ impl ::core::fmt::Debug for HCOMDB {
 impl ::windows_core::TypeKind for HCOMDB {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

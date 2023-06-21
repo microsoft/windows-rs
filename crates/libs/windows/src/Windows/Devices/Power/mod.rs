@@ -267,5 +267,3 @@ impl ::windows_core::RuntimeName for BatteryReport {
 ::windows_core::imp::interface_hierarchy!(BatteryReport, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for BatteryReport {}
 unsafe impl ::core::marker::Sync for BatteryReport {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

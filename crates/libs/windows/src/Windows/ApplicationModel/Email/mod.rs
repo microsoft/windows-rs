@@ -6710,5 +6710,3 @@ impl ::core::fmt::Debug for EmailStoreAccessType {
 impl ::windows_core::RuntimeType for EmailStoreAccessType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Email.EmailStoreAccessType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -520,5 +520,3 @@ impl ::core::default::Default for HdmiDisplayHdr2086Metadata {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

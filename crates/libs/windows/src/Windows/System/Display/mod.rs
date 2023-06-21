@@ -70,5 +70,3 @@ impl ::windows_core::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";
 }
 ::windows_core::imp::interface_hierarchy!(DisplayRequest, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -2806,5 +2806,3 @@ impl ::core::default::Default for VSC_VK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

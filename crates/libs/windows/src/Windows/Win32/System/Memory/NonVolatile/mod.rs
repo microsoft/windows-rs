@@ -80,5 +80,3 @@ impl ::core::default::Default for NV_MEMORY_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

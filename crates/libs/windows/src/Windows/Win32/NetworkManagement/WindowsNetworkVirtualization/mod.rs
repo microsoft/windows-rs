@@ -391,5 +391,3 @@ impl ::core::default::Default for WNV_REDIRECT_PARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

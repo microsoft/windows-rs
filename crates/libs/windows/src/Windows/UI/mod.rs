@@ -1397,5 +1397,3 @@ impl ::core::default::Default for WindowId {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

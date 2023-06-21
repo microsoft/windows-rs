@@ -5483,5 +5483,3 @@ impl ::core::default::Default for HTTP_WSK_API_TIMINGS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

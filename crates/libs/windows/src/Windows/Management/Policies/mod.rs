@@ -266,5 +266,3 @@ impl ::core::fmt::Debug for NamedPolicyKind {
 impl ::windows_core::RuntimeType for NamedPolicyKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Policies.NamedPolicyKind;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

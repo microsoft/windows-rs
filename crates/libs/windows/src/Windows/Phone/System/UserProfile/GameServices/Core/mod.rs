@@ -287,5 +287,3 @@ impl ::core::fmt::Debug for GameServiceScoreKind {
 impl ::windows_core::RuntimeType for GameServiceScoreKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.System.UserProfile.GameServices.Core.GameServiceScoreKind;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

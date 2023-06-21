@@ -456,5 +456,3 @@ impl ::core::ops::Not for SHUTDOWN_REASON {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

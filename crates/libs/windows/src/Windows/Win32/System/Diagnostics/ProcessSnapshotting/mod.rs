@@ -1518,5 +1518,3 @@ impl ::core::default::Default for PSS_VA_SPACE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

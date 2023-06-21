@@ -202,5 +202,3 @@ impl ::core::default::Default for MCAST_SCOPE_ENTRY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

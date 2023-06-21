@@ -1204,5 +1204,3 @@ impl ::core::fmt::Debug for VoiceCommandContentTileType {
 impl ::windows_core::RuntimeType for VoiceCommandContentTileType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTileType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

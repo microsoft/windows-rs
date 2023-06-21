@@ -3761,5 +3761,3 @@ impl ::core::fmt::Debug for SignatureValidationResult {
 impl ::windows_core::RuntimeType for SignatureValidationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Certificates.SignatureValidationResult;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

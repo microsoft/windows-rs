@@ -319,5 +319,3 @@ impl ::core::fmt::Debug for AppCapabilityAccessStatus {
 impl ::windows_core::RuntimeType for AppCapabilityAccessStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

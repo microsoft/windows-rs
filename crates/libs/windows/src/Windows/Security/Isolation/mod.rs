@@ -2928,5 +2928,3 @@ pub struct MessageReceivedCallback_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Invoke: usize,
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

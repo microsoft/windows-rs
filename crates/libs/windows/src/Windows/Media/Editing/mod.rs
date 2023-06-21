@@ -1413,5 +1413,3 @@ impl ::core::fmt::Debug for VideoFramePrecision {
 impl ::windows_core::RuntimeType for VideoFramePrecision {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Editing.VideoFramePrecision;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

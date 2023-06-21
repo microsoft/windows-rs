@@ -2423,5 +2423,3 @@ impl ::core::default::Default for PhotoImportProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

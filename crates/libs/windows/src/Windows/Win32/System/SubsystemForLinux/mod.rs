@@ -140,5 +140,3 @@ impl ::core::ops::Not for WSL_DISTRIBUTION_FLAGS {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

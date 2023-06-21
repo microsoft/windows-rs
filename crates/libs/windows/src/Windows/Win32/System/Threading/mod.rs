@@ -6231,5 +6231,3 @@ pub type PTP_WORK_CALLBACK = ::core::option::Option<unsafe extern "system" fn(in
 pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub type WORKERCALLBACKFUNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

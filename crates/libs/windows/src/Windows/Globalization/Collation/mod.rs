@@ -240,5 +240,3 @@ impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IIterable
 impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IVectorView<CharacterGrouping>> for CharacterGroupings {}
 unsafe impl ::core::marker::Send for CharacterGroupings {}
 unsafe impl ::core::marker::Sync for CharacterGroupings {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

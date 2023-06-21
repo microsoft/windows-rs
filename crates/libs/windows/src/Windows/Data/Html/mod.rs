@@ -38,5 +38,3 @@ impl HtmlUtilities {
 impl ::windows_core::RuntimeName for HtmlUtilities {
     const NAME: &'static str = "Windows.Data.Html.HtmlUtilities";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

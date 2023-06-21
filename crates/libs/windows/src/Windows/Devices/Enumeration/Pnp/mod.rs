@@ -632,5 +632,3 @@ impl ::core::fmt::Debug for PnpObjectType {
 impl ::windows_core::RuntimeType for PnpObjectType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Enumeration.Pnp.PnpObjectType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

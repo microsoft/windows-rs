@@ -5078,5 +5078,3 @@ pub type PWINBIO_QUERY_STORAGE_INTERFACE_FN = ::core::option::Option<unsafe exte
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINBIO_VERIFY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(verifycallbackcontext: *const ::core::ffi::c_void, operationstatus: ::windows_core::HRESULT, unitid: u32, r#match: super::super::Foundation::BOOLEAN, rejectdetail: u32) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

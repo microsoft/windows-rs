@@ -42,5 +42,3 @@ where
     ::windows_targets::link!("kernel32.dll" "system" fn SetMailslotInfo(hmailslot : super::super::Foundation:: HANDLE, lreadtimeout : u32) -> super::super::Foundation:: BOOL);
     SetMailslotInfo(hmailslot.into_param().abi(), lreadtimeout).ok()
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

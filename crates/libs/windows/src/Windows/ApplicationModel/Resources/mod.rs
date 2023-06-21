@@ -301,5 +301,3 @@ impl ::windows_core::RuntimeName for ResourceLoader {
 ::windows_core::imp::interface_hierarchy!(ResourceLoader, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ResourceLoader {}
 unsafe impl ::core::marker::Sync for ResourceLoader {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

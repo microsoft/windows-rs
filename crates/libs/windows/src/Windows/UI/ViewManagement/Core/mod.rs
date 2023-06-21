@@ -1458,5 +1458,3 @@ impl ::core::fmt::Debug for CoreInputViewXYFocusTransferDirection {
 impl ::windows_core::RuntimeType for CoreInputViewXYFocusTransferDirection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.Core.CoreInputViewXYFocusTransferDirection;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

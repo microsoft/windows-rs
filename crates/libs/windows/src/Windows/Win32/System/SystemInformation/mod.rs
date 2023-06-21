@@ -2625,5 +2625,3 @@ impl ::core::default::Default for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFOR
 pub type PGET_SYSTEM_WOW64_DIRECTORY_A = ::core::option::Option<unsafe extern "system" fn(lpbuffer: ::windows_core::PSTR, usize: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub type PGET_SYSTEM_WOW64_DIRECTORY_W = ::core::option::Option<unsafe extern "system" fn(lpbuffer: ::windows_core::PWSTR, usize: u32) -> u32>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

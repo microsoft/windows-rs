@@ -5997,5 +5997,3 @@ impl ::core::fmt::Debug for GattWriteOption {
 impl ::windows_core::RuntimeType for GattWriteOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteOption;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

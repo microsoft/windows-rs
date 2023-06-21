@@ -832,5 +832,3 @@ impl ::core::fmt::Debug for EasRequireEncryptionResult {
 impl ::windows_core::RuntimeType for EasRequireEncryptionResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.ExchangeActiveSyncProvisioning.EasRequireEncryptionResult;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

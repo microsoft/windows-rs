@@ -2245,5 +2245,3 @@ impl ::core::fmt::Debug for WindowsUpdateAttentionRequiredReason {
 impl ::windows_core::RuntimeType for WindowsUpdateAttentionRequiredReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsUpdateAttentionRequiredReason;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -3122,5 +3122,3 @@ impl ::core::default::Default for HolographicStereoTransform {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

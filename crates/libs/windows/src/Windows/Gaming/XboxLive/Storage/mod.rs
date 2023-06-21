@@ -1094,5 +1094,3 @@ impl ::core::fmt::Debug for GameSaveErrorStatus {
 impl ::windows_core::RuntimeType for GameSaveErrorStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.XboxLive.Storage.GameSaveErrorStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

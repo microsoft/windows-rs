@@ -122,5 +122,3 @@ impl ::windows_core::RuntimeName for CompositorController {
 impl ::windows_core::CanTryInto<super::super::super::Foundation::IClosable> for CompositorController {}
 unsafe impl ::core::marker::Send for CompositorController {}
 unsafe impl ::core::marker::Sync for CompositorController {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

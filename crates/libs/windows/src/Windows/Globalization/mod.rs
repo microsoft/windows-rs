@@ -3678,5 +3678,3 @@ impl ::core::fmt::Debug for LanguageLayoutDirection {
 impl ::windows_core::RuntimeType for LanguageLayoutDirection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.LanguageLayoutDirection;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

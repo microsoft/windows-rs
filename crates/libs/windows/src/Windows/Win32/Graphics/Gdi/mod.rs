@@ -16840,5 +16840,3 @@ pub type MONITORENUMPROC = ::core::option::Option<unsafe extern "system" fn(para
 pub type READEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub type WRITEEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *const ::core::ffi::c_void, param2: u32) -> u32>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

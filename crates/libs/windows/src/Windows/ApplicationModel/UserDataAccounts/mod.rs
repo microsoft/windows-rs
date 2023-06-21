@@ -958,5 +958,3 @@ impl ::core::fmt::Debug for UserDataAccountStoreAccessType {
 impl ::windows_core::RuntimeType for UserDataAccountStoreAccessType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreAccessType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

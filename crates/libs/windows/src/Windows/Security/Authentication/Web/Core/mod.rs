@@ -1360,5 +1360,3 @@ impl ::core::fmt::Debug for WebTokenRequestStatus {
 impl ::windows_core::RuntimeType for WebTokenRequestStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

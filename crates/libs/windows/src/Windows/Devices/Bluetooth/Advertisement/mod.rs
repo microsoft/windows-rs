@@ -1947,5 +1947,3 @@ impl ::core::fmt::Debug for BluetoothLEScanningMode {
 impl ::windows_core::RuntimeType for BluetoothLEScanningMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.Advertisement.BluetoothLEScanningMode;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -2072,5 +2072,3 @@ pub type PFNCMHOOKPROC = ::core::option::Option<unsafe extern "system" fn(hwnddi
 #[doc = "*Required features: `\"Win32_Security_Cryptography_UI\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNTRUSTHELPER = ::core::option::Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, lcustdata: super::super::super::Foundation::LPARAM, fleafcertificate: super::super::super::Foundation::BOOL, pbtrustblob: *mut u8) -> ::windows_core::HRESULT>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

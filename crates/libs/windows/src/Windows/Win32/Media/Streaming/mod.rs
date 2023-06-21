@@ -461,5 +461,3 @@ impl ::core::default::Default for MetadataTimeStamps {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

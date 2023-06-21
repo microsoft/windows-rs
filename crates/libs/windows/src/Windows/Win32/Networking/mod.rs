@@ -24,5 +24,3 @@ pub mod WinInet;
 pub mod WinSock;
 #[cfg(feature = "Win32_Networking_WindowsWebServices")]
 pub mod WindowsWebServices;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

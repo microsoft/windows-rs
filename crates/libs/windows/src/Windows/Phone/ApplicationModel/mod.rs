@@ -101,5 +101,3 @@ impl ::core::ops::Not for ApplicationProfileModes {
 impl ::windows_core::RuntimeType for ApplicationProfileModes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.ApplicationModel.ApplicationProfileModes;u4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -5067,5 +5067,3 @@ pub type PDNS_SERVICE_RESOLVE_COMPLETE = ::core::option::Option<unsafe extern "s
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PMDNS_QUERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

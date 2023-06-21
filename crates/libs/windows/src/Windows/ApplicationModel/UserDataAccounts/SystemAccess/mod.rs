@@ -993,5 +993,3 @@ impl ::core::fmt::Debug for DeviceAccountSyncScheduleKind {
 impl ::windows_core::RuntimeType for DeviceAccountSyncScheduleKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountSyncScheduleKind;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

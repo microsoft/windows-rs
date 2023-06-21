@@ -74,5 +74,3 @@ impl ::core::default::Default for UAL_DATA_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

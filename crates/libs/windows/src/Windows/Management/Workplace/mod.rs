@@ -159,5 +159,3 @@ impl ::core::fmt::Debug for MessagingSyncPolicy {
 impl ::windows_core::RuntimeType for MessagingSyncPolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Workplace.MessagingSyncPolicy;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

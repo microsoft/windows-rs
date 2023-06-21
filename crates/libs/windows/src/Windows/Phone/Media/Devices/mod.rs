@@ -234,5 +234,3 @@ impl ::core::ops::Not for AvailableAudioRoutingEndpoints {
 impl ::windows_core::RuntimeType for AvailableAudioRoutingEndpoints {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Media.Devices.AvailableAudioRoutingEndpoints;u4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

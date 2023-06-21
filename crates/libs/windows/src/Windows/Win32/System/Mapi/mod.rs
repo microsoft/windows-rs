@@ -424,5 +424,3 @@ pub type LPMAPISENDDOCUMENTS = ::core::option::Option<unsafe extern "system" fn(
 pub type LPMAPISENDMAIL = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *mut MapiMessage, flflags: u32, ulreserved: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_System_Mapi\"`*"]
 pub type LPMAPISENDMAILW = ::core::option::Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpmessage: *const MapiMessageW, flflags: u32, ulreserved: u32) -> u32>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

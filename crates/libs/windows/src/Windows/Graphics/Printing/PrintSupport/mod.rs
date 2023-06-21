@@ -1190,5 +1190,3 @@ impl ::core::fmt::Debug for WorkflowPrintTicketValidationStatus {
 impl ::windows_core::RuntimeType for WorkflowPrintTicketValidationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.WorkflowPrintTicketValidationStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

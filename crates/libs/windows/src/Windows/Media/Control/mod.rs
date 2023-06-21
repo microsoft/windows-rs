@@ -1414,5 +1414,3 @@ impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackSta
 impl ::windows_core::RuntimeType for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

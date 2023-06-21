@@ -1489,5 +1489,3 @@ impl ::core::fmt::Debug for WiFiWpsKind {
 impl ::windows_core::RuntimeType for WiFiWpsKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFi.WiFiWpsKind;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

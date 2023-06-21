@@ -475,5 +475,3 @@ impl ::core::fmt::Debug for HostNameType {
 impl ::windows_core::RuntimeType for HostNameType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.HostNameType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

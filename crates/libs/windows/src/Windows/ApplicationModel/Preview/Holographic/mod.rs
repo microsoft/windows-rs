@@ -204,5 +204,3 @@ impl ::windows_core::RuntimeName for HolographicKeyboardPlacementOverridePreview
 unsafe impl ::core::marker::Send for HolographicKeyboardPlacementOverridePreview {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for HolographicKeyboardPlacementOverridePreview {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

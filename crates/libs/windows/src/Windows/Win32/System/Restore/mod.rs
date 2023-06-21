@@ -212,5 +212,3 @@ impl ::core::default::Default for STATEMGRSTATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

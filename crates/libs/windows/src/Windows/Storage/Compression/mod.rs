@@ -329,5 +329,3 @@ impl ::core::fmt::Debug for CompressAlgorithm {
 impl ::windows_core::RuntimeType for CompressAlgorithm {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Compression.CompressAlgorithm;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

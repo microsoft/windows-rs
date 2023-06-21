@@ -11371,5 +11371,3 @@ pub type USER_MARSHAL_UNMARSHALLING_ROUTINE = ::core::option::Option<unsafe exte
 #[doc = "*Required features: `\"Win32_System_Rpc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type XMIT_HELPER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut MIDL_STUB_MESSAGE) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

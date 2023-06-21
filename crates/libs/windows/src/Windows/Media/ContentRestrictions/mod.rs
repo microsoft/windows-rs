@@ -496,5 +496,3 @@ impl ::core::fmt::Debug for RatedContentCategory {
 impl ::windows_core::RuntimeType for RatedContentCategory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.RatedContentCategory;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -789,5 +789,3 @@ pub type PFNREAD = ::core::option::Option<unsafe extern "system" fn(hf: isize, p
 pub type PFNSEEK = ::core::option::Option<unsafe extern "system" fn(hf: isize, dist: i32, seektype: i32) -> i32>;
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub type PFNWRITE = ::core::option::Option<unsafe extern "system" fn(hf: isize, pv: *const ::core::ffi::c_void, cb: u32) -> u32>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

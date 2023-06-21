@@ -277,5 +277,3 @@ impl ::core::fmt::Debug for ORHKEY {
 impl ::windows_core::TypeKind for ORHKEY {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

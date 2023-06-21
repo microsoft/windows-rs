@@ -799,5 +799,3 @@ impl ::core::fmt::Debug for GraphicsCaptureAccessKind {
 impl ::windows_core::RuntimeType for GraphicsCaptureAccessKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Capture.GraphicsCaptureAccessKind;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -3657,5 +3657,3 @@ pub type QUERYFORCONNECTION = ::core::option::Option<unsafe extern "system" fn(p
 #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub type VERIFYSERVERCERT = ::core::option::Option<unsafe extern "system" fn(connection: *mut LDAP, pservercert: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOLEAN>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

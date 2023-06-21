@@ -2715,5 +2715,3 @@ impl ::core::fmt::Debug for CryptographicPublicKeyBlobType {
 impl ::windows_core::RuntimeType for CryptographicPublicKeyBlobType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.Core.CryptographicPublicKeyBlobType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

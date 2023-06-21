@@ -273,5 +273,3 @@ impl ::windows_core::RuntimeName for VariablePhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoSequenceCapture";
 }
 ::windows_core::imp::interface_hierarchy!(VariablePhotoSequenceCapture, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

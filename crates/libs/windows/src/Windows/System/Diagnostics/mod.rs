@@ -1461,5 +1461,3 @@ impl ::core::fmt::Debug for DiagnosticActionState {
 impl ::windows_core::RuntimeType for DiagnosticActionState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DiagnosticActionState;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

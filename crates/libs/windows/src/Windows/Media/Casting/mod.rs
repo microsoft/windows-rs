@@ -969,5 +969,3 @@ impl ::core::ops::Not for CastingPlaybackTypes {
 impl ::windows_core::RuntimeType for CastingPlaybackTypes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Casting.CastingPlaybackTypes;u4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

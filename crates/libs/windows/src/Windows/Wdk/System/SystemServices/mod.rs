@@ -60820,5 +60820,3 @@ pub type pKdSetupPciDeviceForDebugging = ::core::option::Option<unsafe extern "s
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type pKdUnmapVirtualAddress = ::core::option::Option<unsafe extern "system" fn(virtualaddress: *const ::core::ffi::c_void, numberpages: u32, flushcurrenttlb: super::super::super::Win32::Foundation::BOOLEAN) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

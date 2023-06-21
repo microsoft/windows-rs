@@ -1284,5 +1284,3 @@ impl ::core::default::Default for DRM_LICENSE_ACQ_DATA {
 }
 #[doc = "*Required features: `\"Win32_Data_RightsManagement\"`*"]
 pub type DRMCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: ::windows_core::HRESULT, param2: *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

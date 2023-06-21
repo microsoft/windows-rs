@@ -196,5 +196,3 @@ impl ::windows_core::RuntimeName for EnterpriseKeyCredentialRegistrationManager 
 ::windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationManager {}
 unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationManager {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

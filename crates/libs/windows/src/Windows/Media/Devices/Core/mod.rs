@@ -1715,5 +1715,3 @@ impl ::core::fmt::Debug for FrameFlashMode {
 impl ::windows_core::RuntimeType for FrameFlashMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.Core.FrameFlashMode;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

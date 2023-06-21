@@ -310,5 +310,3 @@ impl ::core::fmt::Debug for AdcChannelMode {
 impl ::windows_core::RuntimeType for AdcChannelMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Adc.AdcChannelMode;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

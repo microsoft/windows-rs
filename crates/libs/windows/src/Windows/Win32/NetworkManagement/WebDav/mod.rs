@@ -256,5 +256,3 @@ impl ::core::default::Default for DAV_CALLBACK_CRED {
 pub type PFNDAVAUTHCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpwzservername: ::windows_core::PCWSTR, lpwzremotename: ::windows_core::PCWSTR, dwauthscheme: u32, dwflags: u32, pcallbackcred: *mut DAV_CALLBACK_CRED, nextstep: *mut AUTHNEXTSTEP, pfreecred: *mut PFNDAVAUTHCALLBACK_FREECRED) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub type PFNDAVAUTHCALLBACK_FREECRED = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const ::core::ffi::c_void) -> u32>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -1441,5 +1441,3 @@ impl ::core::fmt::Debug for SetImageFeedResult {
 impl ::windows_core::RuntimeType for SetImageFeedResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetImageFeedResult;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

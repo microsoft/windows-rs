@@ -779,5 +779,3 @@ impl ::core::default::Default for XINPUT_VIBRATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

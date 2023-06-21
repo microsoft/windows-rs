@@ -8232,5 +8232,3 @@ pub type JET_PFNREALLOC = ::core::option::Option<unsafe extern "system" fn(pvcon
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`, `\"Win32_Storage_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub type JET_PFNSTATUS = ::core::option::Option<unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, snp: u32, snt: u32, pv: *const ::core::ffi::c_void) -> i32>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

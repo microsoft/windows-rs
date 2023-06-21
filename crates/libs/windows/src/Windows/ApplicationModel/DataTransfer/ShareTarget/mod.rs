@@ -301,5 +301,3 @@ impl ::windows_core::RuntimeName for ShareOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation";
 }
 ::windows_core::imp::interface_hierarchy!(ShareOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

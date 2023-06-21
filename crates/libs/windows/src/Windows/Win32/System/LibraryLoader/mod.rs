@@ -778,5 +778,3 @@ pub type PGET_MODULE_HANDLE_EXA = ::core::option::Option<unsafe extern "system" 
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_MODULE_HANDLE_EXW = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, lpmodulename: ::windows_core::PCWSTR, phmodule: *mut super::super::Foundation::HMODULE) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -1877,5 +1877,3 @@ impl ::windows_core::TypeKind for EventSourceHandle {
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 pub type EVT_SUBSCRIBE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(action: EVT_SUBSCRIBE_NOTIFY_ACTION, usercontext: *const ::core::ffi::c_void, event: EVT_HANDLE) -> u32>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

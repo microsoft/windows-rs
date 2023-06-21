@@ -1980,5 +1980,3 @@ impl ::core::fmt::Debug for GetEntitlementStatus {
 impl ::windows_core::RuntimeType for GetEntitlementStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

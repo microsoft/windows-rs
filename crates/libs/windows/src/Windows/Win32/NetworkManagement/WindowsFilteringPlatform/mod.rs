@@ -14408,5 +14408,3 @@ pub type IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = ::core::option::Option<unsafe 
 pub type IPSEC_KEY_MANAGER_NOTIFY_KEY0 = ::core::option::Option<unsafe extern "system" fn(inboundsa: *const IPSEC_SA_DETAILS1, outboundsa: *const IPSEC_SA_DETAILS1) -> ()>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`*"]
 pub type IPSEC_SA_CONTEXT_CALLBACK0 = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, change: *const IPSEC_SA_CONTEXT_CHANGE0) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

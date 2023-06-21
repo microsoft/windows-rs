@@ -221,5 +221,3 @@ impl ::core::fmt::Debug for SceneLightingEffectReflectanceModel {
 impl ::windows_core::RuntimeType for SceneLightingEffectReflectanceModel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Effects.SceneLightingEffectReflectanceModel;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

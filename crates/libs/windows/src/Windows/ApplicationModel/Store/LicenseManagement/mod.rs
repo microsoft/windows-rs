@@ -315,5 +315,3 @@ impl ::core::fmt::Debug for LicenseRefreshOption {
 impl ::windows_core::RuntimeType for LicenseRefreshOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.LicenseManagement.LicenseRefreshOption;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

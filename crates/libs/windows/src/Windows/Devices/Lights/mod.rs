@@ -878,5 +878,3 @@ impl ::core::ops::Not for LampPurposes {
 impl ::windows_core::RuntimeType for LampPurposes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampPurposes;u4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

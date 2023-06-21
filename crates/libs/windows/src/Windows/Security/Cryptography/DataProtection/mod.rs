@@ -159,5 +159,3 @@ impl ::windows_core::RuntimeName for DataProtectionProvider {
 ::windows_core::imp::interface_hierarchy!(DataProtectionProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DataProtectionProvider {}
 unsafe impl ::core::marker::Sync for DataProtectionProvider {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

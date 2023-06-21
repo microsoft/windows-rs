@@ -800,5 +800,3 @@ pub type JsMemoryAllocationCallback = ::core::option::Option<unsafe extern "syst
 pub type JsNativeFunction = ::core::option::Option<unsafe extern "system" fn(callee: *const ::core::ffi::c_void, isconstructcall: bool, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, callbackstate: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub type JsThreadServiceCallback = ::core::option::Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const ::core::ffi::c_void) -> bool>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

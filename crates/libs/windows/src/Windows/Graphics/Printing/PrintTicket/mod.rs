@@ -1230,5 +1230,3 @@ impl ::core::fmt::Debug for PrintTicketValueType {
 impl ::windows_core::RuntimeType for PrintTicketValueType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintTicket.PrintTicketValueType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

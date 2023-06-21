@@ -416,5 +416,3 @@ impl ::core::fmt::Debug for IndexedResourceType {
 impl ::windows_core::RuntimeType for IndexedResourceType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Management.IndexedResourceType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

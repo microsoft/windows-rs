@@ -132,5 +132,3 @@ impl ::windows_core::RuntimeName for DeviceLockdownProfileInformation {
 ::windows_core::imp::interface_hierarchy!(DeviceLockdownProfileInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceLockdownProfileInformation {}
 unsafe impl ::core::marker::Sync for DeviceLockdownProfileInformation {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

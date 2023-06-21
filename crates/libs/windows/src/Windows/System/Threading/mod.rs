@@ -616,5 +616,3 @@ pub struct WorkItemHandler_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     Invoke: usize,
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

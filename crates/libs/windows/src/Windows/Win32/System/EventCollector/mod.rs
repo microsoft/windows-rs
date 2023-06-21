@@ -528,5 +528,3 @@ impl ::core::default::Default for EC_VARIANT_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

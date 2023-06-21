@@ -2426,5 +2426,3 @@ impl ::core::fmt::Debug for MultiSourceMediaFrameReaderStartStatus {
 impl ::windows_core::RuntimeType for MultiSourceMediaFrameReaderStartStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MultiSourceMediaFrameReaderStartStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -217,5 +217,3 @@ impl SpatialGraphInteropPreview {
 impl ::windows_core::RuntimeName for SpatialGraphInteropPreview {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.SpatialGraphInteropPreview";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

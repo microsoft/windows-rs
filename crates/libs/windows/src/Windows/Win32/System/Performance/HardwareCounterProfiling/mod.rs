@@ -137,5 +137,3 @@ impl ::core::default::Default for PERFORMANCE_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

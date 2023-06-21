@@ -704,5 +704,3 @@ impl ::core::default::Default for SAFER_URLZONE_IDENTIFICATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

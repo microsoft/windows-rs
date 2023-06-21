@@ -3313,5 +3313,3 @@ impl ::windows_core::RuntimeName for EmailMailboxValidateCertificatesRequestEven
 ::windows_core::imp::interface_hierarchy!(EmailMailboxValidateCertificatesRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for EmailMailboxValidateCertificatesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxValidateCertificatesRequestEventArgs {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

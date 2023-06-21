@@ -547,5 +547,3 @@ impl ::core::fmt::Debug for DPI_AWARENESS_CONTEXT {
 impl ::windows_core::TypeKind for DPI_AWARENESS_CONTEXT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

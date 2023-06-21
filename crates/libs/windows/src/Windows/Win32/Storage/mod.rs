@@ -46,5 +46,3 @@ pub mod VirtualDiskService;
 pub mod Vss;
 #[cfg(feature = "Win32_Storage_Xps")]
 pub mod Xps;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -1341,5 +1341,3 @@ impl ::core::ops::Not for UnsupportedAppRequirementReasons {
 impl ::windows_core::RuntimeType for UnsupportedAppRequirementReasons {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Profile.UnsupportedAppRequirementReasons;u4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

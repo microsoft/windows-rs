@@ -145,5 +145,3 @@ impl ::windows_core::RuntimeName for XsltProcessor {
 ::windows_core::imp::interface_hierarchy!(XsltProcessor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for XsltProcessor {}
 unsafe impl ::core::marker::Sync for XsltProcessor {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

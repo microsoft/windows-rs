@@ -21761,5 +21761,3 @@ impl ::core::convert::From<WIN32_ERROR> for ::windows_core::Error {
         value.to_hresult().into()
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

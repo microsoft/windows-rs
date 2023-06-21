@@ -144,5 +144,3 @@ impl ::core::default::Default for SAMPR_ENCRYPTED_USER_PASSWORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

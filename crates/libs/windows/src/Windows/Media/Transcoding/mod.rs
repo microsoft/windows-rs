@@ -407,5 +407,3 @@ impl ::core::fmt::Debug for TranscodeFailureReason {
 impl ::windows_core::RuntimeType for TranscodeFailureReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Transcoding.TranscodeFailureReason;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -14658,5 +14658,3 @@ pub type PTERMINATION_HANDLER = ::core::option::Option<unsafe extern "system" fn
 pub type PTERMINATION_HANDLER = ::core::option::Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub type PUMS_SCHEDULER_ENTRY_POINT = ::core::option::Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

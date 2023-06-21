@@ -758,5 +758,3 @@ impl ::core::default::Default for SystemHealthAgentState {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

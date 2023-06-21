@@ -85,5 +85,3 @@ pub type PFNREADOBJECTSECURITY = ::core::option::Option<unsafe extern "system" f
 #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNWRITEOBJECTSECURITY = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_core::PCWSTR, param1: u32, param2: super::PSECURITY_DESCRIPTOR, param3: super::super::Foundation::LPARAM) -> ::windows_core::HRESULT>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

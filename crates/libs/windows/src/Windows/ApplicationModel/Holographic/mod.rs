@@ -117,5 +117,3 @@ impl ::windows_core::RuntimeName for HolographicKeyboard {
 ::windows_core::imp::interface_hierarchy!(HolographicKeyboard, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for HolographicKeyboard {}
 unsafe impl ::core::marker::Sync for HolographicKeyboard {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

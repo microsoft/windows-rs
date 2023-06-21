@@ -8095,5 +8095,3 @@ pub type WHV_EMULATOR_MEMORY_CALLBACK = ::core::option::Option<unsafe extern "sy
 pub type WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, registernames: *const WHV_REGISTER_NAME, registercount: u32, registervalues: *const WHV_REGISTER_VALUE) -> ::windows_core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub type WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, gva: u64, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: *mut WHV_TRANSLATE_GVA_RESULT_CODE, gpa: *mut u64) -> ::windows_core::HRESULT>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

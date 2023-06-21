@@ -291,5 +291,3 @@ impl ::core::fmt::Debug for WalletItemAppAssociation {
 impl ::windows_core::RuntimeType for WalletItemAppAssociation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.System.WalletItemAppAssociation;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

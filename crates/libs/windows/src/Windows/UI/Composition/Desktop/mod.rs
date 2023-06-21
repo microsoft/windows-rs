@@ -192,5 +192,3 @@ impl ::windows_core::CanTryInto<super::CompositionTarget> for DesktopWindowTarge
 impl ::windows_core::CanTryInto<super::CompositionObject> for DesktopWindowTarget {}
 unsafe impl ::core::marker::Send for DesktopWindowTarget {}
 unsafe impl ::core::marker::Sync for DesktopWindowTarget {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

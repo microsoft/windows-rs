@@ -2401,5 +2401,3 @@ impl ::core::fmt::Debug for WindowingEnvironmentKind {
 impl ::windows_core::RuntimeType for WindowingEnvironmentKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.WindowManagement.WindowingEnvironmentKind;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

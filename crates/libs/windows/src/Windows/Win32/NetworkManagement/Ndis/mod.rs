@@ -10006,5 +10006,3 @@ impl ::core::default::Default for TRANSPORT_HEADER_OFFSET {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

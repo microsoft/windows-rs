@@ -1227,5 +1227,3 @@ impl ::core::fmt::Debug for StoreSystemFeature {
 impl ::windows_core::RuntimeType for StoreSystemFeature {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreSystemFeature;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

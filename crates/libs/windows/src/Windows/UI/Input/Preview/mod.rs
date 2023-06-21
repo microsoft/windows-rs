@@ -48,5 +48,3 @@ impl InputActivationListenerPreview {
 impl ::windows_core::RuntimeName for InputActivationListenerPreview {
     const NAME: &'static str = "Windows.UI.Input.Preview.InputActivationListenerPreview";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

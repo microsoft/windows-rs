@@ -454,5 +454,3 @@ impl ::core::fmt::Debug for MdmSessionState {
 impl ::windows_core::RuntimeType for MdmSessionState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.MdmSessionState;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

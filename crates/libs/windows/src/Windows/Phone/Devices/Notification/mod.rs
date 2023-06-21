@@ -101,5 +101,3 @@ impl ::windows_core::RuntimeName for VibrationDevice {
 ::windows_core::imp::interface_hierarchy!(VibrationDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for VibrationDevice {}
 unsafe impl ::core::marker::Sync for VibrationDevice {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -405,5 +405,3 @@ impl ::windows_core::RuntimeName for OcrWord {
 ::windows_core::imp::interface_hierarchy!(OcrWord, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for OcrWord {}
 unsafe impl ::core::marker::Sync for OcrWord {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

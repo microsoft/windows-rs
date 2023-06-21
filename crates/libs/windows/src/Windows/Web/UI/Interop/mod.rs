@@ -1253,5 +1253,3 @@ impl ::core::fmt::Debug for WebViewControlProcessCapabilityState {
 impl ::windows_core::RuntimeType for WebViewControlProcessCapabilityState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlProcessCapabilityState;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

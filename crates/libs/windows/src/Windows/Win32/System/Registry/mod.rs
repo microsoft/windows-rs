@@ -3455,5 +3455,3 @@ impl ::core::default::Default for val_context {
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
 pub type PQUERYHANDLER = ::core::option::Option<unsafe extern "system" fn(keycontext: *mut ::core::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut ::core::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

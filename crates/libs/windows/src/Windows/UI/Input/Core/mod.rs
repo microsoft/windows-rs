@@ -147,5 +147,3 @@ impl ::windows_core::RuntimeName for RadialControllerIndependentInputSource {
 ::windows_core::imp::interface_hierarchy!(RadialControllerIndependentInputSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RadialControllerIndependentInputSource {}
 unsafe impl ::core::marker::Sync for RadialControllerIndependentInputSource {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

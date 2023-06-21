@@ -155,5 +155,3 @@ impl ::windows_core::RuntimeName for DeviceUseDetails {
 ::windows_core::imp::interface_hierarchy!(DeviceUseDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for DeviceUseDetails {}
 unsafe impl ::core::marker::Sync for DeviceUseDetails {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

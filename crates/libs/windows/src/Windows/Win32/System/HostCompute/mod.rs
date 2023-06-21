@@ -27,5 +27,3 @@ impl ::core::fmt::Debug for HCS_CALLBACK {
 impl ::windows_core::TypeKind for HCS_CALLBACK {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

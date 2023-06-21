@@ -613,5 +613,3 @@ pub type PNS_HELPER_STOP_FN = ::core::option::Option<unsafe extern "system" fn(d
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PNS_OSVERSIONCHECK = ::core::option::Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: ::windows_core::PCWSTR, cimosbuildnumber: ::windows_core::PCWSTR, cimservicepackmajorversion: ::windows_core::PCWSTR, cimservicepackminorversion: ::windows_core::PCWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

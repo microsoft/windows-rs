@@ -2850,5 +2850,3 @@ impl ::core::ops::Not for UsbWriteOptions {
 impl ::windows_core::RuntimeType for UsbWriteOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Usb.UsbWriteOptions;u4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

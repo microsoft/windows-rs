@@ -692,5 +692,3 @@ impl ::core::fmt::Debug for SerialStopBitCount {
 impl ::windows_core::RuntimeType for SerialStopBitCount {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.SerialCommunication.SerialStopBitCount;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

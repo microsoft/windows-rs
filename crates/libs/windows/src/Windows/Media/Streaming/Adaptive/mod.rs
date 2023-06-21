@@ -2530,5 +2530,3 @@ impl ::core::fmt::Debug for AdaptiveMediaSourceResourceType {
 impl ::windows_core::RuntimeType for AdaptiveMediaSourceResourceType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceResourceType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

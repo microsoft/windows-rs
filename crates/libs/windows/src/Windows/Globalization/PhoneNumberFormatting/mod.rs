@@ -496,5 +496,3 @@ impl ::core::fmt::Debug for PredictedPhoneNumberKind {
 impl ::windows_core::RuntimeType for PredictedPhoneNumberKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.PhoneNumberFormatting.PredictedPhoneNumberKind;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");
