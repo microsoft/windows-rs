@@ -13,7 +13,7 @@ impl Decode for AttributeType {
         let (kind, row) = (code & ((1 << 3) - 1), (code >> 3) - 1);
         match kind {
             3 => Self::MemberRef(MemberRef(Row::new(row, TABLE_MEMBERREF, file))),
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 }
@@ -81,7 +81,7 @@ impl Decode for MemberRefParent {
         let (kind, row) = (code & ((1 << 3) - 1), (code >> 3) - 1);
         match kind {
             1 => Self::TypeRef(TypeRef(Row::new(row, TABLE_TYPEREF, file))),
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 }
@@ -100,7 +100,7 @@ impl Decode for TypeDefOrRef {
             0 => Self::TypeDef(TypeDef(Row::new(row, TABLE_TYPEDEF, file))),
             1 => Self::TypeRef(TypeRef(Row::new(row, TABLE_TYPEREF, file))),
             2 => Self::TypeSpec(TypeSpec(Row::new(row, TABLE_TYPESPEC, file))),
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 }
@@ -132,7 +132,7 @@ impl Decode for ResolutionScope {
             1 => Self::ModuleRef(ModuleRef(Row::new(row, TABLE_MODULEREF, file))),
             2 => Self::AssemblyRef(AssemblyRef(Row::new(row, TABLE_ASSEMBLYREF, file))),
             3 => Self::TypeRef(TypeRef(Row::new(row, TABLE_TYPEREF, file))),
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 }

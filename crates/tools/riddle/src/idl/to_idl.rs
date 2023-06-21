@@ -179,7 +179,7 @@ impl<'a> Writer<'a> {
                     quote! { #namespace#name<#(#generics,)*> }
                 }
             }
-            _ => todo!("{:?}", ty),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 

@@ -107,7 +107,7 @@ impl Writer {
         match meta {
             syn::Meta::Path(path) => self.path(path),
             syn::Meta::List(list) => self.meta_list(list),
-            rest => todo!("{:?}", rest),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 
@@ -209,7 +209,7 @@ impl Writer {
     fn pat(&mut self, pat: &syn::Pat) {
         match pat {
             syn::Pat::Ident(pat_ident) => self.pat_ident(pat_ident),
-            rest => todo!("{:?}", rest),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 
@@ -222,7 +222,7 @@ impl Writer {
             syn::Type::Path(ty) => self.type_path(ty),
             syn::Type::Ptr(ptr) => self.type_ptr(ptr),
             syn::Type::Array(array) => self.type_array(array),
-            _ => todo!("{:?}", ty),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 
@@ -238,7 +238,7 @@ impl Writer {
         match expr {
             syn::Expr::Lit(lit) => self.expr_lit(lit),
             syn::Expr::Unary(unary) => self.expr_unary(unary),
-            _ => todo!("{:?}", expr),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 

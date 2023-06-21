@@ -27,10 +27,10 @@ impl Default for Variable {
 
 impl ID3D10EffectBlendVariable_Impl for Variable {
     fn GetBlendState(&self, _: u32) -> Result<ID3D10BlendState> {
-        todo!();
+        unimplemented!();
     }
     fn GetBackingStore(&self, _: u32, _: *mut D3D10_BLEND_DESC) -> Result<()> {
-        todo!();
+        unimplemented!();
     }
 }
 
@@ -40,79 +40,79 @@ impl ID3D10EffectVariable_Impl for Variable {
         true.into()
     }
     fn GetType(&self) -> ::core::option::Option<ID3D10EffectType> {
-        todo!();
+        unimplemented!();
     }
     fn GetDesc(&self, _: *mut D3D10_EFFECT_VARIABLE_DESC) -> ::windows::core::Result<()> {
-        todo!();
+        unimplemented!();
     }
     fn GetAnnotationByIndex(&self, _: u32) -> ::core::option::Option<ID3D10EffectVariable> {
-        todo!();
+        unimplemented!();
     }
     fn GetAnnotationByName(
         &self,
         _: &::windows::core::PCSTR,
     ) -> ::core::option::Option<ID3D10EffectVariable> {
-        todo!();
+        unimplemented!();
     }
     fn GetMemberByIndex(&self, _: u32) -> ::core::option::Option<ID3D10EffectVariable> {
-        todo!();
+        unimplemented!();
     }
     fn GetMemberByName(
         &self,
         _: &::windows::core::PCSTR,
     ) -> ::core::option::Option<ID3D10EffectVariable> {
-        todo!();
+        unimplemented!();
     }
     fn GetMemberBySemantic(
         &self,
         _: &::windows::core::PCSTR,
     ) -> ::core::option::Option<ID3D10EffectVariable> {
-        todo!();
+        unimplemented!();
     }
     fn GetElement(&self, _: u32) -> ::core::option::Option<ID3D10EffectVariable> {
-        todo!();
+        unimplemented!();
     }
     fn GetParentConstantBuffer(&self) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
-        todo!();
+        unimplemented!();
     }
     fn AsScalar(&self) -> ::core::option::Option<ID3D10EffectScalarVariable> {
-        todo!();
+        unimplemented!();
     }
     fn AsVector(&self) -> ::core::option::Option<ID3D10EffectVectorVariable> {
-        todo!();
+        unimplemented!();
     }
     fn AsMatrix(&self) -> ::core::option::Option<ID3D10EffectMatrixVariable> {
-        todo!();
+        unimplemented!();
     }
     fn AsString(&self) -> ::core::option::Option<ID3D10EffectStringVariable> {
-        todo!();
+        unimplemented!();
     }
     fn AsShaderResource(&self) -> ::core::option::Option<ID3D10EffectShaderResourceVariable> {
-        todo!();
+        unimplemented!();
     }
     fn AsRenderTargetView(&self) -> ::core::option::Option<ID3D10EffectRenderTargetViewVariable> {
-        todo!();
+        unimplemented!();
     }
     fn AsDepthStencilView(&self) -> ::core::option::Option<ID3D10EffectDepthStencilViewVariable> {
-        todo!();
+        unimplemented!();
     }
     fn AsConstantBuffer(&self) -> ::core::option::Option<ID3D10EffectConstantBuffer> {
-        todo!();
+        unimplemented!();
     }
     fn AsShader(&self) -> ::core::option::Option<ID3D10EffectShaderVariable> {
-        todo!();
+        unimplemented!();
     }
     fn AsBlend(&self) -> ::core::option::Option<ID3D10EffectBlendVariable> {
-        todo!();
+        unimplemented!();
     }
     fn AsDepthStencil(&self) -> ::core::option::Option<ID3D10EffectDepthStencilVariable> {
-        todo!();
+        unimplemented!();
     }
     fn AsRasterizer(&self) -> ::core::option::Option<ID3D10EffectRasterizerVariable> {
-        todo!();
+        unimplemented!();
     }
     fn AsSampler(&self) -> ::core::option::Option<ID3D10EffectSamplerVariable> {
-        todo!();
+        unimplemented!();
     }
     fn SetRawValue(
         &self,
@@ -120,7 +120,7 @@ impl ID3D10EffectVariable_Impl for Variable {
         _: u32,
         _: u32,
     ) -> ::windows::core::Result<()> {
-        todo!();
+        unimplemented!();
     }
     fn GetRawValue(
         &self,
@@ -128,7 +128,7 @@ impl ID3D10EffectVariable_Impl for Variable {
         _: u32,
         _: u32,
     ) -> ::windows::core::Result<()> {
-        todo!();
+        unimplemented!();
     }
 }
 
@@ -136,23 +136,23 @@ struct Callback;
 
 impl IXAudio2VoiceCallback_Impl for Callback {
     fn OnVoiceProcessingPassStart(&self, _: u32) {
-        todo!()
+        unimplemented!()
     }
     fn OnVoiceProcessingPassEnd(&self) {
-        todo!()
+        unimplemented!()
     }
     fn OnStreamEnd(&self) {}
     fn OnBufferStart(&self, _: *mut std::ffi::c_void) {
-        todo!()
+        unimplemented!()
     }
     fn OnBufferEnd(&self, _: *mut std::ffi::c_void) {
-        todo!()
+        unimplemented!()
     }
     fn OnLoopEnd(&self, _: *mut std::ffi::c_void) {
-        todo!()
+        unimplemented!()
     }
     fn OnVoiceError(&self, _: *mut std::ffi::c_void, _: HRESULT) {
-        todo!()
+        unimplemented!()
     }
 }
 

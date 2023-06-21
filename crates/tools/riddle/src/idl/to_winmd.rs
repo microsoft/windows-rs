@@ -157,11 +157,11 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 
 //                     for input in &method.sig.inputs {
 //                         let syn::FnArg::Typed(pat_type) = input else {
-//                     todo!();
+//                     unimplemented!();
 //                 };
 
 //                         let syn::Pat::Ident(ref pat_ident) = *pat_type.pat else {
-//                     todo!();
+//                     unimplemented!();
 //                 };
 
 //                         let name = pat_ident.ident.to_string();
@@ -254,7 +254,7 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 //     match expr {
 //         syn::Expr::Lit(lit) => self.read_expr_lit(lit, neg),
 //         syn::Expr::Unary(unary) => self.read_expr_unary(unary),
-//         _ => todo!("{:?}", expr),
+//         rest => unimplemented!("{rest:?}"),
 //     }
 // }
 
@@ -270,7 +270,7 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 //     match lit {
 //         syn::Lit::Int(lit) => self.read_lit_int(lit, neg),
 //         syn::Lit::Str(lit) => self.read_lit_str(lit),
-//         _ => todo!("{:?}", lit),
+//         rest => unimplemented!("{rest:?}"),
 //     }
 // }
 
@@ -293,7 +293,7 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 //         "u32" => Ok(Value::U32(parse(lit, neg)?)),
 //         "i64" => Ok(Value::I64(parse(lit, neg)?)),
 //         "u64" => Ok(Value::U64(parse(lit, neg)?)),
-//         suffix => todo!("suffix {:?}", suffix),
+//         suffix => unimplemented!("suffix {:?}", suffix),
 //     }
 // }
 
@@ -302,7 +302,7 @@ fn syn_type(namespace: &str, ty: &syn::Type) -> winmd::Type {
         syn::Type::Path(ty) => syn_type_path(namespace, ty),
         syn::Type::Ptr(ptr) => syn_type_ptr(namespace, ptr),
         syn::Type::Array(array) => syn_type_array(namespace, array),
-        _ => unimplemented!(),
+        rest => unimplemented!("{rest:?}"),
     }
 }
 

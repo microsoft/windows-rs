@@ -28,7 +28,7 @@ impl IVectorView_Impl<IStringable> for Thing {
 
 impl IIterable_Impl<IStringable> for Thing {
     fn First(&self) -> Result<IIterator<IStringable>> {
-        todo!()
+        unimplemented!()
     }
 }
 

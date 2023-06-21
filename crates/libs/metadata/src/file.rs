@@ -102,7 +102,7 @@ impl File {
                 b"#~" => tables_data = (metadata_offset + stream_offset, stream_len),
                 b"#GUID" => {}
                 b"#US" => {}
-                _ => unimplemented!(),
+                rest => unimplemented!("{rest:?}"),
             }
             let mut padding = 4 - stream_name.len() % 4;
             if padding == 0 {
@@ -346,7 +346,7 @@ impl File {
             0..=3 => (initial_byte & 0x7f, 1),
             4..=5 => (initial_byte & 0x3f, 2),
             6 => (initial_byte & 0x1f, 4),
-            _ => unimplemented!(),
+            rest => unimplemented!("{rest:?}"),
         };
         let mut blob_size = blob_size as usize;
         for byte in &self.bytes[offset + 1..offset + blob_size_bytes] {
