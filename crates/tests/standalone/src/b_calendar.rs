@@ -1245,6 +1245,7 @@ impl Calendar {
             .from_abi(result__)
         }
     }
+    #[doc(hidden)]
     pub fn ICalendarFactory<R, F: FnOnce(&ICalendarFactory) -> ::windows_core::Result<R>>(
         callback: F,
     ) -> ::windows_core::Result<R> {
@@ -1252,6 +1253,7 @@ impl Calendar {
             ::windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
+    #[doc(hidden)]
     pub fn ICalendarFactory2<R, F: FnOnce(&ICalendarFactory2) -> ::windows_core::Result<R>>(
         callback: F,
     ) -> ::windows_core::Result<R> {

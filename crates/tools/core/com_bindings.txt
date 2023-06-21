@@ -1,6 +1,6 @@
 -in crates/libs/metadata/default
 -out crates/libs/core/src/imp/com_bindings.rs
--config FLATTEN
+-config FLATTEN MINIMAL
 
 -filter
     Windows.Foundation.IReference

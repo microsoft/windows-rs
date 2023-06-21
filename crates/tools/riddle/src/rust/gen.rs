@@ -18,6 +18,7 @@ pub struct Gen<'a> {
     pub sys: bool,     // gen sys-style bindings
     pub flatten: bool, // strips out namespaces - implies !package
     pub package: bool, // default is single file with no cfg - implies !flatten
+    pub minimal: bool, // strips out enumerators - in future possibly other helpers as well
 }
 
 impl<'a> Gen<'a> {
@@ -32,6 +33,7 @@ impl<'a> Gen<'a> {
             sys: false,
             flatten: false,
             package: false,
+            minimal: false,
         }
     }
 

@@ -19,7 +19,6 @@ pub struct Writer {
     pub blobs: Blobs,
     pub strings: Strings,
     pub tables: Tables,
-    pub module_scope: u32,
     pub scopes: HashMap<String, u32>,
     pub references: HashMap<String, HashMap<String, u32>>,
 }
@@ -30,7 +29,6 @@ impl Writer {
             blobs: Default::default(),
             strings: Default::default(),
             tables: Default::default(),
-            module_scope: 0,
             scopes: Default::default(),
             references: Default::default(),
         };
@@ -39,15 +37,17 @@ impl Writer {
             TypeName: writer.strings.insert("<Module>"),
             ..Default::default()
         });
+
         let name = name
             .rsplit_once(&['/', '\\'])
             .map_or(name, |(_, name)| name);
-        writer.module_scope = ResolutionScope::Module(writer.tables.Module.push2(Module {
+
+        writer.tables.Module.push(Module {
             Name: writer.strings.insert(name),
             Mvid: 1,
             ..Default::default()
-        }))
-        .encode();
+        });
+
         let name = name.rsplit_once('.').map_or(name, |(_, name)| name);
 
         writer.tables.Assembly.push(Assembly {
@@ -204,8 +204,7 @@ impl Writer {
             }
         }
 
-        // TODO? let scope = if self.module.contains_type(namespace, name) { self.module_scope } else { self.insert_scope(namespace) };
-        let scope = self.module_scope;
+        let scope = self.insert_scope(namespace);
 
         let reference = TypeDefOrRef::TypeRef(self.tables.TypeRef.push2(TypeRef {
             TypeName: self.strings.insert(name),

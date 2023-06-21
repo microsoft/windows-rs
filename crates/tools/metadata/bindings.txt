@@ -1,6 +1,6 @@
 -in crates/libs/metadata/default
 -out crates/libs/metadata/src/imp/bindings.rs
--config FLATTEN SYS
+-config FLATTEN SYS MINIMAL
 
 -filter
     Windows.Win32.System.Diagnostics.Debug.IMAGE_COR20_HEADER

@@ -25,7 +25,7 @@ pub fn from_reader(
         });
 
         for field in reader.type_def_fields(def) {
-            let ty = field_writer_type(reader, field, Some(def));
+            let ty = writer_type(reader, &reader.field_type(field, Some(def)));
             let signature = writer.insert_field_sig(&ty);
 
             writer.tables.Field.push(writer::Field {
@@ -41,12 +41,8 @@ pub fn from_reader(
     crate::write_to_file(output, writer.into_stream()).map_err(|err| err.with_path(output))
 }
 
-fn field_writer_type(
-    reader: &metadata::Reader,
-    row: metadata::Field,
-    enclosing: Option<metadata::TypeDef>,
-) -> winmd::Type {
-    match reader.field_type(row, enclosing) {
+fn writer_type(reader: &metadata::Reader, ty: &metadata::Type) -> winmd::Type {
+    match ty {
         metadata::Type::Void => winmd::Type::Void,
         metadata::Type::Bool => winmd::Type::Bool,
         metadata::Type::Char => winmd::Type::Char,
@@ -73,15 +69,11 @@ fn field_writer_type(
         metadata::Type::PCWSTR => winmd::Type::PCWSTR,
         metadata::Type::BSTR => winmd::Type::BSTR,
         metadata::Type::TypeName => winmd::Type::TypeName,
-        // Type::TypeRef(TypeDefOrRef) =>
-        // Type::GenericParam(GenericParam) =>
-        // Type::TypeDef(TypeDef, Vec<Self>) =>
-        // Type::MutPtr(Box<Self>, usize) =>
-        // Type::ConstPtr(Box<Self>, usize) =>
-        // Type::Win32Array(Box<Self>, usize) =>
-        // Type::WinrtArray(Box<Self>) =>
-        // Type::WinrtArrayRef(Box<Self>) =>
-        // Type::ConstRef(Box<Self>) =>
-        _ => unimplemented!(),
+        metadata::Type::TypeDef(def, generics) => winmd::Type::TypeRef(winmd::TypeName {
+            namespace: reader.type_def_namespace(*def).to_string(),
+            name: reader.type_def_name(*def).to_string(),
+            generics: generics.iter().map(|ty| writer_type(reader, ty)).collect(),
+        }),
+        rest => todo!("{:?}", rest),
     }
 }
