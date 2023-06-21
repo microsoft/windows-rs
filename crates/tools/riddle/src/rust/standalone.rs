@@ -213,7 +213,7 @@ pub fn standalone_imp<'a, I: Iterator<Item = &'a str>>(gen: &Gen, names: I) -> S
         );
     }
 
-    let mut tokens = allow();
+    let mut tokens = TokenStream::new();
     sorted.0.values().for_each(|value| tokens.combine(value));
     tokens.into_string()
 }

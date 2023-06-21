@@ -397,5 +397,3 @@ impl ::windows_core::RuntimeName for ReplaceAppointmentOperation {
 ::windows_core::imp::interface_hierarchy!(ReplaceAppointmentOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for ReplaceAppointmentOperation {}
 unsafe impl ::core::marker::Sync for ReplaceAppointmentOperation {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

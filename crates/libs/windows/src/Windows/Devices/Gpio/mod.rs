@@ -1053,5 +1053,3 @@ impl ::core::default::Default for GpioChangeRecord {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

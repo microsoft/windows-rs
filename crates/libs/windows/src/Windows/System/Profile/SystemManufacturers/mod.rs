@@ -314,5 +314,3 @@ impl SystemSupportInfo {
 impl ::windows_core::RuntimeName for SystemSupportInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SystemSupportInfo";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

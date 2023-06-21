@@ -1203,5 +1203,3 @@ impl ::core::ops::Mul<f32> for &Vector4 {
         self.impl_mul_f32(rhs)
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

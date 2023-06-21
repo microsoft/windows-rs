@@ -1476,5 +1476,3 @@ impl ::core::fmt::Debug for HidReportType {
 impl ::windows_core::RuntimeType for HidReportType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.HumanInterfaceDevice.HidReportType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

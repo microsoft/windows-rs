@@ -319,5 +319,3 @@ impl ::core::ops::Not for NAMED_PIPE_MODE {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

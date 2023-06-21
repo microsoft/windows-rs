@@ -29,5 +29,3 @@ where
     ::windows_targets::link!("wsclient.dll" "system" fn RemoveDeveloperLicense(hwndparent : super::super::Foundation:: HWND) -> ::windows_core::HRESULT);
     RemoveDeveloperLicense(hwndparent.into_param().abi()).ok()
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -3211,5 +3211,3 @@ impl ::core::ops::Not for BluetoothServiceCapabilities {
 impl ::windows_core::RuntimeType for BluetoothServiceCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Bluetooth.BluetoothServiceCapabilities;u4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

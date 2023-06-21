@@ -403,5 +403,3 @@ impl PhoneCallOriginManager {
 impl ::windows_core::RuntimeName for PhoneCallOriginManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Provider.PhoneCallOriginManager";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

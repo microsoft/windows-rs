@@ -629,5 +629,3 @@ impl ::core::fmt::Debug for PowerSupplyStatus {
 impl ::windows_core::RuntimeType for PowerSupplyStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Power.PowerSupplyStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -91,5 +91,3 @@ impl ::windows_core::RuntimeName for WindowManagementPreview {
 ::windows_core::imp::interface_hierarchy!(WindowManagementPreview, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for WindowManagementPreview {}
 unsafe impl ::core::marker::Sync for WindowManagementPreview {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

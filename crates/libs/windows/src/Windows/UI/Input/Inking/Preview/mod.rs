@@ -118,5 +118,3 @@ impl ::windows_core::RuntimeName for PalmRejectionDelayZonePreview {
 impl ::windows_core::CanTryInto<super::super::super::super::Foundation::IClosable> for PalmRejectionDelayZonePreview {}
 unsafe impl ::core::marker::Send for PalmRejectionDelayZonePreview {}
 unsafe impl ::core::marker::Sync for PalmRejectionDelayZonePreview {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

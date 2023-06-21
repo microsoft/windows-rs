@@ -752,5 +752,3 @@ impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionAuthenticationStat
 impl ::windows_core::RuntimeType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionAuthenticationStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

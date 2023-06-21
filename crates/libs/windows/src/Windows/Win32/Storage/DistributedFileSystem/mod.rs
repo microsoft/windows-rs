@@ -1523,5 +1523,3 @@ impl ::core::default::Default for DFS_TARGET_PRIORITY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

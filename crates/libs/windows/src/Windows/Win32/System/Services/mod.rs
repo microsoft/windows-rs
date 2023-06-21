@@ -2810,5 +2810,3 @@ pub type PSC_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "syste
 pub type SERVICE_MAIN_FUNCTIONA = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut *mut i8) -> ()>;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub type SERVICE_MAIN_FUNCTIONW = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut ::windows_core::PWSTR) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

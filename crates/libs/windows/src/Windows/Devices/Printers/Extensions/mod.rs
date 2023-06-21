@@ -774,5 +774,3 @@ impl ::core::fmt::Debug for Print3DWorkflowStatus {
 impl ::windows_core::RuntimeType for Print3DWorkflowStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

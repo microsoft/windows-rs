@@ -440,5 +440,3 @@ impl ::windows_core::RuntimeName for PaymentTransactionAcceptResult {
 ::windows_core::imp::interface_hierarchy!(PaymentTransactionAcceptResult, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for PaymentTransactionAcceptResult {}
 unsafe impl ::core::marker::Sync for PaymentTransactionAcceptResult {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

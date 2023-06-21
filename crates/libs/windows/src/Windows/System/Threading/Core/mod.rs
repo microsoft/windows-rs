@@ -361,5 +361,3 @@ pub struct SignalHandler_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalnotifier: *mut ::core::ffi::c_void, timedout: bool) -> ::windows_core::HRESULT,
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

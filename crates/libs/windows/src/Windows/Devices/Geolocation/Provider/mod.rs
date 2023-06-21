@@ -141,5 +141,3 @@ impl ::core::fmt::Debug for LocationOverrideStatus {
 impl ::windows_core::RuntimeType for LocationOverrideStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Provider.LocationOverrideStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -1006,5 +1006,3 @@ pub type PENUM_PAGE_FILE_CALLBACKA = ::core::option::Option<unsafe extern "syste
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUM_PAGE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: ::windows_core::PCWSTR) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

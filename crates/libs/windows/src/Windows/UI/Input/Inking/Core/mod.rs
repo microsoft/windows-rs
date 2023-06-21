@@ -919,5 +919,3 @@ impl ::core::fmt::Debug for CoreWetStrokeDisposition {
 impl ::windows_core::RuntimeType for CoreWetStrokeDisposition {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Inking.Core.CoreWetStrokeDisposition;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

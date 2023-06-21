@@ -208,5 +208,3 @@ impl ::core::fmt::Debug for BinaryStringEncoding {
 impl ::windows_core::RuntimeType for BinaryStringEncoding {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Cryptography.BinaryStringEncoding;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -2607,5 +2607,3 @@ impl ::core::fmt::Debug for SignalDetectorResourceKind {
 impl ::windows_core::RuntimeType for SignalDetectorResourceKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ConversationalAgent.SignalDetectorResourceKind;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

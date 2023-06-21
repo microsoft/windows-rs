@@ -134,5 +134,3 @@ impl ::windows_core::RuntimeName for InstalledDesktopApp {
 impl ::windows_core::CanTryInto<super::super::Foundation::IStringable> for InstalledDesktopApp {}
 unsafe impl ::core::marker::Send for InstalledDesktopApp {}
 unsafe impl ::core::marker::Sync for InstalledDesktopApp {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

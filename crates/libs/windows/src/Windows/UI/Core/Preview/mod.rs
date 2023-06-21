@@ -287,5 +287,3 @@ impl ::windows_core::RuntimeName for SystemNavigationManagerPreview {
 ::windows_core::imp::interface_hierarchy!(SystemNavigationManagerPreview, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SystemNavigationManagerPreview {}
 unsafe impl ::core::marker::Sync for SystemNavigationManagerPreview {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

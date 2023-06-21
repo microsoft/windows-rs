@@ -70,5 +70,3 @@ impl ::core::ops::Not for DragDropModifiers {
 impl ::windows_core::RuntimeType for DragDropModifiers {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.DataTransfer.DragDrop.DragDropModifiers;u4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

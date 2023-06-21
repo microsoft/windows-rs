@@ -102,5 +102,3 @@ impl ::windows_core::RuntimeName for InkWorkspaceHostedAppManager {
 ::windows_core::imp::interface_hierarchy!(InkWorkspaceHostedAppManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for InkWorkspaceHostedAppManager {}
 unsafe impl ::core::marker::Sync for InkWorkspaceHostedAppManager {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

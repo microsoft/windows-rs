@@ -392,5 +392,3 @@ impl ::core::fmt::Debug for ThreadingModel {
 impl ::windows_core::RuntimeType for ThreadingModel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

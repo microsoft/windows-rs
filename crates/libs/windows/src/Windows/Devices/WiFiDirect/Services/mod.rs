@@ -1501,5 +1501,3 @@ impl ::core::fmt::Debug for WiFiDirectServiceStatus {
 impl ::windows_core::RuntimeType for WiFiDirectServiceStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.Services.WiFiDirectServiceStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

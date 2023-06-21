@@ -364,5 +364,3 @@ impl ::core::default::Default for TPM_WNF_PROVISIONING {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

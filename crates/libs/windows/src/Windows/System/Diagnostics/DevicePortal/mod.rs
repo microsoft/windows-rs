@@ -476,5 +476,3 @@ impl ::core::fmt::Debug for DevicePortalConnectionClosedReason {
 impl ::windows_core::RuntimeType for DevicePortalConnectionClosedReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedReason;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

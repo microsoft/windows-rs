@@ -304,5 +304,3 @@ impl ::core::fmt::Debug for ExtendedExecutionRevokedReason {
 impl ::windows_core::RuntimeType for ExtendedExecutionRevokedReason {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedReason;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

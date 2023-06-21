@@ -837,5 +837,3 @@ impl ::core::default::Default for DIAGNOSTIC_REPORT_SIGNATURE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

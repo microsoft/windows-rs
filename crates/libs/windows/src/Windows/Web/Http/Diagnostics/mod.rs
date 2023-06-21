@@ -805,5 +805,3 @@ impl ::core::fmt::Debug for HttpDiagnosticRequestInitiator {
 impl ::windows_core::RuntimeType for HttpDiagnosticRequestInitiator {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Web.Http.Diagnostics.HttpDiagnosticRequestInitiator;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -52,5 +52,3 @@ impl RetailMode {
 impl ::windows_core::RuntimeName for RetailMode {
     const NAME: &'static str = "Windows.Phone.System.Profile.RetailMode";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

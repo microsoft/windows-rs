@@ -377,5 +377,3 @@ impl ::windows_core::RuntimeName for CustomSensorReadingChangedEventArgs {
 ::windows_core::imp::interface_hierarchy!(CustomSensorReadingChangedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for CustomSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CustomSensorReadingChangedEventArgs {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -769,5 +769,3 @@ impl ::windows_core::RuntimeName for AppExtensionPackageUpdatingEventArgs {
 ::windows_core::imp::interface_hierarchy!(AppExtensionPackageUpdatingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppExtensionPackageUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUpdatingEventArgs {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

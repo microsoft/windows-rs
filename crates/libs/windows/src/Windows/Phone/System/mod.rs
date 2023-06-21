@@ -72,5 +72,3 @@ impl SystemProtection {
 impl ::windows_core::RuntimeName for SystemProtection {
     const NAME: &'static str = "Windows.Phone.System.SystemProtection";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

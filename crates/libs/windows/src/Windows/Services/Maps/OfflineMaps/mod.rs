@@ -430,5 +430,3 @@ impl ::core::fmt::Debug for OfflineMapPackageStatus {
 impl ::windows_core::RuntimeType for OfflineMapPackageStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

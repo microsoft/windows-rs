@@ -8258,5 +8258,3 @@ impl ::core::default::Default for _URB_SET_FRAME_LENGTH {
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub type USB_IDLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

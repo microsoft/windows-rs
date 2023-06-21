@@ -1039,5 +1039,3 @@ impl ::core::fmt::Debug for GazeDeviceConfigurationStatePreview {
 impl ::windows_core::RuntimeType for GazeDeviceConfigurationStatePreview {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Input.Preview.GazeDeviceConfigurationStatePreview;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

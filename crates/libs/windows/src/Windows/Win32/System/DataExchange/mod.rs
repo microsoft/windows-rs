@@ -2027,5 +2027,3 @@ impl ::core::default::Default for MONMSGSTRUCT {
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub type PFNCALLBACK = ::core::option::Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

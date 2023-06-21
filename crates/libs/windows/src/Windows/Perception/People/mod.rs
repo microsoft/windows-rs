@@ -713,5 +713,3 @@ impl ::core::default::Default for JointPose {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -5663,5 +5663,3 @@ pub type PFNPEER_SECURE_RECORD = ::core::option::Option<unsafe extern "system" f
 #[doc = "*Required features: `\"Win32_NetworkManagement_P2P\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNPEER_VALIDATE_RECORD = ::core::option::Option<unsafe extern "system" fn(hgraph: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, precord: *const PEER_RECORD, changetype: PEER_RECORD_CHANGE_TYPE) -> ::windows_core::HRESULT>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

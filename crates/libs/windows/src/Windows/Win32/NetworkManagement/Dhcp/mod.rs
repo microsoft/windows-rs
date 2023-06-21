@@ -8636,5 +8636,3 @@ pub type LPDHCP_HANDLE_OPTIONS = ::core::option::Option<unsafe extern "system" f
 pub type LPDHCP_NEWPKT = ::core::option::Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut *mut ::core::ffi::c_void, processit: *mut i32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub type LPDHCP_PROB = ::core::option::Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -162,5 +162,3 @@ impl MessagePartnerProvisioningManager {
 impl ::windows_core::RuntimeName for MessagePartnerProvisioningManager {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.Provisioning.MessagePartnerProvisioningManager";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

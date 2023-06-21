@@ -2654,5 +2654,3 @@ pub type PBAD_MEMORY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "sy
 #[doc = "*Required features: `\"Win32_System_Memory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSECURE_MEMORY_CACHE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(addr: *const ::core::ffi::c_void, range: usize) -> super::super::Foundation::BOOLEAN>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

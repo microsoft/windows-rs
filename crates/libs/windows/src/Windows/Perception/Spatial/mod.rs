@@ -2812,5 +2812,3 @@ impl ::core::default::Default for SpatialRay {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

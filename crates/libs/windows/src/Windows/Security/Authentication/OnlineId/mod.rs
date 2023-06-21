@@ -1107,5 +1107,3 @@ impl ::core::fmt::Debug for OnlineIdSystemTicketStatus {
 impl ::windows_core::RuntimeType for OnlineIdSystemTicketStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

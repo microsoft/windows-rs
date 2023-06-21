@@ -166,5 +166,3 @@ impl CommunicationBlockingAppManager {
 impl ::windows_core::RuntimeName for CommunicationBlockingAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAppManager";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

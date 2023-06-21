@@ -198,5 +198,3 @@ impl PerceptionTimestampHelper {
 impl ::windows_core::RuntimeName for PerceptionTimestampHelper {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestampHelper";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -2148,5 +2148,3 @@ impl ::core::fmt::Debug for TileSize {
 impl ::windows_core::RuntimeType for TileSize {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.StartScreen.TileSize;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

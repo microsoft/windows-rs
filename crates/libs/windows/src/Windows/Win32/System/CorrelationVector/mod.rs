@@ -65,5 +65,3 @@ impl ::core::default::Default for CORRELATION_VECTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

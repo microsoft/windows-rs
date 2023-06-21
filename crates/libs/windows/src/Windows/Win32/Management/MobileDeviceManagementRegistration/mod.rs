@@ -381,5 +381,3 @@ impl ::core::default::Default for MANAGEMENT_SERVICE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

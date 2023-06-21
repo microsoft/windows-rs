@@ -1113,5 +1113,3 @@ impl ::windows_core::RuntimeName for UserDataTaskListSyncManagerSyncRequestEvent
 ::windows_core::imp::interface_hierarchy!(UserDataTaskListSyncManagerSyncRequestEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for UserDataTaskListSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManagerSyncRequestEventArgs {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

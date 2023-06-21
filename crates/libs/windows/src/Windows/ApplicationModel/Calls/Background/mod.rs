@@ -767,5 +767,3 @@ impl ::core::fmt::Debug for PhoneTriggerType {
 impl ::windows_core::RuntimeType for PhoneTriggerType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.Background.PhoneTriggerType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

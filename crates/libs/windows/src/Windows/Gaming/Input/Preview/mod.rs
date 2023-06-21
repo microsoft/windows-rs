@@ -61,5 +61,3 @@ impl GameControllerProviderInfo {
 impl ::windows_core::RuntimeName for GameControllerProviderInfo {
     const NAME: &'static str = "Windows.Gaming.Input.Preview.GameControllerProviderInfo";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -109,5 +109,3 @@ impl ::windows_core::RuntimeName for InstalledClassicAppInfo {
 ::windows_core::imp::interface_hierarchy!(InstalledClassicAppInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for InstalledClassicAppInfo {}
 unsafe impl ::core::marker::Sync for InstalledClassicAppInfo {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -123,5 +123,3 @@ impl ::core::fmt::Debug for PowerSavingMode {
 impl ::windows_core::RuntimeType for PowerSavingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.System.Power.PowerSavingMode;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

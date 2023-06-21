@@ -2116,5 +2116,3 @@ impl ::core::fmt::Debug for UserDataTaskWeekOfMonth {
 impl ::windows_core::RuntimeType for UserDataTaskWeekOfMonth {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataTasks.UserDataTaskWeekOfMonth;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -909,5 +909,3 @@ impl ::core::fmt::Debug for SetFileNameResult {
 impl ::windows_core::RuntimeType for SetFileNameResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.SetFileNameResult;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

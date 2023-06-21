@@ -1565,5 +1565,3 @@ impl ::core::default::Default for MODEMSETTINGS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

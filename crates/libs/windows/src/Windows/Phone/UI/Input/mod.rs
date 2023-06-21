@@ -273,5 +273,3 @@ impl HardwareButtons {
 impl ::windows_core::RuntimeName for HardwareButtons {
     const NAME: &'static str = "Windows.Phone.UI.Input.HardwareButtons";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

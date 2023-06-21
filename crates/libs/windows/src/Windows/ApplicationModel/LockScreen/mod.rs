@@ -571,5 +571,3 @@ impl ::windows_core::RuntimeName for LockScreenUnlockingEventArgs {
 ::windows_core::imp::interface_hierarchy!(LockScreenUnlockingEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LockScreenUnlockingEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenUnlockingEventArgs {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

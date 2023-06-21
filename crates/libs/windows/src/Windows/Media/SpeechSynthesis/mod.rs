@@ -804,5 +804,3 @@ impl ::core::fmt::Debug for VoiceGender {
 impl ::windows_core::RuntimeType for VoiceGender {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

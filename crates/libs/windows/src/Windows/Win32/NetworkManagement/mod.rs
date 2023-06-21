@@ -48,5 +48,3 @@ pub mod WindowsFilteringPlatform;
 pub mod WindowsFirewall;
 #[cfg(feature = "Win32_NetworkManagement_WindowsNetworkVirtualization")]
 pub mod WindowsNetworkVirtualization;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

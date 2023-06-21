@@ -518,5 +518,3 @@ impl ::windows_core::RuntimeName for NotesWindowManagerPreviewShowNoteOptions {
 ::windows_core::imp::interface_hierarchy!(NotesWindowManagerPreviewShowNoteOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for NotesWindowManagerPreviewShowNoteOptions {}
 unsafe impl ::core::marker::Sync for NotesWindowManagerPreviewShowNoteOptions {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

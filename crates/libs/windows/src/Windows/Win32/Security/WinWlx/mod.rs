@@ -921,5 +921,3 @@ pub type PWLX_USE_CTRL_ALT_DEL = ::core::option::Option<unsafe extern "system" f
 #[doc = "*Required features: `\"Win32_Security_WinWlx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_WIN31_MIGRATE = ::core::option::Option<unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

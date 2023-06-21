@@ -1429,5 +1429,3 @@ impl ::core::fmt::Debug for WiFiDirectPairingProcedure {
 impl ::windows_core::RuntimeType for WiFiDirectPairingProcedure {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.WiFiDirect.WiFiDirectPairingProcedure;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

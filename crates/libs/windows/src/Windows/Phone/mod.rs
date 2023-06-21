@@ -20,5 +20,3 @@ pub mod StartScreen;
 pub mod System;
 #[cfg(feature = "Phone_UI")]
 pub mod UI;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

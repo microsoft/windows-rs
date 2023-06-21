@@ -487,5 +487,3 @@ impl ::core::default::Default for HCN_PORT_RANGE_RESERVATION {
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 pub type HCN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows_core::HRESULT, notificationdata: ::windows_core::PCWSTR) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

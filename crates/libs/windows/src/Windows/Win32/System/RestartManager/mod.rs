@@ -437,5 +437,3 @@ impl ::core::default::Default for RM_UNIQUE_PROCESS {
 }
 #[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(npercentcomplete: u32) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

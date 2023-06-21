@@ -30893,5 +30893,3 @@ pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = ::core::option::Option<unsafe ext
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

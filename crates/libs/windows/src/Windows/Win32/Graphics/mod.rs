@@ -42,5 +42,3 @@ pub mod Imaging;
 pub mod OpenGL;
 #[cfg(feature = "Win32_Graphics_Printing")]
 pub mod Printing;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

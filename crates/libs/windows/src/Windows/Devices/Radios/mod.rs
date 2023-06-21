@@ -282,5 +282,3 @@ impl ::core::fmt::Debug for RadioState {
 impl ::windows_core::RuntimeType for RadioState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Radios.RadioState;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

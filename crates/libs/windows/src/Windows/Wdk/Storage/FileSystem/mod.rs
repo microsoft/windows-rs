@@ -33873,5 +33873,3 @@ pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = ::core::option::Option<unsafe 
 pub type SspiAsyncNotifyCallback = ::core::option::Option<unsafe extern "system" fn(handle: *const SspiAsyncContext, callbackdata: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem\"`*"]
 pub type VERIFY_SIGNATURE_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut SecHandle, param1: *mut SecBufferDesc, param2: u32, param3: *mut u32) -> ::windows_core::HRESULT>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

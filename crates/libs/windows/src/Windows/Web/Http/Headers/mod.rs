@@ -6772,5 +6772,3 @@ impl ::windows_core::CanTryInto<super::super::super::Foundation::IStringable> fo
 impl ::windows_core::CanTryInto<super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>> for HttpTransferCodingHeaderValueCollection {}
 unsafe impl ::core::marker::Send for HttpTransferCodingHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpTransferCodingHeaderValueCollection {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

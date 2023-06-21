@@ -4281,5 +4281,3 @@ pub type PIO_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" 
 pub type PKDEFERRED_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
 pub type PWORKER_THREAD_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

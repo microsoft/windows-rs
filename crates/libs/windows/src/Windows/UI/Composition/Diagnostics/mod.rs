@@ -254,5 +254,3 @@ impl ::core::ops::Not for CompositionDebugOverdrawContentKinds {
 impl ::windows_core::RuntimeType for CompositionDebugOverdrawContentKinds {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Diagnostics.CompositionDebugOverdrawContentKinds;u4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

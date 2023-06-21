@@ -270,5 +270,3 @@ impl ::core::fmt::Debug for DirectXPrimitiveTopology {
 impl ::windows_core::RuntimeType for DirectXPrimitiveTopology {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.DirectX.DirectXPrimitiveTopology;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

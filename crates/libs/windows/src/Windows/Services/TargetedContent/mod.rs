@@ -1651,5 +1651,3 @@ impl ::core::fmt::Debug for TargetedContentValueKind {
 impl ::windows_core::RuntimeType for TargetedContentValueKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.TargetedContent.TargetedContentValueKind;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

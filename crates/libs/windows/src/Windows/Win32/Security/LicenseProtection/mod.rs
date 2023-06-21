@@ -53,5 +53,3 @@ impl ::core::fmt::Debug for LicenseProtectionStatus {
         f.debug_tuple("LicenseProtectionStatus").field(&self.0).finish()
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

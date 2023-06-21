@@ -728,5 +728,3 @@ impl ::windows_core::RuntimeName for RfcommServiceProvider {
 ::windows_core::imp::interface_hierarchy!(RfcommServiceProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for RfcommServiceProvider {}
 unsafe impl ::core::marker::Sync for RfcommServiceProvider {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

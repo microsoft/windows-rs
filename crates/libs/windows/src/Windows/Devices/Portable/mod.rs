@@ -130,5 +130,3 @@ impl ::core::fmt::Debug for ServiceDeviceType {
 impl ::windows_core::RuntimeType for ServiceDeviceType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Portable.ServiceDeviceType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

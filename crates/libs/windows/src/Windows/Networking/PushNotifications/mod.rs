@@ -795,5 +795,3 @@ impl ::core::fmt::Debug for PushNotificationType {
 impl ::windows_core::RuntimeType for PushNotificationType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.PushNotifications.PushNotificationType;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

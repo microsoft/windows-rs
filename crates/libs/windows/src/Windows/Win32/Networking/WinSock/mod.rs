@@ -17266,5 +17266,3 @@ impl ::core::convert::From<::std::net::SocketAddr> for SOCKADDR_INET {
         }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

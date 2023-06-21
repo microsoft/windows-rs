@@ -4023,5 +4023,3 @@ impl ::core::fmt::Debug for ViewSizePreference {
 impl ::windows_core::RuntimeType for ViewSizePreference {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ViewSizePreference;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

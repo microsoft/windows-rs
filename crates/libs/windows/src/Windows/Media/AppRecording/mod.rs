@@ -657,5 +657,3 @@ impl ::core::fmt::Debug for AppRecordingSaveScreenshotOption {
 impl ::windows_core::RuntimeType for AppRecordingSaveScreenshotOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.AppRecording.AppRecordingSaveScreenshotOption;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

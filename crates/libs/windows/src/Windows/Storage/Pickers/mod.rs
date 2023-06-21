@@ -1401,5 +1401,3 @@ impl ::core::fmt::Debug for PickerViewMode {
 impl ::windows_core::RuntimeType for PickerViewMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.PickerViewMode;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

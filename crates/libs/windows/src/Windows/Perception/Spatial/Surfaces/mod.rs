@@ -719,5 +719,3 @@ impl ::windows_core::RuntimeName for SpatialSurfaceObserver {
 ::windows_core::imp::interface_hierarchy!(SpatialSurfaceObserver, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for SpatialSurfaceObserver {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceObserver {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

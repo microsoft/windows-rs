@@ -813,5 +813,3 @@ pub type VDMSTARTTASKINWOWPROC = ::core::option::Option<unsafe extern "system" f
 #[doc = "*Required features: `\"Win32_System_VirtualDosMachines\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMTERMINATETASKINWOWPROC = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u16) -> super::super::Foundation::BOOL>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

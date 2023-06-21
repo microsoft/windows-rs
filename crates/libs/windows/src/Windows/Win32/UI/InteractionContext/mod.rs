@@ -1226,5 +1226,3 @@ pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK = ::core::option::Option<unsafe ext
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub type INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(clientdata: *const ::core::ffi::c_void, output: *const INTERACTION_CONTEXT_OUTPUT2) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

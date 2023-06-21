@@ -617,5 +617,3 @@ impl ::core::fmt::Debug for YearFormat {
 impl ::windows_core::RuntimeType for YearFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Globalization.DateTimeFormatting.YearFormat;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

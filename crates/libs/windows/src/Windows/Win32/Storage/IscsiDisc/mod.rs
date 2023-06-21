@@ -4918,5 +4918,3 @@ impl ::windows_core::TypeKind for _ADAPTER_OBJECT {
 }
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub type PDUMP_DEVICE_POWERON_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> i32>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

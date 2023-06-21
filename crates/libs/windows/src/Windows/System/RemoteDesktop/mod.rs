@@ -40,5 +40,3 @@ impl InteractiveSession {
 impl ::windows_core::RuntimeName for InteractiveSession {
     const NAME: &'static str = "Windows.System.RemoteDesktop.InteractiveSession";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

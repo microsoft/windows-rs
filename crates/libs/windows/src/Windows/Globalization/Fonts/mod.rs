@@ -284,5 +284,3 @@ impl ::windows_core::RuntimeName for LanguageFontGroup {
 ::windows_core::imp::interface_hierarchy!(LanguageFontGroup, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for LanguageFontGroup {}
 unsafe impl ::core::marker::Sync for LanguageFontGroup {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

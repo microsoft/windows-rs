@@ -1647,5 +1647,3 @@ impl ::core::fmt::Debug for XboxLiveSocketKind {
 impl ::windows_core::RuntimeType for XboxLiveSocketKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.XboxLive.XboxLiveSocketKind;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

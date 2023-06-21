@@ -2075,5 +2075,3 @@ impl ::core::default::Default for CoreTextRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

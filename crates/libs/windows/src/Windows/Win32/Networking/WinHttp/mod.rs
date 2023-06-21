@@ -3295,5 +3295,3 @@ impl ::core::default::Default for WINHTTP_WEB_SOCKET_STATUS {
 pub type WINHTTP_PROXY_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(ullflags: u64, pvcontext: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub type WINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *mut ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::core::ffi::c_void, dwstatusinformationlength: u32) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

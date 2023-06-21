@@ -576,5 +576,3 @@ impl ::core::fmt::Debug for UserConsentVerifierAvailability {
 impl ::windows_core::RuntimeType for UserConsentVerifierAvailability {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Credentials.UI.UserConsentVerifierAvailability;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

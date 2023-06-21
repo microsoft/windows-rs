@@ -43,5 +43,3 @@ impl CorePerceptionAutomation {
 impl ::windows_core::RuntimeName for CorePerceptionAutomation {
     const NAME: &'static str = "Windows.Perception.Automation.Core.CorePerceptionAutomation";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

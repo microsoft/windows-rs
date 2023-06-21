@@ -2234,5 +2234,3 @@ pub struct DisplayPropertiesEventHandler_Vtbl {
     #[cfg(not(feature = "deprecated"))]
     Invoke: usize,
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

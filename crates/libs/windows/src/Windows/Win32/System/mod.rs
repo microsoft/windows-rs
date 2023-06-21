@@ -162,5 +162,3 @@ pub mod WindowsProgramming;
 pub mod WindowsSync;
 #[cfg(feature = "Win32_System_Wmi")]
 pub mod Wmi;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

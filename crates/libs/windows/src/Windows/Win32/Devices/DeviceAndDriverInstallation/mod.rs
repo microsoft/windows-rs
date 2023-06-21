@@ -13375,5 +13375,3 @@ pub type PSP_DETSIG_CMPPROC = ::core::option::Option<unsafe extern "system" fn(d
 pub type PSP_FILE_CALLBACK_A = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub type PSP_FILE_CALLBACK_W = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, notification: u32, param1: usize, param2: usize) -> u32>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -66,7 +66,7 @@ fn gen_file(gen: &Gen) -> Result<()> {
 
     if gen.flatten {
         let tokens = standalone::standalone_imp(gen, gen.filter.includes());
-        crate::write_to_file(gen.output, try_format(tokens))
+        crate::write_to_file(gen.output, try_format(gen, &tokens))
     } else {
         let mut tokens = String::new();
         let root = Tree::new(gen.reader, gen.filter);
@@ -75,7 +75,7 @@ fn gen_file(gen: &Gen) -> Result<()> {
             tokens.push_str(&namespace(gen, tree));
         }
 
-        crate::write_to_file(gen.output, try_format(tokens))
+        crate::write_to_file(gen.output, try_format(gen, &tokens))
     }
 }
 
@@ -94,16 +94,25 @@ fn gen_package(gen: &Gen) -> Result<()> {
     trees.par_iter().try_for_each(|tree| {
         let directory = format!("{directory}/{}", tree.namespace.replace('.', "/"));
         let mut tokens = namespace(gen, tree);
-        if !gen.sys {
+
+        let tokens_impl = if !gen.sys {
+            namespace_impl(gen, tree)
+        } else {
+            String::new()
+        };
+
+        if !gen.sys && !tokens_impl.is_empty() {
             tokens.push_str("#[cfg(feature = \"implement\")]\n::core::include!(\"impl.rs\");\n");
         }
+
         let output = format!("{directory}/mod.rs");
-        crate::write_to_file(&output, try_format(tokens))?;
-        if !gen.sys {
-            let tokens = namespace_impl(gen, tree);
+        crate::write_to_file(&output, try_format(gen, &tokens))?;
+
+        if !gen.sys && !tokens_impl.is_empty() {
             let output = format!("{directory}/impl.rs");
-            crate::write_to_file(&output, try_format(tokens))?;
+            crate::write_to_file(&output, try_format(gen, &tokens_impl))?;
         }
+
         Ok::<(), Error>(())
     })?;
 
@@ -146,10 +155,6 @@ fn namespace(gen: &Gen, tree: &Tree) -> String {
     let gen = &mut gen.clone();
     gen.namespace = tree.namespace;
     let mut tokens = TokenStream::new();
-
-    if tree.namespace == "Windows" || !tree.namespace.starts_with("Windows.") {
-        tokens.combine(&allow());
-    }
 
     for (name, tree) in &tree.nested {
         let name = to_ident(name);
@@ -312,12 +317,6 @@ fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
 
     tokens.combine(&extensions::gen_impl(tree.namespace));
     tokens.into_string()
-}
-
-fn allow() -> TokenStream {
-    quote! {
-        #![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]
-    }
 }
 
 /// Expand a possibly empty generics list with a new generic

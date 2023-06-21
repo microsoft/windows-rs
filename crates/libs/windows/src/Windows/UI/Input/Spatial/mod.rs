@@ -3635,5 +3635,3 @@ impl ::core::fmt::Debug for SpatialInteractionSourcePositionAccuracy {
 impl ::windows_core::RuntimeType for SpatialInteractionSourcePositionAccuracy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Spatial.SpatialInteractionSourcePositionAccuracy;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

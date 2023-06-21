@@ -3523,5 +3523,3 @@ pub type LPOCNCONNPROCA = ::core::option::Option<unsafe extern "system" fn(param
 pub type LPOCNCONNPROCW = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: ::windows_core::PCWSTR, param2: ::windows_core::PCWSTR, param3: *const ::core::ffi::c_void) -> usize>;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub type LPOCNDSCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

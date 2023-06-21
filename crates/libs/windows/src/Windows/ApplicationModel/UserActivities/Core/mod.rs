@@ -56,5 +56,3 @@ impl CoreUserActivityManager {
 impl ::windows_core::RuntimeName for CoreUserActivityManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.Core.CoreUserActivityManager";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

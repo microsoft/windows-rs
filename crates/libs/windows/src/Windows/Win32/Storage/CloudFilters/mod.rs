@@ -4689,5 +4689,3 @@ impl ::core::default::Default for CF_SYNC_STATUS {
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_System_CorrelationVector\"`*"]
 #[cfg(feature = "Win32_System_CorrelationVector")]
 pub type CF_CALLBACK = ::core::option::Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

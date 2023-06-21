@@ -15136,5 +15136,3 @@ pub use SetWindowLongA as SetWindowLongPtrA;
 #[cfg(target_pointer_width = "32")]
 #[cfg(feature = "Win32_Foundation")]
 pub use SetWindowLongW as SetWindowLongPtrW;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

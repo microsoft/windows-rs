@@ -4745,5 +4745,3 @@ impl ::core::fmt::Debug for SceneWrappingMode {
 impl ::windows_core::RuntimeType for SceneWrappingMode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Scenes.SceneWrappingMode;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

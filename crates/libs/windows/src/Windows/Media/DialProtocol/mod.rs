@@ -1033,5 +1033,3 @@ impl ::core::fmt::Debug for DialDeviceDisplayStatus {
 impl ::windows_core::RuntimeType for DialDeviceDisplayStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Media.DialProtocol.DialDeviceDisplayStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -566,5 +566,3 @@ impl ::core::fmt::Debug for GameChatOverlayPosition {
 impl ::windows_core::RuntimeType for GameChatOverlayPosition {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Gaming.UI.GameChatOverlayPosition;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

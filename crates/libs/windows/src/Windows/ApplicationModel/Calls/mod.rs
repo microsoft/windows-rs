@@ -5405,5 +5405,3 @@ impl ::core::fmt::Debug for VoipPhoneCallState {
 impl ::windows_core::RuntimeType for VoipPhoneCallState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.VoipPhoneCallState;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

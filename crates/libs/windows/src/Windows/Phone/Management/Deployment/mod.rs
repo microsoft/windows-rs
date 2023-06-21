@@ -597,5 +597,3 @@ impl ::core::fmt::Debug for EnterpriseStatus {
 impl ::windows_core::RuntimeType for EnterpriseStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Phone.Management.Deployment.EnterpriseStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

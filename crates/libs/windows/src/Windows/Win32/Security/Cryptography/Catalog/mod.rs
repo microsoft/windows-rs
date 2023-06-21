@@ -734,5 +734,3 @@ impl ::core::default::Default for MS_ADDINFO_CATALOGMEMBER {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 pub type PFN_CDF_PARSE_ERROR_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: ::windows_core::PCWSTR) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

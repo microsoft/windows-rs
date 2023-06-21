@@ -2818,5 +2818,3 @@ impl ::core::fmt::Debug for WaypointKind {
 impl ::windows_core::RuntimeType for WaypointKind {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.WaypointKind;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

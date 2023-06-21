@@ -2381,5 +2381,3 @@ impl ::core::fmt::Debug for ProtectionPolicyRequestAccessBehavior {
 impl ::windows_core::RuntimeType for ProtectionPolicyRequestAccessBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.EnterpriseData.ProtectionPolicyRequestAccessBehavior;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

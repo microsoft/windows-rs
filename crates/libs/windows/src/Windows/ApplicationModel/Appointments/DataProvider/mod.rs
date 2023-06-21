@@ -1520,5 +1520,3 @@ impl ::windows_core::RuntimeName for AppointmentDataProviderTriggerDetails {
 ::windows_core::imp::interface_hierarchy!(AppointmentDataProviderTriggerDetails, ::windows_core::IUnknown, ::windows_core::IInspectable);
 unsafe impl ::core::marker::Send for AppointmentDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for AppointmentDataProviderTriggerDetails {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

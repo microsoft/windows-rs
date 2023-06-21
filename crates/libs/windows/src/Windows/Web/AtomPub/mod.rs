@@ -948,5 +948,3 @@ impl ::windows_core::RuntimeName for Workspace {
 impl ::windows_core::CanTryInto<super::Syndication::ISyndicationNode> for Workspace {}
 unsafe impl ::core::marker::Send for Workspace {}
 unsafe impl ::core::marker::Sync for Workspace {}
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -62,5 +62,3 @@ impl SoundLevelBroker {
 impl ::windows_core::RuntimeName for SoundLevelBroker {
     const NAME: &'static str = "Windows.Media.Core.Preview.SoundLevelBroker";
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

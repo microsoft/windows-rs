@@ -2159,5 +2159,3 @@ impl ::core::fmt::Debug for WalletSummaryViewPosition {
 impl ::windows_core::RuntimeType for WalletSummaryViewPosition {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Wallet.WalletSummaryViewPosition;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

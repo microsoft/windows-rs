@@ -376,5 +376,3 @@ impl ::core::fmt::Debug for WebAuthenticationStatus {
 impl ::windows_core::RuntimeType for WebAuthenticationStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.WebAuthenticationStatus;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

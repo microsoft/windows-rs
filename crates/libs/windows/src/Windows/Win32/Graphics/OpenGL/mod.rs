@@ -4565,5 +4565,3 @@ pub type PFNGLNORMALPOINTEREXTPROC = ::core::option::Option<unsafe extern "syste
 pub type PFNGLTEXCOORDPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub type PFNGLVERTEXPOINTEREXTPROC = ::core::option::Option<unsafe extern "system" fn(size: i32, r#type: u32, stride: i32, count: i32, pointer: *const ::core::ffi::c_void) -> ()>;
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

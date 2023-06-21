@@ -583,5 +583,3 @@ impl ::core::fmt::Debug for SystemUpdateStartInstallAction {
 impl ::windows_core::RuntimeType for SystemUpdateStartInstallAction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.System.Update.SystemUpdateStartInstallAction;i4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

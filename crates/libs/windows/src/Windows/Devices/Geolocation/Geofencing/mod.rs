@@ -661,5 +661,3 @@ impl ::core::ops::Not for MonitoredGeofenceStates {
 impl ::windows_core::RuntimeType for MonitoredGeofenceStates {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Geolocation.Geofencing.MonitoredGeofenceStates;u4)");
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

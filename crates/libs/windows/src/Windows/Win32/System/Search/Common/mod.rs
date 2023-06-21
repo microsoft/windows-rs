@@ -84,5 +84,3 @@ impl ::core::fmt::Debug for CONDITION_TYPE {
         f.debug_tuple("CONDITION_TYPE").field(&self.0).finish()
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");

@@ -130,5 +130,3 @@ impl ::core::ops::Not for REGISTER_APPLICATION_RESTART_FLAGS {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "implement")]
-::core::include!("impl.rs");
