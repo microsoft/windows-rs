@@ -1,27 +1,27 @@
 use super::*;
 
-pub fn gen(gen: &Gen, def: Field) -> TokenStream {
-    let name = to_ident(gen.reader.field_name(def));
-    let ty = gen.reader.field_type(def, None).to_const_type();
-    let cfg = gen.reader.field_cfg(def);
-    let doc = gen.cfg_doc(&cfg);
-    let features = gen.cfg_features(&cfg);
+pub fn writer(writer: &Writer, def: Field) -> TokenStream {
+    let name = to_ident(writer.reader.field_name(def));
+    let ty = writer.reader.field_type(def, None).to_const_type();
+    let cfg = writer.reader.field_cfg(def);
+    let doc = writer.cfg_doc(&cfg);
+    let features = writer.cfg_features(&cfg);
 
-    if let Some(constant) = gen.reader.field_constant(def) {
-        let constant_type = gen.reader.constant_type(constant);
+    if let Some(constant) = writer.reader.field_constant(def) {
+        let constant_type = writer.reader.constant_type(constant);
 
         if ty == constant_type {
             if ty == Type::String {
-                let crate_name = gen.crate_name();
-                if gen.reader.field_is_ansi(def) {
-                    let value = gen.value(&gen.reader.constant_value(constant));
+                let crate_name = writer.crate_name();
+                if writer.reader.field_is_ansi(def) {
+                    let value = writer.value(&writer.reader.constant_value(constant));
                     quote! {
                         #doc
                         #features
                         pub const #name: #crate_name PCSTR = #crate_name s!(#value);
                     }
                 } else {
-                    let value = gen.value(&gen.reader.constant_value(constant));
+                    let value = writer.value(&writer.reader.constant_value(constant));
                     quote! {
                         #doc
                         #features
@@ -29,7 +29,7 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
                     }
                 }
             } else {
-                let value = gen.typed_value(&gen.reader.constant_value(constant));
+                let value = writer.typed_value(&writer.reader.constant_value(constant));
                 quote! {
                     #doc
                     #features
@@ -37,19 +37,19 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
                 }
             }
         } else {
-            let kind = gen.type_default_name(&ty);
-            let value = gen.value(&gen.reader.constant_value(constant));
-            let underlying_type = gen.reader.type_underlying_type(&ty);
+            let kind = writer.type_default_name(&ty);
+            let value = writer.value(&writer.reader.constant_value(constant));
+            let underlying_type = writer.reader.type_underlying_type(&ty);
 
             let value = if underlying_type == constant_type {
                 value
-            } else if gen.std && underlying_type == Type::ISize {
+            } else if writer.std && underlying_type == Type::ISize {
                 quote! { ::core::ptr::invalid_mut(#value as _) }
             } else {
                 quote! { #value as _ }
             };
 
-            if !gen.sys && gen.reader.type_has_replacement(&ty) {
+            if !writer.sys && writer.reader.type_has_replacement(&ty) {
                 quote! {
                     #doc
                     #features
@@ -63,15 +63,15 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
                 }
             }
         }
-    } else if let Some(guid) = gen.reader.field_guid(def) {
-        let value = gen.guid(&guid);
-        let guid = gen.type_name(&Type::GUID);
+    } else if let Some(guid) = writer.reader.field_guid(def) {
+        let value = writer.guid(&guid);
+        let guid = writer.type_name(&Type::GUID);
         quote! {
             #doc
             pub const #name: #guid = #value;
         }
-    } else if let Some(value) = initializer(gen, def) {
-        let kind = gen.type_default_name(&ty);
+    } else if let Some(value) = initializer(writer, def) {
+        let kind = writer.type_default_name(&ty);
 
         quote! {
             #doc
@@ -83,21 +83,21 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
     }
 }
 
-fn initializer(gen: &Gen, def: Field) -> Option<TokenStream> {
-    let Some(value) = constant(gen, def) else {
+fn initializer(writer: &Writer, def: Field) -> Option<TokenStream> {
+    let Some(value) = constant(writer, def) else {
         return None;
     };
 
     let mut input = value.as_str();
 
-    let Type::TypeDef(def, _) = gen.reader.field_type(def, None) else {
+    let Type::TypeDef(def, _) = writer.reader.field_type(def, None) else {
         unimplemented!();
     };
 
     let mut result = quote! {};
 
-    for field in gen.reader.type_def_fields(def) {
-        let (value, rest) = field_initializer(gen, field, input);
+    for field in writer.reader.type_def_fields(def) {
+        let (value, rest) = field_initializer(writer, field, input);
         input = rest;
         result.combine(&value);
     }
@@ -105,13 +105,13 @@ fn initializer(gen: &Gen, def: Field) -> Option<TokenStream> {
     Some(result)
 }
 
-fn field_initializer<'a>(gen: &Gen, field: Field, input: &'a str) -> (TokenStream, &'a str) {
-    let name = to_ident(gen.reader.field_name(field));
+fn field_initializer<'a>(writer: &Writer, field: Field, input: &'a str) -> (TokenStream, &'a str) {
+    let name = to_ident(writer.reader.field_name(field));
 
-    match gen.reader.field_type(field, None) {
+    match writer.reader.field_type(field, None) {
         Type::GUID => {
             let (literals, rest) = read_literal_array(input, 11);
-            let value = gen.guid(&GUID::from_string_args(&literals));
+            let value = writer.guid(&GUID::from_string_args(&literals));
             (quote! { #name: #value, }, rest)
         }
         Type::Win32Array(_, len) => {
@@ -127,12 +127,12 @@ fn field_initializer<'a>(gen: &Gen, field: Field, input: &'a str) -> (TokenStrea
     }
 }
 
-fn constant(gen: &Gen, def: Field) -> Option<String> {
-    gen.reader
+fn constant(writer: &Writer, def: Field) -> Option<String> {
+    writer.reader
         .field_attributes(def)
-        .find(|attribute| gen.reader.attribute_name(*attribute) == "ConstantAttribute")
+        .find(|attribute| writer.reader.attribute_name(*attribute) == "ConstantAttribute")
         .map(|attribute| {
-            let args = gen.reader.attribute_args(attribute);
+            let args = writer.reader.attribute_args(attribute);
             match &args[0].1 {
                 Value::String(value) => value.clone(),
                 rest => unimplemented!("{rest:?}"),

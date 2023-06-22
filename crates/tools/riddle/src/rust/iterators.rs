@@ -1,7 +1,7 @@
 use super::*;
 
-pub fn gen(
-    gen: &Gen,
+pub fn writer(
+    writer: &Writer,
     def: TypeDef,
     generics: &[Type],
     ident: &TokenStream,
@@ -9,7 +9,7 @@ pub fn gen(
     _phantoms: &TokenStream,
     cfg: &Cfg,
 ) -> TokenStream {
-    match gen.reader.type_def_type_name(def) {
+    match writer.reader.type_def_type_name(def) {
         // If the type is IIterator<T> then simply implement the Iterator trait over top.
         TypeName::IIterator => {
             return quote! {
@@ -149,9 +149,9 @@ pub fn gen(
         _ => {}
     }
 
-    let wfc = gen.namespace("Windows.Foundation.Collections");
+    let wfc = writer.namespace("Windows.Foundation.Collections");
     let mut iterable = None;
-    let interfaces = gen
+    let interfaces = writer
         .reader
         .type_interfaces(&Type::TypeDef(def, generics.to_vec()));
 
@@ -159,13 +159,13 @@ pub fn gen(
     // implements any one of them. Here is where we favor IVectorView/IVector over IIterable.
     for interface in interfaces {
         if let Type::TypeDef(interface, interface_generics) = &interface.ty {
-            match gen.reader.type_def_type_name(*interface) {
+            match writer.reader.type_def_type_name(*interface) {
                 TypeName::IVectorView => {
-                    let item = gen.type_name(&interface_generics[0]);
+                    let item = writer.type_name(&interface_generics[0]);
                     let mut cfg = cfg.clone();
-                    gen.reader
+                    writer.reader
                         .type_def_cfg_combine(*interface, interface_generics, &mut cfg);
-                    let features = gen.cfg_features(&cfg);
+                    let features = writer.cfg_features(&cfg);
 
                     return quote! {
                         #features
@@ -189,11 +189,11 @@ pub fn gen(
                     };
                 }
                 TypeName::IVector => {
-                    let item = gen.type_name(&interface_generics[0]);
+                    let item = writer.type_name(&interface_generics[0]);
                     let mut cfg = cfg.clone();
-                    gen.reader
+                    writer.reader
                         .type_def_cfg_combine(*interface, interface_generics, &mut cfg);
-                    let features = gen.cfg_features(&cfg);
+                    let features = writer.cfg_features(&cfg);
 
                     return quote! {
                         #features
@@ -227,11 +227,11 @@ pub fn gen(
     match iterable {
         None => TokenStream::new(),
         Some((interface, interface_generics)) => {
-            let item = gen.type_name(&interface_generics[0]);
+            let item = writer.type_name(&interface_generics[0]);
             let mut cfg = cfg.clone();
-            gen.reader
+            writer.reader
                 .type_def_cfg_combine(interface, &interface_generics, &mut cfg);
-            let features = gen.cfg_features(&cfg);
+            let features = writer.cfg_features(&cfg);
 
             quote! {
                 #features

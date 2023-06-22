@@ -130,6 +130,8 @@ Options:
     let reader = metadata::Reader::new(&input);
     let filter = metadata::Filter::new(&include, &exclude);
 
+    // TODO: need to do verification here (e.g. check for typerefs and other conformance issues)
+
     match extension(&output) {
         "idl" => idl::from_reader(&reader, &filter, config, &output)?,
         "winmd" => winmd::from_reader(&reader, &filter, config, &output)?,

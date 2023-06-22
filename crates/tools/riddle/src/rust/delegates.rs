@@ -1,30 +1,30 @@
 use super::*;
 
-pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
-    if gen
+pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
+    if writer
         .reader
         .type_def_flags(def)
         .contains(TypeAttributes::WindowsRuntime)
     {
-        gen_delegate(gen, def)
+        gen_delegate(writer, def)
     } else {
-        gen_callback(gen, def)
+        gen_callback(writer, def)
     }
 }
 
-fn gen_callback(gen: &Gen, def: TypeDef) -> TokenStream {
-    let name = to_ident(gen.reader.type_def_name(def));
+fn gen_callback(writer: &Writer, def: TypeDef) -> TokenStream {
+    let name = to_ident(writer.reader.type_def_name(def));
 
-    let method = gen.reader.type_def_invoke_method(def);
-    let signature = gen.reader.method_def_signature(method, &[]);
-    let return_type = gen.return_sig(&signature);
-    let cfg = gen.reader.type_def_cfg(def, &[]);
-    let doc = gen.cfg_doc(&cfg);
-    let features = gen.cfg_features(&cfg);
+    let method = writer.reader.type_def_invoke_method(def);
+    let signature = writer.reader.method_def_signature(method, &[]);
+    let return_type = writer.return_sig(&signature);
+    let cfg = writer.reader.type_def_cfg(def, &[]);
+    let doc = writer.cfg_doc(&cfg);
+    let features = writer.cfg_features(&cfg);
 
     let params = signature.params.iter().map(|p| {
-        let name = gen.param_name(p.def);
-        let tokens = gen.type_default_name(&p.ty);
+        let name = writer.param_name(p.def);
+        let tokens = writer.type_default_name(&p.ty);
         quote! { #name: #tokens }
     });
 
@@ -35,41 +35,41 @@ fn gen_callback(gen: &Gen, def: TypeDef) -> TokenStream {
     }
 }
 
-fn gen_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
-    if gen.sys {
-        let name = to_ident(gen.reader.type_def_name(def));
+fn gen_delegate(writer: &Writer, def: TypeDef) -> TokenStream {
+    if writer.sys {
+        let name = to_ident(writer.reader.type_def_name(def));
         quote! {
             pub type #name = *mut ::core::ffi::c_void;
         }
     } else {
-        gen_win_delegate(gen, def)
+        gen_win_delegate(writer, def)
     }
 }
 
-fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
-    let name = to_ident(gen.reader.type_def_name(def));
+fn gen_win_delegate(writer: &Writer, def: TypeDef) -> TokenStream {
+    let name = to_ident(writer.reader.type_def_name(def));
     let vtbl = name.join("_Vtbl");
     let boxed = name.join("Box");
 
-    let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
-    let phantoms = gen.generic_phantoms(generics);
-    let named_phantoms = gen.generic_named_phantoms(generics);
-    let constraints = gen.generic_constraints(generics);
-    let generic_names = gen.generic_names(generics);
+    let generics: &Vec<Type> = &writer.reader.type_def_generics(def).collect();
+    let phantoms = writer.generic_phantoms(generics);
+    let named_phantoms = writer.generic_named_phantoms(generics);
+    let constraints = writer.generic_constraints(generics);
+    let generic_names = writer.generic_names(generics);
 
-    let ident = gen.type_def_name(def, generics);
+    let ident = writer.type_def_name(def, generics);
 
-    let method = gen.reader.type_def_invoke_method(def);
-    let signature = gen.reader.method_def_signature(method, generics);
-    let fn_constraint = gen_fn_constraint(gen, def, &signature);
+    let method = writer.reader.type_def_invoke_method(def);
+    let signature = writer.reader.method_def_signature(method, generics);
+    let fn_constraint = gen_fn_constraint(writer, def, &signature);
 
-    let cfg = gen.reader.type_def_cfg(def, generics);
-    let doc = gen.cfg_doc(&cfg);
-    let features = gen.cfg_features(&cfg);
+    let cfg = writer.reader.type_def_cfg(def, generics);
+    let doc = writer.cfg_doc(&cfg);
+    let features = writer.cfg_features(&cfg);
 
-    let vtbl_signature = gen.vtbl_signature(def, generics, &signature);
-    let invoke = winrt_methods::gen(
-        gen,
+    let vtbl_signature = writer.vtbl_signature(def, generics, &signature);
+    let invoke = winrt_methods::writer(
+        writer,
         def,
         generics,
         InterfaceKind::Default,
@@ -77,7 +77,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         &mut MethodNames::new(),
         &mut MethodNames::new(),
     );
-    let invoke_upcall = winrt_methods::gen_upcall(gen, &signature, quote! { ((*this).invoke) });
+    let invoke_upcall = winrt_methods::gen_upcall(writer, &signature, quote! { ((*this).invoke) });
 
     let mut tokens = quote! {
         #doc
@@ -153,7 +153,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     };
 
-    tokens.combine(&gen.interface_core_traits(
+    tokens.combine(&writer.interface_core_traits(
         def,
         generics,
         &ident,
@@ -161,8 +161,8 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         &phantoms,
         &features,
     ));
-    tokens.combine(&gen.interface_trait(def, generics, &ident, &constraints, &features, true));
-    tokens.combine(&gen.interface_winrt_trait(
+    tokens.combine(&writer.interface_trait(def, generics, &ident, &constraints, &features, true));
+    tokens.combine(&writer.interface_winrt_trait(
         def,
         generics,
         &ident,
@@ -170,12 +170,12 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
         &phantoms,
         &features,
     ));
-    tokens.combine(&gen.interface_vtbl(def, generics, &ident, &constraints, &features));
+    tokens.combine(&writer.interface_vtbl(def, generics, &ident, &constraints, &features));
     tokens
 }
 
-fn gen_fn_constraint(gen: &Gen, def: TypeDef, signature: &Signature) -> TokenStream {
-    let signature = gen.impl_signature(def, signature);
+fn gen_fn_constraint(writer: &Writer, def: TypeDef, signature: &Signature) -> TokenStream {
+    let signature = writer.impl_signature(def, signature);
 
     quote! { F: FnMut #signature + ::core::marker::Send + 'static }
 }

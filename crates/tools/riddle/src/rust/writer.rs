@@ -1,27 +1,26 @@
 use super::*;
 
-// TODO: rename to Writer for consistency
 #[derive(Clone)]
-pub struct Gen<'a> {
+pub struct Writer<'a> {
     pub reader: &'a Reader<'a>,
     pub filter: &'a metadata::Filter<'a>,
     pub output: &'a str,
     pub namespace: &'a str,
     pub implement: bool, // TODO: ideally we can use this to generate implementation traits on the fly and
     // and have a single interface definition macro for consumption that expands to include
-    // impl traits when the `implement` cfg flag is set and then this gen option would be
+    // impl traits when the `implement` cfg flag is set and then this writer option would be
     // unecessary.
     //
     // Maybe this macro is the embedable version of the IDL format?! like a more intelligient
     // version of the existing interface macro...
     pub std: bool,     // tweaks for internal std library support
-    pub sys: bool,     // gen sys-style bindings
+    pub sys: bool,     // writer sys-style bindings
     pub flatten: bool, // strips out namespaces - implies !package
     pub package: bool, // default is single file with no cfg - implies !flatten
     pub minimal: bool, // strips out enumerators - in future possibly other helpers as well
 }
 
-impl<'a> Gen<'a> {
+impl<'a> Writer<'a> {
     pub fn new(reader: &'a Reader, filter: &'a metadata::Filter, output: &'a str) -> Self {
         Self {
             reader,

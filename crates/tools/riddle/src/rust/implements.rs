@@ -1,30 +1,30 @@
 use super::*;
 
-pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
-    if gen.reader.type_def_kind(def) != TypeKind::Interface
-        || (!gen.implement && !gen.reader.type_def_can_implement(def))
+pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
+    if writer.reader.type_def_kind(def) != TypeKind::Interface
+        || (!writer.implement && !writer.reader.type_def_can_implement(def))
     {
         return quote! {};
     }
 
-    let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
-    let type_ident = to_ident(gen.reader.type_def_name(def));
+    let generics: &Vec<Type> = &writer.reader.type_def_generics(def).collect();
+    let type_ident = to_ident(writer.reader.type_def_name(def));
     let impl_ident = type_ident.join("_Impl");
     let vtbl_ident = type_ident.join("_Vtbl");
     let implvtbl_ident = impl_ident.join("Vtbl");
-    let constraints = gen.generic_constraints(generics);
-    let generic_names = gen.generic_names(generics);
-    let named_phantoms = gen.generic_named_phantoms(generics);
-    let cfg = gen.reader.type_def_cfg_impl(def, generics);
-    let doc = gen.cfg_doc(&cfg);
-    let features = gen.cfg_features(&cfg);
+    let constraints = writer.generic_constraints(generics);
+    let generic_names = writer.generic_names(generics);
+    let named_phantoms = writer.generic_named_phantoms(generics);
+    let cfg = writer.reader.type_def_cfg_impl(def, generics);
+    let doc = writer.cfg_doc(&cfg);
+    let features = writer.cfg_features(&cfg);
     let mut requires = quote! {};
     let type_ident = quote! { #type_ident<#generic_names> };
-    let vtables = gen.reader.type_def_vtables(def);
+    let vtables = writer.reader.type_def_vtables(def);
     let has_unknown_base = matches!(vtables.first(), Some(Type::IUnknown));
 
-    fn gen_required_trait(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
-        let name = gen.type_def_name_imp(def, generics, "_Impl");
+    fn gen_required_trait(writer: &Writer, def: TypeDef, generics: &[Type]) -> TokenStream {
+        let name = writer.type_def_name_imp(def, generics, "_Impl");
         quote! {
             + #name
         }
@@ -33,12 +33,12 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let mut matches = quote! { iid == &<#type_ident as ::windows_core::ComInterface>::IID };
 
     if let Some(Type::TypeDef(def, _)) = vtables.last() {
-        requires.combine(&gen_required_trait(gen, *def, &[]))
+        requires.combine(&gen_required_trait(writer, *def, &[]))
     }
 
     for def in &vtables {
         if let Type::TypeDef(def, generics) = def {
-            let name = gen.type_def_name(*def, generics);
+            let name = writer.type_def_name(*def, generics);
 
             matches.combine(&quote! {
                 || iid == &<#name as ::windows_core::ComInterface>::IID
@@ -46,43 +46,43 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     }
 
-    if gen
+    if writer
         .reader
         .type_def_flags(def)
         .contains(TypeAttributes::WindowsRuntime)
     {
         // TODO: this awkward wrapping of TypeDefs needs fixing
-        for interface in gen
+        for interface in writer
             .reader
             .type_interfaces(&Type::TypeDef(def, generics.to_vec()))
         {
             if let Type::TypeDef(def, generics) = interface.ty {
-                requires.combine(&gen_required_trait(gen, def, &generics));
+                requires.combine(&gen_required_trait(writer, def, &generics));
             }
         }
     }
 
-    let runtime_name = gen.runtime_name_trait(def, generics, &type_ident, &constraints, &features);
+    let runtime_name = writer.runtime_name_trait(def, generics, &type_ident, &constraints, &features);
 
     let mut method_names = MethodNames::new();
-    method_names.add_vtable_types(gen, def);
+    method_names.add_vtable_types(writer, def);
 
-    let method_traits = gen.reader.type_def_methods(def).map(|method| {
-        let name = method_names.add(gen, method);
-        let signature = gen.reader.method_def_signature(method, generics);
-        let signature_tokens = gen.impl_signature(def, &signature);
+    let method_traits = writer.reader.type_def_methods(def).map(|method| {
+        let name = method_names.add(writer, method);
+        let signature = writer.reader.method_def_signature(method, generics);
+        let signature_tokens = writer.impl_signature(def, &signature);
         quote! { fn #name #signature_tokens; }
     });
 
     let mut method_names = MethodNames::new();
-    method_names.add_vtable_types(gen, def);
+    method_names.add_vtable_types(writer, def);
 
-    let method_impls = gen.reader.type_def_methods(def).map(|method| {
-        let name = method_names.add(gen, method);
-        let signature = gen.reader.method_def_signature(method, generics);
-        let vtbl_signature = gen.vtbl_signature(def, generics, &signature);
+    let method_impls = writer.reader.type_def_methods(def).map(|method| {
+        let name = method_names.add(writer, method);
+        let signature = writer.reader.method_def_signature(method, generics);
+        let vtbl_signature = writer.vtbl_signature(def, generics, &signature);
 
-        let invoke_upcall = if gen.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) { winrt_methods::gen_upcall(gen, &signature, quote! { this.#name }) } else { com_methods::gen_upcall(gen, &signature, quote! { this.#name }) };
+        let invoke_upcall = if writer.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) { winrt_methods::gen_upcall(writer, &signature, quote! { this.#name }) } else { com_methods::gen_upcall(writer, &signature, quote! { this.#name }) };
 
         if has_unknown_base {
             quote! {
@@ -110,7 +110,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         Some(Type::IUnknown) => methods.combine(&quote! { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), }),
         Some(Type::IInspectable) => methods.combine(&quote! { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, #type_ident, OFFSET>(), }),
         Some(Type::TypeDef(def, generics)) => {
-            let name = gen.type_def_name_imp(*def, generics, "_Vtbl");
+            let name = writer.type_def_name_imp(*def, generics, "_Vtbl");
             if has_unknown_base {
                 methods.combine(&quote! { base__: #name::new::<Identity, Impl, OFFSET>(), });
             } else {
@@ -121,10 +121,10 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     }
 
     let mut method_names = MethodNames::new();
-    method_names.add_vtable_types(gen, def);
+    method_names.add_vtable_types(writer, def);
 
-    for method in gen.reader.type_def_methods(def) {
-        let name = method_names.add(gen, method);
+    for method in writer.reader.type_def_methods(def) {
+        let name = method_names.add(writer, method);
         if has_unknown_base {
             methods.combine(&quote! { #name: #name::<#generic_names Identity, Impl, OFFSET>, });
         } else {

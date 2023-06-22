@@ -1,10 +1,10 @@
 use std::io::Write;
 
-pub fn try_format(gen: &super::Gen, tokens: &str) -> String {
+pub fn try_format(writer: &super::Writer, tokens: &str) -> String {
     let version = std::env!("CARGO_PKG_VERSION");
 
     // Packaging - e.g. windows/windows-sys crates - assumes the crate will allow whatever warnings it deems fit.
-    let allow = if gen.package {
+    let allow = if writer.package {
         ""
     } else {
         "#![allow(non_snake_case, non_upper_case_globals, non_camel_case_types, dead_code, clippy::all)]\n"

@@ -1,37 +1,37 @@
 use super::*;
 
-pub fn gen(gen: &Gen, def: MethodDef) -> TokenStream {
-    if gen.sys {
-        gen_sys_function(gen, def)
+pub fn writer(writer: &Writer, def: MethodDef) -> TokenStream {
+    if writer.sys {
+        gen_sys_function(writer, def)
     } else {
-        gen_win_function(gen, def)
+        gen_win_function(writer, def)
     }
 }
 
-fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
-    let signature = gen.reader.method_def_signature(def, &[]);
-    let cfg = gen.reader.signature_cfg(&signature);
-    let mut tokens = gen.cfg_features(&cfg);
-    tokens.combine(&gen_link(gen, &signature, &cfg));
+fn gen_sys_function(writer: &Writer, def: MethodDef) -> TokenStream {
+    let signature = writer.reader.method_def_signature(def, &[]);
+    let cfg = writer.reader.signature_cfg(&signature);
+    let mut tokens = writer.cfg_features(&cfg);
+    tokens.combine(&gen_link(writer, &signature, &cfg));
     tokens
 }
 
-fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
-    let name = to_ident(gen.reader.method_def_name(def));
-    let signature = gen.reader.method_def_signature(def, &[]);
-    let generics = gen.constraint_generics(&signature.params);
-    let where_clause = gen.where_clause(&signature.params);
-    let abi_return_type = gen.return_sig(&signature);
-    let cfg = gen.reader.signature_cfg(&signature);
-    let doc = gen.cfg_doc(&cfg);
-    let features = gen.cfg_features(&cfg);
-    let link = gen_link(gen, &signature, &cfg);
+fn gen_win_function(writer: &Writer, def: MethodDef) -> TokenStream {
+    let name = to_ident(writer.reader.method_def_name(def));
+    let signature = writer.reader.method_def_signature(def, &[]);
+    let generics = writer.constraint_generics(&signature.params);
+    let where_clause = writer.where_clause(&signature.params);
+    let abi_return_type = writer.return_sig(&signature);
+    let cfg = writer.reader.signature_cfg(&signature);
+    let doc = writer.cfg_doc(&cfg);
+    let features = writer.cfg_features(&cfg);
+    let link = gen_link(writer, &signature, &cfg);
 
-    let kind = gen.reader.signature_kind(&signature);
+    let kind = writer.reader.signature_kind(&signature);
     match kind {
         SignatureKind::Query(_) => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
             let where_clause =
                 expand_where_clause(where_clause, quote!(T: ::windows_core::ComInterface));
@@ -48,8 +48,8 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         }
         SignatureKind::QueryOptional(_) => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
             let where_clause =
                 expand_where_clause(where_clause, quote!(T: ::windows_core::ComInterface));
@@ -65,10 +65,10 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         }
         SignatureKind::ResultValue => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
-            let return_type = gen.type_name(&return_type);
+            let return_type = writer.type_name(&return_type);
 
             quote! {
                 #doc
@@ -82,8 +82,8 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         }
         SignatureKind::ResultVoid => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
 
             quote! {
                 #doc
@@ -96,11 +96,11 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         }
         SignatureKind::ReturnValue => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
-            let is_nullable = gen.reader.type_is_nullable(&return_type);
-            let return_type = gen.type_name(&return_type);
+            let is_nullable = writer.reader.type_is_nullable(&return_type);
+            let return_type = writer.type_name(&return_type);
 
             if is_nullable {
                 quote! {
@@ -129,10 +129,10 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         }
         SignatureKind::ReturnStruct | SignatureKind::PreserveSig => {
-            if handle_last_error(gen, def, &signature) {
-                let args = gen.win32_args(&signature.params, kind);
-                let params = gen.win32_params(&signature.params, kind);
-                let return_type = gen.type_name(&signature.return_type);
+            if handle_last_error(writer, def, &signature) {
+                let args = writer.win32_args(&signature.params, kind);
+                let params = writer.win32_params(&signature.params, kind);
+                let return_type = writer.type_name(&signature.return_type);
 
                 quote! {
                     #doc
@@ -145,8 +145,8 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     }
                 }
             } else {
-                let args = gen.win32_args(&signature.params, kind);
-                let params = gen.win32_params(&signature.params, kind);
+                let args = writer.win32_args(&signature.params, kind);
+                let params = writer.win32_params(&signature.params, kind);
 
                 quote! {
                     #doc
@@ -160,9 +160,9 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             }
         }
         SignatureKind::ReturnVoid => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
-            let does_not_return = does_not_return(gen, def);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
+            let does_not_return = does_not_return(writer, def);
 
             quote! {
                 #doc
@@ -177,14 +177,14 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
     }
 }
 
-fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
-    let name = gen.reader.method_def_name(signature.def);
+fn gen_link(writer: &Writer, signature: &Signature, cfg: &Cfg) -> TokenStream {
+    let name = writer.reader.method_def_name(signature.def);
     let ident = to_ident(name);
-    let library = gen.reader.method_def_module_name(signature.def);
-    let abi = gen.reader.method_def_extern_abi(signature.def);
+    let library = writer.reader.method_def_module_name(signature.def);
+    let abi = writer.reader.method_def_extern_abi(signature.def);
 
-    let symbol = if let Some(impl_map) = gen.reader.method_def_impl_map(signature.def) {
-        gen.reader.impl_map_import_name(impl_map)
+    let symbol = if let Some(impl_map) = writer.reader.method_def_impl_map(signature.def) {
+        writer.reader.impl_map_import_name(impl_map)
     } else {
         name
     };
@@ -196,24 +196,24 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
     };
 
     let params = signature.params.iter().map(|p| {
-        let name = gen.param_name(p.def);
+        let name = writer.param_name(p.def);
         let tokens = if p.kind == SignatureParamKind::ValueType {
-            gen.type_default_name(&p.ty)
+            writer.type_default_name(&p.ty)
         } else {
-            gen.type_abi_name(&p.ty)
+            writer.type_abi_name(&p.ty)
         };
         quote! { #name: #tokens }
     });
 
-    let return_type = gen.return_sig(signature);
+    let return_type = writer.return_sig(signature);
 
-    let vararg = if gen.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+    let vararg = if writer.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
         "...".into()
     } else {
         quote! {}
     };
 
-    if gen.std || !gen.namespace.starts_with("Windows.") {
+    if writer.std || !writer.namespace.starts_with("Windows.") {
         let library = library.trim_end_matches(".dll");
 
         quote! {
@@ -223,7 +223,7 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
                 pub fn #ident(#(#params,)* #vararg) #return_type;
             }
         }
-    } else if let Some(library) = gen.reader.method_def_static_lib(signature.def) {
+    } else if let Some(library) = writer.reader.method_def_static_lib(signature.def) {
         quote! {
             #[link(name = #library, kind = "static")]
             extern #abi {
@@ -238,8 +238,8 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
             String::new()
         };
 
-        let doc = if gen.sys {
-            gen.cfg_doc(cfg).0
+        let doc = if writer.sys {
+            writer.cfg_doc(cfg).0
         } else {
             String::new()
         };
@@ -257,31 +257,31 @@ fn gen_link(gen: &Gen, signature: &Signature, cfg: &Cfg) -> TokenStream {
     }
 }
 
-fn does_not_return(gen: &Gen, def: MethodDef) -> TokenStream {
-    if gen.reader.method_def_does_not_return(def) {
+fn does_not_return(writer: &Writer, def: MethodDef) -> TokenStream {
+    if writer.reader.method_def_does_not_return(def) {
         quote! { -> ! }
     } else {
         quote! {}
     }
 }
 
-fn handle_last_error(gen: &Gen, def: MethodDef, signature: &Signature) -> bool {
-    if let Some(map) = gen.reader.method_def_impl_map(def) {
-        if gen
+fn handle_last_error(writer: &Writer, def: MethodDef, signature: &Signature) -> bool {
+    if let Some(map) = writer.reader.method_def_impl_map(def) {
+        if writer
             .reader
             .impl_map_flags(map)
             .contains(PInvokeAttributes::SupportsLastError)
         {
             if let Type::TypeDef(return_type, _) = &signature.return_type {
-                if gen.reader.type_def_is_handle(*return_type) {
-                    if gen
+                if writer.reader.type_def_is_handle(*return_type) {
+                    if writer
                         .reader
                         .type_def_underlying_type(*return_type)
                         .is_pointer()
                     {
                         return true;
                     }
-                    if !gen.reader.type_def_invalid_values(*return_type).is_empty() {
+                    if !writer.reader.type_def_invalid_values(*return_type).is_empty() {
                         return true;
                     }
                 }
