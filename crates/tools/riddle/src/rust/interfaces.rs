@@ -100,7 +100,8 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
                 match ty {
                     Type::IUnknown | Type::IInspectable => {}
                     Type::TypeDef(def, _) => {
-                        let kind = if writer.reader.type_def_type_name(*def) == TypeName::IDispatch {
+                        let kind = if writer.reader.type_def_type_name(*def) == TypeName::IDispatch
+                        {
                             InterfaceKind::None
                         } else {
                             InterfaceKind::Default
@@ -198,7 +199,14 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
             &phantoms,
             &features,
         ));
-        tokens.combine(&writer.async_get(def, generics, &ident, &constraints, &phantoms, &features));
+        tokens.combine(&writer.async_get(
+            def,
+            generics,
+            &ident,
+            &constraints,
+            &phantoms,
+            &features,
+        ));
         tokens.combine(&iterators::writer(
             writer,
             def,

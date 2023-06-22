@@ -281,7 +281,11 @@ fn handle_last_error(writer: &Writer, def: MethodDef, signature: &Signature) -> 
                     {
                         return true;
                     }
-                    if !writer.reader.type_def_invalid_values(*return_type).is_empty() {
+                    if !writer
+                        .reader
+                        .type_def_invalid_values(*return_type)
+                        .is_empty()
+                    {
                         return true;
                     }
                 }

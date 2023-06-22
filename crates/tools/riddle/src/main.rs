@@ -64,7 +64,7 @@ Options:
                 "-filter" => kind = ArgKind::Filter,
                 "-config" => kind = ArgKind::Config,
                 "-format" => format = true,
-                _ => return Err(Error::new(&format!("invalid option: `{arg}`"))),
+                _ => return Err(Error::new(&format!("invalid option `{arg}`"))),
             },
             ArgKind::Output => {
                 if output.is_none() {
@@ -130,7 +130,7 @@ Options:
     let reader = metadata::Reader::new(&input);
     let filter = metadata::Filter::new(&include, &exclude);
 
-    // TODO: need to do verification here (e.g. check for typerefs and other conformance issues)
+    winmd::verify(&reader, &filter)?;
 
     match extension(&output) {
         "idl" => idl::from_reader(&reader, &filter, config, &output)?,

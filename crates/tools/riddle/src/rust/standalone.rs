@@ -11,7 +11,8 @@ pub fn standalone_imp<'a, I: Iterator<Item = &'a str>>(writer: &Writer, names: I
 
         for def in writer.reader.get(type_name) {
             found = true;
-            writer.reader
+            writer
+                .reader
                 .type_collect_standalone(&Type::TypeDef(def, vec![]), &mut types);
         }
 
@@ -23,7 +24,8 @@ pub fn standalone_imp<'a, I: Iterator<Item = &'a str>>(writer: &Writer, names: I
             found = true;
             functions.insert(method);
             let signature = writer.reader.method_def_signature(method, &[]);
-            writer.reader
+            writer
+                .reader
                 .type_collect_standalone(&signature.return_type, &mut types);
             signature
                 .params
@@ -59,7 +61,8 @@ pub fn standalone_imp<'a, I: Iterator<Item = &'a str>>(writer: &Writer, names: I
         {
             found = true;
             constants.insert(field);
-            writer.reader
+            writer
+                .reader
                 .type_collect_standalone(&writer.reader.field_type(field, None), &mut types);
         }
 
@@ -86,14 +89,18 @@ pub fn standalone_imp<'a, I: Iterator<Item = &'a str>>(writer: &Writer, names: I
                 quote! { pub type IInspectable = *mut ::core::ffi::c_void; },
             ),
             Type::PSTR if writer.sys => sorted.insert("PSTR", quote! { pub type PSTR = *mut u8; }),
-            Type::PWSTR if writer.sys => sorted.insert("PWSTR", quote! { pub type PWSTR = *mut u16; }),
+            Type::PWSTR if writer.sys => {
+                sorted.insert("PWSTR", quote! { pub type PWSTR = *mut u16; })
+            }
             Type::PCSTR if writer.sys => {
                 sorted.insert("PCSTR", quote! { pub type PCSTR = *const u8; })
             }
             Type::PCWSTR if writer.sys => {
                 sorted.insert("PCWSTR", quote! { pub type PCWSTR = *const u16; })
             }
-            Type::BSTR if writer.sys => sorted.insert("BSTR", quote! { pub type BSTR = *const u16; }),
+            Type::BSTR if writer.sys => {
+                sorted.insert("BSTR", quote! { pub type BSTR = *const u16; })
+            }
             Type::GUID if writer.sys => {
                 sorted.insert("GUID", quote! {
                     #[repr(C)]
@@ -165,7 +172,10 @@ pub fn standalone_imp<'a, I: Iterator<Item = &'a str>>(writer: &Writer, names: I
                         sorted.insert(name, structs::writer(writer, def));
                     }
                     TypeKind::Delegate => {
-                        sorted.insert(writer.reader.type_def_name(def), delegates::writer(writer, def));
+                        sorted.insert(
+                            writer.reader.type_def_name(def),
+                            delegates::writer(writer, def),
+                        );
                     }
                 }
             }

@@ -128,7 +128,8 @@ fn field_initializer<'a>(writer: &Writer, field: Field, input: &'a str) -> (Toke
 }
 
 fn constant(writer: &Writer, def: Field) -> Option<String> {
-    writer.reader
+    writer
+        .reader
         .field_attributes(def)
         .find(|attribute| writer.reader.attribute_name(*attribute) == "ConstantAttribute")
         .map(|attribute| {

@@ -18,7 +18,8 @@ pub fn writer(
     let generics = writer.constraint_generics(params);
     let where_clause = writer.where_clause(params);
     let mut cfg = writer.reader.signature_cfg(&signature);
-    writer.reader
+    writer
+        .reader
         .type_def_cfg_combine(def, generic_types, &mut cfg);
     let doc = writer.cfg_method_doc(&cfg);
     let features = writer.cfg_features(&cfg);

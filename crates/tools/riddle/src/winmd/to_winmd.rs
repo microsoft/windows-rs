@@ -3,10 +3,20 @@ use crate::winmd::{self, writer};
 pub fn from_reader(
     reader: &metadata::Reader,
     filter: &metadata::Filter,
-    _config: std::collections::BTreeMap<&str, &str>,
+    config: std::collections::BTreeMap<&str, &str>,
     output: &str,
 ) -> crate::Result<()> {
     let mut writer = winmd::Writer::new(output);
+
+    // TODO: do we need any configuration values for winmd generation?
+    // Maybe per-namespace winmd files for namespace-splitting - be sure to use
+    // the same key as for winmd generation.
+
+    if let Some((key, _)) = config.first_key_value() {
+        return Err(crate::Error::new(&format!(
+            "invalid configuration value `{key}`"
+        )));
+    }
 
     for def in reader.types(filter) {
         let extends = if let Some(extends) = reader.type_def_extends(def) {

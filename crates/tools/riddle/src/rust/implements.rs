@@ -62,7 +62,8 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
         }
     }
 
-    let runtime_name = writer.runtime_name_trait(def, generics, &type_ident, &constraints, &features);
+    let runtime_name =
+        writer.runtime_name_trait(def, generics, &type_ident, &constraints, &features);
 
     let mut method_names = MethodNames::new();
     method_names.add_vtable_types(writer, def);

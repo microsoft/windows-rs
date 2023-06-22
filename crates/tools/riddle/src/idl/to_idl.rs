@@ -14,7 +14,7 @@ pub fn from_reader(
     // the same key as for winmd generation.
 
     if let Some((key, _)) = config.first_key_value() {
-        return Err(Error::new(&format!("invalid configuration value: `{key}`")));
+        return Err(Error::new(&format!("invalid configuration value `{key}`")));
     }
 
     let tree = Tree::new(writer.reader, writer.filter);

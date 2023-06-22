@@ -5,7 +5,6 @@ mod delegates;
 mod enums;
 mod extensions;
 mod functions;
-mod writer;
 mod handles;
 mod implements;
 mod interfaces;
@@ -15,6 +14,7 @@ mod standalone;
 mod structs;
 mod try_format;
 mod winrt_methods;
+mod writer;
 use crate::{Error, Result, Tree};
 use rayon::prelude::*;
 
@@ -50,7 +50,7 @@ pub fn from_reader(
     }
 
     if let Some((key, _)) = config.first_key_value() {
-        return Err(Error::new(&format!("invalid configuration value: `{key}`")));
+        return Err(Error::new(&format!("invalid configuration value `{key}`")));
     }
 
     if writer.package {
@@ -144,12 +144,12 @@ fn gen_package(writer: &Writer) -> Result<()> {
 }
 
 use crate::tokens::*;
-use writer::*;
 use metadata::*;
 use method_names::*;
 use std::collections::*;
 use std::fmt::Write;
 use try_format::*;
+use writer::*;
 
 fn namespace(writer: &Writer, tree: &Tree) -> String {
     let writer = &mut writer.clone();

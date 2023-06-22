@@ -9,10 +9,20 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
         return handles::writer(writer, def);
     }
 
-    gen_struct_with_name(writer, def, writer.reader.type_def_name(def), &Cfg::default())
+    gen_struct_with_name(
+        writer,
+        def,
+        writer.reader.type_def_name(def),
+        &Cfg::default(),
+    )
 }
 
-fn gen_struct_with_name(writer: &Writer, def: TypeDef, struct_name: &str, cfg: &Cfg) -> TokenStream {
+fn gen_struct_with_name(
+    writer: &Writer,
+    def: TypeDef,
+    struct_name: &str,
+    cfg: &Cfg,
+) -> TokenStream {
     let name = to_ident(struct_name);
 
     if writer.reader.type_def_fields(def).next().is_none() {
@@ -50,7 +60,11 @@ fn gen_struct_with_name(writer: &Writer, def: TypeDef, struct_name: &str, cfg: &
         let name = to_ident(writer.reader.field_name(f));
         let ty = writer.reader.field_type(f, Some(def));
 
-        if writer.reader.field_flags(f).contains(FieldAttributes::Literal) {
+        if writer
+            .reader
+            .field_flags(f)
+            .contains(FieldAttributes::Literal)
+        {
             quote! {}
         } else if !writer.sys
             && flags.contains(TypeAttributes::ExplicitLayout)
@@ -110,7 +124,12 @@ fn gen_struct_with_name(writer: &Writer, def: TypeDef, struct_name: &str, cfg: &
 
     for (index, nested_type) in writer.reader.nested_types(def).enumerate() {
         let nested_name = format!("{struct_name}_{index}");
-        tokens.combine(&gen_struct_with_name(writer, nested_type, &nested_name, &cfg));
+        tokens.combine(&gen_struct_with_name(
+            writer,
+            nested_type,
+            &nested_name,
+            &cfg,
+        ));
     }
 
     tokens
@@ -168,7 +187,11 @@ fn gen_compare_traits(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &C
     } else {
         let fields = writer.reader.type_def_fields(def).filter_map(|f| {
             let name = to_ident(writer.reader.field_name(f));
-            if writer.reader.field_flags(f).contains(FieldAttributes::Literal) {
+            if writer
+                .reader
+                .field_flags(f)
+                .contains(FieldAttributes::Literal)
+            {
                 None
             } else {
                 Some(quote! { self.#name == other.#name })
@@ -199,7 +222,11 @@ fn gen_debug(writer: &Writer, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> T
         let features = writer.cfg_features(cfg);
 
         let fields = writer.reader.type_def_fields(def).filter_map(|f| {
-            if writer.reader.field_flags(f).contains(FieldAttributes::Literal) {
+            if writer
+                .reader
+                .field_flags(f)
+                .contains(FieldAttributes::Literal)
+            {
                 None
             } else {
                 let name = writer.reader.field_name(f);
@@ -257,7 +284,11 @@ fn gen_copy_clone(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &Cfg) 
     } else {
         let fields = writer.reader.type_def_fields(def).map(|f| {
             let name = to_ident(writer.reader.field_name(f));
-            if writer.reader.field_flags(f).contains(FieldAttributes::Literal) {
+            if writer
+                .reader
+                .field_flags(f)
+                .contains(FieldAttributes::Literal)
+            {
                 quote! {}
             } else if writer.reader.field_is_blittable(f, def) {
                 quote! { #name: self.#name }
@@ -286,7 +317,11 @@ fn gen_struct_constants(
     let features = writer.cfg_features(cfg);
 
     let constants = writer.reader.type_def_fields(def).filter_map(|f| {
-        if writer.reader.field_flags(f).contains(FieldAttributes::Literal) {
+        if writer
+            .reader
+            .field_flags(f)
+            .contains(FieldAttributes::Literal)
+        {
             if let Some(constant) = writer.reader.field_constant(f) {
                 let name = to_ident(writer.reader.field_name(f));
                 let value = writer.typed_value(&writer.reader.constant_value(constant));
