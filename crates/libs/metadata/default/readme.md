@@ -1,6 +1,5 @@
 These `.winmd` files provide the default metadata for the Windows API. This is used to
-generate the `windows` and `windows-sys` crates and are loaded using the `windows-metadata` crate's
-`File::with_default` function when reading metadata directly. To view the metadata, use a tool
+generate the `windows` and `windows-sys` crates. To view the metadata, use a tool
 like [ILSpy](https://github.com/icsharpcode/ILSpy). 
 
 ## Windows.Win32.winmd
