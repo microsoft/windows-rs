@@ -419,6 +419,7 @@ impl<'a> Reader<'a> {
     pub fn field_is_const(&self, row: Field) -> bool {
         self.field_attributes(row).any(|attribute| self.attribute_name(attribute) == "ConstAttribute")
     }
+    // TODO: enclosing craziness is only needed for nested structs - get rid of those in metadata vnext and this goes away.
     pub fn field_type(&self, row: Field, enclosing: Option<TypeDef>) -> Type {
         let mut blob = self.row_blob(row.0, 2);
         blob.read_usize();
