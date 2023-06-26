@@ -144,10 +144,37 @@ impl<'a> Writer<'a> {
 
     fn interface_def(&self, def: metadata::TypeDef) -> TokenStream {
         let name = to_ident(self.reader.type_def_name(def));
+        let generics = &self.reader.type_def_generics(def);
+
+        let methods = self.reader.type_def_methods(def).map(|method| {
+            let name = to_ident(self.reader.method_def_name(method));
+            let signature = self.reader.method_def_signature(method, generics);
+            let return_type = self.return_type(&signature.return_type);
+
+            let params = signature.params.iter().map(|param| {
+                let name = to_ident(self.reader.param_name(param.def));
+                let ty = self.ty(&param.ty);
+                quote! { #name: #ty }
+            });
+
+            quote! {
+                fn #name(#(#params),*) #return_type;
+            }
+        });
 
         quote! {
-            struct #name {
+            interface #name {
+                #(#methods)*
+            }
+        }
+    }
 
+    fn return_type(&self, ty: &metadata::Type) -> TokenStream {
+        match ty {
+            metadata::Type::Void => quote! {},
+            _ => {
+                let ty = self.ty(ty);
+                quote! { -> #ty }
             }
         }
     }
@@ -169,6 +196,7 @@ impl<'a> Writer<'a> {
             metadata::Type::F64 => quote! { f64 },
             metadata::Type::ISize => quote! { isize },
             metadata::Type::USize => quote! { usize },
+            metadata::Type::String => quote! { HSTRING },
             metadata::Type::TypeDef(def, generics) => {
                 let namespace = self.namespace(self.reader.type_def_namespace(*def));
                 let name = to_ident(self.reader.type_def_name(*def));

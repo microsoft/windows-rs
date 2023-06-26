@@ -89,7 +89,7 @@ fn write_interface(
     writer: &mut winmd::Writer,
     namespace: &str,
     name: &str,
-    _member: &idl::Interface,
+    member: &idl::Interface,
 ) {
     let flags = metadata::TypeAttributes::Public
         | metadata::TypeAttributes::Interface
@@ -104,6 +104,20 @@ fn write_interface(
         TypeName: writer.strings.insert(name),
         TypeNamespace: writer.strings.insert(namespace),
     });
+
+    for method in &member.methods {
+        let sig = syn_signature(namespace, &method.sig);
+        let signature = writer.insert_method_sig(&sig);
+
+        writer.tables.MethodDef.push(winmd::MethodDef {
+            RVA: 0,
+            ImplFlags: 0,
+            Flags: 0,
+            Name: writer.strings.insert(name),
+            Signature: signature,
+            ParamList: 0,
+        });
+    }
 }
 
 fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member: &idl::Struct) {
@@ -296,6 +310,26 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 //         suffix => unimplemented!("suffix {:?}", suffix),
 //     }
 // }
+
+fn syn_signature(namespace: &str, sig: &syn::Signature) -> winmd::Signature {
+    let params = sig.inputs.iter().map(|param| {
+        match param {
+            syn::FnArg::Typed(pat_type) => {
+                let name = match &*pat_type.pat {
+                    syn::Pat::Ident(pat_ident) => pat_ident.ident.to_string(),
+                    rest => unimplemented!("{rest:?}"),
+                };
+                let ty = syn_type(namespace, &pat_type.ty);
+                winmd::SignatureParam { name, ty }
+            }
+            rest => unimplemented!("{rest:?}"),
+        }
+    }).collect();
+
+    let return_type = if let syn::ReturnType::Type(_, ty) = &sig.output { syn_type(namespace, ty) } else { winmd::Type::Void };
+       
+    winmd::Signature { params, return_type, call_flags: 0 }
+}
 
 fn syn_type(namespace: &str, ty: &syn::Type) -> winmd::Type {
     match ty {

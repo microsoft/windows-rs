@@ -22,7 +22,7 @@ fn gen_sys_interface(writer: &Writer, def: TypeDef) -> TokenStream {
 }
 
 fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
-    let generics: &Vec<Type> = &writer.reader.type_def_generics(def).collect();
+    let generics = &writer.reader.type_def_generics(def);
     let ident = writer.type_def_name(def, generics);
     let is_exclusive = writer.reader.type_def_is_exclusive(def);
     let phantoms = writer.generic_phantoms(generics);

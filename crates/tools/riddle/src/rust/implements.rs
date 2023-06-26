@@ -7,7 +7,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
         return quote! {};
     }
 
-    let generics: &Vec<Type> = &writer.reader.type_def_generics(def).collect();
+    let generics = &writer.reader.type_def_generics(def);
     let type_ident = to_ident(writer.reader.type_def_name(def));
     let impl_ident = type_ident.join("_Impl");
     let vtbl_ident = type_ident.join("_Vtbl");

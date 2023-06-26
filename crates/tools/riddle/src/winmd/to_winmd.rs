@@ -44,6 +44,14 @@ pub fn from_reader(
                 Signature: signature,
             });
         }
+        
+        // for method in reader.type_def_methods(def) {
+        //     let blob = writer.insert_method_sig(method);
+        //     writer.tables.MethodDef.push(writer::MethodDef { RVA: 0, ImplFlags: 0, Flags: method.flags.0, Name: writer.strings.insert(&method.name), Signature: blob, ParamList: writer.tables.Param.len() as _ });
+        //     for (sequence, param) in method.params.iter().enumerate() {
+        //         writer.tables.Param.push(writer::Param { Flags: param.flags.0, Sequence: (sequence + 1) as _, Name: writer.strings.insert(&param.name) });
+        //     }
+        // }
     }
 
     // TODO: In theory, `config` could instruct this function to balance the types across a number of winmd files
@@ -51,6 +59,7 @@ pub fn from_reader(
     crate::write_to_file(output, writer.into_stream()).map_err(|err| err.with_path(output))
 }
 
+// TODO: do we need this conversion? Why can't we just pass the metadata type directly and have the writer "rewrite" it directly?
 fn writer_type(reader: &metadata::Reader, ty: &metadata::Type) -> winmd::Type {
     match ty {
         metadata::Type::Void => winmd::Type::Void,

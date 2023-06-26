@@ -153,6 +153,18 @@ impl Writer {
     //     self.blobs.insert(&blob)
     // }
 
+    pub fn insert_method_sig(&mut self, sig: &Signature) -> u32 {
+        let mut blob = vec![sig.call_flags];
+        usize_blob(sig.params.len(), &mut blob);
+        self.type_blob(&sig.return_type, &mut blob);
+
+        for param in &sig.params {
+            self.type_blob(&param.ty, &mut blob);
+        }
+
+        self.blobs.insert(&blob)
+    }
+
     pub fn insert_field_sig(&mut self, ty: &Type) -> u32 {
         // TODO: can either cache in Writer, like we do for scopes and references, or regenerate each time.
         // Profile once we can stress test this with field/method signatures.

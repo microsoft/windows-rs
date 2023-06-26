@@ -9,6 +9,10 @@ pub fn verify(reader: &metadata::Reader, filter: &metadata::Filter) -> crate::Re
                 )));
             }
         }
+        // for method in reader.type_def_methods(def) {
+        //     let sig = reader.method_def_signature(method);
+
+        // }
     }
 
     Ok(())

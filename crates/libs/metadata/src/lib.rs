@@ -880,8 +880,8 @@ impl<'a> Reader<'a> {
     pub fn type_def_attributes(&self, row: TypeDef) -> impl Iterator<Item = Attribute> {
         self.row_attributes(row.0, HasAttribute::TypeDef(row))
     }
-    pub fn type_def_generics(&self, row: TypeDef) -> impl Iterator<Item = Type> {
-        self.row_equal_range(row.0, TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(row).encode()).map(|row| Type::GenericParam(GenericParam(row)))
+    pub fn type_def_generics(&self, row: TypeDef) -> Vec<Type> {
+        self.row_equal_range(row.0, TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(row).encode()).map(|row| Type::GenericParam(GenericParam(row))).collect()
     }
     pub fn type_def_interface_impls(&self, row: TypeDef) -> impl Iterator<Item = InterfaceImpl> {
         self.row_equal_range(row.0, TABLE_INTERFACEIMPL, 0, (row.0.row + 1) as _).map(InterfaceImpl)
