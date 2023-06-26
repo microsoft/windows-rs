@@ -1,4 +1,5 @@
 mod nested_struct;
+mod params;
 mod r#struct;
 
 use std::process::Command;

@@ -113,10 +113,18 @@ fn write_interface(
             RVA: 0,
             ImplFlags: 0,
             Flags: 0,
-            Name: writer.strings.insert(name),
+            Name: writer.strings.insert(&method.sig.ident.to_string()),
             Signature: signature,
-            ParamList: 0,
+            ParamList: writer.tables.Param.len() as _,
         });
+
+        for (sequence, param) in sig.params.iter().enumerate() {
+            writer.tables.Param.push(winmd::Param {
+                Flags: 0,
+                Sequence: (sequence + 1) as _,
+                Name: writer.strings.insert(&param.name),
+            });
+        }
     }
 }
 
@@ -312,8 +320,10 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 // }
 
 fn syn_signature(namespace: &str, sig: &syn::Signature) -> winmd::Signature {
-    let params = sig.inputs.iter().map(|param| {
-        match param {
+    let params = sig
+        .inputs
+        .iter()
+        .map(|param| match param {
             syn::FnArg::Typed(pat_type) => {
                 let name = match &*pat_type.pat {
                     syn::Pat::Ident(pat_ident) => pat_ident.ident.to_string(),
@@ -323,12 +333,20 @@ fn syn_signature(namespace: &str, sig: &syn::Signature) -> winmd::Signature {
                 winmd::SignatureParam { name, ty }
             }
             rest => unimplemented!("{rest:?}"),
-        }
-    }).collect();
+        })
+        .collect();
 
-    let return_type = if let syn::ReturnType::Type(_, ty) = &sig.output { syn_type(namespace, ty) } else { winmd::Type::Void };
-       
-    winmd::Signature { params, return_type, call_flags: 0 }
+    let return_type = if let syn::ReturnType::Type(_, ty) = &sig.output {
+        syn_type(namespace, ty)
+    } else {
+        winmd::Type::Void
+    };
+
+    winmd::Signature {
+        params,
+        return_type,
+        call_flags: 0,
+    }
 }
 
 fn syn_type(namespace: &str, ty: &syn::Type) -> winmd::Type {

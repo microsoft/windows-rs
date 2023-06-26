@@ -1,0 +1,6 @@
+mod Test {
+    interface IParams {
+        fn Nothing();
+        fn Bool(a: bool, b: bool) -> bool;
+    }
+}

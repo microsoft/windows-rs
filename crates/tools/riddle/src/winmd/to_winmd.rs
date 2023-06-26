@@ -19,6 +19,8 @@ pub fn from_reader(
     }
 
     for def in reader.types(filter) {
+        let generics = &reader.type_def_generics(def);
+
         let extends = if let Some(extends) = reader.type_def_extends(def) {
             writer.insert_type_ref(extends.namespace, extends.name)
         } else {
@@ -35,7 +37,7 @@ pub fn from_reader(
         });
 
         for field in reader.type_def_fields(def) {
-            let ty = writer_type(reader, &reader.field_type(field, Some(def)));
+            let ty = winmd_type(reader, &reader.field_type(field, Some(def)));
             let signature = writer.insert_field_sig(&ty);
 
             writer.tables.Field.push(writer::Field {
@@ -44,14 +46,29 @@ pub fn from_reader(
                 Signature: signature,
             });
         }
-        
-        // for method in reader.type_def_methods(def) {
-        //     let blob = writer.insert_method_sig(method);
-        //     writer.tables.MethodDef.push(writer::MethodDef { RVA: 0, ImplFlags: 0, Flags: method.flags.0, Name: writer.strings.insert(&method.name), Signature: blob, ParamList: writer.tables.Param.len() as _ });
-        //     for (sequence, param) in method.params.iter().enumerate() {
-        //         writer.tables.Param.push(writer::Param { Flags: param.flags.0, Sequence: (sequence + 1) as _, Name: writer.strings.insert(&param.name) });
-        //     }
-        // }
+
+        for method in reader.type_def_methods(def) {
+            let name = reader.method_def_name(method);
+            let sig = winmd_signature(reader, &reader.method_def_signature(method, generics));
+            let signature = writer.insert_method_sig(&sig);
+
+            writer.tables.MethodDef.push(winmd::MethodDef {
+                RVA: 0,
+                ImplFlags: 0,
+                Flags: 0,
+                Name: writer.strings.insert(name),
+                Signature: signature,
+                ParamList: writer.tables.Param.len() as _,
+            });
+
+            for (sequence, param) in sig.params.iter().enumerate() {
+                writer.tables.Param.push(writer::Param {
+                    Flags: 0,
+                    Sequence: (sequence + 1) as _,
+                    Name: writer.strings.insert(&param.name),
+                });
+            }
+        }
     }
 
     // TODO: In theory, `config` could instruct this function to balance the types across a number of winmd files
@@ -59,8 +76,26 @@ pub fn from_reader(
     crate::write_to_file(output, writer.into_stream()).map_err(|err| err.with_path(output))
 }
 
-// TODO: do we need this conversion? Why can't we just pass the metadata type directly and have the writer "rewrite" it directly?
-fn writer_type(reader: &metadata::Reader, ty: &metadata::Type) -> winmd::Type {
+fn winmd_signature(reader: &metadata::Reader, sig: &metadata::Signature) -> winmd::Signature {
+    let params = sig
+        .params
+        .iter()
+        .map(|param| {
+            let name = reader.param_name(param.def).to_string();
+            let ty = winmd_type(reader, &param.ty);
+            winmd::SignatureParam { name, ty }
+        })
+        .collect();
+
+    let return_type = winmd_type(reader, &sig.return_type);
+    winmd::Signature {
+        params,
+        return_type,
+        call_flags: 0,
+    }
+}
+
+fn winmd_type(reader: &metadata::Reader, ty: &metadata::Type) -> winmd::Type {
     match ty {
         metadata::Type::Void => winmd::Type::Void,
         metadata::Type::Bool => winmd::Type::Bool,
@@ -91,7 +126,7 @@ fn writer_type(reader: &metadata::Reader, ty: &metadata::Type) -> winmd::Type {
         metadata::Type::TypeDef(def, generics) => winmd::Type::TypeRef(winmd::TypeName {
             namespace: reader.type_def_namespace(*def).to_string(),
             name: reader.type_def_name(*def).to_string(),
-            generics: generics.iter().map(|ty| writer_type(reader, ty)).collect(),
+            generics: generics.iter().map(|ty| winmd_type(reader, ty)).collect(),
         }),
         rest => unimplemented!("{rest:?}"),
     }

@@ -713,7 +713,13 @@ impl<'a> Writer<'a> {
                 quote! { ::windows_core::imp::ConstBuffer::from_slice(#type_signature) }
             } else {
                 let signature = Literal::byte_string(
-                    format!("{{{:#?}}}", self.reader.type_def_guid(def).unwrap()).as_bytes(),
+                    // TODO: workaround for riddle winmd generation (no attribute support)
+                    if let Some(guid) = self.reader.type_def_guid(def) {
+                        format!("{{{:#?}}}", guid)
+                    } else {
+                        "TODO".to_string()
+                    }
+                    .as_bytes(),
                 );
 
                 if generics.is_empty() {
