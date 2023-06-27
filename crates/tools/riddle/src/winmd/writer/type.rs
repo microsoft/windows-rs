@@ -66,3 +66,15 @@ impl Type {
         Self::Win32Array(Box::new(self), len)
     }
 }
+
+pub struct Signature {
+    pub params: Vec<SignatureParam>,
+    pub return_type: Type,
+    pub call_flags: u8,
+}
+
+// TODO: just Param?
+pub struct SignatureParam {
+    pub name: String,
+    pub ty: Type,
+}

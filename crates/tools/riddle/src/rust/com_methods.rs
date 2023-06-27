@@ -1,7 +1,7 @@
 use super::*;
 
-pub fn gen(
-    gen: &Gen,
+pub fn writer(
+    writer: &Writer,
     def: TypeDef,
     kind: InterfaceKind,
     method: MethodDef,
@@ -9,15 +9,15 @@ pub fn gen(
     virtual_names: &mut MethodNames,
     base_count: usize,
 ) -> TokenStream {
-    let signature = gen.reader.method_def_signature(method, &[]);
-    let name = method_names.add(gen, method);
-    let vname = virtual_names.add(gen, method);
-    let generics = gen.constraint_generics(&signature.params);
-    let where_clause = gen.where_clause(&signature.params);
-    let mut cfg = gen.reader.signature_cfg(&signature);
-    cfg.add_feature(gen.reader.type_def_namespace(def));
-    let doc = gen.cfg_method_doc(&cfg);
-    let features = gen.cfg_features(&cfg);
+    let signature = writer.reader.method_def_signature(method, &[]);
+    let name = method_names.add(writer, method);
+    let vname = virtual_names.add(writer, method);
+    let generics = writer.constraint_generics(&signature.params);
+    let where_clause = writer.where_clause(&signature.params);
+    let mut cfg = writer.reader.signature_cfg(&signature);
+    cfg.add_feature(writer.reader.type_def_namespace(def));
+    let doc = writer.cfg_method_doc(&cfg);
+    let features = writer.cfg_features(&cfg);
 
     if kind == InterfaceKind::None {
         return quote! {};
@@ -29,11 +29,11 @@ pub fn gen(
         bases.combine(&quote! { .base__ });
     }
 
-    let kind = gen.reader.signature_kind(&signature);
+    let kind = writer.reader.signature_kind(&signature);
     match kind {
         SignatureKind::Query(_) => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
             let where_clause =
                 expand_where_clause(where_clause, quote!(T: ::windows_core::ComInterface));
@@ -48,8 +48,8 @@ pub fn gen(
             }
         }
         SignatureKind::QueryOptional(_) => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
             let generics = expand_generics(generics, quote!(T));
             let where_clause =
                 expand_where_clause(where_clause, quote!(T: ::windows_core::ComInterface));
@@ -63,10 +63,10 @@ pub fn gen(
             }
         }
         SignatureKind::ResultValue => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
-            let return_type = gen.type_name(&return_type);
+            let return_type = writer.type_name(&return_type);
 
             quote! {
                 #doc
@@ -78,8 +78,8 @@ pub fn gen(
             }
         }
         SignatureKind::ResultVoid => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
 
             quote! {
                 #doc
@@ -90,11 +90,11 @@ pub fn gen(
             }
         }
         SignatureKind::ReturnValue => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
             let return_type = signature.params[signature.params.len() - 1].ty.deref();
-            let is_nullable = gen.reader.type_is_nullable(&return_type);
-            let return_type = gen.type_name(&return_type);
+            let is_nullable = writer.reader.type_is_nullable(&return_type);
+            let return_type = writer.type_name(&return_type);
 
             if is_nullable {
                 quote! {
@@ -119,9 +119,9 @@ pub fn gen(
             }
         }
         SignatureKind::ReturnStruct => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
-            let return_type = gen.type_name(&signature.return_type);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
+            let return_type = writer.type_name(&signature.return_type);
 
             quote! {
                 #doc
@@ -134,9 +134,9 @@ pub fn gen(
             }
         }
         SignatureKind::PreserveSig => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
-            let return_type = gen.return_sig(&signature);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
+            let return_type = writer.return_sig(&signature);
 
             quote! {
                 #doc
@@ -147,8 +147,8 @@ pub fn gen(
             }
         }
         SignatureKind::ReturnVoid => {
-            let args = gen.win32_args(&signature.params, kind);
-            let params = gen.win32_params(&signature.params, kind);
+            let args = writer.win32_args(&signature.params, kind);
+            let params = writer.win32_params(&signature.params, kind);
 
             quote! {
                 #doc
@@ -161,14 +161,14 @@ pub fn gen(
     }
 }
 
-pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream {
-    match gen.reader.signature_kind(sig) {
+pub fn gen_upcall(writer: &Writer, sig: &Signature, inner: TokenStream) -> TokenStream {
+    match writer.reader.signature_kind(sig) {
         SignatureKind::ResultValue => {
             let invoke_args = sig.params[..sig.params.len() - 1]
                 .iter()
-                .map(|param| gen_win32_invoke_arg(gen, param));
+                .map(|param| gen_win32_invoke_arg(writer, param));
 
-            let result = gen.param_name(sig.params[sig.params.len() - 1].def);
+            let result = writer.param_name(sig.params[sig.params.len() - 1].def);
 
             quote! {
                 match #inner(#(#invoke_args,)*) {
@@ -185,7 +185,7 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
             let invoke_args = sig
                 .params
                 .iter()
-                .map(|param| gen_win32_invoke_arg(gen, param));
+                .map(|param| gen_win32_invoke_arg(writer, param));
 
             quote! {
                 #inner(#(#invoke_args,)*).into()
@@ -195,7 +195,7 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
             let invoke_args = sig
                 .params
                 .iter()
-                .map(|param| gen_win32_invoke_arg(gen, param));
+                .map(|param| gen_win32_invoke_arg(writer, param));
 
             quote! {
                 *result__ = #inner(#(#invoke_args,)*)
@@ -205,7 +205,7 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
             let invoke_args = sig
                 .params
                 .iter()
-                .map(|param| gen_win32_invoke_arg(gen, param));
+                .map(|param| gen_win32_invoke_arg(writer, param));
 
             quote! {
                 #inner(#(#invoke_args,)*)
@@ -214,22 +214,22 @@ pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream
     }
 }
 
-fn gen_win32_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
-    let name = gen.param_name(param.def);
+fn gen_win32_invoke_arg(writer: &Writer, param: &SignatureParam) -> TokenStream {
+    let name = writer.param_name(param.def);
 
-    if gen
+    if writer
         .reader
         .param_flags(param.def)
         .contains(ParamAttributes::In)
-        && gen.reader.type_is_nullable(&param.ty)
+        && writer.reader.type_is_nullable(&param.ty)
     {
         quote! { ::windows_core::from_raw_borrowed(&#name) }
-    } else if (!param.ty.is_pointer() && gen.reader.type_is_nullable(&param.ty))
-        || (gen
+    } else if (!param.ty.is_pointer() && writer.reader.type_is_nullable(&param.ty))
+        || (writer
             .reader
             .param_flags(param.def)
             .contains(ParamAttributes::In)
-            && !gen.reader.type_is_primitive(&param.ty))
+            && !writer.reader.type_is_primitive(&param.ty))
     {
         quote! { ::core::mem::transmute(&#name) }
     } else {

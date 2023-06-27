@@ -7,8 +7,8 @@ impl MethodNames {
         Self(BTreeMap::new())
     }
 
-    pub fn add(&mut self, gen: &Gen, method: MethodDef) -> TokenStream {
-        let name = gen.reader.method_def_special_name(method);
+    pub fn add(&mut self, writer: &Writer, method: MethodDef) -> TokenStream {
+        let name = writer.reader.method_def_special_name(method);
         let overload = self.0.entry(name.to_string()).or_insert(0);
         *overload += 1;
         if *overload > 1 {
@@ -18,11 +18,11 @@ impl MethodNames {
         }
     }
 
-    pub fn add_vtable_types(&mut self, gen: &Gen, def: TypeDef) {
-        for def in gen.reader.type_def_vtables(def) {
+    pub fn add_vtable_types(&mut self, writer: &Writer, def: TypeDef) {
+        for def in writer.reader.type_def_vtables(def) {
             if let Type::TypeDef(def, _) = def {
-                for method in gen.reader.type_def_methods(def) {
-                    self.add(gen, method);
+                for method in writer.reader.type_def_methods(def) {
+                    self.add(writer, method);
                 }
             }
         }

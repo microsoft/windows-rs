@@ -1,27 +1,27 @@
 use super::*;
 
-pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
-    let type_name = gen.reader.type_def_type_name(def);
+pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
+    let type_name = writer.reader.type_def_type_name(def);
     let ident = to_ident(type_name.name);
-    let underlying_type = gen.reader.type_def_underlying_type(def);
-    let underlying_type = gen.type_name(&underlying_type);
-    let is_scoped = gen.reader.type_def_is_scoped(def);
-    let cfg = gen.reader.type_def_cfg(def, &[]);
-    let doc = gen.cfg_doc(&cfg);
-    let features = gen.cfg_features(&cfg);
+    let underlying_type = writer.reader.type_def_underlying_type(def);
+    let underlying_type = writer.type_name(&underlying_type);
+    let is_scoped = writer.reader.type_def_is_scoped(def);
+    let cfg = writer.reader.type_def_cfg(def, &[]);
+    let doc = writer.cfg_doc(&cfg);
+    let features = writer.cfg_features(&cfg);
 
-    let fields: Vec<(TokenStream, TokenStream)> = gen
+    let fields: Vec<(TokenStream, TokenStream)> = writer
         .reader
         .type_def_fields(def)
         .filter_map(|field| {
-            if gen
+            if writer
                 .reader
                 .field_flags(field)
                 .contains(FieldAttributes::Literal)
             {
-                let field_name = to_ident(gen.reader.field_name(field));
-                let constant = gen.reader.field_constant(field).unwrap();
-                let value = gen.value(&gen.reader.constant_value(constant));
+                let field_name = to_ident(writer.reader.field_name(field));
+                let constant = writer.reader.field_constant(field).unwrap();
+                let value = writer.value(&writer.reader.constant_value(constant));
 
                 Some((field_name, value))
             } else {
@@ -30,7 +30,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         })
         .collect();
 
-    let eq = if gen.sys {
+    let eq = if writer.sys {
         quote! {}
     } else {
         quote! {
@@ -39,7 +39,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     };
 
-    let mut tokens = if is_scoped || !gen.sys {
+    let mut tokens = if is_scoped || !writer.sys {
         quote! {
             #doc
             #features
@@ -68,8 +68,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
                 #(#fields)*
             }
         });
-    } else if !gen.minimal {
-        if gen.sys {
+    } else if !writer.minimal {
+        if writer.sys {
             let fields = fields.iter().map(|(field_name, value)| {
                 quote! {
                     #doc
@@ -96,7 +96,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     }
 
-    if is_scoped || !gen.sys {
+    if is_scoped || !writer.sys {
         tokens.combine(&quote! {
             #features
             impl ::core::marker::Copy for #ident {}
@@ -109,7 +109,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         });
     }
 
-    if !gen.sys {
+    if !writer.sys {
         tokens.combine(&quote! {
             #features
             impl ::core::default::Default for #ident {
@@ -120,7 +120,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         });
     }
 
-    if !gen.sys {
+    if !writer.sys {
         let name = type_name.name;
         tokens.combine(&quote! {
             #features
@@ -135,7 +135,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         });
 
-        if gen.reader.type_def_is_flags(def) {
+        if writer.reader.type_def_is_flags(def) {
             tokens.combine(&quote! {
                 #features
                 impl #ident {
@@ -182,13 +182,13 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             });
         }
 
-        if gen
+        if writer
             .reader
             .type_def_flags(def)
             .contains(TypeAttributes::WindowsRuntime)
         {
             let signature =
-                Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
+                Literal::byte_string(writer.reader.type_def_signature(def, &[]).as_bytes());
 
             tokens.combine(&quote! {
                 #features

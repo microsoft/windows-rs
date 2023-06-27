@@ -1,11 +1,11 @@
 use super::*;
 
-pub fn gen_mod(gen: &Gen, namespace: &str) -> TokenStream {
+pub fn gen_mod(writer: &Writer, namespace: &str) -> TokenStream {
     if namespace == "Windows.Win32.UI.WindowsAndMessaging" {
         return include_str!("mod/Win32/UI/WindowsAndMessaging/WindowLong.rs").into();
     }
 
-    if gen.sys {
+    if writer.sys {
         return "".into();
     }
 

@@ -1,4 +1,6 @@
 mod to_winmd;
-pub use to_winmd::from_reader;
+mod verify;
 pub mod writer;
+pub use to_winmd::from_reader;
+pub use verify::verify;
 pub use writer::*;

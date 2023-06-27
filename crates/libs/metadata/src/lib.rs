@@ -419,6 +419,7 @@ impl<'a> Reader<'a> {
     pub fn field_is_const(&self, row: Field) -> bool {
         self.field_attributes(row).any(|attribute| self.attribute_name(attribute) == "ConstAttribute")
     }
+    // TODO: enclosing craziness is only needed for nested structs - get rid of those in metadata vnext and this goes away.
     pub fn field_type(&self, row: Field, enclosing: Option<TypeDef>) -> Type {
         let mut blob = self.row_blob(row.0, 2);
         blob.read_usize();
@@ -880,8 +881,8 @@ impl<'a> Reader<'a> {
     pub fn type_def_attributes(&self, row: TypeDef) -> impl Iterator<Item = Attribute> {
         self.row_attributes(row.0, HasAttribute::TypeDef(row))
     }
-    pub fn type_def_generics(&self, row: TypeDef) -> impl Iterator<Item = Type> {
-        self.row_equal_range(row.0, TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(row).encode()).map(|row| Type::GenericParam(GenericParam(row)))
+    pub fn type_def_generics(&self, row: TypeDef) -> Vec<Type> {
+        self.row_equal_range(row.0, TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(row).encode()).map(|row| Type::GenericParam(GenericParam(row))).collect()
     }
     pub fn type_def_interface_impls(&self, row: TypeDef) -> impl Iterator<Item = InterfaceImpl> {
         self.row_equal_range(row.0, TABLE_INTERFACEIMPL, 0, (row.0.row + 1) as _).map(InterfaceImpl)
