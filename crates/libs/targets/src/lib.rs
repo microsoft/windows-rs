@@ -6,7 +6,6 @@ Learn more about Rust for Windows here: <https://github.com/microsoft/windows-rs
 
 #[cfg(all(windows_raw_dylib, target_arch = "x86"))]
 #[macro_export]
-#[doc(hidden)]
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? fn $($function:tt)*) => (
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim", import_name_type = "undecorated")]
@@ -20,7 +19,6 @@ macro_rules! link {
 
 #[cfg(all(windows_raw_dylib, not(target_arch = "x86")))]
 #[macro_export]
-#[doc(hidden)]
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? fn $($function:tt)*) => (
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
@@ -34,7 +32,6 @@ macro_rules! link {
 
 #[cfg(all(windows, not(windows_raw_dylib)))]
 #[macro_export]
-#[doc(hidden)]
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? fn $($function:tt)*) => (
         #[link(name = "windows.0.48.0")]
@@ -48,7 +45,6 @@ macro_rules! link {
 
 #[cfg(all(not(windows), not(windows_raw_dylib)))]
 #[macro_export]
-#[doc(hidden)]
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? fn $($function:tt)*) => (
         extern $abi {
