@@ -1,5 +1,4 @@
 use windows::{
-    core::PCWSTR,
     Win32::Security::Credentials::{
         CredEnumerateW, CredFree, CREDENTIALW, CRED_ENUMERATE_ALL_CREDENTIALS,
     },
@@ -10,7 +9,7 @@ fn main() -> windows::core::Result<()> {
     let mut credentials_ptr = std::ptr::null_mut();
     unsafe {
         CredEnumerateW(
-            PCWSTR::null(),
+            None,
             CRED_ENUMERATE_ALL_CREDENTIALS,
             &mut count,
             &mut credentials_ptr,
@@ -30,9 +29,7 @@ fn main() -> windows::core::Result<()> {
             }
             println!();
         }
-    }
 
-    unsafe {
         CredFree(std::mem::transmute(credentials_ptr));
     }
 
