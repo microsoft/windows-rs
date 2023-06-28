@@ -48,6 +48,7 @@ jobs:
           cargo test -p sample_counter_sys &&
           cargo test -p sample_create_window &&
           cargo test -p sample_create_window_sys &&
+          cargo test -p sample_credentials &&
           cargo test -p sample_data_protection &&
           cargo test -p sample_dcomp &&
           cargo test -p sample_device_watcher &&
@@ -95,8 +96,8 @@ jobs:
           cargo test -p test_does_not_return &&
           cargo test -p test_enums &&
           cargo test -p test_error &&
-          cargo test -p test_event &&
           cargo clean &&
+          cargo test -p test_event &&
           cargo test -p test_extensions &&
           cargo test -p test_handles &&
           cargo test -p test_helpers &&

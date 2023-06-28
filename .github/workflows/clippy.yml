@@ -41,6 +41,7 @@ jobs:
           cargo clippy -p sample_counter_sys &&
           cargo clippy -p sample_create_window &&
           cargo clippy -p sample_create_window_sys &&
+          cargo clippy -p sample_credentials &&
           cargo clippy -p sample_data_protection &&
           cargo clippy -p sample_dcomp &&
           cargo clippy -p sample_device_watcher &&
