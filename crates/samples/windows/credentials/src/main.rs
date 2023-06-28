@@ -1,7 +1,5 @@
-use windows::{
-    Win32::Security::Credentials::{
-        CredEnumerateW, CredFree, CREDENTIALW, CRED_ENUMERATE_ALL_CREDENTIALS,
-    },
+use windows::Win32::Security::Credentials::{
+    CredEnumerateW, CredFree, CREDENTIALW, CRED_ENUMERATE_ALL_CREDENTIALS,
 };
 
 fn main() -> windows::core::Result<()> {
