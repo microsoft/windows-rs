@@ -33,7 +33,7 @@ pub fn run_riddle(name: &str) -> Vec<windows_metadata::File> {
     let mut command = Command::new("cargo");
     command.args([
         "run", "-p", "riddle", "--", "--in", &idl, "--out", &rs, "--filter", "Test",
-    ]); // TODO: -config FLATTEN doesn't work for namespaces
+    ]); // TODO: --config FLATTEN doesn't work for namespaces
     assert!(command.status().unwrap().success());
 
     // Return winmd file for validation

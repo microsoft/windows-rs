@@ -33,12 +33,12 @@ fn run() -> Result<()> {
             r#"Usage: riddle.exe [options...]
 
 Options:
-  -i,--in  <path>          Path to files and directories containing .winmd and .idl files
-  -o,--out <path>          Path to .winmd, .idl, or .rs file to generate
-  -f,--filter <namespace>  Namespaces to include or !exclude in output
-  -c,--config <key=value>  Override a configuration value
-  --format                 Format .idl files only
-  -@ <path>                File containing command line options
+  --in  <path>          Path to files and directories containing .winmd and .idl files
+  --out <path>          Path to .winmd, .idl, or .rs file to generate
+  --filter <namespace>  Namespaces to include or !exclude in output
+  --config <key=value>  Override a configuration value
+  --format              Format .idl files only
+  --etc <path>          File containing command line options
 "#
         );
         return Ok(());
@@ -60,11 +60,8 @@ Options:
         match kind {
             ArgKind::None => match arg.as_str() {
                 "--in" => kind = ArgKind::Input,
-                "-i" => kind = ArgKind::Input,
                 "--out" => kind = ArgKind::Output,
-                "-o" => kind = ArgKind::Output,
                 "--filter" => kind = ArgKind::Filter,
-                "-c" => kind = ArgKind::Config,
                 "--config" => kind = ArgKind::Config,
                 "--format" => format = true,
                 _ => return Err(Error::new(&format!("invalid option `{arg}`"))),

@@ -6,7 +6,7 @@ fn main() {
         "-p",
         "riddle",
         "--",
-        "-@",
+        "--etc",
         "crates/tools/metadata/bindings.txt",
     ]);
 

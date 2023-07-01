@@ -168,7 +168,7 @@ fn riddle(output: &str, filter: &[&str], config: &[&str]) {
     ]);
 
     command.args(filter);
-    command.arg("-config");
+    command.arg("--config");
     command.args(config);
 
     if !command.status().unwrap().success() {
