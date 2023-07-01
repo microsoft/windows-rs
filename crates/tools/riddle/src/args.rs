@@ -28,7 +28,7 @@ fn from_iter<T: Iterator<Item = String>>(result: &mut Vec<String>, args: T) -> R
             for args in crate::read_file_lines(&arg)? {
                 from_string(result, &args)?;
             }
-        } else if arg == "-etc" {
+        } else if arg == "-@" {
             expand = true;
         } else {
             result.push(arg);

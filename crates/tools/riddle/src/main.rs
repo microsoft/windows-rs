@@ -33,12 +33,12 @@ fn run() -> Result<()> {
             r#"Usage: riddle.exe [options...]
 
 Options:
-  -in     <path>       Path to files and directories containing .winmd and .idl files
-  -out    <path>       Path to .winmd or .idl file to generate
-  -filter <namespace>  Namespaces to include or !exclude in output
-  -format              Format .idl files only
-  -config <key=value>  Override a configuration value
-  -etc    <path>       File containing command line options
+  -i,--in  <path>          Path to files and directories containing .winmd and .idl files
+  -o,--out <path>          Path to .winmd, .idl, or .rs file to generate
+  -f,--filter <namespace>  Namespaces to include or !exclude in output
+  -c,--config <key=value>  Override a configuration value
+  --format                 Format .idl files only
+  -@ <path>                File containing command line options
 "#
         );
         return Ok(());
@@ -59,11 +59,14 @@ Options:
 
         match kind {
             ArgKind::None => match arg.as_str() {
-                "-in" => kind = ArgKind::Input,
-                "-out" => kind = ArgKind::Output,
-                "-filter" => kind = ArgKind::Filter,
-                "-config" => kind = ArgKind::Config,
-                "-format" => format = true,
+                "--in" => kind = ArgKind::Input,
+                "-i" => kind = ArgKind::Input,
+                "--out" => kind = ArgKind::Output,
+                "-o" => kind = ArgKind::Output,
+                "--filter" => kind = ArgKind::Filter,
+                "-c" => kind = ArgKind::Config,
+                "--config" => kind = ArgKind::Config,
+                "--format" => format = true,
                 _ => return Err(Error::new(&format!("invalid option `{arg}`"))),
             },
             ArgKind::Output => {
@@ -94,7 +97,7 @@ Options:
     if format {
         if output.is_some() || !include.is_empty() || !exclude.is_empty() {
             return Err(Error::new(
-                "-format cannot be combined with -output, -include, or -exclude",
+                "--format cannot be combined with --out or --filter",
             ));
         }
 
