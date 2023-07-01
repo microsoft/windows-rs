@@ -1,8 +1,8 @@
--in crates/libs/metadata/default
--out crates/libs/core/src/imp/bindings.rs
--config FLATTEN SYS MINIMAL
+--in crates/libs/metadata/default
+--out crates/libs/core/src/imp/bindings.rs
+--config FLATTEN SYS MINIMAL
 
--filter
+--filter
     Windows.Win32.Foundation.CloseHandle
     Windows.Win32.Foundation.ERROR_NO_UNICODE_TRANSLATION
     Windows.Win32.Foundation.GetLastError

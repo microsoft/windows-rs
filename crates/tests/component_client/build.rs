@@ -8,12 +8,12 @@ fn main() {
         "--target-dir",
         "../../../target/test_component_client", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
         "--",
-        "-in",
+        "--in",
         "../component/component.winmd",
         &format!("{}\\System32\\WinMetadata", env!("windir")),
-        "-out",
+        "--out",
         "src/bindings.rs",
-        "-filter",
+        "--filter",
         "test_component",
     ]);
 

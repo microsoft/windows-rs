@@ -31,14 +31,14 @@ fn main() {
         "--target-dir",
         "../../../target/test_component", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
         "--",
-        "-in",
+        "--in",
         "component.winmd",
         &metadata_dir,
-        "-out",
+        "--out",
         "src/bindings.rs",
-        "-filter",
+        "--filter",
         "test_component",
-        "-config",
+        "--config",
         "IMPLEMENT",
     ]);
 

@@ -1,8 +1,8 @@
--in crates/libs/metadata/default
--out crates/libs/sys/src/lib.rs
--config PACKAGE SYS
+--in crates/libs/metadata/default
+--out crates/libs/sys/src/lib.rs
+--config PACKAGE SYS
 
--filter
+--filter
     Windows.Win32
     Windows.Wdk
     !Windows.AI

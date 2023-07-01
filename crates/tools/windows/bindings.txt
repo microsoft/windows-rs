@@ -1,8 +1,8 @@
--in crates/libs/metadata/default
--out crates/libs/windows/src/lib.rs
--config PACKAGE
+--in crates/libs/metadata/default
+--out crates/libs/windows/src/lib.rs
+--config PACKAGE
 
--filter
+--filter
     Windows
     !Windows.AI.MachineLearning.Preview
     !Windows.ApplicationModel.SocialInfo
