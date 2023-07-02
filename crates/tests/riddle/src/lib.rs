@@ -14,14 +14,14 @@ pub fn run_riddle(name: &str) -> Vec<windows_metadata::File> {
     // Convert .idl to .winmd
     let mut command = Command::new("cargo");
     command.args([
-        "run", "-p", "riddle", "--", "-in", &idl, "-out", &winmd, "-filter", "Test",
+        "run", "-p", "riddle", "--", "--in", &idl, "--out", &winmd, "--filter", "Test",
     ]);
     assert!(command.status().unwrap().success());
 
     // Convert .winmd back to .idl
     let mut command = Command::new("cargo");
     command.args([
-        "run", "-p", "riddle", "--", "-in", &winmd, "-out", &idl, "-filter", "Test",
+        "run", "-p", "riddle", "--", "--in", &winmd, "--out", &idl, "--filter", "Test",
     ]);
     assert!(command.status().unwrap().success());
 
@@ -32,8 +32,8 @@ pub fn run_riddle(name: &str) -> Vec<windows_metadata::File> {
     // Convert .idl to .rs
     let mut command = Command::new("cargo");
     command.args([
-        "run", "-p", "riddle", "--", "-in", &idl, "-out", &rs, "-filter", "Test",
-    ]); // TODO: -config FLATTEN doesn't work for namespaces
+        "run", "-p", "riddle", "--", "--in", &idl, "--out", &rs, "--filter", "Test",
+    ]); // TODO: --config FLATTEN doesn't work for namespaces
     assert!(command.status().unwrap().success());
 
     // Return winmd file for validation

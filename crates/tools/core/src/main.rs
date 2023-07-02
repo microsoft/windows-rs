@@ -6,7 +6,7 @@ fn main() {
         "-p",
         "riddle",
         "--",
-        "-etc",
+        "--etc",
         "crates/tools/core/bindings.txt",
     ]);
 
@@ -19,7 +19,7 @@ fn main() {
         "-p",
         "riddle",
         "--",
-        "-etc",
+        "--etc",
         "crates/tools/core/com_bindings.txt",
     ]);
 

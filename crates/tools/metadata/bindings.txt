@@ -1,8 +1,8 @@
--in crates/libs/metadata/default
--out crates/libs/metadata/src/imp/bindings.rs
--config FLATTEN SYS MINIMAL
+--in crates/libs/metadata/default
+--out crates/libs/metadata/src/imp/bindings.rs
+--config FLATTEN SYS MINIMAL
 
--filter
+--filter
     Windows.Win32.System.Diagnostics.Debug.IMAGE_COR20_HEADER
     Windows.Win32.System.Diagnostics.Debug.IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR
     Windows.Win32.System.Diagnostics.Debug.IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE

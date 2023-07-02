@@ -1,8 +1,8 @@
--in crates/libs/metadata/default
--out crates/libs/core/src/imp/com_bindings.rs
--config FLATTEN MINIMAL
+--in crates/libs/metadata/default
+--out crates/libs/core/src/imp/com_bindings.rs
+--config FLATTEN MINIMAL
 
--filter
+--filter
     Windows.Foundation.IReference
     Windows.Foundation.IStringable
     Windows.Foundation.PropertyValue

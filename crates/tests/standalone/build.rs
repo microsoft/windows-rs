@@ -160,15 +160,15 @@ fn riddle(output: &str, filter: &[&str], config: &[&str]) {
         "--target-dir",
         "../../../target/test_standalone", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
         "--",
-        "-in",
+        "--in",
         "../../libs/metadata/default",
-        "-out",
+        "--out",
         output,
-        "-filter",
+        "--filter",
     ]);
 
     command.args(filter);
-    command.arg("-config");
+    command.arg("--config");
     command.args(config);
 
     if !command.status().unwrap().success() {
