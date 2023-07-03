@@ -1,3 +1,6 @@
+// TODO: looks like a bug in nightly clippy as the suggestion is invalid.
+#![allow(clippy::unnecessary_cast)]
+
 use super::*;
 use crate::ComInterface;
 use std::sync::atomic::{AtomicIsize, Ordering};
