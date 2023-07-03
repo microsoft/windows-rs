@@ -761,7 +761,7 @@ where
     <T as ::windows_core::Type<T>>::Default: ::std::clone::Clone,
 {
     fn Current(&self) -> ::windows_core::Result<T> {
-        let owner: &StockIterable<T> = ::windows_core::AsImpl::as_impl(&self.owner);
+        let owner: &StockIterable<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         if owner.values.len() > current {
@@ -772,14 +772,14 @@ where
     }
 
     fn HasCurrent(&self) -> ::windows_core::Result<bool> {
-        let owner: &StockIterable<T> = ::windows_core::AsImpl::as_impl(&self.owner);
+        let owner: &StockIterable<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         Ok(owner.values.len() > current)
     }
 
     fn MoveNext(&self) -> ::windows_core::Result<bool> {
-        let owner: &StockIterable<T> = ::windows_core::AsImpl::as_impl(&self.owner);
+        let owner: &StockIterable<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         if current < owner.values.len() {
@@ -790,7 +790,7 @@ where
     }
 
     fn GetMany(&self, values: &mut [T::Default]) -> ::windows_core::Result<u32> {
-        let owner: &StockIterable<T> = ::windows_core::AsImpl::as_impl(&self.owner);
+        let owner: &StockIterable<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         let actual = std::cmp::min(owner.values.len() - current, values.len());
@@ -1034,7 +1034,7 @@ where
     <T as ::windows_core::Type<T>>::Default: std::clone::Clone + std::cmp::PartialEq,
 {
     fn Current(&self) -> ::windows_core::Result<T> {
-        let owner: &StockVectorView<T> = ::windows_core::AsImpl::as_impl(&self.owner);
+        let owner: &StockVectorView<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         if owner.values.len() > current {
@@ -1045,14 +1045,14 @@ where
     }
 
     fn HasCurrent(&self) -> ::windows_core::Result<bool> {
-        let owner: &StockVectorView<T> = ::windows_core::AsImpl::as_impl(&self.owner);
+        let owner: &StockVectorView<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         Ok(owner.values.len() > current)
     }
 
     fn MoveNext(&self) -> ::windows_core::Result<bool> {
-        let owner: &StockVectorView<T> = ::windows_core::AsImpl::as_impl(&self.owner);
+        let owner: &StockVectorView<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         if current < owner.values.len() {
@@ -1063,7 +1063,7 @@ where
     }
 
     fn GetMany(&self, values: &mut [T::Default]) -> ::windows_core::Result<u32> {
-        let owner: &StockVectorView<T> = ::windows_core::AsImpl::as_impl(&self.owner);
+        let owner: &StockVectorView<T> = unsafe { ::windows_core::AsImpl::as_impl(&self.owner) };
         let current = self.current.load(::std::sync::atomic::Ordering::Relaxed);
 
         let actual = std::cmp::min(owner.values.len() - current, values.len());

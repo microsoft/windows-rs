@@ -64,7 +64,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                 }
             }
             impl #generics ::windows::core::AsImpl<#original_ident::#generics> for #interface_ident where #constraints {
-                fn as_impl(&self) -> &#original_ident::#generics {
+                unsafe fn as_impl(&self) -> &#original_ident::#generics {
                     let this = ::windows::core::Interface::as_raw(self);
                     // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
                     // is guaranteed to live at least as long as `self`.

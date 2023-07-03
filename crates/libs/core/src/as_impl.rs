@@ -2,5 +2,9 @@
 ///
 /// This trait is automatically implemented when using the `implement` macro.
 pub trait AsImpl<T> {
-    fn as_impl(&self) -> &T;
+    /// # Safety
+    ///
+    /// The caller needs to ensure that `self` is actually implemented by the
+    /// implementation `T`.
+    unsafe fn as_impl(&self) -> &T;
 }
