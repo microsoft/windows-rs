@@ -277,7 +277,7 @@ fn canonicalize(path: &str) -> Result<String> {
 
     let path = path
         .to_string_lossy()
-        .trim_start_matches(r#"\\?\"#)
+        .trim_start_matches(r"\\?\")
         .to_string();
 
     match path.rsplit_once('.') {

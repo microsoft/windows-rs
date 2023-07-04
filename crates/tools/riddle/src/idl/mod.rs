@@ -234,10 +234,7 @@ impl Struct {
         let mut fields = vec![];
 
         let syn::Fields::Named(named) = item.fields else {
-            return Err(syn::Error::new(
-                item.span(),
-                "unnamed fields not supported",
-            ));
+            return Err(syn::Error::new(item.span(), "unnamed fields not supported"));
         };
 
         for field in named.named {

@@ -16,7 +16,12 @@ pub fn try_format(writer: &super::Writer, tokens: &str) -> String {
 {allow}{tokens}"#
     );
 
-    let Ok(mut child) = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn() else {
+    let Ok(mut child) = std::process::Command::new("rustfmt")
+        .stdin(std::process::Stdio::piped())
+        .stdout(std::process::Stdio::piped())
+        .stderr(std::process::Stdio::null())
+        .spawn()
+    else {
         return tokens;
     };
 
