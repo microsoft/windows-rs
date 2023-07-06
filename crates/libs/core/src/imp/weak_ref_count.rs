@@ -1,6 +1,3 @@
-// TODO: workaround for https://github.com/rust-lang/rust-clippy/issues/11113
-#![allow(clippy::unnecessary_cast)]
-
 use super::*;
 use crate::ComInterface;
 use std::sync::atomic::{AtomicIsize, Ordering};
@@ -123,7 +120,7 @@ impl TearOff {
     }
 
     unsafe fn query_interface(&self, iid: &crate::GUID, interface: *mut *const std::ffi::c_void) -> crate::HRESULT {
-        ((*(*(self.object as *mut *mut _) as *mut crate::IUnknown_Vtbl)).QueryInterface)(self.object, iid, interface)
+        ((*(*(self.object as *mut *mut crate::IUnknown_Vtbl))).QueryInterface)(self.object, iid, interface)
     }
 
     unsafe extern "system" fn StrongQueryInterface(ptr: *mut std::ffi::c_void, iid: &crate::GUID, interface: *mut *const std::ffi::c_void) -> crate::HRESULT {
@@ -180,7 +177,7 @@ impl TearOff {
 
         // Forward strong `Release` to the object so that it can destroy itself. It will then
         // decrement its weak reference and allow the tear-off to be released as needed.
-        ((*(*(this.object as *mut *mut _) as *mut crate::IUnknown_Vtbl)).Release)(this.object)
+        ((*(*(this.object as *mut *mut crate::IUnknown_Vtbl))).Release)(this.object)
     }
 
     unsafe extern "system" fn WeakRelease(ptr: *mut std::ffi::c_void) -> u32 {
