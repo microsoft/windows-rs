@@ -115,14 +115,14 @@ where
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateBookmark(bookmarkxml : ::windows_core::PCWSTR) -> EVT_HANDLE);
     let result__ = EvtCreateBookmark(bookmarkxml.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtCreateRenderContext(valuepaths: ::core::option::Option<&[::windows_core::PCWSTR]>, flags: u32) -> ::windows_core::Result<EVT_HANDLE> {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtCreateRenderContext(valuepathscount : u32, valuepaths : *const ::windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
     let result__ = EvtCreateRenderContext(valuepaths.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(valuepaths.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -256,7 +256,7 @@ where
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtNextEventMetadata(eventmetadataenum : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
     let result__ = EvtNextEventMetadata(eventmetadataenum.into_param().abi(), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -277,7 +277,7 @@ where
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenChannelConfig(session : EVT_HANDLE, channelpath : ::windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenChannelConfig(session.into_param().abi(), channelpath.into_param().abi(), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -287,7 +287,7 @@ where
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenChannelEnum(session : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenChannelEnum(session.into_param().abi(), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -297,7 +297,7 @@ where
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenEventMetadataEnum(publishermetadata : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenEventMetadataEnum(publishermetadata.into_param().abi(), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -308,7 +308,7 @@ where
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenLog(session : EVT_HANDLE, path : ::windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenLog(session.into_param().abi(), path.into_param().abi(), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -318,7 +318,7 @@ where
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenPublisherEnum(session : EVT_HANDLE, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenPublisherEnum(session.into_param().abi(), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -330,14 +330,14 @@ where
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenPublisherMetadata(session : EVT_HANDLE, publisherid : ::windows_core::PCWSTR, logfilepath : ::windows_core::PCWSTR, locale : u32, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenPublisherMetadata(session.into_param().abi(), publisherid.into_param().abi(), logfilepath.into_param().abi(), locale, flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
 pub unsafe fn EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: *const ::core::ffi::c_void, timeout: u32, flags: u32) -> ::windows_core::Result<EVT_HANDLE> {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtOpenSession(loginclass : EVT_LOGIN_CLASS, login : *const ::core::ffi::c_void, timeout : u32, flags : u32) -> EVT_HANDLE);
     let result__ = EvtOpenSession(loginclass, login, timeout, flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -349,7 +349,7 @@ where
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtQuery(session : EVT_HANDLE, path : ::windows_core::PCWSTR, query : ::windows_core::PCWSTR, flags : u32) -> EVT_HANDLE);
     let result__ = EvtQuery(session.into_param().abi(), path.into_param().abi(), query.into_param().abi(), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -406,7 +406,7 @@ where
 {
     ::windows_targets::link!("wevtapi.dll" "system" fn EvtSubscribe(session : EVT_HANDLE, signalevent : super::super::Foundation:: HANDLE, channelpath : ::windows_core::PCWSTR, query : ::windows_core::PCWSTR, bookmark : EVT_HANDLE, context : *const ::core::ffi::c_void, callback : EVT_SUBSCRIBE_CALLBACK, flags : u32) -> EVT_HANDLE);
     let result__ = EvtSubscribe(session.into_param().abi(), signalevent.into_param().abi(), channelpath.into_param().abi(), query.into_param().abi(), bookmark.into_param().abi(), ::core::mem::transmute(context.unwrap_or(::std::ptr::null())), callback, flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -469,7 +469,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn OpenBackupEventLogA(lpuncservername : ::windows_core::PCSTR, lpfilename : ::windows_core::PCSTR) -> EventLogHandle);
     let result__ = OpenBackupEventLogA(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -480,7 +480,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn OpenBackupEventLogW(lpuncservername : ::windows_core::PCWSTR, lpfilename : ::windows_core::PCWSTR) -> EventLogHandle);
     let result__ = OpenBackupEventLogW(lpuncservername.into_param().abi(), lpfilename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -491,7 +491,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn OpenEventLogA(lpuncservername : ::windows_core::PCSTR, lpsourcename : ::windows_core::PCSTR) -> EventLogHandle);
     let result__ = OpenEventLogA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -502,7 +502,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn OpenEventLogW(lpuncservername : ::windows_core::PCWSTR, lpsourcename : ::windows_core::PCWSTR) -> EventLogHandle);
     let result__ = OpenEventLogW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -533,7 +533,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceA(lpuncservername : ::windows_core::PCSTR, lpsourcename : ::windows_core::PCSTR) -> EventSourceHandle);
     let result__ = RegisterEventSourceA(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`*"]
 #[inline]
@@ -544,7 +544,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegisterEventSourceW(lpuncservername : ::windows_core::PCWSTR, lpsourcename : ::windows_core::PCWSTR) -> EventSourceHandle);
     let result__ = RegisterEventSourceW(lpuncservername.into_param().abi(), lpsourcename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_EventLog\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

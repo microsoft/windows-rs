@@ -84,8 +84,7 @@ impl HSTRING {
 
     fn get_header(&self) -> Option<&Header> {
         if let Some(header) = &self.0 {
-            // TODO: this can be replaced with `as_ref` in future: https://github.com/rust-lang/rust/issues/91822
-            unsafe { Some(&*(header.as_ptr() as *const Header)) }
+            unsafe { Some(header.as_ref()) }
         } else {
             None
         }

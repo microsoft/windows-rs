@@ -72,7 +72,7 @@ impl<T: ToTokens> ToTokens for Option<T> {
 
 impl ToTokens for str {
     fn to_tokens(&self, tokens: &mut TokenStream) {
-        tokens.push('"');
+        tokens.push_str(" \"");
         tokens.push_str(self);
         tokens.push('"');
     }

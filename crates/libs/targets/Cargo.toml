@@ -3,7 +3,7 @@
 name = "windows-targets"
 version = "0.48.1"
 authors = ["Microsoft"]
-edition = "2018"
+edition = "2021"
 license = "MIT OR Apache-2.0"
 description = "Import libs for Windows"
 repository = "https://github.com/microsoft/windows-rs"

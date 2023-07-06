@@ -311,7 +311,7 @@ where
 {
     ::windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFile(filename : ::windows_core::PCSTR, symbolpath : ::windows_core::PCSTR, debugfilepath : ::windows_core::PSTR) -> super::super::super::Foundation:: HANDLE);
     let result__ = FindDebugInfoFile(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(debugfilepath));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -323,7 +323,7 @@ where
 {
     ::windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFileEx(filename : ::windows_core::PCSTR, symbolpath : ::windows_core::PCSTR, debugfilepath : ::windows_core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const ::core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
     let result__ = FindDebugInfoFileEx(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -335,7 +335,7 @@ where
 {
     ::windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFileExW(filename : ::windows_core::PCWSTR, symbolpath : ::windows_core::PCWSTR, debugfilepath : ::windows_core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const ::core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
     let result__ = FindDebugInfoFileExW(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -347,7 +347,7 @@ where
 {
     ::windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImage(filename : ::windows_core::PCSTR, symbolpath : ::windows_core::PCSTR, imagefilepath : ::windows_core::PSTR) -> super::super::super::Foundation:: HANDLE);
     let result__ = FindExecutableImage(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(imagefilepath));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -359,7 +359,7 @@ where
 {
     ::windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImageEx(filename : ::windows_core::PCSTR, symbolpath : ::windows_core::PCSTR, imagefilepath : ::windows_core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const ::core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
     let result__ = FindExecutableImageEx(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(imagefilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -371,7 +371,7 @@ where
 {
     ::windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImageExW(filename : ::windows_core::PCWSTR, symbolpath : ::windows_core::PCWSTR, imagefilepath : ::windows_core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const ::core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
     let result__ = FindExecutableImageExW(filename.into_param().abi(), symbolpath.into_param().abi(), ::core::mem::transmute(imagefilepath), callback, callerdata);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1606,7 +1606,7 @@ where
 {
     ::windows_targets::link!("dbghelp.dll" "system" fn SymFindDebugInfoFile(hprocess : super::super::super::Foundation:: HANDLE, filename : ::windows_core::PCSTR, debugfilepath : ::windows_core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const ::core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
     let result__ = SymFindDebugInfoFile(hprocess.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1618,7 +1618,7 @@ where
 {
     ::windows_targets::link!("dbghelp.dll" "system" fn SymFindDebugInfoFileW(hprocess : super::super::super::Foundation:: HANDLE, filename : ::windows_core::PCWSTR, debugfilepath : ::windows_core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const ::core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
     let result__ = SymFindDebugInfoFileW(hprocess.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(debugfilepath), callback, ::core::mem::transmute(callerdata.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1630,7 +1630,7 @@ where
 {
     ::windows_targets::link!("dbghelp.dll" "system" fn SymFindExecutableImage(hprocess : super::super::super::Foundation:: HANDLE, filename : ::windows_core::PCSTR, imagefilepath : ::windows_core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const ::core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
     let result__ = SymFindExecutableImage(hprocess.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(imagefilepath), callback, callerdata);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1642,7 +1642,7 @@ where
 {
     ::windows_targets::link!("dbghelp.dll" "system" fn SymFindExecutableImageW(hprocess : super::super::super::Foundation:: HANDLE, filename : ::windows_core::PCWSTR, imagefilepath : ::windows_core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const ::core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
     let result__ = SymFindExecutableImageW(hprocess.into_param().abi(), filename.into_param().abi(), ::core::mem::transmute(imagefilepath), callback, callerdata);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

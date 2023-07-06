@@ -2241,7 +2241,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyA(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : *const ::core::ffi::c_void, infsectionname : ::windows_core::PCSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDevRegKeyA(deviceinfoset.into_param().abi(), deviceinfodata, scope, hwprofile, keytype, ::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), infsectionname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2253,7 +2253,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDevRegKeyW(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, infhandle : *const ::core::ffi::c_void, infsectionname : ::windows_core::PCWSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDevRegKeyW(deviceinfoset.into_param().abi(), deviceinfodata, scope, hwprofile, keytype, ::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), infsectionname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2277,7 +2277,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoList(classguid : *const ::windows_core::GUID, hwndparent : super::super::Foundation:: HWND) -> HDEVINFO);
     let result__ = SetupDiCreateDeviceInfoList(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), hwndparent.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2289,7 +2289,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExA(classguid : *const ::windows_core::GUID, hwndparent : super::super::Foundation:: HWND, machinename : ::windows_core::PCSTR, reserved : *const ::core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiCreateDeviceInfoListExA(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), hwndparent.into_param().abi(), machinename.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2301,7 +2301,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInfoListExW(classguid : *const ::windows_core::GUID, hwndparent : super::super::Foundation:: HWND, machinename : ::windows_core::PCWSTR, reserved : *const ::core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiCreateDeviceInfoListExW(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), hwndparent.into_param().abi(), machinename.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2337,7 +2337,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : u32, infhandle : *const ::core::ffi::c_void, infsectionname : ::windows_core::PCSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset.into_param().abi(), deviceinterfacedata, reserved, samdesired, ::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), infsectionname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -2349,7 +2349,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : u32, infhandle : *const ::core::ffi::c_void, infsectionname : ::windows_core::PCWSTR) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset.into_param().abi(), deviceinterfacedata, reserved, samdesired, ::core::mem::transmute(infhandle.unwrap_or(::std::ptr::null())), infsectionname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2624,7 +2624,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsA(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, flags : u32) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsA(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), enumerator.into_param().abi(), hwndparent.into_param().abi(), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2638,7 +2638,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExA(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCSTR, hwndparent : super::super::Foundation:: HWND, flags : u32, deviceinfoset : HDEVINFO, machinename : ::windows_core::PCSTR, reserved : *const ::core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsExA(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), enumerator.into_param().abi(), hwndparent.into_param().abi(), flags, deviceinfoset.into_param().abi(), machinename.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2652,7 +2652,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsExW(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, flags : u32, deviceinfoset : HDEVINFO, machinename : ::windows_core::PCWSTR, reserved : *const ::core::ffi::c_void) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsExW(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), enumerator.into_param().abi(), hwndparent.into_param().abi(), flags, deviceinfoset.into_param().abi(), machinename.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2664,7 +2664,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiGetClassDevsW(classguid : *const ::windows_core::GUID, enumerator : ::windows_core::PCWSTR, hwndparent : super::super::Foundation:: HWND, flags : u32) -> HDEVINFO);
     let result__ = SetupDiGetClassDevsW(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), enumerator.into_param().abi(), hwndparent.into_param().abi(), flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -3214,7 +3214,7 @@ where
 pub unsafe fn SetupDiOpenClassRegKey(classguid: ::core::option::Option<*const ::windows_core::GUID>, samdesired: u32) -> ::windows_core::Result<super::super::System::Registry::HKEY> {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKey(classguid : *const ::windows_core::GUID, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenClassRegKey(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), samdesired);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3225,7 +3225,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExA(classguid : *const ::windows_core::GUID, samdesired : u32, flags : u32, machinename : ::windows_core::PCSTR, reserved : *const ::core::ffi::c_void) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenClassRegKeyExA(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), samdesired, flags, machinename.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3236,7 +3236,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenClassRegKeyExW(classguid : *const ::windows_core::GUID, samdesired : u32, flags : u32, machinename : ::windows_core::PCWSTR, reserved : *const ::core::ffi::c_void) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenClassRegKeyExW(::core::mem::transmute(classguid.unwrap_or(::std::ptr::null())), samdesired, flags, machinename.into_param().abi(), ::core::mem::transmute(reserved.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
@@ -3247,7 +3247,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenDevRegKey(deviceinfoset : HDEVINFO, deviceinfodata : *const SP_DEVINFO_DATA, scope : u32, hwprofile : u32, keytype : u32, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenDevRegKey(deviceinfoset.into_param().abi(), deviceinfodata, scope, hwprofile, keytype, samdesired);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3293,7 +3293,7 @@ where
 {
     ::windows_targets::link!("setupapi.dll" "system" fn SetupDiOpenDeviceInterfaceRegKey(deviceinfoset : HDEVINFO, deviceinterfacedata : *const SP_DEVICE_INTERFACE_DATA, reserved : u32, samdesired : u32) -> super::super::System::Registry:: HKEY);
     let result__ = SetupDiOpenDeviceInterfaceRegKey(deviceinfoset.into_param().abi(), deviceinterfacedata, reserved, samdesired);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

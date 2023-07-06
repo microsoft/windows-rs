@@ -20,7 +20,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectA(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateJobObjectA(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -31,7 +31,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn CreateJobObjectW(lpjobattributes : *const super::super::Security:: SECURITY_ATTRIBUTES, lpname : ::windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = CreateJobObjectW(::core::mem::transmute(lpjobattributes.unwrap_or(::std::ptr::null())), lpname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -67,7 +67,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn OpenJobObjectA(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenJobObjectA(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -79,7 +79,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn OpenJobObjectW(dwdesiredaccess : u32, binherithandle : super::super::Foundation:: BOOL, lpname : ::windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = OpenJobObjectW(dwdesiredaccess, binherithandle.into_param().abi(), lpname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_JobObjects\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

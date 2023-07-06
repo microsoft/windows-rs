@@ -1298,7 +1298,7 @@ where
 {
     ::windows_targets::link!("crypt32.dll" "system" fn CertOpenStore(lpszstoreprovider : ::windows_core::PCSTR, dwencodingtype : CERT_QUERY_ENCODING_TYPE, hcryptprov : HCRYPTPROV_LEGACY, dwflags : CERT_OPEN_STORE_FLAGS, pvpara : *const ::core::ffi::c_void) -> HCERTSTORE);
     let result__ = CertOpenStore(lpszstoreprovider.into_param().abi(), dwencodingtype, hcryptprov.into_param().abi(), dwflags, ::core::mem::transmute(pvpara.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
@@ -1309,7 +1309,7 @@ where
 {
     ::windows_targets::link!("crypt32.dll" "system" fn CertOpenSystemStoreA(hprov : HCRYPTPROV_LEGACY, szsubsystemprotocol : ::windows_core::PCSTR) -> HCERTSTORE);
     let result__ = CertOpenSystemStoreA(hprov.into_param().abi(), szsubsystemprotocol.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
@@ -1320,7 +1320,7 @@ where
 {
     ::windows_targets::link!("crypt32.dll" "system" fn CertOpenSystemStoreW(hprov : HCRYPTPROV_LEGACY, szsubsystemprotocol : ::windows_core::PCWSTR) -> HCERTSTORE);
     let result__ = CertOpenSystemStoreW(hprov.into_param().abi(), szsubsystemprotocol.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
@@ -2033,7 +2033,7 @@ where
 {
     ::windows_targets::link!("crypt32.dll" "system" fn CryptGetMessageCertificates(dwmsgandcertencodingtype : u32, hcryptprov : HCRYPTPROV_LEGACY, dwflags : u32, pbsignedblob : *const u8, cbsignedblob : u32) -> HCERTSTORE);
     let result__ = CryptGetMessageCertificates(dwmsgandcertencodingtype, hcryptprov.into_param().abi(), dwflags, ::core::mem::transmute(pbsignedblob.as_ptr()), pbsignedblob.len() as _);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 #[inline]
@@ -3434,7 +3434,7 @@ where
 {
     ::windows_targets::link!("crypt32.dll" "system" fn PFXImportCertStore(ppfx : *const CRYPT_INTEGER_BLOB, szpassword : ::windows_core::PCWSTR, dwflags : CRYPT_KEY_FLAGS) -> HCERTSTORE);
     let result__ = PFXImportCertStore(ppfx, szpassword.into_param().abi(), dwflags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -141,7 +141,7 @@ fn gen_win_function(writer: &Writer, def: MethodDef) -> TokenStream {
                     pub unsafe fn #name<#generics>(#params) -> ::windows_core::Result<#return_type> #where_clause {
                         #link
                         let result__ = #name(#args);
-                        ::windows_core::imp::then(!result__.is_invalid(), ||result__).ok_or_else(::windows_core::Error::from_win32)
+                        (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
                     }
                 }
             } else {

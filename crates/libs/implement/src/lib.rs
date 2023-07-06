@@ -81,7 +81,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
 
     let tokens = quote! {
         #[repr(C)]
-        struct #impl_ident#generics where #constraints {
+        struct #impl_ident #generics where #constraints {
             identity: *const ::windows::core::IInspectable_Vtbl,
             vtables: (#(*const #vtbl_idents,)*),
              this: #original_ident::#generics,

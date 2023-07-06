@@ -2,7 +2,7 @@
 name = "riddle"
 version = "0.0.1"
 authors = ["Microsoft"]
-edition = "2018"
+edition = "2021"
 license = "MIT OR Apache-2.0"
 description = "Windows metadata compiler"
 repository = "https://github.com/microsoft/windows-rs"

@@ -391,7 +391,7 @@ where
 {
     ::windows_targets::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryA(lpszurlsearchpattern : ::windows_core::PCSTR, lpfirstcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32) -> super::super::Foundation:: HANDLE);
     let result__ = FindFirstUrlCacheEntryA(lpszurlsearchpattern.into_param().abi(), ::core::mem::transmute(lpfirstcacheentryinfo.unwrap_or(::std::ptr::null_mut())), lpcbcacheentryinfo);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -402,7 +402,7 @@ where
 {
     ::windows_targets::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryExA(lpszurlsearchpattern : ::windows_core::PCSTR, dwflags : u32, dwfilter : u32, groupid : i64, lpfirstcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32, lpgroupattributes : *const ::core::ffi::c_void, lpcbgroupattributes : *const u32, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: HANDLE);
     let result__ = FindFirstUrlCacheEntryExA(lpszurlsearchpattern.into_param().abi(), dwflags, dwfilter, groupid, ::core::mem::transmute(lpfirstcacheentryinfo.unwrap_or(::std::ptr::null_mut())), lpcbcacheentryinfo, ::core::mem::transmute(lpgroupattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcbgroupattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -413,7 +413,7 @@ where
 {
     ::windows_targets::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryExW(lpszurlsearchpattern : ::windows_core::PCWSTR, dwflags : u32, dwfilter : u32, groupid : i64, lpfirstcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32, lpgroupattributes : *const ::core::ffi::c_void, lpcbgroupattributes : *const u32, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: HANDLE);
     let result__ = FindFirstUrlCacheEntryExW(lpszurlsearchpattern.into_param().abi(), dwflags, dwfilter, groupid, ::core::mem::transmute(lpfirstcacheentryinfo.unwrap_or(::std::ptr::null_mut())), lpcbcacheentryinfo, ::core::mem::transmute(lpgroupattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpcbgroupattributes.unwrap_or(::std::ptr::null())), ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -424,7 +424,7 @@ where
 {
     ::windows_targets::link!("wininet.dll" "system" fn FindFirstUrlCacheEntryW(lpszurlsearchpattern : ::windows_core::PCWSTR, lpfirstcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32) -> super::super::Foundation:: HANDLE);
     let result__ = FindFirstUrlCacheEntryW(lpszurlsearchpattern.into_param().abi(), ::core::mem::transmute(lpfirstcacheentryinfo.unwrap_or(::std::ptr::null_mut())), lpcbcacheentryinfo);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -432,7 +432,7 @@ where
 pub unsafe fn FindFirstUrlCacheGroup(dwflags: u32, dwfilter: u32, lpsearchcondition: ::core::option::Option<*const ::core::ffi::c_void>, dwsearchcondition: u32, lpgroupid: *mut i64, lpreserved: ::core::option::Option<*const ::core::ffi::c_void>) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
     ::windows_targets::link!("wininet.dll" "system" fn FindFirstUrlCacheGroup(dwflags : u32, dwfilter : u32, lpsearchcondition : *const ::core::ffi::c_void, dwsearchcondition : u32, lpgroupid : *mut i64, lpreserved : *const ::core::ffi::c_void) -> super::super::Foundation:: HANDLE);
     let result__ = FindFirstUrlCacheGroup(dwflags, dwfilter, ::core::mem::transmute(lpsearchcondition.unwrap_or(::std::ptr::null())), dwsearchcondition, lpgroupid, ::core::mem::transmute(lpreserved.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2321,7 +2321,7 @@ where
 {
     ::windows_targets::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamA(lpszurlname : ::windows_core::PCSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOA, lpcbcacheentryinfo : *mut u32, frandomread : super::super::Foundation:: BOOL, dwreserved : u32) -> super::super::Foundation:: HANDLE);
     let result__ = RetrieveUrlCacheEntryStreamA(lpszurlname.into_param().abi(), ::core::mem::transmute(lpcacheentryinfo.unwrap_or(::std::ptr::null_mut())), lpcbcacheentryinfo, frandomread.into_param().abi(), dwreserved);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2333,7 +2333,7 @@ where
 {
     ::windows_targets::link!("wininet.dll" "system" fn RetrieveUrlCacheEntryStreamW(lpszurlname : ::windows_core::PCWSTR, lpcacheentryinfo : *mut INTERNET_CACHE_ENTRY_INFOW, lpcbcacheentryinfo : *mut u32, frandomread : super::super::Foundation:: BOOL, dwreserved : u32) -> super::super::Foundation:: HANDLE);
     let result__ = RetrieveUrlCacheEntryStreamW(lpszurlname.into_param().abi(), ::core::mem::transmute(lpcacheentryinfo.unwrap_or(::std::ptr::null_mut())), lpcbcacheentryinfo, frandomread.into_param().abi(), dwreserved);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

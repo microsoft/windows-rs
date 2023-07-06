@@ -20,19 +20,10 @@ pub use sha1::*;
 pub use waiter::*;
 pub use weak_ref_count::*;
 
-// This is a workaround since 1.48 does not include `bool::then_some`.
+// This is a workaround since 1.56 does not include `bool::then_some`.
 pub fn then_some<T>(value: bool, t: T) -> Option<T> {
     if value {
         Some(t)
-    } else {
-        None
-    }
-}
-
-// This is a workaround since 1.48 does not include `bool::then`.
-pub fn then<T, F: FnOnce() -> T>(value: bool, f: F) -> Option<T> {
-    if value {
-        Some(f())
     } else {
         None
     }

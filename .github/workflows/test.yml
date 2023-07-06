@@ -96,8 +96,8 @@ jobs:
           cargo test -p test_does_not_return &&
           cargo test -p test_enums &&
           cargo test -p test_error &&
-          cargo clean &&
           cargo test -p test_event &&
+          cargo clean &&
           cargo test -p test_extensions &&
           cargo test -p test_handles &&
           cargo test -p test_helpers &&
@@ -116,6 +116,7 @@ jobs:
           cargo test -p test_readme &&
           cargo test -p test_reserved &&
           cargo test -p test_resources &&
+          cargo test -p test_return_handle &&
           cargo test -p test_return_struct &&
           cargo test -p test_riddle &&
           cargo test -p test_simple_component &&

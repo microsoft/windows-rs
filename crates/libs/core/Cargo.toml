@@ -3,12 +3,12 @@
 name = "windows-core"
 version = "0.50.0"
 authors = ["Microsoft"]
-edition = "2018"
+edition = "2021"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "../../../docs/readme.md"
-rust-version = "1.48"
+rust-version = "1.56"
 categories = ["os::windows-apis"]
 
 [package.metadata.docs.rs]

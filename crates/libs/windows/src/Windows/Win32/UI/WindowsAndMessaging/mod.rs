@@ -81,7 +81,7 @@ where
 pub unsafe fn BeginDeferWindowPos(nnumwindows: i32) -> ::windows_core::Result<HDWP> {
     ::windows_targets::link!("user32.dll" "system" fn BeginDeferWindowPos(nnumwindows : i32) -> HDWP);
     let result__ = BeginDeferWindowPos(nnumwindows);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -433,7 +433,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn CopyIcon(hicon : HICON) -> HICON);
     let result__ = CopyIcon(hicon.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -444,21 +444,21 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn CopyImage(h : super::super::Foundation:: HANDLE, r#type : GDI_IMAGE_TYPE, cx : i32, cy : i32, flags : IMAGE_FLAGS) -> super::super::Foundation:: HANDLE);
     let result__ = CopyImage(h.into_param().abi(), r#type, cx, cy, flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
 pub unsafe fn CreateAcceleratorTableA(paccel: &[ACCEL]) -> ::windows_core::Result<HACCEL> {
     ::windows_targets::link!("user32.dll" "system" fn CreateAcceleratorTableA(paccel : *const ACCEL, caccel : i32) -> HACCEL);
     let result__ = CreateAcceleratorTableA(::core::mem::transmute(paccel.as_ptr()), paccel.len() as _);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
 pub unsafe fn CreateAcceleratorTableW(paccel: &[ACCEL]) -> ::windows_core::Result<HACCEL> {
     ::windows_targets::link!("user32.dll" "system" fn CreateAcceleratorTableW(paccel : *const ACCEL, caccel : i32) -> HACCEL);
     let result__ = CreateAcceleratorTableW(::core::mem::transmute(paccel.as_ptr()), paccel.len() as _);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -480,7 +480,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn CreateCursor(hinst : super::super::Foundation:: HMODULE, xhotspot : i32, yhotspot : i32, nwidth : i32, nheight : i32, pvandplane : *const ::core::ffi::c_void, pvxorplane : *const ::core::ffi::c_void) -> HCURSOR);
     let result__ = CreateCursor(hinst.into_param().abi(), xhotspot, yhotspot, nwidth, nheight, pvandplane, pvxorplane);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -541,7 +541,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn CreateIcon(hinstance : super::super::Foundation:: HMODULE, nwidth : i32, nheight : i32, cplanes : u8, cbitspixel : u8, lpbandbits : *const u8, lpbxorbits : *const u8) -> HICON);
     let result__ = CreateIcon(hinstance.into_param().abi(), nwidth, nheight, cplanes, cbitspixel, lpbandbits, lpbxorbits);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -552,7 +552,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn CreateIconFromResource(presbits : *const u8, dwressize : u32, ficon : super::super::Foundation:: BOOL, dwver : u32) -> HICON);
     let result__ = CreateIconFromResource(::core::mem::transmute(presbits.as_ptr()), presbits.len() as _, ficon.into_param().abi(), dwver);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -563,7 +563,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn CreateIconFromResourceEx(presbits : *const u8, dwressize : u32, ficon : super::super::Foundation:: BOOL, dwver : u32, cxdesired : i32, cydesired : i32, flags : IMAGE_FLAGS) -> HICON);
     let result__ = CreateIconFromResourceEx(::core::mem::transmute(presbits.as_ptr()), presbits.len() as _, ficon.into_param().abi(), dwver, cxdesired, cydesired, flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -571,7 +571,7 @@ where
 pub unsafe fn CreateIconIndirect(piconinfo: *const ICONINFO) -> ::windows_core::Result<HICON> {
     ::windows_targets::link!("user32.dll" "system" fn CreateIconIndirect(piconinfo : *const ICONINFO) -> HICON);
     let result__ = CreateIconIndirect(piconinfo);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -606,14 +606,14 @@ where
 pub unsafe fn CreateMenu() -> ::windows_core::Result<HMENU> {
     ::windows_targets::link!("user32.dll" "system" fn CreateMenu() -> HMENU);
     let result__ = CreateMenu();
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
 pub unsafe fn CreatePopupMenu() -> ::windows_core::Result<HMENU> {
     ::windows_targets::link!("user32.dll" "system" fn CreatePopupMenu() -> HMENU);
     let result__ = CreatePopupMenu();
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -762,7 +762,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn DeferWindowPos(hwinposinfo : HDWP, hwnd : super::super::Foundation:: HWND, hwndinsertafter : super::super::Foundation:: HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : SET_WINDOW_POS_FLAGS) -> HDWP);
     let result__ = DeferWindowPos(hwinposinfo.into_param().abi(), hwnd.into_param().abi(), hwndinsertafter.into_param().abi(), x, y, cx, cy, uflags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2283,7 +2283,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadAcceleratorsA(hinstance : super::super::Foundation:: HMODULE, lptablename : ::windows_core::PCSTR) -> HACCEL);
     let result__ = LoadAcceleratorsA(hinstance.into_param().abi(), lptablename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2295,7 +2295,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadAcceleratorsW(hinstance : super::super::Foundation:: HMODULE, lptablename : ::windows_core::PCWSTR) -> HACCEL);
     let result__ = LoadAcceleratorsW(hinstance.into_param().abi(), lptablename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2307,7 +2307,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadCursorA(hinstance : super::super::Foundation:: HMODULE, lpcursorname : ::windows_core::PCSTR) -> HCURSOR);
     let result__ = LoadCursorA(hinstance.into_param().abi(), lpcursorname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -2317,7 +2317,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadCursorFromFileA(lpfilename : ::windows_core::PCSTR) -> HCURSOR);
     let result__ = LoadCursorFromFileA(lpfilename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
@@ -2327,7 +2327,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadCursorFromFileW(lpfilename : ::windows_core::PCWSTR) -> HCURSOR);
     let result__ = LoadCursorFromFileW(lpfilename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2339,7 +2339,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadCursorW(hinstance : super::super::Foundation:: HMODULE, lpcursorname : ::windows_core::PCWSTR) -> HCURSOR);
     let result__ = LoadCursorW(hinstance.into_param().abi(), lpcursorname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2351,7 +2351,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadIconA(hinstance : super::super::Foundation:: HMODULE, lpiconname : ::windows_core::PCSTR) -> HICON);
     let result__ = LoadIconA(hinstance.into_param().abi(), lpiconname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2363,7 +2363,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadIconW(hinstance : super::super::Foundation:: HMODULE, lpiconname : ::windows_core::PCWSTR) -> HICON);
     let result__ = LoadIconW(hinstance.into_param().abi(), lpiconname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2375,7 +2375,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadImageA(hinst : super::super::Foundation:: HMODULE, name : ::windows_core::PCSTR, r#type : GDI_IMAGE_TYPE, cx : i32, cy : i32, fuload : IMAGE_FLAGS) -> LOADIMAGE_HANDLE);
     let result__ = LoadImageA(hinst.into_param().abi(), name.into_param().abi(), r#type, cx, cy, fuload);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2387,7 +2387,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadImageW(hinst : super::super::Foundation:: HMODULE, name : ::windows_core::PCWSTR, r#type : GDI_IMAGE_TYPE, cx : i32, cy : i32, fuload : IMAGE_FLAGS) -> LOADIMAGE_HANDLE);
     let result__ = LoadImageW(hinst.into_param().abi(), name.into_param().abi(), r#type, cx, cy, fuload);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2399,21 +2399,21 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadMenuA(hinstance : super::super::Foundation:: HMODULE, lpmenuname : ::windows_core::PCSTR) -> HMENU);
     let result__ = LoadMenuA(hinstance.into_param().abi(), lpmenuname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
 pub unsafe fn LoadMenuIndirectA(lpmenutemplate: *const ::core::ffi::c_void) -> ::windows_core::Result<HMENU> {
     ::windows_targets::link!("user32.dll" "system" fn LoadMenuIndirectA(lpmenutemplate : *const ::core::ffi::c_void) -> HMENU);
     let result__ = LoadMenuIndirectA(lpmenutemplate);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[inline]
 pub unsafe fn LoadMenuIndirectW(lpmenutemplate: *const ::core::ffi::c_void) -> ::windows_core::Result<HMENU> {
     ::windows_targets::link!("user32.dll" "system" fn LoadMenuIndirectW(lpmenutemplate : *const ::core::ffi::c_void) -> HMENU);
     let result__ = LoadMenuIndirectW(lpmenutemplate);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2425,7 +2425,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn LoadMenuW(hinstance : super::super::Foundation:: HMODULE, lpmenuname : ::windows_core::PCWSTR) -> HMENU);
     let result__ = LoadMenuW(hinstance.into_param().abi(), lpmenuname.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3040,7 +3040,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn RegisterDeviceNotificationA(hrecipient : super::super::Foundation:: HANDLE, notificationfilter : *const ::core::ffi::c_void, flags : REGISTER_NOTIFICATION_FLAGS) -> HDEVNOTIFY);
     let result__ = RegisterDeviceNotificationA(hrecipient.into_param().abi(), notificationfilter, flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3051,7 +3051,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn RegisterDeviceNotificationW(hrecipient : super::super::Foundation:: HANDLE, notificationfilter : *const ::core::ffi::c_void, flags : REGISTER_NOTIFICATION_FLAGS) -> HDEVNOTIFY);
     let result__ = RegisterDeviceNotificationW(hrecipient.into_param().abi(), notificationfilter, flags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3101,7 +3101,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn RemovePropA(hwnd : super::super::Foundation:: HWND, lpstring : ::windows_core::PCSTR) -> super::super::Foundation:: HANDLE);
     let result__ = RemovePropA(hwnd.into_param().abi(), lpstring.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3113,7 +3113,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn RemovePropW(hwnd : super::super::Foundation:: HWND, lpstring : ::windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = RemovePropW(hwnd.into_param().abi(), lpstring.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3708,7 +3708,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn SetWindowsHookExA(idhook : WINDOWS_HOOK_ID, lpfn : HOOKPROC, hmod : super::super::Foundation:: HMODULE, dwthreadid : u32) -> HHOOK);
     let result__ = SetWindowsHookExA(idhook, lpfn, hmod.into_param().abi(), dwthreadid);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3719,7 +3719,7 @@ where
 {
     ::windows_targets::link!("user32.dll" "system" fn SetWindowsHookExW(idhook : WINDOWS_HOOK_ID, lpfn : HOOKPROC, hmod : super::super::Foundation:: HMODULE, dwthreadid : u32) -> HHOOK);
     let result__ = SetWindowsHookExW(idhook, lpfn, hmod.into_param().abi(), dwthreadid);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
