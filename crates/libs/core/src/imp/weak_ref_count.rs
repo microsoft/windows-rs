@@ -1,4 +1,4 @@
-// TODO: looks like a bug in nightly clippy as the suggestion is invalid.
+// TODO: workaround for https://github.com/rust-lang/rust-clippy/issues/11113
 #![allow(clippy::unnecessary_cast)]
 
 use super::*;
