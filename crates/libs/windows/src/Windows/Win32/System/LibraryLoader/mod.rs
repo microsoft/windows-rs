@@ -19,7 +19,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn BeginUpdateResourceA(pfilename : ::windows_core::PCSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> UPDATERESOURCE_HANDLE);
     let result__ = BeginUpdateResourceA(pfilename.into_param().abi(), bdeleteexistingresources.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -31,7 +31,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn BeginUpdateResourceW(pfilename : ::windows_core::PCWSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> UPDATERESOURCE_HANDLE);
     let result__ = BeginUpdateResourceW(pfilename.into_param().abi(), bdeleteexistingresources.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -208,7 +208,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindResourceA(hmodule : super::super::Foundation:: HMODULE, lpname : ::windows_core::PCSTR, lptype : ::windows_core::PCSTR) -> super::super::Foundation:: HRSRC);
     let result__ = FindResourceA(hmodule.into_param().abi(), lpname.into_param().abi(), lptype.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -221,7 +221,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindResourceExA(hmodule : super::super::Foundation:: HMODULE, lptype : ::windows_core::PCSTR, lpname : ::windows_core::PCSTR, wlanguage : u16) -> super::super::Foundation:: HRSRC);
     let result__ = FindResourceExA(hmodule.into_param().abi(), lptype.into_param().abi(), lpname.into_param().abi(), wlanguage);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -318,7 +318,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetModuleHandleA(lpmodulename : ::windows_core::PCSTR) -> super::super::Foundation:: HMODULE);
     let result__ = GetModuleHandleA(lpmodulename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -349,7 +349,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn GetModuleHandleW(lpmodulename : ::windows_core::PCWSTR) -> super::super::Foundation:: HMODULE);
     let result__ = GetModuleHandleW(lpmodulename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -371,7 +371,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LoadLibraryA(lplibfilename : ::windows_core::PCSTR) -> super::super::Foundation:: HMODULE);
     let result__ = LoadLibraryA(lplibfilename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -383,7 +383,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : ::windows_core::PCSTR, hfile : super::super::Foundation:: HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> super::super::Foundation:: HMODULE);
     let result__ = LoadLibraryExA(lplibfilename.into_param().abi(), hfile.into_param().abi(), dwflags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -395,7 +395,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LoadLibraryExW(lplibfilename : ::windows_core::PCWSTR, hfile : super::super::Foundation:: HANDLE, dwflags : LOAD_LIBRARY_FLAGS) -> super::super::Foundation:: HMODULE);
     let result__ = LoadLibraryExW(lplibfilename.into_param().abi(), hfile.into_param().abi(), dwflags);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -406,7 +406,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LoadLibraryW(lplibfilename : ::windows_core::PCWSTR) -> super::super::Foundation:: HMODULE);
     let result__ = LoadLibraryW(lplibfilename.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 #[inline]
@@ -426,7 +426,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LoadPackagedLibrary(lpwlibfilename : ::windows_core::PCWSTR, reserved : u32) -> super::super::Foundation:: HMODULE);
     let result__ = LoadPackagedLibrary(lpwlibfilename.into_param().abi(), reserved);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -438,7 +438,7 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn LoadResource(hmodule : super::super::Foundation:: HMODULE, hresinfo : super::super::Foundation:: HRSRC) -> super::super::Foundation:: HGLOBAL);
     let result__ = LoadResource(hmodule.into_param().abi(), hresinfo.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

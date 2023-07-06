@@ -30,7 +30,7 @@ where
 {
     ::windows_targets::link!("msajapi.dll" "system" fn AllJoynConnectToBus(connectionspec : ::windows_core::PCWSTR) -> super::super::Foundation:: HANDLE);
     let result__ = AllJoynConnectToBus(connectionspec.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

@@ -108,7 +108,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CreateServiceA(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_core::PCSTR, lpdisplayname : ::windows_core::PCSTR, dwdesiredaccess : u32, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_core::PCSTR, lploadordergroup : ::windows_core::PCSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_core::PCSTR, lpservicestartname : ::windows_core::PCSTR, lppassword : ::windows_core::PCSTR) -> super::super::Security:: SC_HANDLE);
     let result__ = CreateServiceA(hscmanager.into_param().abi(), lpservicename.into_param().abi(), lpdisplayname.into_param().abi(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.into_param().abi(), lploadordergroup.into_param().abi(), ::core::mem::transmute(lpdwtagid.unwrap_or(::std::ptr::null_mut())), lpdependencies.into_param().abi(), lpservicestartname.into_param().abi(), lppassword.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -126,7 +126,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn CreateServiceW(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_core::PCWSTR, lpdisplayname : ::windows_core::PCWSTR, dwdesiredaccess : u32, dwservicetype : ENUM_SERVICE_TYPE, dwstarttype : SERVICE_START_TYPE, dwerrorcontrol : SERVICE_ERROR, lpbinarypathname : ::windows_core::PCWSTR, lploadordergroup : ::windows_core::PCWSTR, lpdwtagid : *mut u32, lpdependencies : ::windows_core::PCWSTR, lpservicestartname : ::windows_core::PCWSTR, lppassword : ::windows_core::PCWSTR) -> super::super::Security:: SC_HANDLE);
     let result__ = CreateServiceW(hscmanager.into_param().abi(), lpservicename.into_param().abi(), lpdisplayname.into_param().abi(), dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname.into_param().abi(), lploadordergroup.into_param().abi(), ::core::mem::transmute(lpdwtagid.unwrap_or(::std::ptr::null_mut())), lpdependencies.into_param().abi(), lpservicestartname.into_param().abi(), lppassword.into_param().abi());
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -333,7 +333,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn OpenSCManagerA(lpmachinename : ::windows_core::PCSTR, lpdatabasename : ::windows_core::PCSTR, dwdesiredaccess : u32) -> super::super::Security:: SC_HANDLE);
     let result__ = OpenSCManagerA(lpmachinename.into_param().abi(), lpdatabasename.into_param().abi(), dwdesiredaccess);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -345,7 +345,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn OpenSCManagerW(lpmachinename : ::windows_core::PCWSTR, lpdatabasename : ::windows_core::PCWSTR, dwdesiredaccess : u32) -> super::super::Security:: SC_HANDLE);
     let result__ = OpenSCManagerW(lpmachinename.into_param().abi(), lpdatabasename.into_param().abi(), dwdesiredaccess);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -357,7 +357,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn OpenServiceA(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_core::PCSTR, dwdesiredaccess : u32) -> super::super::Security:: SC_HANDLE);
     let result__ = OpenServiceA(hscmanager.into_param().abi(), lpservicename.into_param().abi(), dwdesiredaccess);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
@@ -369,7 +369,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn OpenServiceW(hscmanager : super::super::Security:: SC_HANDLE, lpservicename : ::windows_core::PCWSTR, dwdesiredaccess : u32) -> super::super::Security:: SC_HANDLE);
     let result__ = OpenServiceW(hscmanager.into_param().abi(), lpservicename.into_param().abi(), dwdesiredaccess);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -479,7 +479,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerA(lpservicename : ::windows_core::PCSTR, lphandlerproc : LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE);
     let result__ = RegisterServiceCtrlHandlerA(lpservicename.into_param().abi(), lphandlerproc);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
@@ -489,7 +489,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExA(lpservicename : ::windows_core::PCSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE);
     let result__ = RegisterServiceCtrlHandlerExA(lpservicename.into_param().abi(), lphandlerproc, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
@@ -499,7 +499,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerExW(lpservicename : ::windows_core::PCWSTR, lphandlerproc : LPHANDLER_FUNCTION_EX, lpcontext : *const ::core::ffi::c_void) -> SERVICE_STATUS_HANDLE);
     let result__ = RegisterServiceCtrlHandlerExW(lpservicename.into_param().abi(), lphandlerproc, ::core::mem::transmute(lpcontext.unwrap_or(::std::ptr::null())));
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[inline]
@@ -509,7 +509,7 @@ where
 {
     ::windows_targets::link!("advapi32.dll" "system" fn RegisterServiceCtrlHandlerW(lpservicename : ::windows_core::PCWSTR, lphandlerproc : LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE);
     let result__ = RegisterServiceCtrlHandlerW(lpservicename.into_param().abi(), lphandlerproc);
-    ::windows_core::imp::then(!result__.is_invalid(), || result__).ok_or_else(::windows_core::Error::from_win32)
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
