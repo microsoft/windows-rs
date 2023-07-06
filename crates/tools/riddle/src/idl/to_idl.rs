@@ -201,10 +201,10 @@ impl<'a> Writer<'a> {
                 let namespace = self.namespace(self.reader.type_def_namespace(*def));
                 let name = to_ident(self.reader.type_def_name(*def));
                 if generics.is_empty() {
-                    quote! { #namespace#name }
+                    quote! { #namespace #name }
                 } else {
                     let generics = generics.iter().map(|ty| self.ty(ty));
-                    quote! { #namespace#name<#(#generics,)*> }
+                    quote! { #namespace #name<#(#generics,)*> }
                 }
             }
             rest => unimplemented!("{rest:?}"),
