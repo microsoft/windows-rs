@@ -169,6 +169,7 @@ impl<'a> Writer<'a> {
             Type::WinrtArray(ty) => self.type_name(ty),
             Type::WinrtArrayRef(ty) => self.type_name(ty),
             Type::ConstRef(ty) => self.type_name(ty),
+            Type::PrimitiveOrEnum(_, ty) => self.type_name(ty),
             rest => unimplemented!("{rest:?}"),
         }
     }
@@ -180,7 +181,10 @@ impl<'a> Writer<'a> {
     }
     pub fn type_abi_name(&self, ty: &Type) -> TokenStream {
         if self.sys {
-            return self.type_default_name(ty);
+            return match ty {
+                Type::PrimitiveOrEnum(ty, _) => self.type_default_name(ty),
+                _ => self.type_default_name(ty),
+            };
         }
 
         match ty {
@@ -245,6 +249,7 @@ impl<'a> Writer<'a> {
             }
             Type::WinrtArray(kind) => self.type_abi_name(kind),
             Type::WinrtArrayRef(kind) => self.type_abi_name(kind),
+            Type::PrimitiveOrEnum(ty, _) => self.type_name(ty),
             _ => self.type_name(ty),
         }
     }
@@ -899,7 +904,11 @@ impl<'a> Writer<'a> {
                 continue;
             }
             let name = method_names.add(self, method);
-            let signature = self.reader.method_def_signature(method, generics);
+            let signature = self.reader.method_def_signature(
+                self.reader.type_def_namespace(def),
+                method,
+                generics,
+            );
             let mut cfg = self.reader.signature_cfg(&signature);
             let signature = self.vtbl_signature(def, generics, &signature);
             cfg.add_feature(self.reader.type_def_namespace(def));
@@ -1084,7 +1093,11 @@ impl<'a> Writer<'a> {
                             quote! { #name, }
                         }
                         SignatureParamKind::Blittable => {
-                            quote! { ::core::mem::transmute(#name), }
+                            if matches!(param.ty, Type::PrimitiveOrEnum(_, _)) {
+                                quote! { #name.0 as _, }
+                            } else {
+                                quote! { ::core::mem::transmute(#name), }
+                            }
                         }
                         SignatureParamKind::Other => {
                             quote! { ::core::mem::transmute_copy(#name), }

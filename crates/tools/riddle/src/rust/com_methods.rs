@@ -9,7 +9,11 @@ pub fn writer(
     virtual_names: &mut MethodNames,
     base_count: usize,
 ) -> TokenStream {
-    let signature = writer.reader.method_def_signature(method, &[]);
+    let signature =
+        writer
+            .reader
+            .method_def_signature(writer.reader.type_def_namespace(def), method, &[]);
+
     let name = method_names.add(writer, method);
     let vname = virtual_names.add(writer, method);
     let generics = writer.constraint_generics(&signature.params);

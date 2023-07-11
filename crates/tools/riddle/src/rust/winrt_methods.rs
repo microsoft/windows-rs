@@ -10,7 +10,11 @@ pub fn writer(
     method_names: &mut MethodNames,
     virtual_names: &mut MethodNames,
 ) -> TokenStream {
-    let signature = writer.reader.method_def_signature(method, generic_types);
+    let signature = writer.reader.method_def_signature(
+        writer.reader.type_def_namespace(def),
+        method,
+        generic_types,
+    );
     let params = &signature.params;
     let name = method_names.add(writer, method);
     let interface_name = writer.type_def_name(def, generic_types);

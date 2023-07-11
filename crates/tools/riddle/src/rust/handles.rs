@@ -102,6 +102,11 @@ pub fn gen_win_handle(writer: &Writer, def: TypeDef) -> TokenStream {
 
         tokens.combine(&quote! {
             impl ::windows_core::CanInto<#dependency> for #ident {}
+            impl ::core::convert::From<#ident> for #dependency {
+                fn from(value: #ident) -> Self {
+                    Self(value.0)
+                }
+            }
         });
     }
 

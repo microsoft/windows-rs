@@ -3,8 +3,8 @@
 --config PACKAGE SYS
 
 --filter
-    Windows.Win32
     Windows.Wdk
+    Windows.Win32
     !Windows.AI
     !Windows.ApplicationModel
     !Windows.Data
