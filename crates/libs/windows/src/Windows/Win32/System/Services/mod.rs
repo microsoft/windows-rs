@@ -578,12 +578,31 @@ where
     ::windows_targets::link!("advapi32.dll" "system" fn StartServiceW(hservice : super::super::Security:: SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const ::windows_core::PCWSTR) -> super::super::Foundation:: BOOL);
     StartServiceW(hservice.into_param().abi(), lpserviceargvectors.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpserviceargvectors.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
 }
+#[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
+#[inline]
+pub unsafe fn SubscribeServiceChangeNotifications<P0>(hservice: P0, eeventtype: SC_EVENT_TYPE, pcallback: PSC_NOTIFICATION_CALLBACK, pcallbackcontext: ::core::option::Option<*const ::core::ffi::c_void>, psubscription: *mut PSC_NOTIFICATION_REGISTRATION) -> u32
+where
+    P0: ::windows_core::IntoParam<super::super::Security::SC_HANDLE>,
+{
+    ::windows_targets::link!("sechost.dll" "system" fn SubscribeServiceChangeNotifications(hservice : super::super::Security:: SC_HANDLE, eeventtype : SC_EVENT_TYPE, pcallback : PSC_NOTIFICATION_CALLBACK, pcallbackcontext : *const ::core::ffi::c_void, psubscription : *mut PSC_NOTIFICATION_REGISTRATION) -> u32);
+    SubscribeServiceChangeNotifications(hservice.into_param().abi(), eeventtype, pcallback, ::core::mem::transmute(pcallbackcontext.unwrap_or(::std::ptr::null())), psubscription)
+}
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnlockServiceDatabase(sclock: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
     ::windows_targets::link!("advapi32.dll" "system" fn UnlockServiceDatabase(sclock : *const ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
     UnlockServiceDatabase(sclock).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+#[inline]
+pub unsafe fn UnsubscribeServiceChangeNotifications<P0>(psubscription: P0)
+where
+    P0: ::windows_core::IntoParam<PSC_NOTIFICATION_REGISTRATION>,
+{
+    ::windows_targets::link!("sechost.dll" "system" fn UnsubscribeServiceChangeNotifications(psubscription : PSC_NOTIFICATION_REGISTRATION) -> ());
+    UnsubscribeServiceChangeNotifications(psubscription.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1652,6 +1671,28 @@ impl ::core::default::Default for ENUM_SERVICE_STATUS_PROCESSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PSC_NOTIFICATION_REGISTRATION(pub isize);
+impl ::core::default::Default for PSC_NOTIFICATION_REGISTRATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PSC_NOTIFICATION_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PSC_NOTIFICATION_REGISTRATION {}
+impl ::core::fmt::Debug for PSC_NOTIFICATION_REGISTRATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PSC_NOTIFICATION_REGISTRATION").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for PSC_NOTIFICATION_REGISTRATION {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -2778,17 +2819,6 @@ impl ::core::default::Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(C)]
-pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);
-impl ::core::marker::Copy for _SC_NOTIFICATION_REGISTRATION {}
-impl ::core::clone::Clone for _SC_NOTIFICATION_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _SC_NOTIFICATION_REGISTRATION {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub type HANDLER_FUNCTION = ::core::option::Option<unsafe extern "system" fn(dwcontrol: u32) -> ()>;

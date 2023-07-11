@@ -5866,8 +5866,8 @@ pub struct MIDL_STUB_MESSAGE {
     pub pArgQueue: *mut ::core::ffi::c_void,
     pub dwStubPhase: u32,
     pub LowStackMark: *mut ::core::ffi::c_void,
-    pub pAsyncMsg: *mut _NDR_ASYNC_MESSAGE,
-    pub pCorrInfo: *mut _NDR_CORRELATION_INFO,
+    pub pAsyncMsg: PNDR_ASYNC_MESSAGE,
+    pub pCorrInfo: PNDR_CORRELATION_INFO,
     pub pCorrMemory: *mut u8,
     pub pMemoryList: *mut ::core::ffi::c_void,
     pub pCSInfo: isize,
@@ -8174,12 +8174,23 @@ impl ::core::default::Default for NDR64_VAR_ARRAY_HEADER_FORMAT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub u8);
-impl ::core::marker::Copy for NDR_ALLOC_ALL_NODES_CONTEXT {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDR_ALLOC_ALL_NODES_CONTEXT(pub isize);
+impl ::core::default::Default for NDR_ALLOC_ALL_NODES_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for NDR_ALLOC_ALL_NODES_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for NDR_ALLOC_ALL_NODES_CONTEXT {}
+impl ::core::fmt::Debug for NDR_ALLOC_ALL_NODES_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDR_ALLOC_ALL_NODES_CONTEXT").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for NDR_ALLOC_ALL_NODES_CONTEXT {
@@ -8274,12 +8285,23 @@ impl ::core::default::Default for NDR_EXPR_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct NDR_POINTER_QUEUE_STATE(pub u8);
-impl ::core::marker::Copy for NDR_POINTER_QUEUE_STATE {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDR_POINTER_QUEUE_STATE(pub isize);
+impl ::core::default::Default for NDR_POINTER_QUEUE_STATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for NDR_POINTER_QUEUE_STATE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for NDR_POINTER_QUEUE_STATE {}
+impl ::core::fmt::Debug for NDR_POINTER_QUEUE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDR_POINTER_QUEUE_STATE").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for NDR_POINTER_QUEUE_STATE {
@@ -8401,6 +8423,50 @@ impl ::core::default::Default for NDR_USER_MARSHAL_INFO_LEVEL1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PNDR_ASYNC_MESSAGE(pub isize);
+impl ::core::default::Default for PNDR_ASYNC_MESSAGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PNDR_ASYNC_MESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PNDR_ASYNC_MESSAGE {}
+impl ::core::fmt::Debug for PNDR_ASYNC_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PNDR_ASYNC_MESSAGE").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for PNDR_ASYNC_MESSAGE {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PNDR_CORRELATION_INFO(pub isize);
+impl ::core::default::Default for PNDR_CORRELATION_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PNDR_CORRELATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PNDR_CORRELATION_INFO {}
+impl ::core::fmt::Debug for PNDR_CORRELATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PNDR_CORRELATION_INFO").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for PNDR_CORRELATION_INFO {
+    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Rpc\"`*"]
@@ -11234,34 +11300,23 @@ impl ::core::default::Default for XMIT_ROUTINE_QUINTUPLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct _NDR_ASYNC_MESSAGE(pub u8);
-impl ::core::marker::Copy for _NDR_ASYNC_MESSAGE {}
-impl ::core::clone::Clone for _NDR_ASYNC_MESSAGE {
-    fn clone(&self) -> Self {
-        *self
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct _NDR_PROC_CONTEXT(pub isize);
+impl ::core::default::Default for _NDR_PROC_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::windows_core::TypeKind for _NDR_ASYNC_MESSAGE {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct _NDR_CORRELATION_INFO(pub u8);
-impl ::core::marker::Copy for _NDR_CORRELATION_INFO {}
-impl ::core::clone::Clone for _NDR_CORRELATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _NDR_CORRELATION_INFO {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct _NDR_PROC_CONTEXT(pub u8);
-impl ::core::marker::Copy for _NDR_PROC_CONTEXT {}
 impl ::core::clone::Clone for _NDR_PROC_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for _NDR_PROC_CONTEXT {}
+impl ::core::fmt::Debug for _NDR_PROC_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_NDR_PROC_CONTEXT").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for _NDR_PROC_CONTEXT {

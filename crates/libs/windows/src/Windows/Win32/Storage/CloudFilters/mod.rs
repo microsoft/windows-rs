@@ -99,6 +99,15 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]
+pub unsafe fn CfGetPlaceholderRangeInfoForHydration<P0>(connectionkey: P0, transferkey: i64, fileid: i64, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, rangelength: i64, infobuffer: *mut ::core::ffi::c_void, infobuffersize: u32, infobufferwritten: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<CF_CONNECTION_KEY>,
+{
+    ::windows_targets::link!("cldapi.dll" "system" fn CfGetPlaceholderRangeInfoForHydration(connectionkey : CF_CONNECTION_KEY, transferkey : i64, fileid : i64, infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset : i64, rangelength : i64, infobuffer : *mut ::core::ffi::c_void, infobuffersize : u32, infobufferwritten : *mut u32) -> ::windows_core::HRESULT);
+    CfGetPlaceholderRangeInfoForHydration(connectionkey.into_param().abi(), transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer, infobuffersize, ::core::mem::transmute(infobufferwritten.unwrap_or(::std::ptr::null_mut()))).ok()
+}
+#[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
+#[inline]
 pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE {
     ::windows_targets::link!("cldapi.dll" "system" fn CfGetPlaceholderStateFromAttributeTag(fileattributes : u32, reparsetag : u32) -> CF_PLACEHOLDER_STATE);
     CfGetPlaceholderStateFromAttributeTag(fileattributes, reparsetag)
@@ -227,14 +236,12 @@ where
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfReleaseTransferKey<P0>(filehandle: P0) -> i64
+pub unsafe fn CfReleaseTransferKey<P0>(filehandle: P0, transferkey: *const i64)
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("cldapi.dll" "system" fn CfReleaseTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *mut i64) -> ());
-    let mut result__ = ::std::mem::zeroed();
-    CfReleaseTransferKey(filehandle.into_param().abi(), &mut result__);
-    ::std::mem::transmute(result__)
+    ::windows_targets::link!("cldapi.dll" "system" fn CfReleaseTransferKey(filehandle : super::super::Foundation:: HANDLE, transferkey : *const i64) -> ());
+    CfReleaseTransferKey(filehandle.into_param().abi(), transferkey)
 }
 #[doc = "*Required features: `\"Win32_Storage_CloudFilters\"`*"]
 #[inline]

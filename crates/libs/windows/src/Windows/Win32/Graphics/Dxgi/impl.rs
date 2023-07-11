@@ -1719,7 +1719,7 @@ impl IDXGIOutputDuplication_Vtbl {
 pub trait IDXGIResource_Impl: Sized + IDXGIDeviceSubObject_Impl {
     fn GetSharedHandle(&self) -> ::windows_core::Result<super::super::Foundation::HANDLE>;
     fn GetUsage(&self) -> ::windows_core::Result<DXGI_USAGE>;
-    fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows_core::Result<()>;
+    fn SetEvictionPriority(&self, evictionpriority: u32) -> ::windows_core::Result<()>;
     fn GetEvictionPriority(&self) -> ::windows_core::Result<u32>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1749,7 +1749,7 @@ impl IDXGIResource_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEvictionPriority<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDXGIResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetEvictionPriority<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDXGIResource_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, evictionpriority: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEvictionPriority(::core::mem::transmute_copy(&evictionpriority)).into()

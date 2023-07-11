@@ -1616,8 +1616,8 @@ impl IWICComponentFactory {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateQueryWriterFromBlockWriter)(::windows_core::Interface::as_raw(self), piblockwriter.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn CreateEncoderPropertyBag(&self, ppropoptions: &[super::super::System::Com::StructuredStorage::PROPBAG2]) -> ::windows_core::Result<super::super::System::Com::StructuredStorage::IPropertyBag2> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateEncoderPropertyBag)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppropoptions.as_ptr()), ppropoptions.len() as _, &mut result__).from_abi(result__)
@@ -1662,9 +1662,9 @@ pub struct IWICComponentFactory_Vtbl {
     pub CreateMetadataWriterFromReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pireader: *mut ::core::ffi::c_void, pguidvendor: *const ::windows_core::GUID, ppiwriter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateQueryReaderFromBlockReader: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piblockreader: *mut ::core::ffi::c_void, ppiqueryreader: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub CreateQueryWriterFromBlockWriter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piblockwriter: *mut ::core::ffi::c_void, ppiquerywriter: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
+    #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub CreateEncoderPropertyBag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropoptions: *const super::super::System::Com::StructuredStorage::PROPBAG2, ccount: u32, ppipropertybag: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(not(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     CreateEncoderPropertyBag: usize,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -2144,8 +2144,8 @@ pub struct IWICDevelopRawNotificationCallback_Vtbl {
 #[repr(transparent)]
 pub struct IWICEnumMetadataItem(::windows_core::IUnknown);
 impl IWICEnumMetadataItem {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn Next(&self, celt: u32, rgeltschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, rgeltschema, rgeltid, rgeltvalue, pceltfetched).ok()
     }
@@ -2187,9 +2187,9 @@ unsafe impl ::windows_core::ComInterface for IWICEnumMetadataItem {
 #[doc(hidden)]
 pub struct IWICEnumMetadataItem_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgeltschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, rgeltvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pceltfetched: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     Next: usize,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3009,8 +3009,8 @@ impl IWICMetadataQueryReader {
     pub unsafe fn GetLocation(&self, wznamespace: &mut [u16], pcchactuallength: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetLocation)(::windows_core::Interface::as_raw(self), wznamespace.len() as _, ::core::mem::transmute(wznamespace.as_ptr()), pcchactuallength).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -3053,9 +3053,9 @@ pub struct IWICMetadataQueryReader_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub GetContainerFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidcontainerformat: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchmaxlength: u32, wznamespace: ::windows_core::PWSTR, pcchactuallength: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetMetadataByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wzname: ::windows_core::PCWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetMetadataByName: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub GetEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienumstring: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3073,8 +3073,8 @@ impl IWICMetadataQueryWriter {
     pub unsafe fn GetLocation(&self, wznamespace: &mut [u16], pcchactuallength: *mut u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetLocation)(::windows_core::Interface::as_raw(self), wznamespace.len() as _, ::core::mem::transmute(wznamespace.as_ptr()), pcchactuallength).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -3087,8 +3087,8 @@ impl IWICMetadataQueryWriter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEnumerator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetMetadataByName<P0>(&self, wzname: P0, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -3129,9 +3129,9 @@ unsafe impl ::windows_core::ComInterface for IWICMetadataQueryWriter {
 #[doc(hidden)]
 pub struct IWICMetadataQueryWriter_Vtbl {
     pub base__: IWICMetadataQueryReader_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub SetMetadataByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wzname: ::windows_core::PCWSTR, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     SetMetadataByName: usize,
     pub RemoveMetadataByName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wzname: ::windows_core::PCWSTR) -> ::windows_core::HRESULT,
 }
@@ -3151,13 +3151,13 @@ impl IWICMetadataReader {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValueByIndex(&self, nindex: u32, pvarschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetValueByIndex)(::windows_core::Interface::as_raw(self), nindex, pvarschema, pvarid, pvarvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetValue)(::windows_core::Interface::as_raw(self), pvarschema, pvarid, pvarvalue).ok()
     }
@@ -3196,13 +3196,13 @@ pub struct IWICMetadataReader_Vtbl {
     pub GetMetadataFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidmetadataformat: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub GetMetadataHandlerInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppihandler: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccount: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetValueByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, pvarschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetValueByIndex: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetValue: usize,
     pub GetEnumerator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienummetadata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
@@ -3336,13 +3336,13 @@ impl IWICMetadataWriter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValueByIndex(&self, nindex: u32, pvarschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetValueByIndex)(::windows_core::Interface::as_raw(self), nindex, pvarschema, pvarid, pvarvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.GetValue)(::windows_core::Interface::as_raw(self), pvarschema, pvarid, pvarvalue).ok()
     }
@@ -3350,18 +3350,18 @@ impl IWICMetadataWriter {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetEnumerator)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValue)(::windows_core::Interface::as_raw(self), pvarschema, pvarid, pvarvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn SetValueByIndex(&self, nindex: u32, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetValueByIndex)(::windows_core::Interface::as_raw(self), nindex, pvarschema, pvarid, pvarvalue).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn RemoveValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).RemoveValue)(::windows_core::Interface::as_raw(self), pvarschema, pvarid).ok()
     }
@@ -3396,17 +3396,17 @@ unsafe impl ::windows_core::ComInterface for IWICMetadataWriter {
 #[doc(hidden)]
 pub struct IWICMetadataWriter_Vtbl {
     pub base__: IWICMetadataReader_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub SetValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     SetValue: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub SetValueByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     SetValueByIndex: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub RemoveValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     RemoveValue: usize,
     pub RemoveValueByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32) -> ::windows_core::HRESULT,
 }
@@ -4183,7 +4183,7 @@ impl IWICStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::STGC) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Commit)(::windows_core::Interface::as_raw(self), grfcommitflags).ok()
+        (::windows_core::Interface::vtable(self).base__.Commit)(::windows_core::Interface::as_raw(self), grfcommitflags.0 as _).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4193,7 +4193,7 @@ impl IWICStream {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::super::System::Com::LOCKTYPE) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.LockRegion)(::windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
+        (::windows_core::Interface::vtable(self).base__.LockRegion)(::windows_core::Interface::as_raw(self), liboffset, cb, dwlocktype.0 as _).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4203,7 +4203,7 @@ impl IWICStream {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: super::super::System::Com::STATFLAG) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).base__.Stat)(::windows_core::Interface::as_raw(self), pstatstg, grfstatflag).ok()
+        (::windows_core::Interface::vtable(self).base__.Stat)(::windows_core::Interface::as_raw(self), pstatstg, grfstatflag.0 as _).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4950,8 +4950,6 @@ pub struct WIC8BIMIptcDigestProperties(pub u32);
 pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMIptcDigestProperties_FORCE_DWORD: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2147483647u32);
 impl ::core::marker::Copy for WIC8BIMIptcDigestProperties {}
 impl ::core::clone::Clone for WIC8BIMIptcDigestProperties {
     fn clone(&self) -> Self {
@@ -4979,8 +4977,6 @@ pub struct WIC8BIMIptcProperties(pub u32);
 pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = WIC8BIMIptcProperties(0u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WIC8BIMIptcEmbeddedIPTC: WIC8BIMIptcProperties = WIC8BIMIptcProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMIptcProperties_FORCE_DWORD: WIC8BIMIptcProperties = WIC8BIMIptcProperties(2147483647u32);
 impl ::core::marker::Copy for WIC8BIMIptcProperties {}
 impl ::core::clone::Clone for WIC8BIMIptcProperties {
     fn clone(&self) -> Self {
@@ -5018,8 +5014,6 @@ pub const WIC8BIMResolutionInfoVResolution: WIC8BIMResolutionInfoProperties = WI
 pub const WIC8BIMResolutionInfoVResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(6u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WIC8BIMResolutionInfoHeightUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(7u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMResolutionInfoProperties_FORCE_DWORD: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(2147483647u32);
 impl ::core::marker::Copy for WIC8BIMResolutionInfoProperties {}
 impl ::core::clone::Clone for WIC8BIMResolutionInfoProperties {
     fn clone(&self) -> Self {
@@ -5049,8 +5043,6 @@ pub const WICBitmapUseAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannel
 pub const WICBitmapUsePremultipliedAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapIgnoreAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBITMAPALPHACHANNELOPTIONS_FORCE_DWORD: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(2147483647i32);
 impl ::core::marker::Copy for WICBitmapAlphaChannelOption {}
 impl ::core::clone::Clone for WICBitmapAlphaChannelOption {
     fn clone(&self) -> Self {
@@ -5080,8 +5072,6 @@ pub const WICBitmapNoCache: WICBitmapCreateCacheOption = WICBitmapCreateCacheOpt
 pub const WICBitmapCacheOnDemand: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapCacheOnLoad: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBITMAPCREATECACHEOPTION_FORCE_DWORD: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(2147483647i32);
 impl ::core::marker::Copy for WICBitmapCreateCacheOption {}
 impl ::core::clone::Clone for WICBitmapCreateCacheOption {
     fn clone(&self) -> Self {
@@ -5115,8 +5105,6 @@ pub const WICBitmapDecoderCapabilityCanDecodeSomeImages: WICBitmapDecoderCapabil
 pub const WICBitmapDecoderCapabilityCanEnumerateMetadata: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(8i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapDecoderCapabilityCanDecodeThumbnail: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBITMAPDECODERCAPABILITIES_FORCE_DWORD: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(2147483647i32);
 impl ::core::marker::Copy for WICBitmapDecoderCapabilities {}
 impl ::core::clone::Clone for WICBitmapDecoderCapabilities {
     fn clone(&self) -> Self {
@@ -5160,8 +5148,6 @@ pub const WICBitmapDitherTypeDualSpiral4x4: WICBitmapDitherType = WICBitmapDithe
 pub const WICBitmapDitherTypeDualSpiral8x8: WICBitmapDitherType = WICBitmapDitherType(7i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapDitherTypeErrorDiffusion: WICBitmapDitherType = WICBitmapDitherType(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBITMAPDITHERTYPE_FORCE_DWORD: WICBitmapDitherType = WICBitmapDitherType(2147483647i32);
 impl ::core::marker::Copy for WICBitmapDitherType {}
 impl ::core::clone::Clone for WICBitmapDitherType {
     fn clone(&self) -> Self {
@@ -5191,8 +5177,6 @@ pub const WICBitmapEncoderCacheInMemory: WICBitmapEncoderCacheOption = WICBitmap
 pub const WICBitmapEncoderCacheTempFile: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapEncoderNoCache: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBITMAPENCODERCACHEOPTION_FORCE_DWORD: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(2147483647i32);
 impl ::core::marker::Copy for WICBitmapEncoderCacheOption {}
 impl ::core::clone::Clone for WICBitmapEncoderCacheOption {
     fn clone(&self) -> Self {
@@ -5226,8 +5210,6 @@ pub const WICBitmapInterpolationModeCubic: WICBitmapInterpolationMode = WICBitma
 pub const WICBitmapInterpolationModeFant: WICBitmapInterpolationMode = WICBitmapInterpolationMode(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapInterpolationModeHighQualityCubic: WICBitmapInterpolationMode = WICBitmapInterpolationMode(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBITMAPINTERPOLATIONMODE_FORCE_DWORD: WICBitmapInterpolationMode = WICBitmapInterpolationMode(2147483647i32);
 impl ::core::marker::Copy for WICBitmapInterpolationMode {}
 impl ::core::clone::Clone for WICBitmapInterpolationMode {
     fn clone(&self) -> Self {
@@ -5255,8 +5237,6 @@ pub struct WICBitmapLockFlags(pub i32);
 pub const WICBitmapLockRead: WICBitmapLockFlags = WICBitmapLockFlags(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapLockWrite: WICBitmapLockFlags = WICBitmapLockFlags(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBITMAPLOCKFLAGS_FORCE_DWORD: WICBitmapLockFlags = WICBitmapLockFlags(2147483647i32);
 impl ::core::marker::Copy for WICBitmapLockFlags {}
 impl ::core::clone::Clone for WICBitmapLockFlags {
     fn clone(&self) -> Self {
@@ -5308,8 +5288,6 @@ pub const WICBitmapPaletteTypeFixedGray4: WICBitmapPaletteType = WICBitmapPalett
 pub const WICBitmapPaletteTypeFixedGray16: WICBitmapPaletteType = WICBitmapPaletteType(11i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapPaletteTypeFixedGray256: WICBitmapPaletteType = WICBitmapPaletteType(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBITMAPPALETTETYPE_FORCE_DWORD: WICBitmapPaletteType = WICBitmapPaletteType(2147483647i32);
 impl ::core::marker::Copy for WICBitmapPaletteType {}
 impl ::core::clone::Clone for WICBitmapPaletteType {
     fn clone(&self) -> Self {
@@ -5345,8 +5323,6 @@ pub const WICBitmapTransformRotate270: WICBitmapTransformOptions = WICBitmapTran
 pub const WICBitmapTransformFlipHorizontal: WICBitmapTransformOptions = WICBitmapTransformOptions(8i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICBitmapTransformFlipVertical: WICBitmapTransformOptions = WICBitmapTransformOptions(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBITMAPTRANSFORMOPTIONS_FORCE_DWORD: WICBitmapTransformOptions = WICBitmapTransformOptions(2147483647i32);
 impl ::core::marker::Copy for WICBitmapTransformOptions {}
 impl ::core::clone::Clone for WICBitmapTransformOptions {
     fn clone(&self) -> Self {
@@ -5409,8 +5385,6 @@ pub const WICComponentEnumerateDisabled: WICComponentEnumerateOptions = WICCompo
 pub const WICComponentEnumerateUnsigned: WICComponentEnumerateOptions = WICComponentEnumerateOptions(1073741824i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICComponentEnumerateBuiltInOnly: WICComponentEnumerateOptions = WICComponentEnumerateOptions(536870912i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICCOMPONENTENUMERATEOPTIONS_FORCE_DWORD: WICComponentEnumerateOptions = WICComponentEnumerateOptions(2147483647i32);
 impl ::core::marker::Copy for WICComponentEnumerateOptions {}
 impl ::core::clone::Clone for WICComponentEnumerateOptions {
     fn clone(&self) -> Self {
@@ -5442,8 +5416,6 @@ pub const WICComponentUnsigned: WICComponentSigning = WICComponentSigning(2i32);
 pub const WICComponentSafe: WICComponentSigning = WICComponentSigning(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICComponentDisabled: WICComponentSigning = WICComponentSigning(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICCOMPONENTSIGNING_FORCE_DWORD: WICComponentSigning = WICComponentSigning(2147483647i32);
 impl ::core::marker::Copy for WICComponentSigning {}
 impl ::core::clone::Clone for WICComponentSigning {
     fn clone(&self) -> Self {
@@ -5481,8 +5453,6 @@ pub const WICMetadataWriter: WICComponentType = WICComponentType(16i32);
 pub const WICPixelFormat: WICComponentType = WICComponentType(32i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICAllComponents: WICComponentType = WICComponentType(63i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICCOMPONENTTYPE_FORCE_DWORD: WICComponentType = WICComponentType(2147483647i32);
 impl ::core::marker::Copy for WICComponentType {}
 impl ::core::clone::Clone for WICComponentType {
     fn clone(&self) -> Self {
@@ -5516,8 +5486,6 @@ pub const WICDdsAlphaModePremultiplied: WICDdsAlphaMode = WICDdsAlphaMode(2i32);
 pub const WICDdsAlphaModeOpaque: WICDdsAlphaMode = WICDdsAlphaMode(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICDdsAlphaModeCustom: WICDdsAlphaMode = WICDdsAlphaMode(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDDSALPHAMODE_FORCE_DWORD: WICDdsAlphaMode = WICDdsAlphaMode(2147483647i32);
 impl ::core::marker::Copy for WICDdsAlphaMode {}
 impl ::core::clone::Clone for WICDdsAlphaMode {
     fn clone(&self) -> Self {
@@ -5549,8 +5517,6 @@ pub const WICDdsTexture2D: WICDdsDimension = WICDdsDimension(1i32);
 pub const WICDdsTexture3D: WICDdsDimension = WICDdsDimension(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICDdsTextureCube: WICDdsDimension = WICDdsDimension(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDDSTEXTURE_FORCE_DWORD: WICDdsDimension = WICDdsDimension(2147483647i32);
 impl ::core::marker::Copy for WICDdsDimension {}
 impl ::core::clone::Clone for WICDdsDimension {
     fn clone(&self) -> Self {
@@ -5578,8 +5544,6 @@ pub struct WICDecodeOptions(pub i32);
 pub const WICDecodeMetadataCacheOnDemand: WICDecodeOptions = WICDecodeOptions(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICDecodeMetadataCacheOnLoad: WICDecodeOptions = WICDecodeOptions(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICMETADATACACHEOPTION_FORCE_DWORD: WICDecodeOptions = WICDecodeOptions(2147483647i32);
 impl ::core::marker::Copy for WICDecodeOptions {}
 impl ::core::clone::Clone for WICDecodeOptions {
     fn clone(&self) -> Self {
@@ -5607,8 +5571,6 @@ pub struct WICGifApplicationExtensionProperties(pub u32);
 pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICGifApplicationExtensionData: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifApplicationExtensionProperties_FORCE_DWORD: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2147483647u32);
 impl ::core::marker::Copy for WICGifApplicationExtensionProperties {}
 impl ::core::clone::Clone for WICGifApplicationExtensionProperties {
     fn clone(&self) -> Self {
@@ -5634,8 +5596,6 @@ impl ::core::fmt::Debug for WICGifApplicationExtensionProperties {
 pub struct WICGifCommentExtensionProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifCommentExtensionProperties_FORCE_DWORD: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(2147483647u32);
 impl ::core::marker::Copy for WICGifCommentExtensionProperties {}
 impl ::core::clone::Clone for WICGifCommentExtensionProperties {
     fn clone(&self) -> Self {
@@ -5669,8 +5629,6 @@ pub const WICGifGraphicControlExtensionTransparencyFlag: WICGifGraphicControlExt
 pub const WICGifGraphicControlExtensionDelay: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(4u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICGifGraphicControlExtensionTransparentColorIndex: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifGraphicControlExtensionProperties_FORCE_DWORD: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(2147483647u32);
 impl ::core::marker::Copy for WICGifGraphicControlExtensionProperties {}
 impl ::core::clone::Clone for WICGifGraphicControlExtensionProperties {
     fn clone(&self) -> Self {
@@ -5710,8 +5668,6 @@ pub const WICGifImageDescriptorInterlaceFlag: WICGifImageDescriptorProperties = 
 pub const WICGifImageDescriptorSortFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(7u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICGifImageDescriptorLocalColorTableSize: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifImageDescriptorProperties_FORCE_DWORD: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(2147483647u32);
 impl ::core::marker::Copy for WICGifImageDescriptorProperties {}
 impl ::core::clone::Clone for WICGifImageDescriptorProperties {
     fn clone(&self) -> Self {
@@ -5753,8 +5709,6 @@ pub const WICGifLogicalScreenDescriptorGlobalColorTableSize: WICGifLogicalScreen
 pub const WICGifLogicalScreenDescriptorBackgroundColorIndex: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(8u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICGifLogicalScreenDescriptorPixelAspectRatio: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(9u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifLogicalScreenDescriptorProperties_FORCE_DWORD: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(2147483647u32);
 impl ::core::marker::Copy for WICGifLogicalScreenDescriptorProperties {}
 impl ::core::clone::Clone for WICGifLogicalScreenDescriptorProperties {
     fn clone(&self) -> Self {
@@ -5788,8 +5742,6 @@ pub const WICHeifHdrMinimumMasteringDisplayLuminanceLevel: WICHeifHdrProperties 
 pub const WICHeifHdrMaximumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(4u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICHeifHdrCustomVideoPrimaries: WICHeifHdrProperties = WICHeifHdrProperties(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICHeifHdrProperties_FORCE_DWORD: WICHeifHdrProperties = WICHeifHdrProperties(2147483647u32);
 impl ::core::marker::Copy for WICHeifHdrProperties {}
 impl ::core::clone::Clone for WICHeifHdrProperties {
     fn clone(&self) -> Self {
@@ -5815,8 +5767,6 @@ impl ::core::fmt::Debug for WICHeifHdrProperties {
 pub struct WICHeifProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICHeifOrientation: WICHeifProperties = WICHeifProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = WICHeifProperties(2147483647u32);
 impl ::core::marker::Copy for WICHeifProperties {}
 impl ::core::clone::Clone for WICHeifProperties {
     fn clone(&self) -> Self {
@@ -5842,8 +5792,6 @@ impl ::core::fmt::Debug for WICHeifProperties {
 pub struct WICJpegChrominanceProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = WICJpegChrominanceProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegChrominanceProperties_FORCE_DWORD: WICJpegChrominanceProperties = WICJpegChrominanceProperties(2147483647u32);
 impl ::core::marker::Copy for WICJpegChrominanceProperties {}
 impl ::core::clone::Clone for WICJpegChrominanceProperties {
     fn clone(&self) -> Self {
@@ -5869,8 +5817,6 @@ impl ::core::fmt::Debug for WICJpegChrominanceProperties {
 pub struct WICJpegCommentProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegCommentText: WICJpegCommentProperties = WICJpegCommentProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegCommentProperties_FORCE_DWORD: WICJpegCommentProperties = WICJpegCommentProperties(2147483647u32);
 impl ::core::marker::Copy for WICJpegCommentProperties {}
 impl ::core::clone::Clone for WICJpegCommentProperties {
     fn clone(&self) -> Self {
@@ -5898,8 +5844,6 @@ pub struct WICJpegIndexingOptions(pub u32);
 pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = WICJpegIndexingOptions(0u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegIndexingOptionsGenerateOnLoad: WICJpegIndexingOptions = WICJpegIndexingOptions(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegIndexingOptions_FORCE_DWORD: WICJpegIndexingOptions = WICJpegIndexingOptions(2147483647u32);
 impl ::core::marker::Copy for WICJpegIndexingOptions {}
 impl ::core::clone::Clone for WICJpegIndexingOptions {
     fn clone(&self) -> Self {
@@ -5925,8 +5869,6 @@ impl ::core::fmt::Debug for WICJpegIndexingOptions {
 pub struct WICJpegLuminanceProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = WICJpegLuminanceProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegLuminanceProperties_FORCE_DWORD: WICJpegLuminanceProperties = WICJpegLuminanceProperties(2147483647u32);
 impl ::core::marker::Copy for WICJpegLuminanceProperties {}
 impl ::core::clone::Clone for WICJpegLuminanceProperties {
     fn clone(&self) -> Self {
@@ -5956,8 +5898,6 @@ pub const WICJpegScanTypeInterleaved: WICJpegScanType = WICJpegScanType(0u32);
 pub const WICJpegScanTypePlanarComponents: WICJpegScanType = WICJpegScanType(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegScanTypeProgressive: WICJpegScanType = WICJpegScanType(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegScanType_FORCE_DWORD: WICJpegScanType = WICJpegScanType(2147483647u32);
 impl ::core::marker::Copy for WICJpegScanType {}
 impl ::core::clone::Clone for WICJpegScanType {
     fn clone(&self) -> Self {
@@ -5985,8 +5925,6 @@ pub struct WICJpegTransferMatrix(pub u32);
 pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = WICJpegTransferMatrix(0u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegTransferMatrixBT601: WICJpegTransferMatrix = WICJpegTransferMatrix(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegTransferMatrix_FORCE_DWORD: WICJpegTransferMatrix = WICJpegTransferMatrix(2147483647u32);
 impl ::core::marker::Copy for WICJpegTransferMatrix {}
 impl ::core::clone::Clone for WICJpegTransferMatrix {
     fn clone(&self) -> Self {
@@ -6020,8 +5958,6 @@ pub const WICJpegYCrCbSubsampling422: WICJpegYCrCbSubsamplingOption = WICJpegYCr
 pub const WICJpegYCrCbSubsampling444: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICJpegYCrCbSubsampling440: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJPEGYCRCBSUBSAMPLING_FORCE_DWORD: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(2147483647i32);
 impl ::core::marker::Copy for WICJpegYCrCbSubsamplingOption {}
 impl ::core::clone::Clone for WICJpegYCrCbSubsamplingOption {
     fn clone(&self) -> Self {
@@ -6098,8 +6034,6 @@ pub const WICWhitePointCustom: WICNamedWhitePoint = WICNamedWhitePoint(256i32);
 pub const WICWhitePointAutoWhiteBalance: WICNamedWhitePoint = WICNamedWhitePoint(512i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICWhitePointAsShot: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICNAMEDWHITEPOINT_FORCE_DWORD: WICNamedWhitePoint = WICNamedWhitePoint(2147483647i32);
 impl ::core::marker::Copy for WICNamedWhitePoint {}
 impl ::core::clone::Clone for WICNamedWhitePoint {
     fn clone(&self) -> Self {
@@ -6172,8 +6106,6 @@ pub const WICPixelFormatNumericRepresentationSignedInteger: WICPixelFormatNumeri
 pub const WICPixelFormatNumericRepresentationFixed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(4u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPixelFormatNumericRepresentationFloat: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPixelFormatNumericRepresentation_FORCE_DWORD: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(2147483647u32);
 impl ::core::marker::Copy for WICPixelFormatNumericRepresentation {}
 impl ::core::clone::Clone for WICPixelFormatNumericRepresentation {
     fn clone(&self) -> Self {
@@ -6201,8 +6133,6 @@ pub struct WICPlanarOptions(pub i32);
 pub const WICPlanarOptionsDefault: WICPlanarOptions = WICPlanarOptions(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPlanarOptionsPreserveSubsampling: WICPlanarOptions = WICPlanarOptions(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPLANAROPTIONS_FORCE_DWORD: WICPlanarOptions = WICPlanarOptions(2147483647i32);
 impl ::core::marker::Copy for WICPlanarOptions {}
 impl ::core::clone::Clone for WICPlanarOptions {
     fn clone(&self) -> Self {
@@ -6228,8 +6158,6 @@ impl ::core::fmt::Debug for WICPlanarOptions {
 pub struct WICPngBkgdProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = WICPngBkgdProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngBkgdProperties_FORCE_DWORD: WICPngBkgdProperties = WICPngBkgdProperties(2147483647u32);
 impl ::core::marker::Copy for WICPngBkgdProperties {}
 impl ::core::clone::Clone for WICPngBkgdProperties {
     fn clone(&self) -> Self {
@@ -6269,8 +6197,6 @@ pub const WICPngChrmGreenY: WICPngChrmProperties = WICPngChrmProperties(6u32);
 pub const WICPngChrmBlueX: WICPngChrmProperties = WICPngChrmProperties(7u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngChrmBlueY: WICPngChrmProperties = WICPngChrmProperties(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngChrmProperties_FORCE_DWORD: WICPngChrmProperties = WICPngChrmProperties(2147483647u32);
 impl ::core::marker::Copy for WICPngChrmProperties {}
 impl ::core::clone::Clone for WICPngChrmProperties {
     fn clone(&self) -> Self {
@@ -6308,8 +6234,6 @@ pub const WICPngFilterAverage: WICPngFilterOption = WICPngFilterOption(4i32);
 pub const WICPngFilterPaeth: WICPngFilterOption = WICPngFilterOption(5i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngFilterAdaptive: WICPngFilterOption = WICPngFilterOption(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPNGFILTEROPTION_FORCE_DWORD: WICPngFilterOption = WICPngFilterOption(2147483647i32);
 impl ::core::marker::Copy for WICPngFilterOption {}
 impl ::core::clone::Clone for WICPngFilterOption {
     fn clone(&self) -> Self {
@@ -6335,8 +6259,6 @@ impl ::core::fmt::Debug for WICPngFilterOption {
 pub struct WICPngGamaProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngGamaGamma: WICPngGamaProperties = WICPngGamaProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngGamaProperties_FORCE_DWORD: WICPngGamaProperties = WICPngGamaProperties(2147483647u32);
 impl ::core::marker::Copy for WICPngGamaProperties {}
 impl ::core::clone::Clone for WICPngGamaProperties {
     fn clone(&self) -> Self {
@@ -6362,8 +6284,6 @@ impl ::core::fmt::Debug for WICPngGamaProperties {
 pub struct WICPngHistProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngHistFrequencies: WICPngHistProperties = WICPngHistProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngHistProperties_FORCE_DWORD: WICPngHistProperties = WICPngHistProperties(2147483647u32);
 impl ::core::marker::Copy for WICPngHistProperties {}
 impl ::core::clone::Clone for WICPngHistProperties {
     fn clone(&self) -> Self {
@@ -6391,8 +6311,6 @@ pub struct WICPngIccpProperties(pub u32);
 pub const WICPngIccpProfileName: WICPngIccpProperties = WICPngIccpProperties(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngIccpProfileData: WICPngIccpProperties = WICPngIccpProperties(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngIccpProperties_FORCE_DWORD: WICPngIccpProperties = WICPngIccpProperties(2147483647u32);
 impl ::core::marker::Copy for WICPngIccpProperties {}
 impl ::core::clone::Clone for WICPngIccpProperties {
     fn clone(&self) -> Self {
@@ -6426,8 +6344,6 @@ pub const WICPngItxtLanguageTag: WICPngItxtProperties = WICPngItxtProperties(3u3
 pub const WICPngItxtTranslatedKeyword: WICPngItxtProperties = WICPngItxtProperties(4u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngItxtText: WICPngItxtProperties = WICPngItxtProperties(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngItxtProperties_FORCE_DWORD: WICPngItxtProperties = WICPngItxtProperties(2147483647u32);
 impl ::core::marker::Copy for WICPngItxtProperties {}
 impl ::core::clone::Clone for WICPngItxtProperties {
     fn clone(&self) -> Self {
@@ -6453,8 +6369,6 @@ impl ::core::fmt::Debug for WICPngItxtProperties {
 pub struct WICPngSrgbProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = WICPngSrgbProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngSrgbProperties_FORCE_DWORD: WICPngSrgbProperties = WICPngSrgbProperties(2147483647u32);
 impl ::core::marker::Copy for WICPngSrgbProperties {}
 impl ::core::clone::Clone for WICPngSrgbProperties {
     fn clone(&self) -> Self {
@@ -6490,8 +6404,6 @@ pub const WICPngTimeHour: WICPngTimeProperties = WICPngTimeProperties(4u32);
 pub const WICPngTimeMinute: WICPngTimeProperties = WICPngTimeProperties(5u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICPngTimeSecond: WICPngTimeProperties = WICPngTimeProperties(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngTimeProperties_FORCE_DWORD: WICPngTimeProperties = WICPngTimeProperties(2147483647u32);
 impl ::core::marker::Copy for WICPngTimeProperties {}
 impl ::core::clone::Clone for WICPngTimeProperties {
     fn clone(&self) -> Self {
@@ -6523,8 +6435,6 @@ pub const WICProgressNotificationEnd: WICProgressNotification = WICProgressNotif
 pub const WICProgressNotificationFrequent: WICProgressNotification = WICProgressNotification(262144i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICProgressNotificationAll: WICProgressNotification = WICProgressNotification(-65536i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPROGRESSNOTIFICATION_FORCE_DWORD: WICProgressNotification = WICProgressNotification(2147483647i32);
 impl ::core::marker::Copy for WICProgressNotification {}
 impl ::core::clone::Clone for WICProgressNotification {
     fn clone(&self) -> Self {
@@ -6554,8 +6464,6 @@ pub const WICProgressOperationCopyPixels: WICProgressOperation = WICProgressOper
 pub const WICProgressOperationWritePixels: WICProgressOperation = WICProgressOperation(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICProgressOperationAll: WICProgressOperation = WICProgressOperation(65535i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPROGRESSOPERATION_FORCE_DWORD: WICProgressOperation = WICProgressOperation(2147483647i32);
 impl ::core::marker::Copy for WICProgressOperation {}
 impl ::core::clone::Clone for WICProgressOperation {
     fn clone(&self) -> Self {
@@ -6585,8 +6493,6 @@ pub const WICRawCapabilityNotSupported: WICRawCapabilities = WICRawCapabilities(
 pub const WICRawCapabilityGetSupported: WICRawCapabilities = WICRawCapabilities(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICRawCapabilityFullySupported: WICRawCapabilities = WICRawCapabilities(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRAWCAPABILITIES_FORCE_DWORD: WICRawCapabilities = WICRawCapabilities(2147483647i32);
 impl ::core::marker::Copy for WICRawCapabilities {}
 impl ::core::clone::Clone for WICRawCapabilities {
     fn clone(&self) -> Self {
@@ -6616,8 +6522,6 @@ pub const WICAsShotParameterSet: WICRawParameterSet = WICRawParameterSet(1i32);
 pub const WICUserAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICAutoAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRAWPARAMETERSET_FORCE_DWORD: WICRawParameterSet = WICRawParameterSet(2147483647i32);
 impl ::core::marker::Copy for WICRawParameterSet {}
 impl ::core::clone::Clone for WICRawParameterSet {
     fn clone(&self) -> Self {
@@ -6647,8 +6551,6 @@ pub const WICRawRenderModeDraft: WICRawRenderMode = WICRawRenderMode(1i32);
 pub const WICRawRenderModeNormal: WICRawRenderMode = WICRawRenderMode(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICRawRenderModeBestQuality: WICRawRenderMode = WICRawRenderMode(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRAWRENDERMODE_FORCE_DWORD: WICRawRenderMode = WICRawRenderMode(2147483647i32);
 impl ::core::marker::Copy for WICRawRenderMode {}
 impl ::core::clone::Clone for WICRawRenderMode {
     fn clone(&self) -> Self {
@@ -6680,8 +6582,6 @@ pub const WICRawRotationCapabilityGetSupported: WICRawRotationCapabilities = WIC
 pub const WICRawRotationCapabilityNinetyDegreesSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICRawRotationCapabilityFullySupported: WICRawRotationCapabilities = WICRawRotationCapabilities(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRAWROTATIONCAPABILITIES_FORCE_DWORD: WICRawRotationCapabilities = WICRawRotationCapabilities(2147483647i32);
 impl ::core::marker::Copy for WICRawRotationCapabilities {}
 impl ::core::clone::Clone for WICRawRotationCapabilities {
     fn clone(&self) -> Self {
@@ -6709,8 +6609,6 @@ pub struct WICSectionAccessLevel(pub u32);
 pub const WICSectionAccessLevelRead: WICSectionAccessLevel = WICSectionAccessLevel(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICSectionAccessLevelReadWrite: WICSectionAccessLevel = WICSectionAccessLevel(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICSectionAccessLevel_FORCE_DWORD: WICSectionAccessLevel = WICSectionAccessLevel(2147483647u32);
 impl ::core::marker::Copy for WICSectionAccessLevel {}
 impl ::core::clone::Clone for WICSectionAccessLevel {
     fn clone(&self) -> Self {
@@ -6750,8 +6648,6 @@ pub const WICTiffCompressionRLE: WICTiffCompressionOption = WICTiffCompressionOp
 pub const WICTiffCompressionZIP: WICTiffCompressionOption = WICTiffCompressionOption(6i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICTiffCompressionLZWHDifferencing: WICTiffCompressionOption = WICTiffCompressionOption(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICTIFFCOMPRESSIONOPTION_FORCE_DWORD: WICTiffCompressionOption = WICTiffCompressionOption(2147483647i32);
 impl ::core::marker::Copy for WICTiffCompressionOption {}
 impl ::core::clone::Clone for WICTiffCompressionOption {
     fn clone(&self) -> Self {
@@ -6777,8 +6673,6 @@ impl ::core::fmt::Debug for WICTiffCompressionOption {
 pub struct WICWebpAnimProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICWebpAnimLoopCount: WICWebpAnimProperties = WICWebpAnimProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWebpAnimProperties_FORCE_DWORD: WICWebpAnimProperties = WICWebpAnimProperties(2147483647u32);
 impl ::core::marker::Copy for WICWebpAnimProperties {}
 impl ::core::clone::Clone for WICWebpAnimProperties {
     fn clone(&self) -> Self {
@@ -6804,8 +6698,6 @@ impl ::core::fmt::Debug for WICWebpAnimProperties {
 pub struct WICWebpAnmfProperties(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = WICWebpAnmfProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWebpAnmfProperties_FORCE_DWORD: WICWebpAnmfProperties = WICWebpAnmfProperties(2147483647u32);
 impl ::core::marker::Copy for WICWebpAnmfProperties {}
 impl ::core::clone::Clone for WICWebpAnmfProperties {
     fn clone(&self) -> Self {

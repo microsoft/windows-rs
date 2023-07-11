@@ -549,19 +549,19 @@ impl ::core::fmt::Debug for DESKTOP_CONTROL_FLAGS {
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct USER_OBJECT_INFORMATION_INDEX(pub u32);
+pub struct USER_OBJECT_INFORMATION_INDEX(pub i32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(1u32);
+pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(1i32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(5u32);
+pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(5i32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(6u32);
+pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(6i32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(2u32);
+pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(2i32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3u32);
+pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3i32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4u32);
+pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4i32);
 impl ::core::marker::Copy for USER_OBJECT_INFORMATION_INDEX {}
 impl ::core::clone::Clone for USER_OBJECT_INFORMATION_INDEX {
     fn clone(&self) -> Self {

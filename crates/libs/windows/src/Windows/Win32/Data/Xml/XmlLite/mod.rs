@@ -719,12 +719,6 @@ pub struct IXmlWriterLite_Vtbl {
     pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
-pub const _IID_IXmlReader: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
-#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
-pub const _IID_IXmlResolver: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
-#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
-pub const _IID_IXmlWriter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);
-#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DtdProcessing(pub i32);

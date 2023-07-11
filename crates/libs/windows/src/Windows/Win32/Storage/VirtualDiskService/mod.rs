@@ -4,8 +4,8 @@
 #[repr(transparent)]
 pub struct IEnumVdsObject(::windows_core::IUnknown);
 impl IEnumVdsObject {
-    pub unsafe fn Next(&self, celt: u32, ppobjectarray: *mut ::core::option::Option<::windows_core::IUnknown>, pcfetched: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), celt, ::core::mem::transmute(ppobjectarray), pcfetched).ok()
+    pub unsafe fn Next(&self, ppobjectarray: &mut [::core::option::Option<::windows_core::IUnknown>], pcfetched: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Next)(::windows_core::Interface::as_raw(self), ppobjectarray.len() as _, ::core::mem::transmute(ppobjectarray.as_ptr()), pcfetched).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Skip)(::windows_core::Interface::as_raw(self), celt).ok()
@@ -1169,24 +1169,24 @@ pub struct IVdsHwProviderStoragePools(::windows_core::IUnknown);
 impl IVdsHwProviderStoragePools {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: ::core::option::Option<*const VDS_POOL_ATTRIBUTES>) -> ::windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> ::windows_core::Result<IEnumVdsObject> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QueryStoragePools)(::windows_core::Interface::as_raw(self), ulflags, ullremainingfreespace, ::core::mem::transmute(ppoolattributes.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QueryStoragePools)(::windows_core::Interface::as_raw(self), ulflags, ullremainingfreespace, ppoolattributes, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateLunInStoragePool<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: ::windows_core::GUID, pwszunmaskinglist: P0, phints2: ::core::option::Option<*const VDS_HINTS2>) -> ::windows_core::Result<IVdsAsync>
+    pub unsafe fn CreateLunInStoragePool<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: ::windows_core::GUID, pwszunmaskinglist: P0, phints2: *const VDS_HINTS2) -> ::windows_core::Result<IVdsAsync>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateLunInStoragePool)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(storagepoolid), pwszunmaskinglist.into_param().abi(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateLunInStoragePool)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(storagepoolid), pwszunmaskinglist.into_param().abi(), phints2, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: ::windows_core::GUID, phints2: ::core::option::Option<*const VDS_HINTS2>) -> ::windows_core::Result<u64> {
+    pub unsafe fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: ::windows_core::GUID, phints2: *const VDS_HINTS2) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QueryMaxLunCreateSizeInStoragePool)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(storagepoolid), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QueryMaxLunCreateSizeInStoragePool)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(storagepoolid), phints2, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsHwProviderStoragePools, ::windows_core::IUnknown);
@@ -1446,8 +1446,8 @@ impl IVdsIscsiPortal {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetIpsecSecurity)(::windows_core::Interface::as_raw(self), pinitiatorportaladdress, &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: ::core::option::Option<*const VDS_ISCSI_IPSEC_KEY>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetIpsecSecurity)(::windows_core::Interface::as_raw(self), pinitiatorportaladdress, ullsecurityflags, ::core::mem::transmute(pipseckey.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetIpsecSecurity)(::windows_core::Interface::as_raw(self), pinitiatorportaladdress, ullsecurityflags, pipseckey).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsIscsiPortal, ::windows_core::IUnknown);
@@ -1619,17 +1619,17 @@ impl IVdsIscsiTarget {
     {
         (::windows_core::Interface::vtable(self).SetFriendlyName)(::windows_core::Interface::as_raw(self), pwszfriendlyname.into_param().abi()).ok()
     }
-    pub unsafe fn SetSharedSecret<P0>(&self, ptargetsharedsecret: ::core::option::Option<*const VDS_ISCSI_SHARED_SECRET>, pwszinitiatorname: P0) -> ::windows_core::Result<()>
+    pub unsafe fn SetSharedSecret<P0>(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: P0) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).SetSharedSecret)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptargetsharedsecret.unwrap_or(::std::ptr::null())), pwszinitiatorname.into_param().abi()).ok()
+        (::windows_core::Interface::vtable(self).SetSharedSecret)(::windows_core::Interface::as_raw(self), ptargetsharedsecret, pwszinitiatorname.into_param().abi()).ok()
     }
-    pub unsafe fn RememberInitiatorSharedSecret<P0>(&self, pwszinitiatorname: P0, pinitiatorsharedsecret: ::core::option::Option<*const VDS_ISCSI_SHARED_SECRET>) -> ::windows_core::Result<()>
+    pub unsafe fn RememberInitiatorSharedSecret<P0>(&self, pwszinitiatorname: P0, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).RememberInitiatorSharedSecret)(::windows_core::Interface::as_raw(self), pwszinitiatorname.into_param().abi(), ::core::mem::transmute(pinitiatorsharedsecret.unwrap_or(::std::ptr::null()))).ok()
+        (::windows_core::Interface::vtable(self).RememberInitiatorSharedSecret)(::windows_core::Interface::as_raw(self), pwszinitiatorname.into_param().abi(), pinitiatorsharedsecret).ok()
     }
     pub unsafe fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut ::windows_core::PWSTR, plnumberofinitiators: *mut i32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetConnectedInitiators)(::windows_core::Interface::as_raw(self), pppwszinitiatorlist, plnumberofinitiators).ok()
@@ -1696,9 +1696,9 @@ impl IVdsLun {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryActiveControllers)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: ::core::option::Option<&[::windows_core::GUID]>) -> ::windows_core::Result<IVdsAsync> {
+    pub unsafe fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: &[::windows_core::GUID]) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Extend)(::windows_core::Interface::as_raw(self), ullnumberofbytestoadd, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Extend)(::windows_core::Interface::as_raw(self), ullnumberofbytestoadd, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
@@ -1729,8 +1729,8 @@ impl IVdsLun {
     pub unsafe fn Delete(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Delete)(::windows_core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn AssociateControllers(&self, pactivecontrolleridarray: ::core::option::Option<&[::windows_core::GUID]>, pinactivecontrolleridarray: ::core::option::Option<&[::windows_core::GUID]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AssociateControllers)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pactivecontrolleridarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pactivecontrolleridarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinactivecontrolleridarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinactivecontrolleridarray.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    pub unsafe fn AssociateControllers(&self, pactivecontrolleridarray: &[::windows_core::GUID], pinactivecontrolleridarray: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AssociateControllers)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pactivecontrolleridarray.as_ptr()), pactivecontrolleridarray.len() as _, ::core::mem::transmute(pinactivecontrolleridarray.as_ptr()), pinactivecontrolleridarray.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1745,9 +1745,9 @@ impl IVdsLun {
     pub unsafe fn SetStatus(&self, status: VDS_LUN_STATUS) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetStatus)(::windows_core::Interface::as_raw(self), status).ok()
     }
-    pub unsafe fn QueryMaxLunExtendSize(&self, pdriveidarray: ::core::option::Option<&[::windows_core::GUID]>) -> ::windows_core::Result<u64> {
+    pub unsafe fn QueryMaxLunExtendSize(&self, pdriveidarray: &[::windows_core::GUID]) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QueryMaxLunExtendSize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QueryMaxLunExtendSize)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsLun, ::windows_core::IUnknown);
@@ -1859,8 +1859,8 @@ pub struct IVdsLun2_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLunControllerPorts(::windows_core::IUnknown);
 impl IVdsLunControllerPorts {
-    pub unsafe fn AssociateControllerPorts(&self, pactivecontrollerportidarray: ::core::option::Option<&[::windows_core::GUID]>, pinactivecontrollerportidarray: ::core::option::Option<&[::windows_core::GUID]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AssociateControllerPorts)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pactivecontrollerportidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pactivecontrollerportidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pinactivecontrollerportidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinactivecontrollerportidarray.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    pub unsafe fn AssociateControllerPorts(&self, pactivecontrollerportidarray: &[::windows_core::GUID], pinactivecontrollerportidarray: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AssociateControllerPorts)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pactivecontrollerportidarray.as_ptr()), pactivecontrollerportidarray.len() as _, ::core::mem::transmute(pinactivecontrollerportidarray.as_ptr()), pinactivecontrollerportidarray.len() as _).ok()
     }
     pub unsafe fn QueryActiveControllerPorts(&self) -> ::windows_core::Result<IEnumVdsObject> {
         let mut result__ = ::std::mem::zeroed();
@@ -1901,8 +1901,8 @@ pub struct IVdsLunControllerPorts_Vtbl {
 #[repr(transparent)]
 pub struct IVdsLunIscsi(::windows_core::IUnknown);
 impl IVdsLunIscsi {
-    pub unsafe fn AssociateTargets(&self, ptargetidarray: ::core::option::Option<&[::windows_core::GUID]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).AssociateTargets)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptargetidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ptargetidarray.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    pub unsafe fn AssociateTargets(&self, ptargetidarray: &[::windows_core::GUID]) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).AssociateTargets)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ptargetidarray.as_ptr()), ptargetidarray.len() as _).ok()
     }
     pub unsafe fn QueryAssociatedTargets(&self) -> ::windows_core::Result<IEnumVdsObject> {
         let mut result__ = ::std::mem::zeroed();
@@ -1953,8 +1953,8 @@ impl IVdsLunMpio {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: ::core::option::Option<&[VDS_PATH_POLICY]>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetLoadBalancePolicy)(::windows_core::Interface::as_raw(self), policy, ::core::mem::transmute(ppaths.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ppaths.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+    pub unsafe fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: &[VDS_PATH_POLICY]) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetLoadBalancePolicy)(::windows_core::Interface::as_raw(self), policy, ::core::mem::transmute(ppaths.as_ptr()), ppaths.len() as _).ok()
     }
     pub unsafe fn GetSupportedLbPolicies(&self) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
@@ -3133,12 +3133,12 @@ impl IVdsSubSystem {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateLun<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: ::core::option::Option<&[::windows_core::GUID]>, pwszunmaskinglist: P0, phints: ::core::option::Option<*const VDS_HINTS>) -> ::windows_core::Result<IVdsAsync>
+    pub unsafe fn CreateLun<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[::windows_core::GUID], pwszunmaskinglist: P0, phints: *const VDS_HINTS) -> ::windows_core::Result<IVdsAsync>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateLun)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into_param().abi(), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateLun)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, pwszunmaskinglist.into_param().abi(), phints, &mut result__).from_abi(result__)
     }
     pub unsafe fn ReplaceDrive(&self, drivetobereplaced: ::windows_core::GUID, replacementdrive: ::windows_core::GUID) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReplaceDrive)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(drivetobereplaced), ::core::mem::transmute(replacementdrive)).ok()
@@ -3148,9 +3148,9 @@ impl IVdsSubSystem {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: ::core::option::Option<&[::windows_core::GUID]>, phints: ::core::option::Option<*const VDS_HINTS>) -> ::windows_core::Result<u64> {
+    pub unsafe fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[::windows_core::GUID], phints: *const VDS_HINTS) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QueryMaxLunCreateSize)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QueryMaxLunCreateSize)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, phints, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSubSystem, ::windows_core::IUnknown);
@@ -3212,18 +3212,18 @@ impl IVdsSubSystem2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateLun2<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: ::core::option::Option<&[::windows_core::GUID]>, pwszunmaskinglist: P0, phints2: ::core::option::Option<*const VDS_HINTS2>) -> ::windows_core::Result<IVdsAsync>
+    pub unsafe fn CreateLun2<P0>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[::windows_core::GUID], pwszunmaskinglist: P0, phints2: *const VDS_HINTS2) -> ::windows_core::Result<IVdsAsync>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).CreateLun2)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), pwszunmaskinglist.into_param().abi(), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).CreateLun2)(::windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, pwszunmaskinglist.into_param().abi(), phints2, &mut result__).from_abi(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: ::core::option::Option<&[::windows_core::GUID]>, phints2: ::core::option::Option<*const VDS_HINTS2>) -> ::windows_core::Result<u64> {
+    pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[::windows_core::GUID], phints2: *const VDS_HINTS2) -> ::windows_core::Result<u64> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QueryMaxLunCreateSize2)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdriveidarray.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phints2.unwrap_or(::std::ptr::null())), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QueryMaxLunCreateSize2)(::windows_core::Interface::as_raw(self), r#type, ::core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len() as _, phints2, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSubSystem2, ::windows_core::IUnknown);
@@ -3367,8 +3367,8 @@ impl IVdsSubSystemIscsi {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).CreateTarget)(::windows_core::Interface::as_raw(self), pwsziscsiname.into_param().abi(), pwszfriendlyname.into_param().abi(), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: ::core::option::Option<*const VDS_ISCSI_IPSEC_KEY>) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).SetIpsecGroupPresharedKey)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pipseckey.unwrap_or(::std::ptr::null()))).ok()
+    pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetIpsecGroupPresharedKey)(::windows_core::Interface::as_raw(self), pipseckey).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVdsSubSystemIscsi, ::windows_core::IUnknown);
@@ -3558,20 +3558,20 @@ impl IVdsVdProvider {
     }
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn CreateVDisk<P0, P1>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P0, pstringsecuritydescriptor: P1, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: ::core::option::Option<*mut ::core::option::Option<IVdsAsync>>) -> ::windows_core::Result<()>
+    pub unsafe fn CreateVDisk<P0, P1>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P0, pstringsecuritydescriptor: P1, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: *mut ::core::option::Option<IVdsAsync>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).CreateVDisk)(::windows_core::Interface::as_raw(self), virtualdevicetype, ppath.into_param().abi(), pstringsecuritydescriptor.into_param().abi(), flags, providerspecificflags, reserved, pcreatediskparameters, ::core::mem::transmute(ppasync.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows_core::Interface::vtable(self).CreateVDisk)(::windows_core::Interface::as_raw(self), virtualdevicetype, ppath.into_param().abi(), pstringsecuritydescriptor.into_param().abi(), flags, providerspecificflags, reserved, pcreatediskparameters, ::core::mem::transmute(ppasync)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_Vhd\"`*"]
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn AddVDisk<P0>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P0, ppvdisk: ::core::option::Option<*mut ::core::option::Option<IVdsVDisk>>) -> ::windows_core::Result<()>
+    pub unsafe fn AddVDisk<P0>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P0, ppvdisk: *mut ::core::option::Option<IVdsVDisk>) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     {
-        (::windows_core::Interface::vtable(self).AddVDisk)(::windows_core::Interface::as_raw(self), virtualdevicetype, ppath.into_param().abi(), ::core::mem::transmute(ppvdisk.unwrap_or(::std::ptr::null_mut()))).ok()
+        (::windows_core::Interface::vtable(self).AddVDisk)(::windows_core::Interface::as_raw(self), virtualdevicetype, ppath.into_param().abi(), ::core::mem::transmute(ppvdisk)).ok()
     }
     pub unsafe fn GetDiskFromVDisk<P0>(&self, pvdisk: P0) -> ::windows_core::Result<IVdsDisk>
     where
@@ -3642,9 +3642,9 @@ impl IVdsVolume {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).QueryPlexes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Extend(&self, pinputdiskarray: ::core::option::Option<&[VDS_INPUT_DISK]>) -> ::windows_core::Result<IVdsAsync> {
+    pub unsafe fn Extend(&self, pinputdiskarray: &[VDS_INPUT_DISK]) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).Extend)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinputdiskarray.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinputdiskarray.as_deref().map_or(0, |slice| slice.len() as _), &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).Extend)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len() as _, &mut result__).from_abi(result__)
     }
     pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> ::windows_core::Result<IVdsAsync> {
         let mut result__ = ::std::mem::zeroed();

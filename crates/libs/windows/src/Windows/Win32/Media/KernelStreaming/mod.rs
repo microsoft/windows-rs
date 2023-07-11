@@ -84,6 +84,61 @@ where
     let mut result__ = ::std::mem::zeroed();
     KsCreateTopologyNode2(parenthandle.into_param().abi(), nodecreate, desiredaccess, &mut result__).from_abi(result__)
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+#[inline]
+pub unsafe fn KsGetMediaType<P0>(position: i32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE, filterhandle: P0, pinfactoryid: u32) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+{
+    ::windows_targets::link!("ksproxy.ax" "system" fn KsGetMediaType(position : i32, ammediatype : *mut super::MediaFoundation:: AM_MEDIA_TYPE, filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32) -> ::windows_core::HRESULT);
+    KsGetMediaType(position, ammediatype, filterhandle.into_param().abi(), pinfactoryid).ok()
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn KsGetMediaTypeCount<P0>(filterhandle: P0, pinfactoryid: u32) -> ::windows_core::Result<u32>
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+{
+    ::windows_targets::link!("ksproxy.ax" "system" fn KsGetMediaTypeCount(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, mediatypecount : *mut u32) -> ::windows_core::HRESULT);
+    let mut result__ = ::std::mem::zeroed();
+    KsGetMediaTypeCount(filterhandle.into_param().abi(), pinfactoryid, &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn KsGetMultiplePinFactoryItems<P0>(filterhandle: P0, pinfactoryid: u32, propertyid: u32, items: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+{
+    ::windows_targets::link!("ksproxy.ax" "system" fn KsGetMultiplePinFactoryItems(filterhandle : super::super::Foundation:: HANDLE, pinfactoryid : u32, propertyid : u32, items : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
+    KsGetMultiplePinFactoryItems(filterhandle.into_param().abi(), pinfactoryid, propertyid, items).ok()
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn KsOpenDefaultDevice(category: *const ::windows_core::GUID, access: u32) -> ::windows_core::Result<super::super::Foundation::HANDLE> {
+    ::windows_targets::link!("ksproxy.ax" "system" fn KsOpenDefaultDevice(category : *const ::windows_core::GUID, access : u32, devicehandle : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
+    let mut result__ = ::std::mem::zeroed();
+    KsOpenDefaultDevice(category, access, &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[inline]
+pub unsafe fn KsResolveRequiredAttributes(datarange: *const KSDATAFORMAT, attributes: ::core::option::Option<*const KSMULTIPLE_ITEM>) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("ksproxy.ax" "system" fn KsResolveRequiredAttributes(datarange : *const KSDATAFORMAT, attributes : *const KSMULTIPLE_ITEM) -> ::windows_core::HRESULT);
+    KsResolveRequiredAttributes(datarange, ::core::mem::transmute(attributes.unwrap_or(::std::ptr::null()))).ok()
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn KsSynchronousDeviceControl<P0>(handle: P0, iocontrol: u32, inbuffer: ::core::option::Option<*const ::core::ffi::c_void>, inlength: u32, outbuffer: ::core::option::Option<*mut ::core::ffi::c_void>, outlength: u32, bytesreturned: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+{
+    ::windows_targets::link!("ksproxy.ax" "system" fn KsSynchronousDeviceControl(handle : super::super::Foundation:: HANDLE, iocontrol : u32, inbuffer : *const ::core::ffi::c_void, inlength : u32, outbuffer : *mut ::core::ffi::c_void, outlength : u32, bytesreturned : *mut u32) -> ::windows_core::HRESULT);
+    KsSynchronousDeviceControl(handle.into_param().abi(), iocontrol, ::core::mem::transmute(inbuffer.unwrap_or(::std::ptr::null())), inlength, ::core::mem::transmute(outbuffer.unwrap_or(::std::ptr::null_mut())), outlength, ::core::mem::transmute(bytesreturned.unwrap_or(::std::ptr::null_mut()))).ok()
+}
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
 pub struct IKsAggregateControl(::windows_core::IUnknown);
@@ -124,6 +179,218 @@ pub struct IKsAggregateControl_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub KsAddAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
     pub KsRemoveAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsAllocator(::windows_core::IUnknown);
+impl IKsAllocator {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn KsGetAllocatorHandle(&self) -> super::super::Foundation::HANDLE {
+        (::windows_core::Interface::vtable(self).KsGetAllocatorHandle)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsGetAllocatorMode(&self) -> KSALLOCATORMODE {
+        (::windows_core::Interface::vtable(self).KsGetAllocatorMode)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsGetAllocatorStatus(&self, allocatorstatus: *mut KSSTREAMALLOCATOR_STATUS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsGetAllocatorStatus)(::windows_core::Interface::as_raw(self), allocatorstatus).ok()
+    }
+    pub unsafe fn KsSetAllocatorMode(&self, mode: KSALLOCATORMODE) {
+        (::windows_core::Interface::vtable(self).KsSetAllocatorMode)(::windows_core::Interface::as_raw(self), mode)
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsAllocator, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsAllocator {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsAllocator {}
+impl ::core::fmt::Debug for IKsAllocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsAllocator").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsAllocator {
+    type Vtable = IKsAllocator_Vtbl;
+}
+impl ::core::clone::Clone for IKsAllocator {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsAllocator {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8da64899_c0d9_11d0_8413_0000f822fe8a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsAllocator_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub KsGetAllocatorHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    KsGetAllocatorHandle: usize,
+    pub KsGetAllocatorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> KSALLOCATORMODE,
+    pub KsGetAllocatorStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allocatorstatus: *mut KSSTREAMALLOCATOR_STATUS) -> ::windows_core::HRESULT,
+    pub KsSetAllocatorMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: KSALLOCATORMODE),
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsAllocatorEx(::windows_core::IUnknown);
+impl IKsAllocatorEx {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn KsGetAllocatorHandle(&self) -> super::super::Foundation::HANDLE {
+        (::windows_core::Interface::vtable(self).base__.KsGetAllocatorHandle)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsGetAllocatorMode(&self) -> KSALLOCATORMODE {
+        (::windows_core::Interface::vtable(self).base__.KsGetAllocatorMode)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsGetAllocatorStatus(&self, allocatorstatus: *mut KSSTREAMALLOCATOR_STATUS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.KsGetAllocatorStatus)(::windows_core::Interface::as_raw(self), allocatorstatus).ok()
+    }
+    pub unsafe fn KsSetAllocatorMode(&self, mode: KSALLOCATORMODE) {
+        (::windows_core::Interface::vtable(self).base__.KsSetAllocatorMode)(::windows_core::Interface::as_raw(self), mode)
+    }
+    pub unsafe fn KsGetProperties(&self) -> *mut ALLOCATOR_PROPERTIES_EX {
+        (::windows_core::Interface::vtable(self).KsGetProperties)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsSetProperties(&self, param0: *const ALLOCATOR_PROPERTIES_EX) {
+        (::windows_core::Interface::vtable(self).KsSetProperties)(::windows_core::Interface::as_raw(self), param0)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn KsSetAllocatorHandle<P0>(&self, allocatorhandle: P0)
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    {
+        (::windows_core::Interface::vtable(self).KsSetAllocatorHandle)(::windows_core::Interface::as_raw(self), allocatorhandle.into_param().abi())
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn KsCreateAllocatorAndGetHandle<P0>(&self, kspin: P0) -> super::super::Foundation::HANDLE
+    where
+        P0: ::windows_core::IntoParam<IKsPin>,
+    {
+        (::windows_core::Interface::vtable(self).KsCreateAllocatorAndGetHandle)(::windows_core::Interface::as_raw(self), kspin.into_param().abi())
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsAllocatorEx, ::windows_core::IUnknown, IKsAllocator);
+impl ::core::cmp::PartialEq for IKsAllocatorEx {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsAllocatorEx {}
+impl ::core::fmt::Debug for IKsAllocatorEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsAllocatorEx").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsAllocatorEx {
+    type Vtable = IKsAllocatorEx_Vtbl;
+}
+impl ::core::clone::Clone for IKsAllocatorEx {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsAllocatorEx {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x091bb63a_603f_11d1_b067_00a0c9062802);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsAllocatorEx_Vtbl {
+    pub base__: IKsAllocator_Vtbl,
+    pub KsGetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ALLOCATOR_PROPERTIES_EX,
+    pub KsSetProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *const ALLOCATOR_PROPERTIES_EX),
+    #[cfg(feature = "Win32_Foundation")]
+    pub KsSetAllocatorHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allocatorhandle: super::super::Foundation::HANDLE),
+    #[cfg(not(feature = "Win32_Foundation"))]
+    KsSetAllocatorHandle: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub KsCreateAllocatorAndGetHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kspin: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    KsCreateAllocatorAndGetHandle: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsClockPropertySet(::windows_core::IUnknown);
+impl IKsClockPropertySet {
+    pub unsafe fn KsGetTime(&self) -> ::windows_core::Result<i64> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).KsGetTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn KsSetTime(&self, time: i64) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsSetTime)(::windows_core::Interface::as_raw(self), time).ok()
+    }
+    pub unsafe fn KsGetPhysicalTime(&self) -> ::windows_core::Result<i64> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).KsGetPhysicalTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn KsSetPhysicalTime(&self, time: i64) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsSetPhysicalTime)(::windows_core::Interface::as_raw(self), time).ok()
+    }
+    pub unsafe fn KsGetCorrelatedTime(&self) -> ::windows_core::Result<KSCORRELATED_TIME> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).KsGetCorrelatedTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn KsSetCorrelatedTime(&self, correlatedtime: *const KSCORRELATED_TIME) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsSetCorrelatedTime)(::windows_core::Interface::as_raw(self), correlatedtime).ok()
+    }
+    pub unsafe fn KsGetCorrelatedPhysicalTime(&self) -> ::windows_core::Result<KSCORRELATED_TIME> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).KsGetCorrelatedPhysicalTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn KsSetCorrelatedPhysicalTime(&self, correlatedtime: *const KSCORRELATED_TIME) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsSetCorrelatedPhysicalTime)(::windows_core::Interface::as_raw(self), correlatedtime).ok()
+    }
+    pub unsafe fn KsGetResolution(&self) -> ::windows_core::Result<KSRESOLUTION> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).KsGetResolution)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn KsGetState(&self) -> ::windows_core::Result<KSSTATE> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).KsGetState)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsClockPropertySet, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsClockPropertySet {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsClockPropertySet {}
+impl ::core::fmt::Debug for IKsClockPropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsClockPropertySet").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsClockPropertySet {
+    type Vtable = IKsClockPropertySet_Vtbl;
+}
+impl ::core::clone::Clone for IKsClockPropertySet {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsClockPropertySet {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c5cbd84_e755_11d0_ac18_00a0c9223196);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsClockPropertySet_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub KsGetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: *mut i64) -> ::windows_core::HRESULT,
+    pub KsSetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: i64) -> ::windows_core::HRESULT,
+    pub KsGetPhysicalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: *mut i64) -> ::windows_core::HRESULT,
+    pub KsSetPhysicalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: i64) -> ::windows_core::HRESULT,
+    pub KsGetCorrelatedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, correlatedtime: *mut KSCORRELATED_TIME) -> ::windows_core::HRESULT,
+    pub KsSetCorrelatedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, correlatedtime: *const KSCORRELATED_TIME) -> ::windows_core::HRESULT,
+    pub KsGetCorrelatedPhysicalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, correlatedtime: *mut KSCORRELATED_TIME) -> ::windows_core::HRESULT,
+    pub KsSetCorrelatedPhysicalTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, correlatedtime: *const KSCORRELATED_TIME) -> ::windows_core::HRESULT,
+    pub KsGetResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolution: *mut KSRESOLUTION) -> ::windows_core::HRESULT,
+    pub KsGetState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut KSSTATE) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
@@ -172,6 +439,127 @@ pub struct IKsControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+pub struct IKsDataTypeCompletion(::windows_core::IUnknown);
+impl IKsDataTypeCompletion {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn KsCompleteMediaType<P0>(&self, filterhandle: P0, pinfactoryid: u32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    {
+        (::windows_core::Interface::vtable(self).KsCompleteMediaType)(::windows_core::Interface::as_raw(self), filterhandle.into_param().abi(), pinfactoryid, ammediatype).ok()
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsDataTypeCompletion, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsDataTypeCompletion {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsDataTypeCompletion {}
+impl ::core::fmt::Debug for IKsDataTypeCompletion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsDataTypeCompletion").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsDataTypeCompletion {
+    type Vtable = IKsDataTypeCompletion_Vtbl;
+}
+impl ::core::clone::Clone for IKsDataTypeCompletion {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsDataTypeCompletion {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x827d1a0e_0f73_11d2_b27a_00a0c9223196);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsDataTypeCompletion_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub KsCompleteMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filterhandle: super::super::Foundation::HANDLE, pinfactoryid: u32, ammediatype: *mut super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
+    KsCompleteMediaType: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsDataTypeHandler(::windows_core::IUnknown);
+impl IKsDataTypeHandler {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+    pub unsafe fn KsCompleteIoOperation<P0, P1>(&self, sample: P0, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: P1) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::DirectShow::IMediaSample>,
+        P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
+    {
+        (::windows_core::Interface::vtable(self).KsCompleteIoOperation)(::windows_core::Interface::as_raw(self), sample.into_param().abi(), streamheader, iooperation, cancelled.into_param().abi()).ok()
+    }
+    pub unsafe fn KsIsMediaTypeInRanges(&self, dataranges: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsIsMediaTypeInRanges)(::windows_core::Interface::as_raw(self), dataranges).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub unsafe fn KsPrepareIoOperation<P0>(&self, sample: P0, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::DirectShow::IMediaSample>,
+    {
+        (::windows_core::Interface::vtable(self).KsPrepareIoOperation)(::windows_core::Interface::as_raw(self), sample.into_param().abi(), streamheader, iooperation).ok()
+    }
+    pub unsafe fn KsQueryExtendedSize(&self) -> ::windows_core::Result<u32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).KsQueryExtendedSize)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn KsSetMediaType(&self, ammediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsSetMediaType)(::windows_core::Interface::as_raw(self), ammediatype).ok()
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsDataTypeHandler, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsDataTypeHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsDataTypeHandler {}
+impl ::core::fmt::Debug for IKsDataTypeHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsDataTypeHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsDataTypeHandler {
+    type Vtable = IKsDataTypeHandler_Vtbl;
+}
+impl ::core::clone::Clone for IKsDataTypeHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsDataTypeHandler {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ffbaa02_49a3_11d0_9f36_00aa00a216a1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsDataTypeHandler_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+    pub KsCompleteIoOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sample: *mut ::core::ffi::c_void, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION, cancelled: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))]
+    KsCompleteIoOperation: usize,
+    pub KsIsMediaTypeInRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dataranges: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub KsPrepareIoOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sample: *mut ::core::ffi::c_void, streamheader: *mut ::core::ffi::c_void, iooperation: KSIOOPERATION) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_DirectShow"))]
+    KsPrepareIoOperation: usize,
+    pub KsQueryExtendedSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extendedsize: *mut u32) -> ::windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub KsSetMediaType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ammediatype: *const super::MediaFoundation::AM_MEDIA_TYPE) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
+    KsSetMediaType: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
 pub struct IKsFormatSupport(::windows_core::IUnknown);
 impl IKsFormatSupport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -216,6 +604,67 @@ pub struct IKsFormatSupport_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsFormatSupported: usize,
     pub GetDevicePreferredFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppksformat: *mut *mut KSDATAFORMAT) -> ::windows_core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsInterfaceHandler(::windows_core::IUnknown);
+impl IKsInterfaceHandler {
+    pub unsafe fn KsSetPin<P0>(&self, kspin: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<IKsPin>,
+    {
+        (::windows_core::Interface::vtable(self).KsSetPin)(::windows_core::Interface::as_raw(self), kspin.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+    pub unsafe fn KsProcessMediaSamples<P0>(&self, ksdatatypehandler: P0, samplelist: *const ::core::option::Option<super::DirectShow::IMediaSample>, samplecount: *mut i32, iooperation: KSIOOPERATION, streamsegment: *mut *mut KSSTREAM_SEGMENT) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<IKsDataTypeHandler>,
+    {
+        (::windows_core::Interface::vtable(self).KsProcessMediaSamples)(::windows_core::Interface::as_raw(self), ksdatatypehandler.into_param().abi(), ::core::mem::transmute(samplelist), samplecount, iooperation, streamsegment).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn KsCompleteIo(&self, streamsegment: *mut KSSTREAM_SEGMENT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsCompleteIo)(::windows_core::Interface::as_raw(self), streamsegment).ok()
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsInterfaceHandler, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsInterfaceHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsInterfaceHandler {}
+impl ::core::fmt::Debug for IKsInterfaceHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsInterfaceHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsInterfaceHandler {
+    type Vtable = IKsInterfaceHandler_Vtbl;
+}
+impl ::core::clone::Clone for IKsInterfaceHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsInterfaceHandler {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3abc7e0_9a61_11d0_a40d_00a0c9223196);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsInterfaceHandler_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub KsSetPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kspin: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+    pub KsProcessMediaSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ksdatatypehandler: *mut ::core::ffi::c_void, samplelist: *const *mut ::core::ffi::c_void, samplecount: *mut i32, iooperation: KSIOOPERATION, streamsegment: *mut *mut KSSTREAM_SEGMENT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))]
+    KsProcessMediaSamples: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub KsCompleteIo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamsegment: *mut KSSTREAM_SEGMENT) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    KsCompleteIo: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
@@ -347,6 +796,49 @@ pub struct IKsJackDescription2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+pub struct IKsJackDescription3(::windows_core::IUnknown);
+impl IKsJackDescription3 {
+    pub unsafe fn GetJackCount(&self) -> ::windows_core::Result<u32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetJackCount)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn GetJackDescription3(&self, njack: u32) -> ::windows_core::Result<KSJACK_DESCRIPTION3> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).GetJackDescription3)(::windows_core::Interface::as_raw(self), njack, &mut result__).from_abi(result__)
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsJackDescription3, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsJackDescription3 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsJackDescription3 {}
+impl ::core::fmt::Debug for IKsJackDescription3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsJackDescription3").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsJackDescription3 {
+    type Vtable = IKsJackDescription3_Vtbl;
+}
+impl ::core::clone::Clone for IKsJackDescription3 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsJackDescription3 {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsJackDescription3_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub GetJackCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcjacks: *mut u32) -> ::windows_core::HRESULT,
+    pub GetJackDescription3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, njack: u32, pdescription3: *mut KSJACK_DESCRIPTION3) -> ::windows_core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
 pub struct IKsJackSinkInformation(::windows_core::IUnknown);
 impl IKsJackSinkInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -389,17 +881,475 @@ pub struct IKsJackSinkInformation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+pub struct IKsNodeControl(::windows_core::IUnknown);
+impl IKsNodeControl {
+    pub unsafe fn SetNodeId(&self, dwnodeid: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetNodeId)(::windows_core::Interface::as_raw(self), dwnodeid).ok()
+    }
+    pub unsafe fn SetKsControl(&self, pkscontrol: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).SetKsControl)(::windows_core::Interface::as_raw(self), pkscontrol).ok()
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsNodeControl, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsNodeControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsNodeControl {}
+impl ::core::fmt::Debug for IKsNodeControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsNodeControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsNodeControl {
+    type Vtable = IKsNodeControl_Vtbl;
+}
+impl ::core::clone::Clone for IKsNodeControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsNodeControl {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11737c14_24a7_4bb5_81a0_0d003813b0c4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsNodeControl_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub SetNodeId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32) -> ::windows_core::HRESULT,
+    pub SetKsControl: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkscontrol: *const ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsNotifyEvent(::windows_core::IUnknown);
+impl IKsNotifyEvent {
+    pub unsafe fn KsNotifyEvent(&self, event: u32, lparam1: usize, lparam2: usize) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsNotifyEvent)(::windows_core::Interface::as_raw(self), event, lparam1, lparam2).ok()
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsNotifyEvent, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsNotifyEvent {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsNotifyEvent {}
+impl ::core::fmt::Debug for IKsNotifyEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsNotifyEvent").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsNotifyEvent {
+    type Vtable = IKsNotifyEvent_Vtbl;
+}
+impl ::core::clone::Clone for IKsNotifyEvent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsNotifyEvent {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x412bd695_f84b_46c1_ac73_54196dbc8fa7);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsNotifyEvent_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub KsNotifyEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: u32, lparam1: usize, lparam2: usize) -> ::windows_core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsObject(::windows_core::IUnknown);
+impl IKsObject {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn KsGetObjectHandle(&self) -> super::super::Foundation::HANDLE {
+        (::windows_core::Interface::vtable(self).KsGetObjectHandle)(::windows_core::Interface::as_raw(self))
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsObject, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsObject {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsObject {}
+impl ::core::fmt::Debug for IKsObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsObject").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsObject {
+    type Vtable = IKsObject_Vtbl;
+}
+impl ::core::clone::Clone for IKsObject {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsObject {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x423c13a2_2070_11d0_9ef7_00aa00a216a1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsObject_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub KsGetObjectHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    KsGetObjectHandle: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsPin(::windows_core::IUnknown);
+impl IKsPin {
+    pub unsafe fn KsQueryMediums(&self) -> ::windows_core::Result<*mut KSMULTIPLE_ITEM> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).KsQueryMediums)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn KsQueryInterfaces(&self) -> ::windows_core::Result<*mut KSMULTIPLE_ITEM> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).KsQueryInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn KsCreateSinkPinHandle(&self, interface: *const KSIDENTIFIER, medium: *const KSIDENTIFIER) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsCreateSinkPinHandle)(::windows_core::Interface::as_raw(self), interface, medium).ok()
+    }
+    pub unsafe fn KsGetCurrentCommunication(&self, communication: ::core::option::Option<*mut KSPIN_COMMUNICATION>, interface: ::core::option::Option<*mut KSIDENTIFIER>, medium: ::core::option::Option<*mut KSIDENTIFIER>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsGetCurrentCommunication)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(communication.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(interface.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(medium.unwrap_or(::std::ptr::null_mut()))).ok()
+    }
+    pub unsafe fn KsPropagateAcquire(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsPropagateAcquire)(::windows_core::Interface::as_raw(self)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub unsafe fn KsDeliver<P0>(&self, sample: P0, flags: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::DirectShow::IMediaSample>,
+    {
+        (::windows_core::Interface::vtable(self).KsDeliver)(::windows_core::Interface::as_raw(self), sample.into_param().abi(), flags).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn KsMediaSamplesCompleted(&self, streamsegment: *const KSSTREAM_SEGMENT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsMediaSamplesCompleted)(::windows_core::Interface::as_raw(self), streamsegment).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub unsafe fn KsPeekAllocator(&self, operation: KSPEEKOPERATION) -> ::core::option::Option<super::DirectShow::IMemAllocator> {
+        (::windows_core::Interface::vtable(self).KsPeekAllocator)(::windows_core::Interface::as_raw(self), operation)
+    }
+    #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub unsafe fn KsReceiveAllocator<P0>(&self, memallocator: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::DirectShow::IMemAllocator>,
+    {
+        (::windows_core::Interface::vtable(self).KsReceiveAllocator)(::windows_core::Interface::as_raw(self), memallocator.into_param().abi()).ok()
+    }
+    pub unsafe fn KsRenegotiateAllocator(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsRenegotiateAllocator)(::windows_core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn KsIncrementPendingIoCount(&self) -> i32 {
+        (::windows_core::Interface::vtable(self).KsIncrementPendingIoCount)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsDecrementPendingIoCount(&self) -> i32 {
+        (::windows_core::Interface::vtable(self).KsDecrementPendingIoCount)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsQualityNotify(&self, proportion: u32, timedelta: i64) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsQualityNotify)(::windows_core::Interface::as_raw(self), proportion, timedelta).ok()
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsPin, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsPin {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsPin {}
+impl ::core::fmt::Debug for IKsPin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsPin").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsPin {
+    type Vtable = IKsPin_Vtbl;
+}
+impl ::core::clone::Clone for IKsPin {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsPin {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb61178d1_a2d9_11cf_9e53_00aa00a216a1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsPin_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub KsQueryMediums: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediumlist: *mut *mut KSMULTIPLE_ITEM) -> ::windows_core::HRESULT,
+    pub KsQueryInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfacelist: *mut *mut KSMULTIPLE_ITEM) -> ::windows_core::HRESULT,
+    pub KsCreateSinkPinHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interface: *const KSIDENTIFIER, medium: *const KSIDENTIFIER) -> ::windows_core::HRESULT,
+    pub KsGetCurrentCommunication: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, communication: *mut KSPIN_COMMUNICATION, interface: *mut KSIDENTIFIER, medium: *mut KSIDENTIFIER) -> ::windows_core::HRESULT,
+    pub KsPropagateAcquire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub KsDeliver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sample: *mut ::core::ffi::c_void, flags: u32) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_DirectShow"))]
+    KsDeliver: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub KsMediaSamplesCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamsegment: *const KSSTREAM_SEGMENT) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    KsMediaSamplesCompleted: usize,
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub KsPeekAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: KSPEEKOPERATION) -> ::core::option::Option<super::DirectShow::IMemAllocator>,
+    #[cfg(not(feature = "Win32_Media_DirectShow"))]
+    KsPeekAllocator: usize,
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub KsReceiveAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, memallocator: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    #[cfg(not(feature = "Win32_Media_DirectShow"))]
+    KsReceiveAllocator: usize,
+    pub KsRenegotiateAllocator: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub KsIncrementPendingIoCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> i32,
+    pub KsDecrementPendingIoCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> i32,
+    pub KsQualityNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, proportion: u32, timedelta: i64) -> ::windows_core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsPinEx(::windows_core::IUnknown);
+impl IKsPinEx {
+    pub unsafe fn KsQueryMediums(&self) -> ::windows_core::Result<*mut KSMULTIPLE_ITEM> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.KsQueryMediums)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn KsQueryInterfaces(&self) -> ::windows_core::Result<*mut KSMULTIPLE_ITEM> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).base__.KsQueryInterfaces)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn KsCreateSinkPinHandle(&self, interface: *const KSIDENTIFIER, medium: *const KSIDENTIFIER) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.KsCreateSinkPinHandle)(::windows_core::Interface::as_raw(self), interface, medium).ok()
+    }
+    pub unsafe fn KsGetCurrentCommunication(&self, communication: ::core::option::Option<*mut KSPIN_COMMUNICATION>, interface: ::core::option::Option<*mut KSIDENTIFIER>, medium: ::core::option::Option<*mut KSIDENTIFIER>) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.KsGetCurrentCommunication)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(communication.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(interface.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(medium.unwrap_or(::std::ptr::null_mut()))).ok()
+    }
+    pub unsafe fn KsPropagateAcquire(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.KsPropagateAcquire)(::windows_core::Interface::as_raw(self)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub unsafe fn KsDeliver<P0>(&self, sample: P0, flags: u32) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::DirectShow::IMediaSample>,
+    {
+        (::windows_core::Interface::vtable(self).base__.KsDeliver)(::windows_core::Interface::as_raw(self), sample.into_param().abi(), flags).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn KsMediaSamplesCompleted(&self, streamsegment: *const KSSTREAM_SEGMENT) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.KsMediaSamplesCompleted)(::windows_core::Interface::as_raw(self), streamsegment).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub unsafe fn KsPeekAllocator(&self, operation: KSPEEKOPERATION) -> ::core::option::Option<super::DirectShow::IMemAllocator> {
+        (::windows_core::Interface::vtable(self).base__.KsPeekAllocator)(::windows_core::Interface::as_raw(self), operation)
+    }
+    #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub unsafe fn KsReceiveAllocator<P0>(&self, memallocator: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<super::DirectShow::IMemAllocator>,
+    {
+        (::windows_core::Interface::vtable(self).base__.KsReceiveAllocator)(::windows_core::Interface::as_raw(self), memallocator.into_param().abi()).ok()
+    }
+    pub unsafe fn KsRenegotiateAllocator(&self) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.KsRenegotiateAllocator)(::windows_core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn KsIncrementPendingIoCount(&self) -> i32 {
+        (::windows_core::Interface::vtable(self).base__.KsIncrementPendingIoCount)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsDecrementPendingIoCount(&self) -> i32 {
+        (::windows_core::Interface::vtable(self).base__.KsDecrementPendingIoCount)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsQualityNotify(&self, proportion: u32, timedelta: i64) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).base__.KsQualityNotify)(::windows_core::Interface::as_raw(self), proportion, timedelta).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub unsafe fn KsNotifyError<P0>(&self, sample: P0, hr: ::windows_core::HRESULT)
+    where
+        P0: ::windows_core::IntoParam<super::DirectShow::IMediaSample>,
+    {
+        (::windows_core::Interface::vtable(self).KsNotifyError)(::windows_core::Interface::as_raw(self), sample.into_param().abi(), hr)
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsPinEx, ::windows_core::IUnknown, IKsPin);
+impl ::core::cmp::PartialEq for IKsPinEx {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsPinEx {}
+impl ::core::fmt::Debug for IKsPinEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsPinEx").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsPinEx {
+    type Vtable = IKsPinEx_Vtbl;
+}
+impl ::core::clone::Clone for IKsPinEx {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsPinEx {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bb38260_d19c_11d2_b38a_00a0c95ec22e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsPinEx_Vtbl {
+    pub base__: IKsPin_Vtbl,
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub KsNotifyError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sample: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT),
+    #[cfg(not(feature = "Win32_Media_DirectShow"))]
+    KsNotifyError: usize,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsPinFactory(::windows_core::IUnknown);
+impl IKsPinFactory {
+    pub unsafe fn KsPinFactory(&self) -> ::windows_core::Result<u32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).KsPinFactory)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsPinFactory, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsPinFactory {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsPinFactory {}
+impl ::core::fmt::Debug for IKsPinFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsPinFactory").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsPinFactory {
+    type Vtable = IKsPinFactory_Vtbl;
+}
+impl ::core::clone::Clone for IKsPinFactory {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsPinFactory {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd5ebe6b_8b6e_11d1_8ae0_00a0c9223196);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsPinFactory_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub KsPinFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfactory: *mut u32) -> ::windows_core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsPinPipe(::windows_core::IUnknown);
+impl IKsPinPipe {
+    pub unsafe fn KsGetPinFramingCache(&self, framingex: *mut *mut KSALLOCATOR_FRAMING_EX, framingprop: *mut FRAMING_PROP, option: FRAMING_CACHE_OPS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsGetPinFramingCache)(::windows_core::Interface::as_raw(self), framingex, framingprop, option).ok()
+    }
+    pub unsafe fn KsSetPinFramingCache(&self, framingex: *const KSALLOCATOR_FRAMING_EX, framingprop: *const FRAMING_PROP, option: FRAMING_CACHE_OPS) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsSetPinFramingCache)(::windows_core::Interface::as_raw(self), framingex, framingprop, option).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub unsafe fn KsGetConnectedPin(&self) -> ::core::option::Option<super::DirectShow::IPin> {
+        (::windows_core::Interface::vtable(self).KsGetConnectedPin)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsGetPipe(&self, operation: KSPEEKOPERATION) -> ::core::option::Option<IKsAllocatorEx> {
+        (::windows_core::Interface::vtable(self).KsGetPipe)(::windows_core::Interface::as_raw(self), operation)
+    }
+    pub unsafe fn KsSetPipe<P0>(&self, ksallocator: P0) -> ::windows_core::Result<()>
+    where
+        P0: ::windows_core::IntoParam<IKsAllocatorEx>,
+    {
+        (::windows_core::Interface::vtable(self).KsSetPipe)(::windows_core::Interface::as_raw(self), ksallocator.into_param().abi()).ok()
+    }
+    pub unsafe fn KsGetPipeAllocatorFlag(&self) -> u32 {
+        (::windows_core::Interface::vtable(self).KsGetPipeAllocatorFlag)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsSetPipeAllocatorFlag(&self, flag: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsSetPipeAllocatorFlag)(::windows_core::Interface::as_raw(self), flag).ok()
+    }
+    pub unsafe fn KsGetPinBusCache(&self) -> ::windows_core::GUID {
+        let mut result__: ::windows_core::GUID = ::core::mem::zeroed();
+        (::windows_core::Interface::vtable(self).KsGetPinBusCache)(::windows_core::Interface::as_raw(self), &mut result__);
+        result__
+    }
+    pub unsafe fn KsSetPinBusCache(&self, bus: ::windows_core::GUID) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).KsSetPinBusCache)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(bus)).ok()
+    }
+    pub unsafe fn KsGetPinName(&self) -> ::windows_core::PWSTR {
+        (::windows_core::Interface::vtable(self).KsGetPinName)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsGetFilterName(&self) -> ::windows_core::PWSTR {
+        (::windows_core::Interface::vtable(self).KsGetFilterName)(::windows_core::Interface::as_raw(self))
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsPinPipe, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsPinPipe {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsPinPipe {}
+impl ::core::fmt::Debug for IKsPinPipe {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsPinPipe").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsPinPipe {
+    type Vtable = IKsPinPipe_Vtbl;
+}
+impl ::core::clone::Clone for IKsPinPipe {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsPinPipe {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe539cd90_a8b4_11d1_8189_00a0c9062802);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsPinPipe_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub KsGetPinFramingCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framingex: *mut *mut KSALLOCATOR_FRAMING_EX, framingprop: *mut FRAMING_PROP, option: FRAMING_CACHE_OPS) -> ::windows_core::HRESULT,
+    pub KsSetPinFramingCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framingex: *const KSALLOCATOR_FRAMING_EX, framingprop: *const FRAMING_PROP, option: FRAMING_CACHE_OPS) -> ::windows_core::HRESULT,
+    #[cfg(feature = "Win32_Media_DirectShow")]
+    pub KsGetConnectedPin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<super::DirectShow::IPin>,
+    #[cfg(not(feature = "Win32_Media_DirectShow"))]
+    KsGetConnectedPin: usize,
+    pub KsGetPipe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: KSPEEKOPERATION) -> ::core::option::Option<IKsAllocatorEx>,
+    pub KsSetPipe: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ksallocator: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+    pub KsGetPipeAllocatorFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub KsSetPipeAllocatorFlag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flag: u32) -> ::windows_core::HRESULT,
+    pub KsGetPinBusCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID),
+    pub KsSetPinBusCache: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bus: ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub KsGetPinName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::PWSTR,
+    pub KsGetFilterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::PWSTR,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
 pub struct IKsPropertySet(::windows_core::IUnknown);
 impl IKsPropertySet {
-    pub unsafe fn Set(&self, propset: *const ::windows_core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Set)(::windows_core::Interface::as_raw(self), propset, id, instancedata, instancelength, propertydata, datalength).ok()
+    pub unsafe fn Set(&self, guidpropset: *const ::windows_core::GUID, dwpropid: u32, pinstancedata: *const ::core::ffi::c_void, cbinstancedata: u32, ppropdata: *const ::core::ffi::c_void, cbpropdata: u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Set)(::windows_core::Interface::as_raw(self), guidpropset, dwpropid, pinstancedata, cbinstancedata, ppropdata, cbpropdata).ok()
     }
-    pub unsafe fn Get(&self, propset: *const ::windows_core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), propset, id, instancedata, instancelength, propertydata, datalength, bytesreturned).ok()
+    pub unsafe fn Get(&self, guidpropset: *const ::windows_core::GUID, dwpropid: u32, pinstancedata: *const ::core::ffi::c_void, cbinstancedata: u32, ppropdata: *mut ::core::ffi::c_void, cbpropdata: u32, pcbreturned: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Get)(::windows_core::Interface::as_raw(self), guidpropset, dwpropid, pinstancedata, cbinstancedata, ppropdata, cbpropdata, pcbreturned).ok()
     }
-    pub unsafe fn QuerySupported(&self, propset: *const ::windows_core::GUID, id: u32) -> ::windows_core::Result<u32> {
+    pub unsafe fn QuerySupported(&self, guidpropset: *const ::windows_core::GUID, dwpropid: u32) -> ::windows_core::Result<u32> {
         let mut result__ = ::std::mem::zeroed();
-        (::windows_core::Interface::vtable(self).QuerySupported)(::windows_core::Interface::as_raw(self), propset, id, &mut result__).from_abi(result__)
+        (::windows_core::Interface::vtable(self).QuerySupported)(::windows_core::Interface::as_raw(self), guidpropset, dwpropid, &mut result__).from_abi(result__)
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsPropertySet, ::windows_core::IUnknown);
@@ -429,9 +1379,54 @@ unsafe impl ::windows_core::ComInterface for IKsPropertySet {
 #[doc(hidden)]
 pub struct IKsPropertySet_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows_core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *const ::core::ffi::c_void, datalength: u32) -> ::windows_core::HRESULT,
-    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows_core::GUID, id: u32, instancedata: *const ::core::ffi::c_void, instancelength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::HRESULT,
-    pub QuerySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propset: *const ::windows_core::GUID, id: u32, typesupport: *mut u32) -> ::windows_core::HRESULT,
+    pub Set: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpropset: *const ::windows_core::GUID, dwpropid: u32, pinstancedata: *const ::core::ffi::c_void, cbinstancedata: u32, ppropdata: *const ::core::ffi::c_void, cbpropdata: u32) -> ::windows_core::HRESULT,
+    pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpropset: *const ::windows_core::GUID, dwpropid: u32, pinstancedata: *const ::core::ffi::c_void, cbinstancedata: u32, ppropdata: *mut ::core::ffi::c_void, cbpropdata: u32, pcbreturned: *mut u32) -> ::windows_core::HRESULT,
+    pub QuerySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpropset: *const ::windows_core::GUID, dwpropid: u32, ptypesupport: *mut u32) -> ::windows_core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsQualityForwarder(::windows_core::IUnknown);
+impl IKsQualityForwarder {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn KsGetObjectHandle(&self) -> super::super::Foundation::HANDLE {
+        (::windows_core::Interface::vtable(self).base__.KsGetObjectHandle)(::windows_core::Interface::as_raw(self))
+    }
+    pub unsafe fn KsFlushClient<P0>(&self, pin: P0)
+    where
+        P0: ::windows_core::IntoParam<IKsPin>,
+    {
+        (::windows_core::Interface::vtable(self).KsFlushClient)(::windows_core::Interface::as_raw(self), pin.into_param().abi())
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsQualityForwarder, ::windows_core::IUnknown, IKsObject);
+impl ::core::cmp::PartialEq for IKsQualityForwarder {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsQualityForwarder {}
+impl ::core::fmt::Debug for IKsQualityForwarder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsQualityForwarder").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsQualityForwarder {
+    type Vtable = IKsQualityForwarder_Vtbl;
+}
+impl ::core::clone::Clone for IKsQualityForwarder {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsQualityForwarder {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsQualityForwarder_Vtbl {
+    pub base__: IKsObject_Vtbl,
+    pub KsFlushClient: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: *mut ::core::ffi::c_void),
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
@@ -472,6 +1467,77 @@ unsafe impl ::windows_core::ComInterface for IKsTopology {
 pub struct IKsTopology_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
     pub CreateNodeInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+pub struct IKsTopologyInfo(::windows_core::IUnknown);
+impl IKsTopologyInfo {
+    pub unsafe fn NumCategories(&self) -> ::windows_core::Result<u32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).NumCategories)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn get_Category(&self, dwindex: u32) -> ::windows_core::Result<::windows_core::GUID> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).get_Category)(::windows_core::Interface::as_raw(self), dwindex, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn NumConnections(&self) -> ::windows_core::Result<u32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).NumConnections)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn get_ConnectionInfo(&self, dwindex: u32) -> ::windows_core::Result<KSTOPOLOGY_CONNECTION> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).get_ConnectionInfo)(::windows_core::Interface::as_raw(self), dwindex, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn get_NodeName(&self, dwnodeid: u32, pwchnodename: ::windows_core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).get_NodeName)(::windows_core::Interface::as_raw(self), dwnodeid, ::core::mem::transmute(pwchnodename), dwbufsize, pdwnamelen).ok()
+    }
+    pub unsafe fn NumNodes(&self) -> ::windows_core::Result<u32> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).NumNodes)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
+    }
+    pub unsafe fn get_NodeType(&self, dwnodeid: u32) -> ::windows_core::Result<::windows_core::GUID> {
+        let mut result__ = ::std::mem::zeroed();
+        (::windows_core::Interface::vtable(self).get_NodeType)(::windows_core::Interface::as_raw(self), dwnodeid, &mut result__).from_abi(result__)
+    }
+    pub unsafe fn CreateNodeInstance(&self, dwnodeid: u32, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).CreateNodeInstance)(::windows_core::Interface::as_raw(self), dwnodeid, iid, ppvobject).ok()
+    }
+}
+::windows_core::imp::interface_hierarchy!(IKsTopologyInfo, ::windows_core::IUnknown);
+impl ::core::cmp::PartialEq for IKsTopologyInfo {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IKsTopologyInfo {}
+impl ::core::fmt::Debug for IKsTopologyInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsTopologyInfo").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows_core::Interface for IKsTopologyInfo {
+    type Vtable = IKsTopologyInfo_Vtbl;
+}
+impl ::core::clone::Clone for IKsTopologyInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+unsafe impl ::windows_core::ComInterface for IKsTopologyInfo {
+    const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x720d4ac0_7533_11d0_a5d6_28db04c10000);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IKsTopologyInfo_Vtbl {
+    pub base__: ::windows_core::IUnknown_Vtbl,
+    pub NumCategories: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwnumcategories: *mut u32) -> ::windows_core::HRESULT,
+    pub get_Category: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pcategory: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub NumConnections: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwnumconnections: *mut u32) -> ::windows_core::HRESULT,
+    pub get_ConnectionInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pconnectioninfo: *mut KSTOPOLOGY_CONNECTION) -> ::windows_core::HRESULT,
+    pub get_NodeName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32, pwchnodename: ::windows_core::PWSTR, dwbufsize: u32, pdwnamelen: *mut u32) -> ::windows_core::HRESULT,
+    pub NumNodes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwnumnodes: *mut u32) -> ::windows_core::HRESULT,
+    pub get_NodeType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32, pnodetype: *mut ::windows_core::GUID) -> ::windows_core::HRESULT,
+    pub CreateNodeInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnodeid: u32, iid: *const ::windows_core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const AEC_MODE_FULL_DUPLEX: u32 = 2u32;
@@ -4258,6 +5324,33 @@ impl ::core::fmt::Debug for KSINTERFACE_STANDARD {
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSIOOPERATION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KsIoOperation_Write: KSIOOPERATION = KSIOOPERATION(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KsIoOperation_Read: KSIOOPERATION = KSIOOPERATION(1i32);
+impl ::core::marker::Copy for KSIOOPERATION {}
+impl ::core::clone::Clone for KSIOOPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSIOOPERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for KSIOOPERATION {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for KSIOOPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSIOOPERATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSJACK_SINK_CONNECTIONTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub const KSJACK_SINK_CONNECTIONTYPE_HDMI: KSJACK_SINK_CONNECTIONTYPE = KSJACK_SINK_CONNECTIONTYPE(0i32);
@@ -4431,6 +5524,33 @@ impl ::windows_core::TypeKind for KSMICARRAY_MICTYPE {
 impl ::core::fmt::Debug for KSMICARRAY_MICTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KSMICARRAY_MICTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPEEKOPERATION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KsPeekOperation_PeekOnly: KSPEEKOPERATION = KSPEEKOPERATION(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KsPeekOperation_AddRef: KSPEEKOPERATION = KSPEEKOPERATION(1i32);
+impl ::core::marker::Copy for KSPEEKOPERATION {}
+impl ::core::clone::Clone for KSPEEKOPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPEEKOPERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for KSPEEKOPERATION {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for KSPEEKOPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPEEKOPERATION").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -8144,16 +9264,15 @@ pub struct ALLOCATOR_PROPERTIES_EX {
     pub AllocatorPlace: PIPE_ALLOCATOR_PLACE,
     pub Dimensions: PIPE_DIMENSIONS,
     pub PhysicalRange: KS_FRAMING_RANGE,
-    pub PrevSegment: *mut IKsAllocatorEx,
+    pub PrevSegment: ::std::mem::ManuallyDrop<::core::option::Option<IKsAllocatorEx>>,
     pub CountNextSegments: u32,
-    pub NextSegments: *mut *mut IKsAllocatorEx,
+    pub NextSegments: *mut ::core::option::Option<IKsAllocatorEx>,
     pub InsideFactors: u32,
     pub NumberPins: u32,
 }
-impl ::core::marker::Copy for ALLOCATOR_PROPERTIES_EX {}
 impl ::core::clone::Clone for ALLOCATOR_PROPERTIES_EX {
     fn clone(&self) -> Self {
-        *self
+        unsafe { ::core::mem::transmute_copy(self) }
     }
 }
 impl ::core::fmt::Debug for ALLOCATOR_PROPERTIES_EX {
@@ -8498,39 +9617,6 @@ impl ::core::default::Default for DS3DVECTOR_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(C)]
-pub struct IKsAllocator(pub u8);
-impl ::core::marker::Copy for IKsAllocator {}
-impl ::core::clone::Clone for IKsAllocator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for IKsAllocator {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct IKsAllocatorEx(pub u8);
-impl ::core::marker::Copy for IKsAllocatorEx {}
-impl ::core::clone::Clone for IKsAllocatorEx {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for IKsAllocatorEx {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct IKsPin(pub u8);
-impl ::core::marker::Copy for IKsPin {}
-impl ::core::clone::Clone for IKsPin {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for IKsPin {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -16183,6 +17269,45 @@ impl ::core::cmp::PartialEq for KSSTREAM_METADATA_INFO {
 }
 impl ::core::cmp::Eq for KSSTREAM_METADATA_INFO {}
 impl ::core::default::Default for KSSTREAM_METADATA_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct KSSTREAM_SEGMENT {
+    pub KsInterfaceHandler: ::std::mem::ManuallyDrop<::core::option::Option<IKsInterfaceHandler>>,
+    pub KsDataTypeHandler: ::std::mem::ManuallyDrop<::core::option::Option<IKsDataTypeHandler>>,
+    pub IoOperation: KSIOOPERATION,
+    pub CompletionEvent: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for KSSTREAM_SEGMENT {
+    fn clone(&self) -> Self {
+        unsafe { ::core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for KSSTREAM_SEGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("KSSTREAM_SEGMENT").field("KsInterfaceHandler", &self.KsInterfaceHandler).field("KsDataTypeHandler", &self.KsDataTypeHandler).field("IoOperation", &self.IoOperation).field("CompletionEvent", &self.CompletionEvent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for KSSTREAM_SEGMENT {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for KSSTREAM_SEGMENT {
+    fn eq(&self, other: &Self) -> bool {
+        self.KsInterfaceHandler == other.KsInterfaceHandler && self.KsDataTypeHandler == other.KsDataTypeHandler && self.IoOperation == other.IoOperation && self.CompletionEvent == other.CompletionEvent
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for KSSTREAM_SEGMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for KSSTREAM_SEGMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

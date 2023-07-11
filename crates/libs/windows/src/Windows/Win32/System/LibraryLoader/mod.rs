@@ -12,24 +12,24 @@ where
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BeginUpdateResourceA<P0, P1>(pfilename: P0, bdeleteexistingresources: P1) -> ::windows_core::Result<UPDATERESOURCE_HANDLE>
+pub unsafe fn BeginUpdateResourceA<P0, P1>(pfilename: P0, bdeleteexistingresources: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn BeginUpdateResourceA(pfilename : ::windows_core::PCSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> UPDATERESOURCE_HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn BeginUpdateResourceA(pfilename : ::windows_core::PCSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
     let result__ = BeginUpdateResourceA(pfilename.into_param().abi(), bdeleteexistingresources.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BeginUpdateResourceW<P0, P1>(pfilename: P0, bdeleteexistingresources: P1) -> ::windows_core::Result<UPDATERESOURCE_HANDLE>
+pub unsafe fn BeginUpdateResourceW<P0, P1>(pfilename: P0, bdeleteexistingresources: P1) -> ::windows_core::Result<super::super::Foundation::HANDLE>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn BeginUpdateResourceW(pfilename : ::windows_core::PCWSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> UPDATERESOURCE_HANDLE);
+    ::windows_targets::link!("kernel32.dll" "system" fn BeginUpdateResourceW(pfilename : ::windows_core::PCWSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
     let result__ = BeginUpdateResourceW(pfilename.into_param().abi(), bdeleteexistingresources.into_param().abi());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
@@ -48,10 +48,10 @@ where
 #[inline]
 pub unsafe fn EndUpdateResourceA<P0, P1>(hupdate: P0, fdiscard: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<UPDATERESOURCE_HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn EndUpdateResourceA(hupdate : UPDATERESOURCE_HANDLE, fdiscard : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn EndUpdateResourceA(hupdate : super::super::Foundation:: HANDLE, fdiscard : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     EndUpdateResourceA(hupdate.into_param().abi(), fdiscard.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -59,10 +59,10 @@ where
 #[inline]
 pub unsafe fn EndUpdateResourceW<P0, P1>(hupdate: P0, fdiscard: P1) -> ::windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<UPDATERESOURCE_HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn EndUpdateResourceW(hupdate : UPDATERESOURCE_HANDLE, fdiscard : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn EndUpdateResourceW(hupdate : super::super::Foundation:: HANDLE, fdiscard : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
     EndUpdateResourceW(hupdate.into_param().abi(), fdiscard.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -246,16 +246,6 @@ where
 {
     ::windows_targets::link!("kernel32.dll" "system" fn FindResourceW(hmodule : super::super::Foundation:: HMODULE, lpname : ::windows_core::PCWSTR, lptype : ::windows_core::PCWSTR) -> super::super::Foundation:: HRSRC);
     FindResourceW(hmodule.into_param().abi(), lpname.into_param().abi(), lptype.into_param().abi())
-}
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn FreeLibrary<P0>(hlibmodule: P0) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
-{
-    ::windows_targets::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : super::super::Foundation:: HMODULE) -> super::super::Foundation:: BOOL);
-    FreeLibrary(hlibmodule.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -500,11 +490,11 @@ where
 #[inline]
 pub unsafe fn UpdateResourceA<P0, P1, P2>(hupdate: P0, lptype: P1, lpname: P2, wlanguage: u16, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, cb: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<UPDATERESOURCE_HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn UpdateResourceA(hupdate : UPDATERESOURCE_HANDLE, lptype : ::windows_core::PCSTR, lpname : ::windows_core::PCSTR, wlanguage : u16, lpdata : *const ::core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn UpdateResourceA(hupdate : super::super::Foundation:: HANDLE, lptype : ::windows_core::PCSTR, lpname : ::windows_core::PCSTR, wlanguage : u16, lpdata : *const ::core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
     UpdateResourceA(hupdate.into_param().abi(), lptype.into_param().abi(), lpname.into_param().abi(), wlanguage, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cb).ok()
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
@@ -512,11 +502,11 @@ where
 #[inline]
 pub unsafe fn UpdateResourceW<P0, P1, P2>(hupdate: P0, lptype: P1, lpname: P2, wlanguage: u16, lpdata: ::core::option::Option<*const ::core::ffi::c_void>, cb: u32) -> ::windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<UPDATERESOURCE_HANDLE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn UpdateResourceW(hupdate : UPDATERESOURCE_HANDLE, lptype : ::windows_core::PCWSTR, lpname : ::windows_core::PCWSTR, wlanguage : u16, lpdata : *const ::core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("kernel32.dll" "system" fn UpdateResourceW(hupdate : super::super::Foundation:: HANDLE, lptype : ::windows_core::PCWSTR, lpname : ::windows_core::PCWSTR, wlanguage : u16, lpdata : *const ::core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
     UpdateResourceW(hupdate.into_param().abi(), lptype.into_param().abi(), lpname.into_param().abi(), wlanguage, ::core::mem::transmute(lpdata.unwrap_or(::std::ptr::null())), cb).ok()
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
@@ -726,33 +716,6 @@ impl ::core::default::Default for REDIRECTION_FUNCTION_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UPDATERESOURCE_HANDLE(pub isize);
-impl UPDATERESOURCE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == 0
-    }
-}
-impl ::core::default::Default for UPDATERESOURCE_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for UPDATERESOURCE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for UPDATERESOURCE_HANDLE {}
-impl ::core::fmt::Debug for UPDATERESOURCE_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UPDATERESOURCE_HANDLE").field(&self.0).finish()
-    }
-}
-impl ::windows_core::TypeKind for UPDATERESOURCE_HANDLE {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

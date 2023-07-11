@@ -31,6 +31,12 @@ pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows_c
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
+pub unsafe fn WebAuthNDeletePlatformCredential(pbcredentialid: &[u8]) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNDeletePlatformCredential(cbcredentialid : u32, pbcredentialid : *const u8) -> ::windows_core::HRESULT);
+    WebAuthNDeletePlatformCredential(pbcredentialid.len() as _, ::core::mem::transmute(pbcredentialid.as_ptr())).ok()
+}
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+#[inline]
 pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION) {
     ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNFreeAssertion(pwebauthnassertion : *const WEBAUTHN_ASSERTION) -> ());
     WebAuthNFreeAssertion(pwebauthnassertion)
@@ -41,6 +47,13 @@ pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTIO
 pub unsafe fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: ::core::option::Option<*const WEBAUTHN_CREDENTIAL_ATTESTATION>) {
     ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation : *const WEBAUTHN_CREDENTIAL_ATTESTATION) -> ());
     WebAuthNFreeCredentialAttestation(::core::mem::transmute(pwebauthncredentialattestation.unwrap_or(::std::ptr::null())))
+}
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist: *const WEBAUTHN_CREDENTIAL_DETAILS_LIST) {
+    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNFreePlatformCredentialList(pcredentialdetailslist : *const WEBAUTHN_CREDENTIAL_DETAILS_LIST) -> ());
+    WebAuthNFreePlatformCredentialList(pcredentialdetailslist)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -60,6 +73,14 @@ pub unsafe fn WebAuthNGetCancellationId() -> ::windows_core::Result<::windows_co
 pub unsafe fn WebAuthNGetErrorName(hr: ::windows_core::HRESULT) -> ::windows_core::PCWSTR {
     ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetErrorName(hr : ::windows_core::HRESULT) -> ::windows_core::PCWSTR);
     WebAuthNGetErrorName(hr)
+}
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: *const WEBAUTHN_GET_CREDENTIALS_OPTIONS) -> ::windows_core::Result<*mut WEBAUTHN_CREDENTIAL_DETAILS_LIST> {
+    ::windows_targets::link!("webauthn.dll" "system" fn WebAuthNGetPlatformCredentialList(pgetcredentialsoptions : *const WEBAUTHN_GET_CREDENTIALS_OPTIONS, ppcredentialdetailslist : *mut *mut WEBAUTHN_CREDENTIAL_DETAILS_LIST) -> ::windows_core::HRESULT);
+    let mut result__ = ::std::mem::zeroed();
+    WebAuthNGetPlatformCredentialList(pgetcredentialsoptions, &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[inline]
@@ -7214,12 +7235,23 @@ impl ::core::default::Default for WS_CERT_SIGNED_SAML_AUTHENTICATOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_CHANNEL(pub u8);
-impl ::core::marker::Copy for WS_CHANNEL {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_CHANNEL(pub isize);
+impl ::core::default::Default for WS_CHANNEL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_CHANNEL {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_CHANNEL {}
+impl ::core::fmt::Debug for WS_CHANNEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_CHANNEL").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_CHANNEL {
@@ -8263,12 +8295,23 @@ impl ::core::default::Default for WS_ENUM_VALUE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_ERROR(pub u8);
-impl ::core::marker::Copy for WS_ERROR {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_ERROR(pub isize);
+impl ::core::default::Default for WS_ERROR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_ERROR {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_ERROR {}
+impl ::core::fmt::Debug for WS_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_ERROR").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_ERROR {
@@ -8598,12 +8641,23 @@ impl ::core::default::Default for WS_GUID_DESCRIPTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_HEAP(pub u8);
-impl ::core::marker::Copy for WS_HEAP {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_HEAP(pub isize);
+impl ::core::default::Default for WS_HEAP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_HEAP {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_HEAP {}
+impl ::core::fmt::Debug for WS_HEAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_HEAP").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_HEAP {
@@ -9885,12 +9939,23 @@ impl ::core::default::Default for WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TEM
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_LISTENER(pub u8);
-impl ::core::marker::Copy for WS_LISTENER {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_LISTENER(pub isize);
+impl ::core::default::Default for WS_LISTENER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_LISTENER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_LISTENER {}
+impl ::core::fmt::Debug for WS_LISTENER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_LISTENER").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_LISTENER {
@@ -9959,12 +10024,23 @@ impl ::core::default::Default for WS_LISTENER_PROPERTY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_MESSAGE(pub u8);
-impl ::core::marker::Copy for WS_MESSAGE {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_MESSAGE(pub isize);
+impl ::core::default::Default for WS_MESSAGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_MESSAGE {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_MESSAGE {}
+impl ::core::fmt::Debug for WS_MESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_MESSAGE").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_MESSAGE {
@@ -10072,12 +10148,23 @@ impl ::core::default::Default for WS_MESSAGE_PROPERTY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_METADATA(pub u8);
-impl ::core::marker::Copy for WS_METADATA {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_METADATA(pub isize);
+impl ::core::default::Default for WS_METADATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_METADATA {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_METADATA {}
+impl ::core::fmt::Debug for WS_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_METADATA").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_METADATA {
@@ -10373,12 +10460,23 @@ impl ::core::default::Default for WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_OPERATION_CONTEXT(pub u8);
-impl ::core::marker::Copy for WS_OPERATION_CONTEXT {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_OPERATION_CONTEXT(pub isize);
+impl ::core::default::Default for WS_OPERATION_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_OPERATION_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_OPERATION_CONTEXT {}
+impl ::core::fmt::Debug for WS_OPERATION_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_OPERATION_CONTEXT").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_OPERATION_CONTEXT {
@@ -10454,12 +10552,23 @@ impl ::core::default::Default for WS_PARAMETER_DESCRIPTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_POLICY(pub u8);
-impl ::core::marker::Copy for WS_POLICY {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_POLICY(pub isize);
+impl ::core::default::Default for WS_POLICY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_POLICY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_POLICY {}
+impl ::core::fmt::Debug for WS_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_POLICY").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_POLICY {
@@ -11196,12 +11305,23 @@ impl ::core::default::Default for WS_SECURITY_CONSTRAINTS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_SECURITY_CONTEXT(pub u8);
-impl ::core::marker::Copy for WS_SECURITY_CONTEXT {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_SECURITY_CONTEXT(pub isize);
+impl ::core::default::Default for WS_SECURITY_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_SECURITY_CONTEXT {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_SECURITY_CONTEXT {}
+impl ::core::fmt::Debug for WS_SECURITY_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_SECURITY_CONTEXT").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_SECURITY_CONTEXT {
@@ -11615,12 +11735,23 @@ impl ::core::default::Default for WS_SECURITY_PROPERTY_CONSTRAINT_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_SECURITY_TOKEN(pub u8);
-impl ::core::marker::Copy for WS_SECURITY_TOKEN {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_SECURITY_TOKEN(pub isize);
+impl ::core::default::Default for WS_SECURITY_TOKEN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_SECURITY_TOKEN {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_SECURITY_TOKEN {}
+impl ::core::fmt::Debug for WS_SECURITY_TOKEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_SECURITY_TOKEN").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_SECURITY_TOKEN {
@@ -11768,12 +11899,23 @@ impl ::core::default::Default for WS_SERVICE_ENDPOINT_PROPERTY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_SERVICE_HOST(pub u8);
-impl ::core::marker::Copy for WS_SERVICE_HOST {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_SERVICE_HOST(pub isize);
+impl ::core::default::Default for WS_SERVICE_HOST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_SERVICE_HOST {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_SERVICE_HOST {}
+impl ::core::fmt::Debug for WS_SERVICE_HOST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_SERVICE_HOST").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_SERVICE_HOST {
@@ -11939,12 +12081,23 @@ impl ::core::default::Default for WS_SERVICE_PROPERTY_CLOSE_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_SERVICE_PROXY(pub u8);
-impl ::core::marker::Copy for WS_SERVICE_PROXY {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_SERVICE_PROXY(pub isize);
+impl ::core::default::Default for WS_SERVICE_PROXY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_SERVICE_PROXY {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_SERVICE_PROXY {}
+impl ::core::fmt::Debug for WS_SERVICE_PROXY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_SERVICE_PROXY").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_SERVICE_PROXY {
@@ -13764,12 +13917,23 @@ impl ::core::default::Default for WS_XML_BOOL_TEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_XML_BUFFER(pub u8);
-impl ::core::marker::Copy for WS_XML_BUFFER {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_XML_BUFFER(pub isize);
+impl ::core::default::Default for WS_XML_BUFFER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_XML_BUFFER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_XML_BUFFER {}
+impl ::core::fmt::Debug for WS_XML_BUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_XML_BUFFER").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_XML_BUFFER {
@@ -14419,12 +14583,23 @@ impl ::core::default::Default for WS_XML_QNAME_TEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_XML_READER(pub u8);
-impl ::core::marker::Copy for WS_XML_READER {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_XML_READER(pub isize);
+impl ::core::default::Default for WS_XML_READER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_XML_READER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_XML_READER {}
+impl ::core::fmt::Debug for WS_XML_READER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_XML_READER").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_XML_READER {
@@ -15116,12 +15291,23 @@ impl ::core::default::Default for WS_XML_UTF8_TEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct WS_XML_WRITER(pub u8);
-impl ::core::marker::Copy for WS_XML_WRITER {}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WS_XML_WRITER(pub isize);
+impl ::core::default::Default for WS_XML_WRITER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 impl ::core::clone::Clone for WS_XML_WRITER {
     fn clone(&self) -> Self {
         *self
+    }
+}
+impl ::core::marker::Copy for WS_XML_WRITER {}
+impl ::core::fmt::Debug for WS_XML_WRITER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WS_XML_WRITER").field(&self.0).finish()
     }
 }
 impl ::windows_core::TypeKind for WS_XML_WRITER {

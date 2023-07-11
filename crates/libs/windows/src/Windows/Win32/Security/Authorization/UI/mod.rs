@@ -953,7 +953,7 @@ impl ::core::default::Default for SI_INHERIT_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 pub struct SI_OBJECT_INFO {
     pub dwFlags: SI_OBJECT_INFO_FLAGS,
-    pub hInstance: super::super::super::Foundation::HMODULE,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
     pub pszServerName: ::windows_core::PWSTR,
     pub pszObjectName: ::windows_core::PWSTR,
     pub pszPageTitle: ::windows_core::PWSTR,

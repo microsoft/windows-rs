@@ -32,7 +32,7 @@ impl IWPCGamesSettings_Vtbl {
 pub trait IWPCProviderConfig_Impl: Sized {
     fn GetUserSummary(&self, bstrsid: &::windows_core::BSTR) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Configure(&self, hwnd: super::super::Foundation::HWND, bstrsid: &::windows_core::BSTR) -> ::windows_core::Result<()>;
-    fn RequestOverride(&self, hwnd: super::super::Foundation::HWND, bstrpath: &::windows_core::BSTR, dwflags: WPCFLAG_RESTRICTION) -> ::windows_core::Result<()>;
+    fn RequestOverride(&self, hwnd: super::super::Foundation::HWND, bstrpath: &::windows_core::BSTR, dwflags: &WPCFLAG_RESTRICTION) -> ::windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IWPCProviderConfig {}
@@ -55,10 +55,10 @@ impl IWPCProviderConfig_Vtbl {
             let this = (*this).get_impl();
             this.Configure(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&bstrsid)).into()
         }
-        unsafe extern "system" fn RequestOverride<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwflags: WPCFLAG_RESTRICTION) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn RequestOverride<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IWPCProviderConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwflags: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.RequestOverride(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&bstrpath), ::core::mem::transmute_copy(&dwflags)).into()
+            this.RequestOverride(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&bstrpath), ::core::mem::transmute(&dwflags)).into()
         }
         Self {
             base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),

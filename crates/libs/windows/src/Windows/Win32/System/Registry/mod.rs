@@ -781,8 +781,8 @@ where
     P0: ::windows_core::IntoParam<HKEY>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn RegRestoreKeyA(hkey : HKEY, lpfile : ::windows_core::PCSTR, dwflags : REG_RESTORE_KEY_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-    RegRestoreKeyA(hkey.into_param().abi(), lpfile.into_param().abi(), dwflags).ok()
+    ::windows_targets::link!("advapi32.dll" "system" fn RegRestoreKeyA(hkey : HKEY, lpfile : ::windows_core::PCSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+    RegRestoreKeyA(hkey.into_param().abi(), lpfile.into_param().abi(), dwflags.0 as _).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -792,8 +792,8 @@ where
     P0: ::windows_core::IntoParam<HKEY>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advapi32.dll" "system" fn RegRestoreKeyW(hkey : HKEY, lpfile : ::windows_core::PCWSTR, dwflags : REG_RESTORE_KEY_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
-    RegRestoreKeyW(hkey.into_param().abi(), lpfile.into_param().abi(), dwflags).ok()
+    ::windows_targets::link!("advapi32.dll" "system" fn RegRestoreKeyW(hkey : HKEY, lpfile : ::windows_core::PCWSTR, dwflags : u32) -> super::super::Foundation:: WIN32_ERROR);
+    RegRestoreKeyW(hkey.into_param().abi(), lpfile.into_param().abi(), dwflags.0 as _).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]

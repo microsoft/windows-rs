@@ -237,9 +237,9 @@ where
 pub unsafe fn DelNodeRunDLL32W<P0, P1>(hwnd: P0, hinstance: P1, pszparms: ::windows_core::PWSTR, nshow: i32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn DelNodeRunDLL32W(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PWSTR, nshow : i32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn DelNodeRunDLL32W(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparms : ::windows_core::PWSTR, nshow : i32) -> ::windows_core::HRESULT);
     DelNodeRunDLL32W(hwnd.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(pszparms), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -901,10 +901,10 @@ where
 pub unsafe fn LaunchINFSectionExW<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn LaunchINFSectionExW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PCWSTR, nshow : i32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn LaunchINFSectionExW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparms : ::windows_core::PCWSTR, nshow : i32) -> ::windows_core::HRESULT);
     LaunchINFSectionExW(hwnd.into_param().abi(), hinstance.into_param().abi(), pszparms.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -913,9 +913,9 @@ where
 pub unsafe fn LaunchINFSectionW<P0, P1>(hwndowner: P0, hinstance: P1, pszparams: ::windows_core::PWSTR, nshow: i32) -> i32
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn LaunchINFSectionW(hwndowner : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparams : ::windows_core::PWSTR, nshow : i32) -> i32);
+    ::windows_targets::link!("advpack.dll" "system" fn LaunchINFSectionW(hwndowner : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparams : ::windows_core::PWSTR, nshow : i32) -> i32);
     LaunchINFSectionW(hwndowner.into_param().abi(), hinstance.into_param().abi(), ::core::mem::transmute(pszparams), nshow)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -952,133 +952,6 @@ pub unsafe fn NeedReboot(dwrebootcheck: u32) -> super::super::Foundation::BOOL {
 pub unsafe fn NeedRebootInit() -> u32 {
     ::windows_targets::link!("advpack.dll" "system" fn NeedRebootInit() -> u32);
     NeedRebootInit()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtClose<P0>(handle: P0) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-{
-    ::windows_targets::link!("ntdll.dll" "system" fn NtClose(handle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: NTSTATUS);
-    NtClose(handle.into_param().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtDeviceIoControlFile<P0, P1>(filehandle: P0, event: P1, apcroutine: PIO_APC_ROUTINE, apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: *mut ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-{
-    ::windows_targets::link!("ntdll.dll" "system" fn NtDeviceIoControlFile(filehandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *mut ::core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *mut ::core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut ::core::ffi::c_void, outputbufferlength : u32) -> super::super::Foundation:: NTSTATUS);
-    NtDeviceIoControlFile(filehandle.into_param().abi(), event.into_param().abi(), apcroutine, apccontext, iostatusblock, iocontrolcode, inputbuffer, inputbufferlength, outputbuffer, outputbufferlength).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtNotifyChangeMultipleKeys<P0, P1, P2, P3>(masterkeyhandle: P0, subordinateobjects: ::core::option::Option<&[OBJECT_ATTRIBUTES]>, event: P1, apcroutine: PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, iostatusblock: *mut IO_STATUS_BLOCK, completionfilter: u32, watchtree: P2, buffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32, asynchronous: P3) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
-    P3: ::windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
-{
-    ::windows_targets::link!("ntdll.dll" "system" fn NtNotifyChangeMultipleKeys(masterkeyhandle : super::super::Foundation:: HANDLE, count : u32, subordinateobjects : *const OBJECT_ATTRIBUTES, event : super::super::Foundation:: HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, completionfilter : u32, watchtree : super::super::Foundation:: BOOLEAN, buffer : *mut ::core::ffi::c_void, buffersize : u32, asynchronous : super::super::Foundation:: BOOLEAN) -> super::super::Foundation:: NTSTATUS);
-    NtNotifyChangeMultipleKeys(
-        masterkeyhandle.into_param().abi(),
-        subordinateobjects.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(subordinateobjects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        event.into_param().abi(),
-        apcroutine,
-        ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())),
-        iostatusblock,
-        completionfilter,
-        watchtree.into_param().abi(),
-        ::core::mem::transmute(buffer.unwrap_or(::std::ptr::null_mut())),
-        buffersize,
-        asynchronous.into_param().abi(),
-    )
-    .ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtOpenFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut OBJECT_ATTRIBUTES, iostatusblock: *mut IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("ntdll.dll" "system" fn NtOpenFile(filehandle : *mut super::super::Foundation:: HANDLE, desiredaccess : u32, objectattributes : *mut OBJECT_ATTRIBUTES, iostatusblock : *mut IO_STATUS_BLOCK, shareaccess : u32, openoptions : u32) -> super::super::Foundation:: NTSTATUS);
-    NtOpenFile(filehandle, desiredaccess, objectattributes, iostatusblock, shareaccess, openoptions).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQueryMultipleValueKey<P0>(keyhandle: P0, valueentries: &mut [KEY_VALUE_ENTRY], valuebuffer: *mut ::core::ffi::c_void, bufferlength: *mut u32, requiredbufferlength: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-{
-    ::windows_targets::link!("ntdll.dll" "system" fn NtQueryMultipleValueKey(keyhandle : super::super::Foundation:: HANDLE, valueentries : *mut KEY_VALUE_ENTRY, entrycount : u32, valuebuffer : *mut ::core::ffi::c_void, bufferlength : *mut u32, requiredbufferlength : *mut u32) -> super::super::Foundation:: NTSTATUS);
-    NtQueryMultipleValueKey(keyhandle.into_param().abi(), ::core::mem::transmute(valueentries.as_ptr()), valueentries.len() as _, valuebuffer, bufferlength, ::core::mem::transmute(requiredbufferlength.unwrap_or(::std::ptr::null_mut()))).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQueryObject<P0>(handle: P0, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: ::core::option::Option<*mut ::core::ffi::c_void>, objectinformationlength: u32, returnlength: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-{
-    ::windows_targets::link!("ntdll.dll" "system" fn NtQueryObject(handle : super::super::Foundation:: HANDLE, objectinformationclass : OBJECT_INFORMATION_CLASS, objectinformation : *mut ::core::ffi::c_void, objectinformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: NTSTATUS);
-    NtQueryObject(handle.into_param().abi(), objectinformationclass, ::core::mem::transmute(objectinformation.unwrap_or(::std::ptr::null_mut())), objectinformationlength, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut()))).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut ::core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("ntdll.dll" "system" fn NtQuerySystemInformation(systeminformationclass : SYSTEM_INFORMATION_CLASS, systeminformation : *mut ::core::ffi::c_void, systeminformationlength : u32, returnlength : *mut u32) -> super::super::Foundation:: NTSTATUS);
-    NtQuerySystemInformation(systeminformationclass, systeminformation, systeminformationlength, returnlength).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQuerySystemTime(systemtime: *mut i64) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("ntdll.dll" "system" fn NtQuerySystemTime(systemtime : *mut i64) -> super::super::Foundation:: NTSTATUS);
-    NtQuerySystemTime(systemtime).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQueryTimerResolution(maximumtime: *mut u32, minimumtime: *mut u32, currenttime: *mut u32) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("ntdll.dll" "system" fn NtQueryTimerResolution(maximumtime : *mut u32, minimumtime : *mut u32, currenttime : *mut u32) -> super::super::Foundation:: NTSTATUS);
-    NtQueryTimerResolution(maximumtime, minimumtime, currenttime).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtRenameKey<P0>(keyhandle: P0, newname: *const super::super::Foundation::UNICODE_STRING) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-{
-    ::windows_targets::link!("ntdll.dll" "system" fn NtRenameKey(keyhandle : super::super::Foundation:: HANDLE, newname : *const super::super::Foundation:: UNICODE_STRING) -> super::super::Foundation:: NTSTATUS);
-    NtRenameKey(keyhandle.into_param().abi(), newname).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtSetInformationKey<P0>(keyhandle: P0, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: *const ::core::ffi::c_void, keysetinformationlength: u32) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-{
-    ::windows_targets::link!("ntdll.dll" "system" fn NtSetInformationKey(keyhandle : super::super::Foundation:: HANDLE, keysetinformationclass : KEY_SET_INFORMATION_CLASS, keysetinformation : *const ::core::ffi::c_void, keysetinformationlength : u32) -> super::super::Foundation:: NTSTATUS);
-    NtSetInformationKey(keyhandle.into_param().abi(), keysetinformationclass, keysetinformation, keysetinformationlength).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtWaitForSingleObject<P0, P1>(handle: P0, alertable: P1, timeout: *mut i64) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::BOOLEAN>,
-{
-    ::windows_targets::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : super::super::Foundation:: HANDLE, alertable : super::super::Foundation:: BOOLEAN, timeout : *mut i64) -> super::super::Foundation:: NTSTATUS);
-    NtWaitForSingleObject(handle.into_param().abi(), alertable.into_param().abi(), timeout).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -1656,18 +1529,6 @@ pub unsafe fn SetPerUserSecValuesW(pperuser: *mut PERUSERSECTIONW) -> ::windows_
     ::windows_targets::link!("advpack.dll" "system" fn SetPerUserSecValuesW(pperuser : *mut PERUSERSECTIONW) -> ::windows_core::HRESULT);
     SetPerUserSecValuesW(pperuser).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SignalObjectAndWait<P0, P1, P2>(hobjecttosignal: P0, hobjecttowaiton: P1, dwmilliseconds: u32, balertable: P2) -> ::windows_core::Result<()>
-where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
-    P2: ::windows_core::IntoParam<super::super::Foundation::BOOL>,
-{
-    ::windows_targets::link!("kernel32.dll" "system" fn SignalObjectAndWait(hobjecttosignal : super::super::Foundation:: HANDLE, hobjecttowaiton : super::super::Foundation:: HANDLE, dwmilliseconds : u32, balertable : super::super::Foundation:: BOOL) -> super::super::Foundation:: WIN32_ERROR);
-    SignalObjectAndWait(hobjecttosignal.into_param().abi(), hobjecttowaiton.into_param().abi(), dwmilliseconds, balertable.into_param().abi()).ok()
-}
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: ::core::option::Option<*const ::core::ffi::c_void>) {
@@ -1735,10 +1596,10 @@ where
 pub unsafe fn UserInstStubWrapperA<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn UserInstStubWrapperA(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PCSTR, nshow : i32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn UserInstStubWrapperA(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparms : ::windows_core::PCSTR, nshow : i32) -> ::windows_core::HRESULT);
     UserInstStubWrapperA(hwnd.into_param().abi(), hinstance.into_param().abi(), pszparms.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1747,10 +1608,10 @@ where
 pub unsafe fn UserInstStubWrapperW<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn UserInstStubWrapperW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PCWSTR, nshow : i32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn UserInstStubWrapperW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparms : ::windows_core::PCWSTR, nshow : i32) -> ::windows_core::HRESULT);
     UserInstStubWrapperW(hwnd.into_param().abi(), hinstance.into_param().abi(), pszparms.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1759,10 +1620,10 @@ where
 pub unsafe fn UserUnInstStubWrapperA<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn UserUnInstStubWrapperA(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PCSTR, nshow : i32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn UserUnInstStubWrapperA(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparms : ::windows_core::PCSTR, nshow : i32) -> ::windows_core::HRESULT);
     UserUnInstStubWrapperA(hwnd.into_param().abi(), hinstance.into_param().abi(), pszparms.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1771,10 +1632,10 @@ where
 pub unsafe fn UserUnInstStubWrapperW<P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("advpack.dll" "system" fn UserUnInstStubWrapperW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, pszparms : ::windows_core::PCWSTR, nshow : i32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("advpack.dll" "system" fn UserUnInstStubWrapperW(hwnd : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, pszparms : ::windows_core::PCWSTR, nshow : i32) -> ::windows_core::HRESULT);
     UserUnInstStubWrapperW(hwnd.into_param().abi(), hinstance.into_param().abi(), pszparms.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -1857,6 +1718,40 @@ where
 {
     ::windows_targets::link!("dciman32.dll" "system" fn WinWatchOpen(hwnd : super::super::Foundation:: HWND) -> HWINWATCH);
     WinWatchOpen(hwnd.into_param().abi())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn WldpCanExecuteBuffer<P0>(host: *const ::windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: &[u8], auditinfo: P0) -> ::windows_core::Result<WLDP_EXECUTION_POLICY>
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteBuffer(host : *const ::windows_core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, buffer : *const u8, buffersize : u32, auditinfo : ::windows_core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT);
+    let mut result__ = ::std::mem::zeroed();
+    WldpCanExecuteBuffer(host, options, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, auditinfo.into_param().abi(), &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WldpCanExecuteFile<P0, P1>(host: *const ::windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: P0, auditinfo: P1) -> ::windows_core::Result<WLDP_EXECUTION_POLICY>
+where
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteFile(host : *const ::windows_core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle : super::super::Foundation:: HANDLE, auditinfo : ::windows_core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT);
+    let mut result__ = ::std::mem::zeroed();
+    WldpCanExecuteFile(host, options, filehandle.into_param().abi(), auditinfo.into_param().abi(), &mut result__).from_abi(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
+pub unsafe fn WldpCanExecuteStream<P0, P1>(host: *const ::windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: P0, auditinfo: P1) -> ::windows_core::Result<WLDP_EXECUTION_POLICY>
+where
+    P0: ::windows_core::IntoParam<super::Com::IStream>,
+    P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("wldp.dll" "system" fn WldpCanExecuteStream(host : *const ::windows_core::GUID, options : WLDP_EXECUTION_EVALUATION_OPTIONS, stream : * mut::core::ffi::c_void, auditinfo : ::windows_core::PCWSTR, result : *mut WLDP_EXECUTION_POLICY) -> ::windows_core::HRESULT);
+    let mut result__ = ::std::mem::zeroed();
+    WldpCanExecuteStream(host, options, stream.into_param().abi(), auditinfo.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4171,37 +4066,6 @@ impl ::core::fmt::Debug for FEATURE_ENABLED_STATE {
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FILE_FLUSH_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_FLUSH_DEFAULT: FILE_FLUSH_MODE = FILE_FLUSH_MODE(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_FLUSH_DATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_FLUSH_MIN_METADATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_FLUSH_NO_SYNC: FILE_FLUSH_MODE = FILE_FLUSH_MODE(3i32);
-impl ::core::marker::Copy for FILE_FLUSH_MODE {}
-impl ::core::clone::Clone for FILE_FLUSH_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILE_FLUSH_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for FILE_FLUSH_MODE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for FILE_FLUSH_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FILE_FLUSH_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = FILE_INFORMATION_CLASS(1i32);
@@ -4222,175 +4086,6 @@ impl ::windows_core::TypeKind for FILE_INFORMATION_CLASS {
 impl ::core::fmt::Debug for FILE_INFORMATION_CLASS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FILE_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FILE_WRITE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_WRITE_FLAGS_NONE: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_WRITE_FLAGS_WRITE_THROUGH: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(1i32);
-impl ::core::marker::Copy for FILE_WRITE_FLAGS {}
-impl ::core::clone::Clone for FILE_WRITE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILE_WRITE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for FILE_WRITE_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for FILE_WRITE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FILE_WRITE_FLAGS").field(&self.0).finish()
-    }
-}
-impl FILE_WRITE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl ::core::ops::BitOr for FILE_WRITE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for FILE_WRITE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FILE_WRITE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FILE_WRITE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for FILE_WRITE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KEY_SET_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(6i32);
-impl ::core::marker::Copy for KEY_SET_INFORMATION_CLASS {}
-impl ::core::clone::Clone for KEY_SET_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KEY_SET_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for KEY_SET_INFORMATION_CLASS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for KEY_SET_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KEY_SET_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OBJECT_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(2i32);
-impl ::core::marker::Copy for OBJECT_INFORMATION_CLASS {}
-impl ::core::clone::Clone for OBJECT_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OBJECT_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for OBJECT_INFORMATION_CLASS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for OBJECT_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OBJECT_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SYSTEM_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemBasicInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemProcessInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemInterruptInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(23i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemExceptionInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(33i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(37i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemLookasideInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(45i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemCodeIntegrityInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(103i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemPolicyInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(134i32);
-impl ::core::marker::Copy for SYSTEM_INFORMATION_CLASS {}
-impl ::core::clone::Clone for SYSTEM_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYSTEM_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for SYSTEM_INFORMATION_CLASS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for SYSTEM_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SYSTEM_INFORMATION_CLASS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -5965,56 +5660,6 @@ impl ::core::default::Default for IMESTRUCT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct IO_STATUS_BLOCK {
-    pub Anonymous: IO_STATUS_BLOCK_0,
-    pub Information: usize,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for IO_STATUS_BLOCK {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for IO_STATUS_BLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::windows_core::TypeKind for IO_STATUS_BLOCK {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for IO_STATUS_BLOCK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union IO_STATUS_BLOCK_0 {
-    pub Status: super::super::Foundation::NTSTATUS,
-    pub Pointer: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for IO_STATUS_BLOCK_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for IO_STATUS_BLOCK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::windows_core::TypeKind for IO_STATUS_BLOCK_0 {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for IO_STATUS_BLOCK_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct JAVA_TRUST {
     pub cbSize: u32,
     pub flag: u32,
@@ -6111,47 +5756,6 @@ impl ::core::default::Default for JIT_DEBUG_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct KEY_VALUE_ENTRY {
-    pub ValueName: *mut super::super::Foundation::UNICODE_STRING,
-    pub DataLength: u32,
-    pub DataOffset: u32,
-    pub Type: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for KEY_VALUE_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for KEY_VALUE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for KEY_VALUE_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("KEY_VALUE_ENTRY").field("ValueName", &self.ValueName).field("DataLength", &self.DataLength).field("DataOffset", &self.DataOffset).field("Type", &self.Type).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::windows_core::TypeKind for KEY_VALUE_ENTRY {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for KEY_VALUE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.ValueName == other.ValueName && self.DataLength == other.DataLength && self.DataOffset == other.DataOffset && self.Type == other.Type
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for KEY_VALUE_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for KEY_VALUE_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LDR_DATA_TABLE_ENTRY {
@@ -6205,49 +5809,6 @@ impl ::windows_core::TypeKind for LDR_DATA_TABLE_ENTRY_0 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for LDR_DATA_TABLE_ENTRY_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OBJECT_ATTRIBUTES {
-    pub Length: u32,
-    pub RootDirectory: super::super::Foundation::HANDLE,
-    pub ObjectName: *mut super::super::Foundation::UNICODE_STRING,
-    pub Attributes: u32,
-    pub SecurityDescriptor: *mut ::core::ffi::c_void,
-    pub SecurityQualityOfService: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OBJECT_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OBJECT_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OBJECT_ATTRIBUTES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OBJECT_ATTRIBUTES").field("Length", &self.Length).field("RootDirectory", &self.RootDirectory).field("ObjectName", &self.ObjectName).field("Attributes", &self.Attributes).field("SecurityDescriptor", &self.SecurityDescriptor).field("SecurityQualityOfService", &self.SecurityQualityOfService).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::windows_core::TypeKind for OBJECT_ATTRIBUTES {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OBJECT_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.RootDirectory == other.RootDirectory && self.ObjectName == other.ObjectName && self.Attributes == other.Attributes && self.SecurityDescriptor == other.SecurityDescriptor && self.SecurityQualityOfService == other.SecurityQualityOfService
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OBJECT_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OBJECT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -7479,28 +7040,6 @@ impl ::core::default::Default for WLDP_HOST_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct _D3DHAL_CALLBACKS(pub u8);
-impl ::core::marker::Copy for _D3DHAL_CALLBACKS {}
-impl ::core::clone::Clone for _D3DHAL_CALLBACKS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _D3DHAL_CALLBACKS {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
-pub struct _D3DHAL_GLOBALDRIVERDATA(pub u8);
-impl ::core::marker::Copy for _D3DHAL_GLOBALDRIVERDATA {}
-impl ::core::clone::Clone for _D3DHAL_GLOBALDRIVERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _D3DHAL_GLOBALDRIVERDATA {
-    type TypeKind = ::windows_core::CopyType;
-}
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type APPLICATION_RECOVERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparameter: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -7511,9 +7050,6 @@ pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = ::core::option::Option<unsafe extern 
 pub type PFEATURE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> ()>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub type PFIBER_CALLOUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpparameter: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PIO_APC_ROUTINE = ::core::option::Option<unsafe extern "system" fn(apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32) -> ()>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PQUERYACTCTXW_FUNC = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL>;

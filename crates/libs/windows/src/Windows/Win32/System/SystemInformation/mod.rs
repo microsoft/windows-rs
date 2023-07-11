@@ -12,9 +12,9 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
-pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: ::core::option::Option<*mut FIRMWARE_TABLE_ID>, buffersize: u32) -> u32 {
-    ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemFirmwareTables(firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer : *mut FIRMWARE_TABLE_ID, buffersize : u32) -> u32);
-    EnumSystemFirmwareTables(firmwaretableprovidersignature, ::core::mem::transmute(pfirmwaretableenumbuffer.unwrap_or(::std::ptr::null_mut())), buffersize)
+pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
+    ::windows_targets::link!("kernel32.dll" "system" fn EnumSystemFirmwareTables(firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer : *mut u8, buffersize : u32) -> u32);
+    EnumSystemFirmwareTables(firmwaretableprovidersignature, ::core::mem::transmute(pfirmwaretableenumbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfirmwaretableenumbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -138,12 +138,9 @@ pub unsafe fn GetSystemDirectoryW(lpbuffer: ::core::option::Option<&mut [u16]>) 
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
-pub unsafe fn GetSystemFirmwareTable<P0>(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: P0, pfirmwaretablebuffer: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32) -> u32
-where
-    P0: ::windows_core::IntoParam<FIRMWARE_TABLE_ID>,
-{
-    ::windows_targets::link!("kernel32.dll" "system" fn GetSystemFirmwareTable(firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER, firmwaretableid : FIRMWARE_TABLE_ID, pfirmwaretablebuffer : *mut ::core::ffi::c_void, buffersize : u32) -> u32);
-    GetSystemFirmwareTable(firmwaretableprovidersignature, firmwaretableid.into_param().abi(), ::core::mem::transmute(pfirmwaretablebuffer.unwrap_or(::std::ptr::null_mut())), buffersize)
+pub unsafe fn GetSystemFirmwareTable(firmwaretableprovidersignature: FIRMWARE_TABLE_PROVIDER, firmwaretableid: u32, pfirmwaretablebuffer: ::core::option::Option<&mut [u8]>) -> u32 {
+    ::windows_targets::link!("kernel32.dll" "system" fn GetSystemFirmwareTable(firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER, firmwaretableid : u32, pfirmwaretablebuffer : *mut u8, buffersize : u32) -> u32);
+    GetSystemFirmwareTable(firmwaretableprovidersignature, firmwaretableid, ::core::mem::transmute(pfirmwaretablebuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pfirmwaretablebuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 #[inline]
@@ -1714,28 +1711,6 @@ impl ::core::default::Default for CACHE_RELATIONSHIP_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FIRMWARE_TABLE_ID(pub u32);
-impl ::core::default::Default for FIRMWARE_TABLE_ID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for FIRMWARE_TABLE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for FIRMWARE_TABLE_ID {}
-impl ::core::fmt::Debug for FIRMWARE_TABLE_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FIRMWARE_TABLE_ID").field(&self.0).finish()
-    }
-}
-impl ::windows_core::TypeKind for FIRMWARE_TABLE_ID {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]

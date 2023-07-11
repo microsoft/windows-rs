@@ -79,8 +79,6 @@ pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_2D
 pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_ANISOTROPIC: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE(4u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_FORCE_DWORD: D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE(4294967295u32);
 impl ::core::marker::Copy for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {}
 impl ::core::clone::Clone for D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE {
     fn clone(&self) -> Self {
@@ -112,8 +110,6 @@ pub const D2D1_ALPHA_MODE_PREMULTIPLIED: D2D1_ALPHA_MODE = D2D1_ALPHA_MODE(1u32)
 pub const D2D1_ALPHA_MODE_STRAIGHT: D2D1_ALPHA_MODE = D2D1_ALPHA_MODE(2u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub const D2D1_ALPHA_MODE_IGNORE: D2D1_ALPHA_MODE = D2D1_ALPHA_MODE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_ALPHA_MODE_FORCE_DWORD: D2D1_ALPHA_MODE = D2D1_ALPHA_MODE(4294967295u32);
 impl ::core::marker::Copy for D2D1_ALPHA_MODE {}
 impl ::core::clone::Clone for D2D1_ALPHA_MODE {
     fn clone(&self) -> Self {
@@ -189,8 +185,6 @@ pub const D2D1_BLEND_MODE_LUMINOSITY: D2D1_BLEND_MODE = D2D1_BLEND_MODE(23u32);
 pub const D2D1_BLEND_MODE_SUBTRACT: D2D1_BLEND_MODE = D2D1_BLEND_MODE(24u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub const D2D1_BLEND_MODE_DIVISION: D2D1_BLEND_MODE = D2D1_BLEND_MODE(25u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_BLEND_MODE_FORCE_DWORD: D2D1_BLEND_MODE = D2D1_BLEND_MODE(4294967295u32);
 impl ::core::marker::Copy for D2D1_BLEND_MODE {}
 impl ::core::clone::Clone for D2D1_BLEND_MODE {
     fn clone(&self) -> Self {
@@ -218,8 +212,6 @@ pub struct D2D1_BORDER_MODE(pub u32);
 pub const D2D1_BORDER_MODE_SOFT: D2D1_BORDER_MODE = D2D1_BORDER_MODE(0u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub const D2D1_BORDER_MODE_HARD: D2D1_BORDER_MODE = D2D1_BORDER_MODE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_BORDER_MODE_FORCE_DWORD: D2D1_BORDER_MODE = D2D1_BORDER_MODE(4294967295u32);
 impl ::core::marker::Copy for D2D1_BORDER_MODE {}
 impl ::core::clone::Clone for D2D1_BORDER_MODE {
     fn clone(&self) -> Self {
@@ -247,8 +239,6 @@ pub struct D2D1_COLORMATRIX_ALPHA_MODE(pub u32);
 pub const D2D1_COLORMATRIX_ALPHA_MODE_PREMULTIPLIED: D2D1_COLORMATRIX_ALPHA_MODE = D2D1_COLORMATRIX_ALPHA_MODE(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub const D2D1_COLORMATRIX_ALPHA_MODE_STRAIGHT: D2D1_COLORMATRIX_ALPHA_MODE = D2D1_COLORMATRIX_ALPHA_MODE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_COLORMATRIX_ALPHA_MODE_FORCE_DWORD: D2D1_COLORMATRIX_ALPHA_MODE = D2D1_COLORMATRIX_ALPHA_MODE(4294967295u32);
 impl ::core::marker::Copy for D2D1_COLORMATRIX_ALPHA_MODE {}
 impl ::core::clone::Clone for D2D1_COLORMATRIX_ALPHA_MODE {
     fn clone(&self) -> Self {
@@ -298,8 +288,6 @@ pub const D2D1_COMPOSITE_MODE_SOURCE_COPY: D2D1_COMPOSITE_MODE = D2D1_COMPOSITE_
 pub const D2D1_COMPOSITE_MODE_BOUNDED_SOURCE_COPY: D2D1_COMPOSITE_MODE = D2D1_COMPOSITE_MODE(11u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub const D2D1_COMPOSITE_MODE_MASK_INVERT: D2D1_COMPOSITE_MODE = D2D1_COMPOSITE_MODE(12u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_COMPOSITE_MODE_FORCE_DWORD: D2D1_COMPOSITE_MODE = D2D1_COMPOSITE_MODE(4294967295u32);
 impl ::core::marker::Copy for D2D1_COMPOSITE_MODE {}
 impl ::core::clone::Clone for D2D1_COMPOSITE_MODE {
     fn clone(&self) -> Self {
@@ -327,8 +315,6 @@ pub struct D2D1_FIGURE_BEGIN(pub u32);
 pub const D2D1_FIGURE_BEGIN_FILLED: D2D1_FIGURE_BEGIN = D2D1_FIGURE_BEGIN(0u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub const D2D1_FIGURE_BEGIN_HOLLOW: D2D1_FIGURE_BEGIN = D2D1_FIGURE_BEGIN(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_FIGURE_BEGIN_FORCE_DWORD: D2D1_FIGURE_BEGIN = D2D1_FIGURE_BEGIN(4294967295u32);
 impl ::core::marker::Copy for D2D1_FIGURE_BEGIN {}
 impl ::core::clone::Clone for D2D1_FIGURE_BEGIN {
     fn clone(&self) -> Self {
@@ -356,8 +342,6 @@ pub struct D2D1_FIGURE_END(pub u32);
 pub const D2D1_FIGURE_END_OPEN: D2D1_FIGURE_END = D2D1_FIGURE_END(0u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub const D2D1_FIGURE_END_CLOSED: D2D1_FIGURE_END = D2D1_FIGURE_END(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_FIGURE_END_FORCE_DWORD: D2D1_FIGURE_END = D2D1_FIGURE_END(4294967295u32);
 impl ::core::marker::Copy for D2D1_FIGURE_END {}
 impl ::core::clone::Clone for D2D1_FIGURE_END {
     fn clone(&self) -> Self {
@@ -385,8 +369,6 @@ pub struct D2D1_FILL_MODE(pub u32);
 pub const D2D1_FILL_MODE_ALTERNATE: D2D1_FILL_MODE = D2D1_FILL_MODE(0u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub const D2D1_FILL_MODE_WINDING: D2D1_FILL_MODE = D2D1_FILL_MODE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_FILL_MODE_FORCE_DWORD: D2D1_FILL_MODE = D2D1_FILL_MODE(4294967295u32);
 impl ::core::marker::Copy for D2D1_FILL_MODE {}
 impl ::core::clone::Clone for D2D1_FILL_MODE {
     fn clone(&self) -> Self {
@@ -416,8 +398,6 @@ pub const D2D1_PATH_SEGMENT_NONE: D2D1_PATH_SEGMENT = D2D1_PATH_SEGMENT(0u32);
 pub const D2D1_PATH_SEGMENT_FORCE_UNSTROKED: D2D1_PATH_SEGMENT = D2D1_PATH_SEGMENT(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub const D2D1_PATH_SEGMENT_FORCE_ROUND_LINE_JOIN: D2D1_PATH_SEGMENT = D2D1_PATH_SEGMENT(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_PATH_SEGMENT_FORCE_DWORD: D2D1_PATH_SEGMENT = D2D1_PATH_SEGMENT(4294967295u32);
 impl ::core::marker::Copy for D2D1_PATH_SEGMENT {}
 impl ::core::clone::Clone for D2D1_PATH_SEGMENT {
     fn clone(&self) -> Self {
@@ -478,8 +458,6 @@ pub struct D2D1_TURBULENCE_NOISE(pub u32);
 pub const D2D1_TURBULENCE_NOISE_FRACTAL_SUM: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(0u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 pub const D2D1_TURBULENCE_NOISE_TURBULENCE: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_TURBULENCE_NOISE_FORCE_DWORD: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(4294967295u32);
 impl ::core::marker::Copy for D2D1_TURBULENCE_NOISE {}
 impl ::core::clone::Clone for D2D1_TURBULENCE_NOISE {
     fn clone(&self) -> Self {

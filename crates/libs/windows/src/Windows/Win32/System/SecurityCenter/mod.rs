@@ -99,7 +99,7 @@ pub struct IWSCProductList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCProductList {
     pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), provider).ok()
+        (::windows_core::Interface::vtable(self).Initialize)(::windows_core::Interface::as_raw(self), provider.0 as _).ok()
     }
     pub unsafe fn Count(&self) -> ::windows_core::Result<i32> {
         let mut result__ = ::std::mem::zeroed();
@@ -147,7 +147,7 @@ unsafe impl ::windows_core::ComInterface for IWSCProductList {
 #[doc(hidden)]
 pub struct IWSCProductList_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: WSC_SECURITY_PROVIDER) -> ::windows_core::HRESULT,
+    pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: u32) -> ::windows_core::HRESULT,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
     pub get_Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pval: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,

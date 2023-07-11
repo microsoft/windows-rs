@@ -74,6 +74,12 @@ pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows_core::Result<super::super:
     let mut result__ = ::std::mem::zeroed();
     IsMdmUxWithoutAadAllowed(&mut result__).from_abi(result__)
 }
+#[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
+#[inline]
+pub unsafe fn RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(pszenrollmentid: &mut [u16]) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("mdmregistration.dll" "system" fn RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(cchenrollmentid : u32, pszenrollmentid : ::windows_core::PWSTR) -> ::windows_core::HRESULT);
+    RegisterDeviceDualEnrollMmpcUsingAADDeviceCredentials(pszenrollmentid.len() as _, ::core::mem::transmute(pszenrollmentid.as_ptr())).ok()
+}
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
