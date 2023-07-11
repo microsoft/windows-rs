@@ -1,5 +1,6 @@
 void __stdcall AddIPAddress(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall CancelIPChangeNotify(int p0) {}
+void __stdcall CancelIfTimestampConfigChange(int p0) {}
 void __stdcall CancelMibChangeNotify2(int p0) {}
 void __stdcall CaptureInterfaceHardwareCrossTimestamp(int p0, int p1) {}
 void __stdcall ConvertCompartmentGuidToId(int p0, int p1) {}
@@ -71,7 +72,9 @@ void __stdcall GetIfTable(int p0, int p1, int p2) {}
 void __stdcall GetIfTable2(int p0) {}
 void __stdcall GetIfTable2Ex(int p0, int p1) {}
 void __stdcall GetInterfaceActiveTimestampCapabilities(int p0, int p1) {}
+void __stdcall GetInterfaceCurrentTimestampCapabilities(int p0, int p1) {}
 void __stdcall GetInterfaceDnsSettings(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall GetInterfaceHardwareTimestampCapabilities(int p0, int p1) {}
 void __stdcall GetInterfaceInfo(int p0, int p1) {}
 void __stdcall GetInterfaceSupportedTimestampCapabilities(int p0, int p1) {}
 void __stdcall GetInvertedIfStackTable(int p0) {}
@@ -142,6 +145,7 @@ void __stdcall LookupPersistentTcpPortReservation(int p0, int p1, int p2) {}
 void __stdcall LookupPersistentUdpPortReservation(int p0, int p1, int p2) {}
 void __stdcall NhpAllocateAndGetInterfaceInfoFromStack(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NotifyAddrChange(int p0, int p1) {}
+void __stdcall NotifyIfTimestampConfigChange(int p0, int p1, int p2) {}
 void __stdcall NotifyIpInterfaceChange(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NotifyNetworkConnectivityHintChange(int p0, int p1, int p2, int p3) {}
 void __stdcall NotifyRouteChange(int p0, int p1) {}
@@ -149,6 +153,7 @@ void __stdcall NotifyRouteChange2(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NotifyStableUnicastIpAddressTable(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall NotifyTeredoPortChange(int p0, int p1, int p2, int p3) {}
 void __stdcall NotifyUnicastIpAddressChange(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall ParseNetworkString(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall PfAddFiltersToInterface(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall PfAddGlobalFilterToInterface(int p0, int p1) {}
 void __stdcall PfBindInterfaceToIPAddress(int p0, int p1, int p2) {}

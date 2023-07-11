@@ -1,3 +1,4 @@
+void __stdcall HcsAddResourceToOperation(int p0, int p1, int p2, int p3) {}
 void __stdcall HcsCancelOperation(int p0) {}
 void __stdcall HcsCloseComputeSystem(int p0) {}
 void __stdcall HcsCloseOperation(int p0) {}
@@ -8,6 +9,7 @@ void __stdcall HcsCreateComputeSystemInNamespace(int p0, int p1, int p2, int p3,
 void __stdcall HcsCreateEmptyGuestStateFile(int p0) {}
 void __stdcall HcsCreateEmptyRuntimeStateFile(int p0) {}
 void __stdcall HcsCreateOperation(int p0, int p1) {}
+void __stdcall HcsCreateOperationWithNotifications(int p0, int p1, int p2) {}
 void __stdcall HcsCreateProcess(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall HcsEnumerateComputeSystems(int p0, int p1) {}
 void __stdcall HcsEnumerateComputeSystemsInNamespace(int p0, int p1, int p2) {}

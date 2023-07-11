@@ -352,6 +352,7 @@ void __stdcall LsaOpenTrustedDomainByName(int p0, int p1, int p2, int p3) {}
 void __stdcall LsaQueryCAPs(int p0, int p1, int p2, int p3) {}
 void __stdcall LsaQueryDomainInformationPolicy(int p0, int p1, int p2) {}
 void __stdcall LsaQueryForestTrustInformation(int p0, int p1, int p2) {}
+void __stdcall LsaQueryForestTrustInformation2(int p0, int p1, int p2, int p3) {}
 void __stdcall LsaQueryInformationPolicy(int p0, int p1, int p2) {}
 void __stdcall LsaQueryTrustedDomainInfo(int p0, int p1, int p2, int p3) {}
 void __stdcall LsaQueryTrustedDomainInfoByName(int p0, int p1, int p2, int p3) {}
@@ -360,6 +361,7 @@ void __stdcall LsaRetrievePrivateData(int p0, int p1, int p2) {}
 void __stdcall LsaSetCAPs(int p0, int p1, int p2) {}
 void __stdcall LsaSetDomainInformationPolicy(int p0, int p1, int p2) {}
 void __stdcall LsaSetForestTrustInformation(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall LsaSetForestTrustInformation2(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall LsaSetInformationPolicy(int p0, int p1, int p2) {}
 void __stdcall LsaSetTrustedDomainInfoByName(int p0, int p1, int p2, int p3) {}
 void __stdcall LsaSetTrustedDomainInformation(int p0, int p1, int p2, int p3) {}
@@ -395,6 +397,10 @@ void __stdcall OpenServiceW(int p0, int p1, int p2) {}
 void __stdcall OpenThreadToken(int p0, int p1, int p2, int p3) {}
 void __stdcall OpenThreadWaitChainSession(int p0, int p1) {}
 void __stdcall OpenTraceA(int p0) {}
+void __stdcall OpenTraceFromBufferStream(int p0, int p1, int p2) {}
+void __stdcall OpenTraceFromFile(int p0, int p1, int p2) {}
+void __stdcall OpenTraceFromRealTimeLogger(int p0, int p1, int p2) {}
+void __stdcall OpenTraceFromRealTimeLoggerWithAllocationOptions(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall OpenTraceW(int p0) {}
 void __stdcall OperationEnd(int p0) {}
 void __stdcall OperationStart(int p0) {}
@@ -425,6 +431,9 @@ void __stdcall PrivilegeCheck(int p0, int p1, int p2) {}
 void __stdcall PrivilegedServiceAuditAlarmA(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall PrivilegedServiceAuditAlarmW(int p0, int p1, int p2, int p3, int p4) {}
 void __stdcall ProcessTrace(int p0, int p1, int p2, int p3) {}
+void __stdcall ProcessTraceAddBufferToBufferStream(int p0, int p1, int p2, int p3) {}
+void __stdcall ProcessTraceBufferDecrementReference(int p0) {}
+void __stdcall ProcessTraceBufferIncrementReference(int p0, int p1, int p2) {}
 void __stdcall QueryAllTracesA(int p0, int p1, int p2) {}
 void __stdcall QueryAllTracesW(int p0, int p1, int p2) {}
 void __stdcall QueryRecoveryAgentsOnEncryptedFile(int p0, int p1) {}
