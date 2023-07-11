@@ -7959,17 +7959,17 @@ impl ::core::ops::Not for NET_JOIN_DOMAIN_JOIN_OPTIONS {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(pub i32);
+pub struct NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SUPPORTS_REMOTE_ADMIN_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(2i32);
+pub const SUPPORTS_REMOTE_ADMIN_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(2u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SUPPORTS_RPC: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(4i32);
+pub const SUPPORTS_RPC: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(4u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SUPPORTS_SAM_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(8i32);
+pub const SUPPORTS_SAM_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(8u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SUPPORTS_UNICODE: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(16i32);
+pub const SUPPORTS_UNICODE: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(16u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SUPPORTS_LOCAL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(32i32);
+pub const SUPPORTS_LOCAL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(32u32);
 impl ::core::marker::Copy for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {}
 impl ::core::clone::Clone for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
     fn clone(&self) -> Self {
@@ -8351,11 +8351,11 @@ impl ::core::fmt::Debug for RASCON_UIINFO_FLAGS {
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SERVER_INFO_HIDDEN(pub u32);
+pub struct SERVER_INFO_HIDDEN(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_VISIBLE: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(0u32);
+pub const SV_VISIBLE: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(0i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_HIDDEN: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(1u32);
+pub const SV_HIDDEN: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(1i32);
 impl ::core::marker::Copy for SERVER_INFO_HIDDEN {}
 impl ::core::clone::Clone for SERVER_INFO_HIDDEN {
     fn clone(&self) -> Self {

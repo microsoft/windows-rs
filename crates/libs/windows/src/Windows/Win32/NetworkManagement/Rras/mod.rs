@@ -7568,6 +7568,7 @@ impl ::core::default::Default for RASCOMMSETTINGS {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCONNA {
     pub dwSize: u32,
@@ -7582,18 +7583,61 @@ pub struct RASCONNA {
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: ::windows_core::GUID,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASCONNA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASCONNA {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RASCONNA {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RASCONNA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RASCONNA {
+    pub dwSize: u32,
+    pub hrasconn: HRASCONN,
+    pub szEntryName: [u8; 257],
+    pub szDeviceType: [u8; 17],
+    pub szDeviceName: [u8; 129],
+    pub szPhonebook: [u8; 260],
+    pub dwSubEntry: u32,
+    pub guidEntry: ::windows_core::GUID,
+    pub dwFlags: u32,
+    pub luid: super::super::Foundation::LUID,
+    pub guidCorrelationId: ::windows_core::GUID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RASCONNA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASCONNA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for RASCONNA {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASCONNA {
     fn default() -> Self {
@@ -7666,6 +7710,7 @@ impl ::core::default::Default for RASCONNSTATUSW {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASCONNW {
     pub dwSize: u32,
@@ -7680,18 +7725,61 @@ pub struct RASCONNW {
     pub luid: super::super::Foundation::LUID,
     pub guidCorrelationId: ::windows_core::GUID,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASCONNW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASCONNW {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RASCONNW {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RASCONNW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RASCONNW {
+    pub dwSize: u32,
+    pub hrasconn: HRASCONN,
+    pub szEntryName: [u16; 257],
+    pub szDeviceType: [u16; 17],
+    pub szDeviceName: [u16; 129],
+    pub szPhonebook: [u16; 260],
+    pub dwSubEntry: u32,
+    pub guidEntry: ::windows_core::GUID,
+    pub dwFlags: u32,
+    pub luid: super::super::Foundation::LUID,
+    pub guidCorrelationId: ::windows_core::GUID,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RASCONNW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASCONNW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for RASCONNW {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASCONNW {
     fn default() -> Self {
@@ -7891,19 +7979,49 @@ impl ::core::default::Default for RASDEVINFOW {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct RASDEVSPECIFICINFO {
     pub dwSize: u32,
     pub pbDevSpecificInfo: *mut u8,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for RASDEVSPECIFICINFO {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for RASDEVSPECIFICINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for RASDEVSPECIFICINFO {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for RASDEVSPECIFICINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct RASDEVSPECIFICINFO {
+    pub dwSize: u32,
+    pub pbDevSpecificInfo: *mut u8,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for RASDEVSPECIFICINFO {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for RASDEVSPECIFICINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for RASDEVSPECIFICINFO {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for RASDEVSPECIFICINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7974,6 +8092,7 @@ impl ::core::default::Default for RASDIALEXTENSIONS {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct RASDIALPARAMSA {
     pub dwSize: u32,
     pub szEntryName: [u8; 257],
@@ -7987,15 +8106,53 @@ pub struct RASDIALPARAMSA {
     pub dwIfIndex: u32,
     pub szEncPassword: ::windows_core::PSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for RASDIALPARAMSA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for RASDIALPARAMSA {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for RASDIALPARAMSA {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for RASDIALPARAMSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct RASDIALPARAMSA {
+    pub dwSize: u32,
+    pub szEntryName: [u8; 257],
+    pub szPhoneNumber: [u8; 129],
+    pub szCallbackNumber: [u8; 129],
+    pub szUserName: [u8; 257],
+    pub szPassword: [u8; 257],
+    pub szDomain: [u8; 16],
+    pub dwSubEntry: u32,
+    pub dwCallbackId: usize,
+    pub dwIfIndex: u32,
+    pub szEncPassword: ::windows_core::PSTR,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for RASDIALPARAMSA {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for RASDIALPARAMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for RASDIALPARAMSA {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for RASDIALPARAMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8003,6 +8160,7 @@ impl ::core::default::Default for RASDIALPARAMSA {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct RASDIALPARAMSW {
     pub dwSize: u32,
     pub szEntryName: [u16; 257],
@@ -8016,15 +8174,53 @@ pub struct RASDIALPARAMSW {
     pub dwIfIndex: u32,
     pub szEncPassword: ::windows_core::PWSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for RASDIALPARAMSW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for RASDIALPARAMSW {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for RASDIALPARAMSW {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for RASDIALPARAMSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct RASDIALPARAMSW {
+    pub dwSize: u32,
+    pub szEntryName: [u16; 257],
+    pub szPhoneNumber: [u16; 129],
+    pub szCallbackNumber: [u16; 129],
+    pub szUserName: [u16; 257],
+    pub szPassword: [u16; 257],
+    pub szDomain: [u16; 16],
+    pub dwSubEntry: u32,
+    pub dwCallbackId: usize,
+    pub dwIfIndex: u32,
+    pub szEncPassword: ::windows_core::PWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for RASDIALPARAMSW {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for RASDIALPARAMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for RASDIALPARAMSW {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for RASDIALPARAMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8200,6 +8396,7 @@ impl ::core::default::Default for RASENTRYA {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASENTRYDLGA {
     pub dwSize: u32,
@@ -8212,18 +8409,59 @@ pub struct RASENTRYDLGA {
     pub reserved: usize,
     pub reserved2: usize,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASENTRYDLGA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASENTRYDLGA {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RASENTRYDLGA {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RASENTRYDLGA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RASENTRYDLGA {
+    pub dwSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub dwFlags: u32,
+    pub xDlg: i32,
+    pub yDlg: i32,
+    pub szEntry: [u8; 257],
+    pub dwError: u32,
+    pub reserved: usize,
+    pub reserved2: usize,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RASENTRYDLGA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASENTRYDLGA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for RASENTRYDLGA {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASENTRYDLGA {
     fn default() -> Self {
@@ -8232,6 +8470,7 @@ impl ::core::default::Default for RASENTRYDLGA {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASENTRYDLGW {
     pub dwSize: u32,
@@ -8244,18 +8483,59 @@ pub struct RASENTRYDLGW {
     pub reserved: usize,
     pub reserved2: usize,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASENTRYDLGW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASENTRYDLGW {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RASENTRYDLGW {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RASENTRYDLGW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RASENTRYDLGW {
+    pub dwSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub dwFlags: u32,
+    pub xDlg: i32,
+    pub yDlg: i32,
+    pub szEntry: [u16; 257],
+    pub dwError: u32,
+    pub reserved: usize,
+    pub reserved2: usize,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RASENTRYDLGW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASENTRYDLGW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for RASENTRYDLGW {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASENTRYDLGW {
     fn default() -> Self {
@@ -8414,6 +8694,7 @@ impl ::core::default::Default for RASENTRYW {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RASIKEV2_PROJECTION_INFO {
     pub dwIPv4NegotiationError: u32,
@@ -8432,18 +8713,65 @@ pub struct RASIKEV2_PROJECTION_INFO {
     pub numIPv6ServerAddresses: u32,
     pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for RASIKEV2_PROJECTION_INFO {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RASIKEV2_PROJECTION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::windows_core::TypeKind for RASIKEV2_PROJECTION_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::default::Default for RASIKEV2_PROJECTION_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct RASIKEV2_PROJECTION_INFO {
+    pub dwIPv4NegotiationError: u32,
+    pub ipv4Address: super::super::Networking::WinSock::IN_ADDR,
+    pub ipv4ServerAddress: super::super::Networking::WinSock::IN_ADDR,
+    pub dwIPv6NegotiationError: u32,
+    pub ipv6Address: super::super::Networking::WinSock::IN6_ADDR,
+    pub ipv6ServerAddress: super::super::Networking::WinSock::IN6_ADDR,
+    pub dwPrefixLength: u32,
+    pub dwAuthenticationProtocol: u32,
+    pub dwEapTypeId: u32,
+    pub dwFlags: RASIKEV_PROJECTION_INFO_FLAGS,
+    pub dwEncryptionMethod: u32,
+    pub numIPv4ServerAddresses: u32,
+    pub ipv4ServerAddresses: *mut super::super::Networking::WinSock::IN_ADDR,
+    pub numIPv6ServerAddresses: u32,
+    pub ipv6ServerAddresses: *mut super::super::Networking::WinSock::IN6_ADDR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for RASIKEV2_PROJECTION_INFO {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for RASIKEV2_PROJECTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::windows_core::TypeKind for RASIKEV2_PROJECTION_INFO {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RASIKEV2_PROJECTION_INFO {
     fn default() -> Self {
@@ -8587,6 +8915,7 @@ impl ::core::default::Default for RASNOUSERW {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGA {
     pub dwSize: u32,
@@ -8600,18 +8929,60 @@ pub struct RASPBDLGA {
     pub reserved: usize,
     pub reserved2: usize,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASPBDLGA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASPBDLGA {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RASPBDLGA {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RASPBDLGA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RASPBDLGA {
+    pub dwSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub dwFlags: u32,
+    pub xDlg: i32,
+    pub yDlg: i32,
+    pub dwCallbackId: usize,
+    pub pCallback: RASPBDLGFUNCA,
+    pub dwError: u32,
+    pub reserved: usize,
+    pub reserved2: usize,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RASPBDLGA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASPBDLGA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for RASPBDLGA {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASPBDLGA {
     fn default() -> Self {
@@ -8620,6 +8991,7 @@ impl ::core::default::Default for RASPBDLGA {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RASPBDLGW {
     pub dwSize: u32,
@@ -8633,18 +9005,60 @@ pub struct RASPBDLGW {
     pub reserved: usize,
     pub reserved2: usize,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RASPBDLGW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RASPBDLGW {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::TypeKind for RASPBDLGW {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RASPBDLGW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RASPBDLGW {
+    pub dwSize: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub dwFlags: u32,
+    pub xDlg: i32,
+    pub yDlg: i32,
+    pub dwCallbackId: usize,
+    pub pCallback: RASPBDLGFUNCW,
+    pub dwError: u32,
+    pub reserved: usize,
+    pub reserved2: usize,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RASPBDLGW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RASPBDLGW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::windows_core::TypeKind for RASPBDLGW {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RASPBDLGW {
     fn default() -> Self {
@@ -10993,13 +11407,13 @@ pub type RTM_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(r
 pub type RasCustomDeleteEntryNotifyFn = ::core::option::Option<unsafe extern "system" fn(lpszphonebook: ::windows_core::PCWSTR, lpszentry: ::windows_core::PCWSTR, dwflags: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RasCustomDialDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, dwflags: u32, lpszphonebook: ::windows_core::PCWSTR, lpszentry: ::windows_core::PCWSTR, lpszphonenumber: ::windows_core::PCWSTR, lpinfo: *mut RASDIALDLG, pvinfo: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+pub type RasCustomDialDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, dwflags: u32, lpszphonebook: ::windows_core::PCWSTR, lpszentry: ::windows_core::PCWSTR, lpszphonenumber: ::windows_core::PCWSTR, lpinfo: *mut RASDIALDLG, pvinfo: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RasCustomDialFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, lprasdialextensions: *mut RASDIALEXTENSIONS, lpszphonebook: ::windows_core::PCWSTR, lprasdialparams: *mut RASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut ::core::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32>;
+pub type RasCustomDialFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lprasdialextensions: *mut RASDIALEXTENSIONS, lpszphonebook: ::windows_core::PCWSTR, lprasdialparams: *mut RASDIALPARAMSA, dwnotifiertype: u32, lpvnotifier: *mut ::core::ffi::c_void, lphrasconn: *mut HRASCONN, dwflags: u32) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type RasCustomEntryDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HMODULE, lpszphonebook: ::windows_core::PCWSTR, lpszentry: ::windows_core::PCWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL>;
+pub type RasCustomEntryDlgFn = ::core::option::Option<unsafe extern "system" fn(hinstdll: super::super::Foundation::HINSTANCE, lpszphonebook: ::windows_core::PCWSTR, lpszentry: ::windows_core::PCWSTR, lpinfo: *mut RASENTRYDLGA, dwflags: u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`*"]
 pub type RasCustomHangUpFn = ::core::option::Option<unsafe extern "system" fn(hrasconn: HRASCONN) -> u32>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Rras\"`, `\"Win32_Foundation\"`*"]

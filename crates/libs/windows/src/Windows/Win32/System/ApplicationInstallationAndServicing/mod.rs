@@ -988,8 +988,8 @@ pub unsafe fn MsiEnableLogA<P0>(dwlogmode: INSTALLLOGMODE, szlogfile: P0, dwloga
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiEnableLogA(dwlogmode : INSTALLLOGMODE, szlogfile : ::windows_core::PCSTR, dwlogattributes : u32) -> u32);
-    MsiEnableLogA(dwlogmode, szlogfile.into_param().abi(), dwlogattributes)
+    ::windows_targets::link!("msi.dll" "system" fn MsiEnableLogA(dwlogmode : u32, szlogfile : ::windows_core::PCSTR, dwlogattributes : u32) -> u32);
+    MsiEnableLogA(dwlogmode.0 as _, szlogfile.into_param().abi(), dwlogattributes)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -997,8 +997,8 @@ pub unsafe fn MsiEnableLogW<P0>(dwlogmode: INSTALLLOGMODE, szlogfile: P0, dwloga
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiEnableLogW(dwlogmode : INSTALLLOGMODE, szlogfile : ::windows_core::PCWSTR, dwlogattributes : u32) -> u32);
-    MsiEnableLogW(dwlogmode, szlogfile.into_param().abi(), dwlogattributes)
+    ::windows_targets::link!("msi.dll" "system" fn MsiEnableLogW(dwlogmode : u32, szlogfile : ::windows_core::PCWSTR, dwlogattributes : u32) -> u32);
+    MsiEnableLogW(dwlogmode.0 as _, szlogfile.into_param().abi(), dwlogattributes)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1026,23 +1026,23 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumClientsExA<P0, P1>(szcomponent: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: ::windows_core::PSTR, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn MsiEnumClientsExA<P0, P1>(szcomponent: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: ::core::option::Option<&mut [u8; 39]>, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiEnumClientsExA(szcomponent : ::windows_core::PCSTR, szusersid : ::windows_core::PCSTR, dwcontext : MSIINSTALLCONTEXT, dwproductindex : u32, szproductbuf : ::windows_core::PSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : ::windows_core::PSTR, pcchsid : *mut u32) -> u32);
-    MsiEnumClientsExA(szcomponent.into_param().abi(), szusersid.into_param().abi(), dwcontext, dwproductindex, ::core::mem::transmute(szproductbuf), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("msi.dll" "system" fn MsiEnumClientsExA(szcomponent : ::windows_core::PCSTR, szusersid : ::windows_core::PCSTR, dwcontext : u32, dwproductindex : u32, szproductbuf : ::windows_core::PSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : ::windows_core::PSTR, pcchsid : *mut u32) -> u32);
+    MsiEnumClientsExA(szcomponent.into_param().abi(), szusersid.into_param().abi(), dwcontext.0 as _, dwproductindex, ::core::mem::transmute(szproductbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumClientsExW<P0, P1>(szcomponent: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: ::windows_core::PWSTR, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PWSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn MsiEnumClientsExW<P0, P1>(szcomponent: P0, szusersid: P1, dwcontext: MSIINSTALLCONTEXT, dwproductindex: u32, szproductbuf: ::core::option::Option<&mut [u16; 39]>, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PWSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiEnumClientsExW(szcomponent : ::windows_core::PCWSTR, szusersid : ::windows_core::PCWSTR, dwcontext : MSIINSTALLCONTEXT, dwproductindex : u32, szproductbuf : ::windows_core::PWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : ::windows_core::PWSTR, pcchsid : *mut u32) -> u32);
-    MsiEnumClientsExW(szcomponent.into_param().abi(), szusersid.into_param().abi(), dwcontext, dwproductindex, ::core::mem::transmute(szproductbuf), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("msi.dll" "system" fn MsiEnumClientsExW(szcomponent : ::windows_core::PCWSTR, szusersid : ::windows_core::PCWSTR, dwcontext : u32, dwproductindex : u32, szproductbuf : ::windows_core::PWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : ::windows_core::PWSTR, pcchsid : *mut u32) -> u32);
+    MsiEnumClientsExW(szcomponent.into_param().abi(), szusersid.into_param().abi(), dwcontext.0 as _, dwproductindex, ::core::mem::transmute(szproductbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1099,21 +1099,21 @@ pub unsafe fn MsiEnumComponentsA(icomponentindex: u32, lpcomponentbuf: ::windows
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumComponentsExA<P0>(szusersid: P0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: ::windows_core::PSTR, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn MsiEnumComponentsExA<P0>(szusersid: P0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: ::core::option::Option<&mut [u8; 39]>, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("msi.dll" "system" fn MsiEnumComponentsExA(szusersid : ::windows_core::PCSTR, dwcontext : u32, dwindex : u32, szinstalledcomponentcode : ::windows_core::PSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : ::windows_core::PSTR, pcchsid : *mut u32) -> u32);
-    MsiEnumComponentsExA(szusersid.into_param().abi(), dwcontext, dwindex, ::core::mem::transmute(szinstalledcomponentcode), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
+    MsiEnumComponentsExA(szusersid.into_param().abi(), dwcontext, dwindex, ::core::mem::transmute(szinstalledcomponentcode.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumComponentsExW<P0>(szusersid: P0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: ::windows_core::PWSTR, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PWSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn MsiEnumComponentsExW<P0>(szusersid: P0, dwcontext: u32, dwindex: u32, szinstalledcomponentcode: ::core::option::Option<&mut [u16; 39]>, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PWSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("msi.dll" "system" fn MsiEnumComponentsExW(szusersid : ::windows_core::PCWSTR, dwcontext : u32, dwindex : u32, szinstalledcomponentcode : ::windows_core::PWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : ::windows_core::PWSTR, pcchsid : *mut u32) -> u32);
-    MsiEnumComponentsExW(szusersid.into_param().abi(), dwcontext, dwindex, ::core::mem::transmute(szinstalledcomponentcode), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
+    MsiEnumComponentsExW(szusersid.into_param().abi(), dwcontext, dwindex, ::core::mem::transmute(szinstalledcomponentcode.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1150,23 +1150,45 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumPatchesExA<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: ::windows_core::PSTR, sztargetproductcode: ::windows_core::PSTR, pdwtargetproductcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, sztargetusersid: ::windows_core::PSTR, pcchtargetusersid: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn MsiEnumPatchesExA<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: ::core::option::Option<&mut [u8; 39]>, sztargetproductcode: ::core::option::Option<&mut [u8; 39]>, pdwtargetproductcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, sztargetusersid: ::windows_core::PSTR, pcchtargetusersid: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("msi.dll" "system" fn MsiEnumPatchesExA(szproductcode : ::windows_core::PCSTR, szusersid : ::windows_core::PCSTR, dwcontext : u32, dwfilter : u32, dwindex : u32, szpatchcode : ::windows_core::PSTR, sztargetproductcode : ::windows_core::PSTR, pdwtargetproductcontext : *mut MSIINSTALLCONTEXT, sztargetusersid : ::windows_core::PSTR, pcchtargetusersid : *mut u32) -> u32);
-    MsiEnumPatchesExA(szproductcode.into_param().abi(), szusersid.into_param().abi(), dwcontext, dwfilter, dwindex, ::core::mem::transmute(szpatchcode), ::core::mem::transmute(sztargetproductcode), ::core::mem::transmute(pdwtargetproductcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sztargetusersid), ::core::mem::transmute(pcchtargetusersid.unwrap_or(::std::ptr::null_mut())))
+    MsiEnumPatchesExA(
+        szproductcode.into_param().abi(),
+        szusersid.into_param().abi(),
+        dwcontext,
+        dwfilter,
+        dwindex,
+        ::core::mem::transmute(szpatchcode.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        ::core::mem::transmute(sztargetproductcode.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        ::core::mem::transmute(pdwtargetproductcontext.unwrap_or(::std::ptr::null_mut())),
+        ::core::mem::transmute(sztargetusersid),
+        ::core::mem::transmute(pcchtargetusersid.unwrap_or(::std::ptr::null_mut())),
+    )
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumPatchesExW<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: ::windows_core::PWSTR, sztargetproductcode: ::windows_core::PWSTR, pdwtargetproductcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, sztargetusersid: ::windows_core::PWSTR, pcchtargetusersid: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn MsiEnumPatchesExW<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwfilter: u32, dwindex: u32, szpatchcode: ::core::option::Option<&mut [u16; 39]>, sztargetproductcode: ::core::option::Option<&mut [u16; 39]>, pdwtargetproductcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, sztargetusersid: ::windows_core::PWSTR, pcchtargetusersid: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("msi.dll" "system" fn MsiEnumPatchesExW(szproductcode : ::windows_core::PCWSTR, szusersid : ::windows_core::PCWSTR, dwcontext : u32, dwfilter : u32, dwindex : u32, szpatchcode : ::windows_core::PWSTR, sztargetproductcode : ::windows_core::PWSTR, pdwtargetproductcontext : *mut MSIINSTALLCONTEXT, sztargetusersid : ::windows_core::PWSTR, pcchtargetusersid : *mut u32) -> u32);
-    MsiEnumPatchesExW(szproductcode.into_param().abi(), szusersid.into_param().abi(), dwcontext, dwfilter, dwindex, ::core::mem::transmute(szpatchcode), ::core::mem::transmute(sztargetproductcode), ::core::mem::transmute(pdwtargetproductcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(sztargetusersid), ::core::mem::transmute(pcchtargetusersid.unwrap_or(::std::ptr::null_mut())))
+    MsiEnumPatchesExW(
+        szproductcode.into_param().abi(),
+        szusersid.into_param().abi(),
+        dwcontext,
+        dwfilter,
+        dwindex,
+        ::core::mem::transmute(szpatchcode.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        ::core::mem::transmute(sztargetproductcode.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        ::core::mem::transmute(pdwtargetproductcontext.unwrap_or(::std::ptr::null_mut())),
+        ::core::mem::transmute(sztargetusersid),
+        ::core::mem::transmute(pcchtargetusersid.unwrap_or(::std::ptr::null_mut())),
+    )
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -1185,23 +1207,23 @@ pub unsafe fn MsiEnumProductsA(iproductindex: u32, lpproductbuf: ::windows_core:
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumProductsExA<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwindex: u32, szinstalledproductcode: ::windows_core::PSTR, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn MsiEnumProductsExA<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwindex: u32, szinstalledproductcode: ::core::option::Option<&mut [u8; 39]>, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
     ::windows_targets::link!("msi.dll" "system" fn MsiEnumProductsExA(szproductcode : ::windows_core::PCSTR, szusersid : ::windows_core::PCSTR, dwcontext : u32, dwindex : u32, szinstalledproductcode : ::windows_core::PSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : ::windows_core::PSTR, pcchsid : *mut u32) -> u32);
-    MsiEnumProductsExA(szproductcode.into_param().abi(), szusersid.into_param().abi(), dwcontext, dwindex, ::core::mem::transmute(szinstalledproductcode), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
+    MsiEnumProductsExA(szproductcode.into_param().abi(), szusersid.into_param().abi(), dwcontext, dwindex, ::core::mem::transmute(szinstalledproductcode.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
-pub unsafe fn MsiEnumProductsExW<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwindex: u32, szinstalledproductcode: ::windows_core::PWSTR, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PWSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
+pub unsafe fn MsiEnumProductsExW<P0, P1>(szproductcode: P0, szusersid: P1, dwcontext: u32, dwindex: u32, szinstalledproductcode: ::core::option::Option<&mut [u16; 39]>, pdwinstalledcontext: ::core::option::Option<*mut MSIINSTALLCONTEXT>, szsid: ::windows_core::PWSTR, pcchsid: ::core::option::Option<*mut u32>) -> u32
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
     ::windows_targets::link!("msi.dll" "system" fn MsiEnumProductsExW(szproductcode : ::windows_core::PCWSTR, szusersid : ::windows_core::PCWSTR, dwcontext : u32, dwindex : u32, szinstalledproductcode : ::windows_core::PWSTR, pdwinstalledcontext : *mut MSIINSTALLCONTEXT, szsid : ::windows_core::PWSTR, pcchsid : *mut u32) -> u32);
-    MsiEnumProductsExW(szproductcode.into_param().abi(), szusersid.into_param().abi(), dwcontext, dwindex, ::core::mem::transmute(szinstalledproductcode), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
+    MsiEnumProductsExW(szproductcode.into_param().abi(), szusersid.into_param().abi(), dwcontext, dwindex, ::core::mem::transmute(szinstalledproductcode.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pdwinstalledcontext.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(szsid), ::core::mem::transmute(pcchsid.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2113,8 +2135,8 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiProvideAssemblyA(szassemblyname : ::windows_core::PCSTR, szappcontext : ::windows_core::PCSTR, dwinstallmode : INSTALLMODE, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : ::windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
-    MsiProvideAssemblyA(szassemblyname.into_param().abi(), szappcontext.into_param().abi(), dwinstallmode, dwassemblyinfo, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("msi.dll" "system" fn MsiProvideAssemblyA(szassemblyname : ::windows_core::PCSTR, szappcontext : ::windows_core::PCSTR, dwinstallmode : u32, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : ::windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
+    MsiProvideAssemblyA(szassemblyname.into_param().abi(), szappcontext.into_param().abi(), dwinstallmode.0 as _, dwassemblyinfo, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2123,8 +2145,8 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiProvideAssemblyW(szassemblyname : ::windows_core::PCWSTR, szappcontext : ::windows_core::PCWSTR, dwinstallmode : INSTALLMODE, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : ::windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
-    MsiProvideAssemblyW(szassemblyname.into_param().abi(), szappcontext.into_param().abi(), dwinstallmode, dwassemblyinfo, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("msi.dll" "system" fn MsiProvideAssemblyW(szassemblyname : ::windows_core::PCWSTR, szappcontext : ::windows_core::PCWSTR, dwinstallmode : u32, dwassemblyinfo : MSIASSEMBLYINFO, lppathbuf : ::windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+    MsiProvideAssemblyW(szassemblyname.into_param().abi(), szappcontext.into_param().abi(), dwinstallmode.0 as _, dwassemblyinfo, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2134,8 +2156,8 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiProvideComponentA(szproduct : ::windows_core::PCSTR, szfeature : ::windows_core::PCSTR, szcomponent : ::windows_core::PCSTR, dwinstallmode : INSTALLMODE, lppathbuf : ::windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
-    MsiProvideComponentA(szproduct.into_param().abi(), szfeature.into_param().abi(), szcomponent.into_param().abi(), dwinstallmode, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("msi.dll" "system" fn MsiProvideComponentA(szproduct : ::windows_core::PCSTR, szfeature : ::windows_core::PCSTR, szcomponent : ::windows_core::PCSTR, dwinstallmode : u32, lppathbuf : ::windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
+    MsiProvideComponentA(szproduct.into_param().abi(), szfeature.into_param().abi(), szcomponent.into_param().abi(), dwinstallmode.0 as _, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2145,8 +2167,8 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiProvideComponentW(szproduct : ::windows_core::PCWSTR, szfeature : ::windows_core::PCWSTR, szcomponent : ::windows_core::PCWSTR, dwinstallmode : INSTALLMODE, lppathbuf : ::windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
-    MsiProvideComponentW(szproduct.into_param().abi(), szfeature.into_param().abi(), szcomponent.into_param().abi(), dwinstallmode, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("msi.dll" "system" fn MsiProvideComponentW(szproduct : ::windows_core::PCWSTR, szfeature : ::windows_core::PCWSTR, szcomponent : ::windows_core::PCWSTR, dwinstallmode : u32, lppathbuf : ::windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+    MsiProvideComponentW(szproduct.into_param().abi(), szfeature.into_param().abi(), szcomponent.into_param().abi(), dwinstallmode.0 as _, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2155,8 +2177,8 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiProvideQualifiedComponentA(szcategory : ::windows_core::PCSTR, szqualifier : ::windows_core::PCSTR, dwinstallmode : INSTALLMODE, lppathbuf : ::windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
-    MsiProvideQualifiedComponentA(szcategory.into_param().abi(), szqualifier.into_param().abi(), dwinstallmode, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("msi.dll" "system" fn MsiProvideQualifiedComponentA(szcategory : ::windows_core::PCSTR, szqualifier : ::windows_core::PCSTR, dwinstallmode : u32, lppathbuf : ::windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
+    MsiProvideQualifiedComponentA(szcategory.into_param().abi(), szqualifier.into_param().abi(), dwinstallmode.0 as _, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2166,8 +2188,8 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiProvideQualifiedComponentExA(szcategory : ::windows_core::PCSTR, szqualifier : ::windows_core::PCSTR, dwinstallmode : INSTALLMODE, szproduct : ::windows_core::PCSTR, dwunused1 : u32, dwunused2 : u32, lppathbuf : ::windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
-    MsiProvideQualifiedComponentExA(szcategory.into_param().abi(), szqualifier.into_param().abi(), dwinstallmode, szproduct.into_param().abi(), dwunused1, dwunused2, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("msi.dll" "system" fn MsiProvideQualifiedComponentExA(szcategory : ::windows_core::PCSTR, szqualifier : ::windows_core::PCSTR, dwinstallmode : u32, szproduct : ::windows_core::PCSTR, dwunused1 : u32, dwunused2 : u32, lppathbuf : ::windows_core::PSTR, pcchpathbuf : *mut u32) -> u32);
+    MsiProvideQualifiedComponentExA(szcategory.into_param().abi(), szqualifier.into_param().abi(), dwinstallmode.0 as _, szproduct.into_param().abi(), dwunused1, dwunused2, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2177,8 +2199,8 @@ where
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiProvideQualifiedComponentExW(szcategory : ::windows_core::PCWSTR, szqualifier : ::windows_core::PCWSTR, dwinstallmode : INSTALLMODE, szproduct : ::windows_core::PCWSTR, dwunused1 : u32, dwunused2 : u32, lppathbuf : ::windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
-    MsiProvideQualifiedComponentExW(szcategory.into_param().abi(), szqualifier.into_param().abi(), dwinstallmode, szproduct.into_param().abi(), dwunused1, dwunused2, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("msi.dll" "system" fn MsiProvideQualifiedComponentExW(szcategory : ::windows_core::PCWSTR, szqualifier : ::windows_core::PCWSTR, dwinstallmode : u32, szproduct : ::windows_core::PCWSTR, dwunused1 : u32, dwunused2 : u32, lppathbuf : ::windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+    MsiProvideQualifiedComponentExW(szcategory.into_param().abi(), szqualifier.into_param().abi(), dwinstallmode.0 as _, szproduct.into_param().abi(), dwunused1, dwunused2, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2187,8 +2209,8 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiProvideQualifiedComponentW(szcategory : ::windows_core::PCWSTR, szqualifier : ::windows_core::PCWSTR, dwinstallmode : INSTALLMODE, lppathbuf : ::windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
-    MsiProvideQualifiedComponentW(szcategory.into_param().abi(), szqualifier.into_param().abi(), dwinstallmode, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
+    ::windows_targets::link!("msi.dll" "system" fn MsiProvideQualifiedComponentW(szcategory : ::windows_core::PCWSTR, szqualifier : ::windows_core::PCWSTR, dwinstallmode : u32, lppathbuf : ::windows_core::PWSTR, pcchpathbuf : *mut u32) -> u32);
+    MsiProvideQualifiedComponentW(szcategory.into_param().abi(), szqualifier.into_param().abi(), dwinstallmode.0 as _, ::core::mem::transmute(lppathbuf), ::core::mem::transmute(pcchpathbuf.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2401,8 +2423,8 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiReinstallFeatureA(szproduct : ::windows_core::PCSTR, szfeature : ::windows_core::PCSTR, dwreinstallmode : REINSTALLMODE) -> u32);
-    MsiReinstallFeatureA(szproduct.into_param().abi(), szfeature.into_param().abi(), dwreinstallmode)
+    ::windows_targets::link!("msi.dll" "system" fn MsiReinstallFeatureA(szproduct : ::windows_core::PCSTR, szfeature : ::windows_core::PCSTR, dwreinstallmode : u32) -> u32);
+    MsiReinstallFeatureA(szproduct.into_param().abi(), szfeature.into_param().abi(), dwreinstallmode.0 as _)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2411,8 +2433,8 @@ where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiReinstallFeatureW(szproduct : ::windows_core::PCWSTR, szfeature : ::windows_core::PCWSTR, dwreinstallmode : REINSTALLMODE) -> u32);
-    MsiReinstallFeatureW(szproduct.into_param().abi(), szfeature.into_param().abi(), dwreinstallmode)
+    ::windows_targets::link!("msi.dll" "system" fn MsiReinstallFeatureW(szproduct : ::windows_core::PCWSTR, szfeature : ::windows_core::PCWSTR, dwreinstallmode : u32) -> u32);
+    MsiReinstallFeatureW(szproduct.into_param().abi(), szfeature.into_param().abi(), dwreinstallmode.0 as _)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2420,8 +2442,8 @@ pub unsafe fn MsiReinstallProductA<P0>(szproduct: P0, szreinstallmode: REINSTALL
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiReinstallProductA(szproduct : ::windows_core::PCSTR, szreinstallmode : REINSTALLMODE) -> u32);
-    MsiReinstallProductA(szproduct.into_param().abi(), szreinstallmode)
+    ::windows_targets::link!("msi.dll" "system" fn MsiReinstallProductA(szproduct : ::windows_core::PCSTR, szreinstallmode : u32) -> u32);
+    MsiReinstallProductA(szproduct.into_param().abi(), szreinstallmode.0 as _)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]
@@ -2429,8 +2451,8 @@ pub unsafe fn MsiReinstallProductW<P0>(szproduct: P0, szreinstallmode: REINSTALL
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msi.dll" "system" fn MsiReinstallProductW(szproduct : ::windows_core::PCWSTR, szreinstallmode : REINSTALLMODE) -> u32);
-    MsiReinstallProductW(szproduct.into_param().abi(), szreinstallmode)
+    ::windows_targets::link!("msi.dll" "system" fn MsiReinstallProductW(szproduct : ::windows_core::PCWSTR, szreinstallmode : u32) -> u32);
+    MsiReinstallProductW(szproduct.into_param().abi(), szreinstallmode.0 as _)
 }
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 #[inline]

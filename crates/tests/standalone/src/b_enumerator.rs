@@ -7,6 +7,6 @@
     dead_code,
     clippy::all
 )]
-pub const WAIT_IO_COMPLETION: WIN32_ERROR = 192u32;
-pub const WAIT_TIMEOUT: WIN32_ERROR = 258u32;
-pub type WIN32_ERROR = u32;
+pub type WAIT_EVENT = u32;
+pub const WAIT_IO_COMPLETION: WAIT_EVENT = 192u32;
+pub const WAIT_TIMEOUT: WAIT_EVENT = 258u32;

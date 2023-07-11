@@ -148,7 +148,13 @@ impl<'a> Writer<'a> {
 
         let methods = self.reader.type_def_methods(def).map(|method| {
             let name = to_ident(self.reader.method_def_name(method));
-            let signature = self.reader.method_def_signature(method, generics);
+
+            let signature = self.reader.method_def_signature(
+                self.reader.type_def_namespace(def),
+                method,
+                generics,
+            );
+
             let return_type = self.return_type(&signature.return_type);
 
             let params = signature.params.iter().map(|param| {

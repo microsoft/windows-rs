@@ -427,10 +427,10 @@ where
 pub unsafe fn RatingClickedOnPRFInternal<P0, P1, P2>(hwndowner: P0, param1: P1, lpszfilename: P2, nshow: i32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingClickedOnPRFInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HMODULE, lpszfilename : ::windows_core::PCSTR, nshow : i32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("msrating.dll" "system" fn RatingClickedOnPRFInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : ::windows_core::PCSTR, nshow : i32) -> ::windows_core::HRESULT);
     RatingClickedOnPRFInternal(hwndowner.into_param().abi(), param1.into_param().abi(), lpszfilename.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -439,10 +439,10 @@ where
 pub unsafe fn RatingClickedOnRATInternal<P0, P1, P2>(hwndowner: P0, param1: P1, lpszfilename: P2, nshow: i32) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msrating.dll" "system" fn RatingClickedOnRATInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HMODULE, lpszfilename : ::windows_core::PCSTR, nshow : i32) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("msrating.dll" "system" fn RatingClickedOnRATInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : ::windows_core::PCSTR, nshow : i32) -> ::windows_core::HRESULT);
     RatingClickedOnRATInternal(hwndowner.into_param().abi(), param1.into_param().abi(), lpszfilename.into_param().abi(), nshow).ok()
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"]
@@ -1513,18 +1513,18 @@ impl IHTMLPersistDataOM {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).XMLDocument)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getAttribute<P0>(&self, name: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn getAttribute<P0>(&self, name: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setAttribute<P0>(&self, name: P0, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn setAttribute<P0>(&self, name: P0, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
@@ -1576,13 +1576,13 @@ pub struct IHTMLPersistDataOM_Vtbl {
     pub XMLDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
     XMLDocument: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getAttribute: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     setAttribute: usize,
     pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
@@ -1610,18 +1610,18 @@ impl IHTMLUserDataOM {
     {
         (::windows_core::Interface::vtable(self).load)(::windows_core::Interface::as_raw(self), strname.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getAttribute<P0>(&self, name: P0) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn getAttribute<P0>(&self, name: P0) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).getAttribute)(::windows_core::Interface::as_raw(self), name.into_param().abi(), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn setAttribute<P0>(&self, name: P0, value: super::super::System::Com::VARIANT) -> ::windows_core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn setAttribute<P0>(&self, name: P0, value: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>
     where
         P0: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
@@ -1685,13 +1685,13 @@ pub struct IHTMLUserDataOM_Vtbl {
     XMLDocument: usize,
     pub save: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub load: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub getAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, pvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     getAttribute: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub setAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>, value: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     setAttribute: usize,
     pub removeAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub Setexpires: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstr: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
@@ -2218,9 +2218,9 @@ impl IIEWebDriverSite {
     {
         (::windows_core::Interface::vtable(self).DetachWebdriver)(::windows_core::Interface::as_raw(self), punkwd.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCapabilityValue<P0, P1>(&self, punkwd: P0, capname: P1) -> ::windows_core::Result<super::super::System::Com::VARIANT>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetCapabilityValue<P0, P1>(&self, punkwd: P0, capname: P1) -> ::windows_core::Result<super::super::System::Variant::VARIANT>
     where
         P0: ::windows_core::IntoParam<::windows_core::IUnknown>,
         P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
@@ -2266,9 +2266,9 @@ pub struct IIEWebDriverSite_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub WindowOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operationcode: u32, hwnd: u32) -> ::windows_core::HRESULT,
     pub DetachWebdriver: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkwd: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetCapabilityValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkwd: *mut ::core::ffi::c_void, capname: ::windows_core::PCWSTR, capvalue: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetCapabilityValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkwd: *mut ::core::ffi::c_void, capname: ::windows_core::PCWSTR, capvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetCapabilityValue: usize,
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -2621,14 +2621,14 @@ impl ILayoutRect {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).nextRect)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetcontentSrc(&self, varcontentsrc: super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetcontentSrc(&self, varcontentsrc: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetcontentSrc)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(varcontentsrc)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn contentSrc(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn contentSrc(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).contentSrc)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -2718,13 +2718,13 @@ pub struct ILayoutRect_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub SetnextRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrelementid: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
     pub nextRect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrelementid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetcontentSrc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varcontentsrc: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetcontentSrc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varcontentsrc: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetcontentSrc: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub contentSrc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcontentsrc: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub contentSrc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarcontentsrc: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     contentSrc: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub SethonorPageBreaks: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT,
@@ -4479,9 +4479,9 @@ pub struct ITargetNotify2_Vtbl {
 #[repr(transparent)]
 pub struct ITimer(::windows_core::IUnknown);
 impl ITimer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Advise<P0>(&self, vtimemin: super::super::System::Com::VARIANT, vtimemax: super::super::System::Com::VARIANT, vtimeinterval: super::super::System::Com::VARIANT, dwflags: u32, ptimersink: P0) -> ::windows_core::Result<u32>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Advise<P0>(&self, vtimemin: super::super::System::Variant::VARIANT, vtimemax: super::super::System::Variant::VARIANT, vtimeinterval: super::super::System::Variant::VARIANT, dwflags: u32, ptimersink: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<ITimerSink>,
     {
@@ -4499,9 +4499,9 @@ impl ITimer {
     {
         (::windows_core::Interface::vtable(self).Freeze)(::windows_core::Interface::as_raw(self), ffreeze.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetTime(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetTime(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -4533,27 +4533,27 @@ unsafe impl ::windows_core::ComInterface for ITimer {
 #[doc(hidden)]
 pub struct ITimer_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vtimemin: super::super::System::Com::VARIANT, vtimemax: super::super::System::Com::VARIANT, vtimeinterval: super::super::System::Com::VARIANT, dwflags: u32, ptimersink: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vtimemin: super::super::System::Variant::VARIANT, vtimemax: super::super::System::Variant::VARIANT, vtimeinterval: super::super::System::Variant::VARIANT, dwflags: u32, ptimersink: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     Advise: usize,
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub Freeze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ffreeze: super::super::Foundation::BOOL) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     Freeze: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtime: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvtime: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetTime: usize,
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 #[repr(transparent)]
 pub struct ITimerEx(::windows_core::IUnknown);
 impl ITimerEx {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Advise<P0>(&self, vtimemin: super::super::System::Com::VARIANT, vtimemax: super::super::System::Com::VARIANT, vtimeinterval: super::super::System::Com::VARIANT, dwflags: u32, ptimersink: P0) -> ::windows_core::Result<u32>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Advise<P0>(&self, vtimemin: super::super::System::Variant::VARIANT, vtimemax: super::super::System::Variant::VARIANT, vtimeinterval: super::super::System::Variant::VARIANT, dwflags: u32, ptimersink: P0) -> ::windows_core::Result<u32>
     where
         P0: ::windows_core::IntoParam<ITimerSink>,
     {
@@ -4571,9 +4571,9 @@ impl ITimerEx {
     {
         (::windows_core::Interface::vtable(self).base__.Freeze)(::windows_core::Interface::as_raw(self), ffreeze.into_param().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetTime(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetTime(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT> {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetTime)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
@@ -4667,9 +4667,9 @@ pub struct ITimerService_Vtbl {
 #[repr(transparent)]
 pub struct ITimerSink(::windows_core::IUnknown);
 impl ITimerSink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn OnTimer(&self, vtimeadvise: super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn OnTimer(&self, vtimeadvise: super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).OnTimer)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(vtimeadvise)).ok()
     }
 }
@@ -4700,9 +4700,9 @@ unsafe impl ::windows_core::ComInterface for ITimerSink {
 #[doc(hidden)]
 pub struct ITimerSink_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub OnTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vtimeadvise: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub OnTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vtimeadvise: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     OnTimer: usize,
 }
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -4809,9 +4809,9 @@ impl IUrlHistoryNotify {
     pub unsafe fn QueryStatus(&self, pguidcmdgroup: *const ::windows_core::GUID, ccmds: u32, prgcmds: *mut super::super::System::Ole::OLECMD, pcmdtext: *mut super::super::System::Ole::OLECMDTEXT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.QueryStatus)(::windows_core::Interface::as_raw(self), pguidcmdgroup, ccmds, prgcmds, pcmdtext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Exec(&self, pguidcmdgroup: *const ::windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::super::System::Com::VARIANT, pvaout: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn Exec(&self, pguidcmdgroup: *const ::windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::super::System::Variant::VARIANT, pvaout: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.Exec)(::windows_core::Interface::as_raw(self), pguidcmdgroup, ncmdid, ncmdexecopt, pvain, pvaout).ok()
     }
 }
@@ -6740,17 +6740,6 @@ impl ::core::fmt::Debug for SCROLLABLECONTEXTMENU_PLACEMENT {
     }
 }
 #[repr(C)]
-pub struct HTMLPersistEvents(pub u8);
-impl ::core::marker::Copy for HTMLPersistEvents {}
-impl ::core::clone::Clone for HTMLPersistEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for HTMLPersistEvents {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
@@ -6781,17 +6770,6 @@ impl ::core::default::Default for IELAUNCHURLINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(C)]
-pub struct LayoutRectEvents(pub u8);
-impl ::core::marker::Copy for LayoutRectEvents {}
-impl ::core::clone::Clone for LayoutRectEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for LayoutRectEvents {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]

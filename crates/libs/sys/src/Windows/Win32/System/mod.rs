@@ -124,6 +124,8 @@ pub mod Time;
 pub mod TpmBaseServices;
 #[cfg(feature = "Win32_System_UserAccessLogging")]
 pub mod UserAccessLogging;
+#[cfg(feature = "Win32_System_Variant")]
+pub mod Variant;
 #[cfg(feature = "Win32_System_VirtualDosMachines")]
 pub mod VirtualDosMachines;
 #[cfg(feature = "Win32_System_WindowsProgramming")]

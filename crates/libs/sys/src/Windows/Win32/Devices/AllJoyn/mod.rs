@@ -63,20 +63,20 @@
 ::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_aboutdata_setsupporturl(data : alljoyn_aboutdata, supporturl : ::windows_sys::core::PCSTR) -> QStatus);
 ::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_aboutdatalistener_create(callbacks : *const alljoyn_aboutdatalistener_callbacks, context : *const ::core::ffi::c_void) -> alljoyn_aboutdatalistener);
 ::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_aboutdatalistener_destroy(listener : alljoyn_aboutdatalistener) -> ());
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_clear(icon : *mut _alljoyn_abouticon_handle) -> ());
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_create() -> *mut _alljoyn_abouticon_handle);
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_destroy(icon : *mut _alljoyn_abouticon_handle) -> ());
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_getcontent(icon : *mut _alljoyn_abouticon_handle, data : *const *const u8, size : *mut usize) -> ());
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_geturl(icon : *mut _alljoyn_abouticon_handle, r#type : *const *const i8, url : *const *const i8) -> ());
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_setcontent(icon : *mut _alljoyn_abouticon_handle, r#type : ::windows_sys::core::PCSTR, data : *mut u8, csize : usize, ownsdata : u8) -> QStatus);
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_setcontent_frommsgarg(icon : *mut _alljoyn_abouticon_handle, arg : alljoyn_msgarg) -> QStatus);
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_seturl(icon : *mut _alljoyn_abouticon_handle, r#type : ::windows_sys::core::PCSTR, url : ::windows_sys::core::PCSTR) -> QStatus);
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonobj_create(bus : alljoyn_busattachment, icon : *mut _alljoyn_abouticon_handle) -> *mut _alljoyn_abouticonobj_handle);
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonobj_destroy(icon : *mut _alljoyn_abouticonobj_handle) -> ());
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonproxy_create(bus : alljoyn_busattachment, busname : ::windows_sys::core::PCSTR, sessionid : u32) -> *mut _alljoyn_abouticonproxy_handle);
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonproxy_destroy(proxy : *mut _alljoyn_abouticonproxy_handle) -> ());
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonproxy_geticon(proxy : *mut _alljoyn_abouticonproxy_handle, icon : *mut _alljoyn_abouticon_handle) -> QStatus);
-::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonproxy_getversion(proxy : *mut _alljoyn_abouticonproxy_handle, version : *mut u16) -> QStatus);
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_clear(icon : alljoyn_abouticon) -> ());
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_create() -> alljoyn_abouticon);
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_destroy(icon : alljoyn_abouticon) -> ());
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_getcontent(icon : alljoyn_abouticon, data : *const *const u8, size : *mut usize) -> ());
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_geturl(icon : alljoyn_abouticon, r#type : *const *const i8, url : *const *const i8) -> ());
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_setcontent(icon : alljoyn_abouticon, r#type : ::windows_sys::core::PCSTR, data : *mut u8, csize : usize, ownsdata : u8) -> QStatus);
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_setcontent_frommsgarg(icon : alljoyn_abouticon, arg : alljoyn_msgarg) -> QStatus);
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticon_seturl(icon : alljoyn_abouticon, r#type : ::windows_sys::core::PCSTR, url : ::windows_sys::core::PCSTR) -> QStatus);
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonobj_create(bus : alljoyn_busattachment, icon : alljoyn_abouticon) -> alljoyn_abouticonobj);
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonobj_destroy(icon : alljoyn_abouticonobj) -> ());
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonproxy_create(bus : alljoyn_busattachment, busname : ::windows_sys::core::PCSTR, sessionid : u32) -> alljoyn_abouticonproxy);
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonproxy_destroy(proxy : alljoyn_abouticonproxy) -> ());
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonproxy_geticon(proxy : alljoyn_abouticonproxy, icon : alljoyn_abouticon) -> QStatus);
+::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_abouticonproxy_getversion(proxy : alljoyn_abouticonproxy, version : *mut u16) -> QStatus);
 ::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_aboutlistener_create(callback : *const alljoyn_aboutlistener_callback, context : *const ::core::ffi::c_void) -> alljoyn_aboutlistener);
 ::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_aboutlistener_destroy(listener : alljoyn_aboutlistener) -> ());
 ::windows_targets::link!("msajapi.dll" "system" #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"] fn alljoyn_aboutobj_announce(obj : alljoyn_aboutobj, sessionport : u16, aboutdata : alljoyn_aboutdata) -> QStatus);
@@ -1553,30 +1553,6 @@ pub const ALLJOYN_INT64_ARRAY: alljoyn_typeid = 30817i32;
 pub const ALLJOYN_BYTE_ARRAY: alljoyn_typeid = 31073i32;
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]
 pub const ALLJOYN_WILDCARD: alljoyn_typeid = 42i32;
-#[repr(C)]
-pub struct _alljoyn_abouticon_handle(pub u8);
-impl ::core::marker::Copy for _alljoyn_abouticon_handle {}
-impl ::core::clone::Clone for _alljoyn_abouticon_handle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct _alljoyn_abouticonobj_handle(pub u8);
-impl ::core::marker::Copy for _alljoyn_abouticonobj_handle {}
-impl ::core::clone::Clone for _alljoyn_abouticonobj_handle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct _alljoyn_abouticonproxy_handle(pub u8);
-impl ::core::marker::Copy for _alljoyn_abouticonproxy_handle {}
-impl ::core::clone::Clone for _alljoyn_abouticonproxy_handle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type alljoyn_aboutdata = isize;
 pub type alljoyn_aboutdatalistener = isize;
 #[repr(C)]
@@ -1591,6 +1567,9 @@ impl ::core::clone::Clone for alljoyn_aboutdatalistener_callbacks {
         *self
     }
 }
+pub type alljoyn_abouticon = isize;
+pub type alljoyn_abouticonobj = isize;
+pub type alljoyn_abouticonproxy = isize;
 pub type alljoyn_aboutlistener = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_AllJoyn\"`*"]

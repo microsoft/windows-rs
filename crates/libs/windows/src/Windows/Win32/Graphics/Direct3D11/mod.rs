@@ -3397,11 +3397,11 @@ impl ID3D11DeviceContext {
     {
         (::windows_core::Interface::vtable(self).OMSetRenderTargetsAndUnorderedAccessViews)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi(), uavstartslot, numuavs, ::core::mem::transmute(ppunorderedaccessviews.unwrap_or(::std::ptr::null())), ::core::mem::transmute(puavinitialcounts.unwrap_or(::std::ptr::null())))
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<*const f32>, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<&[f32; 4]>, samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D11BlendState>,
     {
-        (::windows_core::Interface::vtable(self).OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null())), samplemask)
+        (::windows_core::Interface::vtable(self).OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -3477,23 +3477,23 @@ impl ID3D11DeviceContext {
     {
         (::windows_core::Interface::vtable(self).CopyStructureCount)(::windows_core::Interface::as_raw(self), pdstbuffer.into_param().abi(), dstalignedbyteoffset, psrcview.into_param().abi())
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: *const u32)
+    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: &[u32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: *const f32)
+    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -3660,8 +3660,8 @@ impl ID3D11DeviceContext {
             ::core::mem::transmute(ppunorderedaccessviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         )
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D11DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -4064,11 +4064,11 @@ impl ID3D11DeviceContext1 {
     {
         (::windows_core::Interface::vtable(self).base__.OMSetRenderTargetsAndUnorderedAccessViews)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi(), uavstartslot, numuavs, ::core::mem::transmute(ppunorderedaccessviews.unwrap_or(::std::ptr::null())), ::core::mem::transmute(puavinitialcounts.unwrap_or(::std::ptr::null())))
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<*const f32>, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<&[f32; 4]>, samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D11BlendState>,
     {
-        (::windows_core::Interface::vtable(self).base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null())), samplemask)
+        (::windows_core::Interface::vtable(self).base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -4144,23 +4144,23 @@ impl ID3D11DeviceContext1 {
     {
         (::windows_core::Interface::vtable(self).base__.CopyStructureCount)(::windows_core::Interface::as_raw(self), pdstbuffer.into_param().abi(), dstalignedbyteoffset, psrcview.into_param().abi())
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: *const u32)
+    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: &[u32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: *const f32)
+    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -4327,8 +4327,8 @@ impl ID3D11DeviceContext1 {
             ::core::mem::transmute(ppunorderedaccessviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         )
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D11DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).base__.OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -4477,11 +4477,11 @@ impl ID3D11DeviceContext1 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<P0>(&self, pview: P0, color: *const f32, prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
+    pub unsafe fn ClearView<P0>(&self, pview: P0, color: &[f32; 4], prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
     where
         P0: ::windows_core::IntoParam<ID3D11View>,
     {
-        (::windows_core::Interface::vtable(self).ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), color, ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
+        (::windows_core::Interface::vtable(self).ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), ::core::mem::transmute(color.as_ptr()), ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4698,11 +4698,11 @@ impl ID3D11DeviceContext2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.OMSetRenderTargetsAndUnorderedAccessViews)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi(), uavstartslot, numuavs, ::core::mem::transmute(ppunorderedaccessviews.unwrap_or(::std::ptr::null())), ::core::mem::transmute(puavinitialcounts.unwrap_or(::std::ptr::null())))
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<*const f32>, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<&[f32; 4]>, samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D11BlendState>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null())), samplemask)
+        (::windows_core::Interface::vtable(self).base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -4778,23 +4778,23 @@ impl ID3D11DeviceContext2 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.CopyStructureCount)(::windows_core::Interface::as_raw(self), pdstbuffer.into_param().abi(), dstalignedbyteoffset, psrcview.into_param().abi())
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: *const u32)
+    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: &[u32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: *const f32)
+    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -4961,8 +4961,8 @@ impl ID3D11DeviceContext2 {
             ::core::mem::transmute(ppunorderedaccessviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         )
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D11DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).base__.base__.OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -5111,11 +5111,11 @@ impl ID3D11DeviceContext2 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<P0>(&self, pview: P0, color: *const f32, prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
+    pub unsafe fn ClearView<P0>(&self, pview: P0, color: &[f32; 4], prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
     where
         P0: ::windows_core::IntoParam<ID3D11View>,
     {
-        (::windows_core::Interface::vtable(self).base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), color, ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
+        (::windows_core::Interface::vtable(self).base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), ::core::mem::transmute(color.as_ptr()), ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5413,11 +5413,11 @@ impl ID3D11DeviceContext3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.OMSetRenderTargetsAndUnorderedAccessViews)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi(), uavstartslot, numuavs, ::core::mem::transmute(ppunorderedaccessviews.unwrap_or(::std::ptr::null())), ::core::mem::transmute(puavinitialcounts.unwrap_or(::std::ptr::null())))
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<*const f32>, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<&[f32; 4]>, samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D11BlendState>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null())), samplemask)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -5493,23 +5493,23 @@ impl ID3D11DeviceContext3 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.CopyStructureCount)(::windows_core::Interface::as_raw(self), pdstbuffer.into_param().abi(), dstalignedbyteoffset, psrcview.into_param().abi())
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: *const u32)
+    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: &[u32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: *const f32)
+    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -5676,8 +5676,8 @@ impl ID3D11DeviceContext3 {
             ::core::mem::transmute(ppunorderedaccessviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         )
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D11DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -5826,11 +5826,11 @@ impl ID3D11DeviceContext3 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<P0>(&self, pview: P0, color: *const f32, prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
+    pub unsafe fn ClearView<P0>(&self, pview: P0, color: &[f32; 4], prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
     where
         P0: ::windows_core::IntoParam<ID3D11View>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), color, ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
+        (::windows_core::Interface::vtable(self).base__.base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), ::core::mem::transmute(color.as_ptr()), ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6138,11 +6138,11 @@ impl ID3D11DeviceContext4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMSetRenderTargetsAndUnorderedAccessViews)(::windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pprendertargetviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pdepthstencilview.into_param().abi(), uavstartslot, numuavs, ::core::mem::transmute(ppunorderedaccessviews.unwrap_or(::std::ptr::null())), ::core::mem::transmute(puavinitialcounts.unwrap_or(::std::ptr::null())))
     }
-    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<*const f32>, samplemask: u32)
+    pub unsafe fn OMSetBlendState<P0>(&self, pblendstate: P0, blendfactor: ::core::option::Option<&[f32; 4]>, samplemask: u32)
     where
         P0: ::windows_core::IntoParam<ID3D11BlendState>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null())), samplemask)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMSetBlendState)(::windows_core::Interface::as_raw(self), pblendstate.into_param().abi(), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), samplemask)
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
     where
@@ -6218,23 +6218,23 @@ impl ID3D11DeviceContext4 {
     {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.CopyStructureCount)(::windows_core::Interface::as_raw(self), pdstbuffer.into_param().abi(), dstalignedbyteoffset, psrcview.into_param().abi())
     }
-    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: *const f32)
+    pub unsafe fn ClearRenderTargetView<P0>(&self, prendertargetview: P0, colorrgba: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11RenderTargetView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), colorrgba)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearRenderTargetView)(::windows_core::Interface::as_raw(self), prendertargetview.into_param().abi(), ::core::mem::transmute(colorrgba.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: *const u32)
+    pub unsafe fn ClearUnorderedAccessViewUint<P0>(&self, punorderedaccessview: P0, values: &[u32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearUnorderedAccessViewUint)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
-    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: *const f32)
+    pub unsafe fn ClearUnorderedAccessViewFloat<P0>(&self, punorderedaccessview: P0, values: &[f32; 4])
     where
         P0: ::windows_core::IntoParam<ID3D11UnorderedAccessView>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), values)
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.ClearUnorderedAccessViewFloat)(::windows_core::Interface::as_raw(self), punorderedaccessview.into_param().abi(), ::core::mem::transmute(values.as_ptr()))
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
     where
@@ -6401,8 +6401,8 @@ impl ID3D11DeviceContext4 {
             ::core::mem::transmute(ppunorderedaccessviews.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
         )
     }
-    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<*mut f32>, psamplemask: ::core::option::Option<*mut u32>) {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
+    pub unsafe fn OMGetBlendState(&self, ppblendstate: ::core::option::Option<*mut ::core::option::Option<ID3D11BlendState>>, blendfactor: ::core::option::Option<&mut [f32; 4]>, psamplemask: ::core::option::Option<*mut u32>) {
+        (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMGetBlendState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppblendstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(blendfactor.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(psamplemask.unwrap_or(::std::ptr::null_mut())))
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: ::core::option::Option<*mut ::core::option::Option<ID3D11DepthStencilState>>, pstencilref: ::core::option::Option<*mut u32>) {
         (::windows_core::Interface::vtable(self).base__.base__.base__.base__.OMGetDepthStencilState)(::windows_core::Interface::as_raw(self), ::core::mem::transmute(ppdepthstencilstate.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(pstencilref.unwrap_or(::std::ptr::null_mut())))
@@ -6551,11 +6551,11 @@ impl ID3D11DeviceContext4 {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<P0>(&self, pview: P0, color: *const f32, prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
+    pub unsafe fn ClearView<P0>(&self, pview: P0, color: &[f32; 4], prect: ::core::option::Option<&[super::super::Foundation::RECT]>)
     where
         P0: ::windows_core::IntoParam<ID3D11View>,
     {
-        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), color, ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
+        (::windows_core::Interface::vtable(self).base__.base__.base__.ClearView)(::windows_core::Interface::as_raw(self), pview.into_param().abi(), ::core::mem::transmute(color.as_ptr()), ::core::mem::transmute(prect.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prect.as_deref().map_or(0, |slice| slice.len() as _))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21445,17 +21445,6 @@ impl ::core::fmt::Debug for D3DX11_SCAN_OPCODE {
     }
 }
 #[repr(C)]
-pub struct CD3D11_VIDEO_DEFAULT(pub u8);
-impl ::core::marker::Copy for CD3D11_VIDEO_DEFAULT {}
-impl ::core::clone::Clone for CD3D11_VIDEO_DEFAULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for CD3D11_VIDEO_DEFAULT {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D11\"`*"]
 pub struct D3D11_AES_CTR_IV {
     pub IV: u64,
@@ -22742,9 +22731,9 @@ impl ::core::default::Default for D3D11_BUFFEREX_SRV {
 pub struct D3D11_BUFFER_DESC {
     pub ByteWidth: u32,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: D3D11_BIND_FLAG,
-    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
-    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
+    pub BindFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub MiscFlags: u32,
     pub StructureByteStride: u32,
 }
 impl ::core::marker::Copy for D3D11_BUFFER_DESC {}
@@ -27275,9 +27264,9 @@ pub struct D3D11_TEXTURE1D_DESC {
     pub ArraySize: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: D3D11_BIND_FLAG,
-    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
-    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
+    pub BindFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub MiscFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_TEXTURE1D_DESC {}
@@ -27322,9 +27311,9 @@ pub struct D3D11_TEXTURE2D_DESC {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub SampleDesc: super::Dxgi::Common::DXGI_SAMPLE_DESC,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: D3D11_BIND_FLAG,
-    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
-    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
+    pub BindFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub MiscFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_TEXTURE2D_DESC {}
@@ -27369,9 +27358,9 @@ pub struct D3D11_TEXTURE2D_DESC1 {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub SampleDesc: super::Dxgi::Common::DXGI_SAMPLE_DESC,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: D3D11_BIND_FLAG,
-    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
-    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
+    pub BindFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub MiscFlags: u32,
     pub TextureLayout: D3D11_TEXTURE_LAYOUT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -27416,9 +27405,9 @@ pub struct D3D11_TEXTURE3D_DESC {
     pub MipLevels: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: D3D11_BIND_FLAG,
-    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
-    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
+    pub BindFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub MiscFlags: u32,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_TEXTURE3D_DESC {}
@@ -27462,9 +27451,9 @@ pub struct D3D11_TEXTURE3D_DESC1 {
     pub MipLevels: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: D3D11_BIND_FLAG,
-    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
-    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
+    pub BindFlags: u32,
+    pub CPUAccessFlags: u32,
+    pub MiscFlags: u32,
     pub TextureLayout: D3D11_TEXTURE_LAYOUT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]

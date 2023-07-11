@@ -158,7 +158,7 @@ pub trait ITraceRelogger_Impl: Sized {
     fn AddRealtimeTraceStream(&self, loggername: &::windows_core::BSTR, usercontext: *const ::core::ffi::c_void) -> ::windows_core::Result<RELOGSTREAM_HANDLE>;
     fn RegisterCallback(&self, callback: ::core::option::Option<&ITraceEventCallback>) -> ::windows_core::Result<()>;
     fn Inject(&self, event: ::core::option::Option<&ITraceEvent>) -> ::windows_core::Result<()>;
-    fn CreateEventInstance(&self, tracehandle: RELOGSTREAM_HANDLE, flags: u32) -> ::windows_core::Result<ITraceEvent>;
+    fn CreateEventInstance(&self, tracehandle: &RELOGSTREAM_HANDLE, flags: u32) -> ::windows_core::Result<ITraceEvent>;
     fn ProcessTrace(&self) -> ::windows_core::Result<()>;
     fn SetOutputFilename(&self, logfilename: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn SetCompressionMode(&self, compressionmode: super::super::super::Foundation::BOOLEAN) -> ::windows_core::Result<()>;
@@ -204,7 +204,7 @@ impl ITraceRelogger_Vtbl {
         unsafe extern "system" fn CreateEventInstance<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITraceRelogger_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tracehandle: RELOGSTREAM_HANDLE, flags: u32, event: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.CreateEventInstance(::core::mem::transmute_copy(&tracehandle), ::core::mem::transmute_copy(&flags)) {
+            match this.CreateEventInstance(::core::mem::transmute(&tracehandle), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(event, ::core::mem::transmute(ok__));
                     ::windows_core::HRESULT(0)

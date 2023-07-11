@@ -37,6 +37,7 @@ pub enum Type {
     WinrtArray(Box<Self>),
     WinrtArrayRef(Box<Self>),
     ConstRef(Box<Self>),
+    PrimitiveOrEnum(Box<Self>, Box<Self>),
 }
 
 impl Type {

@@ -260,12 +260,12 @@ impl IHandwrittenTextInsertion_Vtbl {
         iid == &<IHandwrittenTextInsertion as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInk_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInk {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInk_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInk_Impl, const OFFSET: isize>() -> IInk_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -274,8 +274,8 @@ impl IInk_Vtbl {
         iid == &<IInk as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCollector_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn hWnd(&self) -> ::windows_core::Result<isize>;
     fn SethWnd(&self, newwindow: isize) -> ::windows_core::Result<()>;
@@ -294,8 +294,8 @@ pub trait IInkCollector_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn SetCollectionMode(&self, mode: InkCollectionMode) -> ::windows_core::Result<()>;
     fn DynamicRendering(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
-    fn DesiredPacketDescription(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn DesiredPacketDescription(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn MouseIcon(&self) -> ::windows_core::Result<super::super::System::Ole::IPictureDisp>;
     fn SetMouseIcon(&self, mouseicon: ::core::option::Option<&super::super::System::Ole::IPictureDisp>) -> ::windows_core::Result<()>;
     fn putref_MouseIcon(&self, mouseicon: ::core::option::Option<&super::super::System::Ole::IPictureDisp>) -> ::windows_core::Result<()>;
@@ -318,9 +318,9 @@ pub trait IInkCollector_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkCollector {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCollector_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCollector_Impl, const OFFSET: isize>() -> IInkCollector_Vtbl {
         unsafe extern "system" fn hWnd<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currentwindow: *mut isize) -> ::windows_core::HRESULT {
@@ -462,7 +462,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             this.SetDynamicRendering(::core::mem::transmute_copy(&enabled)).into()
         }
-        unsafe extern "system" fn DesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn DesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DesiredPacketDescription() {
@@ -473,7 +473,7 @@ impl IInkCollector_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetDesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCollector_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDesiredPacketDescription(::core::mem::transmute(&packetguids)).into()
@@ -685,8 +685,8 @@ impl IInkCollector_Vtbl {
         iid == &<IInkCollector as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCursor_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Id(&self) -> ::windows_core::Result<i32>;
@@ -696,9 +696,9 @@ pub trait IInkCursor_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Tablet(&self) -> ::windows_core::Result<IInkTablet>;
     fn Buttons(&self) -> ::windows_core::Result<IInkCursorButtons>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkCursor {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCursor_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCursor_Impl, const OFFSET: isize>() -> IInkCursor_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCursor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -787,16 +787,16 @@ impl IInkCursor_Vtbl {
         iid == &<IInkCursor as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCursorButton_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Id(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn State(&self) -> ::windows_core::Result<InkCursorButtonState>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkCursorButton {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCursorButton_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCursorButton_Impl, const OFFSET: isize>() -> IInkCursorButton_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCursorButton_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -843,16 +843,16 @@ impl IInkCursorButton_Vtbl {
         iid == &<IInkCursorButton as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCursorButtons_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
-    fn Item(&self, identifier: &super::super::System::Com::VARIANT) -> ::windows_core::Result<IInkCursorButton>;
+    fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<IInkCursorButton>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkCursorButtons {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCursorButtons_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCursorButtons_Impl, const OFFSET: isize>() -> IInkCursorButtons_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCursorButtons_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -877,7 +877,7 @@ impl IInkCursorButtons_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCursorButtons_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: super::super::System::Com::VARIANT, button: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCursorButtons_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: super::super::System::Variant::VARIANT, button: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute(&identifier)) {
@@ -899,16 +899,16 @@ impl IInkCursorButtons_Vtbl {
         iid == &<IInkCursorButtons as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCursors_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, index: i32) -> ::windows_core::Result<IInkCursor>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkCursors {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCursors_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCursors_Impl, const OFFSET: isize>() -> IInkCursors_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCursors_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -955,19 +955,19 @@ impl IInkCursors_Vtbl {
         iid == &<IInkCursors as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCustomStrokes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
-    fn Item(&self, identifier: &super::super::System::Com::VARIANT) -> ::windows_core::Result<IInkStrokes>;
+    fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<IInkStrokes>;
     fn Add(&self, name: &::windows_core::BSTR, strokes: ::core::option::Option<&IInkStrokes>) -> ::windows_core::Result<()>;
-    fn Remove(&self, identifier: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Clear(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkCustomStrokes {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCustomStrokes_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCustomStrokes_Impl, const OFFSET: isize>() -> IInkCustomStrokes_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -992,7 +992,7 @@ impl IInkCustomStrokes_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: super::super::System::Com::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: super::super::System::Variant::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute(&identifier)) {
@@ -1008,7 +1008,7 @@ impl IInkCustomStrokes_Vtbl {
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&name), ::windows_core::from_raw_borrowed(&strokes)).into()
         }
-        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkCustomStrokes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&identifier)).into()
@@ -1032,8 +1032,8 @@ impl IInkCustomStrokes_Vtbl {
         iid == &<IInkCustomStrokes as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDisp_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> ::windows_core::Result<IInkStrokes>;
     fn ExtendedProperties(&self) -> ::windows_core::Result<IInkExtendedProperties>;
@@ -1049,21 +1049,21 @@ pub trait IInkDisp_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Clone(&self) -> ::windows_core::Result<IInkDisp>;
     fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> ::windows_core::Result<IInkStrokes>;
     fn HitTestWithRectangle(&self, selectionrectangle: ::core::option::Option<&IInkRectangle>, intersectpercent: f32) -> ::windows_core::Result<IInkStrokes>;
-    fn HitTestWithLasso(&self, points: &super::super::System::Com::VARIANT, intersectpercent: f32, lassopoints: *mut super::super::System::Com::VARIANT, strokes: *mut ::core::option::Option<IInkStrokes>) -> ::windows_core::Result<()>;
+    fn HitTestWithLasso(&self, points: &super::super::System::Variant::VARIANT, intersectpercent: f32, lassopoints: *mut super::super::System::Variant::VARIANT, strokes: *mut ::core::option::Option<IInkStrokes>) -> ::windows_core::Result<()>;
     fn NearestPoint(&self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: *mut ::core::option::Option<IInkStrokeDisp>) -> ::windows_core::Result<()>;
-    fn CreateStrokes(&self, strokeids: &super::super::System::Com::VARIANT) -> ::windows_core::Result<IInkStrokes>;
+    fn CreateStrokes(&self, strokeids: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<IInkStrokes>;
     fn AddStrokesAtRectangle(&self, sourcestrokes: ::core::option::Option<&IInkStrokes>, targetrectangle: ::core::option::Option<&IInkRectangle>) -> ::windows_core::Result<()>;
-    fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn Load(&self, data: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn CreateStroke(&self, packetdata: &super::super::System::Com::VARIANT, packetdescription: &super::super::System::Com::VARIANT) -> ::windows_core::Result<IInkStrokeDisp>;
+    fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Load(&self, data: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn CreateStroke(&self, packetdata: &super::super::System::Variant::VARIANT, packetdescription: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<IInkStrokeDisp>;
     fn ClipboardCopyWithRectangle(&self, rectangle: ::core::option::Option<&IInkRectangle>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> ::windows_core::Result<super::super::System::Com::IDataObject>;
     fn ClipboardCopy(&self, strokes: ::core::option::Option<&IInkStrokes>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> ::windows_core::Result<super::super::System::Com::IDataObject>;
     fn CanPaste(&self, dataobject: ::core::option::Option<&super::super::System::Com::IDataObject>) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn ClipboardPaste(&self, x: i32, y: i32, dataobject: ::core::option::Option<&super::super::System::Com::IDataObject>) -> ::windows_core::Result<IInkStrokes>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkDisp {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDisp_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>() -> IInkDisp_Vtbl {
         unsafe extern "system" fn Strokes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1196,7 +1196,7 @@ impl IInkDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn HitTestWithLasso<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, points: super::super::System::Com::VARIANT, intersectpercent: f32, lassopoints: *mut super::super::System::Com::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn HitTestWithLasso<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, points: super::super::System::Variant::VARIANT, intersectpercent: f32, lassopoints: *mut super::super::System::Variant::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.HitTestWithLasso(::core::mem::transmute(&points), ::core::mem::transmute_copy(&intersectpercent), ::core::mem::transmute_copy(&lassopoints), ::core::mem::transmute_copy(&strokes)).into()
@@ -1206,7 +1206,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             this.NearestPoint(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&pointonstroke), ::core::mem::transmute_copy(&distancefrompacket), ::core::mem::transmute_copy(&stroke)).into()
         }
-        unsafe extern "system" fn CreateStrokes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokeids: super::super::System::Com::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn CreateStrokes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokeids: super::super::System::Variant::VARIANT, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateStrokes(::core::mem::transmute(&strokeids)) {
@@ -1222,7 +1222,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             this.AddStrokesAtRectangle(::windows_core::from_raw_borrowed(&sourcestrokes), ::windows_core::from_raw_borrowed(&targetrectangle)).into()
         }
-        unsafe extern "system" fn Save<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode, data: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Save<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode, data: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Save(::core::mem::transmute_copy(&persistenceformat), ::core::mem::transmute_copy(&compressionmode)) {
@@ -1233,12 +1233,12 @@ impl IInkDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Load<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Load<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Load(::core::mem::transmute(&data)).into()
         }
-        unsafe extern "system" fn CreateStroke<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetdata: super::super::System::Com::VARIANT, packetdescription: super::super::System::Com::VARIANT, stroke: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn CreateStroke<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetdata: super::super::System::Variant::VARIANT, packetdescription: super::super::System::Variant::VARIANT, stroke: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateStroke(::core::mem::transmute(&packetdata), ::core::mem::transmute(&packetdescription)) {
@@ -1326,8 +1326,8 @@ impl IInkDisp_Vtbl {
         iid == &<IInkDisp as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDivider_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> ::windows_core::Result<IInkStrokes>;
     fn putref_Strokes(&self, strokes: ::core::option::Option<&IInkStrokes>) -> ::windows_core::Result<()>;
@@ -1337,9 +1337,9 @@ pub trait IInkDivider_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetLineHeight(&self, lineheight: i32) -> ::windows_core::Result<()>;
     fn Divide(&self) -> ::windows_core::Result<IInkDivisionResult>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkDivider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDivider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDivider_Impl, const OFFSET: isize>() -> IInkDivider_Vtbl {
         unsafe extern "system" fn Strokes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDivider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1416,15 +1416,15 @@ impl IInkDivider_Vtbl {
         iid == &<IInkDivider as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDivisionResult_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> ::windows_core::Result<IInkStrokes>;
     fn ResultByType(&self, divisiontype: InkDivisionType) -> ::windows_core::Result<IInkDivisionUnits>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkDivisionResult {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDivisionResult_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDivisionResult_Impl, const OFFSET: isize>() -> IInkDivisionResult_Vtbl {
         unsafe extern "system" fn Strokes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDivisionResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1459,17 +1459,17 @@ impl IInkDivisionResult_Vtbl {
         iid == &<IInkDivisionResult as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDivisionUnit_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> ::windows_core::Result<IInkStrokes>;
     fn DivisionType(&self) -> ::windows_core::Result<InkDivisionType>;
     fn RecognizedString(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn RotationTransform(&self) -> ::windows_core::Result<IInkTransform>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkDivisionUnit {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDivisionUnit_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDivisionUnit_Impl, const OFFSET: isize>() -> IInkDivisionUnit_Vtbl {
         unsafe extern "system" fn Strokes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDivisionUnit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -1528,16 +1528,16 @@ impl IInkDivisionUnit_Vtbl {
         iid == &<IInkDivisionUnit as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDivisionUnits_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Item(&self, index: i32) -> ::windows_core::Result<IInkDivisionUnit>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkDivisionUnits {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDivisionUnits_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDivisionUnits_Impl, const OFFSET: isize>() -> IInkDivisionUnits_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDivisionUnits_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -1584,8 +1584,8 @@ impl IInkDivisionUnits_Vtbl {
         iid == &<IInkDivisionUnits as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDrawingAttributes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Color(&self) -> ::windows_core::Result<i32>;
     fn SetColor(&self, newcolor: i32) -> ::windows_core::Result<()>;
@@ -1608,9 +1608,9 @@ pub trait IInkDrawingAttributes_Impl: Sized + super::super::System::Com::IDispat
     fn ExtendedProperties(&self) -> ::windows_core::Result<IInkExtendedProperties>;
     fn Clone(&self) -> ::windows_core::Result<IInkDrawingAttributes>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkDrawingAttributes {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDrawingAttributes_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDrawingAttributes_Impl, const OFFSET: isize>() -> IInkDrawingAttributes_Vtbl {
         unsafe extern "system" fn Color<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkDrawingAttributes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currentcolor: *mut i32) -> ::windows_core::HRESULT {
@@ -1807,8 +1807,8 @@ impl IInkDrawingAttributes_Vtbl {
         iid == &<IInkDrawingAttributes as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkEdit_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Status(&self) -> ::windows_core::Result<InkEditStatus>;
     fn UseMouseForInput(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -1825,8 +1825,8 @@ pub trait IInkEdit_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn putref_Recognizer(&self, newval: ::core::option::Option<&IInkRecognizer>) -> ::windows_core::Result<()>;
     fn Factoid(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetFactoid(&self, newval: &::windows_core::BSTR) -> ::windows_core::Result<()>;
-    fn SelInks(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelInks(&self, selink: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn SelInks(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelInks(&self, selink: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn SelInksDisplayMode(&self) -> ::windows_core::Result<InkDisplayMode>;
     fn SetSelInksDisplayMode(&self, inkdisplaymode: InkDisplayMode) -> ::windows_core::Result<()>;
     fn Recognize(&self) -> ::windows_core::Result<()>;
@@ -1860,22 +1860,22 @@ pub trait IInkEdit_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetScrollBars(&self, newval: ScrollBarsConstants) -> ::windows_core::Result<()>;
     fn DisableNoScroll(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetDisableNoScroll(&self, newval: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
-    fn SelAlignment(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelAlignment(&self, pvarselalignment: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn SelBold(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelBold(&self, pvarselbold: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn SelItalic(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelItalic(&self, pvarselitalic: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn SelUnderline(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelUnderline(&self, pvarselunderline: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn SelColor(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelColor(&self, pvarselcolor: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn SelFontName(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelFontName(&self, pvarselfontname: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn SelFontSize(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelFontSize(&self, pvarselfontsize: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn SelCharOffset(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetSelCharOffset(&self, pvarselcharoffset: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn SelAlignment(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelAlignment(&self, pvarselalignment: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn SelBold(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelBold(&self, pvarselbold: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn SelItalic(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelItalic(&self, pvarselitalic: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn SelUnderline(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelUnderline(&self, pvarselunderline: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn SelColor(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelColor(&self, pvarselcolor: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn SelFontName(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelFontName(&self, pvarselfontname: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn SelFontSize(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelFontSize(&self, pvarselfontsize: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn SelCharOffset(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelCharOffset(&self, pvarselcharoffset: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn TextRTF(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn SetTextRTF(&self, pbstrtextrtf: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn SelStart(&self) -> ::windows_core::Result<i32>;
@@ -1888,9 +1888,9 @@ pub trait IInkEdit_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetSelRTF(&self, pbstrselrtf: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn Refresh(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkEdit {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkEdit_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>() -> IInkEdit_Vtbl {
         unsafe extern "system" fn Status<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut InkEditStatus) -> ::windows_core::HRESULT {
@@ -2016,7 +2016,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             this.SetFactoid(::core::mem::transmute(&newval)).into()
         }
-        unsafe extern "system" fn SelInks<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pselink: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SelInks<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pselink: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SelInks() {
@@ -2027,7 +2027,7 @@ impl IInkEdit_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelInks<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selink: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSelInks<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selink: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSelInks(::core::mem::transmute(&selink)).into()
@@ -2293,7 +2293,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             this.SetDisableNoScroll(::core::mem::transmute_copy(&newval)).into()
         }
-        unsafe extern "system" fn SelAlignment<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselalignment: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SelAlignment<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselalignment: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SelAlignment() {
@@ -2304,12 +2304,12 @@ impl IInkEdit_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelAlignment<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselalignment: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSelAlignment<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselalignment: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSelAlignment(::core::mem::transmute(&pvarselalignment)).into()
         }
-        unsafe extern "system" fn SelBold<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselbold: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SelBold<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselbold: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SelBold() {
@@ -2320,12 +2320,12 @@ impl IInkEdit_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelBold<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselbold: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSelBold<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselbold: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSelBold(::core::mem::transmute(&pvarselbold)).into()
         }
-        unsafe extern "system" fn SelItalic<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselitalic: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SelItalic<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselitalic: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SelItalic() {
@@ -2336,12 +2336,12 @@ impl IInkEdit_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelItalic<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselitalic: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSelItalic<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselitalic: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSelItalic(::core::mem::transmute(&pvarselitalic)).into()
         }
-        unsafe extern "system" fn SelUnderline<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselunderline: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SelUnderline<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselunderline: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SelUnderline() {
@@ -2352,12 +2352,12 @@ impl IInkEdit_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelUnderline<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselunderline: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSelUnderline<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselunderline: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSelUnderline(::core::mem::transmute(&pvarselunderline)).into()
         }
-        unsafe extern "system" fn SelColor<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselcolor: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SelColor<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselcolor: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SelColor() {
@@ -2368,12 +2368,12 @@ impl IInkEdit_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelColor<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselcolor: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSelColor<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselcolor: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSelColor(::core::mem::transmute(&pvarselcolor)).into()
         }
-        unsafe extern "system" fn SelFontName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselfontname: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SelFontName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselfontname: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SelFontName() {
@@ -2384,12 +2384,12 @@ impl IInkEdit_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelFontName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselfontname: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSelFontName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselfontname: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSelFontName(::core::mem::transmute(&pvarselfontname)).into()
         }
-        unsafe extern "system" fn SelFontSize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselfontsize: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SelFontSize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselfontsize: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SelFontSize() {
@@ -2400,12 +2400,12 @@ impl IInkEdit_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelFontSize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselfontsize: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSelFontSize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselfontsize: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSelFontSize(::core::mem::transmute(&pvarselfontsize)).into()
         }
-        unsafe extern "system" fn SelCharOffset<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselcharoffset: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SelCharOffset<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselcharoffset: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SelCharOffset() {
@@ -2416,7 +2416,7 @@ impl IInkEdit_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetSelCharOffset<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselcharoffset: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSelCharOffset<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkEdit_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarselcharoffset: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSelCharOffset(::core::mem::transmute(&pvarselcharoffset)).into()
@@ -2591,20 +2591,20 @@ impl IInkEdit_Vtbl {
         iid == &<IInkEdit as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkExtendedProperties_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
-    fn Item(&self, identifier: &super::super::System::Com::VARIANT) -> ::windows_core::Result<IInkExtendedProperty>;
-    fn Add(&self, guid: &::windows_core::BSTR, data: &super::super::System::Com::VARIANT) -> ::windows_core::Result<IInkExtendedProperty>;
-    fn Remove(&self, identifier: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<IInkExtendedProperty>;
+    fn Add(&self, guid: &::windows_core::BSTR, data: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<IInkExtendedProperty>;
+    fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Clear(&self) -> ::windows_core::Result<()>;
     fn DoesPropertyExist(&self, guid: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkExtendedProperties {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkExtendedProperties_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperties_Impl, const OFFSET: isize>() -> IInkExtendedProperties_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -2629,7 +2629,7 @@ impl IInkExtendedProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: super::super::System::Com::VARIANT, item: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Item<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: super::super::System::Variant::VARIANT, item: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute(&identifier)) {
@@ -2640,7 +2640,7 @@ impl IInkExtendedProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Add<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: ::std::mem::MaybeUninit<::windows_core::BSTR>, data: super::super::System::Com::VARIANT, inkextendedproperty: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Add<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: ::std::mem::MaybeUninit<::windows_core::BSTR>, data: super::super::System::Variant::VARIANT, inkextendedproperty: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute(&guid), ::core::mem::transmute(&data)) {
@@ -2651,7 +2651,7 @@ impl IInkExtendedProperties_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Remove<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifier: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&identifier)).into()
@@ -2687,16 +2687,16 @@ impl IInkExtendedProperties_Vtbl {
         iid == &<IInkExtendedProperties as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkExtendedProperty_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Guid(&self) -> ::windows_core::Result<::windows_core::BSTR>;
-    fn Data(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetData(&self, data: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn Data(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetData(&self, data: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkExtendedProperty {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkExtendedProperty_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperty_Impl, const OFFSET: isize>() -> IInkExtendedProperty_Vtbl {
         unsafe extern "system" fn Guid<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -2710,7 +2710,7 @@ impl IInkExtendedProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Data<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Data<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Data() {
@@ -2721,7 +2721,7 @@ impl IInkExtendedProperty_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkExtendedProperty_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetData(::core::mem::transmute(&data)).into()
@@ -2737,16 +2737,16 @@ impl IInkExtendedProperty_Vtbl {
         iid == &<IInkExtendedProperty as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkGesture_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Confidence(&self) -> ::windows_core::Result<InkRecognitionConfidence>;
     fn Id(&self) -> ::windows_core::Result<InkApplicationGesture>;
     fn GetHotPoint(&self, x: *mut i32, y: *mut i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkGesture {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkGesture_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkGesture_Impl, const OFFSET: isize>() -> IInkGesture_Vtbl {
         unsafe extern "system" fn Confidence<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkGesture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confidence: *mut InkRecognitionConfidence) -> ::windows_core::HRESULT {
@@ -2846,8 +2846,8 @@ impl IInkLineInfo_Vtbl {
         iid == &<IInkLineInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkOverlay_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn hWnd(&self) -> ::windows_core::Result<isize>;
     fn SethWnd(&self, newwindow: isize) -> ::windows_core::Result<()>;
@@ -2866,8 +2866,8 @@ pub trait IInkOverlay_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetCollectionMode(&self, mode: InkCollectionMode) -> ::windows_core::Result<()>;
     fn DynamicRendering(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
-    fn DesiredPacketDescription(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn DesiredPacketDescription(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn MouseIcon(&self) -> ::windows_core::Result<super::super::System::Ole::IPictureDisp>;
     fn SetMouseIcon(&self, mouseicon: ::core::option::Option<&super::super::System::Ole::IPictureDisp>) -> ::windows_core::Result<()>;
     fn putref_MouseIcon(&self, mouseicon: ::core::option::Option<&super::super::System::Ole::IPictureDisp>) -> ::windows_core::Result<()>;
@@ -2904,9 +2904,9 @@ pub trait IInkOverlay_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkOverlay {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkOverlay_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkOverlay_Impl, const OFFSET: isize>() -> IInkOverlay_Vtbl {
         unsafe extern "system" fn hWnd<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currentwindow: *mut isize) -> ::windows_core::HRESULT {
@@ -3048,7 +3048,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             this.SetDynamicRendering(::core::mem::transmute_copy(&enabled)).into()
         }
-        unsafe extern "system" fn DesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn DesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DesiredPacketDescription() {
@@ -3059,7 +3059,7 @@ impl IInkOverlay_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetDesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkOverlay_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDesiredPacketDescription(::core::mem::transmute(&packetguids)).into()
@@ -3397,8 +3397,8 @@ impl IInkOverlay_Vtbl {
         iid == &<IInkOverlay as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkPicture_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn hWnd(&self) -> ::windows_core::Result<isize>;
     fn DefaultDrawingAttributes(&self) -> ::windows_core::Result<IInkDrawingAttributes>;
@@ -3414,8 +3414,8 @@ pub trait IInkPicture_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn SetCollectionMode(&self, mode: InkCollectionMode) -> ::windows_core::Result<()>;
     fn DynamicRendering(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
-    fn DesiredPacketDescription(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn DesiredPacketDescription(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn MouseIcon(&self) -> ::windows_core::Result<super::super::System::Ole::IPictureDisp>;
     fn SetMouseIcon(&self, mouseicon: ::core::option::Option<&super::super::System::Ole::IPictureDisp>) -> ::windows_core::Result<()>;
     fn putref_MouseIcon(&self, mouseicon: ::core::option::Option<&super::super::System::Ole::IPictureDisp>) -> ::windows_core::Result<()>;
@@ -3460,9 +3460,9 @@ pub trait IInkPicture_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Enabled(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn SetEnabled(&self, vbool: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkPicture {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkPicture_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPicture_Impl, const OFFSET: isize>() -> IInkPicture_Vtbl {
         unsafe extern "system" fn hWnd<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currentwindow: *mut isize) -> ::windows_core::HRESULT {
@@ -3583,7 +3583,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             this.SetDynamicRendering(::core::mem::transmute_copy(&enabled)).into()
         }
-        unsafe extern "system" fn DesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn DesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.DesiredPacketDescription() {
@@ -3594,7 +3594,7 @@ impl IInkPicture_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetDesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetDesiredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkPicture_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetguids: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetDesiredPacketDescription(::core::mem::transmute(&packetguids)).into()
@@ -4001,15 +4001,15 @@ impl IInkPicture_Vtbl {
         iid == &<IInkPicture as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognitionAlternate_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn String(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Confidence(&self) -> ::windows_core::Result<InkRecognitionConfidence>;
-    fn Baseline(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn Midline(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn Ascender(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn Descender(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
+    fn Baseline(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Midline(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Ascender(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Descender(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
     fn LineNumber(&self) -> ::windows_core::Result<i32>;
     fn Strokes(&self) -> ::windows_core::Result<IInkStrokes>;
     fn LineAlternates(&self) -> ::windows_core::Result<IInkRecognitionAlternates>;
@@ -4018,11 +4018,11 @@ pub trait IInkRecognitionAlternate_Impl: Sized + super::super::System::Com::IDis
     fn GetStrokesFromTextRange(&self, selectionstart: *mut i32, selectionlength: *mut i32, getstrokesfromtextrange: *mut ::core::option::Option<IInkStrokes>) -> ::windows_core::Result<()>;
     fn GetTextRangeFromStrokes(&self, strokes: ::core::option::Option<&IInkStrokes>, selectionstart: *mut i32, selectionlength: *mut i32) -> ::windows_core::Result<()>;
     fn AlternatesWithConstantPropertyValues(&self, propertytype: &::windows_core::BSTR) -> ::windows_core::Result<IInkRecognitionAlternates>;
-    fn GetPropertyValue(&self, propertytype: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
+    fn GetPropertyValue(&self, propertytype: &::windows_core::BSTR) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkRecognitionAlternate {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognitionAlternate_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>() -> IInkRecognitionAlternate_Vtbl {
         unsafe extern "system" fn String<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recostring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -4047,7 +4047,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Baseline<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseline: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Baseline<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseline: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Baseline() {
@@ -4058,7 +4058,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Midline<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, midline: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Midline<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, midline: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Midline() {
@@ -4069,7 +4069,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Ascender<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ascender: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Ascender<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ascender: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Ascender() {
@@ -4080,7 +4080,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Descender<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descender: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Descender<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descender: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Descender() {
@@ -4167,7 +4167,7 @@ impl IInkRecognitionAlternate_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPropertyValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertytype: ::std::mem::MaybeUninit<::windows_core::BSTR>, propertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetPropertyValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertytype: ::std::mem::MaybeUninit<::windows_core::BSTR>, propertyvalue: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPropertyValue(::core::mem::transmute(&propertytype)) {
@@ -4201,17 +4201,17 @@ impl IInkRecognitionAlternate_Vtbl {
         iid == &<IInkRecognitionAlternate as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognitionAlternates_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn Strokes(&self) -> ::windows_core::Result<IInkStrokes>;
     fn Item(&self, index: i32) -> ::windows_core::Result<IInkRecognitionAlternate>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkRecognitionAlternates {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognitionAlternates_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternates_Impl, const OFFSET: isize>() -> IInkRecognitionAlternates_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionAlternates_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -4270,8 +4270,8 @@ impl IInkRecognitionAlternates_Vtbl {
         iid == &<IInkRecognitionAlternates as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognitionResult_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn TopString(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn TopAlternate(&self) -> ::windows_core::Result<IInkRecognitionAlternate>;
@@ -4281,9 +4281,9 @@ pub trait IInkRecognitionResult_Impl: Sized + super::super::System::Com::IDispat
     fn ModifyTopAlternate(&self, alternate: ::core::option::Option<&IInkRecognitionAlternate>) -> ::windows_core::Result<()>;
     fn SetResultOnStrokes(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkRecognitionResult {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognitionResult_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionResult_Impl, const OFFSET: isize>() -> IInkRecognitionResult_Vtbl {
         unsafe extern "system" fn TopString<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognitionResult_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, topstring: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -4366,20 +4366,20 @@ impl IInkRecognitionResult_Vtbl {
         iid == &<IInkRecognitionResult as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Vendor(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn Capabilities(&self) -> ::windows_core::Result<InkRecognizerCapabilities>;
-    fn Languages(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SupportedProperties(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn PreferredPacketDescription(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
+    fn Languages(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SupportedProperties(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn PreferredPacketDescription(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
     fn CreateRecognizerContext(&self) -> ::windows_core::Result<IInkRecognizerContext>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkRecognizer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer_Impl, const OFFSET: isize>() -> IInkRecognizer_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -4415,7 +4415,7 @@ impl IInkRecognizer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn Languages<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Languages<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languages: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Languages() {
@@ -4426,7 +4426,7 @@ impl IInkRecognizer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SupportedProperties<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedproperties: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SupportedProperties<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedproperties: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SupportedProperties() {
@@ -4437,7 +4437,7 @@ impl IInkRecognizer_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PreferredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preferredpacketdescription: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn PreferredPacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preferredpacketdescription: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PreferredPacketDescription() {
@@ -4474,15 +4474,15 @@ impl IInkRecognizer_Vtbl {
         iid == &<IInkRecognizer as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizer2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Id(&self) -> ::windows_core::Result<::windows_core::BSTR>;
-    fn UnicodeRanges(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
+    fn UnicodeRanges(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkRecognizer2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizer2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer2_Impl, const OFFSET: isize>() -> IInkRecognizer2_Vtbl {
         unsafe extern "system" fn Id<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -4496,7 +4496,7 @@ impl IInkRecognizer2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn UnicodeRanges<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unicoderanges: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn UnicodeRanges<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizer2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unicoderanges: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.UnicodeRanges() {
@@ -4517,8 +4517,8 @@ impl IInkRecognizer2_Vtbl {
         iid == &<IInkRecognizer2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizerContext_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Strokes(&self) -> ::windows_core::Result<IInkStrokes>;
     fn putref_Strokes(&self, strokes: ::core::option::Option<&IInkStrokes>) -> ::windows_core::Result<()>;
@@ -4540,14 +4540,14 @@ pub trait IInkRecognizerContext_Impl: Sized + super::super::System::Com::IDispat
     fn Recognize(&self, recognitionstatus: *mut InkRecognitionStatus, recognitionresult: *mut ::core::option::Option<IInkRecognitionResult>) -> ::windows_core::Result<()>;
     fn StopBackgroundRecognition(&self) -> ::windows_core::Result<()>;
     fn EndInkInput(&self) -> ::windows_core::Result<()>;
-    fn BackgroundRecognize(&self, customdata: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn BackgroundRecognizeWithAlternates(&self, customdata: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn BackgroundRecognize(&self, customdata: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn BackgroundRecognizeWithAlternates(&self, customdata: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IInkRecognizerContext>;
     fn IsStringSupported(&self, string: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkRecognizerContext {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizerContext_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerContext_Impl, const OFFSET: isize>() -> IInkRecognizerContext_Vtbl {
         unsafe extern "system" fn Strokes<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokes: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -4704,12 +4704,12 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             this.EndInkInput().into()
         }
-        unsafe extern "system" fn BackgroundRecognize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customdata: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn BackgroundRecognize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customdata: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BackgroundRecognize(::core::mem::transmute(&customdata)).into()
         }
-        unsafe extern "system" fn BackgroundRecognizeWithAlternates<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customdata: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn BackgroundRecognizeWithAlternates<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, customdata: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BackgroundRecognizeWithAlternates(::core::mem::transmute(&customdata)).into()
@@ -4768,18 +4768,18 @@ impl IInkRecognizerContext_Vtbl {
         iid == &<IInkRecognizerContext as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizerContext2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
-    fn EnabledUnicodeRanges(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetEnabledUnicodeRanges(&self, unicoderanges: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn EnabledUnicodeRanges(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetEnabledUnicodeRanges(&self, unicoderanges: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkRecognizerContext2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizerContext2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerContext2_Impl, const OFFSET: isize>() -> IInkRecognizerContext2_Vtbl {
-        unsafe extern "system" fn EnabledUnicodeRanges<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unicoderanges: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn EnabledUnicodeRanges<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unicoderanges: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.EnabledUnicodeRanges() {
@@ -4790,7 +4790,7 @@ impl IInkRecognizerContext2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetEnabledUnicodeRanges<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unicoderanges: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetEnabledUnicodeRanges<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, unicoderanges: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEnabledUnicodeRanges(::core::mem::transmute(&unicoderanges)).into()
@@ -4805,8 +4805,8 @@ impl IInkRecognizerContext2_Vtbl {
         iid == &<IInkRecognizerContext2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizerGuide_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn WritingBox(&self) -> ::windows_core::Result<IInkRectangle>;
     fn SetWritingBox(&self, rectangle: ::core::option::Option<&IInkRectangle>) -> ::windows_core::Result<()>;
@@ -4821,9 +4821,9 @@ pub trait IInkRecognizerGuide_Impl: Sized + super::super::System::Com::IDispatch
     fn GuideData(&self, precoguide: *mut InkRecoGuide) -> ::windows_core::Result<()>;
     fn SetGuideData(&self, recoguide: &InkRecoGuide) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkRecognizerGuide {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizerGuide_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerGuide_Impl, const OFFSET: isize>() -> IInkRecognizerGuide_Vtbl {
         unsafe extern "system" fn WritingBox<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizerGuide_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rectangle: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -4936,17 +4936,17 @@ impl IInkRecognizerGuide_Vtbl {
         iid == &<IInkRecognizerGuide as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizers_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
     fn GetDefaultRecognizer(&self, lcid: i32) -> ::windows_core::Result<IInkRecognizer>;
     fn Item(&self, index: i32) -> ::windows_core::Result<IInkRecognizer>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkRecognizers {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizers_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizers_Impl, const OFFSET: isize>() -> IInkRecognizers_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRecognizers_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -5005,8 +5005,8 @@ impl IInkRecognizers_Vtbl {
         iid == &<IInkRecognizers as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRectangle_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Top(&self) -> ::windows_core::Result<i32>;
     fn SetTop(&self, units: i32) -> ::windows_core::Result<()>;
@@ -5021,9 +5021,9 @@ pub trait IInkRectangle_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn GetRectangle(&self, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> ::windows_core::Result<()>;
     fn SetRectangle(&self, top: i32, left: i32, bottom: i32, right: i32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkRectangle {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRectangle_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRectangle_Impl, const OFFSET: isize>() -> IInkRectangle_Vtbl {
         unsafe extern "system" fn Top<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRectangle_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, units: *mut i32) -> ::windows_core::HRESULT {
@@ -5136,8 +5136,8 @@ impl IInkRectangle_Vtbl {
         iid == &<IInkRectangle as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRenderer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn GetViewTransform(&self, viewtransform: ::core::option::Option<&IInkTransform>) -> ::windows_core::Result<()>;
     fn SetViewTransform(&self, viewtransform: ::core::option::Option<&IInkTransform>) -> ::windows_core::Result<()>;
@@ -5147,17 +5147,17 @@ pub trait IInkRenderer_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DrawStroke(&self, hdc: isize, stroke: ::core::option::Option<&IInkStrokeDisp>, drawingattributes: ::core::option::Option<&IInkDrawingAttributes>) -> ::windows_core::Result<()>;
     fn PixelToInkSpace(&self, hdc: isize, x: *mut i32, y: *mut i32) -> ::windows_core::Result<()>;
     fn InkSpaceToPixel(&self, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> ::windows_core::Result<()>;
-    fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
-    fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
+    fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn Measure(&self, strokes: ::core::option::Option<&IInkStrokes>) -> ::windows_core::Result<IInkRectangle>;
     fn MeasureStroke(&self, stroke: ::core::option::Option<&IInkStrokeDisp>, drawingattributes: ::core::option::Option<&IInkDrawingAttributes>) -> ::windows_core::Result<IInkRectangle>;
     fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows_core::Result<()>;
     fn Rotate(&self, degrees: f32, x: f32, y: f32) -> ::windows_core::Result<()>;
     fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkRenderer {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRenderer_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRenderer_Impl, const OFFSET: isize>() -> IInkRenderer_Vtbl {
         unsafe extern "system" fn GetViewTransform<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewtransform: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -5200,12 +5200,12 @@ impl IInkRenderer_Vtbl {
             let this = (*this).get_impl();
             this.InkSpaceToPixel(::core::mem::transmute_copy(&hdcdisplay), ::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)).into()
         }
-        unsafe extern "system" fn PixelToInkSpaceFromPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: isize, points: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn PixelToInkSpaceFromPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PixelToInkSpaceFromPoints(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&points)).into()
         }
-        unsafe extern "system" fn InkSpaceToPixelFromPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: isize, points: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn InkSpaceToPixelFromPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkRenderer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.InkSpaceToPixelFromPoints(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&points)).into()
@@ -5270,36 +5270,36 @@ impl IInkRenderer_Vtbl {
         iid == &<IInkRenderer as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkStrokeDisp_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn ID(&self) -> ::windows_core::Result<i32>;
-    fn BezierPoints(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
+    fn BezierPoints(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
     fn DrawingAttributes(&self) -> ::windows_core::Result<IInkDrawingAttributes>;
     fn putref_DrawingAttributes(&self, drawattrs: ::core::option::Option<&IInkDrawingAttributes>) -> ::windows_core::Result<()>;
     fn Ink(&self) -> ::windows_core::Result<IInkDisp>;
     fn ExtendedProperties(&self) -> ::windows_core::Result<IInkExtendedProperties>;
-    fn PolylineCusps(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn BezierCusps(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SelfIntersections(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
+    fn PolylineCusps(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn BezierCusps(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SelfIntersections(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
     fn PacketCount(&self) -> ::windows_core::Result<i32>;
     fn PacketSize(&self) -> ::windows_core::Result<i32>;
-    fn PacketDescription(&self) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
+    fn PacketDescription(&self) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Deleted(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> ::windows_core::Result<IInkRectangle>;
-    fn FindIntersections(&self, strokes: ::core::option::Option<&IInkStrokes>) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn GetRectangleIntersections(&self, rectangle: ::core::option::Option<&IInkRectangle>) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
+    fn FindIntersections(&self, strokes: ::core::option::Option<&IInkStrokes>) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetRectangleIntersections(&self, rectangle: ::core::option::Option<&IInkRectangle>) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Clip(&self, rectangle: ::core::option::Option<&IInkRectangle>) -> ::windows_core::Result<()>;
     fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn NearestPoint(&self, x: i32, y: i32, distance: *mut f32, point: *mut f32) -> ::windows_core::Result<()>;
     fn Split(&self, splitat: f32) -> ::windows_core::Result<IInkStrokeDisp>;
     fn GetPacketDescriptionPropertyMetrics(&self, propertyname: &::windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows_core::Result<()>;
-    fn GetPoints(&self, index: i32, count: i32) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetPoints(&self, points: &super::super::System::Com::VARIANT, index: i32, count: i32) -> ::windows_core::Result<i32>;
-    fn GetPacketData(&self, index: i32, count: i32) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn GetPacketValuesByProperty(&self, propertyname: &::windows_core::BSTR, index: i32, count: i32) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
-    fn SetPacketValuesByProperty(&self, bstrpropertyname: &::windows_core::BSTR, packetvalues: &super::super::System::Com::VARIANT, index: i32, count: i32) -> ::windows_core::Result<i32>;
-    fn GetFlattenedBezierPoints(&self, fittingerror: i32) -> ::windows_core::Result<super::super::System::Com::VARIANT>;
+    fn GetPoints(&self, index: i32, count: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetPoints(&self, points: &super::super::System::Variant::VARIANT, index: i32, count: i32) -> ::windows_core::Result<i32>;
+    fn GetPacketData(&self, index: i32, count: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn GetPacketValuesByProperty(&self, propertyname: &::windows_core::BSTR, index: i32, count: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn SetPacketValuesByProperty(&self, bstrpropertyname: &::windows_core::BSTR, packetvalues: &super::super::System::Variant::VARIANT, index: i32, count: i32) -> ::windows_core::Result<i32>;
+    fn GetFlattenedBezierPoints(&self, fittingerror: i32) -> ::windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Transform(&self, transform: ::core::option::Option<&IInkTransform>, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
     fn ScaleToRectangle(&self, rectangle: ::core::option::Option<&IInkRectangle>) -> ::windows_core::Result<()>;
     fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows_core::Result<()>;
@@ -5307,9 +5307,9 @@ pub trait IInkStrokeDisp_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows_core::Result<()>;
     fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkStrokeDisp {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkStrokeDisp_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>() -> IInkStrokeDisp_Vtbl {
         unsafe extern "system" fn ID<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows_core::HRESULT {
@@ -5323,7 +5323,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BezierPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, points: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn BezierPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, points: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.BezierPoints() {
@@ -5372,7 +5372,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PolylineCusps<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cusps: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn PolylineCusps<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cusps: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PolylineCusps() {
@@ -5383,7 +5383,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BezierCusps<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cusps: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn BezierCusps<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cusps: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.BezierCusps() {
@@ -5394,7 +5394,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SelfIntersections<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intersections: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SelfIntersections<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, intersections: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SelfIntersections() {
@@ -5427,7 +5427,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn PacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetdescription: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn PacketDescription<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packetdescription: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.PacketDescription() {
@@ -5460,7 +5460,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn FindIntersections<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void, intersections: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn FindIntersections<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, strokes: *mut ::core::ffi::c_void, intersections: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.FindIntersections(::windows_core::from_raw_borrowed(&strokes)) {
@@ -5471,7 +5471,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetRectangleIntersections<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void, intersections: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetRectangleIntersections<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rectangle: *mut ::core::ffi::c_void, intersections: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetRectangleIntersections(::windows_core::from_raw_borrowed(&rectangle)) {
@@ -5519,7 +5519,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             this.GetPacketDescriptionPropertyMetrics(::core::mem::transmute(&propertyname), ::core::mem::transmute_copy(&minimum), ::core::mem::transmute_copy(&maximum), ::core::mem::transmute_copy(&units), ::core::mem::transmute_copy(&resolution)).into()
         }
-        unsafe extern "system" fn GetPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, count: i32, points: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, count: i32, points: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPoints(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&count)) {
@@ -5530,7 +5530,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, points: super::super::System::Com::VARIANT, index: i32, count: i32, numberofpointsset: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, points: super::super::System::Variant::VARIANT, index: i32, count: i32, numberofpointsset: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SetPoints(::core::mem::transmute(&points), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&count)) {
@@ -5541,7 +5541,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPacketData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, count: i32, packetdata: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetPacketData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, count: i32, packetdata: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPacketData(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&count)) {
@@ -5552,7 +5552,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetPacketValuesByProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, index: i32, count: i32, packetvalues: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetPacketValuesByProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, index: i32, count: i32, packetvalues: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetPacketValuesByProperty(::core::mem::transmute(&propertyname), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&count)) {
@@ -5563,7 +5563,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetPacketValuesByProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, packetvalues: super::super::System::Com::VARIANT, index: i32, count: i32, numberofpacketsset: *mut i32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetPacketValuesByProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrpropertyname: ::std::mem::MaybeUninit<::windows_core::BSTR>, packetvalues: super::super::System::Variant::VARIANT, index: i32, count: i32, numberofpacketsset: *mut i32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SetPacketValuesByProperty(::core::mem::transmute(&bstrpropertyname), ::core::mem::transmute(&packetvalues), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&count)) {
@@ -5574,7 +5574,7 @@ impl IInkStrokeDisp_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFlattenedBezierPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fittingerror: i32, flattenedbezierpoints: *mut super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetFlattenedBezierPoints<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokeDisp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fittingerror: i32, flattenedbezierpoints: *mut super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFlattenedBezierPoints(::core::mem::transmute_copy(&fittingerror)) {
@@ -5656,8 +5656,8 @@ impl IInkStrokeDisp_Vtbl {
         iid == &<IInkStrokeDisp as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkStrokes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -5680,9 +5680,9 @@ pub trait IInkStrokes_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Clip(&self, rectangle: ::core::option::Option<&IInkRectangle>) -> ::windows_core::Result<()>;
     fn RemoveRecognitionResult(&self) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkStrokes {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkStrokes_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokes_Impl, const OFFSET: isize>() -> IInkStrokes_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkStrokes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -5855,8 +5855,8 @@ impl IInkStrokes_Vtbl {
         iid == &<IInkStrokes as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkTablet_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR>;
     fn PlugAndPlayId(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -5865,9 +5865,9 @@ pub trait IInkTablet_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IsPacketPropertySupported(&self, packetpropertyname: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetPropertyMetrics(&self, propertyname: &::windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkTablet {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkTablet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkTablet_Impl, const OFFSET: isize>() -> IInkTablet_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkTablet_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -5944,14 +5944,14 @@ impl IInkTablet_Vtbl {
         iid == &<IInkTablet as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkTablet2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn DeviceKind(&self) -> ::windows_core::Result<TabletDeviceKind>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkTablet2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkTablet2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkTablet2_Impl, const OFFSET: isize>() -> IInkTablet2_Vtbl {
         unsafe extern "system" fn DeviceKind<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkTablet2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kind: *mut TabletDeviceKind) -> ::windows_core::HRESULT {
@@ -5971,15 +5971,15 @@ impl IInkTablet2_Vtbl {
         iid == &<IInkTablet2 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkTablet3_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn IsMultiTouch(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MaximumCursors(&self) -> ::windows_core::Result<u32>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkTablet3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkTablet3_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkTablet3_Impl, const OFFSET: isize>() -> IInkTablet3_Vtbl {
         unsafe extern "system" fn IsMultiTouch<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkTablet3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pismultitouch: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -6014,8 +6014,8 @@ impl IInkTablet3_Vtbl {
         iid == &<IInkTablet3 as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkTablets_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> ::windows_core::Result<i32>;
     fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown>;
@@ -6023,9 +6023,9 @@ pub trait IInkTablets_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Item(&self, index: i32) -> ::windows_core::Result<IInkTablet>;
     fn IsPacketPropertySupported(&self, packetpropertyname: &::windows_core::BSTR) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkTablets {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkTablets_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkTablets_Impl, const OFFSET: isize>() -> IInkTablets_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkTablets_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows_core::HRESULT {
@@ -6096,8 +6096,8 @@ impl IInkTablets_Vtbl {
         iid == &<IInkTablets as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkTransform_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Translate(&self, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows_core::Result<()>;
@@ -6122,9 +6122,9 @@ pub trait IInkTransform_Impl: Sized + super::super::System::Com::IDispatch_Impl 
     fn Data(&self, xform: *mut super::super::Graphics::Gdi::XFORM) -> ::windows_core::Result<()>;
     fn SetData(&self, xform: &super::super::Graphics::Gdi::XFORM) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkTransform {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkTransform_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkTransform_Impl, const OFFSET: isize>() -> IInkTransform_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkTransform_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -6303,16 +6303,16 @@ impl IInkTransform_Vtbl {
         iid == &<IInkTransform as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkWordList_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddWord(&self, newword: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn RemoveWord(&self, removeword: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn Merge(&self, mergewordlist: ::core::option::Option<&IInkWordList>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkWordList {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkWordList_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkWordList_Impl, const OFFSET: isize>() -> IInkWordList_Vtbl {
         unsafe extern "system" fn AddWord<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkWordList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newword: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -6341,14 +6341,14 @@ impl IInkWordList_Vtbl {
         iid == &<IInkWordList as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkWordList2_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn AddWords(&self, newwords: &::windows_core::BSTR) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IInkWordList2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkWordList2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkWordList2_Impl, const OFFSET: isize>() -> IInkWordList2_Vtbl {
         unsafe extern "system" fn AddWords<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInkWordList2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newwords: ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT {
@@ -6416,8 +6416,8 @@ impl IInputPanelWindowHandle_Vtbl {
         iid == &<IInputPanelWindowHandle as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMathInputControl_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Show(&self) -> ::windows_core::Result<()>;
     fn Hide(&self) -> ::windows_core::Result<()>;
@@ -6437,9 +6437,9 @@ pub trait IMathInputControl_Impl: Sized + super::super::System::Com::IDispatch_I
     fn RemoveFunctionName(&self, functionname: &::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn GetHoverIcon(&self) -> ::windows_core::Result<super::super::System::Ole::IPictureDisp>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IMathInputControl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMathInputControl_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMathInputControl_Impl, const OFFSET: isize>() -> IMathInputControl_Vtbl {
         unsafe extern "system" fn Show<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMathInputControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
@@ -6570,8 +6570,8 @@ impl IMathInputControl_Vtbl {
         iid == &<IMathInputControl as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPenInputPanel_Impl: Sized + super::super::System::Com::IDispatch_Impl {
     fn Busy(&self) -> ::windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn Factoid(&self) -> ::windows_core::Result<::windows_core::BSTR>;
@@ -6599,9 +6599,9 @@ pub trait IPenInputPanel_Impl: Sized + super::super::System::Com::IDispatch_Impl
     fn Refresh(&self) -> ::windows_core::Result<()>;
     fn EnableTsf(&self, enable: super::super::Foundation::VARIANT_BOOL) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPenInputPanel {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPenInputPanel_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPenInputPanel_Impl, const OFFSET: isize>() -> IPenInputPanel_Vtbl {
         unsafe extern "system" fn Busy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPenInputPanel_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busy: *mut super::super::Foundation::VARIANT_BOOL) -> ::windows_core::HRESULT {
@@ -7254,12 +7254,12 @@ impl IRealTimeStylusSynchronization_Vtbl {
         iid == &<IRealTimeStylusSynchronization as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISketchInk_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ISketchInk {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISketchInk_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ISketchInk_Impl, const OFFSET: isize>() -> ISketchInk_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -7990,12 +7990,12 @@ impl ITipAutoCompleteProvider_Vtbl {
         iid == &<ITipAutoCompleteProvider as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _IInkCollectorEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _IInkCollectorEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _IInkCollectorEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _IInkCollectorEvents_Impl, const OFFSET: isize>() -> _IInkCollectorEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -8004,12 +8004,12 @@ impl _IInkCollectorEvents_Vtbl {
         iid == &<_IInkCollectorEvents as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _IInkEditEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _IInkEditEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _IInkEditEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _IInkEditEvents_Impl, const OFFSET: isize>() -> _IInkEditEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -8018,12 +8018,12 @@ impl _IInkEditEvents_Vtbl {
         iid == &<_IInkEditEvents as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _IInkEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _IInkEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _IInkEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _IInkEvents_Impl, const OFFSET: isize>() -> _IInkEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -8032,12 +8032,12 @@ impl _IInkEvents_Vtbl {
         iid == &<_IInkEvents as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _IInkOverlayEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _IInkOverlayEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _IInkOverlayEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _IInkOverlayEvents_Impl, const OFFSET: isize>() -> _IInkOverlayEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -8046,12 +8046,12 @@ impl _IInkOverlayEvents_Vtbl {
         iid == &<_IInkOverlayEvents as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _IInkPictureEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _IInkPictureEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _IInkPictureEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _IInkPictureEvents_Impl, const OFFSET: isize>() -> _IInkPictureEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -8060,12 +8060,12 @@ impl _IInkPictureEvents_Vtbl {
         iid == &<_IInkPictureEvents as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _IInkRecognitionEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _IInkRecognitionEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _IInkRecognitionEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _IInkRecognitionEvents_Impl, const OFFSET: isize>() -> _IInkRecognitionEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -8074,12 +8074,12 @@ impl _IInkRecognitionEvents_Vtbl {
         iid == &<_IInkRecognitionEvents as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _IInkStrokesEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _IInkStrokesEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _IInkStrokesEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _IInkStrokesEvents_Impl, const OFFSET: isize>() -> _IInkStrokesEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -8088,12 +8088,12 @@ impl _IInkStrokesEvents_Vtbl {
         iid == &<_IInkStrokesEvents as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _IMathInputControlEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _IMathInputControlEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _IMathInputControlEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _IMathInputControlEvents_Impl, const OFFSET: isize>() -> _IMathInputControlEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }
@@ -8102,12 +8102,12 @@ impl _IMathInputControlEvents_Vtbl {
         iid == &<_IMathInputControlEvents as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _IPenInputPanelEvents_Impl: Sized + super::super::System::Com::IDispatch_Impl {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for _IPenInputPanelEvents {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _IPenInputPanelEvents_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: _IPenInputPanelEvents_Impl, const OFFSET: isize>() -> _IPenInputPanelEvents_Vtbl {
         Self { base__: super::super::System::Com::IDispatch_Vtbl::new::<Identity, Impl, OFFSET>() }

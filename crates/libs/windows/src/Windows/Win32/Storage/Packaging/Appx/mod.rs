@@ -2,18 +2,21 @@
 
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows_core::Result<usize> {
-    ::windows_targets::link!("kernel32.dll" "system" fn ActivatePackageVirtualizationContext(context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, cookie : *mut usize) -> ::windows_core::HRESULT);
+pub unsafe fn ActivatePackageVirtualizationContext<P0>(context: P0) -> ::windows_core::Result<usize>
+where
+    P0: ::windows_core::IntoParam<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE>,
+{
+    ::windows_targets::link!("kernel32.dll" "system" fn ActivatePackageVirtualizationContext(context : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE, cookie : *mut usize) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    ActivatePackageVirtualizationContext(context, &mut result__).from_abi(result__)
+    ActivatePackageVirtualizationContext(context.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn AddPackageDependency<P0>(packagedependencyid: P0, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
+pub unsafe fn AddPackageDependency<P0>(packagedependencyid: P0, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernelbase.dll" "system" fn AddPackageDependency(packagedependencyid : ::windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions, packagedependencycontext : *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("kernelbase.dll" "system" fn AddPackageDependency(packagedependencyid : ::windows_core::PCWSTR, rank : i32, options : AddPackageDependencyOptions, packagedependencycontext : *mut PACKAGEDEPENDENCY_CONTEXT, packagefullname : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     AddPackageDependency(packagedependencyid.into_param().abi(), rank, options, packagedependencycontext, ::core::mem::transmute(packagefullname.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
@@ -116,11 +119,11 @@ pub unsafe fn ClosePackageInfo(packageinforeference: *const _PACKAGE_INFO_REFERE
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn CreatePackageVirtualizationContext<P0>(packagefamilyname: P0) -> ::windows_core::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__>
+pub unsafe fn CreatePackageVirtualizationContext<P0>(packagefamilyname: P0) -> ::windows_core::Result<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("kernel32.dll" "system" fn CreatePackageVirtualizationContext(packagefamilyname : ::windows_core::PCWSTR, context : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("kernel32.dll" "system" fn CreatePackageVirtualizationContext(packagefamilyname : ::windows_core::PCWSTR, context : *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
     CreatePackageVirtualizationContext(packagefamilyname.into_param().abi(), &mut result__).from_abi(result__)
 }
@@ -141,10 +144,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows_core::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
-    ::windows_targets::link!("kernel32.dll" "system" fn DuplicatePackageVirtualizationContext(sourcecontext : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__, destcontext : *mut *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ::windows_core::HRESULT);
+pub unsafe fn DuplicatePackageVirtualizationContext<P0>(sourcecontext: P0) -> ::windows_core::Result<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE>
+where
+    P0: ::windows_core::IntoParam<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE>,
+{
+    ::windows_targets::link!("kernel32.dll" "system" fn DuplicatePackageVirtualizationContext(sourcecontext : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE, destcontext : *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    DuplicatePackageVirtualizationContext(sourcecontext, &mut result__).from_abi(result__)
+    DuplicatePackageVirtualizationContext(sourcecontext.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -245,16 +251,19 @@ pub unsafe fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlengt
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn GetCurrentPackageVirtualizationContext() -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
-    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageVirtualizationContext() -> *mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__);
+pub unsafe fn GetCurrentPackageVirtualizationContext() -> PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
+    ::windows_targets::link!("kernel32.dll" "system" fn GetCurrentPackageVirtualizationContext() -> PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE);
     GetCurrentPackageVirtualizationContext()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows_core::Result<::windows_core::PWSTR> {
-    ::windows_targets::link!("kernelbase.dll" "system" fn GetIdForPackageDependencyContext(packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__, packagedependencyid : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
+pub unsafe fn GetIdForPackageDependencyContext<P0>(packagedependencycontext: P0) -> ::windows_core::Result<::windows_core::PWSTR>
+where
+    P0: ::windows_core::IntoParam<PACKAGEDEPENDENCY_CONTEXT>,
+{
+    ::windows_targets::link!("kernelbase.dll" "system" fn GetIdForPackageDependencyContext(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT, packagedependencyid : *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT);
     let mut result__ = ::std::mem::zeroed();
-    GetIdForPackageDependencyContext(packagedependencycontext, &mut result__).from_abi(result__)
+    GetIdForPackageDependencyContext(packagedependencycontext.into_param().abi(), &mut result__).from_abi(result__)
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -302,6 +311,12 @@ where
 {
     ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-1.dll" "system" fn GetPackageFullNameFromToken(token : super::super::super::Foundation:: HANDLE, packagefullnamelength : *mut u32, packagefullname : ::windows_core::PWSTR) -> super::super::super::Foundation:: WIN32_ERROR);
     GetPackageFullNameFromToken(token.into_param().abi(), packagefullnamelength, ::core::mem::transmute(packagefullname)).ok()
+}
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[inline]
+pub unsafe fn GetPackageGraphRevisionId() -> u32 {
+    ::windows_targets::link!("api-ms-win-appmodel-runtime-l1-1-6.dll" "system" fn GetPackageGraphRevisionId() -> u32);
+    GetPackageGraphRevisionId()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -491,15 +506,21 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn ReleasePackageVirtualizationContext(context: *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) {
-    ::windows_targets::link!("kernel32.dll" "system" fn ReleasePackageVirtualizationContext(context : *const PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__) -> ());
-    ReleasePackageVirtualizationContext(context)
+pub unsafe fn ReleasePackageVirtualizationContext<P0>(context: P0)
+where
+    P0: ::windows_core::IntoParam<PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE>,
+{
+    ::windows_targets::link!("kernel32.dll" "system" fn ReleasePackageVirtualizationContext(context : PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE) -> ());
+    ReleasePackageVirtualizationContext(context.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[inline]
-pub unsafe fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("kernelbase.dll" "system" fn RemovePackageDependency(packagedependencycontext : *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows_core::HRESULT);
-    RemovePackageDependency(packagedependencycontext).ok()
+pub unsafe fn RemovePackageDependency<P0>(packagedependencycontext: P0) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<PACKAGEDEPENDENCY_CONTEXT>,
+{
+    ::windows_targets::link!("kernelbase.dll" "system" fn RemovePackageDependency(packagedependencycontext : PACKAGEDEPENDENCY_CONTEXT) -> ::windows_core::HRESULT);
+    RemovePackageDependency(packagedependencycontext.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6780,38 +6801,31 @@ impl ::core::default::Default for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
-pub struct PACKAGEDEPENDENCY_CONTEXT__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for PACKAGEDEPENDENCY_CONTEXT__ {}
-impl ::core::clone::Clone for PACKAGEDEPENDENCY_CONTEXT__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for PACKAGEDEPENDENCY_CONTEXT__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PACKAGEDEPENDENCY_CONTEXT__").field("unused", &self.unused).finish()
-    }
-}
-impl ::windows_core::TypeKind for PACKAGEDEPENDENCY_CONTEXT__ {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for PACKAGEDEPENDENCY_CONTEXT__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for PACKAGEDEPENDENCY_CONTEXT__ {}
-impl ::core::default::Default for PACKAGEDEPENDENCY_CONTEXT__ {
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PACKAGEDEPENDENCY_CONTEXT(pub isize);
+impl ::core::default::Default for PACKAGEDEPENDENCY_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
+impl ::core::clone::Clone for PACKAGEDEPENDENCY_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PACKAGEDEPENDENCY_CONTEXT {}
+impl ::core::fmt::Debug for PACKAGEDEPENDENCY_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PACKAGEDEPENDENCY_CONTEXT").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for PACKAGEDEPENDENCY_CONTEXT {
+    type TypeKind = ::windows_core::CopyType;
+}
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct PACKAGE_ID {
     pub reserved: u32,
     pub processorArchitecture: u32,
@@ -6821,15 +6835,49 @@ pub struct PACKAGE_ID {
     pub resourceId: ::windows_core::PWSTR,
     pub publisherId: ::windows_core::PWSTR,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for PACKAGE_ID {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for PACKAGE_ID {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for PACKAGE_ID {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for PACKAGE_ID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct PACKAGE_ID {
+    pub reserved: u32,
+    pub processorArchitecture: u32,
+    pub version: PACKAGE_VERSION,
+    pub name: ::windows_core::PWSTR,
+    pub publisher: ::windows_core::PWSTR,
+    pub resourceId: ::windows_core::PWSTR,
+    pub publisherId: ::windows_core::PWSTR,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for PACKAGE_ID {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for PACKAGE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for PACKAGE_ID {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for PACKAGE_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6837,6 +6885,7 @@ impl ::core::default::Default for PACKAGE_ID {
 }
 #[repr(C, packed(4))]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct PACKAGE_INFO {
     pub reserved: u32,
     pub flags: u32,
@@ -6845,15 +6894,48 @@ pub struct PACKAGE_INFO {
     pub packageFamilyName: ::windows_core::PWSTR,
     pub packageId: PACKAGE_ID,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for PACKAGE_INFO {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for PACKAGE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::windows_core::TypeKind for PACKAGE_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for PACKAGE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct PACKAGE_INFO {
+    pub reserved: u32,
+    pub flags: u32,
+    pub path: ::windows_core::PWSTR,
+    pub packageFullName: ::windows_core::PWSTR,
+    pub packageFamilyName: ::windows_core::PWSTR,
+    pub packageId: PACKAGE_ID,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for PACKAGE_INFO {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for PACKAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::windows_core::TypeKind for PACKAGE_INFO {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for PACKAGE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6931,35 +7013,27 @@ impl ::core::default::Default for PACKAGE_VERSION_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
-pub struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
-    pub unused: i32,
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE(pub isize);
+impl ::core::default::Default for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-impl ::core::marker::Copy for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {}
-impl ::core::clone::Clone for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
+impl ::core::clone::Clone for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
+impl ::core::marker::Copy for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {}
+impl ::core::fmt::Debug for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__").field("unused", &self.unused).finish()
+        f.debug_tuple("PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE").field(&self.0).finish()
     }
 }
-impl ::windows_core::TypeKind for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
+impl ::windows_core::TypeKind for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE {
     type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::cmp::PartialEq for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
-    fn eq(&self, other: &Self) -> bool {
-        self.unused == other.unused
-    }
-}
-impl ::core::cmp::Eq for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {}
-impl ::core::default::Default for PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]

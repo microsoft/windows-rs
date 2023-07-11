@@ -113,8 +113,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wtsapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelClose(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelOpen(hserver : super::super::Foundation:: HANDLE, sessionid : u32, pvirtualname : ::windows_sys::core::PCSTR) -> HwtsVirtualChannelHandle);
-::windows_targets::link!("wtsapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"] fn WTSVirtualChannelOpenEx(sessionid : u32, pvirtualname : ::windows_sys::core::PCSTR, flags : u32) -> HwtsVirtualChannelHandle);
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelOpen(hserver : super::super::Foundation:: HANDLE, sessionid : u32, pvirtualname : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HANDLE);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("wtsapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelOpenEx(sessionid : u32, pvirtualname : ::windows_sys::core::PCSTR, flags : u32) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("wtsapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"] fn WTSVirtualChannelPurgeInput(hchannelhandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -1522,7 +1523,6 @@ impl ::core::clone::Clone for CLIENT_DISPLAY {
         *self
     }
 }
-pub type HwtsVirtualChannelHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct PRODUCT_INFOA {

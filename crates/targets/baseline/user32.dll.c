@@ -566,6 +566,7 @@ void __stdcall RegisterClipboardFormatA(int p0) {}
 void __stdcall RegisterClipboardFormatW(int p0) {}
 void __stdcall RegisterDeviceNotificationA(int p0, int p1, int p2) {}
 void __stdcall RegisterDeviceNotificationW(int p0, int p1, int p2) {}
+void __stdcall RegisterForTooltipDismissNotification(int p0, int p1) {}
 void __stdcall RegisterHotKey(int p0, int p1, int p2, int p3) {}
 void __stdcall RegisterPointerDeviceNotifications(int p0, int p1) {}
 void __stdcall RegisterPointerInputTarget(int p0, int p1) {}
@@ -604,6 +605,7 @@ void __stdcall SendMessageW(int p0, int p1, int p2, int p3) {}
 void __stdcall SendNotifyMessageA(int p0, int p1, int p2, int p3) {}
 void __stdcall SendNotifyMessageW(int p0, int p1, int p2, int p3) {}
 void __stdcall SetActiveWindow(int p0) {}
+void __stdcall SetAdditionalForegroundBoostProcesses(int p0, int p1, int p2) {}
 void __stdcall SetCapture(int p0) {}
 void __stdcall SetCaretBlinkTime(int p0) {}
 void __stdcall SetCaretPos(int p0, int p1) {}

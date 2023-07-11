@@ -74,10 +74,11 @@ where
     ::windows_targets::link!("fltlib.dll" "system" fn FilterFindClose(hfilterfind : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     FilterFindClose(hfilterfind.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterfind: *mut FilterFindHandle) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("fltlib.dll" "system" fn FilterFindFirst(dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterfind : *mut FilterFindHandle) -> ::windows_core::HRESULT);
+pub unsafe fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterfind: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("fltlib.dll" "system" fn FilterFindFirst(dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterfind : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     FilterFindFirst(dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpfilterfind).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
@@ -149,13 +150,14 @@ where
     ::windows_targets::link!("fltlib.dll" "system" fn FilterInstanceFindClose(hfilterinstancefind : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     FilterInstanceFindClose(hfilterinstancefind.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterInstanceFindFirst<P0>(lpfiltername: P0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterinstancefind: *mut FilterInstanceFindHandle) -> ::windows_core::Result<()>
+pub unsafe fn FilterInstanceFindFirst<P0>(lpfiltername: P0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterinstancefind: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("fltlib.dll" "system" fn FilterInstanceFindFirst(lpfiltername : ::windows_core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterinstancefind : *mut FilterInstanceFindHandle) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("fltlib.dll" "system" fn FilterInstanceFindFirst(lpfiltername : ::windows_core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterinstancefind : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     FilterInstanceFindFirst(lpfiltername.into_param().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpfilterinstancefind).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
@@ -225,10 +227,11 @@ where
     ::windows_targets::link!("fltlib.dll" "system" fn FilterVolumeFindClose(hvolumefind : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     FilterVolumeFindClose(hvolumefind.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumefind: *mut FilterVolumeFindHandle) -> ::windows_core::Result<()> {
-    ::windows_targets::link!("fltlib.dll" "system" fn FilterVolumeFindFirst(dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumefind : *mut FilterVolumeFindHandle) -> ::windows_core::HRESULT);
+pub unsafe fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumefind: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()> {
+    ::windows_targets::link!("fltlib.dll" "system" fn FilterVolumeFindFirst(dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumefind : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     FilterVolumeFindFirst(dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpvolumefind).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
@@ -251,13 +254,14 @@ where
     ::windows_targets::link!("fltlib.dll" "system" fn FilterVolumeInstanceFindClose(hvolumeinstancefind : super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     FilterVolumeInstanceFindClose(hvolumeinstancefind.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
+#[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterVolumeInstanceFindFirst<P0>(lpvolumename: P0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumeinstancefind: *mut FilterVolumeInstanceFindHandle) -> ::windows_core::Result<()>
+pub unsafe fn FilterVolumeInstanceFindFirst<P0>(lpvolumename: P0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumeinstancefind: *mut super::super::Foundation::HANDLE) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("fltlib.dll" "system" fn FilterVolumeInstanceFindFirst(lpvolumename : ::windows_core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumeinstancefind : *mut FilterVolumeInstanceFindHandle) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("fltlib.dll" "system" fn FilterVolumeInstanceFindFirst(lpvolumename : ::windows_core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumeinstancefind : *mut super::super::Foundation:: HANDLE) -> ::windows_core::HRESULT);
     FilterVolumeInstanceFindFirst(lpvolumename.into_param().abi(), dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpvolumeinstancefind).ok()
 }
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"]
@@ -1001,114 +1005,6 @@ impl ::core::default::Default for FILTER_VOLUME_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FilterFindHandle(pub isize);
-impl FilterFindHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for FilterFindHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for FilterFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for FilterFindHandle {}
-impl ::core::fmt::Debug for FilterFindHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FilterFindHandle").field(&self.0).finish()
-    }
-}
-impl ::windows_core::TypeKind for FilterFindHandle {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FilterInstanceFindHandle(pub isize);
-impl FilterInstanceFindHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for FilterInstanceFindHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for FilterInstanceFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for FilterInstanceFindHandle {}
-impl ::core::fmt::Debug for FilterInstanceFindHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FilterInstanceFindHandle").field(&self.0).finish()
-    }
-}
-impl ::windows_core::TypeKind for FilterInstanceFindHandle {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FilterVolumeFindHandle(pub isize);
-impl FilterVolumeFindHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for FilterVolumeFindHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for FilterVolumeFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for FilterVolumeFindHandle {}
-impl ::core::fmt::Debug for FilterVolumeFindHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FilterVolumeFindHandle").field(&self.0).finish()
-    }
-}
-impl ::windows_core::TypeKind for FilterVolumeFindHandle {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FilterVolumeInstanceFindHandle(pub isize);
-impl FilterVolumeInstanceFindHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for FilterVolumeInstanceFindHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for FilterVolumeInstanceFindHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for FilterVolumeInstanceFindHandle {}
-impl ::core::fmt::Debug for FilterVolumeInstanceFindHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FilterVolumeInstanceFindHandle").field(&self.0).finish()
-    }
-}
-impl ::windows_core::TypeKind for FilterVolumeInstanceFindHandle {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

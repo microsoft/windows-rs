@@ -49,7 +49,10 @@ pub fn from_reader(
 
         for method in reader.type_def_methods(def) {
             let name = reader.method_def_name(method);
-            let sig = winmd_signature(reader, &reader.method_def_signature(method, generics));
+            let sig = winmd_signature(
+                reader,
+                &reader.method_def_signature(reader.type_def_namespace(def), method, generics),
+            );
             let signature = writer.insert_method_sig(&sig);
 
             writer.tables.MethodDef.push(winmd::MethodDef {

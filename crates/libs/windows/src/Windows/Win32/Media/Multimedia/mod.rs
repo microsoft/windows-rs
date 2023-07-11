@@ -926,10 +926,10 @@ pub unsafe fn ICSeqCompressFrameStart(pc: *const COMPVARS, lpbiin: *const super:
 pub unsafe fn MCIWndCreateA<P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateA(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, dwstyle : u32, szfile : ::windows_core::PCSTR) -> super::super::Foundation:: HWND);
+    ::windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateA(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : ::windows_core::PCSTR) -> super::super::Foundation:: HWND);
     MCIWndCreateA(hwndparent.into_param().abi(), hinstance.into_param().abi(), dwstyle, szfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]
@@ -938,10 +938,10 @@ where
 pub unsafe fn MCIWndCreateW<P0, P1, P2>(hwndparent: P0, hinstance: P1, dwstyle: u32, szfile: P2) -> super::super::Foundation::HWND
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateW(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, dwstyle : u32, szfile : ::windows_core::PCWSTR) -> super::super::Foundation:: HWND);
+    ::windows_targets::link!("msvfw32.dll" "cdecl" fn MCIWndCreateW(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : ::windows_core::PCWSTR) -> super::super::Foundation:: HWND);
     MCIWndCreateW(hwndparent.into_param().abi(), hinstance.into_param().abi(), dwstyle, szfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"]

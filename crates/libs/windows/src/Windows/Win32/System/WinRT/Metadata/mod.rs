@@ -540,14 +540,14 @@ impl IMetaDataDispenserEx {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.OpenScopeOnMemory)(::windows_core::Interface::as_raw(self), pdata, cbdata, dwopenflags, riid, &mut result__).from_abi(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOption(&self, optionid: *const ::windows_core::GUID, value: *const super::super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn SetOption(&self, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetOption)(::windows_core::Interface::as_raw(self), optionid, value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetOption(&self, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Com::VARIANT) -> ::windows_core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub unsafe fn GetOption(&self, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Variant::VARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetOption)(::windows_core::Interface::as_raw(self), optionid, pvalue).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -610,13 +610,13 @@ unsafe impl ::windows_core::ComInterface for IMetaDataDispenserEx {
 #[doc(hidden)]
 pub struct IMetaDataDispenserEx_Vtbl {
     pub base__: IMetaDataDispenser_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub SetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, value: *const super::super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub SetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, value: *const super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     SetOption: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Com::VARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+    pub GetOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, optionid: *const ::windows_core::GUID, pvalue: *mut super::super::Variant::VARIANT) -> ::windows_core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant")))]
     GetOption: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub OpenScopeOnITypeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piti: *mut ::core::ffi::c_void, dwopenflags: u32, riid: *const ::windows_core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
@@ -3326,79 +3326,79 @@ impl ::core::fmt::Debug for CorDeclSecurity {
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CorElementType(pub i32);
+pub struct CorElementType(pub u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_END: CorElementType = CorElementType(0i32);
+pub const ELEMENT_TYPE_END: CorElementType = CorElementType(0u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_VOID: CorElementType = CorElementType(1i32);
+pub const ELEMENT_TYPE_VOID: CorElementType = CorElementType(1u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_BOOLEAN: CorElementType = CorElementType(2i32);
+pub const ELEMENT_TYPE_BOOLEAN: CorElementType = CorElementType(2u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_CHAR: CorElementType = CorElementType(3i32);
+pub const ELEMENT_TYPE_CHAR: CorElementType = CorElementType(3u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_I1: CorElementType = CorElementType(4i32);
+pub const ELEMENT_TYPE_I1: CorElementType = CorElementType(4u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_U1: CorElementType = CorElementType(5i32);
+pub const ELEMENT_TYPE_U1: CorElementType = CorElementType(5u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_I2: CorElementType = CorElementType(6i32);
+pub const ELEMENT_TYPE_I2: CorElementType = CorElementType(6u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_U2: CorElementType = CorElementType(7i32);
+pub const ELEMENT_TYPE_U2: CorElementType = CorElementType(7u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_I4: CorElementType = CorElementType(8i32);
+pub const ELEMENT_TYPE_I4: CorElementType = CorElementType(8u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_U4: CorElementType = CorElementType(9i32);
+pub const ELEMENT_TYPE_U4: CorElementType = CorElementType(9u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_I8: CorElementType = CorElementType(10i32);
+pub const ELEMENT_TYPE_I8: CorElementType = CorElementType(10u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_U8: CorElementType = CorElementType(11i32);
+pub const ELEMENT_TYPE_U8: CorElementType = CorElementType(11u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_R4: CorElementType = CorElementType(12i32);
+pub const ELEMENT_TYPE_R4: CorElementType = CorElementType(12u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_R8: CorElementType = CorElementType(13i32);
+pub const ELEMENT_TYPE_R8: CorElementType = CorElementType(13u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_STRING: CorElementType = CorElementType(14i32);
+pub const ELEMENT_TYPE_STRING: CorElementType = CorElementType(14u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_PTR: CorElementType = CorElementType(15i32);
+pub const ELEMENT_TYPE_PTR: CorElementType = CorElementType(15u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_BYREF: CorElementType = CorElementType(16i32);
+pub const ELEMENT_TYPE_BYREF: CorElementType = CorElementType(16u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_VALUETYPE: CorElementType = CorElementType(17i32);
+pub const ELEMENT_TYPE_VALUETYPE: CorElementType = CorElementType(17u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_CLASS: CorElementType = CorElementType(18i32);
+pub const ELEMENT_TYPE_CLASS: CorElementType = CorElementType(18u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_VAR: CorElementType = CorElementType(19i32);
+pub const ELEMENT_TYPE_VAR: CorElementType = CorElementType(19u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_ARRAY: CorElementType = CorElementType(20i32);
+pub const ELEMENT_TYPE_ARRAY: CorElementType = CorElementType(20u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_GENERICINST: CorElementType = CorElementType(21i32);
+pub const ELEMENT_TYPE_GENERICINST: CorElementType = CorElementType(21u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_TYPEDBYREF: CorElementType = CorElementType(22i32);
+pub const ELEMENT_TYPE_TYPEDBYREF: CorElementType = CorElementType(22u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_I: CorElementType = CorElementType(24i32);
+pub const ELEMENT_TYPE_I: CorElementType = CorElementType(24u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_U: CorElementType = CorElementType(25i32);
+pub const ELEMENT_TYPE_U: CorElementType = CorElementType(25u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_FNPTR: CorElementType = CorElementType(27i32);
+pub const ELEMENT_TYPE_FNPTR: CorElementType = CorElementType(27u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_OBJECT: CorElementType = CorElementType(28i32);
+pub const ELEMENT_TYPE_OBJECT: CorElementType = CorElementType(28u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_SZARRAY: CorElementType = CorElementType(29i32);
+pub const ELEMENT_TYPE_SZARRAY: CorElementType = CorElementType(29u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_MVAR: CorElementType = CorElementType(30i32);
+pub const ELEMENT_TYPE_MVAR: CorElementType = CorElementType(30u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_CMOD_REQD: CorElementType = CorElementType(31i32);
+pub const ELEMENT_TYPE_CMOD_REQD: CorElementType = CorElementType(31u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_CMOD_OPT: CorElementType = CorElementType(32i32);
+pub const ELEMENT_TYPE_CMOD_OPT: CorElementType = CorElementType(32u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_INTERNAL: CorElementType = CorElementType(33i32);
+pub const ELEMENT_TYPE_INTERNAL: CorElementType = CorElementType(33u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_MAX: CorElementType = CorElementType(34i32);
+pub const ELEMENT_TYPE_MAX: CorElementType = CorElementType(34u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_MODIFIER: CorElementType = CorElementType(64i32);
+pub const ELEMENT_TYPE_MODIFIER: CorElementType = CorElementType(64u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_SENTINEL: CorElementType = CorElementType(65i32);
+pub const ELEMENT_TYPE_SENTINEL: CorElementType = CorElementType(65u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_PINNED: CorElementType = CorElementType(69i32);
+pub const ELEMENT_TYPE_PINNED: CorElementType = CorElementType(69u8);
 impl ::core::marker::Copy for CorElementType {}
 impl ::core::clone::Clone for CorElementType {
     fn clone(&self) -> Self {

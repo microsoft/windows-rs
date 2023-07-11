@@ -1281,7 +1281,7 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION {
     pub ReservationIops: i64,
     pub VolumeName: ::windows_core::PCWSTR,
     pub BaseIoSize: u32,
-    pub ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS,
+    pub ControlFlags: u32,
 }
 impl ::core::marker::Copy for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {}
 impl ::core::clone::Clone for JOBOBJECT_IO_RATE_CONTROL_INFORMATION {

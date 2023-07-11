@@ -28,7 +28,9 @@ void __stdcall HcnOpenEndpoint(int p0, int p1, int p2) {}
 void __stdcall HcnOpenLoadBalancer(int p0, int p1, int p2) {}
 void __stdcall HcnOpenNamespace(int p0, int p1, int p2) {}
 void __stdcall HcnOpenNetwork(int p0, int p1, int p2) {}
+void __stdcall HcnQueryEndpointAddresses(int p0, int p1, int p2, int p3) {}
 void __stdcall HcnQueryEndpointProperties(int p0, int p1, int p2, int p3) {}
+void __stdcall HcnQueryEndpointStats(int p0, int p1, int p2, int p3) {}
 void __stdcall HcnQueryLoadBalancerProperties(int p0, int p1, int p2, int p3) {}
 void __stdcall HcnQueryNamespaceProperties(int p0, int p1, int p2, int p3) {}
 void __stdcall HcnQueryNetworkProperties(int p0, int p1, int p2, int p3) {}

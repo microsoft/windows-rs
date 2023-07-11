@@ -81,7 +81,7 @@ impl IWPCProviderConfig {
         P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
         P1: ::windows_core::IntoParam<::windows_core::BSTR>,
     {
-        (::windows_core::Interface::vtable(self).RequestOverride)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), bstrpath.into_param().abi(), dwflags).ok()
+        (::windows_core::Interface::vtable(self).RequestOverride)(::windows_core::Interface::as_raw(self), hwnd.into_param().abi(), bstrpath.into_param().abi(), dwflags.0 as _).ok()
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWPCProviderConfig, ::windows_core::IUnknown);
@@ -117,7 +117,7 @@ pub struct IWPCProviderConfig_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Configure: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub RequestOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwflags: WPCFLAG_RESTRICTION) -> ::windows_core::HRESULT,
+    pub RequestOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, bstrpath: ::std::mem::MaybeUninit<::windows_core::BSTR>, dwflags: u32) -> ::windows_core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     RequestOverride: usize,
 }

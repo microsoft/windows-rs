@@ -25,6 +25,36 @@
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
+pub struct IO_STATUS_BLOCK {
+    pub Anonymous: IO_STATUS_BLOCK_0,
+    pub Information: usize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IO_STATUS_BLOCK {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IO_STATUS_BLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union IO_STATUS_BLOCK_0 {
+    pub Status: super::super::Foundation::NTSTATUS,
+    pub Pointer: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for IO_STATUS_BLOCK_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for IO_STATUS_BLOCK_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OVERLAPPED {
     pub Internal: usize,
     pub InternalHigh: usize,
@@ -89,3 +119,6 @@ impl ::core::clone::Clone for OVERLAPPED_ENTRY {
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPOVERLAPPED_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwerrorcode: u32, dwnumberofbytestransfered: u32, lpoverlapped: *mut OVERLAPPED) -> ()>;
+#[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PIO_APC_ROUTINE = ::core::option::Option<unsafe extern "system" fn(apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32) -> ()>;

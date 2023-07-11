@@ -1203,8 +1203,8 @@ impl IWiaItemExtras {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetExtendedErrorInfo)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn Escape(&self, dwescapecode: u32, lpindata: &[u8], poutdata: *mut u8, dwoutdatasize: u32, pdwactualdatasize: *mut u32) -> ::windows_core::Result<()> {
-        (::windows_core::Interface::vtable(self).Escape)(::windows_core::Interface::as_raw(self), dwescapecode, ::core::mem::transmute(lpindata.as_ptr()), lpindata.len() as _, poutdata, dwoutdatasize, pdwactualdatasize).ok()
+    pub unsafe fn Escape(&self, dwescapecode: u32, lpindata: &[u8], poutdata: &mut [u8], pdwactualdatasize: *mut u32) -> ::windows_core::Result<()> {
+        (::windows_core::Interface::vtable(self).Escape)(::windows_core::Interface::as_raw(self), dwescapecode, ::core::mem::transmute(lpindata.as_ptr()), lpindata.len() as _, ::core::mem::transmute(poutdata.as_ptr()), poutdata.len() as _, pdwactualdatasize).ok()
     }
     pub unsafe fn CancelPendingIO(&self) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).CancelPendingIO)(::windows_core::Interface::as_raw(self)).ok()
@@ -1677,13 +1677,13 @@ pub struct IWiaPreview_Vtbl {
 #[repr(transparent)]
 pub struct IWiaPropertyStorage(::windows_core::IUnknown);
 impl IWiaPropertyStorage {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn ReadMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).ReadMultiple)(::windows_core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).WriteMultiple)(::windows_core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar, propidnamefirst).ok()
     }
@@ -1726,8 +1726,8 @@ impl IWiaPropertyStorage {
     pub unsafe fn Stat(&self, pstatpsstg: *mut super::super::System::Com::StructuredStorage::STATPROPSETSTG) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).Stat)(::windows_core::Interface::as_raw(self), pstatpsstg).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub unsafe fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).GetPropertyAttributes)(::windows_core::Interface::as_raw(self), cpspec, rgpspec, rgflags, rgpropvar).ok()
     }
@@ -1776,13 +1776,13 @@ unsafe impl ::windows_core::ComInterface for IWiaPropertyStorage {
 #[doc(hidden)]
 pub struct IWiaPropertyStorage_Vtbl {
     pub base__: ::windows_core::IUnknown_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub ReadMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     ReadMultiple: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub WriteMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgpropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     WriteMultiple: usize,
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub DeleteMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC) -> ::windows_core::HRESULT,
@@ -1806,9 +1806,9 @@ pub struct IWiaPropertyStorage_Vtbl {
     pub Stat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatpsstg: *mut super::super::System::Com::StructuredStorage::STATPROPSETSTG) -> ::windows_core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     Stat: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
     pub GetPropertyAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows_core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant")))]
     GetPropertyAttributes: usize,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulnumprops: *mut u32) -> ::windows_core::HRESULT,
     #[cfg(feature = "Win32_System_Com")]
@@ -5948,32 +5948,32 @@ impl ::core::default::Default for WIA_PROPERTY_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO {
     pub lAccessFlags: u32,
-    pub vt: super::super::System::Com::VARENUM,
+    pub vt: super::super::System::Variant::VARENUM,
     pub ValidVal: WIA_PROPERTY_INFO_0,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for WIA_PROPERTY_INFO {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for WIA_PROPERTY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub union WIA_PROPERTY_INFO_0 {
     pub Range: WIA_PROPERTY_INFO_0_7,
     pub RangeFloat: WIA_PROPERTY_INFO_0_6,
@@ -5984,334 +5984,334 @@ pub union WIA_PROPERTY_INFO_0 {
     pub Flag: WIA_PROPERTY_INFO_0_0,
     pub None: WIA_PROPERTY_INFO_0_5,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0 {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for WIA_PROPERTY_INFO_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_0 {
     pub Nom: i32,
     pub ValidBits: i32,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_0 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_0").field("Nom", &self.Nom).field("ValidBits", &self.ValidBits).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for WIA_PROPERTY_INFO_0_0 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Nom == other.Nom && self.ValidBits == other.ValidBits
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_0 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_1 {
     pub cNumList: i32,
     pub Nom: ::std::mem::ManuallyDrop<::windows_core::BSTR>,
     pub pList: *mut ::windows_core::BSTR,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_1 {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_1").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for WIA_PROPERTY_INFO_0_1 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_1 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_2 {
     pub cNumList: i32,
     pub Nom: f64,
     pub pList: *mut u8,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_2").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for WIA_PROPERTY_INFO_0_2 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_2 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_3 {
     pub cNumList: i32,
     pub Nom: ::windows_core::GUID,
     pub pList: *mut ::windows_core::GUID,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_3").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for WIA_PROPERTY_INFO_0_3 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_3 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_4 {
     pub cNumList: i32,
     pub Nom: i32,
     pub pList: *mut u8,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_4 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_4").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for WIA_PROPERTY_INFO_0_4 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_4 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_5 {
     pub Dummy: i32,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_5 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_5 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_5").field("Dummy", &self.Dummy).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for WIA_PROPERTY_INFO_0_5 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.Dummy == other.Dummy
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_5 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_6 {
     pub Min: f64,
     pub Nom: f64,
     pub Max: f64,
     pub Inc: f64,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_6 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_6 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_6 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_6").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for WIA_PROPERTY_INFO_0_6 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_6 {
     fn eq(&self, other: &Self) -> bool {
         self.Min == other.Min && self.Nom == other.Nom && self.Max == other.Max && self.Inc == other.Inc
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_6 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub struct WIA_PROPERTY_INFO_0_7 {
     pub Min: i32,
     pub Nom: i32,
     pub Max: i32,
     pub Inc: i32,
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_7 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_7 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_7 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_7").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::TypeKind for WIA_PROPERTY_INFO_0_7 {
     type TypeKind = ::windows_core::CopyType;
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_7 {
     fn eq(&self, other: &Self) -> bool {
         self.Min == other.Min && self.Nom == other.Nom && self.Max == other.Max && self.Inc == other.Inc
     }
 }
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_7 {}
-#[cfg(feature = "Win32_System_Com")]
+#[cfg(feature = "Win32_System_Variant")]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_7 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

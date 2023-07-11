@@ -22,8 +22,10 @@ pub fn standalone_imp<'a, I: Iterator<Item = &'a str>>(writer: &Writer, names: I
             .filter(|method| writer.reader.method_def_name(*method) == type_name.name)
         {
             found = true;
-            functions.insert(method);
-            let signature = writer.reader.method_def_signature(method, &[]);
+            functions.insert((method, type_name.namespace));
+            let signature = writer
+                .reader
+                .method_def_signature(type_name.namespace, method, &[]);
             writer
                 .reader
                 .type_collect_standalone(&signature.return_type, &mut types);
@@ -183,14 +185,14 @@ pub fn standalone_imp<'a, I: Iterator<Item = &'a str>>(writer: &Writer, names: I
         }
     }
 
-    for function in functions {
+    for (function, namespace) in functions {
         sorted.insert(
             &format!(
                 ".{}.{}",
                 writer.reader.method_def_module_name(function),
                 writer.reader.method_def_name(function)
             ),
-            functions::writer(writer, function),
+            functions::writer(writer, namespace, function),
         );
     }
 

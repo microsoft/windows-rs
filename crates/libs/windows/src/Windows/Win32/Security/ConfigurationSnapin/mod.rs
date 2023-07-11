@@ -202,15 +202,15 @@ impl ::core::fmt::Debug for SCESVC_INFO_TYPE {
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SCE_LOG_ERR_LEVEL(pub u32);
+pub struct SCE_LOG_ERR_LEVEL(pub i32);
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0u32);
+pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0i32);
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(1u32);
+pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(1i32);
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(2u32);
+pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(2i32);
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(3u32);
+pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(3i32);
 impl ::core::marker::Copy for SCE_LOG_ERR_LEVEL {}
 impl ::core::clone::Clone for SCE_LOG_ERR_LEVEL {
     fn clone(&self) -> Self {

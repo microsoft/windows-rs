@@ -129,8 +129,8 @@ pub unsafe fn DwmGetWindowAttribute<P0>(hwnd: P0, dwattribute: DWMWINDOWATTRIBUT
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("dwmapi.dll" "system" fn DwmGetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : DWMWINDOWATTRIBUTE, pvattribute : *mut ::core::ffi::c_void, cbattribute : u32) -> ::windows_core::HRESULT);
-    DwmGetWindowAttribute(hwnd.into_param().abi(), dwattribute, pvattribute, cbattribute).ok()
+    ::windows_targets::link!("dwmapi.dll" "system" fn DwmGetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : u32, pvattribute : *mut ::core::ffi::c_void, cbattribute : u32) -> ::windows_core::HRESULT);
+    DwmGetWindowAttribute(hwnd.into_param().abi(), dwattribute.0 as _, pvattribute, cbattribute).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -237,8 +237,8 @@ pub unsafe fn DwmSetWindowAttribute<P0>(hwnd: P0, dwattribute: DWMWINDOWATTRIBUT
 where
     P0: ::windows_core::IntoParam<super::super::Foundation::HWND>,
 {
-    ::windows_targets::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : DWMWINDOWATTRIBUTE, pvattribute : *const ::core::ffi::c_void, cbattribute : u32) -> ::windows_core::HRESULT);
-    DwmSetWindowAttribute(hwnd.into_param().abi(), dwattribute, pvattribute, cbattribute).ok()
+    ::windows_targets::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : u32, pvattribute : *const ::core::ffi::c_void, cbattribute : u32) -> ::windows_core::HRESULT);
+    DwmSetWindowAttribute(hwnd.into_param().abi(), dwattribute.0 as _, pvattribute, cbattribute).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 #[inline]

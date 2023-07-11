@@ -7,7 +7,7 @@ use windows_sys::{
 fn calling_convention() {
     unsafe {
         // This function requires cdecl on x86.
-        assert_eq!(ERROR_BUSY, LdapMapErrorToWin32(LDAP_BUSY));
+        assert_eq!(ERROR_BUSY, LdapMapErrorToWin32(LDAP_BUSY as _));
 
         // This function requires stdcall on x86.
         GetTickCount();

@@ -593,7 +593,6 @@ pub const RSOPIgnored: SETTINGSTATUS = 2i32;
 pub const RSOPFailed: SETTINGSTATUS = 3i32;
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`*"]
 pub const RSOPSubsettingFailed: SETTINGSTATUS = 4i32;
-pub type CriticalPolicySectionHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_GroupPolicy\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

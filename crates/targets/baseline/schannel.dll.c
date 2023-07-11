@@ -1,4 +1,5 @@
 void __stdcall SslCrackCertificate(int p0, int p1, int p2, int p3) {}
+void __stdcall SslDeserializeCertificateStore(int p0, int p1, int p2) {}
 void __stdcall SslEmptyCacheA(int p0, int p1) {}
 void __stdcall SslEmptyCacheW(int p0, int p1) {}
 void __stdcall SslFreeCertificate(int p0) {}

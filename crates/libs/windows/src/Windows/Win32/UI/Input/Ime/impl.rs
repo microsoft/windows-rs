@@ -2034,17 +2034,17 @@ impl IFELanguage_Vtbl {
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub trait IImePad_Impl: Sized {
-    fn Request(&self, piimepadapplet: ::core::option::Option<&IImePadApplet>, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows_core::Result<()>;
+    fn Request(&self, piimepadapplet: ::core::option::Option<&IImePadApplet>, reqid: &IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IImePad {}
 #[cfg(feature = "Win32_Foundation")]
 impl IImePad_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IImePad_Impl, const OFFSET: isize>() -> IImePad_Vtbl {
-        unsafe extern "system" fn Request<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IImePad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piimepadapplet: *mut ::core::ffi::c_void, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Request<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IImePad_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piimepadapplet: *mut ::core::ffi::c_void, reqid: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Request(::windows_core::from_raw_borrowed(&piimepadapplet), ::core::mem::transmute_copy(&reqid), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)).into()
+            this.Request(::windows_core::from_raw_borrowed(&piimepadapplet), ::core::mem::transmute(&reqid), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)).into()
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Request: Request::<Identity, Impl, OFFSET> }
     }

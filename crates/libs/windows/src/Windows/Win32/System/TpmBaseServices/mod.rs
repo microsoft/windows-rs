@@ -50,6 +50,13 @@ pub unsafe fn Tbsi_Get_TCG_Log_Ex(logtype: u32, pboutput: ::core::option::Option
     ::windows_targets::link!("tbs.dll" "system" fn Tbsi_Get_TCG_Log_Ex(logtype : u32, pboutput : *mut u8, pcboutput : *mut u32) -> u32);
     Tbsi_Get_TCG_Log_Ex(logtype, ::core::mem::transmute(pboutput.unwrap_or(::std::ptr::null_mut())), pcboutput)
 }
+#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn Tbsi_Is_Tpm_Present() -> super::super::Foundation::BOOL {
+    ::windows_targets::link!("tbs.dll" "system" fn Tbsi_Is_Tpm_Present() -> super::super::Foundation:: BOOL);
+    Tbsi_Is_Tpm_Present()
+}
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 #[inline]
 pub unsafe fn Tbsi_Physical_Presence_Command(hcontext: *const ::core::ffi::c_void, pabinput: &[u8], paboutput: *mut u8, pcboutput: *mut u32) -> u32 {

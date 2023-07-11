@@ -7,7 +7,7 @@ pub fn verify(reader: &metadata::Reader, filter: &metadata::Filter) -> crate::Re
             .try_for_each(|field| not_type_ref(reader, &reader.field_type(field, Some(def))))?;
 
         reader.type_def_methods(def).try_for_each(|method| {
-            let sig = reader.method_def_signature(method, generics);
+            let sig = reader.method_def_signature(reader.type_def_namespace(def), method, generics);
             not_type_ref(reader, &sig.return_type)?;
 
             sig.params

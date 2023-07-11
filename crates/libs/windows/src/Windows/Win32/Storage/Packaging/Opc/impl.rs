@@ -3,9 +3,9 @@
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`, `\"implement\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub trait IOpcCertificateEnumerator_Impl: Sized {
-    fn MoveNext(&self, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
-    fn MovePrevious(&self, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows_core::Result<()>;
-    fn GetCurrent(&self, certificate: *const *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows_core::Result<()>;
+    fn MoveNext(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn MovePrevious(&self) -> ::windows_core::Result<super::super::super::Foundation::BOOL>;
+    fn GetCurrent(&self) -> ::windows_core::Result<*mut super::super::super::Security::Cryptography::CERT_CONTEXT>;
     fn Clone(&self) -> ::windows_core::Result<IOpcCertificateEnumerator>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
@@ -16,17 +16,35 @@ impl IOpcCertificateEnumerator_Vtbl {
         unsafe extern "system" fn MoveNext<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasnext: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MoveNext(::core::mem::transmute_copy(&hasnext)).into()
+            match this.MoveNext() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn MovePrevious<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hasprevious: *mut super::super::super::Foundation::BOOL) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MovePrevious(::core::mem::transmute_copy(&hasprevious)).into()
+            match this.MovePrevious() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(hasprevious, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
-        unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: *const *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetCurrent<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: *mut *mut super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCurrent(::core::mem::transmute_copy(&certificate)).into()
+            match this.GetCurrent() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(certificate, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Clone<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOpcCertificateEnumerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copy: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -102,12 +120,12 @@ pub trait IOpcDigitalSignature_Impl: Sized {
     fn GetSignatureId(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
     fn GetSignaturePartName(&self) -> ::windows_core::Result<IOpcPartUri>;
     fn GetSignatureMethod(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
-    fn GetCanonicalizationMethod(&self, canonicalizationmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows_core::Result<()>;
+    fn GetCanonicalizationMethod(&self) -> ::windows_core::Result<OPC_CANONICALIZATION_METHOD>;
     fn GetSignatureValue(&self, signaturevalue: *mut *mut u8, count: *mut u32) -> ::windows_core::Result<()>;
     fn GetSignaturePartReferenceEnumerator(&self) -> ::windows_core::Result<IOpcSignaturePartReferenceEnumerator>;
     fn GetSignatureRelationshipReferenceEnumerator(&self) -> ::windows_core::Result<IOpcSignatureRelationshipReferenceEnumerator>;
     fn GetSigningTime(&self) -> ::windows_core::Result<::windows_core::PWSTR>;
-    fn GetTimeFormat(&self, timeformat: *mut OPC_SIGNATURE_TIME_FORMAT) -> ::windows_core::Result<()>;
+    fn GetTimeFormat(&self) -> ::windows_core::Result<OPC_SIGNATURE_TIME_FORMAT>;
     fn GetPackageObjectReference(&self) -> ::windows_core::Result<IOpcSignatureReference>;
     fn GetCertificateEnumerator(&self) -> ::windows_core::Result<IOpcCertificateEnumerator>;
     fn GetCustomReferenceEnumerator(&self) -> ::windows_core::Result<IOpcSignatureReferenceEnumerator>;
@@ -160,7 +178,13 @@ impl IOpcDigitalSignature_Vtbl {
         unsafe extern "system" fn GetCanonicalizationMethod<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, canonicalizationmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetCanonicalizationMethod(::core::mem::transmute_copy(&canonicalizationmethod)).into()
+            match this.GetCanonicalizationMethod() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(canonicalizationmethod, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetSignatureValue<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signaturevalue: *mut *mut u8, count: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -203,7 +227,13 @@ impl IOpcDigitalSignature_Vtbl {
         unsafe extern "system" fn GetTimeFormat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, timeformat: *mut OPC_SIGNATURE_TIME_FORMAT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetTimeFormat(::core::mem::transmute_copy(&timeformat)).into()
+            match this.GetTimeFormat() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(timeformat, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn GetPackageObjectReference<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignature_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packageobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -354,7 +384,7 @@ pub trait IOpcDigitalSignatureManager_Impl: Sized {
     fn GetSignatureEnumerator(&self) -> ::windows_core::Result<IOpcDigitalSignatureEnumerator>;
     fn RemoveSignature(&self, signaturepartname: ::core::option::Option<&IOpcPartUri>) -> ::windows_core::Result<()>;
     fn CreateSigningOptions(&self) -> ::windows_core::Result<IOpcSigningOptions>;
-    fn Validate(&self, signature: ::core::option::Option<&IOpcDigitalSignature>, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, validationresult: *mut OPC_SIGNATURE_VALIDATION_RESULT) -> ::windows_core::Result<()>;
+    fn Validate(&self, signature: ::core::option::Option<&IOpcDigitalSignature>, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows_core::Result<OPC_SIGNATURE_VALIDATION_RESULT>;
     fn Sign(&self, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: ::core::option::Option<&IOpcSigningOptions>) -> ::windows_core::Result<IOpcDigitalSignature>;
     fn ReplaceSignatureXml(&self, signaturepartname: ::core::option::Option<&IOpcPartUri>, newsignaturexml: *const u8, count: u32) -> ::windows_core::Result<IOpcDigitalSignature>;
 }
@@ -409,7 +439,13 @@ impl IOpcDigitalSignatureManager_Vtbl {
         unsafe extern "system" fn Validate<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, signature: *mut ::core::ffi::c_void, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, validationresult: *mut OPC_SIGNATURE_VALIDATION_RESULT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Validate(::windows_core::from_raw_borrowed(&signature), ::core::mem::transmute_copy(&certificate), ::core::mem::transmute_copy(&validationresult)).into()
+            match this.Validate(::windows_core::from_raw_borrowed(&signature), ::core::mem::transmute_copy(&certificate)) {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(validationresult, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
         }
         unsafe extern "system" fn Sign<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IOpcDigitalSignatureManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT, signingoptions: *mut ::core::ffi::c_void, digitalsignature: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

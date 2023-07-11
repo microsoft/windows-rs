@@ -94,13 +94,13 @@ impl ::core::clone::Clone for DEVMODEW_1 {
         *self
     }
 }
-pub type DEVMODE_COLLATE = u16;
-pub type DEVMODE_COLOR = u16;
+pub type DEVMODE_COLLATE = i16;
+pub type DEVMODE_COLOR = i16;
 pub type DEVMODE_DISPLAY_FIXED_OUTPUT = u32;
 pub type DEVMODE_DISPLAY_ORIENTATION = u32;
-pub type DEVMODE_DUPLEX = u16;
+pub type DEVMODE_DUPLEX = i16;
 pub type DEVMODE_FIELD_FLAGS = u32;
-pub type DEVMODE_TRUETYPE_OPTION = u16;
+pub type DEVMODE_TRUETYPE_OPTION = i16;
 #[repr(C)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
@@ -137,14 +137,13 @@ impl GUID {
 }
 pub type HBITMAP = isize;
 pub type HENHMETAFILE = isize;
-pub type HGLOBAL = isize;
+pub type HGLOBAL = *mut ::core::ffi::c_void;
 pub type HRESULT = i32;
 pub type IEnumSTATSTG = *mut ::core::ffi::c_void;
 pub type ISequentialStream = *mut ::core::ffi::c_void;
 pub type IStorage = *mut ::core::ffi::c_void;
 pub type IStream = *mut ::core::ffi::c_void;
 pub type IUnknown = *mut ::core::ffi::c_void;
-pub type LOCKTYPE = i32;
 pub type PCWSTR = *const u16;
 #[repr(C)]
 pub struct POINTL {
@@ -158,7 +157,6 @@ impl ::core::clone::Clone for POINTL {
     }
 }
 pub type PWSTR = *mut u16;
-pub type STATFLAG = i32;
 #[repr(C)]
 pub struct STATSTG {
     pub pwcsName: PWSTR,
@@ -168,7 +166,7 @@ pub struct STATSTG {
     pub ctime: FILETIME,
     pub atime: FILETIME,
     pub grfMode: STGM,
-    pub grfLocksSupported: LOCKTYPE,
+    pub grfLocksSupported: u32,
     pub clsid: GUID,
     pub grfStateBits: u32,
     pub reserved: u32,
@@ -179,11 +177,10 @@ impl ::core::clone::Clone for STATSTG {
         *self
     }
 }
-pub type STGC = i32;
 pub type STGM = u32;
 #[repr(C)]
 pub struct STGMEDIUM {
-    pub tymed: TYMED,
+    pub tymed: u32,
     pub u: STGMEDIUM_0,
     pub pUnkForRelease: IUnknown,
 }
@@ -209,6 +206,4 @@ impl ::core::clone::Clone for STGMEDIUM_0 {
         *self
     }
 }
-pub type STGMOVE = i32;
 pub type STREAM_SEEK = u32;
-pub type TYMED = i32;

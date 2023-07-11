@@ -40,6 +40,7 @@ void __stdcall SearchTreeForFileW(int p0, int p1, int p2) {}
 void __stdcall SetCheckUserInterruptShared(int p0) {}
 void __stdcall SetSymLoadError(int p0) {}
 void __stdcall StackWalk(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
+void __stdcall StackWalk2(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9, int p10) {}
 void __stdcall StackWalk64(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8) {}
 void __stdcall StackWalkEx(int p0, int p1, int p2, int p3, int p4, int p5, int p6, int p7, int p8, int p9) {}
 void __stdcall SymAddSourceStream(int p0, int p1, int p2, int p3, int p4, int p5) {}

@@ -324,35 +324,35 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateCompatibleDC<P0>(hdc: P0) -> CreatedHDC
+pub unsafe fn CreateCompatibleDC<P0>(hdc: P0) -> HDC
 where
     P0: ::windows_core::IntoParam<HDC>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn CreateCompatibleDC(hdc : HDC) -> CreatedHDC);
+    ::windows_targets::link!("gdi32.dll" "system" fn CreateCompatibleDC(hdc : HDC) -> HDC);
     CreateCompatibleDC(hdc.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDCA<P0, P1, P2>(pwszdriver: P0, pwszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEA>) -> CreatedHDC
+pub unsafe fn CreateDCA<P0, P1, P2>(pwszdriver: P0, pwszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEA>) -> HDC
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn CreateDCA(pwszdriver : ::windows_core::PCSTR, pwszdevice : ::windows_core::PCSTR, pszport : ::windows_core::PCSTR, pdm : *const DEVMODEA) -> CreatedHDC);
+    ::windows_targets::link!("gdi32.dll" "system" fn CreateDCA(pwszdriver : ::windows_core::PCSTR, pwszdevice : ::windows_core::PCSTR, pszport : ::windows_core::PCSTR, pdm : *const DEVMODEA) -> HDC);
     CreateDCA(pwszdriver.into_param().abi(), pwszdevice.into_param().abi(), pszport.into_param().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateDCW<P0, P1, P2>(pwszdriver: P0, pwszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEW>) -> CreatedHDC
+pub unsafe fn CreateDCW<P0, P1, P2>(pwszdriver: P0, pwszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEW>) -> HDC
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn CreateDCW(pwszdriver : ::windows_core::PCWSTR, pwszdevice : ::windows_core::PCWSTR, pszport : ::windows_core::PCWSTR, pdm : *const DEVMODEW) -> CreatedHDC);
+    ::windows_targets::link!("gdi32.dll" "system" fn CreateDCW(pwszdriver : ::windows_core::PCWSTR, pwszdevice : ::windows_core::PCWSTR, pszport : ::windows_core::PCWSTR, pdm : *const DEVMODEW) -> HDC);
     CreateDCW(pwszdriver.into_param().abi(), pwszdevice.into_param().abi(), pszport.into_param().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
@@ -417,25 +417,25 @@ pub unsafe fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation:
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateEnhMetaFileA<P0, P1, P2>(hdc: P0, lpfilename: P1, lprc: ::core::option::Option<*const super::super::Foundation::RECT>, lpdesc: P2) -> HdcMetdataEnhFileHandle
+pub unsafe fn CreateEnhMetaFileA<P0, P1, P2>(hdc: P0, lpfilename: P1, lprc: ::core::option::Option<*const super::super::Foundation::RECT>, lpdesc: P2) -> HDC
 where
     P0: ::windows_core::IntoParam<HDC>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn CreateEnhMetaFileA(hdc : HDC, lpfilename : ::windows_core::PCSTR, lprc : *const super::super::Foundation:: RECT, lpdesc : ::windows_core::PCSTR) -> HdcMetdataEnhFileHandle);
+    ::windows_targets::link!("gdi32.dll" "system" fn CreateEnhMetaFileA(hdc : HDC, lpfilename : ::windows_core::PCSTR, lprc : *const super::super::Foundation:: RECT, lpdesc : ::windows_core::PCSTR) -> HDC);
     CreateEnhMetaFileA(hdc.into_param().abi(), lpfilename.into_param().abi(), ::core::mem::transmute(lprc.unwrap_or(::std::ptr::null())), lpdesc.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateEnhMetaFileW<P0, P1, P2>(hdc: P0, lpfilename: P1, lprc: ::core::option::Option<*const super::super::Foundation::RECT>, lpdesc: P2) -> HdcMetdataEnhFileHandle
+pub unsafe fn CreateEnhMetaFileW<P0, P1, P2>(hdc: P0, lpfilename: P1, lprc: ::core::option::Option<*const super::super::Foundation::RECT>, lpdesc: P2) -> HDC
 where
     P0: ::windows_core::IntoParam<HDC>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn CreateEnhMetaFileW(hdc : HDC, lpfilename : ::windows_core::PCWSTR, lprc : *const super::super::Foundation:: RECT, lpdesc : ::windows_core::PCWSTR) -> HdcMetdataEnhFileHandle);
+    ::windows_targets::link!("gdi32.dll" "system" fn CreateEnhMetaFileW(hdc : HDC, lpfilename : ::windows_core::PCWSTR, lprc : *const super::super::Foundation:: RECT, lpdesc : ::windows_core::PCWSTR) -> HDC);
     CreateEnhMetaFileW(hdc.into_param().abi(), lpfilename.into_param().abi(), ::core::mem::transmute(lprc.unwrap_or(::std::ptr::null())), lpdesc.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -508,43 +508,43 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateICA<P0, P1, P2>(pszdriver: P0, pszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEA>) -> CreatedHDC
+pub unsafe fn CreateICA<P0, P1, P2>(pszdriver: P0, pszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEA>) -> HDC
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn CreateICA(pszdriver : ::windows_core::PCSTR, pszdevice : ::windows_core::PCSTR, pszport : ::windows_core::PCSTR, pdm : *const DEVMODEA) -> CreatedHDC);
+    ::windows_targets::link!("gdi32.dll" "system" fn CreateICA(pszdriver : ::windows_core::PCSTR, pszdevice : ::windows_core::PCSTR, pszport : ::windows_core::PCSTR, pdm : *const DEVMODEA) -> HDC);
     CreateICA(pszdriver.into_param().abi(), pszdevice.into_param().abi(), pszport.into_param().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateICW<P0, P1, P2>(pszdriver: P0, pszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEW>) -> CreatedHDC
+pub unsafe fn CreateICW<P0, P1, P2>(pszdriver: P0, pszdevice: P1, pszport: P2, pdm: ::core::option::Option<*const DEVMODEW>) -> HDC
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
     P2: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn CreateICW(pszdriver : ::windows_core::PCWSTR, pszdevice : ::windows_core::PCWSTR, pszport : ::windows_core::PCWSTR, pdm : *const DEVMODEW) -> CreatedHDC);
+    ::windows_targets::link!("gdi32.dll" "system" fn CreateICW(pszdriver : ::windows_core::PCWSTR, pszdevice : ::windows_core::PCWSTR, pszport : ::windows_core::PCWSTR, pdm : *const DEVMODEW) -> HDC);
     CreateICW(pszdriver.into_param().abi(), pszdevice.into_param().abi(), pszport.into_param().abi(), ::core::mem::transmute(pdm.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateMetaFileA<P0>(pszfile: P0) -> HdcMetdataFileHandle
+pub unsafe fn CreateMetaFileA<P0>(pszfile: P0) -> HDC
 where
     P0: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn CreateMetaFileA(pszfile : ::windows_core::PCSTR) -> HdcMetdataFileHandle);
+    ::windows_targets::link!("gdi32.dll" "system" fn CreateMetaFileA(pszfile : ::windows_core::PCSTR) -> HDC);
     CreateMetaFileA(pszfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CreateMetaFileW<P0>(pszfile: P0) -> HdcMetdataFileHandle
+pub unsafe fn CreateMetaFileW<P0>(pszfile: P0) -> HDC
 where
     P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn CreateMetaFileW(pszfile : ::windows_core::PCWSTR) -> HdcMetdataFileHandle);
+    ::windows_targets::link!("gdi32.dll" "system" fn CreateMetaFileW(pszfile : ::windows_core::PCWSTR) -> HDC);
     CreateMetaFileW(pszfile.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -661,9 +661,9 @@ where
 #[inline]
 pub unsafe fn DeleteDC<P0>(hdc: P0) -> super::super::Foundation::BOOL
 where
-    P0: ::windows_core::IntoParam<CreatedHDC>,
+    P0: ::windows_core::IntoParam<HDC>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn DeleteDC(hdc : CreatedHDC) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("gdi32.dll" "system" fn DeleteDC(hdc : HDC) -> super::super::Foundation:: BOOL);
     DeleteDC(hdc.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
@@ -1069,8 +1069,8 @@ where
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LOGBRUSH, pstyle: ::core::option::Option<&[u32]>) -> HPEN {
-    ::windows_targets::link!("gdi32.dll" "system" fn ExtCreatePen(ipenstyle : PEN_STYLE, cwidth : u32, plbrush : *const LOGBRUSH, cstyle : u32, pstyle : *const u32) -> HPEN);
-    ExtCreatePen(ipenstyle, cwidth, plbrush, pstyle.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pstyle.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
+    ::windows_targets::link!("gdi32.dll" "system" fn ExtCreatePen(ipenstyle : u32, cwidth : u32, plbrush : *const LOGBRUSH, cstyle : u32, pstyle : *const u32) -> HPEN);
+    ExtCreatePen(ipenstyle.0 as _, cwidth, plbrush, pstyle.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pstyle.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1320,11 +1320,11 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetBkMode<P0>(hdc: P0) -> BACKGROUND_MODE
+pub unsafe fn GetBkMode<P0>(hdc: P0) -> i32
 where
     P0: ::windows_core::IntoParam<HDC>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn GetBkMode(hdc : HDC) -> BACKGROUND_MODE);
+    ::windows_targets::link!("gdi32.dll" "system" fn GetBkMode(hdc : HDC) -> i32);
     GetBkMode(hdc.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
@@ -1521,8 +1521,8 @@ pub unsafe fn GetCurrentObject<P0>(hdc: P0, r#type: OBJ_TYPE) -> HGDIOBJ
 where
     P0: ::windows_core::IntoParam<HDC>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn GetCurrentObject(hdc : HDC, r#type : OBJ_TYPE) -> HGDIOBJ);
-    GetCurrentObject(hdc.into_param().abi(), r#type)
+    ::windows_targets::link!("gdi32.dll" "system" fn GetCurrentObject(hdc : HDC, r#type : u32) -> HGDIOBJ);
+    GetCurrentObject(hdc.into_param().abi(), r#type.0 as _)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1610,8 +1610,8 @@ pub unsafe fn GetDeviceCaps<P0>(hdc: P0, index: GET_DEVICE_CAPS_INDEX) -> i32
 where
     P0: ::windows_core::IntoParam<HDC>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn GetDeviceCaps(hdc : HDC, index : GET_DEVICE_CAPS_INDEX) -> i32);
-    GetDeviceCaps(hdc.into_param().abi(), index)
+    ::windows_targets::link!("gdi32.dll" "system" fn GetDeviceCaps(hdc : HDC, index : i32) -> i32);
+    GetDeviceCaps(hdc.into_param().abi(), index.0 as _)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -2477,10 +2477,10 @@ where
 #[inline]
 pub unsafe fn LoadBitmapA<P0, P1>(hinstance: P0, lpbitmapname: P1) -> HBITMAP
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P1: ::windows_core::IntoParam<::windows_core::PCSTR>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn LoadBitmapA(hinstance : super::super::Foundation:: HMODULE, lpbitmapname : ::windows_core::PCSTR) -> HBITMAP);
+    ::windows_targets::link!("user32.dll" "system" fn LoadBitmapA(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : ::windows_core::PCSTR) -> HBITMAP);
     LoadBitmapA(hinstance.into_param().abi(), lpbitmapname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
@@ -2488,10 +2488,10 @@ where
 #[inline]
 pub unsafe fn LoadBitmapW<P0, P1>(hinstance: P0, lpbitmapname: P1) -> HBITMAP
 where
-    P0: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
     P1: ::windows_core::IntoParam<::windows_core::PCWSTR>,
 {
-    ::windows_targets::link!("user32.dll" "system" fn LoadBitmapW(hinstance : super::super::Foundation:: HMODULE, lpbitmapname : ::windows_core::PCWSTR) -> HBITMAP);
+    ::windows_targets::link!("user32.dll" "system" fn LoadBitmapW(hinstance : super::super::Foundation:: HINSTANCE, lpbitmapname : ::windows_core::PCWSTR) -> HBITMAP);
     LoadBitmapW(hinstance.into_param().abi(), lpbitmapname.into_param().abi())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
@@ -3140,8 +3140,8 @@ pub unsafe fn SetBkMode<P0>(hdc: P0, mode: BACKGROUND_MODE) -> i32
 where
     P0: ::windows_core::IntoParam<HDC>,
 {
-    ::windows_targets::link!("gdi32.dll" "system" fn SetBkMode(hdc : HDC, mode : BACKGROUND_MODE) -> i32);
-    SetBkMode(hdc.into_param().abi(), mode)
+    ::windows_targets::link!("gdi32.dll" "system" fn SetBkMode(hdc : HDC, mode : i32) -> i32);
+    SetBkMode(hdc.into_param().abi(), mode.0 as _)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5477,11 +5477,11 @@ pub const WGL_SWAP_UNDERLAY9: u32 = 16777216u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ARC_DIRECTION(pub u32);
+pub struct ARC_DIRECTION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(1u32);
+pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const AD_CLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(2u32);
+pub const AD_CLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(2i32);
 impl ::core::marker::Copy for ARC_DIRECTION {}
 impl ::core::clone::Clone for ARC_DIRECTION {
     fn clone(&self) -> Self {
@@ -5531,19 +5531,19 @@ impl ::core::fmt::Debug for BACKGROUND_MODE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BI_COMPRESSION(pub i32);
+pub struct BI_COMPRESSION(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_RGB: BI_COMPRESSION = BI_COMPRESSION(0i32);
+pub const BI_RGB: BI_COMPRESSION = BI_COMPRESSION(0u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_RLE8: BI_COMPRESSION = BI_COMPRESSION(1i32);
+pub const BI_RLE8: BI_COMPRESSION = BI_COMPRESSION(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_RLE4: BI_COMPRESSION = BI_COMPRESSION(2i32);
+pub const BI_RLE4: BI_COMPRESSION = BI_COMPRESSION(2u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_BITFIELDS: BI_COMPRESSION = BI_COMPRESSION(3i32);
+pub const BI_BITFIELDS: BI_COMPRESSION = BI_COMPRESSION(3u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_JPEG: BI_COMPRESSION = BI_COMPRESSION(4i32);
+pub const BI_JPEG: BI_COMPRESSION = BI_COMPRESSION(4u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_PNG: BI_COMPRESSION = BI_COMPRESSION(5i32);
+pub const BI_PNG: BI_COMPRESSION = BI_COMPRESSION(5u32);
 impl ::core::marker::Copy for BI_COMPRESSION {}
 impl ::core::clone::Clone for BI_COMPRESSION {
     fn clone(&self) -> Self {
@@ -5689,13 +5689,13 @@ impl ::core::ops::Not for CDS_TYPE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CREATE_FONT_PACKAGE_SUBSET_ENCODING(pub u16);
+pub struct CREATE_FONT_PACKAGE_SUBSET_ENCODING(pub i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0u16);
+pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0u16);
+pub const TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(1u16);
+pub const TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(1i16);
 impl ::core::marker::Copy for CREATE_FONT_PACKAGE_SUBSET_ENCODING {}
 impl ::core::clone::Clone for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
     fn clone(&self) -> Self {
@@ -5718,11 +5718,11 @@ impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CREATE_FONT_PACKAGE_SUBSET_PLATFORM(pub u16);
+pub struct CREATE_FONT_PACKAGE_SUBSET_PLATFORM(pub i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(0u16);
+pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(0i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(2u16);
+pub const TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(2i16);
 impl ::core::marker::Copy for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {}
 impl ::core::clone::Clone for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
     fn clone(&self) -> Self {
@@ -5745,11 +5745,11 @@ impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CREATE_POLYGON_RGN_MODE(pub u32);
+pub struct CREATE_POLYGON_RGN_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(1u32);
+pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const WINDING: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(2u32);
+pub const WINDING: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(2i32);
 impl ::core::marker::Copy for CREATE_POLYGON_RGN_MODE {}
 impl ::core::clone::Clone for CREATE_POLYGON_RGN_MODE {
     fn clone(&self) -> Self {
@@ -5832,11 +5832,11 @@ impl ::core::ops::Not for DC_LAYOUT {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVMODE_COLLATE(pub u16);
+pub struct DEVMODE_COLLATE(pub i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = DEVMODE_COLLATE(0u16);
+pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = DEVMODE_COLLATE(0i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = DEVMODE_COLLATE(1u16);
+pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = DEVMODE_COLLATE(1i16);
 impl ::core::marker::Copy for DEVMODE_COLLATE {}
 impl ::core::clone::Clone for DEVMODE_COLLATE {
     fn clone(&self) -> Self {
@@ -5859,11 +5859,11 @@ impl ::core::fmt::Debug for DEVMODE_COLLATE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVMODE_COLOR(pub u16);
+pub struct DEVMODE_COLOR(pub i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = DEVMODE_COLOR(1u16);
+pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = DEVMODE_COLOR(1i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLOR_COLOR: DEVMODE_COLOR = DEVMODE_COLOR(2u16);
+pub const DMCOLOR_COLOR: DEVMODE_COLOR = DEVMODE_COLOR(2i16);
 impl ::core::marker::Copy for DEVMODE_COLOR {}
 impl ::core::clone::Clone for DEVMODE_COLOR {
     fn clone(&self) -> Self {
@@ -5946,13 +5946,13 @@ impl ::core::fmt::Debug for DEVMODE_DISPLAY_ORIENTATION {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVMODE_DUPLEX(pub u16);
+pub struct DEVMODE_DUPLEX(pub i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_SIMPLEX: DEVMODE_DUPLEX = DEVMODE_DUPLEX(1u16);
+pub const DMDUP_SIMPLEX: DEVMODE_DUPLEX = DEVMODE_DUPLEX(1i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_VERTICAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(2u16);
+pub const DMDUP_VERTICAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(2i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_HORIZONTAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(3u16);
+pub const DMDUP_HORIZONTAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(3i16);
 impl ::core::marker::Copy for DEVMODE_DUPLEX {}
 impl ::core::clone::Clone for DEVMODE_DUPLEX {
     fn clone(&self) -> Self {
@@ -6111,15 +6111,15 @@ impl ::core::ops::Not for DEVMODE_FIELD_FLAGS {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVMODE_TRUETYPE_OPTION(pub u16);
+pub struct DEVMODE_TRUETYPE_OPTION(pub i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(1u16);
+pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(1i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(2u16);
+pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(2i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(3u16);
+pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(3i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(4u16);
+pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(4i16);
 impl ::core::marker::Copy for DEVMODE_TRUETYPE_OPTION {}
 impl ::core::clone::Clone for DEVMODE_TRUETYPE_OPTION {
     fn clone(&self) -> Self {
@@ -6329,8 +6329,6 @@ pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = 
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_FORCE_UINT32: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(-1i32);
 impl ::core::marker::Copy for DISPLAYCONFIG_COLOR_ENCODING {}
 impl ::core::clone::Clone for DISPLAYCONFIG_COLOR_ENCODING {
     fn clone(&self) -> Self {
@@ -8068,47 +8066,47 @@ impl ::core::fmt::Debug for GET_GLYPH_OUTLINE_FORMAT {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GET_STOCK_OBJECT_FLAGS(pub u32);
+pub struct GET_STOCK_OBJECT_FLAGS(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(4u32);
+pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DKGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(3u32);
+pub const DKGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DC_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(18u32);
+pub const DC_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(18i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(2u32);
+pub const GRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HOLLOW_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5u32);
+pub const HOLLOW_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LTGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(1u32);
+pub const LTGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NULL_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5u32);
+pub const NULL_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const WHITE_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(0u32);
+pub const WHITE_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BLACK_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(7u32);
+pub const BLACK_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(7i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DC_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(19u32);
+pub const DC_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(19i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NULL_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(8u32);
+pub const NULL_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(8i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const WHITE_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(6u32);
+pub const WHITE_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(6i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ANSI_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(11u32);
+pub const ANSI_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(11i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ANSI_VAR_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(12u32);
+pub const ANSI_VAR_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(12i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEVICE_DEFAULT_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(14u32);
+pub const DEVICE_DEFAULT_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(14i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEFAULT_GUI_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(17u32);
+pub const DEFAULT_GUI_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(17i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(10u32);
+pub const OEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(10i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(13u32);
+pub const SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(13i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(16u32);
+pub const SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(16i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(15u32);
+pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(15i32);
 impl ::core::marker::Copy for GET_STOCK_OBJECT_FLAGS {}
 impl ::core::clone::Clone for GET_STOCK_OBJECT_FLAGS {
     fn clone(&self) -> Self {
@@ -8160,11 +8158,11 @@ impl ::core::fmt::Debug for GRADIENT_FILL {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GRAPHICS_MODE(pub u32);
+pub struct GRAPHICS_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GM_COMPATIBLE: GRAPHICS_MODE = GRAPHICS_MODE(1u32);
+pub const GM_COMPATIBLE: GRAPHICS_MODE = GRAPHICS_MODE(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GM_ADVANCED: GRAPHICS_MODE = GRAPHICS_MODE(2u32);
+pub const GM_ADVANCED: GRAPHICS_MODE = GRAPHICS_MODE(2i32);
 impl ::core::marker::Copy for GRAPHICS_MODE {}
 impl ::core::clone::Clone for GRAPHICS_MODE {
     fn clone(&self) -> Self {
@@ -8187,19 +8185,19 @@ impl ::core::fmt::Debug for GRAPHICS_MODE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HATCH_BRUSH_STYLE(pub u32);
+pub struct HATCH_BRUSH_STYLE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_BDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(3u32);
+pub const HS_BDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_CROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(4u32);
+pub const HS_CROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_DIAGCROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(5u32);
+pub const HS_DIAGCROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(5i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_FDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(2u32);
+pub const HS_FDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_HORIZONTAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(0u32);
+pub const HS_HORIZONTAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_VERTICAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(1u32);
+pub const HS_VERTICAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(1i32);
 impl ::core::marker::Copy for HATCH_BRUSH_STYLE {}
 impl ::core::clone::Clone for HATCH_BRUSH_STYLE {
     fn clone(&self) -> Self {
@@ -8222,23 +8220,23 @@ impl ::core::fmt::Debug for HATCH_BRUSH_STYLE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HDC_MAP_MODE(pub u32);
+pub struct HDC_MAP_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_ANISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(8u32);
+pub const MM_ANISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(8i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_HIENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(5u32);
+pub const MM_HIENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(5i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_HIMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(3u32);
+pub const MM_HIMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_ISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(7u32);
+pub const MM_ISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(7i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_LOENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(4u32);
+pub const MM_LOENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_LOMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(2u32);
+pub const MM_LOMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_TEXT: HDC_MAP_MODE = HDC_MAP_MODE(1u32);
+pub const MM_TEXT: HDC_MAP_MODE = HDC_MAP_MODE(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_TWIPS: HDC_MAP_MODE = HDC_MAP_MODE(6u32);
+pub const MM_TWIPS: HDC_MAP_MODE = HDC_MAP_MODE(6i32);
 impl ::core::marker::Copy for HDC_MAP_MODE {}
 impl ::core::clone::Clone for HDC_MAP_MODE {
     fn clone(&self) -> Self {
@@ -8834,49 +8832,49 @@ impl ::core::fmt::Debug for PAN_XHEIGHT {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PEN_STYLE(pub u32);
+pub struct PEN_STYLE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_GEOMETRIC: PEN_STYLE = PEN_STYLE(65536u32);
+pub const PS_GEOMETRIC: PEN_STYLE = PEN_STYLE(65536i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_COSMETIC: PEN_STYLE = PEN_STYLE(0u32);
+pub const PS_COSMETIC: PEN_STYLE = PEN_STYLE(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_SOLID: PEN_STYLE = PEN_STYLE(0u32);
+pub const PS_SOLID: PEN_STYLE = PEN_STYLE(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_DASH: PEN_STYLE = PEN_STYLE(1u32);
+pub const PS_DASH: PEN_STYLE = PEN_STYLE(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_DOT: PEN_STYLE = PEN_STYLE(2u32);
+pub const PS_DOT: PEN_STYLE = PEN_STYLE(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_DASHDOT: PEN_STYLE = PEN_STYLE(3u32);
+pub const PS_DASHDOT: PEN_STYLE = PEN_STYLE(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_DASHDOTDOT: PEN_STYLE = PEN_STYLE(4u32);
+pub const PS_DASHDOTDOT: PEN_STYLE = PEN_STYLE(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_NULL: PEN_STYLE = PEN_STYLE(5u32);
+pub const PS_NULL: PEN_STYLE = PEN_STYLE(5i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_INSIDEFRAME: PEN_STYLE = PEN_STYLE(6u32);
+pub const PS_INSIDEFRAME: PEN_STYLE = PEN_STYLE(6i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_USERSTYLE: PEN_STYLE = PEN_STYLE(7u32);
+pub const PS_USERSTYLE: PEN_STYLE = PEN_STYLE(7i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_ALTERNATE: PEN_STYLE = PEN_STYLE(8u32);
+pub const PS_ALTERNATE: PEN_STYLE = PEN_STYLE(8i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_STYLE_MASK: PEN_STYLE = PEN_STYLE(15u32);
+pub const PS_STYLE_MASK: PEN_STYLE = PEN_STYLE(15i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_ENDCAP_ROUND: PEN_STYLE = PEN_STYLE(0u32);
+pub const PS_ENDCAP_ROUND: PEN_STYLE = PEN_STYLE(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_ENDCAP_SQUARE: PEN_STYLE = PEN_STYLE(256u32);
+pub const PS_ENDCAP_SQUARE: PEN_STYLE = PEN_STYLE(256i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_ENDCAP_FLAT: PEN_STYLE = PEN_STYLE(512u32);
+pub const PS_ENDCAP_FLAT: PEN_STYLE = PEN_STYLE(512i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_ENDCAP_MASK: PEN_STYLE = PEN_STYLE(3840u32);
+pub const PS_ENDCAP_MASK: PEN_STYLE = PEN_STYLE(3840i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_JOIN_ROUND: PEN_STYLE = PEN_STYLE(0u32);
+pub const PS_JOIN_ROUND: PEN_STYLE = PEN_STYLE(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_JOIN_BEVEL: PEN_STYLE = PEN_STYLE(4096u32);
+pub const PS_JOIN_BEVEL: PEN_STYLE = PEN_STYLE(4096i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_JOIN_MITER: PEN_STYLE = PEN_STYLE(8192u32);
+pub const PS_JOIN_MITER: PEN_STYLE = PEN_STYLE(8192i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_JOIN_MASK: PEN_STYLE = PEN_STYLE(61440u32);
+pub const PS_JOIN_MASK: PEN_STYLE = PEN_STYLE(61440i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_TYPE_MASK: PEN_STYLE = PEN_STYLE(983040u32);
+pub const PS_TYPE_MASK: PEN_STYLE = PEN_STYLE(983040i32);
 impl ::core::marker::Copy for PEN_STYLE {}
 impl ::core::clone::Clone for PEN_STYLE {
     fn clone(&self) -> Self {
@@ -9227,23 +9225,23 @@ impl ::core::fmt::Debug for SET_BOUNDS_RECT_FLAGS {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct STRETCH_BLT_MODE(pub u32);
+pub struct STRETCH_BLT_MODE(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BLACKONWHITE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1u32);
+pub const BLACKONWHITE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLORONCOLOR: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3u32);
+pub const COLORONCOLOR: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4u32);
+pub const HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const STRETCH_ANDSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1u32);
+pub const STRETCH_ANDSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const STRETCH_DELETESCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3u32);
+pub const STRETCH_DELETESCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const STRETCH_HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4u32);
+pub const STRETCH_HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const STRETCH_ORSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2u32);
+pub const STRETCH_ORSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const WHITEONBLACK: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2u32);
+pub const WHITEONBLACK: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2i32);
 impl ::core::marker::Copy for STRETCH_BLT_MODE {}
 impl ::core::clone::Clone for STRETCH_BLT_MODE {
     fn clone(&self) -> Self {
@@ -10421,34 +10419,6 @@ impl ::core::default::Default for COLORADJUSTMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CreatedHDC(pub isize);
-impl CreatedHDC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for CreatedHDC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for CreatedHDC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for CreatedHDC {}
-impl ::core::fmt::Debug for CreatedHDC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CreatedHDC").field(&self.0).finish()
-    }
-}
-impl ::windows_core::TypeKind for CreatedHDC {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::windows_core::CanInto<HDC> for CreatedHDC {}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct DESIGNVECTOR {
@@ -11774,7 +11744,7 @@ impl ::core::default::Default for EMREXTFLOODFILL {
 pub struct EMREXTSELECTCLIPRGN {
     pub emr: EMR,
     pub cbRgnData: u32,
-    pub iMode: RGN_COMBINE_MODE,
+    pub iMode: u32,
     pub RgnData: [u8; 1],
 }
 impl ::core::marker::Copy for EMREXTSELECTCLIPRGN {}
@@ -14147,7 +14117,7 @@ impl ::core::default::Default for EXTLOGFONTW {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXTLOGPEN {
-    pub elpPenStyle: PEN_STYLE,
+    pub elpPenStyle: u32,
     pub elpWidth: u32,
     pub elpBrushStyle: u32,
     pub elpColor: super::super::Foundation::COLORREF,
@@ -14191,7 +14161,7 @@ impl ::core::default::Default for EXTLOGPEN {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXTLOGPEN32 {
-    pub elpPenStyle: PEN_STYLE,
+    pub elpPenStyle: u32,
     pub elpWidth: u32,
     pub elpBrushStyle: u32,
     pub elpColor: super::super::Foundation::COLORREF,
@@ -14535,6 +14505,11 @@ impl ::windows_core::TypeKind for HBITMAP {
     type TypeKind = ::windows_core::CopyType;
 }
 impl ::windows_core::CanInto<HGDIOBJ> for HBITMAP {}
+impl ::core::convert::From<HBITMAP> for HGDIOBJ {
+    fn from(value: HBITMAP) -> Self {
+        Self(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HBRUSH(pub isize);
@@ -14563,6 +14538,11 @@ impl ::windows_core::TypeKind for HBRUSH {
     type TypeKind = ::windows_core::CopyType;
 }
 impl ::windows_core::CanInto<HGDIOBJ> for HBRUSH {}
+impl ::core::convert::From<HBRUSH> for HGDIOBJ {
+    fn from(value: HBRUSH) -> Self {
+        Self(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDC(pub isize);
@@ -14645,6 +14625,11 @@ impl ::windows_core::TypeKind for HFONT {
     type TypeKind = ::windows_core::CopyType;
 }
 impl ::windows_core::CanInto<HGDIOBJ> for HFONT {}
+impl ::core::convert::From<HFONT> for HGDIOBJ {
+    fn from(value: HFONT) -> Self {
+        Self(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HGDIOBJ(pub isize);
@@ -14754,6 +14739,11 @@ impl ::windows_core::TypeKind for HPALETTE {
     type TypeKind = ::windows_core::CopyType;
 }
 impl ::windows_core::CanInto<HGDIOBJ> for HPALETTE {}
+impl ::core::convert::From<HPALETTE> for HGDIOBJ {
+    fn from(value: HPALETTE) -> Self {
+        Self(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HPEN(pub isize);
@@ -14782,6 +14772,11 @@ impl ::windows_core::TypeKind for HPEN {
     type TypeKind = ::windows_core::CopyType;
 }
 impl ::windows_core::CanInto<HGDIOBJ> for HPEN {}
+impl ::core::convert::From<HPEN> for HGDIOBJ {
+    fn from(value: HPEN) -> Self {
+        Self(value.0)
+    }
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HRGN(pub isize);
@@ -14810,59 +14805,10 @@ impl ::windows_core::TypeKind for HRGN {
     type TypeKind = ::windows_core::CopyType;
 }
 impl ::windows_core::CanInto<HGDIOBJ> for HRGN {}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HdcMetdataEnhFileHandle(pub isize);
-impl HdcMetdataEnhFileHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+impl ::core::convert::From<HRGN> for HGDIOBJ {
+    fn from(value: HRGN) -> Self {
+        Self(value.0)
     }
-}
-impl ::core::default::Default for HdcMetdataEnhFileHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HdcMetdataEnhFileHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HdcMetdataEnhFileHandle {}
-impl ::core::fmt::Debug for HdcMetdataEnhFileHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdcMetdataEnhFileHandle").field(&self.0).finish()
-    }
-}
-impl ::windows_core::TypeKind for HdcMetdataEnhFileHandle {
-    type TypeKind = ::windows_core::CopyType;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HdcMetdataFileHandle(pub isize);
-impl HdcMetdataFileHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HdcMetdataFileHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HdcMetdataFileHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HdcMetdataFileHandle {}
-impl ::core::fmt::Debug for HdcMetdataFileHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdcMetdataFileHandle").field(&self.0).finish()
-    }
-}
-impl ::windows_core::TypeKind for HdcMetdataFileHandle {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -15128,7 +15074,7 @@ impl ::core::default::Default for LOGPALETTE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOGPEN {
-    pub lopnStyle: PEN_STYLE,
+    pub lopnStyle: u32,
     pub lopnWidth: super::super::Foundation::POINT,
     pub lopnColor: super::super::Foundation::COLORREF,
 }

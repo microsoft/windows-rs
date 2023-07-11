@@ -3101,13 +3101,13 @@ pub const WC_NO_BEST_FIT_CHARS: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub const WC_SEPCHARS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub type COMPARESTRING_RESULT = u32;
+pub type COMPARESTRING_RESULT = i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const CSTR_LESS_THAN: COMPARESTRING_RESULT = 1u32;
+pub const CSTR_LESS_THAN: COMPARESTRING_RESULT = 1i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const CSTR_EQUAL: COMPARESTRING_RESULT = 2u32;
+pub const CSTR_EQUAL: COMPARESTRING_RESULT = 2i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const CSTR_GREATER_THAN: COMPARESTRING_RESULT = 3u32;
+pub const CSTR_GREATER_THAN: COMPARESTRING_RESULT = 3i32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub type COMPARE_STRING_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
@@ -8397,38 +8397,10 @@ impl ::core::clone::Clone for TEXTRANGE_PROPERTIES {
         *self
     }
 }
-#[repr(C)]
-pub struct UBiDi(pub u8);
-impl ::core::marker::Copy for UBiDi {}
-impl ::core::clone::Clone for UBiDi {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UBiDiTransform(pub u8);
-impl ::core::marker::Copy for UBiDiTransform {}
-impl ::core::clone::Clone for UBiDiTransform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UBreakIterator(pub u8);
-impl ::core::marker::Copy for UBreakIterator {}
-impl ::core::clone::Clone for UBreakIterator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UCPMap(pub u8);
-impl ::core::marker::Copy for UCPMap {}
-impl ::core::clone::Clone for UCPMap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UBiDi = isize;
+pub type UBiDiTransform = isize;
+pub type UBreakIterator = isize;
+pub type UCPMap = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UCPTrie {
@@ -8466,14 +8438,7 @@ impl ::core::clone::Clone for UCPTrieData {
         *self
     }
 }
-#[repr(C)]
-pub struct UCaseMap(pub u8);
-impl ::core::marker::Copy for UCaseMap {}
-impl ::core::clone::Clone for UCaseMap {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UCaseMap = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UCharIterator {
@@ -8500,54 +8465,12 @@ impl ::core::clone::Clone for UCharIterator {
         *self
     }
 }
-#[repr(C)]
-pub struct UCharsetDetector(pub u8);
-impl ::core::marker::Copy for UCharsetDetector {}
-impl ::core::clone::Clone for UCharsetDetector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UCharsetMatch(pub u8);
-impl ::core::marker::Copy for UCharsetMatch {}
-impl ::core::clone::Clone for UCharsetMatch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UCollationElements(pub u8);
-impl ::core::marker::Copy for UCollationElements {}
-impl ::core::clone::Clone for UCollationElements {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UCollator(pub u8);
-impl ::core::marker::Copy for UCollator {}
-impl ::core::clone::Clone for UCollator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UConstrainedFieldPosition(pub u8);
-impl ::core::marker::Copy for UConstrainedFieldPosition {}
-impl ::core::clone::Clone for UConstrainedFieldPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UConverter(pub u8);
-impl ::core::marker::Copy for UConverter {}
-impl ::core::clone::Clone for UConverter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UCharsetDetector = isize;
+pub type UCharsetMatch = isize;
+pub type UCollationElements = isize;
+pub type UCollator = isize;
+pub type UConstrainedFieldPosition = isize;
+pub type UConverter = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UConverterFromUnicodeArgs {
@@ -8566,14 +8489,7 @@ impl ::core::clone::Clone for UConverterFromUnicodeArgs {
         *self
     }
 }
-#[repr(C)]
-pub struct UConverterSelector(pub u8);
-impl ::core::marker::Copy for UConverterSelector {}
-impl ::core::clone::Clone for UConverterSelector {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UConverterSelector = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UConverterToUnicodeArgs {
@@ -8592,30 +8508,9 @@ impl ::core::clone::Clone for UConverterToUnicodeArgs {
         *self
     }
 }
-#[repr(C)]
-pub struct UDateFormatSymbols(pub u8);
-impl ::core::marker::Copy for UDateFormatSymbols {}
-impl ::core::clone::Clone for UDateFormatSymbols {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UDateIntervalFormat(pub u8);
-impl ::core::marker::Copy for UDateIntervalFormat {}
-impl ::core::clone::Clone for UDateIntervalFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UEnumeration(pub u8);
-impl ::core::marker::Copy for UEnumeration {}
-impl ::core::clone::Clone for UEnumeration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UDateFormatSymbols = isize;
+pub type UDateIntervalFormat = isize;
+pub type UEnumeration = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UFieldPosition {
@@ -8629,86 +8524,16 @@ impl ::core::clone::Clone for UFieldPosition {
         *self
     }
 }
-#[repr(C)]
-pub struct UFieldPositionIterator(pub u8);
-impl ::core::marker::Copy for UFieldPositionIterator {}
-impl ::core::clone::Clone for UFieldPositionIterator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UFormattedDateInterval(pub u8);
-impl ::core::marker::Copy for UFormattedDateInterval {}
-impl ::core::clone::Clone for UFormattedDateInterval {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UFormattedList(pub u8);
-impl ::core::marker::Copy for UFormattedList {}
-impl ::core::clone::Clone for UFormattedList {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UFormattedNumber(pub u8);
-impl ::core::marker::Copy for UFormattedNumber {}
-impl ::core::clone::Clone for UFormattedNumber {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UFormattedNumberRange(pub u8);
-impl ::core::marker::Copy for UFormattedNumberRange {}
-impl ::core::clone::Clone for UFormattedNumberRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UFormattedRelativeDateTime(pub u8);
-impl ::core::marker::Copy for UFormattedRelativeDateTime {}
-impl ::core::clone::Clone for UFormattedRelativeDateTime {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UFormattedValue(pub u8);
-impl ::core::marker::Copy for UFormattedValue {}
-impl ::core::clone::Clone for UFormattedValue {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UGenderInfo(pub u8);
-impl ::core::marker::Copy for UGenderInfo {}
-impl ::core::clone::Clone for UGenderInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UHashtable(pub u8);
-impl ::core::marker::Copy for UHashtable {}
-impl ::core::clone::Clone for UHashtable {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UIDNA(pub u8);
-impl ::core::marker::Copy for UIDNA {}
-impl ::core::clone::Clone for UIDNA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UFieldPositionIterator = isize;
+pub type UFormattedDateInterval = isize;
+pub type UFormattedList = isize;
+pub type UFormattedNumber = isize;
+pub type UFormattedNumberRange = isize;
+pub type UFormattedRelativeDateTime = isize;
+pub type UFormattedValue = isize;
+pub type UGenderInfo = isize;
+pub type UHashtable = isize;
+pub type UIDNA = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UIDNAInfo {
@@ -8725,38 +8550,10 @@ impl ::core::clone::Clone for UIDNAInfo {
         *self
     }
 }
-#[repr(C)]
-pub struct UListFormatter(pub u8);
-impl ::core::marker::Copy for UListFormatter {}
-impl ::core::clone::Clone for UListFormatter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct ULocaleData(pub u8);
-impl ::core::marker::Copy for ULocaleData {}
-impl ::core::clone::Clone for ULocaleData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct ULocaleDisplayNames(pub u8);
-impl ::core::marker::Copy for ULocaleDisplayNames {}
-impl ::core::clone::Clone for ULocaleDisplayNames {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UMutableCPTrie(pub u8);
-impl ::core::marker::Copy for UMutableCPTrie {}
-impl ::core::clone::Clone for UMutableCPTrie {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UListFormatter = isize;
+pub type ULocaleData = isize;
+pub type ULocaleDisplayNames = isize;
+pub type UMutableCPTrie = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UNICODERANGE {
@@ -8769,30 +8566,9 @@ impl ::core::clone::Clone for UNICODERANGE {
         *self
     }
 }
-#[repr(C)]
-pub struct UNormalizer2(pub u8);
-impl ::core::marker::Copy for UNormalizer2 {}
-impl ::core::clone::Clone for UNormalizer2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UNumberFormatter(pub u8);
-impl ::core::marker::Copy for UNumberFormatter {}
-impl ::core::clone::Clone for UNumberFormatter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UNumberingSystem(pub u8);
-impl ::core::marker::Copy for UNumberingSystem {}
-impl ::core::clone::Clone for UNumberingSystem {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UNormalizer2 = isize;
+pub type UNumberFormatter = isize;
+pub type UNumberingSystem = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UParseError {
@@ -8807,38 +8583,10 @@ impl ::core::clone::Clone for UParseError {
         *self
     }
 }
-#[repr(C)]
-pub struct UPluralRules(pub u8);
-impl ::core::marker::Copy for UPluralRules {}
-impl ::core::clone::Clone for UPluralRules {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct URegion(pub u8);
-impl ::core::marker::Copy for URegion {}
-impl ::core::clone::Clone for URegion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct URegularExpression(pub u8);
-impl ::core::marker::Copy for URegularExpression {}
-impl ::core::clone::Clone for URegularExpression {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct URelativeDateTimeFormatter(pub u8);
-impl ::core::marker::Copy for URelativeDateTimeFormatter {}
-impl ::core::clone::Clone for URelativeDateTimeFormatter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UPluralRules = isize;
+pub type URegion = isize;
+pub type URegularExpression = isize;
+pub type URelativeDateTimeFormatter = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UReplaceableCallbacks {
@@ -8855,22 +8603,8 @@ impl ::core::clone::Clone for UReplaceableCallbacks {
         *self
     }
 }
-#[repr(C)]
-pub struct UResourceBundle(pub u8);
-impl ::core::marker::Copy for UResourceBundle {}
-impl ::core::clone::Clone for UResourceBundle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct USearch(pub u8);
-impl ::core::marker::Copy for USearch {}
-impl ::core::clone::Clone for USearch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type UResourceBundle = isize;
+pub type USearch = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct USerializedSet {
@@ -8885,46 +8619,11 @@ impl ::core::clone::Clone for USerializedSet {
         *self
     }
 }
-#[repr(C)]
-pub struct USet(pub u8);
-impl ::core::marker::Copy for USet {}
-impl ::core::clone::Clone for USet {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct USpoofCheckResult(pub u8);
-impl ::core::marker::Copy for USpoofCheckResult {}
-impl ::core::clone::Clone for USpoofCheckResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct USpoofChecker(pub u8);
-impl ::core::marker::Copy for USpoofChecker {}
-impl ::core::clone::Clone for USpoofChecker {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UStringPrepProfile(pub u8);
-impl ::core::marker::Copy for UStringPrepProfile {}
-impl ::core::clone::Clone for UStringPrepProfile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct UStringSearch(pub u8);
-impl ::core::marker::Copy for UStringSearch {}
-impl ::core::clone::Clone for UStringSearch {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type USet = isize;
+pub type USpoofCheckResult = isize;
+pub type USpoofChecker = isize;
+pub type UStringPrepProfile = isize;
+pub type UStringSearch = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 pub struct UText {

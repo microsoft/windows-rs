@@ -10,6 +10,7 @@ void __stdcall DnsConnectionFreeProxyList(int p0) {}
 void __stdcall DnsConnectionGetNameList(int p0) {}
 void __stdcall DnsConnectionGetProxyInfo(int p0, int p1, int p2) {}
 void __stdcall DnsConnectionGetProxyInfoForHostUrl(int p0, int p1, int p2, int p3, int p4) {}
+void __stdcall DnsConnectionGetProxyInfoForHostUrlEx(int p0, int p1, int p2, int p3, int p4, int p5) {}
 void __stdcall DnsConnectionGetProxyList(int p0, int p1) {}
 void __stdcall DnsConnectionSetPolicyEntries(int p0, int p1) {}
 void __stdcall DnsConnectionSetProxyInfo(int p0, int p1, int p2) {}

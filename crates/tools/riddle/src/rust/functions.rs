@@ -1,24 +1,24 @@
 use super::*;
 
-pub fn writer(writer: &Writer, def: MethodDef) -> TokenStream {
+pub fn writer(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
     if writer.sys {
-        gen_sys_function(writer, def)
+        gen_sys_function(writer, namespace, def)
     } else {
-        gen_win_function(writer, def)
+        gen_win_function(writer, namespace, def)
     }
 }
 
-fn gen_sys_function(writer: &Writer, def: MethodDef) -> TokenStream {
-    let signature = writer.reader.method_def_signature(def, &[]);
+fn gen_sys_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
+    let signature = writer.reader.method_def_signature(namespace, def, &[]);
     let cfg = writer.reader.signature_cfg(&signature);
     let mut tokens = writer.cfg_features(&cfg);
     tokens.combine(&gen_link(writer, &signature, &cfg));
     tokens
 }
 
-fn gen_win_function(writer: &Writer, def: MethodDef) -> TokenStream {
+fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
     let name = to_ident(writer.reader.method_def_name(def));
-    let signature = writer.reader.method_def_signature(def, &[]);
+    let signature = writer.reader.method_def_signature(namespace, def, &[]);
     let generics = writer.constraint_generics(&signature.params);
     let where_clause = writer.where_clause(&signature.params);
     let abi_return_type = writer.return_sig(&signature);

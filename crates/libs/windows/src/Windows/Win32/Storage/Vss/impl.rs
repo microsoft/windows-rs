@@ -1048,8 +1048,8 @@ impl IVssExpressWriter_Vtbl {
         iid == &<IVssExpressWriter as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IVssFileShareSnapshotProvider_Impl: Sized {
     fn SetContext(&self, lcontext: i32) -> ::windows_core::Result<()>;
     fn GetSnapshotProperties(&self, snapshotid: &::windows_core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows_core::Result<()>;
@@ -1058,11 +1058,11 @@ pub trait IVssFileShareSnapshotProvider_Impl: Sized {
     fn BeginPrepareSnapshot(&self, snapshotsetid: &::windows_core::GUID, snapshotid: &::windows_core::GUID, pwszsharepath: *const u16, lnewcontext: i32, providerid: &::windows_core::GUID) -> ::windows_core::Result<()>;
     fn IsPathSupported(&self, pwszsharepath: *const u16) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn IsPathSnapshotted(&self, pwszsharepath: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows_core::Result<()>;
-    fn SetSnapshotProperty(&self, snapshotid: &::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn SetSnapshotProperty(&self, snapshotid: &::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IVssFileShareSnapshotProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVssFileShareSnapshotProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>() -> IVssFileShareSnapshotProvider_Vtbl {
         unsafe extern "system" fn SetContext<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcontext: i32) -> ::windows_core::HRESULT {
@@ -1112,7 +1112,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             this.IsPathSnapshotted(::core::mem::transmute_copy(&pwszsharepath), ::core::mem::transmute_copy(&pbsnapshotspresent), ::core::mem::transmute_copy(&plsnapshotcompatibility)).into()
         }
-        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssFileShareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSnapshotProperty(::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&esnapshotpropertyid), ::core::mem::transmute(&vproperty)).into()
@@ -1420,8 +1420,8 @@ impl IVssSnapshotMgmt2_Vtbl {
         iid == &<IVssSnapshotMgmt2 as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IVssSoftwareSnapshotProvider_Impl: Sized {
     fn SetContext(&self, lcontext: i32) -> ::windows_core::Result<()>;
     fn GetSnapshotProperties(&self, snapshotid: &::windows_core::GUID, pprop: *mut VSS_SNAPSHOT_PROP) -> ::windows_core::Result<()>;
@@ -1430,13 +1430,13 @@ pub trait IVssSoftwareSnapshotProvider_Impl: Sized {
     fn BeginPrepareSnapshot(&self, snapshotsetid: &::windows_core::GUID, snapshotid: &::windows_core::GUID, pwszvolumename: *const u16, lnewcontext: i32) -> ::windows_core::Result<()>;
     fn IsVolumeSupported(&self, pwszvolumename: *const u16) -> ::windows_core::Result<super::super::Foundation::BOOL>;
     fn IsVolumeSnapshotted(&self, pwszvolumename: *const u16, pbsnapshotspresent: *mut super::super::Foundation::BOOL, plsnapshotcompatibility: *mut i32) -> ::windows_core::Result<()>;
-    fn SetSnapshotProperty(&self, snapshotid: &::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Com::VARIANT) -> ::windows_core::Result<()>;
+    fn SetSnapshotProperty(&self, snapshotid: &::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: &super::super::System::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn RevertToSnapshot(&self, snapshotid: &::windows_core::GUID) -> ::windows_core::Result<()>;
     fn QueryRevertStatus(&self, pwszvolume: *const u16) -> ::windows_core::Result<IVssAsync>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IVssSoftwareSnapshotProvider {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IVssSoftwareSnapshotProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>() -> IVssSoftwareSnapshotProvider_Vtbl {
         unsafe extern "system" fn SetContext<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcontext: i32) -> ::windows_core::HRESULT {
@@ -1486,7 +1486,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             this.IsVolumeSnapshotted(::core::mem::transmute_copy(&pwszvolumename), ::core::mem::transmute_copy(&pbsnapshotspresent), ::core::mem::transmute_copy(&plsnapshotcompatibility)).into()
         }
-        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Com::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetSnapshotProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssSoftwareSnapshotProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, snapshotid: ::windows_core::GUID, esnapshotpropertyid: VSS_SNAPSHOT_PROPERTY_ID, vproperty: super::super::System::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSnapshotProperty(::core::mem::transmute(&snapshotid), ::core::mem::transmute_copy(&esnapshotpropertyid), ::core::mem::transmute(&vproperty)).into()
@@ -1681,185 +1681,5 @@ impl IVssWriterComponents {
         let this = ::windows_core::ScopedHeap { vtable: &IVssWriterComponents_ImplVtbl::<T>::VTABLE as *const _ as *const _, this: this as *const _ as *const _ };
         let this = ::std::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
         unsafe { ::windows_core::ScopedInterface::new(::std::mem::transmute(&this.vtable)) }
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Vss\"`, `\"implement\"`*"]
-pub trait IVssWriterImpl_Impl: Sized {
-    fn Initialize(&self, writerid: &::windows_core::GUID, wszwritername: &::windows_core::PCWSTR, wszwriterinstancename: &::windows_core::PCWSTR, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows_core::Result<()>;
-    fn Subscribe(&self, dwsubscribetimeout: u32, dweventflags: u32) -> ::windows_core::Result<()>;
-    fn Unsubscribe(&self) -> ::windows_core::Result<()>;
-    fn Uninitialize(&self);
-    fn GetCurrentVolumeArray(&self) -> *mut ::windows_core::PCWSTR;
-    fn GetCurrentVolumeCount(&self) -> u32;
-    fn GetSnapshotDeviceName(&self, wszoriginalvolume: &::windows_core::PCWSTR) -> ::windows_core::Result<::windows_core::PCWSTR>;
-    fn GetCurrentSnapshotSetId(&self) -> ::windows_core::GUID;
-    fn GetContext(&self) -> i32;
-    fn GetCurrentLevel(&self) -> VSS_APPLICATION_LEVEL;
-    fn IsPathAffected(&self, wszpath: &::windows_core::PCWSTR) -> bool;
-    fn IsBootableSystemStateBackedUp(&self) -> bool;
-    fn AreComponentsSelected(&self) -> bool;
-    fn GetBackupType(&self) -> VSS_BACKUP_TYPE;
-    fn GetRestoreType(&self) -> VSS_RESTORE_TYPE;
-    fn SetWriterFailure(&self, hr: ::windows_core::HRESULT) -> ::windows_core::Result<()>;
-    fn IsPartialFileSupportEnabled(&self) -> bool;
-    fn InstallAlternateWriter(&self, idwriter: &::windows_core::GUID, clsid: &::windows_core::GUID) -> ::windows_core::Result<()>;
-    fn GetIdentityInformation(&self) -> *mut IVssExamineWriterMetadata;
-    fn SetWriterFailureEx(&self, hr: ::windows_core::HRESULT, hrapplication: ::windows_core::HRESULT, wszapplicationmessage: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
-    fn GetSessionId(&self) -> ::windows_core::Result<::windows_core::GUID>;
-    fn IsWriterShuttingDown(&self) -> bool;
-}
-impl ::windows_core::RuntimeName for IVssWriterImpl {}
-impl IVssWriterImpl_Vtbl {
-    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>() -> IVssWriterImpl_Vtbl {
-        unsafe extern "system" fn Initialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, writerid: ::windows_core::GUID, wszwritername: ::windows_core::PCWSTR, wszwriterinstancename: ::windows_core::PCWSTR, dwmajorversion: u32, dwminorversion: u32, ut: VSS_USAGE_TYPE, st: VSS_SOURCE_TYPE, nlevel: VSS_APPLICATION_LEVEL, dwtimeout: u32, aws: VSS_ALTERNATE_WRITER_STATE, biothrottlingonly: u8) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.Initialize(::core::mem::transmute(&writerid), ::core::mem::transmute(&wszwritername), ::core::mem::transmute(&wszwriterinstancename), ::core::mem::transmute_copy(&dwmajorversion), ::core::mem::transmute_copy(&dwminorversion), ::core::mem::transmute_copy(&ut), ::core::mem::transmute_copy(&st), ::core::mem::transmute_copy(&nlevel), ::core::mem::transmute_copy(&dwtimeout), ::core::mem::transmute_copy(&aws), ::core::mem::transmute_copy(&biothrottlingonly)).into()
-        }
-        unsafe extern "system" fn Subscribe<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsubscribetimeout: u32, dweventflags: u32) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.Subscribe(::core::mem::transmute_copy(&dwsubscribetimeout), ::core::mem::transmute_copy(&dweventflags)).into()
-        }
-        unsafe extern "system" fn Unsubscribe<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.Unsubscribe().into()
-        }
-        unsafe extern "system" fn Uninitialize<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.Uninitialize()
-        }
-        unsafe extern "system" fn GetCurrentVolumeArray<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::windows_core::PCWSTR {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.GetCurrentVolumeArray()
-        }
-        unsafe extern "system" fn GetCurrentVolumeCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.GetCurrentVolumeCount()
-        }
-        unsafe extern "system" fn GetSnapshotDeviceName<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszoriginalvolume: ::windows_core::PCWSTR, ppwszsnapshotdevice: *mut ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.GetSnapshotDeviceName(::core::mem::transmute(&wszoriginalvolume)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppwszsnapshotdevice, ::core::mem::transmute(ok__));
-                    ::windows_core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn GetCurrentSnapshotSetId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows_core::GUID) {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            *result__ = this.GetCurrentSnapshotSetId()
-        }
-        unsafe extern "system" fn GetContext<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> i32 {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.GetContext()
-        }
-        unsafe extern "system" fn GetCurrentLevel<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> VSS_APPLICATION_LEVEL {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.GetCurrentLevel()
-        }
-        unsafe extern "system" fn IsPathAffected<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszpath: ::windows_core::PCWSTR) -> bool {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.IsPathAffected(::core::mem::transmute(&wszpath))
-        }
-        unsafe extern "system" fn IsBootableSystemStateBackedUp<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.IsBootableSystemStateBackedUp()
-        }
-        unsafe extern "system" fn AreComponentsSelected<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.AreComponentsSelected()
-        }
-        unsafe extern "system" fn GetBackupType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> VSS_BACKUP_TYPE {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.GetBackupType()
-        }
-        unsafe extern "system" fn GetRestoreType<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> VSS_RESTORE_TYPE {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.GetRestoreType()
-        }
-        unsafe extern "system" fn SetWriterFailure<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SetWriterFailure(::core::mem::transmute_copy(&hr)).into()
-        }
-        unsafe extern "system" fn IsPartialFileSupportEnabled<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.IsPartialFileSupportEnabled()
-        }
-        unsafe extern "system" fn InstallAlternateWriter<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idwriter: ::windows_core::GUID, clsid: ::windows_core::GUID) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.InstallAlternateWriter(::core::mem::transmute(&idwriter), ::core::mem::transmute(&clsid)).into()
-        }
-        unsafe extern "system" fn GetIdentityInformation<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut IVssExamineWriterMetadata {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.GetIdentityInformation()
-        }
-        unsafe extern "system" fn SetWriterFailureEx<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hr: ::windows_core::HRESULT, hrapplication: ::windows_core::HRESULT, wszapplicationmessage: ::windows_core::PCWSTR) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SetWriterFailureEx(::core::mem::transmute_copy(&hr), ::core::mem::transmute_copy(&hrapplication), ::core::mem::transmute(&wszapplicationmessage)).into()
-        }
-        unsafe extern "system" fn GetSessionId<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idsession: *mut ::windows_core::GUID) -> ::windows_core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.GetSessionId() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(idsession, ::core::mem::transmute(ok__));
-                    ::windows_core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn IsWriterShuttingDown<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVssWriterImpl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.IsWriterShuttingDown()
-        }
-        Self {
-            base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Initialize: Initialize::<Identity, Impl, OFFSET>,
-            Subscribe: Subscribe::<Identity, Impl, OFFSET>,
-            Unsubscribe: Unsubscribe::<Identity, Impl, OFFSET>,
-            Uninitialize: Uninitialize::<Identity, Impl, OFFSET>,
-            GetCurrentVolumeArray: GetCurrentVolumeArray::<Identity, Impl, OFFSET>,
-            GetCurrentVolumeCount: GetCurrentVolumeCount::<Identity, Impl, OFFSET>,
-            GetSnapshotDeviceName: GetSnapshotDeviceName::<Identity, Impl, OFFSET>,
-            GetCurrentSnapshotSetId: GetCurrentSnapshotSetId::<Identity, Impl, OFFSET>,
-            GetContext: GetContext::<Identity, Impl, OFFSET>,
-            GetCurrentLevel: GetCurrentLevel::<Identity, Impl, OFFSET>,
-            IsPathAffected: IsPathAffected::<Identity, Impl, OFFSET>,
-            IsBootableSystemStateBackedUp: IsBootableSystemStateBackedUp::<Identity, Impl, OFFSET>,
-            AreComponentsSelected: AreComponentsSelected::<Identity, Impl, OFFSET>,
-            GetBackupType: GetBackupType::<Identity, Impl, OFFSET>,
-            GetRestoreType: GetRestoreType::<Identity, Impl, OFFSET>,
-            SetWriterFailure: SetWriterFailure::<Identity, Impl, OFFSET>,
-            IsPartialFileSupportEnabled: IsPartialFileSupportEnabled::<Identity, Impl, OFFSET>,
-            InstallAlternateWriter: InstallAlternateWriter::<Identity, Impl, OFFSET>,
-            GetIdentityInformation: GetIdentityInformation::<Identity, Impl, OFFSET>,
-            SetWriterFailureEx: SetWriterFailureEx::<Identity, Impl, OFFSET>,
-            GetSessionId: GetSessionId::<Identity, Impl, OFFSET>,
-            IsWriterShuttingDown: IsWriterShuttingDown::<Identity, Impl, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVssWriterImpl as ::windows_core::ComInterface>::IID
     }
 }

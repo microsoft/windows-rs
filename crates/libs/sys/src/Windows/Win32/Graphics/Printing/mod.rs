@@ -4083,7 +4083,7 @@ impl ::core::clone::Clone for BranchOfficeLogOfflineFileFull {
 pub struct COMPROPSHEETUI {
     pub cbSize: u16,
     pub Flags: u16,
-    pub hInstCaller: super::super::Foundation::HMODULE,
+    pub hInstCaller: super::super::Foundation::HINSTANCE,
     pub pCallerName: *mut i8,
     pub UserData: usize,
     pub pHelpFile: *mut i8,
@@ -5796,7 +5796,7 @@ impl ::core::clone::Clone for OEM_DMEXTRAHEADER {
 pub struct OIEXT {
     pub cbSize: u16,
     pub Flags: u16,
-    pub hInstCaller: super::super::Foundation::HMODULE,
+    pub hInstCaller: super::super::Foundation::HINSTANCE,
     pub pHelpFile: *mut i8,
     pub dwReserved: [usize; 4],
 }
@@ -6522,7 +6522,7 @@ impl ::core::clone::Clone for PRINTER_NOTIFY_OPTIONS_TYPE {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub struct PRINTER_OPTIONSA {
     pub cbSize: u32,
-    pub dwFlags: PRINTER_OPTION_FLAGS,
+    pub dwFlags: u32,
 }
 impl ::core::marker::Copy for PRINTER_OPTIONSA {}
 impl ::core::clone::Clone for PRINTER_OPTIONSA {
@@ -6534,7 +6534,7 @@ impl ::core::clone::Clone for PRINTER_OPTIONSA {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub struct PRINTER_OPTIONSW {
     pub cbSize: u32,
-    pub dwFlags: PRINTER_OPTION_FLAGS,
+    pub dwFlags: u32,
 }
 impl ::core::marker::Copy for PRINTER_OPTIONSW {}
 impl ::core::clone::Clone for PRINTER_OPTIONSW {
@@ -6879,7 +6879,7 @@ pub struct PROPSHEETUI_INFO_HEADER {
     pub Flags: u16,
     pub pTitle: *mut i8,
     pub hWndParent: super::super::Foundation::HWND,
-    pub hInst: super::super::Foundation::HMODULE,
+    pub hInst: super::super::Foundation::HINSTANCE,
     pub Anonymous: PROPSHEETUI_INFO_HEADER_0,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]

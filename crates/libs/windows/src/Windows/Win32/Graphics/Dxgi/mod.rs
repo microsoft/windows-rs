@@ -40,6 +40,12 @@ pub unsafe fn DXGIDeclareAdapterRemovalSupport() -> ::windows_core::Result<()> {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[inline]
+pub unsafe fn DXGIDisableVBlankVirtualization() -> ::windows_core::Result<()> {
+    ::windows_targets::link!("dxgi.dll" "system" fn DXGIDisableVBlankVirtualization() -> ::windows_core::HRESULT);
+    DXGIDisableVBlankVirtualization().ok()
+}
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+#[inline]
 pub unsafe fn DXGIGetDebugInterface1<T>(flags: u32) -> ::windows_core::Result<T>
 where
     T: ::windows_core::ComInterface,
@@ -97,6 +103,8 @@ impl ::core::fmt::Debug for IDXGIAdapter {
         f.debug_tuple("IDXGIAdapter").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIAdapter {}
+unsafe impl ::core::marker::Sync for IDXGIAdapter {}
 unsafe impl ::windows_core::Interface for IDXGIAdapter {
     type Vtable = IDXGIAdapter_Vtbl;
 }
@@ -173,6 +181,8 @@ impl ::core::fmt::Debug for IDXGIAdapter1 {
         f.debug_tuple("IDXGIAdapter1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIAdapter1 {}
+unsafe impl ::core::marker::Sync for IDXGIAdapter1 {}
 unsafe impl ::windows_core::Interface for IDXGIAdapter1 {
     type Vtable = IDXGIAdapter1_Vtbl;
 }
@@ -252,6 +262,8 @@ impl ::core::fmt::Debug for IDXGIAdapter2 {
         f.debug_tuple("IDXGIAdapter2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIAdapter2 {}
+unsafe impl ::core::marker::Sync for IDXGIAdapter2 {}
 unsafe impl ::windows_core::Interface for IDXGIAdapter2 {
     type Vtable = IDXGIAdapter2_Vtbl;
 }
@@ -361,6 +373,8 @@ impl ::core::fmt::Debug for IDXGIAdapter3 {
         f.debug_tuple("IDXGIAdapter3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIAdapter3 {}
+unsafe impl ::core::marker::Sync for IDXGIAdapter3 {}
 unsafe impl ::windows_core::Interface for IDXGIAdapter3 {
     type Vtable = IDXGIAdapter3_Vtbl;
 }
@@ -483,6 +497,8 @@ impl ::core::fmt::Debug for IDXGIAdapter4 {
         f.debug_tuple("IDXGIAdapter4").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIAdapter4 {}
+unsafe impl ::core::marker::Sync for IDXGIAdapter4 {}
 unsafe impl ::windows_core::Interface for IDXGIAdapter4 {
     type Vtable = IDXGIAdapter4_Vtbl;
 }
@@ -523,6 +539,8 @@ impl ::core::fmt::Debug for IDXGIDebug {
         f.debug_tuple("IDXGIDebug").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIDebug {}
+unsafe impl ::core::marker::Sync for IDXGIDebug {}
 unsafe impl ::windows_core::Interface for IDXGIDebug {
     type Vtable = IDXGIDebug_Vtbl;
 }
@@ -571,6 +589,8 @@ impl ::core::fmt::Debug for IDXGIDebug1 {
         f.debug_tuple("IDXGIDebug1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIDebug1 {}
+unsafe impl ::core::marker::Sync for IDXGIDebug1 {}
 unsafe impl ::windows_core::Interface for IDXGIDebug1 {
     type Vtable = IDXGIDebug1_Vtbl;
 }
@@ -647,6 +667,8 @@ impl ::core::fmt::Debug for IDXGIDecodeSwapChain {
         f.debug_tuple("IDXGIDecodeSwapChain").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIDecodeSwapChain {}
+unsafe impl ::core::marker::Sync for IDXGIDecodeSwapChain {}
 unsafe impl ::windows_core::Interface for IDXGIDecodeSwapChain {
     type Vtable = IDXGIDecodeSwapChain_Vtbl;
 }
@@ -739,6 +761,8 @@ impl ::core::fmt::Debug for IDXGIDevice {
         f.debug_tuple("IDXGIDevice").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIDevice {}
+unsafe impl ::core::marker::Sync for IDXGIDevice {}
 unsafe impl ::windows_core::Interface for IDXGIDevice {
     type Vtable = IDXGIDevice_Vtbl;
 }
@@ -825,6 +849,8 @@ impl ::core::fmt::Debug for IDXGIDevice1 {
         f.debug_tuple("IDXGIDevice1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIDevice1 {}
+unsafe impl ::core::marker::Sync for IDXGIDevice1 {}
 unsafe impl ::windows_core::Interface for IDXGIDevice1 {
     type Vtable = IDXGIDevice1_Vtbl;
 }
@@ -921,6 +947,8 @@ impl ::core::fmt::Debug for IDXGIDevice2 {
         f.debug_tuple("IDXGIDevice2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIDevice2 {}
+unsafe impl ::core::marker::Sync for IDXGIDevice2 {}
 unsafe impl ::windows_core::Interface for IDXGIDevice2 {
     type Vtable = IDXGIDevice2_Vtbl;
 }
@@ -1027,6 +1055,8 @@ impl ::core::fmt::Debug for IDXGIDevice3 {
         f.debug_tuple("IDXGIDevice3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIDevice3 {}
+unsafe impl ::core::marker::Sync for IDXGIDevice3 {}
 unsafe impl ::windows_core::Interface for IDXGIDevice3 {
     type Vtable = IDXGIDevice3_Vtbl;
 }
@@ -1131,6 +1161,8 @@ impl ::core::fmt::Debug for IDXGIDevice4 {
         f.debug_tuple("IDXGIDevice4").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIDevice4 {}
+unsafe impl ::core::marker::Sync for IDXGIDevice4 {}
 unsafe impl ::windows_core::Interface for IDXGIDevice4 {
     type Vtable = IDXGIDevice4_Vtbl;
 }
@@ -1192,6 +1224,8 @@ impl ::core::fmt::Debug for IDXGIDeviceSubObject {
         f.debug_tuple("IDXGIDeviceSubObject").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIDeviceSubObject {}
+unsafe impl ::core::marker::Sync for IDXGIDeviceSubObject {}
 unsafe impl ::windows_core::Interface for IDXGIDeviceSubObject {
     type Vtable = IDXGIDeviceSubObject_Vtbl;
 }
@@ -1239,6 +1273,8 @@ impl ::core::fmt::Debug for IDXGIDisplayControl {
         f.debug_tuple("IDXGIDisplayControl").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIDisplayControl {}
+unsafe impl ::core::marker::Sync for IDXGIDisplayControl {}
 unsafe impl ::windows_core::Interface for IDXGIDisplayControl {
     type Vtable = IDXGIDisplayControl_Vtbl;
 }
@@ -1334,6 +1370,8 @@ impl ::core::fmt::Debug for IDXGIFactory {
         f.debug_tuple("IDXGIFactory").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIFactory {}
+unsafe impl ::core::marker::Sync for IDXGIFactory {}
 unsafe impl ::windows_core::Interface for IDXGIFactory {
     type Vtable = IDXGIFactory_Vtbl;
 }
@@ -1447,6 +1485,8 @@ impl ::core::fmt::Debug for IDXGIFactory1 {
         f.debug_tuple("IDXGIFactory1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIFactory1 {}
+unsafe impl ::core::marker::Sync for IDXGIFactory1 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory1 {
     type Vtable = IDXGIFactory1_Vtbl;
 }
@@ -1636,6 +1676,8 @@ impl ::core::fmt::Debug for IDXGIFactory2 {
         f.debug_tuple("IDXGIFactory2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIFactory2 {}
+unsafe impl ::core::marker::Sync for IDXGIFactory2 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory2 {
     type Vtable = IDXGIFactory2_Vtbl;
 }
@@ -1861,6 +1903,8 @@ impl ::core::fmt::Debug for IDXGIFactory3 {
         f.debug_tuple("IDXGIFactory3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIFactory3 {}
+unsafe impl ::core::marker::Sync for IDXGIFactory3 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory3 {
     type Vtable = IDXGIFactory3_Vtbl;
 }
@@ -2065,6 +2109,8 @@ impl ::core::fmt::Debug for IDXGIFactory4 {
         f.debug_tuple("IDXGIFactory4").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIFactory4 {}
+unsafe impl ::core::marker::Sync for IDXGIFactory4 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory4 {
     type Vtable = IDXGIFactory4_Vtbl;
 }
@@ -2276,6 +2322,8 @@ impl ::core::fmt::Debug for IDXGIFactory5 {
         f.debug_tuple("IDXGIFactory5").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIFactory5 {}
+unsafe impl ::core::marker::Sync for IDXGIFactory5 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory5 {
     type Vtable = IDXGIFactory5_Vtbl;
 }
@@ -2490,6 +2538,8 @@ impl ::core::fmt::Debug for IDXGIFactory6 {
         f.debug_tuple("IDXGIFactory6").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIFactory6 {}
+unsafe impl ::core::marker::Sync for IDXGIFactory6 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory6 {
     type Vtable = IDXGIFactory6_Vtbl;
 }
@@ -2716,6 +2766,8 @@ impl ::core::fmt::Debug for IDXGIFactory7 {
         f.debug_tuple("IDXGIFactory7").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIFactory7 {}
+unsafe impl ::core::marker::Sync for IDXGIFactory7 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory7 {
     type Vtable = IDXGIFactory7_Vtbl;
 }
@@ -2777,6 +2829,8 @@ impl ::core::fmt::Debug for IDXGIFactoryMedia {
         f.debug_tuple("IDXGIFactoryMedia").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIFactoryMedia {}
+unsafe impl ::core::marker::Sync for IDXGIFactoryMedia {}
 unsafe impl ::windows_core::Interface for IDXGIFactoryMedia {
     type Vtable = IDXGIFactoryMedia_Vtbl;
 }
@@ -2963,6 +3017,8 @@ impl ::core::fmt::Debug for IDXGIInfoQueue {
         f.debug_tuple("IDXGIInfoQueue").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIInfoQueue {}
+unsafe impl ::core::marker::Sync for IDXGIInfoQueue {}
 unsafe impl ::windows_core::Interface for IDXGIInfoQueue {
     type Vtable = IDXGIInfoQueue_Vtbl;
 }
@@ -3089,6 +3145,8 @@ impl ::core::fmt::Debug for IDXGIKeyedMutex {
         f.debug_tuple("IDXGIKeyedMutex").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIKeyedMutex {}
+unsafe impl ::core::marker::Sync for IDXGIKeyedMutex {}
 unsafe impl ::windows_core::Interface for IDXGIKeyedMutex {
     type Vtable = IDXGIKeyedMutex_Vtbl;
 }
@@ -3143,6 +3201,8 @@ impl ::core::fmt::Debug for IDXGIObject {
         f.debug_tuple("IDXGIObject").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIObject {}
+unsafe impl ::core::marker::Sync for IDXGIObject {}
 unsafe impl ::windows_core::Interface for IDXGIObject {
     type Vtable = IDXGIObject_Vtbl;
 }
@@ -3262,6 +3322,8 @@ impl ::core::fmt::Debug for IDXGIOutput {
         f.debug_tuple("IDXGIOutput").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIOutput {}
+unsafe impl ::core::marker::Sync for IDXGIOutput {}
 unsafe impl ::windows_core::Interface for IDXGIOutput {
     type Vtable = IDXGIOutput_Vtbl;
 }
@@ -3436,6 +3498,8 @@ impl ::core::fmt::Debug for IDXGIOutput1 {
         f.debug_tuple("IDXGIOutput1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIOutput1 {}
+unsafe impl ::core::marker::Sync for IDXGIOutput1 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput1 {
     type Vtable = IDXGIOutput1_Vtbl;
 }
@@ -3592,6 +3656,8 @@ impl ::core::fmt::Debug for IDXGIOutput2 {
         f.debug_tuple("IDXGIOutput2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIOutput2 {}
+unsafe impl ::core::marker::Sync for IDXGIOutput2 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput2 {
     type Vtable = IDXGIOutput2_Vtbl;
 }
@@ -3751,6 +3817,8 @@ impl ::core::fmt::Debug for IDXGIOutput3 {
         f.debug_tuple("IDXGIOutput3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIOutput3 {}
+unsafe impl ::core::marker::Sync for IDXGIOutput3 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput3 {
     type Vtable = IDXGIOutput3_Vtbl;
 }
@@ -3919,6 +3987,8 @@ impl ::core::fmt::Debug for IDXGIOutput4 {
         f.debug_tuple("IDXGIOutput4").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIOutput4 {}
+unsafe impl ::core::marker::Sync for IDXGIOutput4 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput4 {
     type Vtable = IDXGIOutput4_Vtbl;
 }
@@ -4096,6 +4166,8 @@ impl ::core::fmt::Debug for IDXGIOutput5 {
         f.debug_tuple("IDXGIOutput5").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIOutput5 {}
+unsafe impl ::core::marker::Sync for IDXGIOutput5 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput5 {
     type Vtable = IDXGIOutput5_Vtbl;
 }
@@ -4282,6 +4354,8 @@ impl ::core::fmt::Debug for IDXGIOutput6 {
         f.debug_tuple("IDXGIOutput6").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIOutput6 {}
+unsafe impl ::core::marker::Sync for IDXGIOutput6 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput6 {
     type Vtable = IDXGIOutput6_Vtbl;
 }
@@ -4374,6 +4448,8 @@ impl ::core::fmt::Debug for IDXGIOutputDuplication {
         f.debug_tuple("IDXGIOutputDuplication").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIOutputDuplication {}
+unsafe impl ::core::marker::Sync for IDXGIOutputDuplication {}
 unsafe impl ::windows_core::Interface for IDXGIOutputDuplication {
     type Vtable = IDXGIOutputDuplication_Vtbl;
 }
@@ -4453,7 +4529,7 @@ impl IDXGIResource {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).GetUsage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows_core::Result<()> {
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).SetEvictionPriority)(::windows_core::Interface::as_raw(self), evictionpriority).ok()
     }
     pub unsafe fn GetEvictionPriority(&self) -> ::windows_core::Result<u32> {
@@ -4473,6 +4549,8 @@ impl ::core::fmt::Debug for IDXGIResource {
         f.debug_tuple("IDXGIResource").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIResource {}
+unsafe impl ::core::marker::Sync for IDXGIResource {}
 unsafe impl ::windows_core::Interface for IDXGIResource {
     type Vtable = IDXGIResource_Vtbl;
 }
@@ -4493,7 +4571,7 @@ pub struct IDXGIResource_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetSharedHandle: usize,
     pub GetUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pusage: *mut DXGI_USAGE) -> ::windows_core::HRESULT,
-    pub SetEvictionPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows_core::HRESULT,
+    pub SetEvictionPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, evictionpriority: u32) -> ::windows_core::HRESULT,
     pub GetEvictionPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevictionpriority: *mut u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
@@ -4536,7 +4614,7 @@ impl IDXGIResource1 {
         let mut result__ = ::std::mem::zeroed();
         (::windows_core::Interface::vtable(self).base__.GetUsage)(::windows_core::Interface::as_raw(self), &mut result__).from_abi(result__)
     }
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows_core::Result<()> {
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) -> ::windows_core::Result<()> {
         (::windows_core::Interface::vtable(self).base__.SetEvictionPriority)(::windows_core::Interface::as_raw(self), evictionpriority).ok()
     }
     pub unsafe fn GetEvictionPriority(&self) -> ::windows_core::Result<u32> {
@@ -4569,6 +4647,8 @@ impl ::core::fmt::Debug for IDXGIResource1 {
         f.debug_tuple("IDXGIResource1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGIResource1 {}
+unsafe impl ::core::marker::Sync for IDXGIResource1 {}
 unsafe impl ::windows_core::Interface for IDXGIResource1 {
     type Vtable = IDXGIResource1_Vtbl;
 }
@@ -4644,6 +4724,8 @@ impl ::core::fmt::Debug for IDXGISurface {
         f.debug_tuple("IDXGISurface").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGISurface {}
+unsafe impl ::core::marker::Sync for IDXGISurface {}
 unsafe impl ::windows_core::Interface for IDXGISurface {
     type Vtable = IDXGISurface_Vtbl;
 }
@@ -4734,6 +4816,8 @@ impl ::core::fmt::Debug for IDXGISurface1 {
         f.debug_tuple("IDXGISurface1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGISurface1 {}
+unsafe impl ::core::marker::Sync for IDXGISurface1 {}
 unsafe impl ::windows_core::Interface for IDXGISurface1 {
     type Vtable = IDXGISurface1_Vtbl;
 }
@@ -4833,6 +4917,8 @@ impl ::core::fmt::Debug for IDXGISurface2 {
         f.debug_tuple("IDXGISurface2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGISurface2 {}
+unsafe impl ::core::marker::Sync for IDXGISurface2 {}
 unsafe impl ::windows_core::Interface for IDXGISurface2 {
     type Vtable = IDXGISurface2_Vtbl;
 }
@@ -4943,6 +5029,8 @@ impl ::core::fmt::Debug for IDXGISwapChain {
         f.debug_tuple("IDXGISwapChain").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGISwapChain {}
+unsafe impl ::core::marker::Sync for IDXGISwapChain {}
 unsafe impl ::windows_core::Interface for IDXGISwapChain {
     type Vtable = IDXGISwapChain_Vtbl;
 }
@@ -5132,6 +5220,8 @@ impl ::core::fmt::Debug for IDXGISwapChain1 {
         f.debug_tuple("IDXGISwapChain1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGISwapChain1 {}
+unsafe impl ::core::marker::Sync for IDXGISwapChain1 {}
 unsafe impl ::windows_core::Interface for IDXGISwapChain1 {
     type Vtable = IDXGISwapChain1_Vtbl;
 }
@@ -5352,6 +5442,8 @@ impl ::core::fmt::Debug for IDXGISwapChain2 {
         f.debug_tuple("IDXGISwapChain2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGISwapChain2 {}
+unsafe impl ::core::marker::Sync for IDXGISwapChain2 {}
 unsafe impl ::windows_core::Interface for IDXGISwapChain2 {
     type Vtable = IDXGISwapChain2_Vtbl;
 }
@@ -5569,6 +5661,8 @@ impl ::core::fmt::Debug for IDXGISwapChain3 {
         f.debug_tuple("IDXGISwapChain3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGISwapChain3 {}
+unsafe impl ::core::marker::Sync for IDXGISwapChain3 {}
 unsafe impl ::windows_core::Interface for IDXGISwapChain3 {
     type Vtable = IDXGISwapChain3_Vtbl;
 }
@@ -5792,6 +5886,8 @@ impl ::core::fmt::Debug for IDXGISwapChain4 {
         f.debug_tuple("IDXGISwapChain4").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGISwapChain4 {}
+unsafe impl ::core::marker::Sync for IDXGISwapChain4 {}
 unsafe impl ::windows_core::Interface for IDXGISwapChain4 {
     type Vtable = IDXGISwapChain4_Vtbl;
 }
@@ -5835,6 +5931,8 @@ impl ::core::fmt::Debug for IDXGISwapChainMedia {
         f.debug_tuple("IDXGISwapChainMedia").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for IDXGISwapChainMedia {}
+unsafe impl ::core::marker::Sync for IDXGISwapChainMedia {}
 unsafe impl ::windows_core::Interface for IDXGISwapChainMedia {
     type Vtable = IDXGISwapChainMedia_Vtbl;
 }
@@ -6020,6 +6118,16 @@ pub const DXGI_PRESENT_TEST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_PRESENT_USE_DURATION: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_RESOURCE_PRIORITY_HIGH: u32 = 2684354560u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_RESOURCE_PRIORITY_LOW: u32 = 1342177280u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_RESOURCE_PRIORITY_MAXIMUM: u32 = 3355443200u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_RESOURCE_PRIORITY_MINIMUM: u32 = 671088640u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
+pub const DXGI_RESOURCE_PRIORITY_NORMAL: u32 = 2013265920u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_SHARED_RESOURCE_WRITE: u32 = 1u32;
@@ -6103,8 +6211,6 @@ pub const DXGI_ADAPTER_FLAG3_SUPPORT_MONITORED_FENCES: DXGI_ADAPTER_FLAG3 = DXGI
 pub const DXGI_ADAPTER_FLAG3_SUPPORT_NON_MONITORED_FENCES: DXGI_ADAPTER_FLAG3 = DXGI_ADAPTER_FLAG3(16u32);
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 pub const DXGI_ADAPTER_FLAG3_KEYED_MUTEX_CONFORMANCE: DXGI_ADAPTER_FLAG3 = DXGI_ADAPTER_FLAG3(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_ADAPTER_FLAG3_FORCE_DWORD: DXGI_ADAPTER_FLAG3 = DXGI_ADAPTER_FLAG3(4294967295u32);
 impl ::core::marker::Copy for DXGI_ADAPTER_FLAG3 {}
 impl ::core::clone::Clone for DXGI_ADAPTER_FLAG3 {
     fn clone(&self) -> Self {
@@ -7498,39 +7604,6 @@ impl ::windows_core::TypeKind for DXGI_RESIDENCY {
 impl ::core::fmt::Debug for DXGI_RESIDENCY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DXGI_RESIDENCY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DXGI_RESOURCE_PRIORITY(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_RESOURCE_PRIORITY_MINIMUM: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(671088640u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_RESOURCE_PRIORITY_LOW: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(1342177280u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_RESOURCE_PRIORITY_NORMAL: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(2013265920u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_RESOURCE_PRIORITY_HIGH: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(2684354560u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
-pub const DXGI_RESOURCE_PRIORITY_MAXIMUM: DXGI_RESOURCE_PRIORITY = DXGI_RESOURCE_PRIORITY(3355443200u32);
-impl ::core::marker::Copy for DXGI_RESOURCE_PRIORITY {}
-impl ::core::clone::Clone for DXGI_RESOURCE_PRIORITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DXGI_RESOURCE_PRIORITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for DXGI_RESOURCE_PRIORITY {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for DXGI_RESOURCE_PRIORITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DXGI_RESOURCE_PRIORITY").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]

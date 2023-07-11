@@ -1,4 +1,6 @@
-use windows_sys::{Win32::Security::*, Win32::System::Memory::*, Win32::System::Threading::*};
+use windows_sys::{
+    Win32::Foundation::*, Win32::Security::*, Win32::System::Memory::*, Win32::System::Threading::*,
+};
 
 fn main() {
     unsafe {

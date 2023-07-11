@@ -6,9 +6,9 @@
 pub unsafe fn BuildDisplayTable<P0, P1>(lpallocatebuffer: LPALLOCATEBUFFER, lpallocatemore: LPALLOCATEMORE, lpfreebuffer: LPFREEBUFFER, lpmalloc: P0, hinstance: P1, cpages: u32, lppage: *mut DTPAGE, ulflags: u32, lpptable: *mut ::core::option::Option<IMAPITable>, lpptbldata: *mut ::core::option::Option<ITableData>) -> ::windows_core::Result<()>
 where
     P0: ::windows_core::IntoParam<super::Com::IMalloc>,
-    P1: ::windows_core::IntoParam<super::super::Foundation::HMODULE>,
+    P1: ::windows_core::IntoParam<super::super::Foundation::HINSTANCE>,
 {
-    ::windows_targets::link!("mapi32.dll" "system" fn BuildDisplayTable(lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpmalloc : * mut::core::ffi::c_void, hinstance : super::super::Foundation:: HMODULE, cpages : u32, lppage : *mut DTPAGE, ulflags : u32, lpptable : *mut * mut::core::ffi::c_void, lpptbldata : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
+    ::windows_targets::link!("mapi32.dll" "system" fn BuildDisplayTable(lpallocatebuffer : LPALLOCATEBUFFER, lpallocatemore : LPALLOCATEMORE, lpfreebuffer : LPFREEBUFFER, lpmalloc : * mut::core::ffi::c_void, hinstance : super::super::Foundation:: HINSTANCE, cpages : u32, lppage : *mut DTPAGE, ulflags : u32, lpptable : *mut * mut::core::ffi::c_void, lpptbldata : *mut * mut::core::ffi::c_void) -> ::windows_core::HRESULT);
     BuildDisplayTable(lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc.into_param().abi(), hinstance.into_param().abi(), cpages, lppage, ulflags, ::core::mem::transmute(lpptable), ::core::mem::transmute(lpptbldata)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`*"]
@@ -3860,6 +3860,28 @@ impl ::core::default::Default for FlagList {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LPWABACTIONITEM(pub isize);
+impl ::core::default::Default for LPWABACTIONITEM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LPWABACTIONITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LPWABACTIONITEM {}
+impl ::core::fmt::Debug for LPWABACTIONITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LPWABACTIONITEM").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for LPWABACTIONITEM {
+    type TypeKind = ::windows_core::CopyType;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub struct MAPIERROR {
@@ -5497,17 +5519,6 @@ impl ::core::default::Default for WAB_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[repr(C)]
-pub struct _WABACTIONITEM(pub u8);
-impl ::core::marker::Copy for _WABACTIONITEM {}
-impl ::core::clone::Clone for _WABACTIONITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::windows_core::TypeKind for _WABACTIONITEM {
-    type TypeKind = ::windows_core::CopyType;
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]

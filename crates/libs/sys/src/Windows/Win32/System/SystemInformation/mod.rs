@@ -2,7 +2,7 @@
 
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"] fn DnsHostnameToComputerNameExW(hostname : ::windows_sys::core::PCWSTR, computername : ::windows_sys::core::PWSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn EnumSystemFirmwareTables(firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer : *mut FIRMWARE_TABLE_ID, buffersize : u32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn EnumSystemFirmwareTables(firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER, pfirmwaretableenumbuffer : *mut u8, buffersize : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"] fn GetComputerNameExA(nametype : COMPUTER_NAME_FORMAT, lpbuffer : ::windows_sys::core::PSTR, nsize : *mut u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -32,7 +32,7 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn GetSystemDirectoryA(lpbuffer : ::windows_sys::core::PSTR, usize : u32) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn GetSystemDirectoryW(lpbuffer : ::windows_sys::core::PWSTR, usize : u32) -> u32);
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn GetSystemFirmwareTable(firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER, firmwaretableid : FIRMWARE_TABLE_ID, pfirmwaretablebuffer : *mut ::core::ffi::c_void, buffersize : u32) -> u32);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn GetSystemFirmwareTable(firmwaretableprovidersignature : FIRMWARE_TABLE_PROVIDER, firmwaretableid : u32, pfirmwaretablebuffer : *mut u8, buffersize : u32) -> u32);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"] fn GetSystemInfo(lpsysteminfo : *mut SYSTEM_INFO) -> ());
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_SystemInformation\"`, `\"Win32_Foundation\"`*"] fn GetSystemLeapSecondInformation(enabled : *mut super::super::Foundation:: BOOL, flags : *mut u32) -> super::super::Foundation:: BOOL);
@@ -961,7 +961,6 @@ impl ::core::clone::Clone for CACHE_RELATIONSHIP_0 {
         *self
     }
 }
-pub type FIRMWARE_TABLE_ID = u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemInformation\"`*"]
 pub struct GROUP_AFFINITY {

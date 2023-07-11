@@ -3777,9 +3777,9 @@ pub struct WINBIO_PIPELINE {
     pub SensorInterface: *mut WINBIO_SENSOR_INTERFACE,
     pub EngineInterface: *mut WINBIO_ENGINE_INTERFACE,
     pub StorageInterface: *mut WINBIO_STORAGE_INTERFACE,
-    pub SensorContext: *mut _WINIBIO_SENSOR_CONTEXT,
-    pub EngineContext: *mut _WINIBIO_ENGINE_CONTEXT,
-    pub StorageContext: *mut _WINIBIO_STORAGE_CONTEXT,
+    pub SensorContext: *mut WINIBIO_SENSOR_CONTEXT,
+    pub EngineContext: *mut WINIBIO_ENGINE_CONTEXT,
+    pub StorageContext: *mut WINIBIO_STORAGE_CONTEXT,
     pub FrameworkInterface: *mut WINBIO_FRAMEWORK_INTERFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -4660,37 +4660,70 @@ impl ::core::default::Default for WINBIO_VERSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(C)]
-pub struct _WINIBIO_ENGINE_CONTEXT(pub u8);
-impl ::core::marker::Copy for _WINIBIO_ENGINE_CONTEXT {}
-impl ::core::clone::Clone for _WINIBIO_ENGINE_CONTEXT {
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINIBIO_ENGINE_CONTEXT(pub isize);
+impl ::core::default::Default for WINIBIO_ENGINE_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for WINIBIO_ENGINE_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for _WINIBIO_ENGINE_CONTEXT {
+impl ::core::marker::Copy for WINIBIO_ENGINE_CONTEXT {}
+impl ::core::fmt::Debug for WINIBIO_ENGINE_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINIBIO_ENGINE_CONTEXT").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for WINIBIO_ENGINE_CONTEXT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct _WINIBIO_SENSOR_CONTEXT(pub u8);
-impl ::core::marker::Copy for _WINIBIO_SENSOR_CONTEXT {}
-impl ::core::clone::Clone for _WINIBIO_SENSOR_CONTEXT {
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINIBIO_SENSOR_CONTEXT(pub isize);
+impl ::core::default::Default for WINIBIO_SENSOR_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for WINIBIO_SENSOR_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for _WINIBIO_SENSOR_CONTEXT {
+impl ::core::marker::Copy for WINIBIO_SENSOR_CONTEXT {}
+impl ::core::fmt::Debug for WINIBIO_SENSOR_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINIBIO_SENSOR_CONTEXT").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for WINIBIO_SENSOR_CONTEXT {
     type TypeKind = ::windows_core::CopyType;
 }
-#[repr(C)]
-pub struct _WINIBIO_STORAGE_CONTEXT(pub u8);
-impl ::core::marker::Copy for _WINIBIO_STORAGE_CONTEXT {}
-impl ::core::clone::Clone for _WINIBIO_STORAGE_CONTEXT {
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINIBIO_STORAGE_CONTEXT(pub isize);
+impl ::core::default::Default for WINIBIO_STORAGE_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for WINIBIO_STORAGE_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::windows_core::TypeKind for _WINIBIO_STORAGE_CONTEXT {
+impl ::core::marker::Copy for WINIBIO_STORAGE_CONTEXT {}
+impl ::core::fmt::Debug for WINIBIO_STORAGE_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINIBIO_STORAGE_CONTEXT").field(&self.0).finish()
+    }
+}
+impl ::windows_core::TypeKind for WINIBIO_STORAGE_CONTEXT {
     type TypeKind = ::windows_core::CopyType;
 }
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]

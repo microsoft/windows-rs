@@ -224,6 +224,16 @@ where
     ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvInitializeDeviceHost(computesystem : super::HostComputeSystem:: HCS_SYSTEM, devicehosthandle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
     HdvInitializeDeviceHost(computesystem.into_param().abi(), devicehosthandle).ok()
 }
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`, `\"Win32_System_HostComputeSystem\"`*"]
+#[cfg(feature = "Win32_System_HostComputeSystem")]
+#[inline]
+pub unsafe fn HdvInitializeDeviceHostEx<P0>(computesystem: P0, flags: HDV_DEVICE_HOST_FLAGS, devicehosthandle: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
+where
+    P0: ::windows_core::IntoParam<super::HostComputeSystem::HCS_SYSTEM>,
+{
+    ::windows_targets::link!("vmdevicehost.dll" "system" fn HdvInitializeDeviceHostEx(computesystem : super::HostComputeSystem:: HCS_SYSTEM, flags : HDV_DEVICE_HOST_FLAGS, devicehosthandle : *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT);
+    HdvInitializeDeviceHostEx(computesystem.into_param().abi(), flags, devicehosthandle).ok()
+}
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 #[inline]
 pub unsafe fn HdvReadGuestMemory(requestor: *const ::core::ffi::c_void, guestphysicaladdress: u64, buffer: &mut [u8]) -> ::windows_core::Result<()> {

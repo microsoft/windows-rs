@@ -1234,22 +1234,22 @@ impl IClassFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"implement\"`*"]
 pub trait IClientSecurity_Impl: Sized {
-    fn QueryBlanket(&self, pproxy: ::core::option::Option<&::windows_core::IUnknown>, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut RPC_C_AUTHN_LEVEL, pimplevel: *mut RPC_C_IMP_LEVEL, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: *mut EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows_core::Result<()>;
-    fn SetBlanket(&self, pproxy: ::core::option::Option<&::windows_core::IUnknown>, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: &::windows_core::PCWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows_core::Result<()>;
+    fn QueryBlanket(&self, pproxy: ::core::option::Option<&::windows_core::IUnknown>, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut RPC_C_AUTHN_LEVEL, pimplevel: *mut RPC_C_IMP_LEVEL, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows_core::Result<()>;
+    fn SetBlanket(&self, pproxy: ::core::option::Option<&::windows_core::IUnknown>, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: &::windows_core::PCWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: &EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows_core::Result<()>;
     fn CopyProxy(&self, pproxy: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<::windows_core::IUnknown>;
 }
 impl ::windows_core::RuntimeName for IClientSecurity {}
 impl IClientSecurity_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IClientSecurity_Impl, const OFFSET: isize>() -> IClientSecurity_Vtbl {
-        unsafe extern "system" fn QueryBlanket<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IClientSecurity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproxy: *mut ::core::ffi::c_void, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut RPC_C_AUTHN_LEVEL, pimplevel: *mut RPC_C_IMP_LEVEL, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: *mut EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn QueryBlanket<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IClientSecurity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproxy: *mut ::core::ffi::c_void, pauthnsvc: *mut u32, pauthzsvc: *mut u32, pserverprincname: *mut *mut u16, pauthnlevel: *mut RPC_C_AUTHN_LEVEL, pimplevel: *mut RPC_C_IMP_LEVEL, pauthinfo: *mut *mut ::core::ffi::c_void, pcapabilites: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.QueryBlanket(::windows_core::from_raw_borrowed(&pproxy), ::core::mem::transmute_copy(&pauthnsvc), ::core::mem::transmute_copy(&pauthzsvc), ::core::mem::transmute_copy(&pserverprincname), ::core::mem::transmute_copy(&pauthnlevel), ::core::mem::transmute_copy(&pimplevel), ::core::mem::transmute_copy(&pauthinfo), ::core::mem::transmute_copy(&pcapabilites)).into()
         }
-        unsafe extern "system" fn SetBlanket<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IClientSecurity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproxy: *mut ::core::ffi::c_void, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: ::windows_core::PCWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: EOLE_AUTHENTICATION_CAPABILITIES) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn SetBlanket<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IClientSecurity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproxy: *mut ::core::ffi::c_void, dwauthnsvc: u32, dwauthzsvc: u32, pserverprincname: ::windows_core::PCWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: *const ::core::ffi::c_void, dwcapabilities: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.SetBlanket(::windows_core::from_raw_borrowed(&pproxy), ::core::mem::transmute_copy(&dwauthnsvc), ::core::mem::transmute_copy(&dwauthzsvc), ::core::mem::transmute(&pserverprincname), ::core::mem::transmute_copy(&dwauthnlevel), ::core::mem::transmute_copy(&dwimplevel), ::core::mem::transmute_copy(&pauthinfo), ::core::mem::transmute_copy(&dwcapabilities)).into()
+            this.SetBlanket(::windows_core::from_raw_borrowed(&pproxy), ::core::mem::transmute_copy(&dwauthnsvc), ::core::mem::transmute_copy(&dwauthzsvc), ::core::mem::transmute(&pserverprincname), ::core::mem::transmute_copy(&dwauthnlevel), ::core::mem::transmute_copy(&dwimplevel), ::core::mem::transmute_copy(&pauthinfo), ::core::mem::transmute(&dwcapabilities)).into()
         }
         unsafe extern "system" fn CopyProxy<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IClientSecurity_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproxy: *mut ::core::ffi::c_void, ppcopy: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -1447,6 +1447,54 @@ impl IConnectionPointContainer_Vtbl {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"implement\"`*"]
+pub trait IContext_Impl: Sized {
+    fn SetProperty(&self, rpolicyid: *const ::windows_core::GUID, flags: u32, punk: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
+    fn RemoveProperty(&self, rpolicyid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
+    fn GetProperty(&self, rguid: *const ::windows_core::GUID, pflags: *mut u32, ppunk: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>;
+    fn EnumContextProps(&self) -> ::windows_core::Result<IEnumContextProps>;
+}
+impl ::windows_core::RuntimeName for IContext {}
+impl IContext_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContext_Impl, const OFFSET: isize>() -> IContext_Vtbl {
+        unsafe extern "system" fn SetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rpolicyid: *const ::windows_core::GUID, flags: u32, punk: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetProperty(::core::mem::transmute_copy(&rpolicyid), ::core::mem::transmute_copy(&flags), ::windows_core::from_raw_borrowed(&punk)).into()
+        }
+        unsafe extern "system" fn RemoveProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rpolicyid: *const ::windows_core::GUID) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.RemoveProperty(::core::mem::transmute_copy(&rpolicyid)).into()
+        }
+        unsafe extern "system" fn GetProperty<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguid: *const ::windows_core::GUID, pflags: *mut u32, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetProperty(::core::mem::transmute_copy(&rguid), ::core::mem::transmute_copy(&pflags), ::core::mem::transmute_copy(&ppunk)).into()
+        }
+        unsafe extern "system" fn EnumContextProps<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumcontextprops: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.EnumContextProps() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppenumcontextprops, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            SetProperty: SetProperty::<Identity, Impl, OFFSET>,
+            RemoveProperty: RemoveProperty::<Identity, Impl, OFFSET>,
+            GetProperty: GetProperty::<Identity, Impl, OFFSET>,
+            EnumContextProps: EnumContextProps::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IContext as ::windows_core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"implement\"`*"]
 pub trait IContextCallback_Impl: Sized {
     fn ContextCallback(&self, pfncallback: PFNCONTEXTCALL, pparam: *const ComCallData, riid: *const ::windows_core::GUID, imethod: i32, punk: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<()>;
 }
@@ -1622,17 +1670,17 @@ impl IDataObject_Vtbl {
         iid == &<IDataObject as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDispatch_Impl: Sized {
     fn GetTypeInfoCount(&self) -> ::windows_core::Result<u32>;
     fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows_core::Result<ITypeInfo>;
     fn GetIDsOfNames(&self, riid: *const ::windows_core::GUID, rgsznames: *const ::windows_core::PCWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows_core::Result<()>;
-    fn Invoke(&self, dispidmember: i32, riid: *const ::windows_core::GUID, lcid: u32, wflags: DISPATCH_FLAGS, pdispparams: *const DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()>;
+    fn Invoke(&self, dispidmember: i32, riid: *const ::windows_core::GUID, lcid: u32, wflags: DISPATCH_FLAGS, pdispparams: *const DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IDispatch {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDispatch_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDispatch_Impl, const OFFSET: isize>() -> IDispatch_Vtbl {
         unsafe extern "system" fn GetTypeInfoCount<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctinfo: *mut u32) -> ::windows_core::HRESULT {
@@ -1662,7 +1710,7 @@ impl IDispatch_Vtbl {
             let this = (*this).get_impl();
             this.GetIDsOfNames(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&rgsznames), ::core::mem::transmute_copy(&cnames), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&rgdispid)).into()
         }
-        unsafe extern "system" fn Invoke<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows_core::GUID, lcid: u32, wflags: DISPATCH_FLAGS, pdispparams: *const DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Invoke<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IDispatch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows_core::GUID, lcid: u32, wflags: DISPATCH_FLAGS, pdispparams: *const DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Invoke(::core::mem::transmute_copy(&dispidmember), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&lcid), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo), ::core::mem::transmute_copy(&puargerr)).into()
@@ -1821,6 +1869,67 @@ impl IEnumConnections_Vtbl {
     }
     pub fn matches(iid: &::windows_core::GUID) -> bool {
         iid == &<IEnumConnections as ::windows_core::ComInterface>::IID
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"implement\"`*"]
+pub trait IEnumContextProps_Impl: Sized {
+    fn Next(&self, celt: u32, pcontextproperties: *mut ContextProperty, pceltfetched: *mut u32) -> ::windows_core::Result<()>;
+    fn Skip(&self, celt: u32) -> ::windows_core::Result<()>;
+    fn Reset(&self) -> ::windows_core::Result<()>;
+    fn Clone(&self) -> ::windows_core::Result<IEnumContextProps>;
+    fn Count(&self) -> ::windows_core::Result<u32>;
+}
+impl ::windows_core::RuntimeName for IEnumContextProps {}
+impl IEnumContextProps_Vtbl {
+    pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumContextProps_Impl, const OFFSET: isize>() -> IEnumContextProps_Vtbl {
+        unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumContextProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, pcontextproperties: *mut ContextProperty, pceltfetched: *mut u32) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&pcontextproperties), ::core::mem::transmute_copy(&pceltfetched)).into()
+        }
+        unsafe extern "system" fn Skip<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumContextProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Skip(::core::mem::transmute_copy(&celt)).into()
+        }
+        unsafe extern "system" fn Reset<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumContextProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.Reset().into()
+        }
+        unsafe extern "system" fn Clone<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumContextProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumcontextprops: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Clone() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(ppenumcontextprops, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn Count<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumContextProps_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows_core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Count() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(pcelt, ::core::mem::transmute(ok__));
+                    ::windows_core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Next: Next::<Identity, Impl, OFFSET>,
+            Skip: Skip::<Identity, Impl, OFFSET>,
+            Reset: Reset::<Identity, Impl, OFFSET>,
+            Clone: Clone::<Identity, Impl, OFFSET>,
+            Count: Count::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &::windows_core::GUID) -> bool {
+        iid == &<IEnumContextProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2401,14 +2510,14 @@ impl IInternalUnknown_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"implement\"`*"]
 pub trait IMachineGlobalObjectTable_Impl: Sized {
-    fn RegisterObject(&self, clsid: *const ::windows_core::GUID, identifier: &::windows_core::PCWSTR, object: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<*mut MachineGlobalObjectTableRegistrationToken__>;
+    fn RegisterObject(&self, clsid: *const ::windows_core::GUID, identifier: &::windows_core::PCWSTR, object: ::core::option::Option<&::windows_core::IUnknown>) -> ::windows_core::Result<MachineGlobalObjectTableRegistrationToken>;
     fn GetObject(&self, clsid: *const ::windows_core::GUID, identifier: &::windows_core::PCWSTR, riid: *const ::windows_core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>;
-    fn RevokeObject(&self, token: *const MachineGlobalObjectTableRegistrationToken__) -> ::windows_core::Result<()>;
+    fn RevokeObject(&self, token: MachineGlobalObjectTableRegistrationToken) -> ::windows_core::Result<()>;
 }
 impl ::windows_core::RuntimeName for IMachineGlobalObjectTable {}
 impl IMachineGlobalObjectTable_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMachineGlobalObjectTable_Impl, const OFFSET: isize>() -> IMachineGlobalObjectTable_Vtbl {
-        unsafe extern "system" fn RegisterObject<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMachineGlobalObjectTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows_core::GUID, identifier: ::windows_core::PCWSTR, object: *mut ::core::ffi::c_void, token: *mut *mut MachineGlobalObjectTableRegistrationToken__) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn RegisterObject<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMachineGlobalObjectTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsid: *const ::windows_core::GUID, identifier: ::windows_core::PCWSTR, object: *mut ::core::ffi::c_void, token: *mut MachineGlobalObjectTableRegistrationToken) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.RegisterObject(::core::mem::transmute_copy(&clsid), ::core::mem::transmute(&identifier), ::windows_core::from_raw_borrowed(&object)) {
@@ -2424,7 +2533,7 @@ impl IMachineGlobalObjectTable_Vtbl {
             let this = (*this).get_impl();
             this.GetObject(::core::mem::transmute_copy(&clsid), ::core::mem::transmute(&identifier), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn RevokeObject<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMachineGlobalObjectTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: *const MachineGlobalObjectTableRegistrationToken__) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn RevokeObject<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMachineGlobalObjectTable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, token: MachineGlobalObjectTableRegistrationToken) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.RevokeObject(::core::mem::transmute_copy(&token)).into()
@@ -3874,11 +3983,11 @@ pub trait IStream_Impl: Sized + ISequentialStream_Impl {
     fn Seek(&self, dlibmove: i64, dworigin: STREAM_SEEK, plibnewposition: *mut u64) -> ::windows_core::Result<()>;
     fn SetSize(&self, libnewsize: u64) -> ::windows_core::Result<()>;
     fn CopyTo(&self, pstm: ::core::option::Option<&IStream>, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows_core::Result<()>;
-    fn Commit(&self, grfcommitflags: STGC) -> ::windows_core::Result<()>;
+    fn Commit(&self, grfcommitflags: &STGC) -> ::windows_core::Result<()>;
     fn Revert(&self) -> ::windows_core::Result<()>;
-    fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: LOCKTYPE) -> ::windows_core::Result<()>;
+    fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: &LOCKTYPE) -> ::windows_core::Result<()>;
     fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows_core::Result<()>;
-    fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: STATFLAG) -> ::windows_core::Result<()>;
+    fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: &STATFLAG) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IStream>;
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3901,30 +4010,30 @@ impl IStream_Vtbl {
             let this = (*this).get_impl();
             this.CopyTo(::windows_core::from_raw_borrowed(&pstm), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&pcbread), ::core::mem::transmute_copy(&pcbwritten)).into()
         }
-        unsafe extern "system" fn Commit<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfcommitflags: STGC) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Commit<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfcommitflags: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Commit(::core::mem::transmute_copy(&grfcommitflags)).into()
+            this.Commit(::core::mem::transmute(&grfcommitflags)).into()
         }
         unsafe extern "system" fn Revert<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Revert().into()
         }
-        unsafe extern "system" fn LockRegion<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: LOCKTYPE) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn LockRegion<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.LockRegion(::core::mem::transmute_copy(&liboffset), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&dwlocktype)).into()
+            this.LockRegion(::core::mem::transmute_copy(&liboffset), ::core::mem::transmute_copy(&cb), ::core::mem::transmute(&dwlocktype)).into()
         }
         unsafe extern "system" fn UnlockRegion<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UnlockRegion(::core::mem::transmute_copy(&liboffset), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&dwlocktype)).into()
         }
-        unsafe extern "system" fn Stat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatstg: *mut STATSTG, grfstatflag: STATFLAG) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Stat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatstg: *mut STATSTG, grfstatflag: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Stat(::core::mem::transmute_copy(&pstatstg), ::core::mem::transmute_copy(&grfstatflag)).into()
+            this.Stat(::core::mem::transmute_copy(&pstatstg), ::core::mem::transmute(&grfstatflag)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstm: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -4225,15 +4334,15 @@ impl ITimeAndNoticeControl_Vtbl {
         iid == &<ITimeAndNoticeControl as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITypeComp_Impl: Sized {
     fn Bind(&self, szname: &::windows_core::PCWSTR, lhashval: u32, wflags: u16, pptinfo: *mut ::core::option::Option<ITypeInfo>, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> ::windows_core::Result<()>;
     fn BindType(&self, szname: &::windows_core::PCWSTR, lhashval: u32, pptinfo: *mut ::core::option::Option<ITypeInfo>, pptcomp: *mut ::core::option::Option<ITypeComp>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITypeComp {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITypeComp_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeComp_Impl, const OFFSET: isize>() -> ITypeComp_Vtbl {
         unsafe extern "system" fn Bind<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeComp_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szname: ::windows_core::PCWSTR, lhashval: u32, wflags: u16, pptinfo: *mut *mut ::core::ffi::c_void, pdesckind: *mut DESCKIND, pbindptr: *mut BINDPTR) -> ::windows_core::HRESULT {
@@ -4256,8 +4365,8 @@ impl ITypeComp_Vtbl {
         iid == &<ITypeComp as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITypeInfo_Impl: Sized {
     fn GetTypeAttr(&self) -> ::windows_core::Result<*mut TYPEATTR>;
     fn GetTypeComp(&self) -> ::windows_core::Result<ITypeComp>;
@@ -4267,7 +4376,7 @@ pub trait ITypeInfo_Impl: Sized {
     fn GetRefTypeOfImplType(&self, index: u32) -> ::windows_core::Result<u32>;
     fn GetImplTypeFlags(&self, index: u32) -> ::windows_core::Result<IMPLTYPEFLAGS>;
     fn GetIDsOfNames(&self, rgsznames: *const ::windows_core::PCWSTR, cnames: u32, pmemid: *mut i32) -> ::windows_core::Result<()>;
-    fn Invoke(&self, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: DISPATCH_FLAGS, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()>;
+    fn Invoke(&self, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: DISPATCH_FLAGS, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows_core::Result<()>;
     fn GetDocumentation(&self, memid: i32, pbstrname: *mut ::windows_core::BSTR, pbstrdocstring: *mut ::windows_core::BSTR, pdwhelpcontext: *mut u32, pbstrhelpfile: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn GetDllEntry(&self, memid: i32, invkind: INVOKEKIND, pbstrdllname: *mut ::windows_core::BSTR, pbstrname: *mut ::windows_core::BSTR, pwordinal: *mut u16) -> ::windows_core::Result<()>;
     fn GetRefTypeInfo(&self, hreftype: u32) -> ::windows_core::Result<ITypeInfo>;
@@ -4279,9 +4388,9 @@ pub trait ITypeInfo_Impl: Sized {
     fn ReleaseFuncDesc(&self, pfuncdesc: *const FUNCDESC);
     fn ReleaseVarDesc(&self, pvardesc: *const VARDESC);
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITypeInfo {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITypeInfo_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo_Impl, const OFFSET: isize>() -> ITypeInfo_Vtbl {
         unsafe extern "system" fn GetTypeAttr<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptypeattr: *mut *mut TYPEATTR) -> ::windows_core::HRESULT {
@@ -4360,7 +4469,7 @@ impl ITypeInfo_Vtbl {
             let this = (*this).get_impl();
             this.GetIDsOfNames(::core::mem::transmute_copy(&rgsznames), ::core::mem::transmute_copy(&cnames), ::core::mem::transmute_copy(&pmemid)).into()
         }
-        unsafe extern "system" fn Invoke<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: DISPATCH_FLAGS, pdispparams: *mut DISPPARAMS, pvarresult: *mut VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Invoke<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvinstance: *const ::core::ffi::c_void, memid: i32, wflags: DISPATCH_FLAGS, pdispparams: *mut DISPPARAMS, pvarresult: *mut super::Variant::VARIANT, pexcepinfo: *mut EXCEPINFO, puargerr: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Invoke(::core::mem::transmute_copy(&pvinstance), ::core::mem::transmute_copy(&memid), ::core::mem::transmute_copy(&wflags), ::core::mem::transmute_copy(&pdispparams), ::core::mem::transmute_copy(&pvarresult), ::core::mem::transmute_copy(&pexcepinfo), ::core::mem::transmute_copy(&puargerr)).into()
@@ -4454,18 +4563,18 @@ impl ITypeInfo_Vtbl {
         iid == &<ITypeInfo as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITypeInfo2_Impl: Sized + ITypeInfo_Impl {
     fn GetTypeKind(&self) -> ::windows_core::Result<TYPEKIND>;
     fn GetTypeFlags(&self) -> ::windows_core::Result<u32>;
     fn GetFuncIndexOfMemId(&self, memid: i32, invkind: INVOKEKIND) -> ::windows_core::Result<u32>;
     fn GetVarIndexOfMemId(&self, memid: i32) -> ::windows_core::Result<u32>;
-    fn GetCustData(&self, guid: *const ::windows_core::GUID) -> ::windows_core::Result<VARIANT>;
-    fn GetFuncCustData(&self, index: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<VARIANT>;
-    fn GetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<VARIANT>;
-    fn GetVarCustData(&self, index: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<VARIANT>;
-    fn GetImplTypeCustData(&self, index: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<VARIANT>;
+    fn GetCustData(&self, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn GetFuncCustData(&self, index: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn GetParamCustData(&self, indexfunc: u32, indexparam: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn GetVarCustData(&self, index: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT>;
+    fn GetImplTypeCustData(&self, index: u32, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT>;
     fn GetDocumentation2(&self, memid: i32, lcid: u32, pbstrhelpstring: *mut ::windows_core::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn GetAllCustData(&self) -> ::windows_core::Result<CUSTDATA>;
     fn GetAllFuncCustData(&self, index: u32) -> ::windows_core::Result<CUSTDATA>;
@@ -4473,9 +4582,9 @@ pub trait ITypeInfo2_Impl: Sized + ITypeInfo_Impl {
     fn GetAllVarCustData(&self, index: u32) -> ::windows_core::Result<CUSTDATA>;
     fn GetAllImplTypeCustData(&self, index: u32) -> ::windows_core::Result<CUSTDATA>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITypeInfo2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITypeInfo2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>() -> ITypeInfo2_Vtbl {
         unsafe extern "system" fn GetTypeKind<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptypekind: *mut TYPEKIND) -> ::windows_core::HRESULT {
@@ -4522,7 +4631,7 @@ impl ITypeInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pvarval: *mut VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pvarval: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCustData(::core::mem::transmute_copy(&guid)) {
@@ -4533,7 +4642,7 @@ impl ITypeInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetFuncCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *mut VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetFuncCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetFuncCustData(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&guid)) {
@@ -4544,7 +4653,7 @@ impl ITypeInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetParamCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const ::windows_core::GUID, pvarval: *mut VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetParamCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexfunc: u32, indexparam: u32, guid: *const ::windows_core::GUID, pvarval: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetParamCustData(::core::mem::transmute_copy(&indexfunc), ::core::mem::transmute_copy(&indexparam), ::core::mem::transmute_copy(&guid)) {
@@ -4555,7 +4664,7 @@ impl ITypeInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetVarCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *mut VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetVarCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetVarCustData(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&guid)) {
@@ -4566,7 +4675,7 @@ impl ITypeInfo2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetImplTypeCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *mut VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetImplTypeCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, guid: *const ::windows_core::GUID, pvarval: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetImplTypeCustData(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&guid)) {
@@ -4777,20 +4886,20 @@ impl ITypeLib_Vtbl {
         iid == &<ITypeLib as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITypeLib2_Impl: Sized + ITypeLib_Impl {
-    fn GetCustData(&self, guid: *const ::windows_core::GUID) -> ::windows_core::Result<VARIANT>;
+    fn GetCustData(&self, guid: *const ::windows_core::GUID) -> ::windows_core::Result<super::Variant::VARIANT>;
     fn GetLibStatistics(&self, pcuniquenames: *mut u32, pcchuniquenames: *mut u32) -> ::windows_core::Result<()>;
     fn GetDocumentation2(&self, index: i32, lcid: u32, pbstrhelpstring: *mut ::windows_core::BSTR, pdwhelpstringcontext: *mut u32, pbstrhelpstringdll: *mut ::windows_core::BSTR) -> ::windows_core::Result<()>;
     fn GetAllCustData(&self) -> ::windows_core::Result<CUSTDATA>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for ITypeLib2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITypeLib2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeLib2_Impl, const OFFSET: isize>() -> ITypeLib2_Vtbl {
-        unsafe extern "system" fn GetCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeLib2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pvarval: *mut VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn GetCustData<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ITypeLib2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows_core::GUID, pvarval: *mut super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetCustData(::core::mem::transmute_copy(&guid)) {

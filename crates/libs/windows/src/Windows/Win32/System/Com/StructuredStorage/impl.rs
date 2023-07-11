@@ -86,14 +86,17 @@ impl IEnumSTATPROPSETSTG_Vtbl {
         iid == &<IEnumSTATPROPSETSTG as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(feature = "Win32_System_Variant")]
 pub trait IEnumSTATPROPSTG_Impl: Sized {
     fn Next(&self, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows_core::HRESULT;
     fn Skip(&self, celt: u32) -> ::windows_core::HRESULT;
     fn Reset(&self) -> ::windows_core::Result<()>;
     fn Clone(&self) -> ::windows_core::Result<IEnumSTATPROPSTG>;
 }
+#[cfg(feature = "Win32_System_Variant")]
 impl ::windows_core::RuntimeName for IEnumSTATPROPSTG {}
+#[cfg(feature = "Win32_System_Variant")]
 impl IEnumSTATPROPSTG_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumSTATPROPSTG_Impl, const OFFSET: isize>() -> IEnumSTATPROPSTG_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IEnumSTATPROPSTG_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows_core::HRESULT {
@@ -298,9 +301,9 @@ pub trait ILockBytes_Impl: Sized {
     fn WriteAt(&self, uloffset: u64, pv: *const ::core::ffi::c_void, cb: u32, pcbwritten: *mut u32) -> ::windows_core::Result<()>;
     fn Flush(&self) -> ::windows_core::Result<()>;
     fn SetSize(&self, cb: u64) -> ::windows_core::Result<()>;
-    fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: super::LOCKTYPE) -> ::windows_core::Result<()>;
+    fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows_core::Result<()>;
     fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows_core::Result<()>;
-    fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: super::STATFLAG) -> ::windows_core::Result<()>;
+    fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for ILockBytes {}
@@ -327,7 +330,7 @@ impl ILockBytes_Vtbl {
             let this = (*this).get_impl();
             this.SetSize(::core::mem::transmute_copy(&cb)).into()
         }
-        unsafe extern "system" fn LockRegion<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILockBytes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: super::LOCKTYPE) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn LockRegion<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILockBytes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.LockRegion(::core::mem::transmute_copy(&liboffset), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&dwlocktype)).into()
@@ -337,7 +340,7 @@ impl ILockBytes_Vtbl {
             let this = (*this).get_impl();
             this.UnlockRegion(::core::mem::transmute_copy(&liboffset), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&dwlocktype)).into()
         }
-        unsafe extern "system" fn Stat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILockBytes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatstg: *mut super::STATSTG, grfstatflag: super::STATFLAG) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Stat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILockBytes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Stat(::core::mem::transmute_copy(&pstatstg), ::core::mem::transmute_copy(&grfstatflag)).into()
@@ -416,23 +419,23 @@ impl IPersistStorage_Vtbl {
         iid == &<IPersistStorage as ::windows_core::ComInterface>::IID || iid == &<super::IPersist as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPropertyBag_Impl: Sized {
-    fn Read(&self, pszpropname: &::windows_core::PCWSTR, pvar: *mut super::VARIANT, perrorlog: ::core::option::Option<&super::IErrorLog>) -> ::windows_core::Result<()>;
-    fn Write(&self, pszpropname: &::windows_core::PCWSTR, pvar: *const super::VARIANT) -> ::windows_core::Result<()>;
+    fn Read(&self, pszpropname: &::windows_core::PCWSTR, pvar: *mut super::super::Variant::VARIANT, perrorlog: ::core::option::Option<&super::IErrorLog>) -> ::windows_core::Result<()>;
+    fn Write(&self, pszpropname: &::windows_core::PCWSTR, pvar: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyBag {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPropertyBag_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>() -> IPropertyBag_Vtbl {
-        unsafe extern "system" fn Read<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: ::windows_core::PCWSTR, pvar: *mut super::VARIANT, perrorlog: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Read<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: ::windows_core::PCWSTR, pvar: *mut super::super::Variant::VARIANT, perrorlog: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Read(::core::mem::transmute(&pszpropname), ::core::mem::transmute_copy(&pvar), ::windows_core::from_raw_borrowed(&perrorlog)).into()
         }
-        unsafe extern "system" fn Write<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: ::windows_core::PCWSTR, pvar: *const super::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropname: ::windows_core::PCWSTR, pvar: *const super::super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Write(::core::mem::transmute(&pszpropname), ::core::mem::transmute_copy(&pvar)).into()
@@ -443,26 +446,26 @@ impl IPropertyBag_Vtbl {
         iid == &<IPropertyBag as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"implement\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPropertyBag2_Impl: Sized {
-    fn Read(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: ::core::option::Option<&super::IErrorLog>, pvarvalue: *mut super::VARIANT, phrerror: *mut ::windows_core::HRESULT) -> ::windows_core::Result<()>;
-    fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::VARIANT) -> ::windows_core::Result<()>;
+    fn Read(&self, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: ::core::option::Option<&super::IErrorLog>, pvarvalue: *mut super::super::Variant::VARIANT, phrerror: *mut ::windows_core::HRESULT) -> ::windows_core::Result<()>;
+    fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::super::Variant::VARIANT) -> ::windows_core::Result<()>;
     fn CountProperties(&self) -> ::windows_core::Result<u32>;
     fn GetPropertyInfo(&self, iproperty: u32, cproperties: u32, ppropbag: *mut PROPBAG2, pcproperties: *mut u32) -> ::windows_core::Result<()>;
     fn LoadObject(&self, pstrname: &::windows_core::PCWSTR, dwhint: u32, punkobject: ::core::option::Option<&::windows_core::IUnknown>, perrlog: ::core::option::Option<&super::IErrorLog>) -> ::windows_core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyBag2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPropertyBag2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>() -> IPropertyBag2_Vtbl {
-        unsafe extern "system" fn Read<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut ::core::ffi::c_void, pvarvalue: *mut super::VARIANT, phrerror: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Read<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, perrlog: *mut ::core::ffi::c_void, pvarvalue: *mut super::super::Variant::VARIANT, phrerror: *mut ::windows_core::HRESULT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Read(::core::mem::transmute_copy(&cproperties), ::core::mem::transmute_copy(&ppropbag), ::windows_core::from_raw_borrowed(&perrlog), ::core::mem::transmute_copy(&pvarvalue), ::core::mem::transmute_copy(&phrerror)).into()
         }
-        unsafe extern "system" fn Write<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::VARIANT) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Write<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyBag2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::super::Variant::VARIANT) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Write(::core::mem::transmute_copy(&cproperties), ::core::mem::transmute_copy(&ppropbag), ::core::mem::transmute_copy(&pvarvalue)).into()
@@ -561,8 +564,8 @@ impl IPropertySetStorage_Vtbl {
         iid == &<IPropertySetStorage as ::windows_core::ComInterface>::IID
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
 pub trait IPropertyStorage_Impl: Sized {
     fn ReadMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> ::windows_core::Result<()>;
     fn WriteMultiple(&self, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *const PROPVARIANT, propidnamefirst: u32) -> ::windows_core::Result<()>;
@@ -577,9 +580,9 @@ pub trait IPropertyStorage_Impl: Sized {
     fn SetClass(&self, clsid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn Stat(&self, pstatpsstg: *mut STATPROPSETSTG) -> ::windows_core::Result<()>;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
 impl ::windows_core::RuntimeName for IPropertyStorage {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Variant"))]
 impl IPropertyStorage_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStorage_Impl, const OFFSET: isize>() -> IPropertyStorage_Vtbl {
         unsafe extern "system" fn ReadMultiple<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertyStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpspec: u32, rgpspec: *const PROPSPEC, rgpropvar: *mut PROPVARIANT) -> ::windows_core::HRESULT {
@@ -694,8 +697,8 @@ pub trait IStorage_Impl: Sized {
     fn CreateStorage(&self, pwcsname: &::windows_core::PCWSTR, grfmode: super::STGM, reserved1: u32, reserved2: u32) -> ::windows_core::Result<IStorage>;
     fn OpenStorage(&self, pwcsname: &::windows_core::PCWSTR, pstgpriority: ::core::option::Option<&IStorage>, grfmode: super::STGM, snbexclude: *const *const u16, reserved: u32) -> ::windows_core::Result<IStorage>;
     fn CopyTo(&self, ciidexclude: u32, rgiidexclude: *const ::windows_core::GUID, snbexclude: *const *const u16, pstgdest: ::core::option::Option<&IStorage>) -> ::windows_core::Result<()>;
-    fn MoveElementTo(&self, pwcsname: &::windows_core::PCWSTR, pstgdest: ::core::option::Option<&IStorage>, pwcsnewname: &::windows_core::PCWSTR, grfflags: STGMOVE) -> ::windows_core::Result<()>;
-    fn Commit(&self, grfcommitflags: super::STGC) -> ::windows_core::Result<()>;
+    fn MoveElementTo(&self, pwcsname: &::windows_core::PCWSTR, pstgdest: ::core::option::Option<&IStorage>, pwcsnewname: &::windows_core::PCWSTR, grfflags: &STGMOVE) -> ::windows_core::Result<()>;
+    fn Commit(&self, grfcommitflags: u32) -> ::windows_core::Result<()>;
     fn Revert(&self) -> ::windows_core::Result<()>;
     fn EnumElements(&self, reserved1: u32, reserved2: *const ::core::ffi::c_void, reserved3: u32) -> ::windows_core::Result<IEnumSTATSTG>;
     fn DestroyElement(&self, pwcsname: &::windows_core::PCWSTR) -> ::windows_core::Result<()>;
@@ -703,7 +706,7 @@ pub trait IStorage_Impl: Sized {
     fn SetElementTimes(&self, pwcsname: &::windows_core::PCWSTR, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows_core::Result<()>;
     fn SetClass(&self, clsid: *const ::windows_core::GUID) -> ::windows_core::Result<()>;
     fn SetStateBits(&self, grfstatebits: u32, grfmask: u32) -> ::windows_core::Result<()>;
-    fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: super::STATFLAG) -> ::windows_core::Result<()>;
+    fn Stat(&self, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows_core::RuntimeName for IStorage {}
@@ -759,12 +762,12 @@ impl IStorage_Vtbl {
             let this = (*this).get_impl();
             this.CopyTo(::core::mem::transmute_copy(&ciidexclude), ::core::mem::transmute_copy(&rgiidexclude), ::core::mem::transmute_copy(&snbexclude), ::windows_core::from_raw_borrowed(&pstgdest)).into()
         }
-        unsafe extern "system" fn MoveElementTo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcsname: ::windows_core::PCWSTR, pstgdest: *mut ::core::ffi::c_void, pwcsnewname: ::windows_core::PCWSTR, grfflags: STGMOVE) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn MoveElementTo<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcsname: ::windows_core::PCWSTR, pstgdest: *mut ::core::ffi::c_void, pwcsnewname: ::windows_core::PCWSTR, grfflags: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.MoveElementTo(::core::mem::transmute(&pwcsname), ::windows_core::from_raw_borrowed(&pstgdest), ::core::mem::transmute(&pwcsnewname), ::core::mem::transmute_copy(&grfflags)).into()
+            this.MoveElementTo(::core::mem::transmute(&pwcsname), ::windows_core::from_raw_borrowed(&pstgdest), ::core::mem::transmute(&pwcsnewname), ::core::mem::transmute(&grfflags)).into()
         }
-        unsafe extern "system" fn Commit<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfcommitflags: super::STGC) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Commit<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfcommitflags: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Commit(::core::mem::transmute_copy(&grfcommitflags)).into()
@@ -810,7 +813,7 @@ impl IStorage_Vtbl {
             let this = (*this).get_impl();
             this.SetStateBits(::core::mem::transmute_copy(&grfstatebits), ::core::mem::transmute_copy(&grfmask)).into()
         }
-        unsafe extern "system" fn Stat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatstg: *mut super::STATSTG, grfstatflag: super::STATFLAG) -> ::windows_core::HRESULT {
+        unsafe extern "system" fn Stat<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IStorage_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Stat(::core::mem::transmute_copy(&pstatstg), ::core::mem::transmute_copy(&grfstatflag)).into()

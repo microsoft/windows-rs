@@ -47,9 +47,9 @@ pub unsafe fn DestroyEnvironmentBlock(lpenvironment: *const ::core::ffi::c_void)
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
-pub unsafe fn EnclaveGetAttestationReport(enclavedata: ::core::option::Option<*const u8>, report: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32, outputsize: *mut u32) -> ::windows_core::Result<()> {
+pub unsafe fn EnclaveGetAttestationReport(enclavedata: ::core::option::Option<&[u8; 64]>, report: ::core::option::Option<*mut ::core::ffi::c_void>, buffersize: u32, outputsize: *mut u32) -> ::windows_core::Result<()> {
     ::windows_targets::link!("vertdll.dll" "system" fn EnclaveGetAttestationReport(enclavedata : *const u8, report : *mut ::core::ffi::c_void, buffersize : u32, outputsize : *mut u32) -> ::windows_core::HRESULT);
-    EnclaveGetAttestationReport(::core::mem::transmute(enclavedata.unwrap_or(::std::ptr::null())), ::core::mem::transmute(report.unwrap_or(::std::ptr::null_mut())), buffersize, outputsize).ok()
+    EnclaveGetAttestationReport(::core::mem::transmute(enclavedata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(report.unwrap_or(::std::ptr::null_mut())), buffersize, outputsize).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]

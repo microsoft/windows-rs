@@ -13,6 +13,15 @@ pub unsafe fn CancelIPChangeNotify(notifyoverlapped: *const super::super::System
     ::windows_targets::link!("iphlpapi.dll" "system" fn CancelIPChangeNotify(notifyoverlapped : *const super::super::System::IO:: OVERLAPPED) -> super::super::Foundation:: BOOL);
     CancelIPChangeNotify(notifyoverlapped)
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+#[inline]
+pub unsafe fn CancelIfTimestampConfigChange<P0>(notificationhandle: P0)
+where
+    P0: ::windows_core::IntoParam<HIFTIMESTAMPCHANGE>,
+{
+    ::windows_targets::link!("iphlpapi.dll" "system" fn CancelIfTimestampConfigChange(notificationhandle : HIFTIMESTAMPCHANGE) -> ());
+    CancelIfTimestampConfigChange(notificationhandle.into_param().abi())
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -515,12 +524,26 @@ pub unsafe fn GetInterfaceActiveTimestampCapabilities(interfaceluid: *const supe
     ::windows_targets::link!("iphlpapi.dll" "system" fn GetInterfaceActiveTimestampCapabilities(interfaceluid : *const super::Ndis:: NET_LUID_LH, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
     GetInterfaceActiveTimestampCapabilities(interfaceluid, timestampcapabilites)
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+#[inline]
+pub unsafe fn GetInterfaceCurrentTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetInterfaceCurrentTimestampCapabilities(interfaceluid : *const super::Ndis:: NET_LUID_LH, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
+    GetInterfaceCurrentTimestampCapabilities(interfaceluid, timestampcapabilites)
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetInterfaceDnsSettings(interface: ::windows_core::GUID, settings: *mut DNS_INTERFACE_SETTINGS) -> ::windows_core::Result<()> {
     ::windows_targets::link!("iphlpapi.dll" "system" fn GetInterfaceDnsSettings(interface : ::windows_core::GUID, settings : *mut DNS_INTERFACE_SETTINGS) -> super::super::Foundation:: WIN32_ERROR);
     GetInterfaceDnsSettings(::core::mem::transmute(interface), settings).ok()
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+#[inline]
+pub unsafe fn GetInterfaceHardwareTimestampCapabilities(interfaceluid: *const super::Ndis::NET_LUID_LH, timestampcapabilites: *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32 {
+    ::windows_targets::link!("iphlpapi.dll" "system" fn GetInterfaceHardwareTimestampCapabilities(interfaceluid : *const super::Ndis:: NET_LUID_LH, timestampcapabilites : *mut INTERFACE_TIMESTAMP_CAPABILITIES) -> u32);
+    GetInterfaceHardwareTimestampCapabilities(interfaceluid, timestampcapabilites)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -897,10 +920,11 @@ pub unsafe fn GetUnicastIpAddressTable(family: super::super::Networking::WinSock
     ::windows_targets::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressTable(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, table : *mut *mut MIB_UNICASTIPADDRESS_TABLE) -> super::super::Foundation:: WIN32_ERROR);
     GetUnicastIpAddressTable(family, table).ok()
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Icmp6CreateFile() -> ::windows_core::Result<IcmpHandle> {
-    ::windows_targets::link!("iphlpapi.dll" "system" fn Icmp6CreateFile() -> IcmpHandle);
+pub unsafe fn Icmp6CreateFile() -> ::windows_core::Result<super::super::Foundation::HANDLE> {
+    ::windows_targets::link!("iphlpapi.dll" "system" fn Icmp6CreateFile() -> super::super::Foundation:: HANDLE);
     let result__ = Icmp6CreateFile();
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
@@ -910,15 +934,15 @@ pub unsafe fn Icmp6ParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize
     ::windows_targets::link!("iphlpapi.dll" "system" fn Icmp6ParseReplies(replybuffer : *mut ::core::ffi::c_void, replysize : u32) -> u32);
     Icmp6ParseReplies(replybuffer, replysize)
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_System_IO\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn Icmp6SendEcho2<P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32
+pub unsafe fn Icmp6SendEcho2<P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::IO::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, sourceaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, destinationaddress: *const super::super::Networking::WinSock::SOCKADDR_IN6, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32
 where
-    P0: ::windows_core::IntoParam<IcmpHandle>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("iphlpapi.dll" "system" fn Icmp6SendEcho2(icmphandle : IcmpHandle, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::WindowsProgramming:: PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_IN6, destinationaddress : *const super::super::Networking::WinSock:: SOCKADDR_IN6, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
+    ::windows_targets::link!("iphlpapi.dll" "system" fn Icmp6SendEcho2(icmphandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::IO:: PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, sourceaddress : *const super::super::Networking::WinSock:: SOCKADDR_IN6, destinationaddress : *const super::super::Networking::WinSock:: SOCKADDR_IN6, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
     Icmp6SendEcho2(icmphandle.into_param().abi(), event.into_param().abi(), apcroutine, ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), sourceaddress, destinationaddress, requestdata, requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), replybuffer, replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
@@ -926,15 +950,16 @@ where
 #[inline]
 pub unsafe fn IcmpCloseHandle<P0>(icmphandle: P0) -> ::windows_core::Result<()>
 where
-    P0: ::windows_core::IntoParam<IcmpHandle>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpCloseHandle(icmphandle : IcmpHandle) -> super::super::Foundation:: BOOL);
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpCloseHandle(icmphandle : super::super::Foundation:: HANDLE) -> super::super::Foundation:: BOOL);
     IcmpCloseHandle(icmphandle.into_param().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IcmpCreateFile() -> ::windows_core::Result<IcmpHandle> {
-    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpCreateFile() -> IcmpHandle);
+pub unsafe fn IcmpCreateFile() -> ::windows_core::Result<super::super::Foundation::HANDLE> {
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpCreateFile() -> super::super::Foundation:: HANDLE);
     let result__ = IcmpCreateFile();
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows_core::Error::from_win32)
 }
@@ -944,35 +969,36 @@ pub unsafe fn IcmpParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize:
     ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpParseReplies(replybuffer : *mut ::core::ffi::c_void, replysize : u32) -> u32);
     IcmpParseReplies(replybuffer, replysize)
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IcmpSendEcho<P0>(icmphandle: P0, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32
 where
-    P0: ::windows_core::IntoParam<IcmpHandle>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpSendEcho(icmphandle : IcmpHandle, destinationaddress : u32, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpSendEcho(icmphandle : super::super::Foundation:: HANDLE, destinationaddress : u32, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
     IcmpSendEcho(icmphandle.into_param().abi(), destinationaddress, requestdata, requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), replybuffer, replysize, timeout)
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn IcmpSendEcho2<P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32
+pub unsafe fn IcmpSendEcho2<P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::IO::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32
 where
-    P0: ::windows_core::IntoParam<IcmpHandle>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpSendEcho2(icmphandle : IcmpHandle, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::WindowsProgramming:: PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, destinationaddress : u32, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpSendEcho2(icmphandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::IO:: PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, destinationaddress : u32, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
     IcmpSendEcho2(icmphandle.into_param().abi(), event.into_param().abi(), apcroutine, ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), destinationaddress, requestdata, requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), replybuffer, replysize, timeout)
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn IcmpSendEcho2Ex<P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::WindowsProgramming::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32
+pub unsafe fn IcmpSendEcho2Ex<P0, P1>(icmphandle: P0, event: P1, apcroutine: super::super::System::IO::PIO_APC_ROUTINE, apccontext: ::core::option::Option<*const ::core::ffi::c_void>, sourceaddress: u32, destinationaddress: u32, requestdata: *const ::core::ffi::c_void, requestsize: u16, requestoptions: ::core::option::Option<*const IP_OPTION_INFORMATION>, replybuffer: *mut ::core::ffi::c_void, replysize: u32, timeout: u32) -> u32
 where
-    P0: ::windows_core::IntoParam<IcmpHandle>,
+    P0: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
     P1: ::windows_core::IntoParam<super::super::Foundation::HANDLE>,
 {
-    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpSendEcho2Ex(icmphandle : IcmpHandle, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::WindowsProgramming:: PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, sourceaddress : u32, destinationaddress : u32, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
+    ::windows_targets::link!("iphlpapi.dll" "system" fn IcmpSendEcho2Ex(icmphandle : super::super::Foundation:: HANDLE, event : super::super::Foundation:: HANDLE, apcroutine : super::super::System::IO:: PIO_APC_ROUTINE, apccontext : *const ::core::ffi::c_void, sourceaddress : u32, destinationaddress : u32, requestdata : *const ::core::ffi::c_void, requestsize : u16, requestoptions : *const IP_OPTION_INFORMATION, replybuffer : *mut ::core::ffi::c_void, replysize : u32, timeout : u32) -> u32);
     IcmpSendEcho2Ex(icmphandle.into_param().abi(), event.into_param().abi(), apcroutine, ::core::mem::transmute(apccontext.unwrap_or(::std::ptr::null())), sourceaddress, destinationaddress, requestdata, requestsize, ::core::mem::transmute(requestoptions.unwrap_or(::std::ptr::null())), replybuffer, replysize, timeout)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
@@ -1038,6 +1064,12 @@ pub unsafe fn NotifyAddrChange(handle: *mut super::super::Foundation::HANDLE, ov
     ::windows_targets::link!("iphlpapi.dll" "system" fn NotifyAddrChange(handle : *mut super::super::Foundation:: HANDLE, overlapped : *const super::super::System::IO:: OVERLAPPED) -> u32);
     NotifyAddrChange(handle, overlapped)
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+#[inline]
+pub unsafe fn NotifyIfTimestampConfigChange(callercontext: ::core::option::Option<*const ::core::ffi::c_void>, callback: PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, notificationhandle: *mut HIFTIMESTAMPCHANGE) -> u32 {
+    ::windows_targets::link!("iphlpapi.dll" "system" fn NotifyIfTimestampConfigChange(callercontext : *const ::core::ffi::c_void, callback : PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK, notificationhandle : *mut HIFTIMESTAMPCHANGE) -> u32);
+    NotifyIfTimestampConfigChange(::core::mem::transmute(callercontext.unwrap_or(::std::ptr::null())), callback, notificationhandle)
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 #[inline]
@@ -1101,6 +1133,16 @@ where
 {
     ::windows_targets::link!("iphlpapi.dll" "system" fn NotifyUnicastIpAddressChange(family : super::super::Networking::WinSock:: ADDRESS_FAMILY, callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext : *const ::core::ffi::c_void, initialnotification : super::super::Foundation:: BOOLEAN, notificationhandle : *mut super::super::Foundation:: HANDLE) -> super::super::Foundation:: WIN32_ERROR);
     NotifyUnicastIpAddressChange(family, callback, ::core::mem::transmute(callercontext.unwrap_or(::std::ptr::null())), initialnotification.into_param().abi(), notificationhandle).ok()
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
+#[inline]
+pub unsafe fn ParseNetworkString<P0>(networkstring: P0, types: u32, addressinfo: ::core::option::Option<*mut NET_ADDRESS_INFO>, portnumber: ::core::option::Option<*mut u16>, prefixlength: ::core::option::Option<*mut u8>) -> u32
+where
+    P0: ::windows_core::IntoParam<::windows_core::PCWSTR>,
+{
+    ::windows_targets::link!("iphlpapi.dll" "system" fn ParseNetworkString(networkstring : ::windows_core::PCWSTR, types : u32, addressinfo : *mut NET_ADDRESS_INFO, portnumber : *mut u16, prefixlength : *mut u8) -> u32);
+    ParseNetworkString(networkstring.into_param().abi(), types, ::core::mem::transmute(addressinfo.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(portnumber.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(prefixlength.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[inline]
@@ -5540,33 +5582,6 @@ impl ::core::default::Default for IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IcmpHandle(pub isize);
-impl IcmpHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for IcmpHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for IcmpHandle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for IcmpHandle {}
-impl ::core::fmt::Debug for IcmpHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IcmpHandle").field(&self.0).finish()
-    }
-}
-impl ::windows_core::TypeKind for IcmpHandle {
-    type TypeKind = ::windows_core::CopyType;
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub struct MIBICMPINFO {
@@ -9630,6 +9645,97 @@ impl ::windows_core::TypeKind for MIB_UNICASTIPADDRESS_TABLE {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for MIB_UNICASTIPADDRESS_TABLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct NET_ADDRESS_INFO {
+    pub Format: NET_ADDRESS_FORMAT,
+    pub Anonymous: NET_ADDRESS_INFO_0,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for NET_ADDRESS_INFO {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for NET_ADDRESS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::windows_core::TypeKind for NET_ADDRESS_INFO {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::default::Default for NET_ADDRESS_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub union NET_ADDRESS_INFO_0 {
+    pub NamedAddress: NET_ADDRESS_INFO_0_0,
+    pub Ipv4Address: super::super::Networking::WinSock::SOCKADDR_IN,
+    pub Ipv6Address: super::super::Networking::WinSock::SOCKADDR_IN6,
+    pub IpAddress: super::super::Networking::WinSock::SOCKADDR,
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for NET_ADDRESS_INFO_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for NET_ADDRESS_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::windows_core::TypeKind for NET_ADDRESS_INFO_0 {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::default::Default for NET_ADDRESS_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
+pub struct NET_ADDRESS_INFO_0_0 {
+    pub Address: [u16; 256],
+    pub Port: [u16; 6],
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::marker::Copy for NET_ADDRESS_INFO_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::clone::Clone for NET_ADDRESS_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::fmt::Debug for NET_ADDRESS_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_ADDRESS_INFO_0_0").field("Address", &self.Address).field("Port", &self.Port).finish()
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::windows_core::TypeKind for NET_ADDRESS_INFO_0_0 {
+    type TypeKind = ::windows_core::CopyType;
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::PartialEq for NET_ADDRESS_INFO_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.Address == other.Address && self.Port == other.Port
+    }
+}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::cmp::Eq for NET_ADDRESS_INFO_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
+impl ::core::default::Default for NET_ADDRESS_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }

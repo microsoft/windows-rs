@@ -19,7 +19,7 @@ fn primitives() {
     assert_eq!(methods.len(), 14);
 
     assert_eq!(reader.method_def_name(methods[0]), "Nothing");
-    let sig = reader.method_def_signature(methods[0], generics);
+    let sig = reader.method_def_signature("Test", methods[0], generics);
     assert_eq!(sig.return_type, Type::Void);
     assert!(sig.params.is_empty());
 
@@ -53,7 +53,7 @@ fn primitives() {
 }
 
 fn method(reader: &Reader, generics: &[Type], method: MethodDef, expected: Type) {
-    let sig = reader.method_def_signature(method, generics);
+    let sig = reader.method_def_signature("Test", method, generics);
     assert_eq!(sig.return_type, expected);
     assert_eq!(sig.params.len(), 2);
     assert_eq!(sig.params[0].ty, expected);

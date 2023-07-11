@@ -181,7 +181,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
         functions
             .entry(name)
             .or_default()
-            .combine(&functions::writer(writer, method));
+            .combine(&functions::writer(writer, tree.namespace, method));
     }
 
     for field in writer.reader.namespace_constants(tree.namespace) {
