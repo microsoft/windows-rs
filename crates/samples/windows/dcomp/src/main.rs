@@ -422,7 +422,7 @@ impl Window {
 
             let wc = WNDCLASSA {
                 hCursor: LoadCursorW(None, IDC_ARROW)?,
-                hInstance: instance,
+                hInstance: instance.into(),
                 lpszClassName: window_class,
 
                 style: CS_HREDRAW | CS_VREDRAW,

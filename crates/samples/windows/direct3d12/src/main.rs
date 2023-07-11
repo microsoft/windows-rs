@@ -55,7 +55,7 @@ where
         cbSize: std::mem::size_of::<WNDCLASSEXA>() as u32,
         style: CS_HREDRAW | CS_VREDRAW,
         lpfnWndProc: Some(wndproc::<S>),
-        hInstance: instance,
+        hInstance: instance.into(),
         hCursor: unsafe { LoadCursorW(None, IDC_ARROW)? },
         lpszClassName: s!("RustWindowClass"),
         ..Default::default()
@@ -461,10 +461,9 @@ mod d3d12_hello_triangle {
 
         // Record commands.
         unsafe {
-            // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1006
             command_list.ClearRenderTargetView(
                 rtv_handle,
-                &*[0.0_f32, 0.2_f32, 0.4_f32, 1.0_f32].as_ptr(),
+                &[0.0_f32, 0.2_f32, 0.4_f32, 1.0_f32],
                 None,
             );
             command_list.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
@@ -782,7 +781,7 @@ mod d3d12_hello_triangle {
             .ok()
             .unwrap();
 
-            unsafe { WaitForSingleObject(resources.fence_event, INFINITE).unwrap() };
+            unsafe { WaitForSingleObject(resources.fence_event, INFINITE) };
         }
 
         resources.frame_index = unsafe { resources.swap_chain.GetCurrentBackBufferIndex() };
