@@ -1890,11 +1890,11 @@ pub const PFD_MAIN_PLANE: PFD_LAYER_TYPE = 0i8;
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub const PFD_OVERLAY_PLANE: PFD_LAYER_TYPE = 1i8;
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-pub type PFD_PIXEL_TYPE = i8;
+pub type PFD_PIXEL_TYPE = u8;
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-pub const PFD_TYPE_RGBA: PFD_PIXEL_TYPE = 0i8;
+pub const PFD_TYPE_RGBA: PFD_PIXEL_TYPE = 0u8;
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
-pub const PFD_TYPE_COLORINDEX: PFD_PIXEL_TYPE = 1i8;
+pub const PFD_TYPE_COLORINDEX: PFD_PIXEL_TYPE = 1u8;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1910,30 +1910,9 @@ impl ::core::clone::Clone for EMRPIXELFORMAT {
         *self
     }
 }
-#[repr(C)]
-pub struct GLUnurbs(pub u8);
-impl ::core::marker::Copy for GLUnurbs {}
-impl ::core::clone::Clone for GLUnurbs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct GLUquadric(pub u8);
-impl ::core::marker::Copy for GLUquadric {}
-impl ::core::clone::Clone for GLUquadric {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct GLUtesselator(pub u8);
-impl ::core::marker::Copy for GLUtesselator {}
-impl ::core::clone::Clone for GLUtesselator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
+pub type GLUnurbs = isize;
+pub type GLUquadric = isize;
+pub type GLUtesselator = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
 pub struct GLYPHMETRICSFLOAT {
@@ -2011,7 +1990,7 @@ pub struct PIXELFORMATDESCRIPTOR {
     pub cDepthBits: u8,
     pub cStencilBits: u8,
     pub cAuxBuffers: u8,
-    pub iLayerType: PFD_LAYER_TYPE,
+    pub iLayerType: u8,
     pub bReserved: u8,
     pub dwLayerMask: u32,
     pub dwVisibleMask: u32,

@@ -174,8 +174,8 @@
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTOpenKeyedMutex2(param0 : *mut D3DKMT_OPENKEYEDMUTEX2) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTOpenKeyedMutexFromNtHandle(param0 : *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTOpenNtHandleFromName(param0 : *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"] fn D3DKMTOpenNtHandleFromName(param0 : *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTOpenProtectedSessionFromNtHandle(param0 : *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
@@ -188,8 +188,8 @@
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTOpenSyncObjectFromNtHandle(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTOpenSyncObjectFromNtHandle2(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTOpenSyncObjectNtHandleFromName(param0 : *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"] fn D3DKMTOpenSyncObjectNtHandleFromName(param0 : *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTOpenSynchronizationObject(param0 : *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
@@ -294,8 +294,8 @@
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTSetVidPnSourceOwner1(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTSetVidPnSourceOwner2(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::super::super::Win32::Foundation:: NTSTATUS);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTShareObjects(cobjects : u32, hobjects : *const u32, pobjectattributes : *const OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"] fn D3DKMTShareObjects(cobjects : u32, hobjects : *const u32, pobjectattributes : *const super::super::Foundation:: OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::super::super::Win32::Foundation:: HANDLE) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTSharedPrimaryLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[cfg(feature = "Win32_Foundation")]
@@ -351,6 +351,8 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("gdi32.dll" "system" #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"] fn D3DKMTWaitForVerticalBlankEvent2(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation:: NTSTATUS);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DCLEAR_COMPUTERECTS: i32 = 8i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_ALLOCATIONPRIORITY_HIGH: u32 = 2684354560u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_ALLOCATIONPRIORITY_LOW: u32 = 1342177280u32;
@@ -377,7 +379,155 @@ pub const D3DDDI_SYNC_OBJECT_SIGNAL: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_SYNC_OBJECT_WAIT: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDEVCAPS_HWINDEXBUFFER: i32 = 67108864i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDEVCAPS_HWVERTEXBUFFER: i32 = 33554432i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDEVCAPS_SUBVOLUMELOCK: i32 = 134217728i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDEVINFOID_VCACHE: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DFVF_FOG: i32 = 8192i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_MAGIC: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_DEFERRED_AGP_AWARE: u32 = 24u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_DEFER_AGP_FREES: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_DXVERSION: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_FREE_DEFERRED_AGP: u32 = 25u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_GETADAPTERGROUP: u32 = 19u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_GETD3DCAPS8: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_GETD3DCAPS9: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_GETD3DQUERY: u32 = 34u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_GETD3DQUERYCOUNT: u32 = 33u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_GETDDIVERSION: u32 = 35u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_GETEXTENDEDMODE: u32 = 18u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_GETEXTENDEDMODECOUNT: u32 = 17u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_GETFORMAT: u32 = 3u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_GETFORMATCOUNT: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DGDI2_TYPE_GETMULTISAMPLEQUALITYLEVELS: u32 = 22u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DGPU_NULL: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL2_CB32_CLEAR: i32 = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL2_CB32_DRAWONEINDEXEDPRIMITIVE: i32 = 8i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL2_CB32_DRAWONEPRIMITIVE: i32 = 4i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL2_CB32_DRAWPRIMITIVES: i32 = 16i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL2_CB32_SETRENDERTARGET: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL3_CB32_CLEAR2: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL3_CB32_DRAWPRIMITIVES2: i32 = 8i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL3_CB32_RESERVED: i32 = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL3_CB32_VALIDATETEXTURESTAGESTATE: i32 = 4i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHALDP2_EXECUTEBUFFER: i32 = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHALDP2_REQCOMMANDBUFSIZE: i32 = 32i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHALDP2_REQVERTEXBUFSIZE: i32 = 16i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHALDP2_SWAPCOMMANDBUFFER: i32 = 8i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHALDP2_SWAPVERTEXBUFFER: i32 = 4i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHALDP2_USERMEMVERTICES: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHALDP2_VIDMEMCOMMANDBUF: i32 = 128i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHALDP2_VIDMEMVERTEXBUF: i32 = 64i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHALSTATE_GET_LIGHT: i32 = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHALSTATE_GET_RENDER: i32 = 4i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHALSTATE_GET_TRANSFORM: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_COL_WEIGHTS: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_CONTEXT_BAD: i64 = 512i64;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_EXECUTE_ABORT: i32 = 528i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_EXECUTE_NORMAL: i32 = 0i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_EXECUTE_OVERRIDE: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_EXECUTE_UNHANDLED: i32 = 529i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_MAX_RSTATES: u32 = 256u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_MAX_RSTATES_DX6: u32 = 256u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_MAX_RSTATES_DX7: u32 = 256u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_MAX_RSTATES_DX8: u32 = 256u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_MAX_RSTATES_DX9: u32 = 256u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_MAX_TEXTURESTATES: u32 = 13u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_NUMCLIPVERTICES: u32 = 20u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_OUTOFCONTEXTS: i64 = 513i64;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_ROW_WEIGHTS: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_SAMPLER_MAXSAMP: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_SAMPLER_MAXVERTEXSAMP: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_SCENE_CAPTURE_END: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_SCENE_CAPTURE_START: i32 = 0i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_SETLIGHT_DATA: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_SETLIGHT_DISABLE: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_SETLIGHT_ENABLE: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_STATESETBEGIN: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_STATESETCAPTURE: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_STATESETCREATE: u32 = 5u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_STATESETDELETE: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_STATESETEND: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_STATESETEXECUTE: u32 = 3u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_TEXTURESTATEBUF_SIZE: u32 = 14u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_TSS_MAXSTAGES: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_TSS_RENDERSTATEBASE: u32 = 256u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DHAL_TSS_STATESPERSTAGE: u32 = 64u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DINFINITEINSTRUCTIONS: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMDT_BITS_PER_COMPONENT_06: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -442,6 +592,358 @@ pub const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY_ABSOLUTE: u32 = 1073741824u32;
 pub const D3DKMT_SUBKEY_DX9: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("DX9");
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_SUBKEY_OPENGL: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("OpenGL");
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTCLEAR_COMPUTERECTS: i32 = 8i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL2_CB32_SETRENDERTARGET: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL3_CB32_CLEAR2: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL3_CB32_DRAWPRIMITIVES2: i32 = 8i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL3_CB32_RESERVED: i32 = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL3_CB32_VALIDATETEXTURESTAGESTATE: i32 = 4i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHALDP2_EXECUTEBUFFER: i32 = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHALDP2_REQCOMMANDBUFSIZE: i32 = 32i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHALDP2_REQVERTEXBUFSIZE: i32 = 16i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHALDP2_SWAPCOMMANDBUFFER: i32 = 8i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHALDP2_SWAPVERTEXBUFFER: i32 = 4i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHALDP2_USERMEMVERTICES: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHALDP2_VIDMEMCOMMANDBUF: i32 = 128i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHALDP2_VIDMEMVERTEXBUF: i32 = 64i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL_COL_WEIGHTS: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL_CONTEXT_BAD: i64 = 512i64;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL_NUMCLIPVERTICES: u32 = 20u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL_OUTOFCONTEXTS: i64 = 513i64;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL_ROW_WEIGHTS: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL_SCENE_CAPTURE_END: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL_SCENE_CAPTURE_START: i32 = 0i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL_STATESETCREATE: u32 = 5u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL_TSS_MAXSTAGES: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL_TSS_RENDERSTATEBASE: u32 = 256u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTHAL_TSS_STATESPERSTAGE: u32 = 64u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPMISCCAPS_FOGINFVF: i32 = 8192i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPMISCCAPS_LINEPATTERNREP: i32 = 4i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPRASTERCAPS_PAT: i32 = 8i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPRASTERCAPS_STRETCHBLTMULTISAMPLE: i32 = 8388608i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_COLOROUT_MAX_V2_0: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_COLOROUT_MAX_V2_1: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_COLOROUT_MAX_V3_0: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTBOOLREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTBOOLREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTBOOLREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTINTREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTINTREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTINTREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTREG_MAX_SW_DX9: u32 = 8192u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTREG_MAX_V1_1: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTREG_MAX_V1_2: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTREG_MAX_V1_3: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTREG_MAX_V1_4: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTREG_MAX_V2_0: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTREG_MAX_V2_1: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_CONSTREG_MAX_V3_0: u32 = 224u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_INPUTREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_INPUTREG_MAX_SW_DX9: u32 = 14u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_INPUTREG_MAX_V1_1: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_INPUTREG_MAX_V1_2: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_INPUTREG_MAX_V1_3: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_INPUTREG_MAX_V1_4: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_INPUTREG_MAX_V2_0: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_INPUTREG_MAX_V2_1: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_INPUTREG_MAX_V3_0: u32 = 10u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_MAXLOOPINITVALUE_V2_1: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_MAXLOOPINITVALUE_V3_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_MAXLOOPITERATIONCOUNT_V2_1: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_MAXLOOPITERATIONCOUNT_V3_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_MAXLOOPSTEP_V2_1: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_MAXLOOPSTEP_V3_0: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_PREDICATE_MAX_V2_1: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_PREDICATE_MAX_V3_0: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEMPREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEMPREG_MAX_V1_1: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEMPREG_MAX_V1_2: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEMPREG_MAX_V1_3: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEMPREG_MAX_V1_4: u32 = 6u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEMPREG_MAX_V2_0: u32 = 12u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEMPREG_MAX_V2_1: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEMPREG_MAX_V3_0: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEXTUREREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEXTUREREG_MAX_V1_1: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEXTUREREG_MAX_V1_2: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEXTUREREG_MAX_V1_3: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEXTUREREG_MAX_V1_4: u32 = 6u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEXTUREREG_MAX_V2_0: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEXTUREREG_MAX_V2_1: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DPS_TEXTUREREG_MAX_V3_0: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DRENDERSTATE_EVICTMANAGEDTEXTURES: u32 = 61u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DRENDERSTATE_SCENECAPTURE: u32 = 62u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DRS_DELETERTPATCH: u32 = 169u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DRS_MAXPIXELSHADERINST: u32 = 197u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DRS_MAXVERTEXSHADERINST: u32 = 196u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DTEXF_FLATCUBIC: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DTEXF_GAUSSIANCUBIC: u32 = 5u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DTRANSFORMSTATE_WORLD1_DX7: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DTRANSFORMSTATE_WORLD2_DX7: u32 = 5u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DTRANSFORMSTATE_WORLD3_DX7: u32 = 6u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DTRANSFORMSTATE_WORLD_DX7: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DTSS_TEXTUREMAP: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_BLENDINDICES: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_BLENDWEIGHT: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_DIFFUSE: u32 = 5u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_NORMAL: u32 = 3u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_NORMAL2: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_POSITION: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_POSITION2: u32 = 15u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_PSIZE: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_SPECULAR: u32 = 6u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_TEXCOORD0: u32 = 7u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_TEXCOORD1: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_TEXCOORD2: u32 = 9u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_TEXCOORD3: u32 = 10u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_TEXCOORD4: u32 = 11u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_TEXCOORD5: u32 = 12u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_TEXCOORD6: u32 = 13u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDE_TEXCOORD7: u32 = 14u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDT_D3DCOLOR: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDT_FLOAT1: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDT_FLOAT2: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDT_FLOAT3: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDT_FLOAT4: u32 = 3u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDT_SHORT2: u32 = 6u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDT_SHORT4: u32 = 7u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSDT_UBYTE4: u32 = 5u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_CONSTADDRESSSHIFT: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_CONSTCOUNTSHIFT: u32 = 25u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_CONSTRSSHIFT: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_DATALOADTYPESHIFT: u32 = 28u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_DATATYPESHIFT: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_EXTCOUNTSHIFT: u32 = 24u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_EXTINFOSHIFT: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_SKIPCOUNTSHIFT: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_STREAMNUMBERSHIFT: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_STREAMTESSSHIFT: u32 = 28u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKENTYPESHIFT: u32 = 29u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_VERTEXREGINSHIFT: u32 = 20u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_VERTEXREGSHIFT: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_ADDRREG_MAX_V1_1: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_ADDRREG_MAX_V2_0: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_ADDRREG_MAX_V2_1: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_ADDRREG_MAX_V3_0: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_ATTROUTREG_MAX_V1_1: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_ATTROUTREG_MAX_V2_0: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_ATTROUTREG_MAX_V2_1: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTBOOLREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTBOOLREG_MAX_V2_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTBOOLREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTBOOLREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTINTREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTINTREG_MAX_V2_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTINTREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTINTREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTREG_MAX_V1_1: u32 = 96u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTREG_MAX_V2_0: u32 = 8192u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTREG_MAX_V2_1: u32 = 8192u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_CONSTREG_MAX_V3_0: u32 = 8192u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_INPUTREG_MAX_V1_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_INPUTREG_MAX_V2_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_INPUTREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_INPUTREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_LABEL_MAX_V3_0: u32 = 2048u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_MAXINSTRUCTIONCOUNT_V1_1: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_MAXLOOPINITVALUE_V2_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_MAXLOOPINITVALUE_V2_1: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_MAXLOOPINITVALUE_V3_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_MAXLOOPITERATIONCOUNT_V2_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_MAXLOOPITERATIONCOUNT_V2_1: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_MAXLOOPITERATIONCOUNT_V3_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_MAXLOOPSTEP_V2_0: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_MAXLOOPSTEP_V2_1: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_MAXLOOPSTEP_V3_0: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_OUTPUTREG_MAX_SW_DX9: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_OUTPUTREG_MAX_V3_0: u32 = 12u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_PREDICATE_MAX_V2_1: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_PREDICATE_MAX_V3_0: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_TCRDOUTREG_MAX_V1_1: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_TCRDOUTREG_MAX_V2_0: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_TCRDOUTREG_MAX_V2_1: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_TEMPREG_MAX_V1_1: u32 = 12u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_TEMPREG_MAX_V2_0: u32 = 12u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_TEMPREG_MAX_V2_1: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVS_TEMPREG_MAX_V3_0: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVTXPCAPS_NO_VSDT_UBYTE4: i32 = 128i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3D_UMD_INTERFACE_VERSION: u32 = 65536u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -535,7 +1037,15 @@ pub const D3D_UMD_INTERFACE_VERSION_WIN8_M3: u32 = 12289u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3D_UMD_INTERFACE_VERSION_WIN8_RC: u32 = 12291u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DDBLT_EXTENDED_PRESENTATION_STRETCHFACTOR: i32 = 16i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DISPLAYID_DETAILED_TIMING_TYPE_I_SIZE: u32 = 20u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DP2BLT_LINEAR: i32 = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DP2BLT_POINT: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DX9_DDI_VERSION: u32 = 4u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKDDI_INTERFACE_VERSION: u32 = 65540u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -665,7 +1175,249 @@ pub const MAX_ENUM_ADAPTERS: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const OUTPUTDUPL_CREATE_MAX_KEYEDMUTXES: u32 = 3u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const RTPATCHFLAG_HASINFO: i32 = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const RTPATCHFLAG_HASSEGS: i32 = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const SHARED_ALLOCATION_WRITE: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DDEVCAPS_HWINDEXBUFFER: i32 = 67108864i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DDEVCAPS_HWVERTEXBUFFER: i32 = 33554432i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DDEVCAPS_SUBVOLUMELOCK: i32 = 134217728i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DFVF_FOG: i32 = 8192i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_MAGIC: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_DEFERRED_AGP_AWARE: u32 = 24u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_DEFER_AGP_FREES: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_DXVERSION: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_FREE_DEFERRED_AGP: u32 = 25u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_GETADAPTERGROUP: u32 = 19u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_GETD3DCAPS8: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_GETD3DCAPS9: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_GETD3DQUERY: u32 = 34u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_GETD3DQUERYCOUNT: u32 = 33u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_GETDDIVERSION: u32 = 35u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_GETEXTENDEDMODE: u32 = 18u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_GETEXTENDEDMODECOUNT: u32 = 17u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_GETFORMAT: u32 = 3u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_GETFORMATCOUNT: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DGDI2_TYPE_GETMULTISAMPLEQUALITYLEVELS: u32 = 22u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPMISCCAPS_FOGINFVF: i32 = 8192i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_COLOROUT_MAX_V2_0: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_COLOROUT_MAX_V2_1: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_COLOROUT_MAX_V3_0: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTBOOLREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTBOOLREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTBOOLREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTINTREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTINTREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTINTREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTREG_MAX_SW_DX9: u32 = 8192u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTREG_MAX_V1_1: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTREG_MAX_V1_2: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTREG_MAX_V1_3: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTREG_MAX_V1_4: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTREG_MAX_V2_0: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTREG_MAX_V2_1: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_CONSTREG_MAX_V3_0: u32 = 224u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_INPUTREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_INPUTREG_MAX_V1_1: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_INPUTREG_MAX_V1_2: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_INPUTREG_MAX_V1_3: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_INPUTREG_MAX_V1_4: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_INPUTREG_MAX_V2_0: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_INPUTREG_MAX_V2_1: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_INPUTREG_MAX_V3_0: u32 = 12u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_MAXLOOPINITVALUE_V2_1: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_MAXLOOPINITVALUE_V3_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_MAXLOOPITERATIONCOUNT_V2_1: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_MAXLOOPITERATIONCOUNT_V3_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_MAXLOOPSTEP_V2_1: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_MAXLOOPSTEP_V3_0: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_PREDICATE_MAX_V2_1: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_PREDICATE_MAX_V3_0: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEMPREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEMPREG_MAX_V1_1: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEMPREG_MAX_V1_2: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEMPREG_MAX_V1_3: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEMPREG_MAX_V1_4: u32 = 6u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEMPREG_MAX_V2_0: u32 = 12u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEMPREG_MAX_V2_1: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEMPREG_MAX_V3_0: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEXTUREREG_MAX_DX8: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEXTUREREG_MAX_V1_1: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEXTUREREG_MAX_V1_2: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEXTUREREG_MAX_V1_3: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEXTUREREG_MAX_V1_4: u32 = 6u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEXTUREREG_MAX_V2_0: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEXTUREREG_MAX_V2_1: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DPS_TEXTUREREG_MAX_V3_0: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DRS_DELETERTPATCH: u32 = 169u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_ADDRREG_MAX_V1_1: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_ADDRREG_MAX_V2_0: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_ADDRREG_MAX_V2_1: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_ADDRREG_MAX_V3_0: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_ATTROUTREG_MAX_V1_1: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_ATTROUTREG_MAX_V2_0: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_ATTROUTREG_MAX_V2_1: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTBOOLREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTBOOLREG_MAX_V2_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTBOOLREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTBOOLREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTINTREG_MAX_SW_DX9: u32 = 2048u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTINTREG_MAX_V2_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTINTREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTINTREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTREG_MAX_V1_1: u32 = 96u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTREG_MAX_V2_0: u32 = 8192u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTREG_MAX_V2_1: u32 = 8192u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_CONSTREG_MAX_V3_0: u32 = 8192u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_INPUTREG_MAX_V1_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_INPUTREG_MAX_V2_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_INPUTREG_MAX_V2_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_INPUTREG_MAX_V3_0: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_LABEL_MAX_V3_0: u32 = 2048u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_MAXINSTRUCTIONCOUNT_V1_1: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_MAXLOOPINITVALUE_V2_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_MAXLOOPINITVALUE_V2_1: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_MAXLOOPINITVALUE_V3_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_MAXLOOPITERATIONCOUNT_V2_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_MAXLOOPITERATIONCOUNT_V2_1: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_MAXLOOPITERATIONCOUNT_V3_0: u32 = 255u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_MAXLOOPSTEP_V2_0: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_MAXLOOPSTEP_V2_1: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_MAXLOOPSTEP_V3_0: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_OUTPUTREG_MAX_SW_DX9: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_OUTPUTREG_MAX_V3_0: u32 = 12u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_PREDICATE_MAX_V2_1: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_PREDICATE_MAX_V3_0: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_TCRDOUTREG_MAX_V1_1: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_TCRDOUTREG_MAX_V2_0: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_TCRDOUTREG_MAX_V2_1: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_TEMPREG_MAX_V1_1: u32 = 12u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_TEMPREG_MAX_V2_0: u32 = 12u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_TEMPREG_MAX_V2_1: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_D3DVS_TEMPREG_MAX_V3_0: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_RTPATCHFLAG_HASINFO: i32 = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const _NT_RTPATCHFLAG_HASSEGS: i32 = 1i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type D3DDDIFORMAT = u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -881,8 +1633,6 @@ pub const D3DDDIFMT_DXVACOMPBUFFER_MAX: D3DDDIFORMAT = 181u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDIFMT_BINARYBUFFER: D3DDDIFORMAT = 199u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_FORCE_UINT: D3DDDIFORMAT = 2147483647u32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_ACCESS: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = 0i32;
@@ -926,8 +1676,6 @@ pub const D3DDDIMULTISAMPLE_14_SAMPLES: D3DDDIMULTISAMPLE_TYPE = 14i32;
 pub const D3DDDIMULTISAMPLE_15_SAMPLES: D3DDDIMULTISAMPLE_TYPE = 15i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDIMULTISAMPLE_16_SAMPLES: D3DDDIMULTISAMPLE_TYPE = 16i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_FORCE_UINT: D3DDDIMULTISAMPLE_TYPE = 2147483647i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type D3DDDI_COLOR_SPACE_TYPE = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -1172,6 +1920,172 @@ pub const D3DDDI_VSSLO_INTERLACED_UPPERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_
 pub const D3DDDI_VSSLO_INTERLACED_LOWERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = 3i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_VSSLO_OTHER: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = 255i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type D3DHAL_DP2OPERATION = i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_POINTS: D3DHAL_DP2OPERATION = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDLINELIST: D3DHAL_DP2OPERATION = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDTRIANGLELIST: D3DHAL_DP2OPERATION = 3i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_RENDERSTATE: D3DHAL_DP2OPERATION = 8i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_LINELIST: D3DHAL_DP2OPERATION = 15i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_LINESTRIP: D3DHAL_DP2OPERATION = 16i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDLINESTRIP: D3DHAL_DP2OPERATION = 17i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TRIANGLELIST: D3DHAL_DP2OPERATION = 18i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TRIANGLESTRIP: D3DHAL_DP2OPERATION = 19i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDTRIANGLESTRIP: D3DHAL_DP2OPERATION = 20i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TRIANGLEFAN: D3DHAL_DP2OPERATION = 21i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDTRIANGLEFAN: D3DHAL_DP2OPERATION = 22i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TRIANGLEFAN_IMM: D3DHAL_DP2OPERATION = 23i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_LINELIST_IMM: D3DHAL_DP2OPERATION = 24i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TEXTURESTAGESTATE: D3DHAL_DP2OPERATION = 25i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDTRIANGLELIST2: D3DHAL_DP2OPERATION = 26i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDLINELIST2: D3DHAL_DP2OPERATION = 27i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_VIEWPORTINFO: D3DHAL_DP2OPERATION = 28i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_WINFO: D3DHAL_DP2OPERATION = 29i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPALETTE: D3DHAL_DP2OPERATION = 30i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_UPDATEPALETTE: D3DHAL_DP2OPERATION = 31i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_ZRANGE: D3DHAL_DP2OPERATION = 32i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETMATERIAL: D3DHAL_DP2OPERATION = 33i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETLIGHT: D3DHAL_DP2OPERATION = 34i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATELIGHT: D3DHAL_DP2OPERATION = 35i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETTRANSFORM: D3DHAL_DP2OPERATION = 36i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TEXBLT: D3DHAL_DP2OPERATION = 38i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_STATESET: D3DHAL_DP2OPERATION = 39i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPRIORITY: D3DHAL_DP2OPERATION = 40i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETRENDERTARGET: D3DHAL_DP2OPERATION = 41i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CLEAR: D3DHAL_DP2OPERATION = 42i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETTEXLOD: D3DHAL_DP2OPERATION = 43i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETCLIPPLANE: D3DHAL_DP2OPERATION = 44i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATEVERTEXSHADER: D3DHAL_DP2OPERATION = 45i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DELETEVERTEXSHADER: D3DHAL_DP2OPERATION = 46i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADER: D3DHAL_DP2OPERATION = 47i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADERCONST: D3DHAL_DP2OPERATION = 48i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETSTREAMSOURCE: D3DHAL_DP2OPERATION = 49i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETSTREAMSOURCEUM: D3DHAL_DP2OPERATION = 50i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETINDICES: D3DHAL_DP2OPERATION = 51i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWPRIMITIVE: D3DHAL_DP2OPERATION = 52i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWINDEXEDPRIMITIVE: D3DHAL_DP2OPERATION = 53i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATEPIXELSHADER: D3DHAL_DP2OPERATION = 54i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DELETEPIXELSHADER: D3DHAL_DP2OPERATION = 55i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPIXELSHADER: D3DHAL_DP2OPERATION = 56i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPIXELSHADERCONST: D3DHAL_DP2OPERATION = 57i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CLIPPEDTRIANGLEFAN: D3DHAL_DP2OPERATION = 58i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWPRIMITIVE2: D3DHAL_DP2OPERATION = 59i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWINDEXEDPRIMITIVE2: D3DHAL_DP2OPERATION = 60i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWRECTPATCH: D3DHAL_DP2OPERATION = 61i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWTRIPATCH: D3DHAL_DP2OPERATION = 62i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_VOLUMEBLT: D3DHAL_DP2OPERATION = 63i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_BUFFERBLT: D3DHAL_DP2OPERATION = 64i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_MULTIPLYTRANSFORM: D3DHAL_DP2OPERATION = 65i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_ADDDIRTYRECT: D3DHAL_DP2OPERATION = 66i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_ADDDIRTYBOX: D3DHAL_DP2OPERATION = 67i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATEVERTEXSHADERDECL: D3DHAL_DP2OPERATION = 71i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DELETEVERTEXSHADERDECL: D3DHAL_DP2OPERATION = 72i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADERDECL: D3DHAL_DP2OPERATION = 73i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATEVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = 74i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DELETEVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = 75i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = 76i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADERCONSTI: D3DHAL_DP2OPERATION = 77i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETSCISSORRECT: D3DHAL_DP2OPERATION = 79i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETSTREAMSOURCE2: D3DHAL_DP2OPERATION = 80i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_BLT: D3DHAL_DP2OPERATION = 81i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_COLORFILL: D3DHAL_DP2OPERATION = 82i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADERCONSTB: D3DHAL_DP2OPERATION = 83i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATEQUERY: D3DHAL_DP2OPERATION = 84i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETRENDERTARGET2: D3DHAL_DP2OPERATION = 85i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETDEPTHSTENCIL: D3DHAL_DP2OPERATION = 86i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_RESPONSECONTINUE: D3DHAL_DP2OPERATION = 87i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_RESPONSEQUERY: D3DHAL_DP2OPERATION = 88i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_GENERATEMIPSUBLEVELS: D3DHAL_DP2OPERATION = 89i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DELETEQUERY: D3DHAL_DP2OPERATION = 90i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_ISSUEQUERY: D3DHAL_DP2OPERATION = 91i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPIXELSHADERCONSTI: D3DHAL_DP2OPERATION = 93i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPIXELSHADERCONSTB: D3DHAL_DP2OPERATION = 94i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETSTREAMSOURCEFREQ: D3DHAL_DP2OPERATION = 95i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SURFACEBLT: D3DHAL_DP2OPERATION = 96i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETCONVOLUTIONKERNELMONO: D3DHAL_DP2OPERATION = 97i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_COMPOSERECTS: D3DHAL_DP2OPERATION = 98i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2447,6 +3361,188 @@ pub const D3DKMT_VIDSCHESCAPETYPE_PFN_CONTROL: D3DKMT_VIDSCHESCAPETYPE = 7i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_VIDSCHESCAPETYPE_VIRTUAL_REFRESH_RATE: D3DKMT_VIDSCHESCAPETYPE = 8i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type D3DNTHAL_DP2OPERATION = i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_POINTS: D3DNTHAL_DP2OPERATION = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDLINELIST: D3DNTHAL_DP2OPERATION = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDTRIANGLELIST: D3DNTHAL_DP2OPERATION = 3i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_RENDERSTATE: D3DNTHAL_DP2OPERATION = 8i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_LINELIST: D3DNTHAL_DP2OPERATION = 15i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_LINESTRIP: D3DNTHAL_DP2OPERATION = 16i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDLINESTRIP: D3DNTHAL_DP2OPERATION = 17i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TRIANGLELIST: D3DNTHAL_DP2OPERATION = 18i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TRIANGLESTRIP: D3DNTHAL_DP2OPERATION = 19i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDTRIANGLESTRIP: D3DNTHAL_DP2OPERATION = 20i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TRIANGLEFAN: D3DNTHAL_DP2OPERATION = 21i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDTRIANGLEFAN: D3DNTHAL_DP2OPERATION = 22i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TRIANGLEFAN_IMM: D3DNTHAL_DP2OPERATION = 23i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_LINELIST_IMM: D3DNTHAL_DP2OPERATION = 24i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TEXTURESTAGESTATE: D3DNTHAL_DP2OPERATION = 25i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDTRIANGLELIST2: D3DNTHAL_DP2OPERATION = 26i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDLINELIST2: D3DNTHAL_DP2OPERATION = 27i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_VIEWPORTINFO: D3DNTHAL_DP2OPERATION = 28i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_WINFO: D3DNTHAL_DP2OPERATION = 29i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPALETTE: D3DNTHAL_DP2OPERATION = 30i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_UPDATEPALETTE: D3DNTHAL_DP2OPERATION = 31i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_ZRANGE: D3DNTHAL_DP2OPERATION = 32i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETMATERIAL: D3DNTHAL_DP2OPERATION = 33i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETLIGHT: D3DNTHAL_DP2OPERATION = 34i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATELIGHT: D3DNTHAL_DP2OPERATION = 35i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETTRANSFORM: D3DNTHAL_DP2OPERATION = 36i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TEXBLT: D3DNTHAL_DP2OPERATION = 38i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_STATESET: D3DNTHAL_DP2OPERATION = 39i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPRIORITY: D3DNTHAL_DP2OPERATION = 40i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETRENDERTARGET: D3DNTHAL_DP2OPERATION = 41i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CLEAR: D3DNTHAL_DP2OPERATION = 42i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETTEXLOD: D3DNTHAL_DP2OPERATION = 43i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETCLIPPLANE: D3DNTHAL_DP2OPERATION = 44i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATEVERTEXSHADER: D3DNTHAL_DP2OPERATION = 45i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DELETEVERTEXSHADER: D3DNTHAL_DP2OPERATION = 46i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADER: D3DNTHAL_DP2OPERATION = 47i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADERCONST: D3DNTHAL_DP2OPERATION = 48i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETSTREAMSOURCE: D3DNTHAL_DP2OPERATION = 49i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETSTREAMSOURCEUM: D3DNTHAL_DP2OPERATION = 50i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETINDICES: D3DNTHAL_DP2OPERATION = 51i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWPRIMITIVE: D3DNTHAL_DP2OPERATION = 52i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWINDEXEDPRIMITIVE: D3DNTHAL_DP2OPERATION = 53i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATEPIXELSHADER: D3DNTHAL_DP2OPERATION = 54i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DELETEPIXELSHADER: D3DNTHAL_DP2OPERATION = 55i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPIXELSHADER: D3DNTHAL_DP2OPERATION = 56i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPIXELSHADERCONST: D3DNTHAL_DP2OPERATION = 57i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CLIPPEDTRIANGLEFAN: D3DNTHAL_DP2OPERATION = 58i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWPRIMITIVE2: D3DNTHAL_DP2OPERATION = 59i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWINDEXEDPRIMITIVE2: D3DNTHAL_DP2OPERATION = 60i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWRECTPATCH: D3DNTHAL_DP2OPERATION = 61i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWTRIPATCH: D3DNTHAL_DP2OPERATION = 62i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_VOLUMEBLT: D3DNTHAL_DP2OPERATION = 63i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_BUFFERBLT: D3DNTHAL_DP2OPERATION = 64i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_MULTIPLYTRANSFORM: D3DNTHAL_DP2OPERATION = 65i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_ADDDIRTYRECT: D3DNTHAL_DP2OPERATION = 66i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_ADDDIRTYBOX: D3DNTHAL_DP2OPERATION = 67i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATEVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = 71i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DELETEVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = 72i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = 73i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATEVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = 74i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DELETEVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = 75i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = 76i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADERCONSTI: D3DNTHAL_DP2OPERATION = 77i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETSCISSORRECT: D3DNTHAL_DP2OPERATION = 79i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETSTREAMSOURCE2: D3DNTHAL_DP2OPERATION = 80i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_BLT: D3DNTHAL_DP2OPERATION = 81i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_COLORFILL: D3DNTHAL_DP2OPERATION = 82i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADERCONSTB: D3DNTHAL_DP2OPERATION = 83i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATEQUERY: D3DNTHAL_DP2OPERATION = 84i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETRENDERTARGET2: D3DNTHAL_DP2OPERATION = 85i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETDEPTHSTENCIL: D3DNTHAL_DP2OPERATION = 86i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_RESPONSECONTINUE: D3DNTHAL_DP2OPERATION = 87i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_RESPONSEQUERY: D3DNTHAL_DP2OPERATION = 88i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_GENERATEMIPSUBLEVELS: D3DNTHAL_DP2OPERATION = 89i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DELETEQUERY: D3DNTHAL_DP2OPERATION = 90i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_ISSUEQUERY: D3DNTHAL_DP2OPERATION = 91i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPIXELSHADERCONSTI: D3DNTHAL_DP2OPERATION = 93i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPIXELSHADERCONSTB: D3DNTHAL_DP2OPERATION = 94i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETSTREAMSOURCEFREQ: D3DNTHAL_DP2OPERATION = 95i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SURFACEBLT: D3DNTHAL_DP2OPERATION = 96i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETCONVOLUTIONKERNELMONO: D3DNTHAL_DP2OPERATION = 97i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_COMPOSERECTS: D3DNTHAL_DP2OPERATION = 98i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type D3DVSD_TOKENTYPE = i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_NOP: D3DVSD_TOKENTYPE = 0i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_STREAM: D3DVSD_TOKENTYPE = 1i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_STREAMDATA: D3DVSD_TOKENTYPE = 2i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_TESSELLATOR: D3DVSD_TOKENTYPE = 3i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_CONSTMEM: D3DVSD_TOKENTYPE = 4i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_EXT: D3DVSD_TOKENTYPE = 5i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_END: D3DVSD_TOKENTYPE = 7i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DIDDT1_AspectRatio_1x1: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = 0i32;
@@ -2487,8 +3583,6 @@ pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0: DXGKDT_OPM_DVI_CHARACTERISTICS = 1
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: DXGKDT_OPM_DVI_CHARACTERISTICS = 2i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_DVI_CHARACTERISTICS_FORCE_ULONG: DXGKDT_OPM_DVI_CHARACTERISTICS = -1i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_CERTIFICATE_TYPE = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = 0i32;
@@ -2499,8 +3593,6 @@ pub const DXGKMDT_UAB_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = 2i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = 3i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_FORCE_ULONG: DXGKMDT_CERTIFICATE_TYPE = -1i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_ACP_PROTECTION_LEVEL = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_ACP_OFF: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 0i32;
@@ -2510,8 +3602,6 @@ pub const DXGKMDT_OPM_ACP_LEVEL_ONE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 1i32;
 pub const DXGKMDT_OPM_ACP_LEVEL_TWO: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 2i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_ACP_LEVEL_THREE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 3i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ACP_FORCE_ULONG: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = 2147483647i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2599,8 +3689,6 @@ pub const DXGKMDT_OPM_DPCP_OFF: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = 0i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_DPCP_ON: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = 1i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_DPCP_FORCE_ULONG: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = 2147483647i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_HDCP_FLAG = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_HDCP_FLAG_NONE: DXGKMDT_OPM_HDCP_FLAG = 0i32;
@@ -2612,8 +3700,6 @@ pub type DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = i32;
 pub const DXGKMDT_OPM_HDCP_OFF: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = 0i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_HDCP_ON: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = 1i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_HDCP_FORCE_ULONG: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = 2147483647i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2633,8 +3719,6 @@ pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3_PROTECTED_CENTER:
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_16_BY_9_ANAMORPHIC: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = 7i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ASPECT_RATIO_FORCE_ULONG: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = 2147483647i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_INTERLEAVE_FORMAT = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_OTHER: DXGKMDT_OPM_INTERLEAVE_FORMAT = 0i32;
@@ -2644,8 +3728,6 @@ pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_PROGRESSIVE: DXGKMDT_OPM_INTERLEAVE_FORM
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_EVEN_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = 3i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_ODD_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = 4i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_FORCE_ULONG: DXGKMDT_OPM_INTERLEAVE_FORMAT = -1i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2728,8 +3810,6 @@ pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_OFF: DXGKMDT_OPM_TYPE_ENFORCEMENT_HD
 pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_NO_TYPE_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = 1i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = 2i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_FORCE_ULONG: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = 2147483647i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub type DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -3114,8 +4194,72 @@ pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_INACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STA
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_ACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = 1i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_PENDING_DESTROY: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = 2i32;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_FORCE_UINT32: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = -1i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DCAPS8 {
+    pub DeviceType: super::super::super::Win32::Graphics::Direct3D9::D3DDEVTYPE,
+    pub AdapterOrdinal: u32,
+    pub Caps: u32,
+    pub Caps2: u32,
+    pub Caps3: u32,
+    pub PresentationIntervals: u32,
+    pub CursorCaps: u32,
+    pub DevCaps: u32,
+    pub PrimitiveMiscCaps: u32,
+    pub RasterCaps: u32,
+    pub ZCmpCaps: u32,
+    pub SrcBlendCaps: u32,
+    pub DestBlendCaps: u32,
+    pub AlphaCmpCaps: u32,
+    pub ShadeCaps: u32,
+    pub TextureCaps: u32,
+    pub TextureFilterCaps: u32,
+    pub CubeTextureFilterCaps: u32,
+    pub VolumeTextureFilterCaps: u32,
+    pub TextureAddressCaps: u32,
+    pub VolumeTextureAddressCaps: u32,
+    pub LineCaps: u32,
+    pub MaxTextureWidth: u32,
+    pub MaxTextureHeight: u32,
+    pub MaxVolumeExtent: u32,
+    pub MaxTextureRepeat: u32,
+    pub MaxTextureAspectRatio: u32,
+    pub MaxAnisotropy: u32,
+    pub MaxVertexW: f32,
+    pub GuardBandLeft: f32,
+    pub GuardBandTop: f32,
+    pub GuardBandRight: f32,
+    pub GuardBandBottom: f32,
+    pub ExtentsAdjust: f32,
+    pub StencilCaps: u32,
+    pub FVFCaps: u32,
+    pub TextureOpCaps: u32,
+    pub MaxTextureBlendStages: u32,
+    pub MaxSimultaneousTextures: u32,
+    pub VertexProcessingCaps: u32,
+    pub MaxActiveLights: u32,
+    pub MaxUserClipPlanes: u32,
+    pub MaxVertexBlendMatrices: u32,
+    pub MaxVertexBlendMatrixIndex: u32,
+    pub MaxPointSize: f32,
+    pub MaxPrimitiveCount: u32,
+    pub MaxVertexIndex: u32,
+    pub MaxStreams: u32,
+    pub MaxStreamStride: u32,
+    pub VertexShaderVersion: u32,
+    pub MaxVertexShaderConst: u32,
+    pub PixelShaderVersion: u32,
+    pub MaxPixelShaderValue: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DCAPS8 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DCAPS8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4784,6 +5928,113 @@ impl ::core::clone::Clone for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0
     }
 }
 #[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub struct D3DDEVICEDESC_V1 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dcmColorModel: u32,
+    pub dwDevCaps: u32,
+    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
+    pub bClipping: super::super::super::Win32::Foundation::BOOL,
+    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
+    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dwDeviceRenderBitDepth: u32,
+    pub dwDeviceZBufferBitDepth: u32,
+    pub dwMaxBufferSize: u32,
+    pub dwMaxVertexCount: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for D3DDEVICEDESC_V1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for D3DDEVICEDESC_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub struct D3DDEVICEDESC_V2 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dcmColorModel: u32,
+    pub dwDevCaps: u32,
+    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
+    pub bClipping: super::super::super::Win32::Foundation::BOOL,
+    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
+    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dwDeviceRenderBitDepth: u32,
+    pub dwDeviceZBufferBitDepth: u32,
+    pub dwMaxBufferSize: u32,
+    pub dwMaxVertexCount: u32,
+    pub dwMinTextureWidth: u32,
+    pub dwMinTextureHeight: u32,
+    pub dwMaxTextureWidth: u32,
+    pub dwMaxTextureHeight: u32,
+    pub dwMinStippleWidth: u32,
+    pub dwMaxStippleWidth: u32,
+    pub dwMinStippleHeight: u32,
+    pub dwMaxStippleHeight: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for D3DDEVICEDESC_V2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for D3DDEVICEDESC_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub struct D3DDEVICEDESC_V3 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dcmColorModel: u32,
+    pub dwDevCaps: u32,
+    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
+    pub bClipping: super::super::super::Win32::Foundation::BOOL,
+    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
+    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dwDeviceRenderBitDepth: u32,
+    pub dwDeviceZBufferBitDepth: u32,
+    pub dwMaxBufferSize: u32,
+    pub dwMaxVertexCount: u32,
+    pub dwMinTextureWidth: u32,
+    pub dwMinTextureHeight: u32,
+    pub dwMaxTextureWidth: u32,
+    pub dwMaxTextureHeight: u32,
+    pub dwMinStippleWidth: u32,
+    pub dwMaxStippleWidth: u32,
+    pub dwMinStippleHeight: u32,
+    pub dwMaxStippleHeight: u32,
+    pub dwMaxTextureRepeat: u32,
+    pub dwMaxTextureAspectRatio: u32,
+    pub dwMaxAnisotropy: u32,
+    pub dvGuardBandLeft: f32,
+    pub dvGuardBandTop: f32,
+    pub dvGuardBandRight: f32,
+    pub dvGuardBandBottom: f32,
+    pub dvExtentsAdjust: f32,
+    pub dwStencilCaps: u32,
+    pub dwFVFCaps: u32,
+    pub dwTextureOpCaps: u32,
+    pub wMaxTextureBlendStages: u16,
+    pub wMaxSimultaneousTextures: u16,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for D3DDEVICEDESC_V3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for D3DDEVICEDESC_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub struct D3DGPU_PHYSICAL_ADDRESS {
     pub SegmentId: u32,
@@ -4792,6 +6043,1660 @@ pub struct D3DGPU_PHYSICAL_ADDRESS {
 }
 impl ::core::marker::Copy for D3DGPU_PHYSICAL_ADDRESS {}
 impl ::core::clone::Clone for D3DGPU_PHYSICAL_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub struct D3DHAL_CALLBACKS {
+    pub dwSize: u32,
+    pub ContextCreate: LPD3DHAL_CONTEXTCREATECB,
+    pub ContextDestroy: LPD3DHAL_CONTEXTDESTROYCB,
+    pub ContextDestroyAll: LPD3DHAL_CONTEXTDESTROYALLCB,
+    pub SceneCapture: LPD3DHAL_SCENECAPTURECB,
+    pub lpReserved10: *mut ::core::ffi::c_void,
+    pub lpReserved11: *mut ::core::ffi::c_void,
+    pub RenderState: LPD3DHAL_RENDERSTATECB,
+    pub RenderPrimitive: LPD3DHAL_RENDERPRIMITIVECB,
+    pub dwReserved: u32,
+    pub TextureCreate: LPD3DHAL_TEXTURECREATECB,
+    pub TextureDestroy: LPD3DHAL_TEXTUREDESTROYCB,
+    pub TextureSwap: LPD3DHAL_TEXTURESWAPCB,
+    pub TextureGetSurf: LPD3DHAL_TEXTUREGETSURFCB,
+    pub lpReserved12: *mut ::core::ffi::c_void,
+    pub lpReserved13: *mut ::core::ffi::c_void,
+    pub lpReserved14: *mut ::core::ffi::c_void,
+    pub lpReserved15: *mut ::core::ffi::c_void,
+    pub lpReserved16: *mut ::core::ffi::c_void,
+    pub lpReserved17: *mut ::core::ffi::c_void,
+    pub lpReserved18: *mut ::core::ffi::c_void,
+    pub lpReserved19: *mut ::core::ffi::c_void,
+    pub lpReserved20: *mut ::core::ffi::c_void,
+    pub lpReserved21: *mut ::core::ffi::c_void,
+    pub GetState: LPD3DHAL_GETSTATECB,
+    pub dwReserved0: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub dwReserved3: u32,
+    pub dwReserved4: u32,
+    pub dwReserved5: u32,
+    pub dwReserved6: u32,
+    pub dwReserved7: u32,
+    pub dwReserved8: u32,
+    pub dwReserved9: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_CALLBACKS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_CALLBACKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub struct D3DHAL_CALLBACKS2 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub SetRenderTarget: LPD3DHAL_SETRENDERTARGETCB,
+    pub Clear: LPD3DHAL_CLEARCB,
+    pub DrawOnePrimitive: LPD3DHAL_DRAWONEPRIMITIVECB,
+    pub DrawOneIndexedPrimitive: LPD3DHAL_DRAWONEINDEXEDPRIMITIVECB,
+    pub DrawPrimitives: LPD3DHAL_DRAWPRIMITIVESCB,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_CALLBACKS2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_CALLBACKS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub struct D3DHAL_CALLBACKS3 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub Clear2: LPD3DHAL_CLEAR2CB,
+    pub lpvReserved: *mut ::core::ffi::c_void,
+    pub ValidateTextureStageState: LPD3DHAL_VALIDATETEXTURESTAGESTATECB,
+    pub DrawPrimitives2: LPD3DHAL_DRAWPRIMITIVES2CB,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_CALLBACKS3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_CALLBACKS3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_CLEAR2DATA {
+    pub dwhContext: usize,
+    pub dwFlags: u32,
+    pub dwFillColor: u32,
+    pub dvFillDepth: f32,
+    pub dwFillStencil: u32,
+    pub lpRects: *mut super::super::super::Win32::Graphics::Direct3D9::D3DRECT,
+    pub dwNumRects: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_CLEAR2DATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_CLEAR2DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_CLEARDATA {
+    pub dwhContext: usize,
+    pub dwFlags: u32,
+    pub dwFillColor: u32,
+    pub dwFillDepth: u32,
+    pub lpRects: *mut super::super::super::Win32::Graphics::Direct3D9::D3DRECT,
+    pub dwNumRects: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_CLEARDATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_CLEARDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_CLIPPEDTRIANGLEFAN {
+    pub FirstVertexOffset: u32,
+    pub dwEdgeFlags: u32,
+    pub PrimitiveCount: u32,
+}
+impl ::core::marker::Copy for D3DHAL_CLIPPEDTRIANGLEFAN {}
+impl ::core::clone::Clone for D3DHAL_CLIPPEDTRIANGLEFAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub struct D3DHAL_CONTEXTCREATEDATA {
+    pub Anonymous1: D3DHAL_CONTEXTCREATEDATA_0,
+    pub Anonymous2: D3DHAL_CONTEXTCREATEDATA_1,
+    pub Anonymous3: D3DHAL_CONTEXTCREATEDATA_2,
+    pub Anonymous4: D3DHAL_CONTEXTCREATEDATA_3,
+    pub dwhContext: usize,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub union D3DHAL_CONTEXTCREATEDATA_0 {
+    pub lpDDGbl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_GBL,
+    pub lpDDLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DIRECTDRAW_LCL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub union D3DHAL_CONTEXTCREATEDATA_1 {
+    pub lpDDS: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub union D3DHAL_CONTEXTCREATEDATA_2 {
+    pub lpDDSZ: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA_2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub union D3DHAL_CONTEXTCREATEDATA_3 {
+    pub dwPID: u32,
+    pub dwrstates: usize,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_CONTEXTCREATEDATA_3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_CONTEXTCREATEDATA_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_CONTEXTDESTROYALLDATA {
+    pub dwPID: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DHAL_CONTEXTDESTROYALLDATA {}
+impl ::core::clone::Clone for D3DHAL_CONTEXTDESTROYALLDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_CONTEXTDESTROYDATA {
+    pub dwhContext: usize,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DHAL_CONTEXTDESTROYDATA {}
+impl ::core::clone::Clone for D3DHAL_CONTEXTDESTROYDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_D3DDX6EXTENDEDCAPS {
+    pub dwSize: u32,
+    pub dwMinTextureWidth: u32,
+    pub dwMaxTextureWidth: u32,
+    pub dwMinTextureHeight: u32,
+    pub dwMaxTextureHeight: u32,
+    pub dwMinStippleWidth: u32,
+    pub dwMaxStippleWidth: u32,
+    pub dwMinStippleHeight: u32,
+    pub dwMaxStippleHeight: u32,
+    pub dwMaxTextureRepeat: u32,
+    pub dwMaxTextureAspectRatio: u32,
+    pub dwMaxAnisotropy: u32,
+    pub dvGuardBandLeft: f32,
+    pub dvGuardBandTop: f32,
+    pub dvGuardBandRight: f32,
+    pub dvGuardBandBottom: f32,
+    pub dvExtentsAdjust: f32,
+    pub dwStencilCaps: u32,
+    pub dwFVFCaps: u32,
+    pub dwTextureOpCaps: u32,
+    pub wMaxTextureBlendStages: u16,
+    pub wMaxSimultaneousTextures: u16,
+}
+impl ::core::marker::Copy for D3DHAL_D3DDX6EXTENDEDCAPS {}
+impl ::core::clone::Clone for D3DHAL_D3DDX6EXTENDEDCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_D3DEXTENDEDCAPS {
+    pub dwSize: u32,
+    pub dwMinTextureWidth: u32,
+    pub dwMaxTextureWidth: u32,
+    pub dwMinTextureHeight: u32,
+    pub dwMaxTextureHeight: u32,
+    pub dwMinStippleWidth: u32,
+    pub dwMaxStippleWidth: u32,
+    pub dwMinStippleHeight: u32,
+    pub dwMaxStippleHeight: u32,
+    pub dwMaxTextureRepeat: u32,
+    pub dwMaxTextureAspectRatio: u32,
+    pub dwMaxAnisotropy: u32,
+    pub dvGuardBandLeft: f32,
+    pub dvGuardBandTop: f32,
+    pub dvGuardBandRight: f32,
+    pub dvGuardBandBottom: f32,
+    pub dvExtentsAdjust: f32,
+    pub dwStencilCaps: u32,
+    pub dwFVFCaps: u32,
+    pub dwTextureOpCaps: u32,
+    pub wMaxTextureBlendStages: u16,
+    pub wMaxSimultaneousTextures: u16,
+    pub dwMaxActiveLights: u32,
+    pub dvMaxVertexW: f32,
+    pub wMaxUserClipPlanes: u16,
+    pub wMaxVertexBlendMatrices: u16,
+    pub dwVertexProcessingCaps: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub dwReserved3: u32,
+    pub dwReserved4: u32,
+}
+impl ::core::marker::Copy for D3DHAL_D3DEXTENDEDCAPS {}
+impl ::core::clone::Clone for D3DHAL_D3DEXTENDEDCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2ADDDIRTYBOX {
+    pub dwSurface: u32,
+    pub DirtyBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2ADDDIRTYBOX {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2ADDDIRTYBOX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DHAL_DP2ADDDIRTYRECT {
+    pub dwSurface: u32,
+    pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DHAL_DP2ADDDIRTYRECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DHAL_DP2ADDDIRTYRECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DHAL_DP2BLT {
+    pub dwSource: u32,
+    pub rSource: super::super::super::Win32::Foundation::RECTL,
+    pub dwSourceMipLevel: u32,
+    pub dwDest: u32,
+    pub rDest: super::super::super::Win32::Foundation::RECTL,
+    pub dwDestMipLevel: u32,
+    pub Flags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DHAL_DP2BLT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DHAL_DP2BLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2BUFFERBLT {
+    pub dwDDDestSurface: u32,
+    pub dwDDSrcSurface: u32,
+    pub dwOffset: u32,
+    pub rSrc: super::super::super::Win32::Graphics::Direct3D9::D3DRANGE,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2BUFFERBLT {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2BUFFERBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DHAL_DP2CLEAR {
+    pub dwFlags: u32,
+    pub dwFillColor: u32,
+    pub dvFillDepth: f32,
+    pub dwFillStencil: u32,
+    pub Rects: [super::super::super::Win32::Foundation::RECT; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DHAL_DP2CLEAR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DHAL_DP2CLEAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DHAL_DP2COLORFILL {
+    pub dwSurface: u32,
+    pub rRect: super::super::super::Win32::Foundation::RECTL,
+    pub Color: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DHAL_DP2COLORFILL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DHAL_DP2COLORFILL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2COMMAND {
+    pub bCommand: u8,
+    pub bReserved: u8,
+    pub Anonymous: D3DHAL_DP2COMMAND_0,
+}
+impl ::core::marker::Copy for D3DHAL_DP2COMMAND {}
+impl ::core::clone::Clone for D3DHAL_DP2COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub union D3DHAL_DP2COMMAND_0 {
+    pub wPrimitiveCount: u16,
+    pub wStateCount: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2COMMAND_0 {}
+impl ::core::clone::Clone for D3DHAL_DP2COMMAND_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2COMPOSERECTS {
+    pub SrcSurfaceHandle: u32,
+    pub DstSurfaceHandle: u32,
+    pub SrcRectDescsVBHandle: u32,
+    pub NumRects: u32,
+    pub DstRectDescsVBHandle: u32,
+    pub Operation: super::super::super::Win32::Graphics::Direct3D9::D3DCOMPOSERECTSOP,
+    pub XOffset: i32,
+    pub YOffset: i32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2COMPOSERECTS {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2COMPOSERECTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2CREATELIGHT {
+    pub dwIndex: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2CREATELIGHT {}
+impl ::core::clone::Clone for D3DHAL_DP2CREATELIGHT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2CREATEPIXELSHADER {
+    pub dwHandle: u32,
+    pub dwCodeSize: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2CREATEPIXELSHADER {}
+impl ::core::clone::Clone for D3DHAL_DP2CREATEPIXELSHADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2CREATEQUERY {
+    pub dwQueryID: u32,
+    pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2CREATEQUERY {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2CREATEQUERY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2CREATEVERTEXSHADER {
+    pub dwHandle: u32,
+    pub dwDeclSize: u32,
+    pub dwCodeSize: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2CREATEVERTEXSHADER {}
+impl ::core::clone::Clone for D3DHAL_DP2CREATEVERTEXSHADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2CREATEVERTEXSHADERDECL {
+    pub dwHandle: u32,
+    pub dwNumVertexElements: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2CREATEVERTEXSHADERDECL {}
+impl ::core::clone::Clone for D3DHAL_DP2CREATEVERTEXSHADERDECL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2CREATEVERTEXSHADERFUNC {
+    pub dwHandle: u32,
+    pub dwSize: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2CREATEVERTEXSHADERFUNC {}
+impl ::core::clone::Clone for D3DHAL_DP2CREATEVERTEXSHADERFUNC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2DELETEQUERY {
+    pub dwQueryID: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2DELETEQUERY {}
+impl ::core::clone::Clone for D3DHAL_DP2DELETEQUERY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
+    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
+    pub BaseVertexIndex: i32,
+    pub MinIndex: u32,
+    pub NumVertices: u32,
+    pub StartIndex: u32,
+    pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2DRAWINDEXEDPRIMITIVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
+    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
+    pub BaseVertexOffset: i32,
+    pub MinIndex: u32,
+    pub NumVertices: u32,
+    pub StartIndexOffset: u32,
+    pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2DRAWINDEXEDPRIMITIVE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2DRAWPRIMITIVE {
+    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
+    pub VStart: u32,
+    pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2DRAWPRIMITIVE {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2DRAWPRIMITIVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2DRAWPRIMITIVE2 {
+    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
+    pub FirstVertexOffset: u32,
+    pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2DRAWPRIMITIVE2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2DRAWPRIMITIVE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2DRAWRECTPATCH {
+    pub Handle: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2DRAWRECTPATCH {}
+impl ::core::clone::Clone for D3DHAL_DP2DRAWRECTPATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2DRAWTRIPATCH {
+    pub Handle: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2DRAWTRIPATCH {}
+impl ::core::clone::Clone for D3DHAL_DP2DRAWTRIPATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2EXT {
+    pub dwExtToken: u32,
+    pub dwSize: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2EXT {}
+impl ::core::clone::Clone for D3DHAL_DP2EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2GENERATEMIPSUBLEVELS {
+    pub hSurface: u32,
+    pub Filter: super::super::super::Win32::Graphics::Direct3D9::D3DTEXTUREFILTERTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2GENERATEMIPSUBLEVELS {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2GENERATEMIPSUBLEVELS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2INDEXEDLINELIST {
+    pub wV1: u16,
+    pub wV2: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2INDEXEDLINELIST {}
+impl ::core::clone::Clone for D3DHAL_DP2INDEXEDLINELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2INDEXEDLINESTRIP {
+    pub wV: [u16; 2],
+}
+impl ::core::marker::Copy for D3DHAL_DP2INDEXEDLINESTRIP {}
+impl ::core::clone::Clone for D3DHAL_DP2INDEXEDLINESTRIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2INDEXEDTRIANGLEFAN {
+    pub wV: [u16; 3],
+}
+impl ::core::marker::Copy for D3DHAL_DP2INDEXEDTRIANGLEFAN {}
+impl ::core::clone::Clone for D3DHAL_DP2INDEXEDTRIANGLEFAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2INDEXEDTRIANGLELIST {
+    pub wV1: u16,
+    pub wV2: u16,
+    pub wV3: u16,
+    pub wFlags: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2INDEXEDTRIANGLELIST {}
+impl ::core::clone::Clone for D3DHAL_DP2INDEXEDTRIANGLELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2INDEXEDTRIANGLELIST2 {
+    pub wV1: u16,
+    pub wV2: u16,
+    pub wV3: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2INDEXEDTRIANGLELIST2 {}
+impl ::core::clone::Clone for D3DHAL_DP2INDEXEDTRIANGLELIST2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2INDEXEDTRIANGLESTRIP {
+    pub wV: [u16; 3],
+}
+impl ::core::marker::Copy for D3DHAL_DP2INDEXEDTRIANGLESTRIP {}
+impl ::core::clone::Clone for D3DHAL_DP2INDEXEDTRIANGLESTRIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2ISSUEQUERY {
+    pub dwQueryID: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2ISSUEQUERY {}
+impl ::core::clone::Clone for D3DHAL_DP2ISSUEQUERY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2LINELIST {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2LINELIST {}
+impl ::core::clone::Clone for D3DHAL_DP2LINELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2LINESTRIP {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2LINESTRIP {}
+impl ::core::clone::Clone for D3DHAL_DP2LINESTRIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+pub struct D3DHAL_DP2MULTIPLYTRANSFORM {
+    pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for D3DHAL_DP2MULTIPLYTRANSFORM {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for D3DHAL_DP2MULTIPLYTRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2PIXELSHADER {
+    pub dwHandle: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2PIXELSHADER {}
+impl ::core::clone::Clone for D3DHAL_DP2PIXELSHADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2POINTS {
+    pub wCount: u16,
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2POINTS {}
+impl ::core::clone::Clone for D3DHAL_DP2POINTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2RENDERSTATE {
+    pub RenderState: super::super::super::Win32::Graphics::Direct3D9::D3DRENDERSTATETYPE,
+    pub Anonymous: D3DHAL_DP2RENDERSTATE_0,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2RENDERSTATE {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2RENDERSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub union D3DHAL_DP2RENDERSTATE_0 {
+    pub dvState: f32,
+    pub dwState: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2RENDERSTATE_0 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2RENDERSTATE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2RESPONSE {
+    pub bCommand: u8,
+    pub bReserved: u8,
+    pub wStateCount: u16,
+    pub dwTotalSize: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2RESPONSE {}
+impl ::core::clone::Clone for D3DHAL_DP2RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2RESPONSEQUERY {
+    pub dwQueryID: u32,
+    pub dwSize: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2RESPONSEQUERY {}
+impl ::core::clone::Clone for D3DHAL_DP2RESPONSEQUERY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETCLIPPLANE {
+    pub dwIndex: u32,
+    pub plane: [f32; 4],
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETCLIPPLANE {}
+impl ::core::clone::Clone for D3DHAL_DP2SETCLIPPLANE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETCONVOLUTIONKERNELMONO {
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETCONVOLUTIONKERNELMONO {}
+impl ::core::clone::Clone for D3DHAL_DP2SETCONVOLUTIONKERNELMONO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETDEPTHSTENCIL {
+    pub hZBuffer: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETDEPTHSTENCIL {}
+impl ::core::clone::Clone for D3DHAL_DP2SETDEPTHSTENCIL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETINDICES {
+    pub dwVBHandle: u32,
+    pub dwStride: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETINDICES {}
+impl ::core::clone::Clone for D3DHAL_DP2SETINDICES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETLIGHT {
+    pub dwIndex: u32,
+    pub dwDataType: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETLIGHT {}
+impl ::core::clone::Clone for D3DHAL_DP2SETLIGHT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETPALETTE {
+    pub dwPaletteHandle: u32,
+    pub dwPaletteFlags: u32,
+    pub dwSurfaceHandle: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETPALETTE {}
+impl ::core::clone::Clone for D3DHAL_DP2SETPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETPIXELSHADERCONST {
+    pub dwRegister: u32,
+    pub dwCount: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETPIXELSHADERCONST {}
+impl ::core::clone::Clone for D3DHAL_DP2SETPIXELSHADERCONST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETPRIORITY {
+    pub dwDDSurface: u32,
+    pub dwPriority: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETPRIORITY {}
+impl ::core::clone::Clone for D3DHAL_DP2SETPRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETRENDERTARGET {
+    pub hRenderTarget: u32,
+    pub hZBuffer: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETRENDERTARGET {}
+impl ::core::clone::Clone for D3DHAL_DP2SETRENDERTARGET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETRENDERTARGET2 {
+    pub RTIndex: u32,
+    pub hRenderTarget: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETRENDERTARGET2 {}
+impl ::core::clone::Clone for D3DHAL_DP2SETRENDERTARGET2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETSTREAMSOURCE {
+    pub dwStream: u32,
+    pub dwVBHandle: u32,
+    pub dwStride: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETSTREAMSOURCE {}
+impl ::core::clone::Clone for D3DHAL_DP2SETSTREAMSOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETSTREAMSOURCE2 {
+    pub dwStream: u32,
+    pub dwVBHandle: u32,
+    pub dwOffset: u32,
+    pub dwStride: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETSTREAMSOURCE2 {}
+impl ::core::clone::Clone for D3DHAL_DP2SETSTREAMSOURCE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETSTREAMSOURCEFREQ {
+    pub dwStream: u32,
+    pub dwDivider: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETSTREAMSOURCEFREQ {}
+impl ::core::clone::Clone for D3DHAL_DP2SETSTREAMSOURCEFREQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETSTREAMSOURCEUM {
+    pub dwStream: u32,
+    pub dwStride: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETSTREAMSOURCEUM {}
+impl ::core::clone::Clone for D3DHAL_DP2SETSTREAMSOURCEUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETTEXLOD {
+    pub dwDDSurface: u32,
+    pub dwLOD: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETTEXLOD {}
+impl ::core::clone::Clone for D3DHAL_DP2SETTEXLOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+pub struct D3DHAL_DP2SETTRANSFORM {
+    pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for D3DHAL_DP2SETTRANSFORM {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for D3DHAL_DP2SETTRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2SETVERTEXSHADERCONST {
+    pub dwRegister: u32,
+    pub dwCount: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2SETVERTEXSHADERCONST {}
+impl ::core::clone::Clone for D3DHAL_DP2SETVERTEXSHADERCONST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2STARTVERTEX {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2STARTVERTEX {}
+impl ::core::clone::Clone for D3DHAL_DP2STARTVERTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2STATESET {
+    pub dwOperation: u32,
+    pub dwParam: u32,
+    pub sbType: super::super::super::Win32::Graphics::Direct3D9::D3DSTATEBLOCKTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2STATESET {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2STATESET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DHAL_DP2SURFACEBLT {
+    pub dwSource: u32,
+    pub rSource: super::super::super::Win32::Foundation::RECTL,
+    pub dwSourceMipLevel: u32,
+    pub dwDest: u32,
+    pub rDest: super::super::super::Win32::Foundation::RECTL,
+    pub dwDestMipLevel: u32,
+    pub Flags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DHAL_DP2SURFACEBLT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DHAL_DP2SURFACEBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DHAL_DP2TEXBLT {
+    pub dwDDDestSurface: u32,
+    pub dwDDSrcSurface: u32,
+    pub pDest: super::super::super::Win32::Foundation::POINT,
+    pub rSrc: super::super::super::Win32::Foundation::RECTL,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DHAL_DP2TEXBLT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DHAL_DP2TEXBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2TEXTURESTAGESTATE {
+    pub wStage: u16,
+    pub TSState: u16,
+    pub dwValue: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2TEXTURESTAGESTATE {}
+impl ::core::clone::Clone for D3DHAL_DP2TEXTURESTAGESTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2TRIANGLEFAN {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2TRIANGLEFAN {}
+impl ::core::clone::Clone for D3DHAL_DP2TRIANGLEFAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2TRIANGLEFAN_IMM {
+    pub dwEdgeFlags: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2TRIANGLEFAN_IMM {}
+impl ::core::clone::Clone for D3DHAL_DP2TRIANGLEFAN_IMM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2TRIANGLELIST {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2TRIANGLELIST {}
+impl ::core::clone::Clone for D3DHAL_DP2TRIANGLELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2TRIANGLESTRIP {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2TRIANGLESTRIP {}
+impl ::core::clone::Clone for D3DHAL_DP2TRIANGLESTRIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2UPDATEPALETTE {
+    pub dwPaletteHandle: u32,
+    pub wStartIndex: u16,
+    pub wNumEntries: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DP2UPDATEPALETTE {}
+impl ::core::clone::Clone for D3DHAL_DP2UPDATEPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2VERTEXSHADER {
+    pub dwHandle: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2VERTEXSHADER {}
+impl ::core::clone::Clone for D3DHAL_DP2VERTEXSHADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2VIEWPORTINFO {
+    pub dwX: u32,
+    pub dwY: u32,
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2VIEWPORTINFO {}
+impl ::core::clone::Clone for D3DHAL_DP2VIEWPORTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DP2VOLUMEBLT {
+    pub dwDDDestSurface: u32,
+    pub dwDDSrcSurface: u32,
+    pub dwDestX: u32,
+    pub dwDestY: u32,
+    pub dwDestZ: u32,
+    pub srcBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DP2VOLUMEBLT {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DP2VOLUMEBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2WINFO {
+    pub dvWNear: f32,
+    pub dvWFar: f32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2WINFO {}
+impl ::core::clone::Clone for D3DHAL_DP2WINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DP2ZRANGE {
+    pub dvMinZ: f32,
+    pub dvMaxZ: f32,
+}
+impl ::core::marker::Copy for D3DHAL_DP2ZRANGE {}
+impl ::core::clone::Clone for D3DHAL_DP2ZRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
+    pub dwhContext: usize,
+    pub dwFlags: u32,
+    pub PrimitiveType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
+    pub Anonymous: D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0,
+    pub lpvVertices: *mut ::core::ffi::c_void,
+    pub dwNumVertices: u32,
+    pub lpwIndices: *mut u16,
+    pub dwNumIndices: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub union D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
+    pub VertexType: super::super::super::Win32::Graphics::Direct3D9::D3DVERTEXTYPE,
+    pub dwFVFControl: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_DRAWONEPRIMITIVEDATA {
+    pub dwhContext: usize,
+    pub dwFlags: u32,
+    pub PrimitiveType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
+    pub Anonymous: D3DHAL_DRAWONEPRIMITIVEDATA_0,
+    pub lpvVertices: *mut ::core::ffi::c_void,
+    pub dwNumVertices: u32,
+    pub dwReserved: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DRAWONEPRIMITIVEDATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DRAWONEPRIMITIVEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub union D3DHAL_DRAWONEPRIMITIVEDATA_0 {
+    pub VertexType: super::super::super::Win32::Graphics::Direct3D9::D3DVERTEXTYPE,
+    pub dwFVFControl: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_DRAWONEPRIMITIVEDATA_0 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_DRAWONEPRIMITIVEDATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DRAWPRIMCOUNTS {
+    pub wNumStateChanges: u16,
+    pub wPrimitiveType: u16,
+    pub wVertexType: u16,
+    pub wNumVertices: u16,
+}
+impl ::core::marker::Copy for D3DHAL_DRAWPRIMCOUNTS {}
+impl ::core::clone::Clone for D3DHAL_DRAWPRIMCOUNTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub struct D3DHAL_DRAWPRIMITIVES2DATA {
+    pub dwhContext: usize,
+    pub dwFlags: u32,
+    pub dwVertexType: u32,
+    pub lpDDCommands: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
+    pub dwCommandOffset: u32,
+    pub dwCommandLength: u32,
+    pub Anonymous1: D3DHAL_DRAWPRIMITIVES2DATA_0,
+    pub dwVertexOffset: u32,
+    pub dwVertexLength: u32,
+    pub dwReqVertexBufSize: u32,
+    pub dwReqCommandBufSize: u32,
+    pub lpdwRStates: *mut u32,
+    pub Anonymous2: D3DHAL_DRAWPRIMITIVES2DATA_1,
+    pub dwErrorOffset: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_DRAWPRIMITIVES2DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub union D3DHAL_DRAWPRIMITIVES2DATA_0 {
+    pub lpDDVertex: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
+    pub lpVertices: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_DRAWPRIMITIVES2DATA_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub union D3DHAL_DRAWPRIMITIVES2DATA_1 {
+    pub dwVertexSize: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_DRAWPRIMITIVES2DATA_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVES2DATA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_DRAWPRIMITIVESDATA {
+    pub dwhContext: usize,
+    pub dwFlags: u32,
+    pub lpvData: *mut ::core::ffi::c_void,
+    pub dwFVFControl: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DHAL_DRAWPRIMITIVESDATA {}
+impl ::core::clone::Clone for D3DHAL_DRAWPRIMITIVESDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DHAL_GETSTATEDATA {
+    pub dwhContext: usize,
+    pub dwWhich: u32,
+    pub ddState: super::super::super::Win32::Graphics::Direct3D9::D3DSTATE,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DHAL_GETSTATEDATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DHAL_GETSTATEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+pub struct D3DHAL_GLOBALDRIVERDATA {
+    pub dwSize: u32,
+    pub hwCaps: D3DDEVICEDESC_V1,
+    pub dwNumVertices: u32,
+    pub dwNumClipVertices: u32,
+    pub dwNumTextureFormats: u32,
+    pub lpTextureFormats: *mut super::super::super::Win32::Graphics::DirectDraw::DDSURFACEDESC,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DHAL_GLOBALDRIVERDATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DHAL_GLOBALDRIVERDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+pub struct D3DHAL_RENDERPRIMITIVEDATA {
+    pub dwhContext: usize,
+    pub dwOffset: u32,
+    pub dwStatus: u32,
+    pub lpExeBuf: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub dwTLOffset: u32,
+    pub lpTLBuf: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub diInstruction: super::super::super::Win32::Graphics::Direct3D9::D3DINSTRUCTION,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DHAL_RENDERPRIMITIVEDATA {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DHAL_RENDERPRIMITIVEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+pub struct D3DHAL_RENDERSTATEDATA {
+    pub dwhContext: usize,
+    pub dwOffset: u32,
+    pub dwCount: u32,
+    pub lpExeBuf: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl ::core::marker::Copy for D3DHAL_RENDERSTATEDATA {}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl ::core::clone::Clone for D3DHAL_RENDERSTATEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_SCENECAPTUREDATA {
+    pub dwhContext: usize,
+    pub dwFlag: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DHAL_SCENECAPTUREDATA {}
+impl ::core::clone::Clone for D3DHAL_SCENECAPTUREDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub struct D3DHAL_SETRENDERTARGETDATA {
+    pub dwhContext: usize,
+    pub Anonymous1: D3DHAL_SETRENDERTARGETDATA_0,
+    pub Anonymous2: D3DHAL_SETRENDERTARGETDATA_1,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_SETRENDERTARGETDATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub union D3DHAL_SETRENDERTARGETDATA_0 {
+    pub lpDDS: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_SETRENDERTARGETDATA_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub union D3DHAL_SETRENDERTARGETDATA_1 {
+    pub lpDDSZ: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DDRAWI_DDRAWSURFACE_LCL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for D3DHAL_SETRENDERTARGETDATA_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for D3DHAL_SETRENDERTARGETDATA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+pub struct D3DHAL_TEXTURECREATEDATA {
+    pub dwhContext: usize,
+    pub lpDDS: super::super::super::Win32::Graphics::DirectDraw::IDirectDrawSurface,
+    pub dwHandle: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl ::core::marker::Copy for D3DHAL_TEXTURECREATEDATA {}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl ::core::clone::Clone for D3DHAL_TEXTURECREATEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_TEXTUREDESTROYDATA {
+    pub dwhContext: usize,
+    pub dwHandle: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DHAL_TEXTUREDESTROYDATA {}
+impl ::core::clone::Clone for D3DHAL_TEXTUREDESTROYDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_TEXTUREGETSURFDATA {
+    pub dwhContext: usize,
+    pub lpDDS: usize,
+    pub dwHandle: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DHAL_TEXTUREGETSURFDATA {}
+impl ::core::clone::Clone for D3DHAL_TEXTUREGETSURFDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_TEXTURESWAPDATA {
+    pub dwhContext: usize,
+    pub dwHandle1: u32,
+    pub dwHandle2: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DHAL_TEXTURESWAPDATA {}
+impl ::core::clone::Clone for D3DHAL_TEXTURESWAPDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
+    pub dwhContext: usize,
+    pub dwFlags: u32,
+    pub dwReserved: usize,
+    pub dwNumPasses: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DHAL_VALIDATETEXTURESTAGESTATEDATA {}
+impl ::core::clone::Clone for D3DHAL_VALIDATETEXTURESTAGESTATEDATA {
     fn clone(&self) -> Self {
         *self
     }
@@ -4967,105 +7872,6 @@ pub struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
 }
 impl ::core::marker::Copy for D3DKMDT_GRAPHICS_RENDERING_FORMAT {}
 impl ::core::clone::Clone for D3DKMDT_GRAPHICS_RENDERING_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HMONITORDESCRIPTORSET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HMONITORDESCRIPTORSET__ {}
-impl ::core::clone::Clone for D3DKMDT_HMONITORDESCRIPTORSET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HMONITORFREQUENCYRANGESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HMONITORFREQUENCYRANGESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HMONITORFREQUENCYRANGESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HMONITORSOURCEMODESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HMONITORSOURCEMODESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HMONITORSOURCEMODESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDEOPRESENTSOURCESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDEOPRESENTSOURCESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDEOPRESENTSOURCESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDEOPRESENTTARGETSET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDEOPRESENTTARGETSET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDEOPRESENTTARGETSET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPNSOURCEMODESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPNSOURCEMODESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPNSOURCEMODESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPNTARGETMODESET__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPNTARGETMODESET__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPNTARGETMODESET__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPNTOPOLOGY__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPNTOPOLOGY__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPNTOPOLOGY__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub struct D3DKMDT_HVIDPN__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for D3DKMDT_HVIDPN__ {}
-impl ::core::clone::Clone for D3DKMDT_HVIDPN__ {
     fn clone(&self) -> Self {
         *self
     }
@@ -8946,16 +11752,16 @@ impl ::core::clone::Clone for D3DKMT_OPENNATIVEFENCEFROMNTHANDLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 pub struct D3DKMT_OPENNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
-    pub pObjAttrib: *mut OBJECT_ATTRIBUTES,
+    pub pObjAttrib: *mut super::super::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 impl ::core::marker::Copy for D3DKMT_OPENNTHANDLEFROMNAME {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 impl ::core::clone::Clone for D3DKMT_OPENNTHANDLEFROMNAME {
     fn clone(&self) -> Self {
         *self
@@ -9115,16 +11921,16 @@ impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 pub struct D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     pub dwDesiredAccess: u32,
-    pub pObjAttrib: *mut OBJECT_ATTRIBUTES,
+    pub pObjAttrib: *mut super::super::Foundation::OBJECT_ATTRIBUTES,
     pub hNtHandle: super::super::super::Win32::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 impl ::core::marker::Copy for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 impl ::core::clone::Clone for D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME {
     fn clone(&self) -> Self {
         *self
@@ -13142,6 +15948,1959 @@ impl ::core::clone::Clone for D3DKMT_XBOX {
         *self
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DLINEPATTERN {
+    pub wRepeatFactor: u16,
+    pub wLinePattern: u16,
+}
+impl ::core::marker::Copy for D3DLINEPATTERN {}
+impl ::core::clone::Clone for D3DLINEPATTERN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub struct D3DNTDEVICEDESC_V3 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dcmColorModel: u32,
+    pub dwDevCaps: u32,
+    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
+    pub bClipping: super::super::super::Win32::Foundation::BOOL,
+    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
+    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dwDeviceRenderBitDepth: u32,
+    pub dwDeviceZBufferBitDepth: u32,
+    pub dwMaxBufferSize: u32,
+    pub dwMaxVertexCount: u32,
+    pub dwMinTextureWidth: u32,
+    pub dwMinTextureHeight: u32,
+    pub dwMaxTextureWidth: u32,
+    pub dwMaxTextureHeight: u32,
+    pub dwMinStippleWidth: u32,
+    pub dwMaxStippleWidth: u32,
+    pub dwMinStippleHeight: u32,
+    pub dwMaxStippleHeight: u32,
+    pub dwMaxTextureRepeat: u32,
+    pub dwMaxTextureAspectRatio: u32,
+    pub dwMaxAnisotropy: u32,
+    pub dvGuardBandLeft: f32,
+    pub dvGuardBandTop: f32,
+    pub dvGuardBandRight: f32,
+    pub dvGuardBandBottom: f32,
+    pub dvExtentsAdjust: f32,
+    pub dwStencilCaps: u32,
+    pub dwFVFCaps: u32,
+    pub dwTextureOpCaps: u32,
+    pub wMaxTextureBlendStages: u16,
+    pub wMaxSimultaneousTextures: u16,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for D3DNTDEVICEDESC_V3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for D3DNTDEVICEDESC_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub struct D3DNTHALDEVICEDESC_V1 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dcmColorModel: u32,
+    pub dwDevCaps: u32,
+    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
+    pub bClipping: super::super::super::Win32::Foundation::BOOL,
+    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
+    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dwDeviceRenderBitDepth: u32,
+    pub dwDeviceZBufferBitDepth: u32,
+    pub dwMaxBufferSize: u32,
+    pub dwMaxVertexCount: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for D3DNTHALDEVICEDESC_V1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for D3DNTHALDEVICEDESC_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+pub struct D3DNTHALDEVICEDESC_V2 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dcmColorModel: u32,
+    pub dwDevCaps: u32,
+    pub dtcTransformCaps: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMCAPS,
+    pub bClipping: super::super::super::Win32::Foundation::BOOL,
+    pub dlcLightingCaps: super::super::super::Win32::Graphics::Direct3D9::D3DLIGHTINGCAPS,
+    pub dpcLineCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dpcTriCaps: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMCAPS,
+    pub dwDeviceRenderBitDepth: u32,
+    pub dwDeviceZBufferBitDepth: u32,
+    pub dwMaxBufferSize: u32,
+    pub dwMaxVertexCount: u32,
+    pub dwMinTextureWidth: u32,
+    pub dwMinTextureHeight: u32,
+    pub dwMaxTextureWidth: u32,
+    pub dwMaxTextureHeight: u32,
+    pub dwMinStippleWidth: u32,
+    pub dwMaxStippleWidth: u32,
+    pub dwMinStippleHeight: u32,
+    pub dwMaxStippleHeight: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for D3DNTHALDEVICEDESC_V2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for D3DNTHALDEVICEDESC_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub struct D3DNTHAL_CALLBACKS {
+    pub dwSize: u32,
+    pub ContextCreate: LPD3DNTHAL_CONTEXTCREATECB,
+    pub ContextDestroy: LPD3DNTHAL_CONTEXTDESTROYCB,
+    pub ContextDestroyAll: LPD3DNTHAL_CONTEXTDESTROYALLCB,
+    pub SceneCapture: LPD3DNTHAL_SCENECAPTURECB,
+    pub dwReserved10: *mut ::core::ffi::c_void,
+    pub dwReserved11: *mut ::core::ffi::c_void,
+    pub dwReserved22: *mut ::core::ffi::c_void,
+    pub dwReserved23: *mut ::core::ffi::c_void,
+    pub dwReserved: usize,
+    pub TextureCreate: LPD3DNTHAL_TEXTURECREATECB,
+    pub TextureDestroy: LPD3DNTHAL_TEXTUREDESTROYCB,
+    pub TextureSwap: LPD3DNTHAL_TEXTURESWAPCB,
+    pub TextureGetSurf: LPD3DNTHAL_TEXTUREGETSURFCB,
+    pub dwReserved12: *mut ::core::ffi::c_void,
+    pub dwReserved13: *mut ::core::ffi::c_void,
+    pub dwReserved14: *mut ::core::ffi::c_void,
+    pub dwReserved15: *mut ::core::ffi::c_void,
+    pub dwReserved16: *mut ::core::ffi::c_void,
+    pub dwReserved17: *mut ::core::ffi::c_void,
+    pub dwReserved18: *mut ::core::ffi::c_void,
+    pub dwReserved19: *mut ::core::ffi::c_void,
+    pub dwReserved20: *mut ::core::ffi::c_void,
+    pub dwReserved21: *mut ::core::ffi::c_void,
+    pub dwReserved24: *mut ::core::ffi::c_void,
+    pub dwReserved0: usize,
+    pub dwReserved1: usize,
+    pub dwReserved2: usize,
+    pub dwReserved3: usize,
+    pub dwReserved4: usize,
+    pub dwReserved5: usize,
+    pub dwReserved6: usize,
+    pub dwReserved7: usize,
+    pub dwReserved8: usize,
+    pub dwReserved9: usize,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_CALLBACKS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_CALLBACKS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub struct D3DNTHAL_CALLBACKS2 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub SetRenderTarget: LPD3DNTHAL_SETRENDERTARGETCB,
+    pub dwReserved1: *mut ::core::ffi::c_void,
+    pub dwReserved2: *mut ::core::ffi::c_void,
+    pub dwReserved3: *mut ::core::ffi::c_void,
+    pub dwReserved4: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_CALLBACKS2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_CALLBACKS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+pub struct D3DNTHAL_CALLBACKS3 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub Clear2: LPD3DNTHAL_CLEAR2CB,
+    pub lpvReserved: *mut ::core::ffi::c_void,
+    pub ValidateTextureStageState: LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB,
+    pub DrawPrimitives2: LPD3DNTHAL_DRAWPRIMITIVES2CB,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_CALLBACKS3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_CALLBACKS3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_CLEAR2DATA {
+    pub dwhContext: usize,
+    pub dwFlags: u32,
+    pub dwFillColor: u32,
+    pub dvFillDepth: f32,
+    pub dwFillStencil: u32,
+    pub lpRects: *mut super::super::super::Win32::Graphics::Direct3D9::D3DRECT,
+    pub dwNumRects: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_CLEAR2DATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_CLEAR2DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_CLIPPEDTRIANGLEFAN {
+    pub FirstVertexOffset: u32,
+    pub dwEdgeFlags: u32,
+    pub PrimitiveCount: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_CLIPPEDTRIANGLEFAN {}
+impl ::core::clone::Clone for D3DNTHAL_CLIPPEDTRIANGLEFAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub struct D3DNTHAL_CONTEXTCREATEDATA {
+    pub Anonymous1: D3DNTHAL_CONTEXTCREATEDATA_0,
+    pub Anonymous2: D3DNTHAL_CONTEXTCREATEDATA_1,
+    pub Anonymous3: D3DNTHAL_CONTEXTCREATEDATA_2,
+    pub dwPID: u32,
+    pub dwhContext: usize,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub union D3DNTHAL_CONTEXTCREATEDATA_0 {
+    pub lpDDGbl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_DIRECTDRAW_GLOBAL,
+    pub lpDDLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_DIRECTDRAW_LOCAL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub union D3DNTHAL_CONTEXTCREATEDATA_1 {
+    pub lpDDS: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
+    pub lpDDSLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub union D3DNTHAL_CONTEXTCREATEDATA_2 {
+    pub lpDDSZ: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
+    pub lpDDSZLcl: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_CONTEXTCREATEDATA_2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_CONTEXTCREATEDATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_CONTEXTDESTROYALLDATA {
+    pub dwPID: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DNTHAL_CONTEXTDESTROYALLDATA {}
+impl ::core::clone::Clone for D3DNTHAL_CONTEXTDESTROYALLDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_CONTEXTDESTROYDATA {
+    pub dwhContext: usize,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DNTHAL_CONTEXTDESTROYDATA {}
+impl ::core::clone::Clone for D3DNTHAL_CONTEXTDESTROYDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_D3DDX6EXTENDEDCAPS {
+    pub dwSize: u32,
+    pub dwMinTextureWidth: u32,
+    pub dwMaxTextureWidth: u32,
+    pub dwMinTextureHeight: u32,
+    pub dwMaxTextureHeight: u32,
+    pub dwMinStippleWidth: u32,
+    pub dwMaxStippleWidth: u32,
+    pub dwMinStippleHeight: u32,
+    pub dwMaxStippleHeight: u32,
+    pub dwMaxTextureRepeat: u32,
+    pub dwMaxTextureAspectRatio: u32,
+    pub dwMaxAnisotropy: u32,
+    pub dvGuardBandLeft: f32,
+    pub dvGuardBandTop: f32,
+    pub dvGuardBandRight: f32,
+    pub dvGuardBandBottom: f32,
+    pub dvExtentsAdjust: f32,
+    pub dwStencilCaps: u32,
+    pub dwFVFCaps: u32,
+    pub dwTextureOpCaps: u32,
+    pub wMaxTextureBlendStages: u16,
+    pub wMaxSimultaneousTextures: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_D3DDX6EXTENDEDCAPS {}
+impl ::core::clone::Clone for D3DNTHAL_D3DDX6EXTENDEDCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_D3DEXTENDEDCAPS {
+    pub dwSize: u32,
+    pub dwMinTextureWidth: u32,
+    pub dwMaxTextureWidth: u32,
+    pub dwMinTextureHeight: u32,
+    pub dwMaxTextureHeight: u32,
+    pub dwMinStippleWidth: u32,
+    pub dwMaxStippleWidth: u32,
+    pub dwMinStippleHeight: u32,
+    pub dwMaxStippleHeight: u32,
+    pub dwMaxTextureRepeat: u32,
+    pub dwMaxTextureAspectRatio: u32,
+    pub dwMaxAnisotropy: u32,
+    pub dvGuardBandLeft: f32,
+    pub dvGuardBandTop: f32,
+    pub dvGuardBandRight: f32,
+    pub dvGuardBandBottom: f32,
+    pub dvExtentsAdjust: f32,
+    pub dwStencilCaps: u32,
+    pub dwFVFCaps: u32,
+    pub dwTextureOpCaps: u32,
+    pub wMaxTextureBlendStages: u16,
+    pub wMaxSimultaneousTextures: u16,
+    pub dwMaxActiveLights: u32,
+    pub dvMaxVertexW: f32,
+    pub wMaxUserClipPlanes: u16,
+    pub wMaxVertexBlendMatrices: u16,
+    pub dwVertexProcessingCaps: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub dwReserved3: u32,
+    pub dwReserved4: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_D3DEXTENDEDCAPS {}
+impl ::core::clone::Clone for D3DNTHAL_D3DEXTENDEDCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2ADDDIRTYBOX {
+    pub dwSurface: u32,
+    pub DirtyBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2ADDDIRTYBOX {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2ADDDIRTYBOX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DNTHAL_DP2ADDDIRTYRECT {
+    pub dwSurface: u32,
+    pub rDirtyArea: super::super::super::Win32::Foundation::RECTL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DNTHAL_DP2ADDDIRTYRECT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DNTHAL_DP2ADDDIRTYRECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DNTHAL_DP2BLT {
+    pub dwSource: u32,
+    pub rSource: super::super::super::Win32::Foundation::RECTL,
+    pub dwSourceMipLevel: u32,
+    pub dwDest: u32,
+    pub rDest: super::super::super::Win32::Foundation::RECTL,
+    pub dwDestMipLevel: u32,
+    pub Flags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DNTHAL_DP2BLT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DNTHAL_DP2BLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2BUFFERBLT {
+    pub dwDDDestSurface: u32,
+    pub dwDDSrcSurface: u32,
+    pub dwOffset: u32,
+    pub rSrc: super::super::super::Win32::Graphics::Direct3D9::D3DRANGE,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2BUFFERBLT {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2BUFFERBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DNTHAL_DP2CLEAR {
+    pub dwFlags: u32,
+    pub dwFillColor: u32,
+    pub dvFillDepth: f32,
+    pub dwFillStencil: u32,
+    pub Rects: [super::super::super::Win32::Foundation::RECT; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DNTHAL_DP2CLEAR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DNTHAL_DP2CLEAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DNTHAL_DP2COLORFILL {
+    pub dwSurface: u32,
+    pub rRect: super::super::super::Win32::Foundation::RECTL,
+    pub Color: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DNTHAL_DP2COLORFILL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DNTHAL_DP2COLORFILL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2COMMAND {
+    pub bCommand: u8,
+    pub bReserved: u8,
+    pub Anonymous: D3DNTHAL_DP2COMMAND_0,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2COMMAND {}
+impl ::core::clone::Clone for D3DNTHAL_DP2COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub union D3DNTHAL_DP2COMMAND_0 {
+    pub wPrimitiveCount: u16,
+    pub wStateCount: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2COMMAND_0 {}
+impl ::core::clone::Clone for D3DNTHAL_DP2COMMAND_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2COMPOSERECTS {
+    pub SrcSurfaceHandle: u32,
+    pub DstSurfaceHandle: u32,
+    pub SrcRectDescsVBHandle: u32,
+    pub NumRects: u32,
+    pub DstRectDescsVBHandle: u32,
+    pub Operation: super::super::super::Win32::Graphics::Direct3D9::D3DCOMPOSERECTSOP,
+    pub XOffset: i32,
+    pub YOffset: i32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2COMPOSERECTS {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2COMPOSERECTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2CREATELIGHT {
+    pub dwIndex: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2CREATELIGHT {}
+impl ::core::clone::Clone for D3DNTHAL_DP2CREATELIGHT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2CREATEPIXELSHADER {
+    pub dwHandle: u32,
+    pub dwCodeSize: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2CREATEPIXELSHADER {}
+impl ::core::clone::Clone for D3DNTHAL_DP2CREATEPIXELSHADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2CREATEQUERY {
+    pub dwQueryID: u32,
+    pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2CREATEQUERY {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2CREATEQUERY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2CREATEVERTEXSHADER {
+    pub dwHandle: u32,
+    pub dwDeclSize: u32,
+    pub dwCodeSize: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2CREATEVERTEXSHADER {}
+impl ::core::clone::Clone for D3DNTHAL_DP2CREATEVERTEXSHADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2CREATEVERTEXSHADERDECL {
+    pub dwHandle: u32,
+    pub dwNumVertexElements: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2CREATEVERTEXSHADERDECL {}
+impl ::core::clone::Clone for D3DNTHAL_DP2CREATEVERTEXSHADERDECL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {
+    pub dwHandle: u32,
+    pub dwSize: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {}
+impl ::core::clone::Clone for D3DNTHAL_DP2CREATEVERTEXSHADERFUNC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2DELETEQUERY {
+    pub dwQueryID: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2DELETEQUERY {}
+impl ::core::clone::Clone for D3DNTHAL_DP2DELETEQUERY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
+    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
+    pub BaseVertexIndex: i32,
+    pub MinIndex: u32,
+    pub NumVertices: u32,
+    pub StartIndex: u32,
+    pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
+    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
+    pub BaseVertexOffset: i32,
+    pub MinIndex: u32,
+    pub NumVertices: u32,
+    pub StartIndexOffset: u32,
+    pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2DRAWINDEXEDPRIMITIVE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2DRAWPRIMITIVE {
+    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
+    pub VStart: u32,
+    pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2DRAWPRIMITIVE {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2DRAWPRIMITIVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2DRAWPRIMITIVE2 {
+    pub primType: super::super::super::Win32::Graphics::Direct3D9::D3DPRIMITIVETYPE,
+    pub FirstVertexOffset: u32,
+    pub PrimitiveCount: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2DRAWPRIMITIVE2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2DRAWPRIMITIVE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2DRAWRECTPATCH {
+    pub Handle: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2DRAWRECTPATCH {}
+impl ::core::clone::Clone for D3DNTHAL_DP2DRAWRECTPATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2DRAWTRIPATCH {
+    pub Handle: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2DRAWTRIPATCH {}
+impl ::core::clone::Clone for D3DNTHAL_DP2DRAWTRIPATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2EXT {
+    pub dwExtToken: u32,
+    pub dwSize: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2EXT {}
+impl ::core::clone::Clone for D3DNTHAL_DP2EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
+    pub hSurface: u32,
+    pub Filter: super::super::super::Win32::Graphics::Direct3D9::D3DTEXTUREFILTERTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2GENERATEMIPSUBLEVELS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2INDEXEDLINELIST {
+    pub wV1: u16,
+    pub wV2: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDLINELIST {}
+impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDLINELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2INDEXEDLINESTRIP {
+    pub wV: [u16; 2],
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDLINESTRIP {}
+impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDLINESTRIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
+    pub wV: [u16; 3],
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {}
+impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDTRIANGLEFAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2INDEXEDTRIANGLELIST {
+    pub wV1: u16,
+    pub wV2: u16,
+    pub wV3: u16,
+    pub wFlags: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDTRIANGLELIST {}
+impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDTRIANGLELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
+    pub wV1: u16,
+    pub wV2: u16,
+    pub wV3: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {}
+impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDTRIANGLELIST2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
+    pub wV: [u16; 3],
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {}
+impl ::core::clone::Clone for D3DNTHAL_DP2INDEXEDTRIANGLESTRIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2ISSUEQUERY {
+    pub dwQueryID: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2ISSUEQUERY {}
+impl ::core::clone::Clone for D3DNTHAL_DP2ISSUEQUERY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2LINELIST {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2LINELIST {}
+impl ::core::clone::Clone for D3DNTHAL_DP2LINELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2LINESTRIP {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2LINESTRIP {}
+impl ::core::clone::Clone for D3DNTHAL_DP2LINESTRIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+pub struct D3DNTHAL_DP2MULTIPLYTRANSFORM {
+    pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for D3DNTHAL_DP2MULTIPLYTRANSFORM {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for D3DNTHAL_DP2MULTIPLYTRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2PIXELSHADER {
+    pub dwHandle: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2PIXELSHADER {}
+impl ::core::clone::Clone for D3DNTHAL_DP2PIXELSHADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2POINTS {
+    pub wCount: u16,
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2POINTS {}
+impl ::core::clone::Clone for D3DNTHAL_DP2POINTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2RENDERSTATE {
+    pub RenderState: super::super::super::Win32::Graphics::Direct3D9::D3DRENDERSTATETYPE,
+    pub Anonymous: D3DNTHAL_DP2RENDERSTATE_0,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2RENDERSTATE {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2RENDERSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub union D3DNTHAL_DP2RENDERSTATE_0 {
+    pub fState: f32,
+    pub dwState: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2RENDERSTATE_0 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2RENDERSTATE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2RESPONSE {
+    pub bCommand: u8,
+    pub bReserved: u8,
+    pub wStateCount: u16,
+    pub dwTotalSize: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2RESPONSE {}
+impl ::core::clone::Clone for D3DNTHAL_DP2RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2RESPONSEQUERY {
+    pub dwQueryID: u32,
+    pub dwSize: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2RESPONSEQUERY {}
+impl ::core::clone::Clone for D3DNTHAL_DP2RESPONSEQUERY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETCLIPPLANE {
+    pub dwIndex: u32,
+    pub plane: [f32; 4],
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETCLIPPLANE {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETCLIPPLANE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETCONVOLUTIONKERNELMONO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETDEPTHSTENCIL {
+    pub hZBuffer: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETDEPTHSTENCIL {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETDEPTHSTENCIL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETINDICES {
+    pub dwVBHandle: u32,
+    pub dwStride: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETINDICES {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETINDICES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETLIGHT {
+    pub dwIndex: u32,
+    pub Anonymous: D3DNTHAL_DP2SETLIGHT_0,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETLIGHT {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETLIGHT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub union D3DNTHAL_DP2SETLIGHT_0 {
+    pub lightData: u32,
+    pub dwDataType: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETLIGHT_0 {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETLIGHT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETPALETTE {
+    pub dwPaletteHandle: u32,
+    pub dwPaletteFlags: u32,
+    pub dwSurfaceHandle: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETPALETTE {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETPIXELSHADERCONST {
+    pub dwRegister: u32,
+    pub dwCount: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETPIXELSHADERCONST {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETPIXELSHADERCONST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETPRIORITY {
+    pub dwDDDestSurface: u32,
+    pub dwPriority: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETPRIORITY {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETPRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETRENDERTARGET {
+    pub hRenderTarget: u32,
+    pub hZBuffer: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETRENDERTARGET {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETRENDERTARGET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETRENDERTARGET2 {
+    pub RTIndex: u32,
+    pub hRenderTarget: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETRENDERTARGET2 {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETRENDERTARGET2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETSTREAMSOURCE {
+    pub dwStream: u32,
+    pub dwVBHandle: u32,
+    pub dwStride: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETSTREAMSOURCE {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETSTREAMSOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETSTREAMSOURCE2 {
+    pub dwStream: u32,
+    pub dwVBHandle: u32,
+    pub dwOffset: u32,
+    pub dwStride: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETSTREAMSOURCE2 {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETSTREAMSOURCE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETSTREAMSOURCEFREQ {
+    pub dwStream: u32,
+    pub dwDivider: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETSTREAMSOURCEFREQ {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETSTREAMSOURCEFREQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETSTREAMSOURCEUM {
+    pub dwStream: u32,
+    pub dwStride: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETSTREAMSOURCEUM {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETSTREAMSOURCEUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETTEXLOD {
+    pub dwDDSurface: u32,
+    pub dwLOD: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETTEXLOD {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETTEXLOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Foundation_Numerics\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+pub struct D3DNTHAL_DP2SETTRANSFORM {
+    pub xfrmType: super::super::super::Win32::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
+    pub matrix: super::super::super::Foundation::Numerics::Matrix4x4,
+}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::marker::Copy for D3DNTHAL_DP2SETTRANSFORM {}
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct3D9"))]
+impl ::core::clone::Clone for D3DNTHAL_DP2SETTRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2SETVERTEXSHADERCONST {
+    pub dwRegister: u32,
+    pub dwCount: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2SETVERTEXSHADERCONST {}
+impl ::core::clone::Clone for D3DNTHAL_DP2SETVERTEXSHADERCONST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2STARTVERTEX {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2STARTVERTEX {}
+impl ::core::clone::Clone for D3DNTHAL_DP2STARTVERTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2STATESET {
+    pub dwOperation: u32,
+    pub dwParam: u32,
+    pub sbType: super::super::super::Win32::Graphics::Direct3D9::D3DSTATEBLOCKTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2STATESET {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2STATESET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DNTHAL_DP2SURFACEBLT {
+    pub dwSource: u32,
+    pub rSource: super::super::super::Win32::Foundation::RECTL,
+    pub dwSourceMipLevel: u32,
+    pub dwDest: u32,
+    pub rDest: super::super::super::Win32::Foundation::RECTL,
+    pub dwDestMipLevel: u32,
+    pub Flags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DNTHAL_DP2SURFACEBLT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DNTHAL_DP2SURFACEBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DNTHAL_DP2TEXBLT {
+    pub dwDDDestSurface: u32,
+    pub dwDDSrcSurface: u32,
+    pub pDest: super::super::super::Win32::Foundation::POINT,
+    pub rSrc: super::super::super::Win32::Foundation::RECTL,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DNTHAL_DP2TEXBLT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DNTHAL_DP2TEXBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2TEXTURESTAGESTATE {
+    pub wStage: u16,
+    pub TSState: u16,
+    pub dwValue: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2TEXTURESTAGESTATE {}
+impl ::core::clone::Clone for D3DNTHAL_DP2TEXTURESTAGESTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2TRIANGLEFAN {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2TRIANGLEFAN {}
+impl ::core::clone::Clone for D3DNTHAL_DP2TRIANGLEFAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2TRIANGLEFAN_IMM {
+    pub dwEdgeFlags: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2TRIANGLEFAN_IMM {}
+impl ::core::clone::Clone for D3DNTHAL_DP2TRIANGLEFAN_IMM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2TRIANGLELIST {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2TRIANGLELIST {}
+impl ::core::clone::Clone for D3DNTHAL_DP2TRIANGLELIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2TRIANGLESTRIP {
+    pub wVStart: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2TRIANGLESTRIP {}
+impl ::core::clone::Clone for D3DNTHAL_DP2TRIANGLESTRIP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2UPDATEPALETTE {
+    pub dwPaletteHandle: u32,
+    pub wStartIndex: u16,
+    pub wNumEntries: u16,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2UPDATEPALETTE {}
+impl ::core::clone::Clone for D3DNTHAL_DP2UPDATEPALETTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2VERTEXSHADER {
+    pub dwHandle: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2VERTEXSHADER {}
+impl ::core::clone::Clone for D3DNTHAL_DP2VERTEXSHADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2VIEWPORTINFO {
+    pub dwX: u32,
+    pub dwY: u32,
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2VIEWPORTINFO {}
+impl ::core::clone::Clone for D3DNTHAL_DP2VIEWPORTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct D3DNTHAL_DP2VOLUMEBLT {
+    pub dwDDDestSurface: u32,
+    pub dwDDSrcSurface: u32,
+    pub dwDestX: u32,
+    pub dwDestY: u32,
+    pub dwDestZ: u32,
+    pub srcBox: super::super::super::Win32::Graphics::Direct3D9::D3DBOX,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for D3DNTHAL_DP2VOLUMEBLT {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for D3DNTHAL_DP2VOLUMEBLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2WINFO {
+    pub dvWNear: f32,
+    pub dvWFar: f32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2WINFO {}
+impl ::core::clone::Clone for D3DNTHAL_DP2WINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_DP2ZRANGE {
+    pub dvMinZ: f32,
+    pub dvMaxZ: f32,
+}
+impl ::core::marker::Copy for D3DNTHAL_DP2ZRANGE {}
+impl ::core::clone::Clone for D3DNTHAL_DP2ZRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub struct D3DNTHAL_DRAWPRIMITIVES2DATA {
+    pub dwhContext: usize,
+    pub dwFlags: u32,
+    pub dwVertexType: u32,
+    pub lpDDCommands: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
+    pub dwCommandOffset: u32,
+    pub dwCommandLength: u32,
+    pub Anonymous1: D3DNTHAL_DRAWPRIMITIVES2DATA_0,
+    pub dwVertexOffset: u32,
+    pub dwVertexLength: u32,
+    pub dwReqVertexBufSize: u32,
+    pub dwReqCommandBufSize: u32,
+    pub lpdwRStates: *mut u32,
+    pub Anonymous2: D3DNTHAL_DRAWPRIMITIVES2DATA_1,
+    pub dwErrorOffset: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_DRAWPRIMITIVES2DATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_DRAWPRIMITIVES2DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub union D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
+    pub lpDDVertex: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
+    pub lpVertices: *mut ::core::ffi::c_void,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub union D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
+    pub dwVertexSize: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+pub struct D3DNTHAL_GLOBALDRIVERDATA {
+    pub dwSize: u32,
+    pub hwCaps: D3DNTHALDEVICEDESC_V1,
+    pub dwNumVertices: u32,
+    pub dwNumClipVertices: u32,
+    pub dwNumTextureFormats: u32,
+    pub lpTextureFormats: *mut super::super::super::Win32::Graphics::DirectDraw::DDSURFACEDESC,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_GLOBALDRIVERDATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_GLOBALDRIVERDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_SCENECAPTUREDATA {
+    pub dwhContext: usize,
+    pub dwFlag: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DNTHAL_SCENECAPTUREDATA {}
+impl ::core::clone::Clone for D3DNTHAL_SCENECAPTUREDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub struct D3DNTHAL_SETRENDERTARGETDATA {
+    pub dwhContext: usize,
+    pub lpDDS: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
+    pub lpDDSZ: *mut super::super::super::Win32::Graphics::DirectDraw::DD_SURFACE_LOCAL,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::marker::Copy for D3DNTHAL_SETRENDERTARGETDATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+impl ::core::clone::Clone for D3DNTHAL_SETRENDERTARGETDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DNTHAL_TEXTURECREATEDATA {
+    pub dwhContext: usize,
+    pub hDDS: super::super::super::Win32::Foundation::HANDLE,
+    pub dwHandle: usize,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DNTHAL_TEXTURECREATEDATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DNTHAL_TEXTURECREATEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_TEXTUREDESTROYDATA {
+    pub dwhContext: usize,
+    pub dwHandle: usize,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DNTHAL_TEXTUREDESTROYDATA {}
+impl ::core::clone::Clone for D3DNTHAL_TEXTUREDESTROYDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct D3DNTHAL_TEXTUREGETSURFDATA {
+    pub dwhContext: usize,
+    pub hDDS: super::super::super::Win32::Foundation::HANDLE,
+    pub dwHandle: usize,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for D3DNTHAL_TEXTUREGETSURFDATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for D3DNTHAL_TEXTUREGETSURFDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_TEXTURESWAPDATA {
+    pub dwhContext: usize,
+    pub dwHandle1: usize,
+    pub dwHandle2: usize,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DNTHAL_TEXTURESWAPDATA {}
+impl ::core::clone::Clone for D3DNTHAL_TEXTURESWAPDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
+    pub dwhContext: usize,
+    pub dwFlags: u32,
+    pub dwReserved: usize,
+    pub dwNumPasses: u32,
+    pub ddrval: ::windows_sys::core::HRESULT,
+}
+impl ::core::marker::Copy for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {}
+impl ::core::clone::Clone for D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DDNT_DEFERRED_AGP_AWARE_DATA {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+}
+impl ::core::marker::Copy for DDNT_DEFERRED_AGP_AWARE_DATA {}
+impl ::core::clone::Clone for DDNT_DEFERRED_AGP_AWARE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DDNT_DXVERSION {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+    pub dwDXVersion: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DDNT_DXVERSION {}
+impl ::core::clone::Clone for DDNT_DXVERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DDNT_FREE_DEFERRED_AGP_DATA {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+    pub dwProcessId: u32,
+}
+impl ::core::marker::Copy for DDNT_FREE_DEFERRED_AGP_DATA {}
+impl ::core::clone::Clone for DDNT_FREE_DEFERRED_AGP_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DDNT_GETADAPTERGROUPDATA {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+    pub ulUniqueAdapterGroupId: usize,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl ::core::marker::Copy for DDNT_GETADAPTERGROUPDATA {}
+impl ::core::clone::Clone for DDNT_GETADAPTERGROUPDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DDNT_GETD3DQUERYCOUNTDATA {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+    pub dwNumQueries: u32,
+}
+impl ::core::marker::Copy for DDNT_GETD3DQUERYCOUNTDATA {}
+impl ::core::clone::Clone for DDNT_GETD3DQUERYCOUNTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DDNT_GETD3DQUERYDATA {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+    pub Anonymous: DDNT_GETD3DQUERYDATA_0,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DDNT_GETD3DQUERYDATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DDNT_GETD3DQUERYDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub union DDNT_GETD3DQUERYDATA_0 {
+    pub dwQueryIndex: u32,
+    pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DDNT_GETD3DQUERYDATA_0 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DDNT_GETD3DQUERYDATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DDNT_GETDDIVERSIONDATA {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+    pub dwDXVersion: u32,
+    pub dwDDIVersion: u32,
+}
+impl ::core::marker::Copy for DDNT_GETDDIVERSIONDATA {}
+impl ::core::clone::Clone for DDNT_GETDDIVERSIONDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DDNT_GETDRIVERINFO2DATA {
+    pub dwReserved: u32,
+    pub dwMagic: u32,
+    pub dwType: u32,
+    pub dwExpectedSize: u32,
+}
+impl ::core::marker::Copy for DDNT_GETDRIVERINFO2DATA {}
+impl ::core::clone::Clone for DDNT_GETDRIVERINFO2DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DDNT_GETEXTENDEDMODECOUNTDATA {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+    pub dwModeCount: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DDNT_GETEXTENDEDMODECOUNTDATA {}
+impl ::core::clone::Clone for DDNT_GETEXTENDEDMODECOUNTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DDNT_GETEXTENDEDMODEDATA {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+    pub dwModeIndex: u32,
+    pub mode: super::super::super::Win32::Graphics::Direct3D9::D3DDISPLAYMODE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DDNT_GETEXTENDEDMODEDATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DDNT_GETEXTENDEDMODEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DDNT_GETFORMATCOUNTDATA {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+    pub dwFormatCount: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DDNT_GETFORMATCOUNTDATA {}
+impl ::core::clone::Clone for DDNT_GETFORMATCOUNTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+pub struct DDNT_GETFORMATDATA {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+    pub dwFormatIndex: u32,
+    pub format: super::super::super::Win32::Graphics::DirectDraw::DDPIXELFORMAT,
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl ::core::marker::Copy for DDNT_GETFORMATDATA {}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl ::core::clone::Clone for DDNT_GETFORMATDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DDNT_MULTISAMPLEQUALITYLEVELSDATA {
+    pub gdi2: DDNT_GETDRIVERINFO2DATA,
+    pub Format: super::super::super::Win32::Graphics::Direct3D9::D3DFORMAT,
+    pub _bitfield: i32,
+    pub QualityLevels: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DDNT_MULTISAMPLEQUALITYLEVELSDATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DDNT_MULTISAMPLEQUALITYLEVELSDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DD_DEFERRED_AGP_AWARE_DATA {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+}
+impl ::core::marker::Copy for DD_DEFERRED_AGP_AWARE_DATA {}
+impl ::core::clone::Clone for DD_DEFERRED_AGP_AWARE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DD_DXVERSION {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+    pub dwDXVersion: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DD_DXVERSION {}
+impl ::core::clone::Clone for DD_DXVERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DD_FREE_DEFERRED_AGP_DATA {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+    pub dwProcessId: u32,
+}
+impl ::core::marker::Copy for DD_FREE_DEFERRED_AGP_DATA {}
+impl ::core::clone::Clone for DD_FREE_DEFERRED_AGP_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DD_GETADAPTERGROUPDATA {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+    pub ulUniqueAdapterGroupId: usize,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl ::core::marker::Copy for DD_GETADAPTERGROUPDATA {}
+impl ::core::clone::Clone for DD_GETADAPTERGROUPDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DD_GETD3DQUERYCOUNTDATA {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+    pub dwNumQueries: u32,
+}
+impl ::core::marker::Copy for DD_GETD3DQUERYCOUNTDATA {}
+impl ::core::clone::Clone for DD_GETD3DQUERYCOUNTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DD_GETD3DQUERYDATA {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+    pub Anonymous: DD_GETD3DQUERYDATA_0,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DD_GETD3DQUERYDATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DD_GETD3DQUERYDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub union DD_GETD3DQUERYDATA_0 {
+    pub dwQueryIndex: u32,
+    pub QueryType: super::super::super::Win32::Graphics::Direct3D9::D3DQUERYTYPE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DD_GETD3DQUERYDATA_0 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DD_GETD3DQUERYDATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DD_GETDDIVERSIONDATA {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+    pub dwDXVersion: u32,
+    pub dwDDIVersion: u32,
+}
+impl ::core::marker::Copy for DD_GETDDIVERSIONDATA {}
+impl ::core::clone::Clone for DD_GETDDIVERSIONDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DD_GETDRIVERINFO2DATA {
+    pub dwReserved: u32,
+    pub dwMagic: u32,
+    pub dwType: u32,
+    pub dwExpectedSize: u32,
+}
+impl ::core::marker::Copy for DD_GETDRIVERINFO2DATA {}
+impl ::core::clone::Clone for DD_GETDRIVERINFO2DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DD_GETEXTENDEDMODECOUNTDATA {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+    pub dwModeCount: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DD_GETEXTENDEDMODECOUNTDATA {}
+impl ::core::clone::Clone for DD_GETEXTENDEDMODECOUNTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DD_GETEXTENDEDMODEDATA {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+    pub dwModeIndex: u32,
+    pub mode: super::super::super::Win32::Graphics::Direct3D9::D3DDISPLAYMODE,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DD_GETEXTENDEDMODEDATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DD_GETEXTENDEDMODEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct DD_GETFORMATCOUNTDATA {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+    pub dwFormatCount: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DD_GETFORMATCOUNTDATA {}
+impl ::core::clone::Clone for DD_GETFORMATCOUNTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+pub struct DD_GETFORMATDATA {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+    pub dwFormatIndex: u32,
+    pub format: super::super::super::Win32::Graphics::DirectDraw::DDPIXELFORMAT,
+}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl ::core::marker::Copy for DD_GETFORMATDATA {}
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+impl ::core::clone::Clone for DD_GETFORMATDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub struct DD_MULTISAMPLEQUALITYLEVELSDATA {
+    pub gdi2: DD_GETDRIVERINFO2DATA,
+    pub Format: super::super::super::Win32::Graphics::Direct3D9::D3DFORMAT,
+    pub _bitfield: i32,
+    pub QualityLevels: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::marker::Copy for DD_MULTISAMPLEQUALITYLEVELSDATA {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+impl ::core::clone::Clone for DD_MULTISAMPLEQUALITYLEVELSDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
@@ -14249,14 +19008,6 @@ impl ::core::clone::Clone for GPUP_DRIVER_ESCAPE_INPUT {
     }
 }
 #[repr(C)]
-pub struct OBJECT_ATTRIBUTES(pub u8);
-impl ::core::marker::Copy for OBJECT_ATTRIBUTES {}
-impl ::core::clone::Clone for OBJECT_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_INFO {
@@ -14275,6 +19026,97 @@ impl ::core::clone::Clone for OUTPUTDUPL_CONTEXT_DEBUG_INFO {
         *self
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub struct _NT_D3DLINEPATTERN {
+    pub wRepeatFactor: u16,
+    pub wLinePattern: u16,
+}
+impl ::core::marker::Copy for _NT_D3DLINEPATTERN {}
+impl ::core::clone::Clone for _NT_D3DLINEPATTERN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DHAL_CLEAR2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEAR2DATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DHAL_CLEARCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CLEARDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub type LPD3DHAL_CONTEXTCREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTCREATEDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DHAL_CONTEXTDESTROYALLCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYALLDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DHAL_CONTEXTDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_CONTEXTDESTROYDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DHAL_DRAWONEINDEXEDPRIMITIVECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEINDEXEDPRIMITIVEDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DHAL_DRAWONEPRIMITIVECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWONEPRIMITIVEDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub type LPD3DHAL_DRAWPRIMITIVES2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVES2DATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DHAL_DRAWPRIMITIVESCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_DRAWPRIMITIVESDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DHAL_GETSTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_GETSTATEDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_DirectDraw"))]
+pub type LPD3DHAL_RENDERPRIMITIVECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERPRIMITIVEDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+pub type LPD3DHAL_RENDERSTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_RENDERSTATEDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DHAL_SCENECAPTURECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_SCENECAPTUREDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+pub type LPD3DHAL_SETRENDERTARGETCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_SETRENDERTARGETDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(feature = "Win32_Graphics_DirectDraw")]
+pub type LPD3DHAL_TEXTURECREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURECREATEDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DHAL_TEXTUREDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREDESTROYDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DHAL_TEXTUREGETSURFCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTUREGETSURFDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DHAL_TEXTURESWAPCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_TEXTURESWAPDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DHAL_VALIDATETEXTURESTAGESTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Graphics_Direct3D9\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
+pub type LPD3DNTHAL_CLEAR2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CLEAR2DATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type LPD3DNTHAL_CONTEXTCREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DNTHAL_CONTEXTDESTROYALLCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DNTHAL_CONTEXTDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type LPD3DNTHAL_DRAWPRIMITIVES2CB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DNTHAL_SCENECAPTURECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_DirectDraw\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw"))]
+pub type LPD3DNTHAL_SETRENDERTARGETCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPD3DNTHAL_TEXTURECREATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DNTHAL_TEXTUREDESTROYCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREDESTROYDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPD3DNTHAL_TEXTUREGETSURFCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREGETSURFDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DNTHAL_TEXTURESWAPCB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURESWAPDATA) -> u32>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32>;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXGK_FSTATE_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(graphicsdevicehandle: *mut ::core::ffi::c_void, componentindex: u32, newfstate: u32, prenotification: super::super::super::Win32::Foundation::BOOLEAN, privatehandle: *mut ::core::ffi::c_void) -> ()>;
@@ -14564,8 +19406,8 @@ pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = ::core::option::Option<unsafe ex
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 pub type PFND3DKMT_OPENNTHANDLEFROMNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14588,8 +19430,8 @@ pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = ::core::option::Option<unsafe ex
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
 pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14756,9 +19598,9 @@ pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = ::core::option::Option<unsafe
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::super::super::Win32::Foundation::NTSTATUS>;
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PFND3DKMT_SHAREOBJECTS = ::core::option::Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Wdk_Foundation\"`, `\"Win32_Foundation\"`*"]
+#[cfg(all(feature = "Wdk_Foundation", feature = "Win32_Foundation"))]
+pub type PFND3DKMT_SHAREOBJECTS = ::core::option::Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const u32, pobjectattributes: *const super::super::Foundation::OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::super::super::Win32::Foundation::HANDLE) -> super::super::super::Win32::Foundation::NTSTATUS>;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::super::super::Win32::Foundation::NTSTATUS>;
@@ -14842,3 +19684,7 @@ pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = ::core::option::Option<unsafe ext
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = ::core::option::Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::super::super::Win32::Foundation::NTSTATUS>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type PFND3DNTPARSEUNKNOWNCOMMAND = ::core::option::Option<unsafe extern "system" fn(lpvcommands: *mut ::core::ffi::c_void, lplpvreturnedcommand: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub type PFND3DPARSEUNKNOWNCOMMAND = ::core::option::Option<unsafe extern "system" fn(lpvcommands: *mut ::core::ffi::c_void, lplpvreturnedcommand: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;

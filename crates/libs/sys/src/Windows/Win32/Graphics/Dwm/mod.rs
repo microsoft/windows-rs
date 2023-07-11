@@ -25,7 +25,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dwmapi.dll" "system" #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"] fn DwmGetUnmetTabRequirements(appwindow : super::super::Foundation:: HWND, value : *mut DWM_TAB_WINDOW_REQUIREMENTS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dwmapi.dll" "system" #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"] fn DwmGetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : DWMWINDOWATTRIBUTE, pvattribute : *mut ::core::ffi::c_void, cbattribute : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dwmapi.dll" "system" #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"] fn DwmGetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : u32, pvattribute : *mut ::core::ffi::c_void, cbattribute : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dwmapi.dll" "system" #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"] fn DwmInvalidateIconicBitmaps(hwnd : super::super::Foundation:: HWND) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -47,7 +47,7 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dwmapi.dll" "system" #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"] fn DwmSetPresentParameters(hwnd : super::super::Foundation:: HWND, ppresentparams : *mut DWM_PRESENT_PARAMETERS) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("dwmapi.dll" "system" #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"] fn DwmSetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : DWMWINDOWATTRIBUTE, pvattribute : *const ::core::ffi::c_void, cbattribute : u32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("dwmapi.dll" "system" #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"] fn DwmSetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : u32, pvattribute : *const ::core::ffi::c_void, cbattribute : u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("dwmapi.dll" "system" #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"] fn DwmShowContact(dwpointerid : u32, eshowcontact : DWM_SHOWCONTACT) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("dwmapi.dll" "system" #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`, `\"Win32_Foundation\"`*"] fn DwmTetherContact(dwpointerid : u32, fenable : super::super::Foundation:: BOOL, pttether : super::super::Foundation:: POINT) -> ::windows_sys::core::HRESULT);

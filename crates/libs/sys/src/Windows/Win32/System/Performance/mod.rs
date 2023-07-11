@@ -128,26 +128,32 @@ pub mod HardwareCounterProfiling;
 ::windows_targets::link!("pdh.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PdhValidatePathW(szfullpathbuffer : ::windows_sys::core::PCWSTR) -> u32);
 ::windows_targets::link!("pdh.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PdhVerifySQLDBA(szdatasource : ::windows_sys::core::PCSTR) -> u32);
 ::windows_targets::link!("pdh.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PdhVerifySQLDBW(szdatasource : ::windows_sys::core::PCWSTR) -> u32);
-::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfAddCounters(hquery : PerfQueryHandle, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfAddCounters(hquery : super::super::Foundation:: HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfCloseQueryHandle(hquery : super::super::Foundation:: HANDLE) -> u32);
-::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfCreateInstance(providerhandle : PerfProviderHandle, countersetguid : *const ::windows_sys::core::GUID, name : ::windows_sys::core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfCreateInstance(providerhandle : super::super::Foundation:: HANDLE, countersetguid : *const ::windows_sys::core::GUID, name : ::windows_sys::core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfDecrementULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfDecrementULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
-::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfDeleteCounters(hquery : PerfQueryHandle, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
-::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfDeleteInstance(provider : PerfProviderHandle, instanceblock : *const PERF_COUNTERSET_INSTANCE) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfDeleteCounters(hquery : super::super::Foundation:: HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfDeleteInstance(provider : super::super::Foundation:: HANDLE, instanceblock : *const PERF_COUNTERSET_INSTANCE) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfEnumerateCounterSet(szmachine : ::windows_sys::core::PCWSTR, pcountersetids : *mut ::windows_sys::core::GUID, ccountersetids : u32, pccountersetidsactual : *mut u32) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfEnumerateCounterSetInstances(szmachine : ::windows_sys::core::PCWSTR, pcountersetid : *const ::windows_sys::core::GUID, pinstances : *mut PERF_INSTANCE_HEADER, cbinstances : u32, pcbinstancesactual : *mut u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfIncrementULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfIncrementULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
-::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfOpenQueryHandle(szmachine : ::windows_sys::core::PCWSTR, phquery : *mut PerfQueryHandle) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfQueryCounterData(hquery : PerfQueryHandle, pcounterblock : *mut PERF_DATA_HEADER, cbcounterblock : u32, pcbcounterblockactual : *mut u32) -> u32);
-::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfQueryCounterInfo(hquery : PerfQueryHandle, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32, pcbcountersactual : *mut u32) -> u32);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfOpenQueryHandle(szmachine : ::windows_sys::core::PCWSTR, phquery : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfQueryCounterData(hquery : super::super::Foundation:: HANDLE, pcounterblock : *mut PERF_DATA_HEADER, cbcounterblock : u32, pcbcounterblockactual : *mut u32) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfQueryCounterInfo(hquery : super::super::Foundation:: HANDLE, pcounters : *mut PERF_COUNTER_IDENTIFIER, cbcounters : u32, pcbcountersactual : *mut u32) -> u32);
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfQueryCounterSetRegistrationInfo(szmachine : ::windows_sys::core::PCWSTR, pcountersetid : *const ::windows_sys::core::GUID, requestcode : PerfRegInfoType, requestlangid : u32, pbreginfo : *mut u8, cbreginfo : u32, pcbreginfoactual : *mut u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfQueryInstance(providerhandle : super::super::Foundation:: HANDLE, countersetguid : *const ::windows_sys::core::GUID, name : ::windows_sys::core::PCWSTR, id : u32) -> *mut PERF_COUNTERSET_INSTANCE);
@@ -159,9 +165,12 @@ pub mod HardwareCounterProfiling;
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfSetULongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u32) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfSetULongLongCounterValue(provider : super::super::Foundation:: HANDLE, instance : *mut PERF_COUNTERSET_INSTANCE, counterid : u32, value : u64) -> u32);
-::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfStartProvider(providerguid : *const ::windows_sys::core::GUID, controlcallback : PERFLIBREQUEST, phprovider : *mut PerfProviderHandle) -> u32);
-::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfStartProviderEx(providerguid : *const ::windows_sys::core::GUID, providercontext : *const PERF_PROVIDER_CONTEXT, provider : *mut PerfProviderHandle) -> u32);
-::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`*"] fn PerfStopProvider(providerhandle : PerfProviderHandle) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfStartProvider(providerguid : *const ::windows_sys::core::GUID, controlcallback : PERFLIBREQUEST, phprovider : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfStartProviderEx(providerguid : *const ::windows_sys::core::GUID, providercontext : *const PERF_PROVIDER_CONTEXT, provider : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn PerfStopProvider(providerhandle : super::super::Foundation:: HANDLE) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"] fn QueryPerformanceCounter(lpperformancecount : *mut i64) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -1930,8 +1939,6 @@ impl ::core::clone::Clone for PERF_STRING_COUNTER_HEADER {
         *self
     }
 }
-pub type PerfProviderHandle = isize;
-pub type PerfQueryHandle = isize;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub type CounterPathCallBack = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> i32>;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]

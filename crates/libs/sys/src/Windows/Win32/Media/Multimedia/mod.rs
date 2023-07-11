@@ -161,9 +161,9 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 ::windows_targets::link!("msvfw32.dll" "system" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"] fn ICSeqCompressFrameStart(pc : *const COMPVARS, lpbiin : *const super::super::Graphics::Gdi:: BITMAPINFO) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn MCIWndCreateA(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, dwstyle : u32, szfile : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HWND);
+::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn MCIWndCreateA(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : ::windows_sys::core::PCSTR) -> super::super::Foundation:: HWND);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn MCIWndCreateW(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HMODULE, dwstyle : u32, szfile : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HWND);
+::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn MCIWndCreateW(hwndparent : super::super::Foundation:: HWND, hinstance : super::super::Foundation:: HINSTANCE, dwstyle : u32, szfile : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HWND);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("msvfw32.dll" "cdecl" #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_Foundation\"`*"] fn MCIWndRegisterClass() -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]

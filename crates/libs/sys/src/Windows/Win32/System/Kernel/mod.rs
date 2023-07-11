@@ -286,38 +286,6 @@ impl ::core::clone::Clone for OBJECTID {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub struct OBJECT_ATTRIBUTES32 {
-    pub Length: u32,
-    pub RootDirectory: u32,
-    pub ObjectName: u32,
-    pub Attributes: u32,
-    pub SecurityDescriptor: u32,
-    pub SecurityQualityOfService: u32,
-}
-impl ::core::marker::Copy for OBJECT_ATTRIBUTES32 {}
-impl ::core::clone::Clone for OBJECT_ATTRIBUTES32 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub struct OBJECT_ATTRIBUTES64 {
-    pub Length: u32,
-    pub RootDirectory: u64,
-    pub ObjectName: u64,
-    pub Attributes: u32,
-    pub SecurityDescriptor: u64,
-    pub SecurityQualityOfService: u64,
-}
-impl ::core::marker::Copy for OBJECT_ATTRIBUTES64 {}
-impl ::core::clone::Clone for OBJECT_ATTRIBUTES64 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub struct PROCESSOR_NUMBER {
     pub Group: u16,
     pub Number: u8,

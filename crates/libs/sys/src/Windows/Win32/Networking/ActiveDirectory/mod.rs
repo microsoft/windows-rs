@@ -2,14 +2,14 @@
 
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"] fn ADsBuildEnumerator(padscontainer : IADsContainer, ppenumvariant : *mut super::super::System::Ole:: IEnumVARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"] fn ADsBuildVarArrayInt(lpdwobjecttypes : *mut u32, dwobjecttypes : u32, pvar : *mut super::super::System::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"] fn ADsBuildVarArrayStr(lpppathnames : *const ::windows_sys::core::PCWSTR, dwpathnames : u32, pvar : *mut super::super::System::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"] fn ADsBuildVarArrayInt(lpdwobjecttypes : *mut u32, dwobjecttypes : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"] fn ADsBuildVarArrayStr(lpppathnames : *const ::windows_sys::core::PCWSTR, dwpathnames : u32, pvar : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn ADsDecodeBinaryData(szsrcdata : ::windows_sys::core::PCWSTR, ppbdestdata : *mut *mut u8, pdwdestlen : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn ADsEncodeBinaryData(pbsrcdata : *mut u8, dwsrclen : u32, ppszdestdata : *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"] fn ADsEnumerateNext(penumvariant : super::super::System::Ole:: IEnumVARIANT, celements : u32, pvar : *mut super::super::System::Com:: VARIANT, pcelementsfetched : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"] fn ADsEnumerateNext(penumvariant : super::super::System::Ole:: IEnumVARIANT, celements : u32, pvar : *mut super::super::System::Variant:: VARIANT, pcelementsfetched : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_System_Ole")]
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Ole\"`*"] fn ADsFreeEnumerator(penumvariant : super::super::System::Ole:: IEnumVARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn ADsGetLastError(lperror : *mut u32, lperrorbuf : ::windows_sys::core::PWSTR, dwerrorbuflen : u32, lpnamebuf : ::windows_sys::core::PWSTR, dwnamebuflen : u32) -> ::windows_sys::core::HRESULT);
@@ -32,12 +32,12 @@
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn ADsSetLastError(dwerr : u32, pszerror : ::windows_sys::core::PCWSTR, pszprovider : ::windows_sys::core::PCWSTR) -> ());
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"] fn AdsFreeAdsValues(padsvalues : *mut ADSVALUE, dwnumvalues : u32) -> ());
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"] fn AdsTypeToPropVariant(padsvalues : *mut ADSVALUE, dwnumvalues : u32, pvariant : *mut super::super::System::Com:: VARIANT) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"] fn AdsTypeToPropVariant(padsvalues : *mut ADSVALUE, dwnumvalues : u32, pvariant : *mut super::super::System::Variant:: VARIANT) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn AllocADsMem(cb : u32) -> *mut ::core::ffi::c_void);
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn AllocADsStr(pstr : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"] fn BinarySDToSecurityDescriptor(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pvarsec : *mut super::super::System::Com:: VARIANT, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"] fn BinarySDToSecurityDescriptor(psecuritydescriptor : super::super::Security:: PSECURITY_DESCRIPTOR, pvarsec : *mut super::super::System::Variant:: VARIANT, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("ntdsapi.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"] fn DsAddSidHistoryA(hds : super::super::Foundation:: HANDLE, flags : u32, srcdomain : ::windows_sys::core::PCSTR, srcprincipal : ::windows_sys::core::PCSTR, srcdomaincontroller : ::windows_sys::core::PCSTR, srcdomaincreds : *const ::core::ffi::c_void, dstdomain : ::windows_sys::core::PCSTR, dstprincipal : ::windows_sys::core::PCSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -111,15 +111,18 @@
 ::windows_targets::link!("ntdsapi.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn DsFreeSchemaGuidMapW(pguidmap : *const DS_SCHEMA_GUID_MAPW) -> ());
 ::windows_targets::link!("ntdsapi.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn DsFreeSpnArrayA(cspn : u32, rpszspn : *mut ::windows_sys::core::PSTR) -> ());
 ::windows_targets::link!("ntdsapi.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn DsFreeSpnArrayW(cspn : u32, rpszspn : *mut ::windows_sys::core::PWSTR) -> ());
-::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn DsGetDcCloseW(getdccontexthandle : GetDcContextHandle) -> ());
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"] fn DsGetDcCloseW(getdccontexthandle : super::super::Foundation:: HANDLE) -> ());
 ::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn DsGetDcNameA(computername : ::windows_sys::core::PCSTR, domainname : ::windows_sys::core::PCSTR, domainguid : *const ::windows_sys::core::GUID, sitename : ::windows_sys::core::PCSTR, flags : u32, domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn DsGetDcNameW(computername : ::windows_sys::core::PCWSTR, domainname : ::windows_sys::core::PCWSTR, domainguid : *const ::windows_sys::core::GUID, sitename : ::windows_sys::core::PCWSTR, flags : u32, domaincontrollerinfo : *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 ::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn DsGetDcNextA(getdccontexthandle : super::super::Foundation:: HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS, dnshostname : *mut ::windows_sys::core::PSTR) -> u32);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 ::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"] fn DsGetDcNextW(getdccontexthandle : super::super::Foundation:: HANDLE, sockaddresscount : *mut u32, sockaddresses : *mut *mut super::WinSock:: SOCKET_ADDRESS, dnshostname : *mut ::windows_sys::core::PWSTR) -> u32);
-::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn DsGetDcOpenA(dnsname : ::windows_sys::core::PCSTR, optionflags : u32, sitename : ::windows_sys::core::PCSTR, domainguid : *const ::windows_sys::core::GUID, dnsforestname : ::windows_sys::core::PCSTR, dcflags : u32, retgetdccontext : *mut GetDcContextHandle) -> u32);
-::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn DsGetDcOpenW(dnsname : ::windows_sys::core::PCWSTR, optionflags : u32, sitename : ::windows_sys::core::PCWSTR, domainguid : *const ::windows_sys::core::GUID, dnsforestname : ::windows_sys::core::PCWSTR, dcflags : u32, retgetdccontext : *mut GetDcContextHandle) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"] fn DsGetDcOpenA(dnsname : ::windows_sys::core::PCSTR, optionflags : u32, sitename : ::windows_sys::core::PCSTR, domainguid : *const ::windows_sys::core::GUID, dnsforestname : ::windows_sys::core::PCSTR, dcflags : u32, retgetdccontext : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"] fn DsGetDcOpenW(dnsname : ::windows_sys::core::PCWSTR, optionflags : u32, sitename : ::windows_sys::core::PCWSTR, domainguid : *const ::windows_sys::core::GUID, dnsforestname : ::windows_sys::core::PCWSTR, dcflags : u32, retgetdccontext : *mut super::super::Foundation:: HANDLE) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn DsGetDcSiteCoverageA(servername : ::windows_sys::core::PCSTR, entrycount : *mut u32, sitenames : *mut *mut ::windows_sys::core::PSTR) -> u32);
 ::windows_targets::link!("netapi32.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn DsGetDcSiteCoverageW(servername : ::windows_sys::core::PCWSTR, entrycount : *mut u32, sitenames : *mut *mut ::windows_sys::core::PWSTR) -> u32);
 #[cfg(feature = "Win32_Foundation")]
@@ -252,13 +255,13 @@
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"] fn FreeADsMem(pmem : *mut ::core::ffi::c_void) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"] fn FreeADsStr(pstr : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"] fn PropVariantToAdsType(pvariant : *mut super::super::System::Com:: VARIANT, dwnumvariant : u32, ppadsvalues : *mut *mut ADSVALUE, pdwnumvalues : *mut u32) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"] fn PropVariantToAdsType(pvariant : *mut super::super::System::Variant:: VARIANT, dwnumvariant : u32, ppadsvalues : *mut *mut ADSVALUE, pdwnumvalues : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"] fn ReallocADsMem(poldmem : *mut ::core::ffi::c_void, cbold : u32, cbnew : u32) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"] fn ReallocADsStr(ppstr : *mut ::windows_sys::core::PWSTR, pstr : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: BOOL);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"] fn SecurityDescriptorToBinarySD(vvarsecdes : super::super::System::Com:: VARIANT, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, pdwsdlength : *mut u32, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
+::windows_targets::link!("activeds.dll" "system" #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"] fn SecurityDescriptorToBinarySD(vvarsecdes : super::super::System::Variant:: VARIANT, ppsecuritydescriptor : *mut super::super::Security:: PSECURITY_DESCRIPTOR, pdwsdlength : *mut u32, pszservername : ::windows_sys::core::PCWSTR, username : ::windows_sys::core::PCWSTR, password : ::windows_sys::core::PCWSTR, dwflags : u32) -> ::windows_sys::core::HRESULT);
 pub type IADs = *mut ::core::ffi::c_void;
 pub type IADsADSystemInfo = *mut ::core::ffi::c_void;
 pub type IADsAccessControlEntry = *mut ::core::ffi::c_void;
@@ -2989,7 +2992,7 @@ pub struct CQPAGE {
     pub cbStruct: u32,
     pub dwFlags: u32,
     pub pPageProc: LPCQPAGEPROC,
-    pub hInstance: super::super::Foundation::HMODULE,
+    pub hInstance: super::super::Foundation::HINSTANCE,
     pub idPageName: i32,
     pub idPageTemplate: i32,
     pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
@@ -3371,7 +3374,7 @@ impl ::core::clone::Clone for DSQUERYINITPARAMS {
 pub struct DSQUERYPARAMS {
     pub cbStruct: u32,
     pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HMODULE,
+    pub hInstance: super::super::Foundation::HINSTANCE,
     pub offsetQuery: i32,
     pub iColumns: i32,
     pub dwReserved: u32,
@@ -4361,35 +4364,35 @@ impl ::core::clone::Clone for DS_SCHEMA_GUID_MAPW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DS_SELECTION {
     pub pwzName: ::windows_sys::core::PWSTR,
     pub pwzADsPath: ::windows_sys::core::PWSTR,
     pub pwzClass: ::windows_sys::core::PWSTR,
     pub pwzUPN: ::windows_sys::core::PWSTR,
-    pub pvarFetchedAttributes: *mut super::super::System::Com::VARIANT,
+    pub pvarFetchedAttributes: *mut super::super::System::Variant::VARIANT,
     pub flScopeType: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for DS_SELECTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DS_SELECTION {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub struct DS_SELECTION_LIST {
     pub cItems: u32,
     pub cFetchedAttributes: u32,
     pub aDsSelection: [DS_SELECTION; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::marker::Copy for DS_SELECTION_LIST {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ::core::clone::Clone for DS_SELECTION_LIST {
     fn clone(&self) -> Self {
         *self
@@ -4407,7 +4410,6 @@ impl ::core::clone::Clone for DS_SITE_COST_INFO {
         *self
     }
 }
-pub type GetDcContextHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]

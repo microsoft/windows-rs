@@ -185,22 +185,6 @@
 ::windows_targets::link!("ole32.dll" "system" #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn STGMEDIUM_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super:: STGMEDIUM) -> *mut u8);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 ::windows_targets::link!("ole32.dll" "system" #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"] fn STGMEDIUM_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super:: STGMEDIUM) -> *mut u8);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"] fn VARIANT_UserFree(param0 : *const u32, param1 : *const super:: VARIANT) -> ());
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"] fn VARIANT_UserFree64(param0 : *const u32, param1 : *const super:: VARIANT) -> ());
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"] fn VARIANT_UserMarshal(param0 : *const u32, param1 : *mut u8, param2 : *const super:: VARIANT) -> *mut u8);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"] fn VARIANT_UserMarshal64(param0 : *const u32, param1 : *mut u8, param2 : *const super:: VARIANT) -> *mut u8);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"] fn VARIANT_UserSize(param0 : *const u32, param1 : u32, param2 : *const super:: VARIANT) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"] fn VARIANT_UserSize64(param0 : *const u32, param1 : u32, param2 : *const super:: VARIANT) -> u32);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"] fn VARIANT_UserUnmarshal(param0 : *const u32, param1 : *const u8, param2 : *mut super:: VARIANT) -> *mut u8);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-::windows_targets::link!("oleaut32.dll" "system" #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"] fn VARIANT_UserUnmarshal64(param0 : *const u32, param1 : *const u8, param2 : *mut super:: VARIANT) -> *mut u8);
 pub type IMarshal = *mut ::core::ffi::c_void;
 pub type IMarshal2 = *mut ::core::ffi::c_void;
 pub type IMarshalingStream = *mut ::core::ffi::c_void;

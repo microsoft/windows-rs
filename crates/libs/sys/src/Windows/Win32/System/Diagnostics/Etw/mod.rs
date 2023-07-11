@@ -46,9 +46,20 @@
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"] fn OpenTraceA(logfile : *mut EVENT_TRACE_LOGFILEA) -> PROCESSTRACE_HANDLE);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"] fn OpenTraceFromBufferStream(options : *const ETW_OPEN_TRACE_OPTIONS, buffercompletioncallback : PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext : *const ::core::ffi::c_void) -> u64);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"] fn OpenTraceFromFile(logfilename : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"] fn OpenTraceFromRealTimeLogger(loggername : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"] fn OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername : ::windows_sys::core::PCWSTR, options : *const ETW_OPEN_TRACE_OPTIONS, allocationsize : usize, memorypartitionhandle : super::super::super::Foundation:: HANDLE, logfileheader : *mut TRACE_LOGFILE_HEADER) -> u64);
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`, `\"Win32_System_Time\"`*"] fn OpenTraceW(logfile : *mut EVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HANDLE);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn ProcessTrace(handlearray : *const PROCESSTRACE_HANDLE, handlecount : u32, starttime : *const super::super::super::Foundation:: FILETIME, endtime : *const super::super::super::Foundation:: FILETIME) -> super::super::super::Foundation:: WIN32_ERROR);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn ProcessTraceAddBufferToBufferStream(tracehandle : u64, buffer : *const ETW_BUFFER_HEADER, buffersize : u32) -> u32);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn ProcessTraceBufferDecrementReference(buffer : *const ETW_BUFFER_HEADER) -> u32);
+::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"] fn ProcessTraceBufferIncrementReference(tracehandle : u64, buffer : *const ETW_BUFFER_HEADER) -> u32);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("advapi32.dll" "system" #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`, `\"Win32_Foundation\"`*"] fn QueryAllTracesA(propertyarray : *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> super::super::super::Foundation:: WIN32_ERROR);
 #[cfg(feature = "Win32_Foundation")]
@@ -1621,7 +1632,17 @@ impl ::core::clone::Clone for CLASSIC_EVENT_ID {
         *self
     }
 }
-pub type CONTROLTRACE_HANDLE = u64;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub struct CONTROLTRACE_HANDLE {
+    pub Value: u64,
+}
+impl ::core::marker::Copy for CONTROLTRACE_HANDLE {}
+impl ::core::clone::Clone for CONTROLTRACE_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub struct ENABLE_TRACE_PARAMETERS {
@@ -2901,7 +2922,17 @@ impl ::core::clone::Clone for PAYLOAD_FILTER_PREDICATE {
         *self
     }
 }
-pub type PROCESSTRACE_HANDLE = u64;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub struct PROCESSTRACE_HANDLE {
+    pub Value: u64,
+}
+impl ::core::marker::Copy for PROCESSTRACE_HANDLE {}
+impl ::core::clone::Clone for PROCESSTRACE_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub struct PROFILE_SOURCE_INFO {
@@ -2999,7 +3030,17 @@ impl ::core::clone::Clone for PROVIDER_FILTER_INFO {
         *self
     }
 }
-pub type RELOGSTREAM_HANDLE = u64;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
+pub struct RELOGSTREAM_HANDLE {
+    pub Value: u64,
+}
+impl ::core::marker::Copy for RELOGSTREAM_HANDLE {}
+impl ::core::clone::Clone for RELOGSTREAM_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 pub struct TDH_CONTEXT {

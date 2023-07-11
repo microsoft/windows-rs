@@ -2,15 +2,15 @@
 
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"] fn AddDllDirectory(newdirectory : ::windows_sys::core::PCWSTR) -> *mut ::core::ffi::c_void);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn BeginUpdateResourceA(pfilename : ::windows_sys::core::PCSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> UPDATERESOURCE_HANDLE);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn BeginUpdateResourceA(pfilename : ::windows_sys::core::PCSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn BeginUpdateResourceW(pfilename : ::windows_sys::core::PCWSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> UPDATERESOURCE_HANDLE);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn BeginUpdateResourceW(pfilename : ::windows_sys::core::PCWSTR, bdeleteexistingresources : super::super::Foundation:: BOOL) -> super::super::Foundation:: HANDLE);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn DisableThreadLibraryCalls(hlibmodule : super::super::Foundation:: HMODULE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn EndUpdateResourceA(hupdate : UPDATERESOURCE_HANDLE, fdiscard : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn EndUpdateResourceA(hupdate : super::super::Foundation:: HANDLE, fdiscard : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn EndUpdateResourceW(hupdate : UPDATERESOURCE_HANDLE, fdiscard : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn EndUpdateResourceW(hupdate : super::super::Foundation:: HANDLE, fdiscard : super::super::Foundation:: BOOL) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn EnumResourceLanguagesA(hmodule : super::super::Foundation:: HMODULE, lptype : ::windows_sys::core::PCSTR, lpname : ::windows_sys::core::PCSTR, lpenumfunc : ENUMRESLANGPROCA, lparam : isize) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
@@ -43,8 +43,6 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn FindResourceExW(hmodule : super::super::Foundation:: HMODULE, lptype : ::windows_sys::core::PCWSTR, lpname : ::windows_sys::core::PCWSTR, wlanguage : u16) -> super::super::Foundation:: HRSRC);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn FindResourceW(hmodule : super::super::Foundation:: HMODULE, lpname : ::windows_sys::core::PCWSTR, lptype : ::windows_sys::core::PCWSTR) -> super::super::Foundation:: HRSRC);
-#[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn FreeLibrary(hlibmodule : super::super::Foundation:: HMODULE) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn FreeLibraryAndExitThread(hlibmodule : super::super::Foundation:: HMODULE, dwexitcode : u32) -> !);
 #[cfg(feature = "Win32_Foundation")]
@@ -91,9 +89,9 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn SizeofResource(hmodule : super::super::Foundation:: HMODULE, hresinfo : super::super::Foundation:: HRSRC) -> u32);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn UpdateResourceA(hupdate : UPDATERESOURCE_HANDLE, lptype : ::windows_sys::core::PCSTR, lpname : ::windows_sys::core::PCSTR, wlanguage : u16, lpdata : *const ::core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn UpdateResourceA(hupdate : super::super::Foundation:: HANDLE, lptype : ::windows_sys::core::PCSTR, lpname : ::windows_sys::core::PCSTR, wlanguage : u16, lpdata : *const ::core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn UpdateResourceW(hupdate : UPDATERESOURCE_HANDLE, lptype : ::windows_sys::core::PCWSTR, lpname : ::windows_sys::core::PCWSTR, wlanguage : u16, lpdata : *const ::core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
+::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"] fn UpdateResourceW(hupdate : super::super::Foundation:: HANDLE, lptype : ::windows_sys::core::PCWSTR, lpname : ::windows_sys::core::PCWSTR, wlanguage : u16, lpdata : *const ::core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
@@ -191,7 +189,6 @@ impl ::core::clone::Clone for REDIRECTION_FUNCTION_DESCRIPTOR {
         *self
     }
 }
-pub type UPDATERESOURCE_HANDLE = isize;
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ENUMRESLANGPROCA = ::core::option::Option<unsafe extern "system" fn(hmodule: super::super::Foundation::HMODULE, lptype: ::windows_sys::core::PCSTR, lpname: ::windows_sys::core::PCSTR, wlanguage: u16, lparam: isize) -> super::super::Foundation::BOOL>;

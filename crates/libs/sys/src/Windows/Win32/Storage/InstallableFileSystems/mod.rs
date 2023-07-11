@@ -9,7 +9,8 @@
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"] fn FilterDetach(lpfiltername : ::windows_sys::core::PCWSTR, lpvolumename : ::windows_sys::core::PCWSTR, lpinstancename : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterFindClose(hfilterfind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"] fn FilterFindFirst(dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterfind : *mut FilterFindHandle) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterFindFirst(dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterfind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterFindNext(hfilterfind : super::super::Foundation:: HANDLE, dwinformationclass : FILTER_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"] fn FilterGetDosName(lpvolumename : ::windows_sys::core::PCWSTR, lpdosname : ::windows_sys::core::PWSTR, dwdosnamebuffersize : u32) -> ::windows_sys::core::HRESULT);
@@ -20,7 +21,8 @@
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"] fn FilterInstanceCreate(lpfiltername : ::windows_sys::core::PCWSTR, lpvolumename : ::windows_sys::core::PCWSTR, lpinstancename : ::windows_sys::core::PCWSTR, hinstance : *mut HFILTER_INSTANCE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterInstanceFindClose(hfilterinstancefind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"] fn FilterInstanceFindFirst(lpfiltername : ::windows_sys::core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterinstancefind : *mut FilterInstanceFindHandle) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterInstanceFindFirst(lpfiltername : ::windows_sys::core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpfilterinstancefind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterInstanceFindNext(hfilterinstancefind : super::super::Foundation:: HANDLE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"] fn FilterInstanceGetInformation(hinstance : HFILTER_INSTANCE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
@@ -32,12 +34,14 @@
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"] fn FilterUnload(lpfiltername : ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterVolumeFindClose(hvolumefind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"] fn FilterVolumeFindFirst(dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumefind : *mut FilterVolumeFindHandle) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterVolumeFindFirst(dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumefind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterVolumeFindNext(hvolumefind : super::super::Foundation:: HANDLE, dwinformationclass : FILTER_VOLUME_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterVolumeInstanceFindClose(hvolumeinstancefind : super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
-::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"] fn FilterVolumeInstanceFindFirst(lpvolumename : ::windows_sys::core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumeinstancefind : *mut FilterVolumeInstanceFindHandle) -> ::windows_sys::core::HRESULT);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterVolumeInstanceFindFirst(lpvolumename : ::windows_sys::core::PCWSTR, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32, lpvolumeinstancefind : *mut super::super::Foundation:: HANDLE) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("fltlib.dll" "system" #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`, `\"Win32_Foundation\"`*"] fn FilterVolumeInstanceFindNext(hvolumeinstancefind : super::super::Foundation:: HANDLE, dwinformationclass : INSTANCE_INFORMATION_CLASS, lpbuffer : *mut ::core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> ::windows_sys::core::HRESULT);
 #[doc = "*Required features: `\"Win32_Storage_InstallableFileSystems\"`*"]
@@ -480,10 +484,6 @@ impl ::core::clone::Clone for FILTER_VOLUME_STANDARD_INFORMATION {
         *self
     }
 }
-pub type FilterFindHandle = isize;
-pub type FilterInstanceFindHandle = isize;
-pub type FilterVolumeFindHandle = isize;
-pub type FilterVolumeInstanceFindHandle = isize;
 pub type HFILTER = isize;
 pub type HFILTER_INSTANCE = isize;
 #[repr(C)]

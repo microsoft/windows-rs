@@ -83,8 +83,10 @@
 ::windows_targets::link!("mpr.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"] fn WNetGetUniversalNameW(lplocalpath : ::windows_sys::core::PCWSTR, dwinfolevel : UNC_INFO_LEVEL, lpbuffer : *mut ::core::ffi::c_void, lpbuffersize : *mut u32) -> u32);
 ::windows_targets::link!("mpr.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"] fn WNetGetUserA(lpname : ::windows_sys::core::PCSTR, lpusername : ::windows_sys::core::PSTR, lpnlength : *mut u32) -> u32);
 ::windows_targets::link!("mpr.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"] fn WNetGetUserW(lpname : ::windows_sys::core::PCWSTR, lpusername : ::windows_sys::core::PWSTR, lpnlength : *mut u32) -> u32);
-::windows_targets::link!("mpr.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"] fn WNetOpenEnumA(dwscope : NET_RESOURCE_SCOPE, dwtype : NET_RESOURCE_TYPE, dwusage : WNET_OPEN_ENUM_USAGE, lpnetresource : *const NETRESOURCEA, lphenum : *mut NetEnumHandle) -> u32);
-::windows_targets::link!("mpr.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"] fn WNetOpenEnumW(dwscope : NET_RESOURCE_SCOPE, dwtype : NET_RESOURCE_TYPE, dwusage : WNET_OPEN_ENUM_USAGE, lpnetresource : *const NETRESOURCEW, lphenum : *mut NetEnumHandle) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("mpr.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"] fn WNetOpenEnumA(dwscope : NET_RESOURCE_SCOPE, dwtype : NET_RESOURCE_TYPE, dwusage : WNET_OPEN_ENUM_USAGE, lpnetresource : *const NETRESOURCEA, lphenum : *mut super::super::Foundation:: HANDLE) -> u32);
+#[cfg(feature = "Win32_Foundation")]
+::windows_targets::link!("mpr.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`, `\"Win32_Foundation\"`*"] fn WNetOpenEnumW(dwscope : NET_RESOURCE_SCOPE, dwtype : NET_RESOURCE_TYPE, dwusage : WNET_OPEN_ENUM_USAGE, lpnetresource : *const NETRESOURCEW, lphenum : *mut super::super::Foundation:: HANDLE) -> u32);
 ::windows_targets::link!("mpr.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"] fn WNetSetLastErrorA(err : u32, lperror : ::windows_sys::core::PCSTR, lpproviders : ::windows_sys::core::PCSTR) -> ());
 ::windows_targets::link!("mpr.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"] fn WNetSetLastErrorW(err : u32, lperror : ::windows_sys::core::PCWSTR, lpproviders : ::windows_sys::core::PCWSTR) -> ());
 #[cfg(feature = "Win32_Foundation")]
@@ -565,7 +567,6 @@ impl ::core::clone::Clone for NOTIFYINFO {
         *self
     }
 }
-pub type NetEnumHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub struct REMOTE_NAME_INFOA {

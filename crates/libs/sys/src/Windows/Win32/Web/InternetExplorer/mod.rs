@@ -74,9 +74,9 @@
 ::windows_targets::link!("msrating.dll" "system" #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"] fn RatingCheckUserAccess(pszusername : ::windows_sys::core::PCSTR, pszurl : ::windows_sys::core::PCSTR, pszratinginfo : ::windows_sys::core::PCSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("msrating.dll" "system" #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"] fn RatingCheckUserAccessW(pszusername : ::windows_sys::core::PCWSTR, pszurl : ::windows_sys::core::PCWSTR, pszratinginfo : ::windows_sys::core::PCWSTR, pdata : *const u8, cbdata : u32, ppratingdetails : *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msrating.dll" "system" #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"] fn RatingClickedOnPRFInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HMODULE, lpszfilename : ::windows_sys::core::PCSTR, nshow : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"] fn RatingClickedOnPRFInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : ::windows_sys::core::PCSTR, nshow : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
-::windows_targets::link!("msrating.dll" "system" #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"] fn RatingClickedOnRATInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HMODULE, lpszfilename : ::windows_sys::core::PCSTR, nshow : i32) -> ::windows_sys::core::HRESULT);
+::windows_targets::link!("msrating.dll" "system" #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"] fn RatingClickedOnRATInternal(hwndowner : super::super::Foundation:: HWND, param1 : super::super::Foundation:: HINSTANCE, lpszfilename : ::windows_sys::core::PCSTR, nshow : i32) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("msrating.dll" "system" #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`, `\"Win32_Foundation\"`*"] fn RatingEnable(hwndparent : super::super::Foundation:: HWND, pszusername : ::windows_sys::core::PCSTR, fenable : super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Foundation")]
@@ -1240,14 +1240,6 @@ pub const SCMP_RIGHT: SCROLLABLECONTEXTMENU_PLACEMENT = 3i32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const SCMP_FULL: SCROLLABLECONTEXTMENU_PLACEMENT = 4i32;
 #[repr(C)]
-pub struct HTMLPersistEvents(pub u8);
-impl ::core::marker::Copy for HTMLPersistEvents {}
-impl ::core::clone::Clone for HTMLPersistEvents {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub struct IELAUNCHURLINFO {
     pub cbSize: u32,
@@ -1256,14 +1248,6 @@ pub struct IELAUNCHURLINFO {
 }
 impl ::core::marker::Copy for IELAUNCHURLINFO {}
 impl ::core::clone::Clone for IELAUNCHURLINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-pub struct LayoutRectEvents(pub u8);
-impl ::core::marker::Copy for LayoutRectEvents {}
-impl ::core::clone::Clone for LayoutRectEvents {
     fn clone(&self) -> Self {
         *self
     }
