@@ -35,10 +35,10 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     // are stable and we don't break the `windows-targets` crate compatibility until the next major
     // release of that crate.
 
-    let compat = [metadata::File::new(
-        std::include_bytes!("../Windows.Win32.49.winmd").to_vec()
-    )
-    .expect("invalid winmd")];
+    let compat = [
+        metadata::File::new(std::include_bytes!("../Windows.Win32.49.winmd").to_vec())
+            .expect("invalid winmd"),
+    ];
 
     let reader = &metadata::Reader::new(&compat);
     combine_libraries(reader, &mut libraries);
@@ -46,7 +46,10 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     libraries
 }
 
-fn combine_libraries(reader: &metadata::Reader, libraries :&mut  BTreeMap::<String, BTreeMap<String, CallingConvention>>) {
+fn combine_libraries(
+    reader: &metadata::Reader,
+    libraries: &mut BTreeMap<String, BTreeMap<String, CallingConvention>>,
+) {
     for namespace in reader.namespaces() {
         for method in reader.namespace_functions(namespace) {
             let library = reader.method_def_module_name(method);
