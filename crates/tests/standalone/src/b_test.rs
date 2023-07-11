@@ -10,7 +10,7 @@
 ::windows_targets::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
 ::windows_targets::link!("kernel32.dll" "system" fn CreateEventW(lpeventattributes : *const SECURITY_ATTRIBUTES, bmanualreset : BOOL, binitialstate : BOOL, lpname : PCWSTR) -> HANDLE);
 ::windows_targets::link!("kernel32.dll" "system" fn SetEvent(hevent : HANDLE) -> BOOL);
-::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WIN32_ERROR);
+::windows_targets::link!("kernel32.dll" "system" fn WaitForSingleObject(hhandle : HANDLE, dwmilliseconds : u32) -> WAIT_EVENT);
 ::windows_targets::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const GUID, punkouter : IUnknown, dwclscontext : CLSCTX, riid : *const GUID, ppv : *mut *mut ::core::ffi::c_void) -> HRESULT);
 ::windows_targets::link!("user32.dll" "cdecl" fn wsprintfA(param0 : PSTR, param1 : PCSTR, ...) -> i32);
 pub type BOOL = i32;
@@ -59,4 +59,4 @@ impl ::core::clone::Clone for SECURITY_ATTRIBUTES {
 }
 pub const STGTY_REPEAT: i32 = 256i32;
 pub const UIAnimationManager: GUID = GUID::from_u128(0x4c1fc63a_695c_47e8_a339_1a194be3d0b8);
-pub type WIN32_ERROR = u32;
+pub type WAIT_EVENT = u32;

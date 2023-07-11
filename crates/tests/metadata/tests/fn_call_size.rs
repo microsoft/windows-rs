@@ -9,7 +9,7 @@ fn size() {
     let reader = &Reader::new(&files);
 
     assert_eq!(
-        struct_size(reader, "Windows.Win32.System.Com", "VARIANT"),
+        struct_size(reader, "Windows.Win32.System.Variant", "VARIANT"),
         16
     );
     assert_eq!(
@@ -305,12 +305,16 @@ fn size() {
         ),
         40
     );
+    assert_eq!(
+        function_size(reader, "Windows.Win32.System.Com", "CoInitializeEx"),
+        8
+    );
 }
 
 fn function_size(reader: &Reader, namespace: &str, name: &str) -> usize {
     for method in reader.namespace_functions(namespace) {
         if reader.method_def_name(method) == name {
-            return reader.method_def_size(method);
+            return reader.method_def_size(namespace, method);
         }
     }
     0

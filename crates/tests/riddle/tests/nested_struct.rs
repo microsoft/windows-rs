@@ -31,7 +31,10 @@ fn primitives() {
     assert!(matches!(reader.field_type(fields[0], None), Type::Bool));
     assert!(matches!(reader.field_type(fields[2], None), Type::USize));
 
-    let Type::TypeDef(def, generics) = reader.field_type(fields[1], None) else { panic!("wrong type") };
+    let Type::TypeDef(def, generics) = reader.field_type(fields[1], None) else {
+        panic!("wrong type")
+    };
+
     assert_eq!(reader.type_def_namespace(def), "Test");
     assert_eq!(reader.type_def_name(def), "Inner");
     assert!(generics.is_empty());
