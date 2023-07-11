@@ -607,7 +607,7 @@ impl<'a> Reader<'a> {
             false
         }
     }
-    pub fn method_def_signature(&self, row: MethodDef, generics: &[Type]) -> Signature {
+    pub fn method_def_signature(&self, namespace: &str, row: MethodDef, generics: &[Type]) -> Signature {
         let mut blob = self.row_blob(row.0, 4);
         let call_flags = MethodCallAttributes(blob.read_usize() as _);
         let _param_count = blob.read_usize();
@@ -624,6 +624,12 @@ impl<'a> Reader<'a> {
                 } else {
                     let is_output = self.param_flags(param).contains(ParamAttributes::Out);
                     let mut ty = self.type_from_blob(&mut blob, None, generics);
+
+                    if let Some(name) = self.param_or_enum(param) {
+                        let alt = self.get(TypeName::new(namespace, &name)).next().expect("Enum not found");
+                        ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(Type::TypeDef(alt, Vec::new())));
+                    }
+
                     if self.param_is_const(param) || !is_output {
                         ty = ty.to_const_type();
                     }
@@ -723,8 +729,8 @@ impl<'a> Reader<'a> {
             unimplemented!()
         }
     }
-    pub fn method_def_size(&self, method: MethodDef) -> usize {
-        let signature = self.method_def_signature(method, &[]);
+    pub fn method_def_size(&self, namespace: &str, method: MethodDef) -> usize {
+        let signature = self.method_def_signature(namespace, method, &[]);
         signature.params.iter().fold(0, |sum, param| sum + std::cmp::max(4, self.type_size(&param.ty)))
     }
     pub fn type_def_size(&self, def: TypeDef) -> usize {
@@ -755,6 +761,7 @@ impl<'a> Reader<'a> {
             Type::GUID => 16,
             Type::TypeDef(def, _) => self.type_def_size(*def),
             Type::Win32Array(ty, len) => self.type_size(ty) * len,
+            Type::PrimitiveOrEnum(ty, _) => self.type_size(ty),
             _ => 4,
         }
     }
@@ -837,6 +844,18 @@ impl<'a> Reader<'a> {
     pub fn param_free_with(&self, row: Param) -> Option<String> {
         for attribute in self.param_attributes(row) {
             if self.attribute_name(attribute) == "FreeWithAttribute" {
+                for (_, arg) in self.attribute_args(attribute) {
+                    if let Value::String(name) = arg {
+                        return Some(name);
+                    }
+                }
+            }
+        }
+        None
+    }
+    pub fn param_or_enum(&self, row: Param) -> Option<String> {
+        for attribute in self.param_attributes(row) {
+            if self.attribute_name(attribute) == "AssociatedEnumAttribute" {
                 for (_, arg) in self.attribute_args(attribute) {
                     if let Value::String(name) = arg {
                         return Some(name);
@@ -1243,7 +1262,7 @@ impl<'a> Reader<'a> {
             reader.type_def_cfg_combine(def, generics, cfg);
 
             for method in reader.type_def_methods(def) {
-                reader.signature_cfg_combine(&reader.method_def_signature(method, generics), cfg);
+                reader.signature_cfg_combine(&reader.method_def_signature(reader.type_def_namespace(def), method, generics), cfg);
             }
         }
 
@@ -1299,7 +1318,7 @@ impl<'a> Reader<'a> {
                         }
                     }
                 }
-                TypeKind::Delegate => self.signature_cfg_combine(&self.method_def_signature(self.type_def_invoke_method(row), generics), cfg),
+                TypeKind::Delegate => self.signature_cfg_combine(&self.method_def_signature(type_name.namespace, self.type_def_invoke_method(row), generics), cfg),
                 _ => {}
             }
         }
@@ -1494,7 +1513,10 @@ impl<'a> Reader<'a> {
             return;
         }
 
-        let Type::TypeDef(def, generics) = &ty else { return; };
+        let Type::TypeDef(def, generics) = &ty else {
+            return;
+        };
+
         let def = *def;
 
         // Ensure that we collect all the typedefs of the same name. We need to
@@ -1530,7 +1552,7 @@ impl<'a> Reader<'a> {
             if self.method_def_name(method) == ".ctor" {
                 continue;
             }
-            let signature = self.method_def_signature(method, generics);
+            let signature = self.method_def_signature(self.type_def_namespace(def), method, generics);
             self.type_collect_standalone(&signature.return_type, set);
             signature.params.iter().for_each(|param| self.type_collect_standalone(&param.ty, set));
         }
