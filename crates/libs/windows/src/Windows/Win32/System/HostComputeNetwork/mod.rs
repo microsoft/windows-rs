@@ -326,39 +326,49 @@ pub unsafe fn HcnUnregisterServiceCallback(callbackhandle: *const ::core::ffi::c
     HcnUnregisterServiceCallback(callbackhandle).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HCN_NOTIFICATIONS(pub i32);
+pub const HCN_PORT_ACCESS_EXCLUSIVE: HCN_PORT_ACCESS = HCN_PORT_ACCESS(1i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationInvalid: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(0i32);
+pub const HCN_PORT_ACCESS_SHARED: HCN_PORT_ACCESS = HCN_PORT_ACCESS(2i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNetworkPreCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(1i32);
+pub const HCN_PORT_PROTOCOL_BOTH: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(3i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNetworkCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(2i32);
+pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(1i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNetworkPreDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(3i32);
+pub const HCN_PORT_PROTOCOL_UDP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(2i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNetworkDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(4i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNamespaceCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(5i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationNamespaceDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(6i32);
+pub const HcnNotificationFlagsReserved: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(-268435456i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 pub const HcnNotificationGuestNetworkServiceCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(7i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 pub const HcnNotificationGuestNetworkServiceDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(8i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationGuestNetworkServiceInterfaceStateChanged: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(18i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationGuestNetworkServiceStateChanged: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(17i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationInvalid: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNamespaceCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(5i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNamespaceDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(6i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNetworkCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(2i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
+pub const HcnNotificationNetworkDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(4i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 pub const HcnNotificationNetworkEndpointAttached: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(9i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 pub const HcnNotificationNetworkEndpointDetached: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(16i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationGuestNetworkServiceStateChanged: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(17i32);
+pub const HcnNotificationNetworkPreCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(1i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationGuestNetworkServiceInterfaceStateChanged: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(18i32);
+pub const HcnNotificationNetworkPreDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(3i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 pub const HcnNotificationServiceDisconnect: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(16777216i32);
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HcnNotificationFlagsReserved: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(-268435456i32);
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HCN_NOTIFICATIONS(pub i32);
 impl ::core::marker::Copy for HCN_NOTIFICATIONS {}
 impl ::core::clone::Clone for HCN_NOTIFICATIONS {
     fn clone(&self) -> Self {
@@ -382,10 +392,6 @@ impl ::core::fmt::Debug for HCN_NOTIFICATIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCN_PORT_ACCESS(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HCN_PORT_ACCESS_EXCLUSIVE: HCN_PORT_ACCESS = HCN_PORT_ACCESS(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HCN_PORT_ACCESS_SHARED: HCN_PORT_ACCESS = HCN_PORT_ACCESS(2i32);
 impl ::core::marker::Copy for HCN_PORT_ACCESS {}
 impl ::core::clone::Clone for HCN_PORT_ACCESS {
     fn clone(&self) -> Self {
@@ -409,12 +415,6 @@ impl ::core::fmt::Debug for HCN_PORT_ACCESS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCN_PORT_PROTOCOL(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HCN_PORT_PROTOCOL_UDP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(2i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
-pub const HCN_PORT_PROTOCOL_BOTH: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(3i32);
 impl ::core::marker::Copy for HCN_PORT_PROTOCOL {}
 impl ::core::clone::Clone for HCN_PORT_PROTOCOL {
     fn clone(&self) -> Self {

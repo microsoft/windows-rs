@@ -71,7 +71,13 @@ pub const WLX_SAS_ACTION_PWD_CHANGED: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
 pub const WLX_SAS_ACTION_RECONNECTED: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
+pub const WLX_SAS_ACTION_SHUTDOWN: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
 pub const WLX_SAS_ACTION_SHUTDOWN_HIBERNATE: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
+pub const WLX_SAS_ACTION_SHUTDOWN_POWER_OFF: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(10u32);
+#[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
+pub const WLX_SAS_ACTION_SHUTDOWN_REBOOT: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(11u32);
 #[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
 pub const WLX_SAS_ACTION_SHUTDOWN_SLEEP: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
@@ -122,12 +128,6 @@ pub const WLX_WM_SAS: u32 = 1625u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLX_SHUTDOWN_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
-pub const WLX_SAS_ACTION_SHUTDOWN: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(5u32);
-#[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
-pub const WLX_SAS_ACTION_SHUTDOWN_REBOOT: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(11u32);
-#[doc = "*Required features: `\"Win32_Security_WinWlx\"`*"]
-pub const WLX_SAS_ACTION_SHUTDOWN_POWER_OFF: WLX_SHUTDOWN_TYPE = WLX_SHUTDOWN_TYPE(10u32);
 impl ::core::marker::Copy for WLX_SHUTDOWN_TYPE {}
 impl ::core::clone::Clone for WLX_SHUTDOWN_TYPE {
     fn clone(&self) -> Self {

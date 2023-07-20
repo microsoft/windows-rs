@@ -635,6 +635,36 @@ pub const CONTENT_ID_HOME: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub const GUID_DEVINTERFACE_SIDESHOW: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x152e5811_feb9_4b00_90f4_d32947ae1681);
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_BACK: SCF_BUTTON_IDS = SCF_BUTTON_IDS(65280i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_DOWN: SCF_BUTTON_IDS = SCF_BUTTON_IDS(4i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_FASTFORWARD: SCF_BUTTON_IDS = SCF_BUTTON_IDS(9i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_LEFT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(5i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_MENU: SCF_BUTTON_IDS = SCF_BUTTON_IDS(1i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_PAUSE: SCF_BUTTON_IDS = SCF_BUTTON_IDS(8i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_PLAY: SCF_BUTTON_IDS = SCF_BUTTON_IDS(7i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_REWIND: SCF_BUTTON_IDS = SCF_BUTTON_IDS(10i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_RIGHT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(6i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_SELECT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(2i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_STOP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(11i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_BUTTON_UP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(3i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_EVENT_CONTEXTMENU: SCF_EVENT_IDS = SCF_EVENT_IDS(3i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_EVENT_MENUACTION: SCF_EVENT_IDS = SCF_EVENT_IDS(2i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SCF_EVENT_NAVIGATION: SCF_EVENT_IDS = SCF_EVENT_IDS(1i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub const SIDESHOW_APPLICATION_EVENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4cb572fa_1d3b_49b3_a17a_2e6bff052854);
 #[doc = "*Required features: `\"Win32_System_SideShow\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -678,6 +708,12 @@ pub const SIDESHOW_CAPABILITY_SUPPORTED_LANGUAGES: super::super::UI::Shell::Prop
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SIDESHOW_CAPABILITY_SUPPORTED_THEMES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x8abc88a8_857b_4ad7_a35a_b5942f492b99), pid: 10 };
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_COLOR_TYPE_BLACK_AND_WHITE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_COLOR_TYPE_COLOR: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_COLOR_TYPE_GREYSCALE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5007fba8_d313_439f_bea2_a50201d3e9a8);
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub const SIDESHOW_ENDPOINT_ICAL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4dff36b5_9dde_4f76_9a2a_96435047063d);
@@ -689,6 +725,10 @@ pub const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760u32;
 pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57813854_2fc1_411c_a59f_f24927608804);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_SCREEN_TYPE_BITMAP: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
+pub const SIDESHOW_SCREEN_TYPE_TEXT: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 pub const SIDESHOW_USER_CHANGE_REQUEST_EVENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5009673c_3f7d_4c7e_9971_eaa2e91f1575);
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
@@ -705,30 +745,6 @@ pub const VERSION_1_WINDOWS_7: u32 = 0u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCF_BUTTON_IDS(pub i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_MENU: SCF_BUTTON_IDS = SCF_BUTTON_IDS(1i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_SELECT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(2i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_UP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(3i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_DOWN: SCF_BUTTON_IDS = SCF_BUTTON_IDS(4i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_LEFT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(5i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_RIGHT: SCF_BUTTON_IDS = SCF_BUTTON_IDS(6i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_PLAY: SCF_BUTTON_IDS = SCF_BUTTON_IDS(7i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_PAUSE: SCF_BUTTON_IDS = SCF_BUTTON_IDS(8i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_FASTFORWARD: SCF_BUTTON_IDS = SCF_BUTTON_IDS(9i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_REWIND: SCF_BUTTON_IDS = SCF_BUTTON_IDS(10i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_STOP: SCF_BUTTON_IDS = SCF_BUTTON_IDS(11i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_BUTTON_BACK: SCF_BUTTON_IDS = SCF_BUTTON_IDS(65280i32);
 impl ::core::marker::Copy for SCF_BUTTON_IDS {}
 impl ::core::clone::Clone for SCF_BUTTON_IDS {
     fn clone(&self) -> Self {
@@ -752,12 +768,6 @@ impl ::core::fmt::Debug for SCF_BUTTON_IDS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCF_EVENT_IDS(pub i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_EVENT_NAVIGATION: SCF_EVENT_IDS = SCF_EVENT_IDS(1i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_EVENT_MENUACTION: SCF_EVENT_IDS = SCF_EVENT_IDS(2i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SCF_EVENT_CONTEXTMENU: SCF_EVENT_IDS = SCF_EVENT_IDS(3i32);
 impl ::core::marker::Copy for SCF_EVENT_IDS {}
 impl ::core::clone::Clone for SCF_EVENT_IDS {
     fn clone(&self) -> Self {
@@ -781,12 +791,6 @@ impl ::core::fmt::Debug for SCF_EVENT_IDS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIDESHOW_COLOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_COLOR_TYPE_COLOR: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_COLOR_TYPE_GREYSCALE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_COLOR_TYPE_BLACK_AND_WHITE: SIDESHOW_COLOR_TYPE = SIDESHOW_COLOR_TYPE(2i32);
 impl ::core::marker::Copy for SIDESHOW_COLOR_TYPE {}
 impl ::core::clone::Clone for SIDESHOW_COLOR_TYPE {
     fn clone(&self) -> Self {
@@ -810,10 +814,6 @@ impl ::core::fmt::Debug for SIDESHOW_COLOR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIDESHOW_SCREEN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_SCREEN_TYPE_BITMAP: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
-pub const SIDESHOW_SCREEN_TYPE_TEXT: SIDESHOW_SCREEN_TYPE = SIDESHOW_SCREEN_TYPE(1i32);
 impl ::core::marker::Copy for SIDESHOW_SCREEN_TYPE {}
 impl ::core::clone::Clone for SIDESHOW_SCREEN_TYPE {
     fn clone(&self) -> Self {

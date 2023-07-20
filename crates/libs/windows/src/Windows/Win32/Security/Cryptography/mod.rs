@@ -4491,6 +4491,10 @@ pub const ALG_TYPE_STREAM: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const ALG_TYPE_THIRDPARTY: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const AT_KEYEXCHANGE: CERT_KEY_SPEC = CERT_KEY_SPEC(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const AT_SIGNATURE: CERT_KEY_SPEC = CERT_KEY_SPEC(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const AUDIT_CARD_DELETE: ::windows_core::HRESULT = ::windows_core::HRESULT(1074070017i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const AUDIT_CARD_IMPORT: ::windows_core::HRESULT = ::windows_core::HRESULT(1074070018i32);
@@ -4504,6 +4508,10 @@ pub const AUDIT_STORE_DELETE: ::windows_core::HRESULT = ::windows_core::HRESULT(
 pub const AUDIT_STORE_EXPORT: ::windows_core::HRESULT = ::windows_core::HRESULT(1074070020i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const AUDIT_STORE_IMPORT: ::windows_core::HRESULT = ::windows_core::HRESULT(1074070019i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const AUTHTYPE_CLIENT: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const AUTHTYPE_SERVER: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(2u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_CA_FLAG: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -4551,6 +4559,12 @@ pub const BCRYPT_AES_WRAP_KEY_BLOB: ::windows_core::PCWSTR = ::windows_core::w!(
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_ALGORITHM_NAME: ::windows_core::PCWSTR = ::windows_core::w!("AlgorithmName");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG: u32 = 1u32;
@@ -4560,6 +4574,8 @@ pub const BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG: u32 = 2u32;
 pub const BCRYPT_AUTH_TAG_LENGTH: ::windows_core::PCWSTR = ::windows_core::w!("AuthTagLength");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_BLOCK_LENGTH: ::windows_core::PCWSTR = ::windows_core::w!("BlockLength");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_BLOCK_PADDING: BCRYPT_FLAGS = BCRYPT_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_BLOCK_SIZE_LIST: ::windows_core::PCWSTR = ::windows_core::w!("BlockSizeList");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -4589,6 +4605,10 @@ pub const BCRYPT_CHAIN_MODE_GCM: ::windows_core::PCWSTR = ::windows_core::w!("Ch
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_CHAIN_MODE_NA: ::windows_core::PCWSTR = ::windows_core::w!("ChainingModeN/A");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_CIPHER_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_CIPHER_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_DESX_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("DESX");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_DESX_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(545u32 as _);
@@ -4615,7 +4635,11 @@ pub const BCRYPT_DH_PARAMETERS_MAGIC: u32 = 1297107012u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_DH_PRIVATE_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("DHPRIVATEBLOB");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_DH_PRIVATE_MAGIC: BCRYPT_DH_KEY_BLOB_MAGIC = BCRYPT_DH_KEY_BLOB_MAGIC(1448101956u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_DH_PUBLIC_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("DHPUBLICBLOB");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_DH_PUBLIC_MAGIC: BCRYPT_DH_KEY_BLOB_MAGIC = BCRYPT_DH_KEY_BLOB_MAGIC(1112557636u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_DSA_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("DSA");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -4629,9 +4653,13 @@ pub const BCRYPT_DSA_PARAMETERS_MAGIC_V2: u32 = 843927620u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_DSA_PRIVATE_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("DSAPRIVATEBLOB");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_DSA_PRIVATE_MAGIC: BCRYPT_DSA_MAGIC = BCRYPT_DSA_MAGIC(1448104772u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_DSA_PRIVATE_MAGIC_V2: u32 = 844517444u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_DSA_PUBLIC_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("DSAPUBLICBLOB");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_DSA_PUBLIC_MAGIC: BCRYPT_DSA_MAGIC = BCRYPT_DSA_MAGIC(1112560452u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_DSA_PUBLIC_MAGIC_V2: u32 = 843206724u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -4743,6 +4771,12 @@ pub const BCRYPT_ECC_PARAMETERS: ::windows_core::PCWSTR = ::windows_core::w!("EC
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_ECC_PARAMETERS_MAGIC: u32 = 1346585413u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_ECC_PRIME_MONTGOMERY_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(3i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_ECC_PRIME_SHORT_WEIERSTRASS_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_ECC_PRIME_TWISTED_EDWARDS_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_ECDH_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("ECDH");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_ECDH_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(657u32 as _);
@@ -4819,11 +4853,21 @@ pub const BCRYPT_GLOBAL_PARAMETERS: ::windows_core::PCWSTR = ::windows_core::w!(
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_HASH_BLOCK_LENGTH: ::windows_core::PCWSTR = ::windows_core::w!("HashBlockLength");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_HASH_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_HASH_INTERFACE_MAJORVERSION_2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_HASH_LENGTH: ::windows_core::PCWSTR = ::windows_core::w!("HashDigestLength");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_HASH_OID_LIST: ::windows_core::PCWSTR = ::windows_core::w!("HashOIDList");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_HASH_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_HASH_OPERATION_FINISH_HASH: BCRYPT_HASH_OPERATION_TYPE = BCRYPT_HASH_OPERATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_HASH_OPERATION_HASH_DATA: BCRYPT_HASH_OPERATION_TYPE = BCRYPT_HASH_OPERATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_HASH_REUSABLE_FLAG: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(32u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_HKDF_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("HKDF");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -4911,6 +4955,8 @@ pub const BCRYPT_MULTI_FLAG: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_MULTI_OBJECT_LENGTH: ::windows_core::PCWSTR = ::windows_core::w!("MultiObjectLength");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_NO_CURVE_GENERATION_ALG_ID: ECC_CURVE_ALG_ID_ENUM = ECC_CURVE_ALG_ID_ENUM(0i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_NO_KEY_VALIDATION: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_OBJECT_ALIGNMENT: u32 = 16u32;
@@ -4919,9 +4965,19 @@ pub const BCRYPT_OBJECT_LENGTH: ::windows_core::PCWSTR = ::windows_core::w!("Obj
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_OPAQUE_KEY_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("OpaqueKeyBlob");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_OPERATION_TYPE_HASH: BCRYPT_MULTI_OPERATION_TYPE = BCRYPT_MULTI_OPERATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_PADDING_SCHEMES: ::windows_core::PCWSTR = ::windows_core::w!("PaddingSchemes");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_PAD_NONE: BCRYPT_FLAGS = BCRYPT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_PAD_OAEP: BCRYPT_FLAGS = BCRYPT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_PAD_PKCS1: BCRYPT_FLAGS = BCRYPT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_PAD_PSS: BCRYPT_FLAGS = BCRYPT_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_PBKDF2_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("PBKDF2");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -4940,6 +4996,8 @@ pub const BCRYPT_PRIVATE_KEY_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("
 pub const BCRYPT_PRIVATE_KEY_FLAG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_PROVIDER_HANDLE: ::windows_core::PCWSTR = ::windows_core::w!("ProviderHandle");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_PROV_DISPATCH: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_PUBLIC_KEY_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("PUBLICBLOB");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -4967,11 +5025,23 @@ pub const BCRYPT_RNG_DUAL_EC_ALGORITHM: ::windows_core::PCWSTR = ::windows_core:
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_RNG_FIPS186_DSA_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("FIPS186DSARNG");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_RNG_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(6u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_RNG_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(32u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: BCRYPTGENRANDOM_FLAGS = BCRYPTGENRANDOM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_RSAFULLPRIVATE_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("RSAFULLPRIVATEBLOB");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_RSAFULLPRIVATE_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = BCRYPT_RSAKEY_BLOB_MAGIC(859919186u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_RSAPRIVATE_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("RSAPRIVATEBLOB");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_RSAPRIVATE_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = BCRYPT_RSAKEY_BLOB_MAGIC(843141970u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_RSAPUBLIC_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("RSAPUBLICBLOB");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_RSAPUBLIC_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = BCRYPT_RSAKEY_BLOB_MAGIC(826364754u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_RSA_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("RSA");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -4980,6 +5050,10 @@ pub const BCRYPT_RSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(225u32 as
 pub const BCRYPT_RSA_SIGN_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("RSA_SIGN");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_RSA_SIGN_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(785u32 as _);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_SECRET_AGREEMENT_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_SECRET_AGREEMENT_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(8u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_SHA1_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("SHA1");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -4997,7 +5071,11 @@ pub const BCRYPT_SHA512_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(97u32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_SIGNATURE_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_SIGNATURE_LENGTH: ::windows_core::PCWSTR = ::windows_core::w!("SignatureLength");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_SIGNATURE_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(16u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_SP800108_CTR_HMAC_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("SP800_108_CTR_HMAC");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5026,6 +5104,8 @@ pub const BCRYPT_TLS1_2_KDF_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::
 pub const BCRYPT_TLS1_2_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(881u32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const BCRYPT_USE_SYSTEM_PREFERRED_RNG: BCRYPTGENRANDOM_FLAGS = BCRYPTGENRANDOM_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const BCRYPT_XTS_AES_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("XTS-AES");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5113,7 +5193,11 @@ pub const CERT_AUTO_UPDATE_SYNC_FROM_DIR_URL_VALUE_NAME: ::windows_core::PCWSTR 
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_BACKED_UP_PROP_ID: u32 = 69u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_BIOMETRIC_OID_DATA_CHOICE: CERT_BIOMETRIC_DATA_TYPE = CERT_BIOMETRIC_DATA_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_BIOMETRIC_PICTURE_TYPE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_BIOMETRIC_PREDEFINED_DATA_CHOICE: CERT_BIOMETRIC_DATA_TYPE = CERT_BIOMETRIC_DATA_TYPE(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_BIOMETRIC_SIGNATURE_TYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5263,6 +5347,18 @@ pub const CERT_CHAIN_EXCLUSIVE_ENABLE_CA_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_FIND_BY_ISSUER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_FIND_BY_ISSUER_CACHE_ONLY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_FIND_BY_ISSUER_CACHE_ONLY_URL_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_FIND_BY_ISSUER_COMPARE_KEY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_FIND_BY_ISSUER_COMPLEX_CHAIN_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_FIND_BY_ISSUER_LOCAL_MACHINE_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_FIND_BY_ISSUER_NO_KEY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_HAS_MOTW: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_MAX_AIA_URL_COUNT_IN_CERT_DEFAULT: u32 = 5u32;
@@ -5313,6 +5409,10 @@ pub const CERT_CHAIN_OPT_IN_WEAK_FLAGS: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_OPT_IN_WEAK_SIGNATURE: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_ALLOW_TESTROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_ALLOW_UNKNOWN_CA_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_POLICY_AUTHENTICODE: ::windows_core::PCSTR = ::windows_core::PCSTR(2i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_POLICY_AUTHENTICODE_TS: ::windows_core::PCSTR = ::windows_core::PCSTR(3i32 as _);
@@ -5323,7 +5423,37 @@ pub const CERT_CHAIN_POLICY_BASIC_CONSTRAINTS: ::windows_core::PCSTR = ::windows
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_POLICY_EV: ::windows_core::PCSTR = ::windows_core::PCSTR(8i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_ALL_NOT_TIME_VALID_FLAGS: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(7u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_ALL_REV_UNKNOWN_FLAGS: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(3840u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_CA_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_CTL_NOT_TIME_VALID_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_CTL_SIGNER_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_END_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_INVALID_BASIC_CONSTRAINTS_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_INVALID_NAME_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_INVALID_POLICY_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_NOT_SUPPORTED_CRITICAL_EXT_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_NESTED_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_VALID_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_PEER_TRUST_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_ROOT_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_POLICY_IGNORE_WEAK_SIGNATURE_FLAG: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_IGNORE_WRONG_USAGE_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(32u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_POLICY_MICROSOFT_ROOT: ::windows_core::PCSTR = ::windows_core::PCSTR(7i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5360,6 +5490,8 @@ pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_WARNING: u32 = 1u32;
 pub const CERT_CHAIN_POLICY_SSL_KEY_PIN_SUCCESS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_POLICY_THIRD_PARTY_ROOT: ::windows_core::PCSTR = ::windows_core::PCSTR(11i32 as _);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CHAIN_POLICY_TRUST_TESTROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(16384u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CHAIN_RETURN_LOWER_QUALITY_CONTEXTS: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5483,6 +5615,10 @@ pub const CERT_CREATE_CONTEXT_NO_HCRYPTMSG_FLAG: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CREATE_CONTEXT_SORTED_FLAG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CREATE_SELFSIGN_NO_KEY_INFO: CERT_CREATE_SELFSIGN_FLAGS = CERT_CREATE_SELFSIGN_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_CREATE_SELFSIGN_NO_SIGN: CERT_CREATE_SELFSIGN_FLAGS = CERT_CREATE_SELFSIGN_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CRL_SIGN_KEY_USAGE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_CROSS_CERT_DIST_POINTS_PROP_ID: u32 = 23u32;
@@ -5555,6 +5691,90 @@ pub const CERT_FILE_HASH_USE_TYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_FILE_STORE_COMMIT_ENABLE_FLAG: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_ANY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_CERT_ID: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_CROSS_CERT_DIST_POINTS: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1114112u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_CTL_USAGE: CERT_FIND_FLAGS = CERT_FIND_FLAGS(655360u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_ENHKEY_USAGE: CERT_FIND_FLAGS = CERT_FIND_FLAGS(655360u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_EXISTING: CERT_FIND_FLAGS = CERT_FIND_FLAGS(851968u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_EXT_ONLY_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_EXT_ONLY_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_HASH_STR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1310720u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_HAS_PRIVATE_KEY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1376256u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_ISSUER_ATTR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(196612u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_ISSUER_NAME: CERT_FIND_FLAGS = CERT_FIND_FLAGS(131076u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_ISSUER_OF: CERT_FIND_FLAGS = CERT_FIND_FLAGS(786432u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_ISSUER_STR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524292u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_ISSUER_STR_A: CERT_FIND_FLAGS = CERT_FIND_FLAGS(458756u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_ISSUER_STR_W: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524292u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_KEY_IDENTIFIER: CERT_FIND_FLAGS = CERT_FIND_FLAGS(983040u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_KEY_SPEC: CERT_FIND_FLAGS = CERT_FIND_FLAGS(589824u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_MD5_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_NO_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_NO_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_OPTIONAL_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_OPTIONAL_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_OR_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_OR_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_PROPERTY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(327680u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_PROP_ONLY_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_PROP_ONLY_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_PUBKEY_MD5_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1179648u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_PUBLIC_KEY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(393216u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_SHA1_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_SIGNATURE_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(917504u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_SUBJECT_ATTR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(196615u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_SUBJECT_CERT: CERT_FIND_FLAGS = CERT_FIND_FLAGS(720896u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_SUBJECT_INFO_ACCESS: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1245184u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_SUBJECT_NAME: CERT_FIND_FLAGS = CERT_FIND_FLAGS(131079u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_SUBJECT_STR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524295u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_SUBJECT_STR_A: CERT_FIND_FLAGS = CERT_FIND_FLAGS(458759u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_SUBJECT_STR_W: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524295u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_VALID_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_FIND_VALID_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_FIRST_RESERVED_PROP_ID: u32 = 129u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_FIRST_USER_PROP_ID: u32 = 32768u32;
@@ -5570,6 +5790,12 @@ pub const CERT_HASH_PROP_ID: u32 = 3u32;
 pub const CERT_HCRYPTPROV_OR_NCRYPT_KEY_HANDLE_PROP_ID: u32 = 79u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_HCRYPTPROV_TRANSFER_PROP_ID: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_ID_ISSUER_SERIAL_NUMBER: CERT_ID_OPTION = CERT_ID_OPTION(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_ID_KEY_IDENTIFIER: CERT_ID_OPTION = CERT_ID_OPTION(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_ID_SHA1_HASH: CERT_ID_OPTION = CERT_ID_OPTION(3u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_IE30_RESERVED_PROP_ID: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5645,6 +5871,20 @@ pub const CERT_LDAP_STORE_UNBIND_FLAG: u32 = 524288u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_LOCAL_MACHINE_SYSTEM_STORE_REGPATH: ::windows_core::PCWSTR = ::windows_core::w!("Software\\Microsoft\\SystemCertificates");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_LOGOTYPE_BITS_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_LOGOTYPE_COLOR_IMAGE_INFO_CHOICE: CERT_LOGOTYPE_IMAGE_INFO_TYPE = CERT_LOGOTYPE_IMAGE_INFO_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_LOGOTYPE_DIRECT_INFO_CHOICE: CERT_LOGOTYPE_OPTION = CERT_LOGOTYPE_OPTION(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_LOGOTYPE_GRAY_SCALE_IMAGE_INFO_CHOICE: CERT_LOGOTYPE_IMAGE_INFO_TYPE = CERT_LOGOTYPE_IMAGE_INFO_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_LOGOTYPE_INDIRECT_INFO_CHOICE: CERT_LOGOTYPE_OPTION = CERT_LOGOTYPE_OPTION(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_LOGOTYPE_NO_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(0u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_LOGOTYPE_TABLE_SIZE_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_MD5_HASH_PROP_ID: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_NAME_ATTR_TYPE: u32 = 3u32;
@@ -5699,6 +5939,8 @@ pub const CERT_NCRYPT_KEY_HANDLE_PROP_ID: u32 = 78u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_NCRYPT_KEY_HANDLE_TRANSFER_PROP_ID: u32 = 99u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_NCRYPT_KEY_SPEC: CERT_KEY_SPEC = CERT_KEY_SPEC(4294967295u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_NEW_KEY_PROP_ID: u32 = 74u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_NEXT_UPDATE_LOCATION_PROP_ID: u32 = 10u32;
@@ -5726,6 +5968,8 @@ pub const CERT_OCSP_MUST_STAPLE_PROP_ID: u32 = 121u32;
 pub const CERT_OCSP_RESPONSE_PROP_ID: u32 = 70u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_OFFLINE_CRL_SIGN_KEY_USAGE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_OID_NAME_STR: CERT_STRING_TYPE = CERT_STRING_TYPE(2u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_PHYSICAL_STORE_ADD_ENABLE_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5799,6 +6043,88 @@ pub const CERT_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID: u32 = 93u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_PVK_FILE_PROP_ID: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_CERT: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_CERT_PAIR: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(13u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_CRL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_CTL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_ALL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(16382u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_ALL_ISSUER_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(818u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_CERT_PAIR: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_CRL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_CTL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_PFX: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_PFX_AND_LOAD: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_PKCS10: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_PKCS7_SIGNED: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_PKCS7_SIGNED_EMBED: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_PKCS7_UNSIGNED: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CRL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CTL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_STORE: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_PFX: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(12u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_PFX_AND_LOAD: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(14u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_PKCS10: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(11u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_PKCS7_SIGNED: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_PKCS7_SIGNED_EMBED: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(10u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_PKCS7_UNSIGNED: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(9u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_SERIALIZED_CERT: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_SERIALIZED_CRL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(7u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_SERIALIZED_CTL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(6u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_CONTENT_SERIALIZED_STORE: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_FORMAT_ASN_ASCII_HEX_ENCODED: CERT_QUERY_FORMAT_TYPE = CERT_QUERY_FORMAT_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_FORMAT_BASE64_ENCODED: CERT_QUERY_FORMAT_TYPE = CERT_QUERY_FORMAT_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_FORMAT_BINARY: CERT_QUERY_FORMAT_TYPE = CERT_QUERY_FORMAT_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_FORMAT_FLAG_ALL: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(14u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_FORMAT_FLAG_ASN_ASCII_HEX_ENCODED: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_FORMAT_FLAG_BASE64_ENCODED: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_FORMAT_FLAG_BINARY: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_OBJECT_BLOB: CERT_QUERY_OBJECT_TYPE = CERT_QUERY_OBJECT_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_QUERY_OBJECT_FILE: CERT_QUERY_OBJECT_TYPE = CERT_QUERY_OBJECT_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_ANY_TYPE: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_BMP_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_RDN_DISABLE_CHECK_TYPE_FLAG: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_RDN_DISABLE_IE4_UTF8_FLAG: u32 = 16777216u32;
@@ -5809,11 +6135,43 @@ pub const CERT_RDN_ENABLE_T61_UNICODE_FLAG: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_RDN_ENABLE_UTF8_UNICODE_FLAG: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_ENCODED_BLOB: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_RDN_FLAGS_MASK: u32 = 4278190080u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_RDN_FORCE_UTF8_UNICODE_FLAG: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_GENERAL_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_GRAPHIC_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_IA5_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_INT4_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_ISO646_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_NUMERIC_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_OCTET_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_PRINTABLE_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_T61_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_TELETEX_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_RDN_TYPE_MASK: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_UNICODE_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_UNIVERSAL_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_UTF8_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_VIDEOTEX_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_RDN_VISIBLE_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(9i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_REGISTRY_STORE_CLIENT_GPT_FLAG: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5857,7 +6215,13 @@ pub const CERT_ROOT_PROGRAM_CHAIN_POLICIES_PROP_ID: u32 = 105u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_ROOT_PROGRAM_FLAG_ADDRESS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_ROOT_PROGRAM_FLAG_LSC: CERT_ROOT_PROGRAM_FLAGS = CERT_ROOT_PROGRAM_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_ROOT_PROGRAM_FLAG_ORG: CERT_ROOT_PROGRAM_FLAGS = CERT_ROOT_PROGRAM_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_ROOT_PROGRAM_FLAG_OU: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_ROOT_PROGRAM_FLAG_SUBJECT_LOGO: CERT_ROOT_PROGRAM_FLAGS = CERT_ROOT_PROGRAM_FLAGS(32u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_ROOT_PROGRAM_NAME_CONSTRAINTS_PROP_ID: u32 = 84u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5889,11 +6253,33 @@ pub const CERT_SELECT_ALLOW_DUPLICATES: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SELECT_ALLOW_EXPIRED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SELECT_BY_ENHKEY_USAGE: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SELECT_BY_EXTENSION: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SELECT_BY_FRIENDLYNAME: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SELECT_BY_ISSUER_ATTR: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(7u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SELECT_BY_ISSUER_DISPLAYNAME: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SELECT_BY_ISSUER_NAME: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(9u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SELECT_BY_KEY_USAGE: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SELECT_BY_POLICY_OID: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SELECT_BY_PROV_NAME: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SELECT_BY_PUBLIC_KEY: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(10u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SELECT_BY_SUBJECT_ATTR: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SELECT_BY_SUBJECT_HOST_NAME: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(6u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SELECT_BY_THUMBPRINT: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SELECT_BY_TLS_SIGNATURES: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(11u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SELECT_DISALLOW_SELFSIGNED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5923,6 +6309,10 @@ pub const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_READ_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_WRITE_FLAG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SET_KEY_CONTEXT_PROP_ID: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SET_KEY_PROV_HANDLE_PROP_ID: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SET_PROPERTY_IGNORE_PERSIST_ERROR_FLAG: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SET_PROPERTY_INHIBIT_PERSIST_FLAG: u32 = 1073741824u32;
@@ -5934,6 +6324,8 @@ pub const CERT_SHA256_HASH_PROP_ID: u32 = 107u32;
 pub const CERT_SIGNATURE_HASH_PROP_ID: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SIGN_HASH_CNG_ALG_PROP_ID: u32 = 89u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SIMPLE_NAME_STR: CERT_STRING_TYPE = CERT_STRING_TYPE(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SMART_CARD_DATA_PROP_ID: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5977,9 +6369,13 @@ pub const CERT_STORE_ADD_REPLACE_EXISTING_INHERIT_PROPERTIES: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_ADD_USE_EXISTING: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_BACKUP_RESTORE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_BASE_CRL_FLAG: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_CERTIFICATE_CONTEXT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_CREATE_NEW_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(8192u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_CRL_CONTEXT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -5991,19 +6387,37 @@ pub const CERT_STORE_CTRL_CANCEL_NOTIFY: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_CTRL_COMMIT: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_CTRL_COMMIT_CLEAR_FLAG: CERT_CONTROL_STORE_FLAGS = CERT_CONTROL_STORE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_CTRL_COMMIT_FORCE_FLAG: CERT_CONTROL_STORE_FLAGS = CERT_CONTROL_STORE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_CTRL_INHIBIT_DUPLICATE_HANDLE_FLAG: CERT_CONTROL_STORE_FLAGS = CERT_CONTROL_STORE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_CTRL_NOTIFY_CHANGE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_CTRL_RESYNC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_DEFER_CLOSE_UNTIL_LAST_FREE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_DELETE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_DELTA_CRL_FLAG: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_ENUM_ARCHIVED_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(512u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_LOCALIZED_NAME_PROP_ID: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_MANIFOLD_FLAG: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_MAXIMUM_ALLOWED_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_NO_CRL_FLAG: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_NO_CRYPT_RELEASE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_NO_ISSUER_FLAG: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_OPEN_EXISTING_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(16384u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_CLOSE_FUNC: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6011,11 +6425,15 @@ pub const CERT_STORE_PROV_COLLECTION: ::windows_core::PCSTR = ::windows_core::PC
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_CONTROL_FUNC: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_PROV_DELETED_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_DELETE_CERT_FUNC: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_DELETE_CRL_FUNC: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_DELETE_CTL_FUNC: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_PROV_EXTERNAL_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_FILE: ::windows_core::PCSTR = ::windows_core::PCSTR(3i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6049,9 +6467,13 @@ pub const CERT_STORE_PROV_LDAP: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_LDAP_W: ::windows_core::PCSTR = ::windows_core::PCSTR(16i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_PROV_LM_SYSTEM_STORE_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_MEMORY: ::windows_core::PCSTR = ::windows_core::PCSTR(2i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_MSG: ::windows_core::PCSTR = ::windows_core::PCSTR(1i32 as _);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_PROV_NO_PERSIST_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_PHYSICAL: i32 = 14i32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6093,6 +6515,8 @@ pub const CERT_STORE_PROV_SYSTEM_REGISTRY_A: ::windows_core::PCSTR = ::windows_c
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_SYSTEM_REGISTRY_W: ::windows_core::PCSTR = ::windows_core::PCSTR(13i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_PROV_SYSTEM_STORE_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_SYSTEM_W: ::windows_core::PCSTR = ::windows_core::PCSTR(10i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_WRITE_ADD_FLAG: u32 = 1u32;
@@ -6103,9 +6527,29 @@ pub const CERT_STORE_PROV_WRITE_CRL_FUNC: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_PROV_WRITE_CTL_FUNC: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_READONLY_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_REVOCATION_FLAG: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_SAVE_AS_PKCS12: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_SAVE_AS_PKCS7: CERT_STORE_SAVE_AS = CERT_STORE_SAVE_AS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_SAVE_AS_STORE: CERT_STORE_SAVE_AS = CERT_STORE_SAVE_AS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_SAVE_TO_FILE: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_SAVE_TO_FILENAME: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_SAVE_TO_FILENAME_A: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_SAVE_TO_FILENAME_W: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_SAVE_TO_MEMORY: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_SET_LOCALIZED_NAME_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_SHARE_CONTEXT_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(128u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_SHARE_STORE_FLAG: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6115,7 +6559,13 @@ pub const CERT_STORE_TIME_VALIDITY_FLAG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STORE_UNSAFE_PHYSICAL_FLAG: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STORE_UPDATE_KEYID_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STRONG_SIGN_ECDSA_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("ECDSA");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STRONG_SIGN_ENABLE_CRL_CHECK: CERT_STRONG_SIGN_FLAGS = CERT_STRONG_SIGN_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_STRONG_SIGN_ENABLE_OCSP_CHECK: CERT_STRONG_SIGN_FLAGS = CERT_STRONG_SIGN_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_STRONG_SIGN_OID_INFO_CHOICE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6149,9 +6599,13 @@ pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_ID: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SYSTEM_STORE_LOCAL_MACHINE_WCOS_ID: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SYSTEM_STORE_LOCATION_MASK: CERT_SYSTEM_STORE_FLAGS = CERT_SYSTEM_STORE_FLAGS(16711680u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SYSTEM_STORE_LOCATION_SHIFT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SYSTEM_STORE_MASK: u32 = 4294901760u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_SYSTEM_STORE_RELOCATE_FLAG: CERT_SYSTEM_STORE_FLAGS = CERT_SYSTEM_STORE_FLAGS(2147483648u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_SYSTEM_STORE_SERVICES_ID: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6319,6 +6773,8 @@ pub const CERT_VERIFY_TRUSTED_SIGNERS_FLAG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_VERIFY_UPDATED_CTL_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CERT_X500_NAME_STR: CERT_STRING_TYPE = CERT_STRING_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CERT_XML_NAME_STR: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMC_ADD_ATTRIBUTES: ::windows_core::PCSTR = ::windows_core::PCSTR(63i32 as _);
@@ -6463,6 +6919,8 @@ pub const CMSG_CTRL_VERIFY_SIGNATURE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_CTRL_VERIFY_SIGNATURE_EX: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CMSG_DATA: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_DEFAULT_INSTALLABLE_FUNC_OID: ::windows_core::PCSTR = ::windows_core::PCSTR(1i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_DETACHED_FLAG: u32 = 4u32;
@@ -6483,6 +6941,8 @@ pub const CMSG_ENCRYPTED_DIGEST: u32 = 27u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_ENCRYPT_PARAM: u32 = 26u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CMSG_ENVELOPED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_ENVELOPED_DATA_CMS_VERSION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_ENVELOPED_DATA_PKCS_1_5_VERSION: u32 = 0u32;
@@ -6500,6 +6960,8 @@ pub const CMSG_ENVELOPED_RECIPIENT_V3: u32 = 3u32;
 pub const CMSG_ENVELOPED_RECIPIENT_V4: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_ENVELOPE_ALGORITHM_PARAM: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CMSG_HASHED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(5u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_HASHED_DATA_CMS_VERSION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6529,7 +6991,15 @@ pub const CMSG_KEY_AGREE_ENCRYPT_FREE_PUBKEY_BITS_FLAG: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_KEY_AGREE_ENCRYPT_FREE_PUBKEY_PARA_FLAG: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CMSG_KEY_AGREE_EPHEMERAL_KEY_CHOICE: CMSG_KEY_AGREE_OPTION = CMSG_KEY_AGREE_OPTION(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CMSG_KEY_AGREE_ORIGINATOR_CERT: CMSG_KEY_AGREE_ORIGINATOR = CMSG_KEY_AGREE_ORIGINATOR(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CMSG_KEY_AGREE_ORIGINATOR_PUBLIC_KEY: CMSG_KEY_AGREE_ORIGINATOR = CMSG_KEY_AGREE_ORIGINATOR(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_KEY_AGREE_RECIPIENT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CMSG_KEY_AGREE_STATIC_KEY_CHOICE: CMSG_KEY_AGREE_OPTION = CMSG_KEY_AGREE_OPTION(2u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_KEY_AGREE_VERSION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6610,6 +7080,10 @@ pub const CMSG_RECIPIENT_COUNT_PARAM: u32 = 17u32;
 pub const CMSG_RECIPIENT_INDEX_PARAM: u32 = 18u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_RECIPIENT_INFO_PARAM: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CMSG_SIGNED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CMSG_SIGNED_AND_ENVELOPED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(4u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CMSG_SIGNED_DATA_CMS_VERSION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6727,13 +7201,23 @@ pub const CRL_REASON_AA_COMPROMISE: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRL_REASON_AA_COMPROMISE_FLAG: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRL_REASON_AFFILIATION_CHANGED: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRL_REASON_AFFILIATION_CHANGED_FLAG: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRL_REASON_CA_COMPROMISE: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(2u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRL_REASON_CA_COMPROMISE_FLAG: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRL_REASON_CERTIFICATE_HOLD: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(6u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRL_REASON_CERTIFICATE_HOLD_FLAG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRL_REASON_CESSATION_OF_OPERATION: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRL_REASON_CESSATION_OF_OPERATION_FLAG: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRL_REASON_KEY_COMPROMISE: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRL_REASON_KEY_COMPROMISE_FLAG: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6741,7 +7225,13 @@ pub const CRL_REASON_PRIVILEGE_WITHDRAWN: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRL_REASON_PRIVILEGE_WITHDRAWN_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRL_REASON_REMOVE_FROM_CRL: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRL_REASON_SUPERSEDED: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRL_REASON_SUPERSEDED_FLAG: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRL_REASON_UNSPECIFIED: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(0u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRL_REASON_UNUSED_FLAG: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6889,15 +7379,33 @@ pub const CRYPT_ACCUMULATIVE_TIMEOUT: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ACQUIRE_ALLOW_NCRYPT_KEY_FLAG: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ACQUIRE_CACHE_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ACQUIRE_COMPARE_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ACQUIRE_NCRYPT_KEY_FLAGS_MASK: u32 = 458752u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ACQUIRE_NO_HEALING: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ACQUIRE_ONLY_NCRYPT_KEY_FLAG: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ACQUIRE_PREFER_NCRYPT_KEY_FLAG: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ACQUIRE_SILENT_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ACQUIRE_USE_PROV_INFO_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ACQUIRE_WINDOW_HANDLE_FLAG: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_AIA_RETRIEVAL: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ALL_FUNCTIONS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = BCRYPT_RESOLVE_PROVIDERS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ALL_PROVIDERS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = BCRYPT_RESOLVE_PROVIDERS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ANY: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ARCHIVABLE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16384u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ARCHIVE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6905,11 +7413,19 @@ pub const CRYPT_ASN_ENCODING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ASYNC_RETRIEVAL: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_BLOB_VER3: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_CACHE_ONLY_RETRIEVAL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_CHECK_FRESHNESS_TIME_VALIDITY: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_CREATE_IV: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_CREATE_NEW_FLUSH_ENTRY: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_CREATE_SALT: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_DATA_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(2048u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_DECODE_ALLOC_FLAG: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6933,6 +7449,14 @@ pub const CRYPT_DEFAULT_CONTAINER_OPTIONAL: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_DEFAULT_CONTEXT: ::windows_core::PCWSTR = ::windows_core::w!("Default");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_DEFAULT_CONTEXT_AUTO_RELEASE_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = CRYPT_DEFAULT_CONTEXT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_DEFAULT_CONTEXT_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = CRYPT_DEFAULT_CONTEXT_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_DEFAULT_CONTEXT_MULTI_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = CRYPT_DEFAULT_CONTEXT_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_DEFAULT_CONTEXT_PROCESS_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = CRYPT_DEFAULT_CONTEXT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_DEFAULT_OID: ::windows_core::PCSTR = ::windows_core::s!("DEFAULT");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_DELETEKEYSET: u32 = 16u32;
@@ -6940,6 +7464,10 @@ pub const CRYPT_DELETEKEYSET: u32 = 16u32;
 pub const CRYPT_DELETE_DEFAULT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_DELETE_KEYSET: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_DESTROYKEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_DOMAIN: BCRYPT_TABLE = BCRYPT_TABLE(2u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_DONT_CACHE_RESULT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6955,7 +7483,11 @@ pub const CRYPT_ENABLE_FILE_RETRIEVAL: u32 = 134217728u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ENABLE_SSL_REVOCATION_RETRIEVAL: u32 = 8388608u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ENCODE_ALLOC_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ENCODE_DECODE_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ENCODE_ENABLE_PUNYCODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(131072u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ENCODE_ENABLE_UTF8PERCENT_FLAG: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6967,7 +7499,11 @@ pub const CRYPT_ENCRYPT_ALG_OID_GROUP_ID: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_ENHKEY_USAGE_OID_GROUP_ID: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_EXCLUSIVE: CRYPT_CONTEXT_CONFIG_FLAGS = CRYPT_CONTEXT_CONFIG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_EXPORT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_EXPORTABLE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_EXPORT_KEY: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6976,6 +7512,12 @@ pub const CRYPT_EXT_OR_ATTR_OID_GROUP_ID: u32 = 6u32;
 pub const CRYPT_FAILED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_FASTSGC: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_FIND_MACHINE_KEYSET_FLAG: CRYPT_FIND_FLAGS = CRYPT_FIND_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_FIND_SILENT_KEYSET_FLAG: CRYPT_FIND_FLAGS = CRYPT_FIND_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_FIND_USER_KEYSET_FLAG: CRYPT_FIND_FLAGS = CRYPT_FIND_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_FIRST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -6992,6 +7534,8 @@ pub const CRYPT_FLAG_SSL2: u32 = 2u32;
 pub const CRYPT_FLAG_SSL3: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_FLAG_TLS1: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_FORCE_KEY_PROTECTION_HIGH: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(32768u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_FORMAT_COMMA: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7019,6 +7563,14 @@ pub const CRYPT_FORMAT_X509: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_GET_INSTALLED_OID_FUNC_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_GET_URL_FROM_AUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_GET_URL_FROM_EXTENSION: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_GET_URL_FROM_PROPERTY: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_GET_URL_FROM_UNAUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_HASH_ALG_OID_GROUP_ID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_HTTP_POST_RETRIEVAL: u32 = 1048576u32;
@@ -7035,13 +7587,19 @@ pub const CRYPT_IMPL_UNKNOWN: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_IMPORT_KEY: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_INITIATOR: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_INSTALL_OID_FUNC_BEFORE_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_INSTALL_OID_INFO_BEFORE_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_IPSEC_HMAC_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_KDF_OID_GROUP_ID: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_KEEP_TIME_VALID: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_KEK: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1024u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_KEYID_ALLOC_FLAG: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7050,6 +7608,8 @@ pub const CRYPT_KEYID_DELETE_FLAG: u32 = 16u32;
 pub const CRYPT_KEYID_MACHINE_FLAG: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_KEYID_SET_NEW_FLAG: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_KM: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(2u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_LAST_ALG_OID_GROUP_ID: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7065,6 +7625,8 @@ pub const CRYPT_LDAP_SIGN_RETRIEVAL: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_LITTLE_ENDIAN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_LOCAL: BCRYPT_TABLE = BCRYPT_TABLE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_LOCALIZED_NAME_ENCODING_TYPE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_LOCALIZED_NAME_OID: ::windows_core::PCSTR = ::windows_core::s!("LocalizedNames");
@@ -7072,6 +7634,8 @@ pub const CRYPT_LOCALIZED_NAME_OID: ::windows_core::PCSTR = ::windows_core::s!("
 pub const CRYPT_MAC: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_MACHINE_DEFAULT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_MACHINE_KEYSET: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(32u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_MATCH_ANY_ENCODING_TYPE: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7084,6 +7648,10 @@ pub const CRYPT_MESSAGE_KEYID_RECIPIENT_FLAG: u32 = 4u32;
 pub const CRYPT_MESSAGE_KEYID_SIGNER_FLAG: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_MESSAGE_SILENT_KEYSET_FLAG: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_MIN_DEPENDENCIES: CRYPT_IMAGE_REF_FLAGS = CRYPT_IMAGE_REF_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_MM: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(3u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_MODE_CBC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7119,11 +7687,23 @@ pub const CRYPT_NO_AUTH_RETRIEVAL: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_NO_OCSP_FAILOVER_TO_CRL_RETRIEVAL: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_NO_SALT: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_OAEP: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OBJECT_LOCATOR_FIRST_RESERVED_USER_NAME_TYPE: u32 = 33u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_NAME_TYPE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OBJECT_LOCATOR_LAST_RESERVED_USER_NAME_TYPE: u32 = 65535u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_OBJECT_LOCATOR_RELEASE_DLL_UNLOAD: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_OBJECT_LOCATOR_RELEASE_PROCESS_EXIT: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_OBJECT_LOCATOR_RELEASE_SERVICE_STOP: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_OBJECT_LOCATOR_RELEASE_SYSTEM_SHUTDOWN: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OBJECT_LOCATOR_SPN_NAME_TYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7199,6 +7779,10 @@ pub const CRYPT_OID_INFO_OID_KEY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OID_INFO_OID_KEY_FLAGS_MASK: u32 = 4294901760u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_OID_INFO_PUBKEY_ENCRYPT_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = CRYPT_IMPORT_PUBLIC_KEY_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_OID_INFO_PUBKEY_SIGN_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = CRYPT_IMPORT_PUBLIC_KEY_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OID_INFO_SIGN_KEY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OID_INHIBIT_SIGNATURE_FORMAT_FLAG: u32 = 1u32;
@@ -7253,6 +7837,10 @@ pub const CRYPT_OID_VERIFY_ENCODED_SIGNATURE_FUNC: ::windows_core::PCSTR = ::win
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OID_VERIFY_REVOCATION_FUNC: ::windows_core::PCSTR = ::windows_core::s!("CertDllVerifyRevocation");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_ONLINE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_OVERRIDE: CRYPT_CONTEXT_CONFIG_FLAGS = CRYPT_CONTEXT_CONFIG_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OVERWRITE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_OWF_REPL_LM_HASH: u32 = 1u32;
@@ -7263,9 +7851,13 @@ pub const CRYPT_PARAM_CANCEL_ASYNC_RETRIEVAL: ::windows_core::PCSTR = ::windows_
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_POLICY_OID_GROUP_ID: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_PREGEN: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_PRIORITY_BOTTOM: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_PRIORITY_TOP: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_PROCESS_ISOLATE: CRYPT_IMAGE_REF_FLAGS = CRYPT_IMAGE_REF_FLAGS(65536u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_PROXY_CACHE_RETRIEVAL: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7287,6 +7879,8 @@ pub const CRYPT_RDN_ATTR_OID_GROUP_ID: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_READ: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_RECIPIENT: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_REGISTER_FIRST_INDEX: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_REGISTER_LAST_INDEX: u32 = 4294967295u32;
@@ -7301,7 +7895,11 @@ pub const CRYPT_SEC_DESCR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_SERVER: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_SF: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_SGC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_SGCKEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(8192u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_SGC_ENUM: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7311,13 +7909,41 @@ pub const CRYPT_SILENT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_SORTED_CTL_ENCODE_HASHED_SUBJECT_IDENTIFIER_FLAG: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_SSL2_FALLBACK: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_STICKY_CACHE_RETRIEVAL: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_ANY: CRYPT_STRING = CRYPT_STRING(7u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_BASE64: CRYPT_STRING = CRYPT_STRING(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_BASE64HEADER: CRYPT_STRING = CRYPT_STRING(0u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_BASE64REQUESTHEADER: CRYPT_STRING = CRYPT_STRING(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_STRING_BASE64URI: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_BASE64X509CRLHEADER: CRYPT_STRING = CRYPT_STRING(9u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_BASE64_ANY: CRYPT_STRING = CRYPT_STRING(6u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_BINARY: CRYPT_STRING = CRYPT_STRING(2u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_STRING_ENCODEMASK: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_STRING_HASHDATA: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_HEX: CRYPT_STRING = CRYPT_STRING(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_HEXADDR: CRYPT_STRING = CRYPT_STRING(10u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_HEXASCII: CRYPT_STRING = CRYPT_STRING(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_HEXASCIIADDR: CRYPT_STRING = CRYPT_STRING(11u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_HEXRAW: CRYPT_STRING = CRYPT_STRING(12u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_HEX_ANY: CRYPT_STRING = CRYPT_STRING(8u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_STRING_NOCR: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7329,6 +7955,8 @@ pub const CRYPT_STRING_RESERVED100: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_STRING_RESERVED200: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_STRING_STRICT: CRYPT_STRING = CRYPT_STRING(536870912u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_SUCCEED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_TEMPLATE_OID_GROUP_ID: u32 = 9u32;
@@ -7337,7 +7965,15 @@ pub const CRYPT_TYPE2_FORMAT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_UI_PROMPT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_UM: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_UNICODE_NAME_DECODE_DISABLE_IE4_UTF8_FLAG: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_UNICODE_NAME_ENCODE_DISABLE_CHECK_TYPE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_T61_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_UTF8_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(536870912u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_UNICODE_NAME_ENCODE_FORCE_UTF8_UNICODE_FLAG: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7347,11 +7983,17 @@ pub const CRYPT_USERDATA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_USER_DEFAULT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_USER_KEYSET: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_USER_PROTECTED: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_USER_PROTECTED_STRONG: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_VERIFYCONTEXT: u32 = 4026531840u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_CHECK_WEAK_HASH_FLAG: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_VERIFY_CERT_SIGN_DISABLE_MD2_MD4_FLAG: CRYPT_VERIFY_CERT_FLAGS = CRYPT_VERIFY_CERT_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_CERT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7360,6 +8002,10 @@ pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_CHAIN: u32 = 3u32;
 pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_NULL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_ISSUER_PUBKEY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_VERIFY_CERT_SIGN_RETURN_STRONG_PROPERTIES_FLAG: CRYPT_VERIFY_CERT_FLAGS = CRYPT_VERIFY_CERT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_VERIFY_CERT_SIGN_SET_STRONG_PROPERTIES_FLAG: CRYPT_VERIFY_CERT_FLAGS = CRYPT_VERIFY_CERT_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_BLOB: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7372,6 +8018,8 @@ pub const CRYPT_VERIFY_CERT_SIGN_SUBJECT_OCSP_BASIC_SIGNED_RESPONSE: u32 = 4u32;
 pub const CRYPT_VERIFY_CONTEXT_SIGNATURE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_VERIFY_DATA_HASH: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_VOLATILE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4096u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_WIRE_ONLY_RETRIEVAL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7392,6 +8040,14 @@ pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_NAME: u32 = 2u32;
 pub const CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_BLOB_MAX: u32 = 2147483640u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_CHARSET_AUTO: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(0i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_CHARSET_UTF16BE: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(3i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_CHARSET_UTF16LE: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_CHARSET_UTF8: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(1i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7443,15 +8099,57 @@ pub const CRYPT_XML_FLAG_ALWAYS_RETURN_ENCODED_OBJECT: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_FLAG_CREATE_REFERENCE_AS_OBJECT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_FLAG_DISABLE_EXTENSIONS: CRYPT_XML_FLAGS = CRYPT_XML_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_FLAG_ECDSA_DSIG11: u32 = 67108864u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_FLAG_ENFORCE_ID_NAME_FORMAT: u32 = 134217728u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_FLAG_NO_SERIALIZE: CRYPT_XML_FLAGS = CRYPT_XML_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_GROUP_ID_HASH: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP_ID(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_GROUP_ID_SIGN: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP_ID(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_ID_MAX: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEYINFO_SPEC_ENCODED: CRYPT_XML_KEYINFO_SPEC = CRYPT_XML_KEYINFO_SPEC(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEYINFO_SPEC_NONE: CRYPT_XML_KEYINFO_SPEC = CRYPT_XML_KEYINFO_SPEC(0i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEYINFO_SPEC_PARAM: CRYPT_XML_KEYINFO_SPEC = CRYPT_XML_KEYINFO_SPEC(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEYINFO_TYPE_CUSTOM: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEYINFO_TYPE_KEYNAME: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEYINFO_TYPE_KEYVALUE: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEYINFO_TYPE_X509DATA: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEY_VALUE_TYPE_CUSTOM: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEY_VALUE_TYPE_DSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_KEY_VALUE_TYPE_RSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_OBJECTS_MAX: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_PROPERTY_DOC_DECLARATION: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_PROPERTY_MAX_HEAP_SIZE: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_PROPERTY_MAX_SIGNATURES: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_PROPERTY_SIGNATURE_LOCATION: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_PROPERTY_XML_OUTPUT_CHARSET: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(5i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_REFERENCES_MAX: u32 = 32760u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7459,9 +8157,55 @@ pub const CRYPT_XML_SIGNATURES_MAX: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_SIGNATURE_VALUE_MAX: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_SIGN_ADD_KEYVALUE: CRYPT_XML_FLAGS = CRYPT_XML_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_DIGESTING: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_DIGEST_VALID: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_ERROR_DIGEST_INVALID: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_ERROR_KEYINFO_NOT_PARSED: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(131072u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_ALGORITHM: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_TRANSFORM: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_ERROR_SIGNATURE_INVALID: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(65536u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_INTERNAL_REFERENCE: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_KEY_AVAILABLE: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_STATUS_NO_ERROR: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_OPENED_TO_ENCODE: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(2147483648u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_STATUS_SIGNATURE_VALID: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(65536u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CRYPT_XML_TRANSFORM_MAX: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_TRANSFORM_ON_NODESET: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_TRANSFORM_ON_STREAM: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_X509DATA_TYPE_CERTIFICATE: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_X509DATA_TYPE_CRL: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_X509DATA_TYPE_CUSTOM: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(6u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_X509DATA_TYPE_SKI: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CRYPT_Y_ONLY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CTL_ANY_SUBJECT_TYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7469,13 +8213,127 @@ pub const CTL_CERT_SUBJECT_TYPE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CTL_ENTRY_FROM_PROP_CHAIN_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CTL_FIND_ANY: CERT_FIND_TYPE = CERT_FIND_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CTL_FIND_EXISTING: CERT_FIND_TYPE = CERT_FIND_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CTL_FIND_MD5_HASH: CERT_FIND_TYPE = CERT_FIND_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CTL_FIND_NO_LIST_ID_CBDATA: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CTL_FIND_SAME_USAGE_FLAG: CERT_FIND_TYPE = CERT_FIND_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CTL_FIND_SHA1_HASH: CERT_FIND_TYPE = CERT_FIND_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CTL_FIND_SUBJECT: CERT_FIND_TYPE = CERT_FIND_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const CTL_FIND_USAGE: CERT_FIND_TYPE = CERT_FIND_TYPE(3u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CTL_V1: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const CUR_BLOB_VERSION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const DSA_FIPS186_2: DSAFIPSVERSION_ENUM = DSAFIPSVERSION_ENUM(0i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const DSA_FIPS186_3: DSAFIPSVERSION_ENUM = DSAFIPSVERSION_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const DSA_HASH_ALGORITHM_SHA1: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(0i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const DSA_HASH_ALGORITHM_SHA256: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const DSA_HASH_ALGORITHM_SHA512: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const DirectionDecrypt: Direction = Direction(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const DirectionEncrypt: Direction = Direction(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const ECC_CMS_SHARED_INFO: ::windows_core::PCSTR = ::windows_core::PCSTR(77i32 as _);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_AUTHENTICATION: CEPSetupProperty = CEPSetupProperty(0i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_CAINFORMATION: MSCEPSetupProperty = MSCEPSetupProperty(11i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_CHALLENGEURL: MSCEPSetupProperty = MSCEPSetupProperty(13i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_EXCHANGEKEYINFORMATION: MSCEPSetupProperty = MSCEPSetupProperty(10i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_KEYBASED_RENEWAL: CEPSetupProperty = CEPSetupProperty(3i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_MSCEPURL: MSCEPSetupProperty = MSCEPSetupProperty(12i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_RANAME_CITY: MSCEPSetupProperty = MSCEPSetupProperty(6i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_RANAME_CN: MSCEPSetupProperty = MSCEPSetupProperty(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_RANAME_COMPANY: MSCEPSetupProperty = MSCEPSetupProperty(4i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_RANAME_COUNTRY: MSCEPSetupProperty = MSCEPSetupProperty(8i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_RANAME_DEPT: MSCEPSetupProperty = MSCEPSetupProperty(5i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_RANAME_EMAIL: MSCEPSetupProperty = MSCEPSetupProperty(3i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_RANAME_STATE: MSCEPSetupProperty = MSCEPSetupProperty(7i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_SIGNINGKEYINFORMATION: MSCEPSetupProperty = MSCEPSetupProperty(9i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_SSLCERTHASH: CEPSetupProperty = CEPSetupProperty(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_URL: CEPSetupProperty = CEPSetupProperty(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_USECHALLENGE: MSCEPSetupProperty = MSCEPSetupProperty(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CEPSETUPPROP_USELOCALSYSTEM: MSCEPSetupProperty = MSCEPSetupProperty(0i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CESSETUPPROP_ALLOW_KEYBASED_RENEWAL: CESSetupProperty = CESSetupProperty(6i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CESSETUPPROP_AUTHENTICATION: CESSetupProperty = CESSetupProperty(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CESSETUPPROP_CACONFIG: CESSetupProperty = CESSetupProperty(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CESSETUPPROP_RENEWALONLY: CESSetupProperty = CESSetupProperty(5i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CESSETUPPROP_SSLCERTHASH: CESSetupProperty = CESSetupProperty(3i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CESSETUPPROP_URL: CESSetupProperty = CESSetupProperty(4i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_CESSETUPPROP_USE_IISAPPPOOLIDENTITY: CESSetupProperty = CESSetupProperty(0i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_CADSSUFFIX: CASetupProperty = CASetupProperty(4i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_CAKEYINFORMATION: CASetupProperty = CASetupProperty(1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_CANAME: CASetupProperty = CASetupProperty(3i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_CATYPE: CASetupProperty = CASetupProperty(0i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_DATABASEDIRECTORY: CASetupProperty = CASetupProperty(9i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_EXPIRATIONDATE: CASetupProperty = CASetupProperty(7i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_INTERACTIVE: CASetupProperty = CASetupProperty(2i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_INVALID: CASetupProperty = CASetupProperty(-1i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_LOGDIRECTORY: CASetupProperty = CASetupProperty(10i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_PARENTCAMACHINE: CASetupProperty = CASetupProperty(12i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_PARENTCANAME: CASetupProperty = CASetupProperty(13i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_PRESERVEDATABASE: CASetupProperty = CASetupProperty(8i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_REQUESTFILE: CASetupProperty = CASetupProperty(14i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_SHAREDFOLDER: CASetupProperty = CASetupProperty(11i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_VALIDITYPERIOD: CASetupProperty = CASetupProperty(5i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_VALIDITYPERIODUNIT: CASetupProperty = CASetupProperty(6i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_WEBCAMACHINE: CASetupProperty = CASetupProperty(15i32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const ENUM_SETUPPROP_WEBCANAME: CASetupProperty = CASetupProperty(16i32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const EXPORT_PRIVATE_KEYS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7543,6 +8401,10 @@ pub const HP_ALGID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const HP_HASHSIZE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const HP_HASHVAL: CRYPT_SET_HASH_PARAM = CRYPT_SET_HASH_PARAM(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const HP_HMAC_INFO: CRYPT_SET_HASH_PARAM = CRYPT_SET_HASH_PARAM(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const HP_TLS1PRF_LABEL: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const HP_TLS1PRF_SEED: u32 = 7u32;
@@ -7605,6 +8467,12 @@ pub const KEY_LENGTH_MASK: u32 = 4294901760u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_ADMIN_PIN: u32 = 31u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KP_ALGID: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(7u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KP_BLOCKLEN: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KP_CERTIFICATE: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(26u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_CLEAR_KEY: u32 = 27u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_CLIENT_RANDOM: u32 = 21u32;
@@ -7617,6 +8485,8 @@ pub const KP_EFFECTIVE_KEYLEN: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_G: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KP_GET_USE_COUNT: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(42u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_HIGHEST_VERSION: u32 = 41u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_INFO: u32 = 18u32;
@@ -7624,6 +8494,8 @@ pub const KP_INFO: u32 = 18u32;
 pub const KP_IV: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_KEYEXCHANGE_PIN: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KP_KEYLEN: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(9u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_KEYVAL: u32 = 30u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7636,6 +8508,8 @@ pub const KP_OAEP_PARAMS: u32 = 36u32;
 pub const KP_P: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_PADDING: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KP_PERMISSIONS: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(6u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_PIN_ID: u32 = 43u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7663,6 +8537,10 @@ pub const KP_ROUNDS: u32 = 35u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_RP: u32 = 23u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KP_SALT: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KP_SALT_EX: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(10u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_SCHANNEL_ALG: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_SERVER_RANDOM: u32 = 22u32;
@@ -7674,6 +8552,24 @@ pub const KP_VERIFY_PARAMS: u32 = 40u32;
 pub const KP_X: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const KP_Y: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KeyTypeHardware: CertKeyType = CertKeyType(6u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KeyTypeOther: CertKeyType = CertKeyType(0u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KeyTypePassport: CertKeyType = CertKeyType(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KeyTypePassportRemote: CertKeyType = CertKeyType(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KeyTypePassportSmartCard: CertKeyType = CertKeyType(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KeyTypePhysicalSmartCard: CertKeyType = CertKeyType(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KeyTypeSelfSigned: CertKeyType = CertKeyType(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KeyTypeSoftware: CertKeyType = CertKeyType(7u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const KeyTypeVirtualSmartCard: CertKeyType = CertKeyType(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const LEGACY_DH_PRIVATE_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("CAPIDHPRIVATEBLOB");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7891,6 +8787,10 @@ pub const NCRYPT_ALTERNATE_KEY_STORAGE_LOCATION_PROPERTY: ::windows_core::PCWSTR
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_ASSOCIATED_ECDH_KEY: ::windows_core::PCWSTR = ::windows_core::w!("SmartCardAssociatedECDHKey");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_ATTESTATION_FLAG: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_AUTHORITY_KEY_FLAG: u32 = 256u32;
@@ -7914,6 +8814,8 @@ pub const NCRYPT_CIPHER_KEY_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("C
 pub const NCRYPT_CIPHER_KEY_BLOB_MAGIC: u32 = 1380470851u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_CIPHER_NO_PADDING_FLAG: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_CIPHER_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_CIPHER_OTHER_PADDING_FLAG: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -7993,6 +8895,8 @@ pub const NCRYPT_EXPORT_POLICY_PROPERTY: ::windows_core::PCWSTR = ::windows_core
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_EXTENDED_ERRORS_FLAG: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_HASH_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_HMAC_SHA256_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("HMAC-SHA256");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_IGNORE_DEVICE_STATE_FLAG: u32 = 4096u32;
@@ -8065,6 +8969,8 @@ pub const NCRYPT_KEY_PROTECTION_LOCAL_USER: ::windows_core::PCWSTR = ::windows_c
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_KEY_STORAGE_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("KEY_STORAGE");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_KEY_STORAGE_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(65537u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_KEY_TYPE_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("Key Type");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_KEY_USAGE_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("Key Usage");
@@ -8074,6 +8980,8 @@ pub const NCRYPT_LAST_MODIFIED_PROPERTY: ::windows_core::PCWSTR = ::windows_core
 pub const NCRYPT_LENGTHS_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("Lengths");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_LENGTH_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("Length");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_MACHINE_KEY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(32u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_MAX_ALG_ID_LENGTH: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -8097,9 +9005,21 @@ pub const NCRYPT_NAME_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("Nam
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_NO_CACHED_PASSWORD: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_NO_KEY_VALIDATION: NCRYPT_FLAGS = NCRYPT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_NO_PADDING_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_OPAQUETRANSPORT_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("OpaqueTransport");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_OVERWRITE_KEY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_PAD_CIPHER_FLAG: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_PAD_OAEP_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_PAD_PKCS1_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_PAD_PSS_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_PBKDF2_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("PBKDF2");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -8219,6 +9139,10 @@ pub const NCRYPT_PCP_TPM_VERSION_PROPERTY: ::windows_core::PCWSTR = ::windows_co
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_PCP_USAGEAUTH_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("PCP_USAGEAUTH");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_PERSIST_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_PERSIST_ONLY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_PIN_CACHE_APPLICATION_IMAGE_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("PinCacheApplicationImage");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_PIN_CACHE_APPLICATION_STATUS_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("PinCacheApplicationStatus");
@@ -8275,6 +9199,8 @@ pub const NCRYPT_READER_ICON_PROPERTY: ::windows_core::PCWSTR = ::windows_core::
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_READER_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("SmartCardReader");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_REGISTER_NOTIFY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_ROOT_CERTSTORE_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("SmartcardRootCertStore");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_RSA_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("RSA");
@@ -8289,7 +9215,15 @@ pub const NCRYPT_SCARD_PIN_ID: ::windows_core::PCWSTR = ::windows_core::w!("Smar
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_SCARD_PIN_INFO: ::windows_core::PCWSTR = ::windows_core::w!("SmartCardPinInfo");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_SCHANNEL_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(65538u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_SCHANNEL_SIGNATURE_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(65539u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_SEALING_FLAG: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_SECRET_AGREEMENT_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_SECRET_AGREEMENT_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(8u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_SECURE_PIN_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("SmartCardSecurePin");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -8305,7 +9239,13 @@ pub const NCRYPT_SHA384_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_SHA512_ALGORITHM: ::windows_core::PCWSTR = ::windows_core::w!("SHA512");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_SIGNATURE_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_SIGNATURE_LENGTH_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("SignatureLength");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_SIGNATURE_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(16u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_SILENT_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(64u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_SMARTCARD_GUID_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("SmartCardGuid");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -8345,6 +9285,10 @@ pub const NCRYPT_UI_PROTECT_KEY_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_UNIQUE_NAME_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("Unique Name");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_UNPROTECT_NO_DECRYPT: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_UNREGISTER_NOTIFY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_USER_CERTSTORE_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("SmartCardUserCertStore");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_USE_CONTEXT_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("Use Context");
@@ -8372,6 +9316,8 @@ pub const NCRYPT_VSM_KEY_ATTESTATION_STATEMENT_CURRENT_VERSION: u32 = 0u32;
 pub const NCRYPT_VSM_KEY_ATTESTATION_STATEMENT_V0: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NCRYPT_WINDOW_HANDLE_PROPERTY: ::windows_core::PCWSTR = ::windows_core::w!("HWND Handle");
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const NCRYPT_WRITE_KEY_TO_LEGACY_STORE_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(512u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const NETSCAPE_SIGN_CA_CERT_TYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -8425,6 +9371,10 @@ pub const OCSP_UNAUTHORIZED_RESPONSE: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const OPAQUEKEYBLOB: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PKCS12_ALLOW_OVERWRITE_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PKCS12_ALWAYS_CNG_KSP: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PKCS12_CONFIG_REGPATH: ::windows_core::PCWSTR = ::windows_core::w!("Software\\Microsoft\\Windows\\CurrentVersion\\PFX");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PKCS12_DISABLE_ENCRYPT_CERTIFICATES: u32 = 256u32;
@@ -8447,6 +9397,10 @@ pub const PKCS12_IMPORT_RESERVED_MASK: u32 = 4294901760u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PKCS12_IMPORT_SILENT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PKCS12_INCLUDE_EXTENDED_PROPERTIES: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PKCS12_NO_PERSIST_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PKCS12_ONLY_CERTIFICATES: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PKCS12_ONLY_CERTIFICATES_CONTAINER_NAME: ::windows_core::PCWSTR = ::windows_core::w!("PfxContainer");
@@ -8467,6 +9421,8 @@ pub const PKCS12_PBKDF2_ID_HMAC_SHA384: ::windows_core::PCSTR = ::windows_core::
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PKCS12_PBKDF2_ID_HMAC_SHA512: ::windows_core::PCSTR = ::windows_core::s!("1.2.840.113549.2.11");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PKCS12_PREFER_CNG_KSP: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PKCS12_PROTECT_TO_DOMAIN_SIDS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PKCS12_VIRTUAL_ISOLATION_KEY: u32 = 65536u32;
@@ -8474,6 +9430,8 @@ pub const PKCS12_VIRTUAL_ISOLATION_KEY: u32 = 65536u32;
 pub const PKCS5_PADDING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PKCS7_SIGNER_INFO: ::windows_core::PCSTR = ::windows_core::PCSTR(500i32 as _);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PKCS_7_ASN_ENCODING: CERT_QUERY_ENCODING_TYPE = CERT_QUERY_ENCODING_TYPE(65536u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PKCS_7_NDR_ENCODING: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -8519,11 +9477,15 @@ pub const PP_CERTCHAIN: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_CHANGE_PASSWORD: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_CLIENT_HWND: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_CONTAINER: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_CONTEXT_INFO: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_CRYPT_COUNT_KEY_USE: u32 = 41u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_DELETEKEY: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(24u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_DISMISS_PIN_UI_SEC: u32 = 49u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -8543,6 +9505,14 @@ pub const PP_IMPTYPE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_IS_PFX_EPHEMERAL: u32 = 50u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_KEYEXCHANGE_ALG: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(14u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_KEYEXCHANGE_KEYSIZE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(12u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_KEYEXCHANGE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(32u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_KEYSET_SEC_DESCR: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_KEYSET_TYPE: u32 = 27u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_KEYSPEC: u32 = 39u32;
@@ -8555,21 +9525,43 @@ pub const PP_KEY_TYPE_SUBTYPE: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_NAME: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_PIN_PROMPT_STRING: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(44u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_PROVTYPE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_ROOT_CERTSTORE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(46u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_SECURE_KEYEXCHANGE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(47u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_SECURE_SIGNATURE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(48u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_SESSION_KEYSIZE: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_SGC_INFO: u32 = 37u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_SIGNATURE_ALG: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(15u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_SIGNATURE_KEYSIZE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(13u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_SIGNATURE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(33u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_SIG_KEYSIZE_INC: u32 = 34u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_SMARTCARD_GUID: u32 = 45u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_SMARTCARD_READER: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(43u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_SMARTCARD_READER_ICON: u32 = 47u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_SYM_KEYSIZE: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_UI_PROMPT: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(21u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_UNIQUE_CONTAINER: u32 = 36u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_USER_CERTSTORE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(42u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PP_USE_HARDWARE_RNG: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(38u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PP_VERSION: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -8625,6 +9617,10 @@ pub const PUBLICKEYBLOB: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const PUBLICKEYBLOBEX: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PVK_TYPE_FILE_NAME: SIGNER_PRIVATE_KEY_CHOICE = SIGNER_PRIVATE_KEY_CHOICE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const PVK_TYPE_KEYCONTAINER: SIGNER_PRIVATE_KEY_CHOICE = SIGNER_PRIVATE_KEY_CHOICE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const RANDOM_PADDING: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const RECIPIENTPOLICYV1: u32 = 1u32;
@@ -8651,11 +9647,55 @@ pub const SCHEME_OID_RETRIEVE_ENCODED_OBJECT_FUNC: ::windows_core::PCSTR = ::win
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const SIGNATURE_RESOURCE_NUMBER: u32 = 666u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_AUTHCODE_ATTR: SIGNER_SIGNATURE_ATTRIBUTE_CHOICE = SIGNER_SIGNATURE_ATTRIBUTE_CHOICE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_POLICY_CHAIN: SIGNER_CERT_POLICY = SIGNER_CERT_POLICY(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_POLICY_CHAIN_NO_ROOT: SIGNER_CERT_POLICY = SIGNER_CERT_POLICY(8u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_POLICY_SPC: SIGNER_CERT_POLICY = SIGNER_CERT_POLICY(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_POLICY_STORE: SIGNER_CERT_POLICY = SIGNER_CERT_POLICY(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_SPC_CHAIN: SIGNER_CERT_CHOICE = SIGNER_CERT_CHOICE(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_SPC_FILE: SIGNER_CERT_CHOICE = SIGNER_CERT_CHOICE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_CERT_STORE: SIGNER_CERT_CHOICE = SIGNER_CERT_CHOICE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_NO_ATTR: SIGNER_SIGNATURE_ATTRIBUTE_CHOICE = SIGNER_SIGNATURE_ATTRIBUTE_CHOICE(0u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_SUBJECT_BLOB: SIGNER_SUBJECT_CHOICE = SIGNER_SUBJECT_CHOICE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_SUBJECT_FILE: SIGNER_SUBJECT_CHOICE = SIGNER_SUBJECT_CHOICE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_TIMESTAMP_AUTHENTICODE: SIGNER_TIMESTAMP_FLAGS = SIGNER_TIMESTAMP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIGNER_TIMESTAMP_RFC3161: SIGNER_TIMESTAMP_FLAGS = SIGNER_TIMESTAMP_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SIG_APPEND: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const SIMPLEBLOB: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const SITE_PIN_RULES_ALL_SUBDOMAINS_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const SORTED_CTL_EXT_HASHED_SUBJECT_IDENTIFIER_FLAG: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_DIGEST_GENERATE_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_DIGEST_SIGN_EX_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_DIGEST_SIGN_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_EXC_PE_PAGE_HASHES_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_INC_PE_DEBUG_INFO_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_INC_PE_IMPORT_ADDR_TABLE_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_INC_PE_PAGE_HASHES_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const SPC_INC_PE_RESOURCES_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(128u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const SSL_ECCPUBLIC_BLOB: ::windows_core::PCWSTR = ::windows_core::w!("SSLECCPUBLICBLOB");
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -8703,7 +9743,21 @@ pub const TIMESTAMP_REQUEST: ::windows_core::PCSTR = ::windows_core::PCSTR(78i32
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const TIMESTAMP_RESPONSE: ::windows_core::PCSTR = ::windows_core::PCSTR(79i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const TIMESTAMP_STATUS_GRANTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(0u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const TIMESTAMP_STATUS_GRANTED_WITH_MODS: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const TIMESTAMP_STATUS_REJECTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const TIMESTAMP_STATUS_REVOCATION_WARNING: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const TIMESTAMP_STATUS_REVOKED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(5u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const TIMESTAMP_STATUS_WAITING: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(3u32);
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const TIMESTAMP_VERIFY_CONTEXT_SIGNATURE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const TIMESTAMP_VERSION: CRYPT_TIMESTAMP_VERSION = CRYPT_TIMESTAMP_VERSION(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const TIME_VALID_OID_FLUSH_CRL: ::windows_core::PCSTR = ::windows_core::PCSTR(2i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -8768,6 +9822,8 @@ pub const X509_ALGORITHM_IDENTIFIER: ::windows_core::PCSTR = ::windows_core::PCS
 pub const X509_ALTERNATE_NAME: ::windows_core::PCSTR = ::windows_core::PCSTR(12i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const X509_ANY_STRING: i32 = 6i32;
+#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
+pub const X509_ASN_ENCODING: CERT_QUERY_ENCODING_TYPE = CERT_QUERY_ENCODING_TYPE(1u32);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
 pub const X509_AUTHORITY_INFO_ACCESS: ::windows_core::PCSTR = ::windows_core::PCSTR(32i32 as _);
 #[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
@@ -10062,10 +11118,6 @@ pub const wszXMLNS_DIGSIG_SignatureProperties: ::windows_core::PCWSTR = ::window
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPTGENRANDOM_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_RNG_USE_ENTROPY_IN_BUFFER: BCRYPTGENRANDOM_FLAGS = BCRYPTGENRANDOM_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_USE_SYSTEM_PREFERRED_RNG: BCRYPTGENRANDOM_FLAGS = BCRYPTGENRANDOM_FLAGS(2u32);
 impl ::core::marker::Copy for BCRYPTGENRANDOM_FLAGS {}
 impl ::core::clone::Clone for BCRYPTGENRANDOM_FLAGS {
     fn clone(&self) -> Self {
@@ -10089,10 +11141,6 @@ impl ::core::fmt::Debug for BCRYPTGENRANDOM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_DH_KEY_BLOB_MAGIC(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_DH_PUBLIC_MAGIC: BCRYPT_DH_KEY_BLOB_MAGIC = BCRYPT_DH_KEY_BLOB_MAGIC(1112557636u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_DH_PRIVATE_MAGIC: BCRYPT_DH_KEY_BLOB_MAGIC = BCRYPT_DH_KEY_BLOB_MAGIC(1448101956u32);
 impl ::core::marker::Copy for BCRYPT_DH_KEY_BLOB_MAGIC {}
 impl ::core::clone::Clone for BCRYPT_DH_KEY_BLOB_MAGIC {
     fn clone(&self) -> Self {
@@ -10116,10 +11164,6 @@ impl ::core::fmt::Debug for BCRYPT_DH_KEY_BLOB_MAGIC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_DSA_MAGIC(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_DSA_PUBLIC_MAGIC: BCRYPT_DSA_MAGIC = BCRYPT_DSA_MAGIC(1112560452u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_DSA_PRIVATE_MAGIC: BCRYPT_DSA_MAGIC = BCRYPT_DSA_MAGIC(1448104772u32);
 impl ::core::marker::Copy for BCRYPT_DSA_MAGIC {}
 impl ::core::clone::Clone for BCRYPT_DSA_MAGIC {
     fn clone(&self) -> Self {
@@ -10143,16 +11187,6 @@ impl ::core::fmt::Debug for BCRYPT_DSA_MAGIC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_BLOCK_PADDING: BCRYPT_FLAGS = BCRYPT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_PAD_NONE: BCRYPT_FLAGS = BCRYPT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_PAD_OAEP: BCRYPT_FLAGS = BCRYPT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_PAD_PKCS1: BCRYPT_FLAGS = BCRYPT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_PAD_PSS: BCRYPT_FLAGS = BCRYPT_FLAGS(8u32);
 impl ::core::marker::Copy for BCRYPT_FLAGS {}
 impl ::core::clone::Clone for BCRYPT_FLAGS {
     fn clone(&self) -> Self {
@@ -10209,10 +11243,6 @@ impl ::core::ops::Not for BCRYPT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_HASH_OPERATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_HASH_OPERATION_HASH_DATA: BCRYPT_HASH_OPERATION_TYPE = BCRYPT_HASH_OPERATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_HASH_OPERATION_FINISH_HASH: BCRYPT_HASH_OPERATION_TYPE = BCRYPT_HASH_OPERATION_TYPE(2i32);
 impl ::core::marker::Copy for BCRYPT_HASH_OPERATION_TYPE {}
 impl ::core::clone::Clone for BCRYPT_HASH_OPERATION_TYPE {
     fn clone(&self) -> Self {
@@ -10236,24 +11266,6 @@ impl ::core::fmt::Debug for BCRYPT_HASH_OPERATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_INTERFACE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_CIPHER_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_HASH_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_RNG_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(6u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_SECRET_AGREEMENT_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_SIGNATURE_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(5u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_KEY_STORAGE_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(65537u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_SCHANNEL_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(65538u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_SCHANNEL_SIGNATURE_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(65539u32);
 impl ::core::marker::Copy for BCRYPT_INTERFACE {}
 impl ::core::clone::Clone for BCRYPT_INTERFACE {
     fn clone(&self) -> Self {
@@ -10277,8 +11289,6 @@ impl ::core::fmt::Debug for BCRYPT_INTERFACE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_MULTI_OPERATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_OPERATION_TYPE_HASH: BCRYPT_MULTI_OPERATION_TYPE = BCRYPT_MULTI_OPERATION_TYPE(1i32);
 impl ::core::marker::Copy for BCRYPT_MULTI_OPERATION_TYPE {}
 impl ::core::clone::Clone for BCRYPT_MULTI_OPERATION_TYPE {
     fn clone(&self) -> Self {
@@ -10302,12 +11312,6 @@ impl ::core::fmt::Debug for BCRYPT_MULTI_OPERATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_PROV_DISPATCH: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_HASH_REUSABLE_FLAG: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(32u32);
 impl ::core::marker::Copy for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {}
 impl ::core::clone::Clone for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
     fn clone(&self) -> Self {
@@ -10364,18 +11368,6 @@ impl ::core::ops::Not for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_OPERATION(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_CIPHER_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_HASH_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_SECRET_AGREEMENT_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_SIGNATURE_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(16u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_RNG_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(32u32);
 impl ::core::marker::Copy for BCRYPT_OPERATION {}
 impl ::core::clone::Clone for BCRYPT_OPERATION {
     fn clone(&self) -> Self {
@@ -10432,14 +11424,6 @@ impl ::core::ops::Not for BCRYPT_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_QUERY_PROVIDER_MODE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ANY: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_UM: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_KM: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_MM: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(3u32);
 impl ::core::marker::Copy for BCRYPT_QUERY_PROVIDER_MODE {}
 impl ::core::clone::Clone for BCRYPT_QUERY_PROVIDER_MODE {
     fn clone(&self) -> Self {
@@ -10463,10 +11447,6 @@ impl ::core::fmt::Debug for BCRYPT_QUERY_PROVIDER_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_RESOLVE_PROVIDERS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ALL_FUNCTIONS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = BCRYPT_RESOLVE_PROVIDERS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ALL_PROVIDERS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = BCRYPT_RESOLVE_PROVIDERS_FLAGS(2u32);
 impl ::core::marker::Copy for BCRYPT_RESOLVE_PROVIDERS_FLAGS {}
 impl ::core::clone::Clone for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
     fn clone(&self) -> Self {
@@ -10523,12 +11503,6 @@ impl ::core::ops::Not for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_RSAKEY_BLOB_MAGIC(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_RSAPUBLIC_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = BCRYPT_RSAKEY_BLOB_MAGIC(826364754u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_RSAPRIVATE_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = BCRYPT_RSAKEY_BLOB_MAGIC(843141970u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_RSAFULLPRIVATE_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = BCRYPT_RSAKEY_BLOB_MAGIC(859919186u32);
 impl ::core::marker::Copy for BCRYPT_RSAKEY_BLOB_MAGIC {}
 impl ::core::clone::Clone for BCRYPT_RSAKEY_BLOB_MAGIC {
     fn clone(&self) -> Self {
@@ -10552,10 +11526,6 @@ impl ::core::fmt::Debug for BCRYPT_RSAKEY_BLOB_MAGIC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BCRYPT_TABLE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_LOCAL: BCRYPT_TABLE = BCRYPT_TABLE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_DOMAIN: BCRYPT_TABLE = BCRYPT_TABLE(2u32);
 impl ::core::marker::Copy for BCRYPT_TABLE {}
 impl ::core::clone::Clone for BCRYPT_TABLE {
     fn clone(&self) -> Self {
@@ -10579,42 +11549,6 @@ impl ::core::fmt::Debug for BCRYPT_TABLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CASetupProperty(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_INVALID: CASetupProperty = CASetupProperty(-1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_CATYPE: CASetupProperty = CASetupProperty(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_CAKEYINFORMATION: CASetupProperty = CASetupProperty(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_INTERACTIVE: CASetupProperty = CASetupProperty(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_CANAME: CASetupProperty = CASetupProperty(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_CADSSUFFIX: CASetupProperty = CASetupProperty(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_VALIDITYPERIOD: CASetupProperty = CASetupProperty(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_VALIDITYPERIODUNIT: CASetupProperty = CASetupProperty(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_EXPIRATIONDATE: CASetupProperty = CASetupProperty(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_PRESERVEDATABASE: CASetupProperty = CASetupProperty(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_DATABASEDIRECTORY: CASetupProperty = CASetupProperty(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_LOGDIRECTORY: CASetupProperty = CASetupProperty(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_SHAREDFOLDER: CASetupProperty = CASetupProperty(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_PARENTCAMACHINE: CASetupProperty = CASetupProperty(12i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_PARENTCANAME: CASetupProperty = CASetupProperty(13i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_REQUESTFILE: CASetupProperty = CASetupProperty(14i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_WEBCAMACHINE: CASetupProperty = CASetupProperty(15i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_SETUPPROP_WEBCANAME: CASetupProperty = CASetupProperty(16i32);
 impl ::core::marker::Copy for CASetupProperty {}
 impl ::core::clone::Clone for CASetupProperty {
     fn clone(&self) -> Self {
@@ -10638,14 +11572,6 @@ impl ::core::fmt::Debug for CASetupProperty {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CEPSetupProperty(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_AUTHENTICATION: CEPSetupProperty = CEPSetupProperty(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_SSLCERTHASH: CEPSetupProperty = CEPSetupProperty(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_URL: CEPSetupProperty = CEPSetupProperty(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_KEYBASED_RENEWAL: CEPSetupProperty = CEPSetupProperty(3i32);
 impl ::core::marker::Copy for CEPSetupProperty {}
 impl ::core::clone::Clone for CEPSetupProperty {
     fn clone(&self) -> Self {
@@ -10669,10 +11595,6 @@ impl ::core::fmt::Debug for CEPSetupProperty {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_BIOMETRIC_DATA_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_BIOMETRIC_PREDEFINED_DATA_CHOICE: CERT_BIOMETRIC_DATA_TYPE = CERT_BIOMETRIC_DATA_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_BIOMETRIC_OID_DATA_CHOICE: CERT_BIOMETRIC_DATA_TYPE = CERT_BIOMETRIC_DATA_TYPE(2u32);
 impl ::core::marker::Copy for CERT_BIOMETRIC_DATA_TYPE {}
 impl ::core::clone::Clone for CERT_BIOMETRIC_DATA_TYPE {
     fn clone(&self) -> Self {
@@ -10696,42 +11618,6 @@ impl ::core::fmt::Debug for CERT_BIOMETRIC_DATA_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_CHAIN_POLICY_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_VALID_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_CTL_NOT_TIME_VALID_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_NESTED_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_ALL_NOT_TIME_VALID_FLAGS: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(7u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_INVALID_BASIC_CONSTRAINTS_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_ALLOW_UNKNOWN_CA_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_WRONG_USAGE_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_INVALID_NAME_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_INVALID_POLICY_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_END_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_CTL_SIGNER_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_CA_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_ROOT_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_ALL_REV_UNKNOWN_FLAGS: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(3840u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_ALLOW_TESTROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_TRUST_TESTROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_NOT_SUPPORTED_CRITICAL_EXT_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_POLICY_IGNORE_PEER_TRUST_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(4096u32);
 impl ::core::marker::Copy for CERT_CHAIN_POLICY_FLAGS {}
 impl ::core::clone::Clone for CERT_CHAIN_POLICY_FLAGS {
     fn clone(&self) -> Self {
@@ -10755,12 +11641,6 @@ impl ::core::fmt::Debug for CERT_CHAIN_POLICY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_CONTROL_STORE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_CTRL_COMMIT_FORCE_FLAG: CERT_CONTROL_STORE_FLAGS = CERT_CONTROL_STORE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_CTRL_COMMIT_CLEAR_FLAG: CERT_CONTROL_STORE_FLAGS = CERT_CONTROL_STORE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_CTRL_INHIBIT_DUPLICATE_HANDLE_FLAG: CERT_CONTROL_STORE_FLAGS = CERT_CONTROL_STORE_FLAGS(1u32);
 impl ::core::marker::Copy for CERT_CONTROL_STORE_FLAGS {}
 impl ::core::clone::Clone for CERT_CONTROL_STORE_FLAGS {
     fn clone(&self) -> Self {
@@ -10784,10 +11664,6 @@ impl ::core::fmt::Debug for CERT_CONTROL_STORE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_CREATE_SELFSIGN_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CREATE_SELFSIGN_NO_KEY_INFO: CERT_CREATE_SELFSIGN_FLAGS = CERT_CREATE_SELFSIGN_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CREATE_SELFSIGN_NO_SIGN: CERT_CREATE_SELFSIGN_FLAGS = CERT_CREATE_SELFSIGN_FLAGS(1u32);
 impl ::core::marker::Copy for CERT_CREATE_SELFSIGN_FLAGS {}
 impl ::core::clone::Clone for CERT_CREATE_SELFSIGN_FLAGS {
     fn clone(&self) -> Self {
@@ -10844,18 +11720,6 @@ impl ::core::ops::Not for CERT_CREATE_SELFSIGN_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_FIND_CHAIN_IN_STORE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_COMPARE_KEY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_COMPLEX_CHAIN_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_CACHE_ONLY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_CACHE_ONLY_URL_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_LOCAL_MACHINE_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_NO_KEY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(16384u32);
 impl ::core::marker::Copy for CERT_FIND_CHAIN_IN_STORE_FLAGS {}
 impl ::core::clone::Clone for CERT_FIND_CHAIN_IN_STORE_FLAGS {
     fn clone(&self) -> Self {
@@ -10912,90 +11776,6 @@ impl ::core::ops::Not for CERT_FIND_CHAIN_IN_STORE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_FIND_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_ANY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_CERT_ID: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_CTL_USAGE: CERT_FIND_FLAGS = CERT_FIND_FLAGS(655360u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_ENHKEY_USAGE: CERT_FIND_FLAGS = CERT_FIND_FLAGS(655360u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_EXISTING: CERT_FIND_FLAGS = CERT_FIND_FLAGS(851968u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_HAS_PRIVATE_KEY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1376256u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_ISSUER_ATTR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(196612u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_ISSUER_NAME: CERT_FIND_FLAGS = CERT_FIND_FLAGS(131076u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_ISSUER_OF: CERT_FIND_FLAGS = CERT_FIND_FLAGS(786432u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_ISSUER_STR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524292u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_KEY_IDENTIFIER: CERT_FIND_FLAGS = CERT_FIND_FLAGS(983040u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_KEY_SPEC: CERT_FIND_FLAGS = CERT_FIND_FLAGS(589824u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_MD5_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_PROPERTY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(327680u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_PUBLIC_KEY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(393216u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_SHA1_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_SIGNATURE_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(917504u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_SUBJECT_ATTR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(196615u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_SUBJECT_CERT: CERT_FIND_FLAGS = CERT_FIND_FLAGS(720896u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_SUBJECT_NAME: CERT_FIND_FLAGS = CERT_FIND_FLAGS(131079u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_SUBJECT_STR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524295u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_CROSS_CERT_DIST_POINTS: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1114112u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_PUBKEY_MD5_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1179648u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_SUBJECT_STR_A: CERT_FIND_FLAGS = CERT_FIND_FLAGS(458759u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_SUBJECT_STR_W: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524295u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_ISSUER_STR_A: CERT_FIND_FLAGS = CERT_FIND_FLAGS(458756u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_ISSUER_STR_W: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524292u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_SUBJECT_INFO_ACCESS: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1245184u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_HASH_STR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1310720u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_OPTIONAL_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_EXT_ONLY_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_PROP_ONLY_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_NO_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_OR_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_VALID_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_OPTIONAL_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_EXT_ONLY_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_PROP_ONLY_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_NO_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_OR_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_FIND_VALID_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(32u32);
 impl ::core::marker::Copy for CERT_FIND_FLAGS {}
 impl ::core::clone::Clone for CERT_FIND_FLAGS {
     fn clone(&self) -> Self {
@@ -11052,20 +11832,6 @@ impl ::core::ops::Not for CERT_FIND_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_FIND_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CTL_FIND_ANY: CERT_FIND_TYPE = CERT_FIND_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CTL_FIND_SHA1_HASH: CERT_FIND_TYPE = CERT_FIND_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CTL_FIND_MD5_HASH: CERT_FIND_TYPE = CERT_FIND_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CTL_FIND_USAGE: CERT_FIND_TYPE = CERT_FIND_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CTL_FIND_SAME_USAGE_FLAG: CERT_FIND_TYPE = CERT_FIND_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CTL_FIND_EXISTING: CERT_FIND_TYPE = CERT_FIND_TYPE(5u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CTL_FIND_SUBJECT: CERT_FIND_TYPE = CERT_FIND_TYPE(4u32);
 impl ::core::marker::Copy for CERT_FIND_TYPE {}
 impl ::core::clone::Clone for CERT_FIND_TYPE {
     fn clone(&self) -> Self {
@@ -11089,12 +11855,6 @@ impl ::core::fmt::Debug for CERT_FIND_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_ID_OPTION(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_ID_ISSUER_SERIAL_NUMBER: CERT_ID_OPTION = CERT_ID_OPTION(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_ID_KEY_IDENTIFIER: CERT_ID_OPTION = CERT_ID_OPTION(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_ID_SHA1_HASH: CERT_ID_OPTION = CERT_ID_OPTION(3u32);
 impl ::core::marker::Copy for CERT_ID_OPTION {}
 impl ::core::clone::Clone for CERT_ID_OPTION {
     fn clone(&self) -> Self {
@@ -11118,12 +11878,6 @@ impl ::core::fmt::Debug for CERT_ID_OPTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_KEY_SPEC(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const AT_KEYEXCHANGE: CERT_KEY_SPEC = CERT_KEY_SPEC(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const AT_SIGNATURE: CERT_KEY_SPEC = CERT_KEY_SPEC(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_NCRYPT_KEY_SPEC: CERT_KEY_SPEC = CERT_KEY_SPEC(4294967295u32);
 impl ::core::marker::Copy for CERT_KEY_SPEC {}
 impl ::core::clone::Clone for CERT_KEY_SPEC {
     fn clone(&self) -> Self {
@@ -11147,12 +11901,6 @@ impl ::core::fmt::Debug for CERT_KEY_SPEC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_LOGOTYPE_CHOICE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_LOGOTYPE_NO_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(0u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_LOGOTYPE_BITS_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_LOGOTYPE_TABLE_SIZE_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(2u32);
 impl ::core::marker::Copy for CERT_LOGOTYPE_CHOICE {}
 impl ::core::clone::Clone for CERT_LOGOTYPE_CHOICE {
     fn clone(&self) -> Self {
@@ -11176,10 +11924,6 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_CHOICE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_LOGOTYPE_IMAGE_INFO_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_LOGOTYPE_GRAY_SCALE_IMAGE_INFO_CHOICE: CERT_LOGOTYPE_IMAGE_INFO_TYPE = CERT_LOGOTYPE_IMAGE_INFO_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_LOGOTYPE_COLOR_IMAGE_INFO_CHOICE: CERT_LOGOTYPE_IMAGE_INFO_TYPE = CERT_LOGOTYPE_IMAGE_INFO_TYPE(2u32);
 impl ::core::marker::Copy for CERT_LOGOTYPE_IMAGE_INFO_TYPE {}
 impl ::core::clone::Clone for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
     fn clone(&self) -> Self {
@@ -11203,10 +11947,6 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_LOGOTYPE_OPTION(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_LOGOTYPE_DIRECT_INFO_CHOICE: CERT_LOGOTYPE_OPTION = CERT_LOGOTYPE_OPTION(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_LOGOTYPE_INDIRECT_INFO_CHOICE: CERT_LOGOTYPE_OPTION = CERT_LOGOTYPE_OPTION(2u32);
 impl ::core::marker::Copy for CERT_LOGOTYPE_OPTION {}
 impl ::core::clone::Clone for CERT_LOGOTYPE_OPTION {
     fn clone(&self) -> Self {
@@ -11230,30 +11970,6 @@ impl ::core::fmt::Debug for CERT_LOGOTYPE_OPTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_OPEN_STORE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_BACKUP_RESTORE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_CREATE_NEW_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_DEFER_CLOSE_UNTIL_LAST_FREE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_DELETE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_ENUM_ARCHIVED_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_MAXIMUM_ALLOWED_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_NO_CRYPT_RELEASE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_OPEN_EXISTING_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_READONLY_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_SET_LOCALIZED_NAME_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_SHARE_CONTEXT_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_UPDATE_KEYID_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(1024u32);
 impl ::core::marker::Copy for CERT_OPEN_STORE_FLAGS {}
 impl ::core::clone::Clone for CERT_OPEN_STORE_FLAGS {
     fn clone(&self) -> Self {
@@ -11277,34 +11993,6 @@ impl ::core::fmt::Debug for CERT_OPEN_STORE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_CONTENT_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_CERT: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_CTL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_CRL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_SERIALIZED_STORE: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_SERIALIZED_CERT: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(5u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_SERIALIZED_CTL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(6u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_SERIALIZED_CRL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(7u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_PKCS7_SIGNED: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_PKCS7_UNSIGNED: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(9u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_PKCS7_SIGNED_EMBED: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(10u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_PKCS10: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(11u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_PFX: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(12u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_CERT_PAIR: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(13u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_PFX_AND_LOAD: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(14u32);
 impl ::core::marker::Copy for CERT_QUERY_CONTENT_TYPE {}
 impl ::core::clone::Clone for CERT_QUERY_CONTENT_TYPE {
     fn clone(&self) -> Self {
@@ -11328,38 +12016,6 @@ impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_CONTENT_TYPE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_CTL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_CRL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_STORE: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CTL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CRL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_PKCS7_SIGNED: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_PKCS7_UNSIGNED: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_PKCS7_SIGNED_EMBED: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_PKCS10: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_PFX: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_CERT_PAIR: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_PFX_AND_LOAD: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_ALL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(16382u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_CONTENT_FLAG_ALL_ISSUER_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(818u32);
 impl ::core::marker::Copy for CERT_QUERY_CONTENT_TYPE_FLAGS {}
 impl ::core::clone::Clone for CERT_QUERY_CONTENT_TYPE_FLAGS {
     fn clone(&self) -> Self {
@@ -11383,10 +12039,6 @@ impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_ENCODING_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const X509_ASN_ENCODING: CERT_QUERY_ENCODING_TYPE = CERT_QUERY_ENCODING_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PKCS_7_ASN_ENCODING: CERT_QUERY_ENCODING_TYPE = CERT_QUERY_ENCODING_TYPE(65536u32);
 impl ::core::marker::Copy for CERT_QUERY_ENCODING_TYPE {}
 impl ::core::clone::Clone for CERT_QUERY_ENCODING_TYPE {
     fn clone(&self) -> Self {
@@ -11443,12 +12095,6 @@ impl ::core::ops::Not for CERT_QUERY_ENCODING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_FORMAT_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_FORMAT_BINARY: CERT_QUERY_FORMAT_TYPE = CERT_QUERY_FORMAT_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_FORMAT_BASE64_ENCODED: CERT_QUERY_FORMAT_TYPE = CERT_QUERY_FORMAT_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_FORMAT_ASN_ASCII_HEX_ENCODED: CERT_QUERY_FORMAT_TYPE = CERT_QUERY_FORMAT_TYPE(3u32);
 impl ::core::marker::Copy for CERT_QUERY_FORMAT_TYPE {}
 impl ::core::clone::Clone for CERT_QUERY_FORMAT_TYPE {
     fn clone(&self) -> Self {
@@ -11472,14 +12118,6 @@ impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_FORMAT_TYPE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_FORMAT_FLAG_BINARY: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_FORMAT_FLAG_BASE64_ENCODED: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_FORMAT_FLAG_ASN_ASCII_HEX_ENCODED: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_FORMAT_FLAG_ALL: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(14u32);
 impl ::core::marker::Copy for CERT_QUERY_FORMAT_TYPE_FLAGS {}
 impl ::core::clone::Clone for CERT_QUERY_FORMAT_TYPE_FLAGS {
     fn clone(&self) -> Self {
@@ -11503,10 +12141,6 @@ impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_QUERY_OBJECT_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_OBJECT_FILE: CERT_QUERY_OBJECT_TYPE = CERT_QUERY_OBJECT_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_QUERY_OBJECT_BLOB: CERT_QUERY_OBJECT_TYPE = CERT_QUERY_OBJECT_TYPE(2u32);
 impl ::core::marker::Copy for CERT_QUERY_OBJECT_TYPE {}
 impl ::core::clone::Clone for CERT_QUERY_OBJECT_TYPE {
     fn clone(&self) -> Self {
@@ -11530,42 +12164,6 @@ impl ::core::fmt::Debug for CERT_QUERY_OBJECT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_RDN_ATTR_VALUE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_ANY_TYPE: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_NUMERIC_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_PRINTABLE_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_T61_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_VIDEOTEX_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_IA5_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_GRAPHIC_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_ISO646_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_GENERAL_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_INT4_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_UNICODE_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_BMP_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_ENCODED_BLOB: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_OCTET_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_TELETEX_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_UNIVERSAL_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_UTF8_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_RDN_VISIBLE_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(9i32);
 impl ::core::marker::Copy for CERT_RDN_ATTR_VALUE_TYPE {}
 impl ::core::clone::Clone for CERT_RDN_ATTR_VALUE_TYPE {
     fn clone(&self) -> Self {
@@ -11589,22 +12187,6 @@ impl ::core::fmt::Debug for CERT_RDN_ATTR_VALUE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_REVOCATION_STATUS_REASON(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRL_REASON_UNSPECIFIED: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(0u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRL_REASON_KEY_COMPROMISE: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRL_REASON_CA_COMPROMISE: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRL_REASON_AFFILIATION_CHANGED: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRL_REASON_SUPERSEDED: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRL_REASON_CESSATION_OF_OPERATION: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(5u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRL_REASON_CERTIFICATE_HOLD: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(6u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRL_REASON_REMOVE_FROM_CRL: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(8u32);
 impl ::core::marker::Copy for CERT_REVOCATION_STATUS_REASON {}
 impl ::core::clone::Clone for CERT_REVOCATION_STATUS_REASON {
     fn clone(&self) -> Self {
@@ -11628,12 +12210,6 @@ impl ::core::fmt::Debug for CERT_REVOCATION_STATUS_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_ROOT_PROGRAM_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_ROOT_PROGRAM_FLAG_LSC: CERT_ROOT_PROGRAM_FLAGS = CERT_ROOT_PROGRAM_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_ROOT_PROGRAM_FLAG_ORG: CERT_ROOT_PROGRAM_FLAGS = CERT_ROOT_PROGRAM_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_ROOT_PROGRAM_FLAG_SUBJECT_LOGO: CERT_ROOT_PROGRAM_FLAGS = CERT_ROOT_PROGRAM_FLAGS(32u32);
 impl ::core::marker::Copy for CERT_ROOT_PROGRAM_FLAGS {}
 impl ::core::clone::Clone for CERT_ROOT_PROGRAM_FLAGS {
     fn clone(&self) -> Self {
@@ -11690,28 +12266,6 @@ impl ::core::ops::Not for CERT_ROOT_PROGRAM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_SELECT_CRITERIA_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SELECT_BY_ENHKEY_USAGE: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SELECT_BY_KEY_USAGE: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SELECT_BY_POLICY_OID: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SELECT_BY_PROV_NAME: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SELECT_BY_EXTENSION: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(5u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SELECT_BY_SUBJECT_HOST_NAME: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(6u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SELECT_BY_ISSUER_ATTR: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(7u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SELECT_BY_SUBJECT_ATTR: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SELECT_BY_ISSUER_NAME: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(9u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SELECT_BY_PUBLIC_KEY: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(10u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SELECT_BY_TLS_SIGNATURES: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(11u32);
 impl ::core::marker::Copy for CERT_SELECT_CRITERIA_TYPE {}
 impl ::core::clone::Clone for CERT_SELECT_CRITERIA_TYPE {
     fn clone(&self) -> Self {
@@ -11735,16 +12289,6 @@ impl ::core::fmt::Debug for CERT_SELECT_CRITERIA_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_STORE_PROV_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_PROV_EXTERNAL_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_PROV_DELETED_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_PROV_NO_PERSIST_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_PROV_SYSTEM_STORE_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_PROV_LM_SYSTEM_STORE_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(16u32);
 impl ::core::marker::Copy for CERT_STORE_PROV_FLAGS {}
 impl ::core::clone::Clone for CERT_STORE_PROV_FLAGS {
     fn clone(&self) -> Self {
@@ -11801,10 +12345,6 @@ impl ::core::ops::Not for CERT_STORE_PROV_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_STORE_SAVE_AS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_SAVE_AS_PKCS7: CERT_STORE_SAVE_AS = CERT_STORE_SAVE_AS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_SAVE_AS_STORE: CERT_STORE_SAVE_AS = CERT_STORE_SAVE_AS(1u32);
 impl ::core::marker::Copy for CERT_STORE_SAVE_AS {}
 impl ::core::clone::Clone for CERT_STORE_SAVE_AS {
     fn clone(&self) -> Self {
@@ -11828,16 +12368,6 @@ impl ::core::fmt::Debug for CERT_STORE_SAVE_AS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_STORE_SAVE_TO(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_SAVE_TO_FILE: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_SAVE_TO_FILENAME: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_SAVE_TO_FILENAME_A: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_SAVE_TO_FILENAME_W: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STORE_SAVE_TO_MEMORY: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(2u32);
 impl ::core::marker::Copy for CERT_STORE_SAVE_TO {}
 impl ::core::clone::Clone for CERT_STORE_SAVE_TO {
     fn clone(&self) -> Self {
@@ -11861,12 +12391,6 @@ impl ::core::fmt::Debug for CERT_STORE_SAVE_TO {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_STRING_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SIMPLE_NAME_STR: CERT_STRING_TYPE = CERT_STRING_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_OID_NAME_STR: CERT_STRING_TYPE = CERT_STRING_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_X500_NAME_STR: CERT_STRING_TYPE = CERT_STRING_TYPE(3u32);
 impl ::core::marker::Copy for CERT_STRING_TYPE {}
 impl ::core::clone::Clone for CERT_STRING_TYPE {
     fn clone(&self) -> Self {
@@ -11890,10 +12414,6 @@ impl ::core::fmt::Debug for CERT_STRING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_STRONG_SIGN_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STRONG_SIGN_ENABLE_CRL_CHECK: CERT_STRONG_SIGN_FLAGS = CERT_STRONG_SIGN_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_STRONG_SIGN_ENABLE_OCSP_CHECK: CERT_STRONG_SIGN_FLAGS = CERT_STRONG_SIGN_FLAGS(2u32);
 impl ::core::marker::Copy for CERT_STRONG_SIGN_FLAGS {}
 impl ::core::clone::Clone for CERT_STRONG_SIGN_FLAGS {
     fn clone(&self) -> Self {
@@ -11950,10 +12470,6 @@ impl ::core::ops::Not for CERT_STRONG_SIGN_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CERT_SYSTEM_STORE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SYSTEM_STORE_LOCATION_MASK: CERT_SYSTEM_STORE_FLAGS = CERT_SYSTEM_STORE_FLAGS(16711680u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SYSTEM_STORE_RELOCATE_FLAG: CERT_SYSTEM_STORE_FLAGS = CERT_SYSTEM_STORE_FLAGS(2147483648u32);
 impl ::core::marker::Copy for CERT_SYSTEM_STORE_FLAGS {}
 impl ::core::clone::Clone for CERT_SYSTEM_STORE_FLAGS {
     fn clone(&self) -> Self {
@@ -11977,20 +12493,6 @@ impl ::core::fmt::Debug for CERT_SYSTEM_STORE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CESSetupProperty(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CESSETUPPROP_USE_IISAPPPOOLIDENTITY: CESSetupProperty = CESSetupProperty(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CESSETUPPROP_CACONFIG: CESSetupProperty = CESSetupProperty(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CESSETUPPROP_AUTHENTICATION: CESSetupProperty = CESSetupProperty(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CESSETUPPROP_SSLCERTHASH: CESSetupProperty = CESSetupProperty(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CESSETUPPROP_URL: CESSetupProperty = CESSetupProperty(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CESSETUPPROP_RENEWALONLY: CESSetupProperty = CESSetupProperty(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CESSETUPPROP_ALLOW_KEYBASED_RENEWAL: CESSetupProperty = CESSetupProperty(6i32);
 impl ::core::marker::Copy for CESSetupProperty {}
 impl ::core::clone::Clone for CESSetupProperty {
     fn clone(&self) -> Self {
@@ -12014,10 +12516,6 @@ impl ::core::fmt::Debug for CESSetupProperty {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CMSG_KEY_AGREE_OPTION(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CMSG_KEY_AGREE_EPHEMERAL_KEY_CHOICE: CMSG_KEY_AGREE_OPTION = CMSG_KEY_AGREE_OPTION(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CMSG_KEY_AGREE_STATIC_KEY_CHOICE: CMSG_KEY_AGREE_OPTION = CMSG_KEY_AGREE_OPTION(2u32);
 impl ::core::marker::Copy for CMSG_KEY_AGREE_OPTION {}
 impl ::core::clone::Clone for CMSG_KEY_AGREE_OPTION {
     fn clone(&self) -> Self {
@@ -12041,10 +12539,6 @@ impl ::core::fmt::Debug for CMSG_KEY_AGREE_OPTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CMSG_KEY_AGREE_ORIGINATOR(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CMSG_KEY_AGREE_ORIGINATOR_CERT: CMSG_KEY_AGREE_ORIGINATOR = CMSG_KEY_AGREE_ORIGINATOR(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CMSG_KEY_AGREE_ORIGINATOR_PUBLIC_KEY: CMSG_KEY_AGREE_ORIGINATOR = CMSG_KEY_AGREE_ORIGINATOR(2u32);
 impl ::core::marker::Copy for CMSG_KEY_AGREE_ORIGINATOR {}
 impl ::core::clone::Clone for CMSG_KEY_AGREE_ORIGINATOR {
     fn clone(&self) -> Self {
@@ -12068,16 +12562,6 @@ impl ::core::fmt::Debug for CMSG_KEY_AGREE_ORIGINATOR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_ACQUIRE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ACQUIRE_CACHE_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ACQUIRE_COMPARE_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ACQUIRE_NO_HEALING: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ACQUIRE_SILENT_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ACQUIRE_USE_PROV_INFO_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(2u32);
 impl ::core::marker::Copy for CRYPT_ACQUIRE_FLAGS {}
 impl ::core::clone::Clone for CRYPT_ACQUIRE_FLAGS {
     fn clone(&self) -> Self {
@@ -12134,10 +12618,6 @@ impl ::core::ops::Not for CRYPT_ACQUIRE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_CONTEXT_CONFIG_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_EXCLUSIVE: CRYPT_CONTEXT_CONFIG_FLAGS = CRYPT_CONTEXT_CONFIG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_OVERRIDE: CRYPT_CONTEXT_CONFIG_FLAGS = CRYPT_CONTEXT_CONFIG_FLAGS(65536u32);
 impl ::core::marker::Copy for CRYPT_CONTEXT_CONFIG_FLAGS {}
 impl ::core::clone::Clone for CRYPT_CONTEXT_CONFIG_FLAGS {
     fn clone(&self) -> Self {
@@ -12194,10 +12674,6 @@ impl ::core::ops::Not for CRYPT_CONTEXT_CONFIG_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_DEFAULT_CONTEXT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_DEFAULT_CONTEXT_AUTO_RELEASE_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = CRYPT_DEFAULT_CONTEXT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_DEFAULT_CONTEXT_PROCESS_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = CRYPT_DEFAULT_CONTEXT_FLAGS(2u32);
 impl ::core::marker::Copy for CRYPT_DEFAULT_CONTEXT_FLAGS {}
 impl ::core::clone::Clone for CRYPT_DEFAULT_CONTEXT_FLAGS {
     fn clone(&self) -> Self {
@@ -12254,10 +12730,6 @@ impl ::core::ops::Not for CRYPT_DEFAULT_CONTEXT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_DEFAULT_CONTEXT_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_DEFAULT_CONTEXT_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = CRYPT_DEFAULT_CONTEXT_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_DEFAULT_CONTEXT_MULTI_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = CRYPT_DEFAULT_CONTEXT_TYPE(2u32);
 impl ::core::marker::Copy for CRYPT_DEFAULT_CONTEXT_TYPE {}
 impl ::core::clone::Clone for CRYPT_DEFAULT_CONTEXT_TYPE {
     fn clone(&self) -> Self {
@@ -12281,16 +12753,6 @@ impl ::core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_ENCODE_OBJECT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ENCODE_ALLOC_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ENCODE_ENABLE_PUNYCODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_UNICODE_NAME_ENCODE_DISABLE_CHECK_TYPE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(1073741824u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_T61_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_UTF8_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(536870912u32);
 impl ::core::marker::Copy for CRYPT_ENCODE_OBJECT_FLAGS {}
 impl ::core::clone::Clone for CRYPT_ENCODE_OBJECT_FLAGS {
     fn clone(&self) -> Self {
@@ -12347,12 +12809,6 @@ impl ::core::ops::Not for CRYPT_ENCODE_OBJECT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_FIND_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_FIND_USER_KEYSET_FLAG: CRYPT_FIND_FLAGS = CRYPT_FIND_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_FIND_MACHINE_KEYSET_FLAG: CRYPT_FIND_FLAGS = CRYPT_FIND_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_FIND_SILENT_KEYSET_FLAG: CRYPT_FIND_FLAGS = CRYPT_FIND_FLAGS(64u32);
 impl ::core::marker::Copy for CRYPT_FIND_FLAGS {}
 impl ::core::clone::Clone for CRYPT_FIND_FLAGS {
     fn clone(&self) -> Self {
@@ -12376,14 +12832,6 @@ impl ::core::fmt::Debug for CRYPT_FIND_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_GET_URL_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_GET_URL_FROM_PROPERTY: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_GET_URL_FROM_EXTENSION: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_GET_URL_FROM_UNAUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_GET_URL_FROM_AUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(8u32);
 impl ::core::marker::Copy for CRYPT_GET_URL_FLAGS {}
 impl ::core::clone::Clone for CRYPT_GET_URL_FLAGS {
     fn clone(&self) -> Self {
@@ -12440,10 +12888,6 @@ impl ::core::ops::Not for CRYPT_GET_URL_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_IMAGE_REF_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_MIN_DEPENDENCIES: CRYPT_IMAGE_REF_FLAGS = CRYPT_IMAGE_REF_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_PROCESS_ISOLATE: CRYPT_IMAGE_REF_FLAGS = CRYPT_IMAGE_REF_FLAGS(65536u32);
 impl ::core::marker::Copy for CRYPT_IMAGE_REF_FLAGS {}
 impl ::core::clone::Clone for CRYPT_IMAGE_REF_FLAGS {
     fn clone(&self) -> Self {
@@ -12500,10 +12944,6 @@ impl ::core::ops::Not for CRYPT_IMAGE_REF_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_IMPORT_PUBLIC_KEY_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_OID_INFO_PUBKEY_SIGN_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = CRYPT_IMPORT_PUBLIC_KEY_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_OID_INFO_PUBKEY_ENCRYPT_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = CRYPT_IMPORT_PUBLIC_KEY_FLAGS(1073741824u32);
 impl ::core::marker::Copy for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {}
 impl ::core::clone::Clone for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
     fn clone(&self) -> Self {
@@ -12560,68 +13000,6 @@ impl ::core::ops::Not for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_KEY_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_EXPORTABLE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_USER_PROTECTED: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ARCHIVABLE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_CREATE_IV: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_CREATE_SALT: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_DATA_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_FORCE_KEY_PROTECTION_HIGH: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_KEK: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_INITIATOR: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_NO_SALT: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_ONLINE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_PREGEN: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_RECIPIENT: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_SF: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_SGCKEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_VOLATILE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_MACHINE_KEYSET: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_USER_KEYSET: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PKCS12_PREFER_CNG_KSP: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PKCS12_ALWAYS_CNG_KSP: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PKCS12_ALLOW_OVERWRITE_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PKCS12_NO_PERSIST_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PKCS12_INCLUDE_EXTENDED_PROPERTIES: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_OAEP: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_BLOB_VER3: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_DESTROYKEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_SSL2_FALLBACK: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_Y_ONLY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_IPSEC_HMAC_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SET_KEY_PROV_HANDLE_PROP_ID: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CERT_SET_KEY_CONTEXT_PROP_ID: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
 impl ::core::marker::Copy for CRYPT_KEY_FLAGS {}
 impl ::core::clone::Clone for CRYPT_KEY_FLAGS {
     fn clone(&self) -> Self {
@@ -12678,22 +13056,6 @@ impl ::core::ops::Not for CRYPT_KEY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_KEY_PARAM_ID(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KP_ALGID: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(7u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KP_CERTIFICATE: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(26u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KP_PERMISSIONS: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(6u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KP_SALT: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KP_SALT_EX: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(10u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KP_BLOCKLEN: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KP_GET_USE_COUNT: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(42u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KP_KEYLEN: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(9u32);
 impl ::core::marker::Copy for CRYPT_KEY_PARAM_ID {}
 impl ::core::clone::Clone for CRYPT_KEY_PARAM_ID {
     fn clone(&self) -> Self {
@@ -12717,16 +13079,6 @@ impl ::core::fmt::Debug for CRYPT_KEY_PARAM_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_MSG_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CMSG_DATA: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CMSG_SIGNED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CMSG_ENVELOPED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CMSG_SIGNED_AND_ENVELOPED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CMSG_HASHED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(5u32);
 impl ::core::marker::Copy for CRYPT_MSG_TYPE {}
 impl ::core::clone::Clone for CRYPT_MSG_TYPE {
     fn clone(&self) -> Self {
@@ -12750,14 +13102,6 @@ impl ::core::fmt::Debug for CRYPT_MSG_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_OBJECT_LOCATOR_RELEASE_REASON(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_OBJECT_LOCATOR_RELEASE_SYSTEM_SHUTDOWN: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_OBJECT_LOCATOR_RELEASE_SERVICE_STOP: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_OBJECT_LOCATOR_RELEASE_PROCESS_EXIT: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_OBJECT_LOCATOR_RELEASE_DLL_UNLOAD: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(4u32);
 impl ::core::marker::Copy for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {}
 impl ::core::clone::Clone for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
     fn clone(&self) -> Self {
@@ -12781,10 +13125,6 @@ impl ::core::fmt::Debug for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_SET_HASH_PARAM(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const HP_HMAC_INFO: CRYPT_SET_HASH_PARAM = CRYPT_SET_HASH_PARAM(5u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const HP_HASHVAL: CRYPT_SET_HASH_PARAM = CRYPT_SET_HASH_PARAM(2u32);
 impl ::core::marker::Copy for CRYPT_SET_HASH_PARAM {}
 impl ::core::clone::Clone for CRYPT_SET_HASH_PARAM {
     fn clone(&self) -> Self {
@@ -12808,40 +13148,6 @@ impl ::core::fmt::Debug for CRYPT_SET_HASH_PARAM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_SET_PROV_PARAM_ID(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_CLIENT_HWND: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_DELETEKEY: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(24u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_KEYEXCHANGE_ALG: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(14u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_KEYEXCHANGE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(32u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_KEYEXCHANGE_KEYSIZE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(12u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_KEYSET_SEC_DESCR: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_PIN_PROMPT_STRING: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(44u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_ROOT_CERTSTORE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(46u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_SIGNATURE_ALG: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(15u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_SIGNATURE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(33u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_SIGNATURE_KEYSIZE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(13u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_UI_PROMPT: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(21u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_USE_HARDWARE_RNG: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(38u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_USER_CERTSTORE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(42u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_SECURE_KEYEXCHANGE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(47u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_SECURE_SIGNATURE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(48u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PP_SMARTCARD_READER: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(43u32);
 impl ::core::marker::Copy for CRYPT_SET_PROV_PARAM_ID {}
 impl ::core::clone::Clone for CRYPT_SET_PROV_PARAM_ID {
     fn clone(&self) -> Self {
@@ -12865,34 +13171,6 @@ impl ::core::fmt::Debug for CRYPT_SET_PROV_PARAM_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_STRING(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_BASE64HEADER: CRYPT_STRING = CRYPT_STRING(0u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_BASE64: CRYPT_STRING = CRYPT_STRING(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_BINARY: CRYPT_STRING = CRYPT_STRING(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_BASE64REQUESTHEADER: CRYPT_STRING = CRYPT_STRING(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_HEX: CRYPT_STRING = CRYPT_STRING(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_HEXASCII: CRYPT_STRING = CRYPT_STRING(5u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_BASE64X509CRLHEADER: CRYPT_STRING = CRYPT_STRING(9u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_HEXADDR: CRYPT_STRING = CRYPT_STRING(10u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_HEXASCIIADDR: CRYPT_STRING = CRYPT_STRING(11u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_HEXRAW: CRYPT_STRING = CRYPT_STRING(12u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_STRICT: CRYPT_STRING = CRYPT_STRING(536870912u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_BASE64_ANY: CRYPT_STRING = CRYPT_STRING(6u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_ANY: CRYPT_STRING = CRYPT_STRING(7u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_STRING_HEX_ANY: CRYPT_STRING = CRYPT_STRING(8u32);
 impl ::core::marker::Copy for CRYPT_STRING {}
 impl ::core::clone::Clone for CRYPT_STRING {
     fn clone(&self) -> Self {
@@ -12916,18 +13194,6 @@ impl ::core::fmt::Debug for CRYPT_STRING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_TIMESTAMP_RESPONSE_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const TIMESTAMP_STATUS_GRANTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(0u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const TIMESTAMP_STATUS_GRANTED_WITH_MODS: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const TIMESTAMP_STATUS_REJECTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const TIMESTAMP_STATUS_WAITING: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const TIMESTAMP_STATUS_REVOCATION_WARNING: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const TIMESTAMP_STATUS_REVOKED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(5u32);
 impl ::core::marker::Copy for CRYPT_TIMESTAMP_RESPONSE_STATUS {}
 impl ::core::clone::Clone for CRYPT_TIMESTAMP_RESPONSE_STATUS {
     fn clone(&self) -> Self {
@@ -12951,8 +13217,6 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_RESPONSE_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_TIMESTAMP_VERSION(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const TIMESTAMP_VERSION: CRYPT_TIMESTAMP_VERSION = CRYPT_TIMESTAMP_VERSION(1u32);
 impl ::core::marker::Copy for CRYPT_TIMESTAMP_VERSION {}
 impl ::core::clone::Clone for CRYPT_TIMESTAMP_VERSION {
     fn clone(&self) -> Self {
@@ -12976,12 +13240,6 @@ impl ::core::fmt::Debug for CRYPT_TIMESTAMP_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_VERIFY_CERT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_VERIFY_CERT_SIGN_DISABLE_MD2_MD4_FLAG: CRYPT_VERIFY_CERT_FLAGS = CRYPT_VERIFY_CERT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_VERIFY_CERT_SIGN_SET_STRONG_PROPERTIES_FLAG: CRYPT_VERIFY_CERT_FLAGS = CRYPT_VERIFY_CERT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_VERIFY_CERT_SIGN_RETURN_STRONG_PROPERTIES_FLAG: CRYPT_VERIFY_CERT_FLAGS = CRYPT_VERIFY_CERT_FLAGS(4u32);
 impl ::core::marker::Copy for CRYPT_VERIFY_CERT_FLAGS {}
 impl ::core::clone::Clone for CRYPT_VERIFY_CERT_FLAGS {
     fn clone(&self) -> Self {
@@ -13005,14 +13263,6 @@ impl ::core::fmt::Debug for CRYPT_VERIFY_CERT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_CHARSET(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_CHARSET_AUTO: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_CHARSET_UTF8: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_CHARSET_UTF16LE: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_CHARSET_UTF16BE: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(3i32);
 impl ::core::marker::Copy for CRYPT_XML_CHARSET {}
 impl ::core::clone::Clone for CRYPT_XML_CHARSET {
     fn clone(&self) -> Self {
@@ -13036,12 +13286,6 @@ impl ::core::fmt::Debug for CRYPT_XML_CHARSET {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_FLAG_DISABLE_EXTENSIONS: CRYPT_XML_FLAGS = CRYPT_XML_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_FLAG_NO_SERIALIZE: CRYPT_XML_FLAGS = CRYPT_XML_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_SIGN_ADD_KEYVALUE: CRYPT_XML_FLAGS = CRYPT_XML_FLAGS(1u32);
 impl ::core::marker::Copy for CRYPT_XML_FLAGS {}
 impl ::core::clone::Clone for CRYPT_XML_FLAGS {
     fn clone(&self) -> Self {
@@ -13065,10 +13309,6 @@ impl ::core::fmt::Debug for CRYPT_XML_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_GROUP_ID(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_GROUP_ID_HASH: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP_ID(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_GROUP_ID_SIGN: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP_ID(2u32);
 impl ::core::marker::Copy for CRYPT_XML_GROUP_ID {}
 impl ::core::clone::Clone for CRYPT_XML_GROUP_ID {
     fn clone(&self) -> Self {
@@ -13092,12 +13332,6 @@ impl ::core::fmt::Debug for CRYPT_XML_GROUP_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_KEYINFO_SPEC(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEYINFO_SPEC_NONE: CRYPT_XML_KEYINFO_SPEC = CRYPT_XML_KEYINFO_SPEC(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEYINFO_SPEC_ENCODED: CRYPT_XML_KEYINFO_SPEC = CRYPT_XML_KEYINFO_SPEC(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEYINFO_SPEC_PARAM: CRYPT_XML_KEYINFO_SPEC = CRYPT_XML_KEYINFO_SPEC(2i32);
 impl ::core::marker::Copy for CRYPT_XML_KEYINFO_SPEC {}
 impl ::core::clone::Clone for CRYPT_XML_KEYINFO_SPEC {
     fn clone(&self) -> Self {
@@ -13121,16 +13355,6 @@ impl ::core::fmt::Debug for CRYPT_XML_KEYINFO_SPEC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_KEYINFO_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEYINFO_TYPE_KEYNAME: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEYINFO_TYPE_KEYVALUE: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEYINFO_TYPE_X509DATA: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEYINFO_TYPE_CUSTOM: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(5u32);
 impl ::core::marker::Copy for CRYPT_XML_KEYINFO_TYPE {}
 impl ::core::clone::Clone for CRYPT_XML_KEYINFO_TYPE {
     fn clone(&self) -> Self {
@@ -13154,14 +13378,6 @@ impl ::core::fmt::Debug for CRYPT_XML_KEYINFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_KEY_VALUE_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEY_VALUE_TYPE_DSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEY_VALUE_TYPE_RSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_KEY_VALUE_TYPE_CUSTOM: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(4u32);
 impl ::core::marker::Copy for CRYPT_XML_KEY_VALUE_TYPE {}
 impl ::core::clone::Clone for CRYPT_XML_KEY_VALUE_TYPE {
     fn clone(&self) -> Self {
@@ -13185,16 +13401,6 @@ impl ::core::fmt::Debug for CRYPT_XML_KEY_VALUE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_PROPERTY_MAX_HEAP_SIZE: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_PROPERTY_SIGNATURE_LOCATION: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_PROPERTY_MAX_SIGNATURES: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_PROPERTY_DOC_DECLARATION: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_PROPERTY_XML_OUTPUT_CHARSET: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(5i32);
 impl ::core::marker::Copy for CRYPT_XML_PROPERTY_ID {}
 impl ::core::clone::Clone for CRYPT_XML_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -13218,18 +13424,6 @@ impl ::core::fmt::Debug for CRYPT_XML_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_STATUS_ERROR_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_ERROR_DIGEST_INVALID: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_ALGORITHM: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(5u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_TRANSFORM: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_ERROR_SIGNATURE_INVALID: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(65536u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_ERROR_KEYINFO_NOT_PARSED: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(131072u32);
 impl ::core::marker::Copy for CRYPT_XML_STATUS_ERROR_STATUS {}
 impl ::core::clone::Clone for CRYPT_XML_STATUS_ERROR_STATUS {
     fn clone(&self) -> Self {
@@ -13253,18 +13447,6 @@ impl ::core::fmt::Debug for CRYPT_XML_STATUS_ERROR_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_STATUS_INFO_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_INTERNAL_REFERENCE: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_KEY_AVAILABLE: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_DIGESTING: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_DIGEST_VALID: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_SIGNATURE_VALID: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(65536u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_STATUS_OPENED_TO_ENCODE: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(2147483648u32);
 impl ::core::marker::Copy for CRYPT_XML_STATUS_INFO_STATUS {}
 impl ::core::clone::Clone for CRYPT_XML_STATUS_INFO_STATUS {
     fn clone(&self) -> Self {
@@ -13288,12 +13470,6 @@ impl ::core::fmt::Debug for CRYPT_XML_STATUS_INFO_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_TRANSFORM_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_TRANSFORM_ON_STREAM: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_TRANSFORM_ON_NODESET: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(3u32);
 impl ::core::marker::Copy for CRYPT_XML_TRANSFORM_FLAGS {}
 impl ::core::clone::Clone for CRYPT_XML_TRANSFORM_FLAGS {
     fn clone(&self) -> Self {
@@ -13350,18 +13526,6 @@ impl ::core::ops::Not for CRYPT_XML_TRANSFORM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRYPT_XML_X509DATA_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_X509DATA_TYPE_SKI: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_X509DATA_TYPE_CERTIFICATE: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_X509DATA_TYPE_CRL: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(5u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const CRYPT_XML_X509DATA_TYPE_CUSTOM: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(6u32);
 impl ::core::marker::Copy for CRYPT_XML_X509DATA_TYPE {}
 impl ::core::clone::Clone for CRYPT_XML_X509DATA_TYPE {
     fn clone(&self) -> Self {
@@ -13385,24 +13549,6 @@ impl ::core::fmt::Debug for CRYPT_XML_X509DATA_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CertKeyType(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KeyTypeOther: CertKeyType = CertKeyType(0u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KeyTypeVirtualSmartCard: CertKeyType = CertKeyType(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KeyTypePhysicalSmartCard: CertKeyType = CertKeyType(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KeyTypePassport: CertKeyType = CertKeyType(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KeyTypePassportRemote: CertKeyType = CertKeyType(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KeyTypePassportSmartCard: CertKeyType = CertKeyType(5u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KeyTypeHardware: CertKeyType = CertKeyType(6u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KeyTypeSoftware: CertKeyType = CertKeyType(7u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const KeyTypeSelfSigned: CertKeyType = CertKeyType(8u32);
 impl ::core::marker::Copy for CertKeyType {}
 impl ::core::clone::Clone for CertKeyType {
     fn clone(&self) -> Self {
@@ -13426,10 +13572,6 @@ impl ::core::fmt::Debug for CertKeyType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DSAFIPSVERSION_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const DSA_FIPS186_2: DSAFIPSVERSION_ENUM = DSAFIPSVERSION_ENUM(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const DSA_FIPS186_3: DSAFIPSVERSION_ENUM = DSAFIPSVERSION_ENUM(1i32);
 impl ::core::marker::Copy for DSAFIPSVERSION_ENUM {}
 impl ::core::clone::Clone for DSAFIPSVERSION_ENUM {
     fn clone(&self) -> Self {
@@ -13453,10 +13595,6 @@ impl ::core::fmt::Debug for DSAFIPSVERSION_ENUM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Direction(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const DirectionEncrypt: Direction = Direction(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const DirectionDecrypt: Direction = Direction(2i32);
 impl ::core::marker::Copy for Direction {}
 impl ::core::clone::Clone for Direction {
     fn clone(&self) -> Self {
@@ -13480,8 +13618,6 @@ impl ::core::fmt::Debug for Direction {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ECC_CURVE_ALG_ID_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_NO_CURVE_GENERATION_ALG_ID: ECC_CURVE_ALG_ID_ENUM = ECC_CURVE_ALG_ID_ENUM(0i32);
 impl ::core::marker::Copy for ECC_CURVE_ALG_ID_ENUM {}
 impl ::core::clone::Clone for ECC_CURVE_ALG_ID_ENUM {
     fn clone(&self) -> Self {
@@ -13505,12 +13641,6 @@ impl ::core::fmt::Debug for ECC_CURVE_ALG_ID_ENUM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ECC_CURVE_TYPE_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_ECC_PRIME_SHORT_WEIERSTRASS_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_ECC_PRIME_TWISTED_EDWARDS_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const BCRYPT_ECC_PRIME_MONTGOMERY_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(3i32);
 impl ::core::marker::Copy for ECC_CURVE_TYPE_ENUM {}
 impl ::core::clone::Clone for ECC_CURVE_TYPE_ENUM {
     fn clone(&self) -> Self {
@@ -13534,12 +13664,6 @@ impl ::core::fmt::Debug for ECC_CURVE_TYPE_ENUM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HASHALGORITHM_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const DSA_HASH_ALGORITHM_SHA1: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const DSA_HASH_ALGORITHM_SHA256: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const DSA_HASH_ALGORITHM_SHA512: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(2i32);
 impl ::core::marker::Copy for HASHALGORITHM_ENUM {}
 impl ::core::clone::Clone for HASHALGORITHM_ENUM {
     fn clone(&self) -> Self {
@@ -13563,10 +13687,6 @@ impl ::core::fmt::Debug for HASHALGORITHM_ENUM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const AUTHTYPE_CLIENT: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const AUTHTYPE_SERVER: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(2u32);
 impl ::core::marker::Copy for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {}
 impl ::core::clone::Clone for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
     fn clone(&self) -> Self {
@@ -13619,34 +13739,6 @@ impl ::core::fmt::Debug for HandleType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSCEPSetupProperty(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_USELOCALSYSTEM: MSCEPSetupProperty = MSCEPSetupProperty(0i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_USECHALLENGE: MSCEPSetupProperty = MSCEPSetupProperty(1i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_RANAME_CN: MSCEPSetupProperty = MSCEPSetupProperty(2i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_RANAME_EMAIL: MSCEPSetupProperty = MSCEPSetupProperty(3i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_RANAME_COMPANY: MSCEPSetupProperty = MSCEPSetupProperty(4i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_RANAME_DEPT: MSCEPSetupProperty = MSCEPSetupProperty(5i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_RANAME_CITY: MSCEPSetupProperty = MSCEPSetupProperty(6i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_RANAME_STATE: MSCEPSetupProperty = MSCEPSetupProperty(7i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_RANAME_COUNTRY: MSCEPSetupProperty = MSCEPSetupProperty(8i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_SIGNINGKEYINFORMATION: MSCEPSetupProperty = MSCEPSetupProperty(9i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_EXCHANGEKEYINFORMATION: MSCEPSetupProperty = MSCEPSetupProperty(10i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_CAINFORMATION: MSCEPSetupProperty = MSCEPSetupProperty(11i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_MSCEPURL: MSCEPSetupProperty = MSCEPSetupProperty(12i32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const ENUM_CEPSETUPPROP_CHALLENGEURL: MSCEPSetupProperty = MSCEPSetupProperty(13i32);
 impl ::core::marker::Copy for MSCEPSetupProperty {}
 impl ::core::clone::Clone for MSCEPSetupProperty {
     fn clone(&self) -> Self {
@@ -13670,12 +13762,6 @@ impl ::core::fmt::Debug for MSCEPSetupProperty {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_ALGORITHM_NAME_CLASS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(3u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_SECRET_AGREEMENT_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_SIGNATURE_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(5u32);
 impl ::core::marker::Copy for NCRYPT_ALGORITHM_NAME_CLASS {}
 impl ::core::clone::Clone for NCRYPT_ALGORITHM_NAME_CLASS {
     fn clone(&self) -> Self {
@@ -13699,34 +13785,6 @@ impl ::core::fmt::Debug for NCRYPT_ALGORITHM_NAME_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_SILENT_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_NO_PADDING_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_PAD_OAEP_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_PAD_PKCS1_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_REGISTER_NOTIFY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_UNREGISTER_NOTIFY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_MACHINE_KEY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_UNPROTECT_NO_DECRYPT: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_OVERWRITE_KEY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_NO_KEY_VALIDATION: NCRYPT_FLAGS = NCRYPT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_WRITE_KEY_TO_LEGACY_STORE_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_PAD_PSS_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_PERSIST_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_PERSIST_ONLY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(1073741824u32);
 impl ::core::marker::Copy for NCRYPT_FLAGS {}
 impl ::core::clone::Clone for NCRYPT_FLAGS {
     fn clone(&self) -> Self {
@@ -13783,16 +13841,6 @@ impl ::core::ops::Not for NCRYPT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRYPT_OPERATION(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_CIPHER_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_HASH_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_SECRET_AGREEMENT_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(8u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const NCRYPT_SIGNATURE_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(16u32);
 impl ::core::marker::Copy for NCRYPT_OPERATION {}
 impl ::core::clone::Clone for NCRYPT_OPERATION {
     fn clone(&self) -> Self {
@@ -13879,12 +13927,6 @@ impl ::core::fmt::Debug for PaddingMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIGNER_CERT_CHOICE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_CERT_SPC_FILE: SIGNER_CERT_CHOICE = SIGNER_CERT_CHOICE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_CERT_STORE: SIGNER_CERT_CHOICE = SIGNER_CERT_CHOICE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_CERT_SPC_CHAIN: SIGNER_CERT_CHOICE = SIGNER_CERT_CHOICE(3u32);
 impl ::core::marker::Copy for SIGNER_CERT_CHOICE {}
 impl ::core::clone::Clone for SIGNER_CERT_CHOICE {
     fn clone(&self) -> Self {
@@ -13908,14 +13950,6 @@ impl ::core::fmt::Debug for SIGNER_CERT_CHOICE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIGNER_CERT_POLICY(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_CERT_POLICY_STORE: SIGNER_CERT_POLICY = SIGNER_CERT_POLICY(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_CERT_POLICY_CHAIN: SIGNER_CERT_POLICY = SIGNER_CERT_POLICY(2u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_CERT_POLICY_SPC: SIGNER_CERT_POLICY = SIGNER_CERT_POLICY(4u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_CERT_POLICY_CHAIN_NO_ROOT: SIGNER_CERT_POLICY = SIGNER_CERT_POLICY(8u32);
 impl ::core::marker::Copy for SIGNER_CERT_POLICY {}
 impl ::core::clone::Clone for SIGNER_CERT_POLICY {
     fn clone(&self) -> Self {
@@ -13972,10 +14006,6 @@ impl ::core::ops::Not for SIGNER_CERT_POLICY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIGNER_PRIVATE_KEY_CHOICE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PVK_TYPE_FILE_NAME: SIGNER_PRIVATE_KEY_CHOICE = SIGNER_PRIVATE_KEY_CHOICE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const PVK_TYPE_KEYCONTAINER: SIGNER_PRIVATE_KEY_CHOICE = SIGNER_PRIVATE_KEY_CHOICE(2u32);
 impl ::core::marker::Copy for SIGNER_PRIVATE_KEY_CHOICE {}
 impl ::core::clone::Clone for SIGNER_PRIVATE_KEY_CHOICE {
     fn clone(&self) -> Self {
@@ -13999,10 +14029,6 @@ impl ::core::fmt::Debug for SIGNER_PRIVATE_KEY_CHOICE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIGNER_SIGNATURE_ATTRIBUTE_CHOICE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_NO_ATTR: SIGNER_SIGNATURE_ATTRIBUTE_CHOICE = SIGNER_SIGNATURE_ATTRIBUTE_CHOICE(0u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_AUTHCODE_ATTR: SIGNER_SIGNATURE_ATTRIBUTE_CHOICE = SIGNER_SIGNATURE_ATTRIBUTE_CHOICE(1u32);
 impl ::core::marker::Copy for SIGNER_SIGNATURE_ATTRIBUTE_CHOICE {}
 impl ::core::clone::Clone for SIGNER_SIGNATURE_ATTRIBUTE_CHOICE {
     fn clone(&self) -> Self {
@@ -14026,24 +14052,6 @@ impl ::core::fmt::Debug for SIGNER_SIGNATURE_ATTRIBUTE_CHOICE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIGNER_SIGN_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIG_APPEND: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SPC_INC_PE_RESOURCES_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SPC_INC_PE_DEBUG_INFO_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SPC_INC_PE_IMPORT_ADDR_TABLE_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SPC_EXC_PE_PAGE_HASHES_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SPC_INC_PE_PAGE_HASHES_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SPC_DIGEST_GENERATE_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SPC_DIGEST_SIGN_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SPC_DIGEST_SIGN_EX_FLAG: SIGNER_SIGN_FLAGS = SIGNER_SIGN_FLAGS(16384u32);
 impl ::core::marker::Copy for SIGNER_SIGN_FLAGS {}
 impl ::core::clone::Clone for SIGNER_SIGN_FLAGS {
     fn clone(&self) -> Self {
@@ -14100,10 +14108,6 @@ impl ::core::ops::Not for SIGNER_SIGN_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIGNER_SUBJECT_CHOICE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_SUBJECT_FILE: SIGNER_SUBJECT_CHOICE = SIGNER_SUBJECT_CHOICE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_SUBJECT_BLOB: SIGNER_SUBJECT_CHOICE = SIGNER_SUBJECT_CHOICE(2u32);
 impl ::core::marker::Copy for SIGNER_SUBJECT_CHOICE {}
 impl ::core::clone::Clone for SIGNER_SUBJECT_CHOICE {
     fn clone(&self) -> Self {
@@ -14127,10 +14131,6 @@ impl ::core::fmt::Debug for SIGNER_SUBJECT_CHOICE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIGNER_TIMESTAMP_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_TIMESTAMP_AUTHENTICODE: SIGNER_TIMESTAMP_FLAGS = SIGNER_TIMESTAMP_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Cryptography\"`*"]
-pub const SIGNER_TIMESTAMP_RFC3161: SIGNER_TIMESTAMP_FLAGS = SIGNER_TIMESTAMP_FLAGS(2u32);
 impl ::core::marker::Copy for SIGNER_TIMESTAMP_FLAGS {}
 impl ::core::clone::Clone for SIGNER_TIMESTAMP_FLAGS {
     fn clone(&self) -> Self {

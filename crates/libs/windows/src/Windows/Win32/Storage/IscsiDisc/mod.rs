@@ -676,6 +676,8 @@ pub const DUMP_POINTERS_VERSION_3: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const DUMP_POINTERS_VERSION_4: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const DiscoveryMechanisms: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const FILE_DEVICE_SCSI: u32 = 27u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const FIRMWARE_FUNCTION_ACTIVATE: u32 = 3u32;
@@ -766,6 +768,8 @@ pub const ID_IPV6_ADDR: ::windows_core::PCSTR = ::windows_core::s!("5");
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ID_USER_FQDN: ::windows_core::PCSTR = ::windows_core::s!("3");
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = IKE_AUTHENTICATION_METHOD(1i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const IOCTL_ATA_MINIPORT: u32 = 315444u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const IOCTL_ATA_PASS_THROUGH: u32 = 315436u32;
@@ -830,6 +834,12 @@ pub const IOCTL_SCSI_PASS_THROUGH_EX: u32 = 315460u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const IOCTL_SCSI_RESCAN_BUS: u32 = 266268u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const ISCSI_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const ISCSI_DIGEST_TYPE_CRC32C: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(0i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ISCSI_LOGIN_FLAG_MULTIPATH_ENABLED: u32 = 2u32;
@@ -860,6 +870,10 @@ pub const ISCSI_LOGIN_OPTIONS_USERNAME: ::windows_core::PCSTR = ::windows_core::
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ISCSI_LOGIN_OPTIONS_VERSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(2i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(0i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED: ::windows_core::PCSTR = ::windows_core::s!("0x00000008");
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED: ::windows_core::PCSTR = ::windows_core::s!("0x00000002");
@@ -877,6 +891,12 @@ pub const ISCSI_SECURITY_FLAG_VALID: ::windows_core::PCSTR = ::windows_core::s!(
 pub const ISCSI_TARGET_FLAG_HIDE_STATIC_TARGET: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ISCSI_TARGET_FLAG_MERGE_TARGET_INFORMATION: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = TARGETPROTOCOLTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const InitiatorName: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const LoginOptions: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(7i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const MAX_ISCSI_ALIAS_LEN: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
@@ -917,6 +937,18 @@ pub const MPIO_IOCTL_FLAG_INVOLVE_DSM: u32 = 4u32;
 pub const MPIO_IOCTL_FLAG_USE_PATHID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const MPIO_IOCTL_FLAG_USE_SCSIADDRESS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const NRB_FUNCTION_ADD_LBAS_PINNED_SET: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
@@ -964,9 +996,39 @@ pub const NRB_OUTPUT_DATA_UNDERRUN: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const NRB_SUCCESS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NVSEPWriteCacheTypeNone: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NvCacheStatusDisabled: NVCACHE_STATUS = NVCACHE_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NvCacheStatusDisabling: NVCACHE_STATUS = NVCACHE_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NvCacheStatusEnabled: NVCACHE_STATUS = NVCACHE_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NvCacheStatusUnknown: NVCACHE_STATUS = NVCACHE_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NvCacheTypeNone: NVCACHE_TYPE = NVCACHE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NvCacheTypeUnknown: NVCACHE_TYPE = NVCACHE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NvCacheTypeWriteBack: NVCACHE_TYPE = NVCACHE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const NvCacheTypeWriteThrough: NVCACHE_TYPE = NVCACHE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const PersistentTargetMappings: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const PortalGroups: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const ProtocolType: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const SCSI_IOCTL_DATA_BIDIRECTIONAL: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
@@ -1006,13 +1068,15 @@ pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const ScsiRawInterfaceGuid: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53f56309_b6bf_11d0_94f2_00a0c91efb8b);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const TargetAlias: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
+pub const TargetFlags: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 pub const WmiScsiAddressGuid: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
 #[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IKE_AUTHENTICATION_METHOD(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = IKE_AUTHENTICATION_METHOD(1i32);
 impl ::core::marker::Copy for IKE_AUTHENTICATION_METHOD {}
 impl ::core::clone::Clone for IKE_AUTHENTICATION_METHOD {
     fn clone(&self) -> Self {
@@ -1036,12 +1100,6 @@ impl ::core::fmt::Debug for IKE_AUTHENTICATION_METHOD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ISCSI_AUTH_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(2i32);
 impl ::core::marker::Copy for ISCSI_AUTH_TYPES {}
 impl ::core::clone::Clone for ISCSI_AUTH_TYPES {
     fn clone(&self) -> Self {
@@ -1065,10 +1123,6 @@ impl ::core::fmt::Debug for ISCSI_AUTH_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ISCSI_DIGEST_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_DIGEST_TYPE_CRC32C: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(1i32);
 impl ::core::marker::Copy for ISCSI_DIGEST_TYPES {}
 impl ::core::clone::Clone for ISCSI_DIGEST_TYPES {
     fn clone(&self) -> Self {
@@ -1092,10 +1146,6 @@ impl ::core::fmt::Debug for ISCSI_DIGEST_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MP_STORAGE_DIAGNOSTIC_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(1i32);
 impl ::core::marker::Copy for MP_STORAGE_DIAGNOSTIC_LEVEL {}
 impl ::core::clone::Clone for MP_STORAGE_DIAGNOSTIC_LEVEL {
     fn clone(&self) -> Self {
@@ -1119,14 +1169,6 @@ impl ::core::fmt::Debug for MP_STORAGE_DIAGNOSTIC_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(4i32);
 impl ::core::marker::Copy for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {}
 impl ::core::clone::Clone for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
     fn clone(&self) -> Self {
@@ -1150,14 +1192,6 @@ impl ::core::fmt::Debug for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NVCACHE_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NvCacheStatusUnknown: NVCACHE_STATUS = NVCACHE_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NvCacheStatusDisabling: NVCACHE_STATUS = NVCACHE_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NvCacheStatusDisabled: NVCACHE_STATUS = NVCACHE_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NvCacheStatusEnabled: NVCACHE_STATUS = NVCACHE_STATUS(3i32);
 impl ::core::marker::Copy for NVCACHE_STATUS {}
 impl ::core::clone::Clone for NVCACHE_STATUS {
     fn clone(&self) -> Self {
@@ -1181,14 +1215,6 @@ impl ::core::fmt::Debug for NVCACHE_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NVCACHE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NvCacheTypeUnknown: NVCACHE_TYPE = NVCACHE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NvCacheTypeNone: NVCACHE_TYPE = NVCACHE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NvCacheTypeWriteBack: NVCACHE_TYPE = NVCACHE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NvCacheTypeWriteThrough: NVCACHE_TYPE = NVCACHE_TYPE(3i32);
 impl ::core::marker::Copy for NVCACHE_TYPE {}
 impl ::core::clone::Clone for NVCACHE_TYPE {
     fn clone(&self) -> Self {
@@ -1212,14 +1238,6 @@ impl ::core::fmt::Debug for NVCACHE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NV_SEP_WRITE_CACHE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NVSEPWriteCacheTypeNone: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(3i32);
 impl ::core::marker::Copy for NV_SEP_WRITE_CACHE_TYPE {}
 impl ::core::clone::Clone for NV_SEP_WRITE_CACHE_TYPE {
     fn clone(&self) -> Self {
@@ -1243,8 +1261,6 @@ impl ::core::fmt::Debug for NV_SEP_WRITE_CACHE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TARGETPROTOCOLTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = TARGETPROTOCOLTYPE(0i32);
 impl ::core::marker::Copy for TARGETPROTOCOLTYPE {}
 impl ::core::clone::Clone for TARGETPROTOCOLTYPE {
     fn clone(&self) -> Self {
@@ -1268,22 +1284,6 @@ impl ::core::fmt::Debug for TARGETPROTOCOLTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TARGET_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const ProtocolType: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const TargetAlias: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const DiscoveryMechanisms: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const PortalGroups: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const PersistentTargetMappings: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const InitiatorName: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const TargetFlags: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_Storage_IscsiDisc\"`*"]
-pub const LoginOptions: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(7i32);
 impl ::core::marker::Copy for TARGET_INFORMATION_CLASS {}
 impl ::core::clone::Clone for TARGET_INFORMATION_CLASS {
     fn clone(&self) -> Self {

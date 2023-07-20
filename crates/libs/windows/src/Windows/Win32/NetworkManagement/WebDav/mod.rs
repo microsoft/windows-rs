@@ -103,6 +103,8 @@ pub unsafe fn DavUnregisterAuthCallback(hcallback: u32) {
     DavUnregisterAuthCallback(hcallback)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
@@ -117,15 +119,13 @@ pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHNEXTSTEP(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub const DefaultBehavior: AUTHNEXTSTEP = AUTHNEXTSTEP(0i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub const RetryRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(1i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const CancelRequest: AUTHNEXTSTEP = AUTHNEXTSTEP(2i32);
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHNEXTSTEP(pub i32);
 impl ::core::marker::Copy for AUTHNEXTSTEP {}
 impl ::core::clone::Clone for AUTHNEXTSTEP {
     fn clone(&self) -> Self {

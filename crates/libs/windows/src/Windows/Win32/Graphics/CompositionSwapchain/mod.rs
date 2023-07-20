@@ -556,15 +556,27 @@ pub struct IPresentationSurface_Vtbl {
     pub SetLetterboxingMargins: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CompositionFrameInstanceKind(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
+pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = CompositionFrameInstanceKind(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = CompositionFrameInstanceKind(2i32);
+pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = PresentStatisticsKind(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
+pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = PresentStatisticsKind(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
+pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = PresentStatisticsKind(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
+pub const PresentStatus_Canceled: PresentStatus = PresentStatus(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
+pub const PresentStatus_Queued: PresentStatus = PresentStatus(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
+pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CompositionFrameInstanceKind(pub i32);
 impl ::core::marker::Copy for CompositionFrameInstanceKind {}
 impl ::core::clone::Clone for CompositionFrameInstanceKind {
     fn clone(&self) -> Self {
@@ -588,12 +600,6 @@ impl ::core::fmt::Debug for CompositionFrameInstanceKind {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PresentStatisticsKind(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = PresentStatisticsKind(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = PresentStatisticsKind(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = PresentStatisticsKind(3i32);
 impl ::core::marker::Copy for PresentStatisticsKind {}
 impl ::core::clone::Clone for PresentStatisticsKind {
     fn clone(&self) -> Self {
@@ -617,12 +623,6 @@ impl ::core::fmt::Debug for PresentStatisticsKind {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PresentStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-pub const PresentStatus_Queued: PresentStatus = PresentStatus(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-pub const PresentStatus_Canceled: PresentStatus = PresentStatus(2i32);
 impl ::core::marker::Copy for PresentStatus {}
 impl ::core::clone::Clone for PresentStatus {
     fn clone(&self) -> Self {

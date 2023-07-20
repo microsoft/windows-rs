@@ -282,19 +282,189 @@ where
     StopInteractionContext(interactioncontext.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CROSS_SLIDE_FLAGS(pub u32);
+pub const CROSS_SLIDE_FLAGS_MAX: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(4294967295u32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_FLAGS_NONE: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const CROSS_SLIDE_FLAGS_REARRANGE: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_FLAGS_SELECT: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 pub const CROSS_SLIDE_FLAGS_SPEED_BUMP: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const CROSS_SLIDE_FLAGS_REARRANGE: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(4u32);
+pub const CROSS_SLIDE_THRESHOLD_COUNT: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(4i32);
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const CROSS_SLIDE_FLAGS_MAX: CROSS_SLIDE_FLAGS = CROSS_SLIDE_FLAGS(4294967295u32);
+pub const CROSS_SLIDE_THRESHOLD_MAX: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(-1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const CROSS_SLIDE_THRESHOLD_REARRANGE_START: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(3i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const CROSS_SLIDE_THRESHOLD_SELECT_START: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(0i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const CROSS_SLIDE_THRESHOLD_SPEED_BUMP_END: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(2i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const CROSS_SLIDE_THRESHOLD_SPEED_BUMP_START: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const HOLD_PARAMETER_MAX: HOLD_PARAMETER = HOLD_PARAMETER(-1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const HOLD_PARAMETER_MAX_CONTACT_COUNT: HOLD_PARAMETER = HOLD_PARAMETER(1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const HOLD_PARAMETER_MIN_CONTACT_COUNT: HOLD_PARAMETER = HOLD_PARAMETER(0i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const HOLD_PARAMETER_THRESHOLD_RADIUS: HOLD_PARAMETER = HOLD_PARAMETER(2i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const HOLD_PARAMETER_THRESHOLD_START_DELAY: HOLD_PARAMETER = HOLD_PARAMETER(3i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INERTIA_PARAMETER_EXPANSION_DECELERATION: INERTIA_PARAMETER = INERTIA_PARAMETER(5i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INERTIA_PARAMETER_EXPANSION_EXPANSION: INERTIA_PARAMETER = INERTIA_PARAMETER(6i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INERTIA_PARAMETER_MAX: INERTIA_PARAMETER = INERTIA_PARAMETER(-1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INERTIA_PARAMETER_ROTATION_ANGLE: INERTIA_PARAMETER = INERTIA_PARAMETER(4i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INERTIA_PARAMETER_ROTATION_DECELERATION: INERTIA_PARAMETER = INERTIA_PARAMETER(3i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INERTIA_PARAMETER_TRANSLATION_DECELERATION: INERTIA_PARAMETER = INERTIA_PARAMETER(1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INERTIA_PARAMETER_TRANSLATION_DISPLACEMENT: INERTIA_PARAMETER = INERTIA_PARAMETER(2i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_EXACT: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_HORIZONTAL: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_REARRANGE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SELECT: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SPEED_BUMP: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_DRAG: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_HOLD: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_HOLD_MOUSE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_HOLD_MULTIPLE_FINGER: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_EXACT: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_MULTIPLE_FINGER_PANNING: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_X: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_Y: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION_INERTIA: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING_INERTIA: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_INERTIA: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_X: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_Y: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_MAX: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4294967295u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_NONE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_SECONDARY_TAP: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_TAP: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_TAP_DOUBLE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONFIGURATION_FLAG_TAP_MULTIPLE_FINGER: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONTEXT_PROPERTY_FILTER_POINTERS: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(3i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONTEXT_PROPERTY_INTERACTION_UI_FEEDBACK: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(2i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONTEXT_PROPERTY_MAX: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(-1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_CONTEXT_PROPERTY_MEASUREMENT_UNITS: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_FLAG_BEGIN: INTERACTION_FLAGS = INTERACTION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_FLAG_CANCEL: INTERACTION_FLAGS = INTERACTION_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_FLAG_END: INTERACTION_FLAGS = INTERACTION_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_FLAG_INERTIA: INTERACTION_FLAGS = INTERACTION_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_FLAG_MAX: INTERACTION_FLAGS = INTERACTION_FLAGS(4294967295u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_FLAG_NONE: INTERACTION_FLAGS = INTERACTION_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_ID_CROSS_SLIDE: INTERACTION_ID = INTERACTION_ID(6i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_ID_DRAG: INTERACTION_ID = INTERACTION_ID(5i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_ID_HOLD: INTERACTION_ID = INTERACTION_ID(4i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_ID_MANIPULATION: INTERACTION_ID = INTERACTION_ID(1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_ID_MAX: INTERACTION_ID = INTERACTION_ID(-1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_ID_NONE: INTERACTION_ID = INTERACTION_ID(0i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_ID_SECONDARY_TAP: INTERACTION_ID = INTERACTION_ID(3i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_ID_TAP: INTERACTION_ID = INTERACTION_ID(2i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_STATE_IDLE: INTERACTION_STATE = INTERACTION_STATE(0i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_STATE_IN_INTERACTION: INTERACTION_STATE = INTERACTION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_STATE_MAX: INTERACTION_STATE = INTERACTION_STATE(-1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const INTERACTION_STATE_POSSIBLE_DOUBLE_TAP: INTERACTION_STATE = INTERACTION_STATE(2i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const MANIPULATION_RAILS_STATE_FREE: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const MANIPULATION_RAILS_STATE_MAX: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(-1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const MANIPULATION_RAILS_STATE_RAILED: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(2i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const MANIPULATION_RAILS_STATE_UNDECIDED: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(0i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_X: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_Y: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(2i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const MOUSE_WHEEL_PARAMETER_DELTA_ROTATION: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(4i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const MOUSE_WHEEL_PARAMETER_DELTA_SCALE: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(3i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const MOUSE_WHEEL_PARAMETER_MAX: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(-1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_X: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(5i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_Y: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(6i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const TAP_PARAMETER_MAX: TAP_PARAMETER = TAP_PARAMETER(-1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const TAP_PARAMETER_MAX_CONTACT_COUNT: TAP_PARAMETER = TAP_PARAMETER(1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const TAP_PARAMETER_MIN_CONTACT_COUNT: TAP_PARAMETER = TAP_PARAMETER(0i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const TRANSLATION_PARAMETER_MAX: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(-1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const TRANSLATION_PARAMETER_MAX_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(1i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+pub const TRANSLATION_PARAMETER_MIN_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(0i32);
+#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CROSS_SLIDE_FLAGS(pub u32);
 impl ::core::marker::Copy for CROSS_SLIDE_FLAGS {}
 impl ::core::clone::Clone for CROSS_SLIDE_FLAGS {
     fn clone(&self) -> Self {
@@ -351,18 +521,6 @@ impl ::core::ops::Not for CROSS_SLIDE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CROSS_SLIDE_THRESHOLD(pub i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const CROSS_SLIDE_THRESHOLD_SELECT_START: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(0i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const CROSS_SLIDE_THRESHOLD_SPEED_BUMP_START: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(1i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const CROSS_SLIDE_THRESHOLD_SPEED_BUMP_END: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(2i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const CROSS_SLIDE_THRESHOLD_REARRANGE_START: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(3i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const CROSS_SLIDE_THRESHOLD_COUNT: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(4i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const CROSS_SLIDE_THRESHOLD_MAX: CROSS_SLIDE_THRESHOLD = CROSS_SLIDE_THRESHOLD(-1i32);
 impl ::core::marker::Copy for CROSS_SLIDE_THRESHOLD {}
 impl ::core::clone::Clone for CROSS_SLIDE_THRESHOLD {
     fn clone(&self) -> Self {
@@ -386,16 +544,6 @@ impl ::core::fmt::Debug for CROSS_SLIDE_THRESHOLD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HOLD_PARAMETER(pub i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const HOLD_PARAMETER_MIN_CONTACT_COUNT: HOLD_PARAMETER = HOLD_PARAMETER(0i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const HOLD_PARAMETER_MAX_CONTACT_COUNT: HOLD_PARAMETER = HOLD_PARAMETER(1i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const HOLD_PARAMETER_THRESHOLD_RADIUS: HOLD_PARAMETER = HOLD_PARAMETER(2i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const HOLD_PARAMETER_THRESHOLD_START_DELAY: HOLD_PARAMETER = HOLD_PARAMETER(3i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const HOLD_PARAMETER_MAX: HOLD_PARAMETER = HOLD_PARAMETER(-1i32);
 impl ::core::marker::Copy for HOLD_PARAMETER {}
 impl ::core::clone::Clone for HOLD_PARAMETER {
     fn clone(&self) -> Self {
@@ -419,20 +567,6 @@ impl ::core::fmt::Debug for HOLD_PARAMETER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INERTIA_PARAMETER(pub i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INERTIA_PARAMETER_TRANSLATION_DECELERATION: INERTIA_PARAMETER = INERTIA_PARAMETER(1i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INERTIA_PARAMETER_TRANSLATION_DISPLACEMENT: INERTIA_PARAMETER = INERTIA_PARAMETER(2i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INERTIA_PARAMETER_ROTATION_DECELERATION: INERTIA_PARAMETER = INERTIA_PARAMETER(3i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INERTIA_PARAMETER_ROTATION_ANGLE: INERTIA_PARAMETER = INERTIA_PARAMETER(4i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INERTIA_PARAMETER_EXPANSION_DECELERATION: INERTIA_PARAMETER = INERTIA_PARAMETER(5i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INERTIA_PARAMETER_EXPANSION_EXPANSION: INERTIA_PARAMETER = INERTIA_PARAMETER(6i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INERTIA_PARAMETER_MAX: INERTIA_PARAMETER = INERTIA_PARAMETER(-1i32);
 impl ::core::marker::Copy for INERTIA_PARAMETER {}
 impl ::core::clone::Clone for INERTIA_PARAMETER {
     fn clone(&self) -> Self {
@@ -456,62 +590,6 @@ impl ::core::fmt::Debug for INERTIA_PARAMETER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERACTION_CONFIGURATION_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_NONE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_X: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_Y: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_TRANSLATION_INERTIA: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_ROTATION_INERTIA: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_SCALING_INERTIA: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_X: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_RAILS_Y: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_EXACT: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MANIPULATION_MULTIPLE_FINGER_PANNING: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_HORIZONTAL: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SELECT: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_SPEED_BUMP: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_REARRANGE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_CROSS_SLIDE_EXACT: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_TAP: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_TAP_DOUBLE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_TAP_MULTIPLE_FINGER: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_SECONDARY_TAP: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_HOLD: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_HOLD_MOUSE: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_HOLD_MULTIPLE_FINGER: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_DRAG: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONFIGURATION_FLAG_MAX: INTERACTION_CONFIGURATION_FLAGS = INTERACTION_CONFIGURATION_FLAGS(4294967295u32);
 impl ::core::marker::Copy for INTERACTION_CONFIGURATION_FLAGS {}
 impl ::core::clone::Clone for INTERACTION_CONFIGURATION_FLAGS {
     fn clone(&self) -> Self {
@@ -568,14 +646,6 @@ impl ::core::ops::Not for INTERACTION_CONFIGURATION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERACTION_CONTEXT_PROPERTY(pub i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONTEXT_PROPERTY_MEASUREMENT_UNITS: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(1i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONTEXT_PROPERTY_INTERACTION_UI_FEEDBACK: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(2i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONTEXT_PROPERTY_FILTER_POINTERS: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(3i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_CONTEXT_PROPERTY_MAX: INTERACTION_CONTEXT_PROPERTY = INTERACTION_CONTEXT_PROPERTY(-1i32);
 impl ::core::marker::Copy for INTERACTION_CONTEXT_PROPERTY {}
 impl ::core::clone::Clone for INTERACTION_CONTEXT_PROPERTY {
     fn clone(&self) -> Self {
@@ -599,18 +669,6 @@ impl ::core::fmt::Debug for INTERACTION_CONTEXT_PROPERTY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERACTION_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_FLAG_NONE: INTERACTION_FLAGS = INTERACTION_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_FLAG_BEGIN: INTERACTION_FLAGS = INTERACTION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_FLAG_END: INTERACTION_FLAGS = INTERACTION_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_FLAG_CANCEL: INTERACTION_FLAGS = INTERACTION_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_FLAG_INERTIA: INTERACTION_FLAGS = INTERACTION_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_FLAG_MAX: INTERACTION_FLAGS = INTERACTION_FLAGS(4294967295u32);
 impl ::core::marker::Copy for INTERACTION_FLAGS {}
 impl ::core::clone::Clone for INTERACTION_FLAGS {
     fn clone(&self) -> Self {
@@ -667,22 +725,6 @@ impl ::core::ops::Not for INTERACTION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERACTION_ID(pub i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_ID_NONE: INTERACTION_ID = INTERACTION_ID(0i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_ID_MANIPULATION: INTERACTION_ID = INTERACTION_ID(1i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_ID_TAP: INTERACTION_ID = INTERACTION_ID(2i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_ID_SECONDARY_TAP: INTERACTION_ID = INTERACTION_ID(3i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_ID_HOLD: INTERACTION_ID = INTERACTION_ID(4i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_ID_DRAG: INTERACTION_ID = INTERACTION_ID(5i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_ID_CROSS_SLIDE: INTERACTION_ID = INTERACTION_ID(6i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_ID_MAX: INTERACTION_ID = INTERACTION_ID(-1i32);
 impl ::core::marker::Copy for INTERACTION_ID {}
 impl ::core::clone::Clone for INTERACTION_ID {
     fn clone(&self) -> Self {
@@ -706,14 +748,6 @@ impl ::core::fmt::Debug for INTERACTION_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERACTION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_STATE_IDLE: INTERACTION_STATE = INTERACTION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_STATE_IN_INTERACTION: INTERACTION_STATE = INTERACTION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_STATE_POSSIBLE_DOUBLE_TAP: INTERACTION_STATE = INTERACTION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const INTERACTION_STATE_MAX: INTERACTION_STATE = INTERACTION_STATE(-1i32);
 impl ::core::marker::Copy for INTERACTION_STATE {}
 impl ::core::clone::Clone for INTERACTION_STATE {
     fn clone(&self) -> Self {
@@ -737,14 +771,6 @@ impl ::core::fmt::Debug for INTERACTION_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MANIPULATION_RAILS_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const MANIPULATION_RAILS_STATE_UNDECIDED: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(0i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const MANIPULATION_RAILS_STATE_FREE: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(1i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const MANIPULATION_RAILS_STATE_RAILED: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(2i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const MANIPULATION_RAILS_STATE_MAX: MANIPULATION_RAILS_STATE = MANIPULATION_RAILS_STATE(-1i32);
 impl ::core::marker::Copy for MANIPULATION_RAILS_STATE {}
 impl ::core::clone::Clone for MANIPULATION_RAILS_STATE {
     fn clone(&self) -> Self {
@@ -768,20 +794,6 @@ impl ::core::fmt::Debug for MANIPULATION_RAILS_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOUSE_WHEEL_PARAMETER(pub i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_X: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(1i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const MOUSE_WHEEL_PARAMETER_CHAR_TRANSLATION_Y: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(2i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const MOUSE_WHEEL_PARAMETER_DELTA_SCALE: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(3i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const MOUSE_WHEEL_PARAMETER_DELTA_ROTATION: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(4i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_X: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(5i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const MOUSE_WHEEL_PARAMETER_PAGE_TRANSLATION_Y: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(6i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const MOUSE_WHEEL_PARAMETER_MAX: MOUSE_WHEEL_PARAMETER = MOUSE_WHEEL_PARAMETER(-1i32);
 impl ::core::marker::Copy for MOUSE_WHEEL_PARAMETER {}
 impl ::core::clone::Clone for MOUSE_WHEEL_PARAMETER {
     fn clone(&self) -> Self {
@@ -805,12 +817,6 @@ impl ::core::fmt::Debug for MOUSE_WHEEL_PARAMETER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAP_PARAMETER(pub i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const TAP_PARAMETER_MIN_CONTACT_COUNT: TAP_PARAMETER = TAP_PARAMETER(0i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const TAP_PARAMETER_MAX_CONTACT_COUNT: TAP_PARAMETER = TAP_PARAMETER(1i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const TAP_PARAMETER_MAX: TAP_PARAMETER = TAP_PARAMETER(-1i32);
 impl ::core::marker::Copy for TAP_PARAMETER {}
 impl ::core::clone::Clone for TAP_PARAMETER {
     fn clone(&self) -> Self {
@@ -834,12 +840,6 @@ impl ::core::fmt::Debug for TAP_PARAMETER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSLATION_PARAMETER(pub i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const TRANSLATION_PARAMETER_MIN_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(0i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const TRANSLATION_PARAMETER_MAX_CONTACT_COUNT: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(1i32);
-#[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
-pub const TRANSLATION_PARAMETER_MAX: TRANSLATION_PARAMETER = TRANSLATION_PARAMETER(-1i32);
 impl ::core::marker::Copy for TRANSLATION_PARAMETER {}
 impl ::core::clone::Clone for TRANSLATION_PARAMETER {
     fn clone(&self) -> Self {

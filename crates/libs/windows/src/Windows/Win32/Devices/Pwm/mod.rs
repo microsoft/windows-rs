@@ -25,6 +25,10 @@ pub const IOCTL_PWM_PIN_START: u32 = 295331u32;
 #[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 pub const IOCTL_PWM_PIN_STOP: u32 = 295335u32;
 #[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
+pub const PWM_ACTIVE_HIGH: PWM_POLARITY = PWM_POLARITY(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
+pub const PWM_ACTIVE_LOW: PWM_POLARITY = PWM_POLARITY(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 pub const PWM_IOCTL_ID_CONTROLLER_GET_ACTUAL_PERIOD: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 pub const PWM_IOCTL_ID_CONTROLLER_GET_INFO: i32 = 0i32;
@@ -48,10 +52,6 @@ pub const PWM_IOCTL_ID_PIN_STOP: i32 = 105i32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PWM_POLARITY(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
-pub const PWM_ACTIVE_HIGH: PWM_POLARITY = PWM_POLARITY(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
-pub const PWM_ACTIVE_LOW: PWM_POLARITY = PWM_POLARITY(1i32);
 impl ::core::marker::Copy for PWM_POLARITY {}
 impl ::core::clone::Clone for PWM_POLARITY {
     fn clone(&self) -> Self {

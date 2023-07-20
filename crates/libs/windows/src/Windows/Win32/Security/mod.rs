@@ -1482,7 +1482,145 @@ where
     SetUserObjectSecurity(hobj.into_param().abi(), psirequested, psid.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ACL_REVISION: ACE_REVISION = ACE_REVISION(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ACL_REVISION_DS: ACE_REVISION = ACE_REVISION(4u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ATTRIBUTE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(32u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const AclRevisionInformation: ACL_INFORMATION_CLASS = ACL_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const AclSizeInformation: ACL_INFORMATION_CLASS = ACL_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const AuditEventDirectoryServiceAccess: AUDIT_EVENT_TYPE = AUDIT_EVENT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = AUDIT_EVENT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const BACKUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(65536u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(6u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(4u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(1u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(16u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_SID: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(5u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(3u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(2u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const CONTAINER_INHERIT_ACE: ACE_FLAGS = ACE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const CVT_SECONDS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(4u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const DISABLE_MAX_PRIVILEGE: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ENUM_PERIOD_DAYS: ENUM_PERIOD = ENUM_PERIOD(3i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ENUM_PERIOD_HOURS: ENUM_PERIOD = ENUM_PERIOD(2i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ENUM_PERIOD_INVALID: ENUM_PERIOD = ENUM_PERIOD(-1i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ENUM_PERIOD_MINUTES: ENUM_PERIOD = ENUM_PERIOD(1i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ENUM_PERIOD_MONTHS: ENUM_PERIOD = ENUM_PERIOD(5i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ENUM_PERIOD_SECONDS: ENUM_PERIOD = ENUM_PERIOD(0i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ENUM_PERIOD_WEEKS: ENUM_PERIOD = ENUM_PERIOD(4i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const ENUM_PERIOD_YEARS: ENUM_PERIOD = ENUM_PERIOD(6i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const FAILED_ACCESS_ACE_FLAG: ACE_FLAGS = ACE_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const GROUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const INHERITED_ACE: ACE_FLAGS = ACE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = ACE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const INHERIT_ONLY: ACE_FLAGS = ACE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const INHERIT_ONLY_ACE: ACE_FLAGS = ACE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LABEL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(16u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LOGON32_LOGON_BATCH: LOGON32_LOGON = LOGON32_LOGON(4u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LOGON32_LOGON_INTERACTIVE: LOGON32_LOGON = LOGON32_LOGON(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LOGON32_LOGON_NETWORK: LOGON32_LOGON = LOGON32_LOGON(3u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LOGON32_LOGON_NETWORK_CLEARTEXT: LOGON32_LOGON = LOGON32_LOGON(8u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LOGON32_LOGON_NEW_CREDENTIALS: LOGON32_LOGON = LOGON32_LOGON(9u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LOGON32_LOGON_SERVICE: LOGON32_LOGON = LOGON32_LOGON(5u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LOGON32_LOGON_UNLOCK: LOGON32_LOGON = LOGON32_LOGON(7u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LOGON32_PROVIDER_DEFAULT: LOGON32_PROVIDER = LOGON32_PROVIDER(0u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LOGON32_PROVIDER_WINNT40: LOGON32_PROVIDER = LOGON32_PROVIDER(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LOGON32_PROVIDER_WINNT50: LOGON32_PROVIDER = LOGON32_PROVIDER(3u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const LUA_TOKEN: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const MandatoryLevelCount: MANDATORY_LEVEL = MANDATORY_LEVEL(6i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const MandatoryLevelHigh: MANDATORY_LEVEL = MANDATORY_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const MandatoryLevelLow: MANDATORY_LEVEL = MANDATORY_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const MandatoryLevelMedium: MANDATORY_LEVEL = MANDATORY_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const MandatoryLevelSecureProcess: MANDATORY_LEVEL = MANDATORY_LEVEL(5i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const MandatoryLevelSystem: MANDATORY_LEVEL = MANDATORY_LEVEL(4i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const MandatoryLevelUntrusted: MANDATORY_LEVEL = MANDATORY_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(49i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const NO_INHERITANCE: ACE_FLAGS = ACE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const NO_PROPAGATE_INHERIT_ACE: ACE_FLAGS = ACE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const OBJECT_INHERIT_ACE: ACE_FLAGS = ACE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const OWNER_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(1u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const PROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(2147483648u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const PROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(1073741824u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(8u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SANDBOX_INERT: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SCOPE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(64u32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SECURITY_APP_PACKAGE_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 15] };
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1514,6 +1652,28 @@ pub const SECURITY_STATIC_TRACKING: super::Foundation::BOOLEAN = super::Foundati
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SECURITY_WORLD_SID_AUTHORITY: SID_IDENTIFIER_AUTHORITY = SID_IDENTIFIER_AUTHORITY { Value: [0, 0, 0, 0, 0, 1] };
 #[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SEF_AVOID_OWNER_CHECK: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SEF_AVOID_OWNER_RESTRICTION: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SEF_AVOID_PRIVILEGE_CHECK: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SEF_DACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SEF_DEFAULT_DESCRIPTOR_FOR_OBJECT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SEF_DEFAULT_GROUP_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SEF_DEFAULT_OWNER_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SEF_MACL_NO_EXECUTE_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_ASSIGNPRIMARYTOKEN_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeAssignPrimaryTokenPrivilege");
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_AUDIT_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeAuditPrivilege");
@@ -1532,11 +1692,23 @@ pub const SE_CREATE_SYMBOLIC_LINK_NAME: ::windows_core::PCWSTR = ::windows_core:
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_CREATE_TOKEN_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeCreateTokenPrivilege");
 #[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(1024u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(256u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(8u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(4u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_DACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(4096u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_DEBUG_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeDebugPrivilege");
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_DELEGATE_SESSION_USER_IMPERSONATE_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeDelegateSessionUserImpersonatePrivilege");
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_ENABLE_DELEGATION_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeEnableDelegationPrivilege");
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_GROUP_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(2u16);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_IMPERSONATE_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeImpersonatePrivilege");
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1554,6 +1726,16 @@ pub const SE_MACHINE_ACCOUNT_NAME: ::windows_core::PCWSTR = ::windows_core::w!("
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_MANAGE_VOLUME_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeManageVolumePrivilege");
 #[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_OWNER_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(1u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_PRIVILEGE_ENABLED: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(1u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_PRIVILEGE_REMOVED: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(4u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_PRIVILEGE_USED_FOR_ACCESS: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(2147483648u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_PROF_SINGLE_PROCESS_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeProfileSingleProcessPrivilege");
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_RELABEL_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeRelabelPrivilege");
@@ -1562,7 +1744,21 @@ pub const SE_REMOTE_SHUTDOWN_NAME: ::windows_core::PCWSTR = ::windows_core::w!("
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_RESTORE_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeRestorePrivilege");
 #[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_RM_CONTROL_VALID: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(16384u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(2048u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(512u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(32u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(16u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(8192u16);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_SECURITY_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeSecurityPrivilege");
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SE_SELF_RELATIVE: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(32768u16);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_SHUTDOWN_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeShutdownPrivilege");
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1585,6 +1781,446 @@ pub const SE_TRUSTED_CREDMAN_ACCESS_NAME: ::windows_core::PCWSTR = ::windows_cor
 pub const SE_UNDOCK_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeUndockPrivilege");
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const SE_UNSOLICITED_INPUT_NAME: ::windows_core::PCWSTR = ::windows_core::w!("SeUnsolicitedInputPrivilege");
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SUB_CONTAINERS_AND_OBJECTS_INHERIT: ACE_FLAGS = ACE_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SUB_CONTAINERS_ONLY_INHERIT: ACE_FLAGS = ACE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SUB_OBJECTS_ONLY_INHERIT: ACE_FLAGS = ACE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SUCCESSFUL_ACCESS_ACE_FLAG: ACE_FLAGS = ACE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SecurityIdentification: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SecurityImpersonation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SidTypeAlias: SID_NAME_USE = SID_NAME_USE(4i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SidTypeComputer: SID_NAME_USE = SID_NAME_USE(9i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SidTypeDeletedAccount: SID_NAME_USE = SID_NAME_USE(6i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SidTypeDomain: SID_NAME_USE = SID_NAME_USE(3i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SidTypeGroup: SID_NAME_USE = SID_NAME_USE(2i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SidTypeInvalid: SID_NAME_USE = SID_NAME_USE(7i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SidTypeLabel: SID_NAME_USE = SID_NAME_USE(10i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SidTypeLogonSession: SID_NAME_USE = SID_NAME_USE(11i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SidTypeUnknown: SID_NAME_USE = SID_NAME_USE(8i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SidTypeUser: SID_NAME_USE = SID_NAME_USE(1i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const SidTypeWellKnownGroup: SID_NAME_USE = SID_NAME_USE(5i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_ACCESS_PSEUDO_HANDLE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(24u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_ACCESS_PSEUDO_HANDLE_WIN8: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(24u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_ACCESS_SYSTEM_SECURITY: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(16777216u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_ADJUST_DEFAULT: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(128u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_ADJUST_GROUPS: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(64u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_ADJUST_PRIVILEGES: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(32u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_ADJUST_SESSIONID: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(256u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_ALL_ACCESS: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(983551u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_ASSIGN_PRIMARY: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(1u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_DELETE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(65536u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_DUPLICATE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_EXECUTE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131072u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_IMPERSONATE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(4u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(2u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(1u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_MANDATORY_POLICY_OFF: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(0u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_MANDATORY_POLICY_VALID_MASK: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(3u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_QUERY: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(8u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_QUERY_SOURCE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(16u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_READ: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131080u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_READ_CONTROL: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131072u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_TRUST_CONSTRAINT_MASK: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131096u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_WRITE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131296u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_WRITE_DAC: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(262144u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TOKEN_WRITE_OWNER: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(524288u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenAccessInformation: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(22i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenAppContainerNumber: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(32i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenAppContainerSid: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(31i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenAuditPolicy: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(16i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenBnoIsolation: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(44i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenCapabilities: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(30i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenChildProcessFlags: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(45i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenDefaultDacl: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenDeviceClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(34i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenDeviceGroups: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(37i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenElevation: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(20i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenElevationType: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(18i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenElevationTypeDefault: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenElevationTypeFull: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenElevationTypeLimited: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenGroups: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenGroupsAndPrivileges: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(13i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenHasRestrictions: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(21i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenImpersonation: TOKEN_TYPE = TOKEN_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenImpersonationLevel: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(9i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenIntegrityLevel: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(25i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenIsAppContainer: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(29i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenIsAppSilo: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(48i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenIsLessPrivilegedAppContainer: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(46i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenIsRestricted: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(40i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenIsSandboxed: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(47i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenLinkedToken: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(19i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenLogonSid: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(28i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenMandatoryPolicy: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(27i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenOrigin: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(17i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenOwner: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenPrimary: TOKEN_TYPE = TOKEN_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenPrimaryGroup: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenPrivateNameSpace: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(42i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenPrivileges: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenProcessTrustLevel: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(41i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenRestrictedDeviceClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(36i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenRestrictedDeviceGroups: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(38i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenRestrictedSids: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(11i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenRestrictedUserClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(35i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenSandBoxInert: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(15i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenSecurityAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(39i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenSessionId: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(12i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenSessionReference: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(14i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenSingletonAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(43i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenSource: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenStatistics: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(10i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenType: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenUIAccess: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(26i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenUser: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenUserClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(33i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenVirtualizationAllowed: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(23i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const TokenVirtualizationEnabled: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(24i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const UNPROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(536870912u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const UNPROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(268435456u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WRITE_RESTRICTED: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountAdministratorSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(38i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountCertAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(46i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountCloneableControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(100i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountComputersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(44i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(45i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountDefaultSystemManagedSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(110i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountDomainAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(41i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountDomainGuestsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(43i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountDomainUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(42i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountEnterpriseAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(48i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountEnterpriseKeyAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(114i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountGuestSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(39i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountKeyAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(113i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountKrbtgtSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(40i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountPolicyAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(49i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountProtectedUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(107i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountRasAndIasServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(50i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountReadonlyControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(75i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAccountSchemaAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(47i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAnonymousSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinApplicationPackageAuthoritySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(83i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAuthenticatedUserSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAuthenticationAuthorityAssertedSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(103i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAuthenticationFreshKeyAuthSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(118i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAuthenticationKeyPropertyAttestationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(117i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAuthenticationKeyPropertyMFASid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(116i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAuthenticationKeyTrustSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(115i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinAuthenticationServiceAssertedSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(104i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBatchSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinAccessControlAssistanceOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(101i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinAccountOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(30i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinAdministratorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(26i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinAnyPackageSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(84i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinAuthorizationAccessSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(59i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinBackupOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(33i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinCertSvcDComAccessGroup: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(78i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinCryptoOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(64i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinDCOMUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(61i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinDefaultSystemManagedGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(111i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinDeviceOwnersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(119i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinDomainSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(25i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinEventLogReadersGroup: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(76i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinGuestsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(28i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinHyperVAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(99i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinIUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(62i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinIncomingForestTrustBuildersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(56i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinNetworkConfigurationOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(37i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinPerfLoggingUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(58i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinPerfMonitoringUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(57i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinPowerUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(29i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinPreWindows2000CompatibleAccessSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(35i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinPrintOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinRDSEndpointServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(96i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinRDSManagementServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(97i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinRDSRemoteAccessServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(95i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinRemoteDesktopUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(36i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinRemoteManagementUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(102i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinReplicatorSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(34i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinStorageReplicaAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(112i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinSystemOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(31i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinTerminalServerLicenseServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(60i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinBuiltinUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(27i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCacheablePrincipalsGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(72i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilityAppointmentsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(108i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilityContactsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(109i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilityDocumentsLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(91i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilityEnterpriseAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(93i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilityInternetClientServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(86i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilityInternetClientSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(85i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilityMusicLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(90i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilityPicturesLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(88i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilityPrivateNetworkClientServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(87i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilityRemovableStorageSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(94i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilitySharedUserCertificatesSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(92i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCapabilityVideosLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(89i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinConsoleLogonSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(81i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCreatorGroupServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCreatorGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCreatorOwnerRightsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(71i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCreatorOwnerServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinCreatorOwnerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinDialupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinDigestAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(52i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinEnterpriseControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinEnterpriseReadonlyControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(74i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinHighLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(68i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinIUserSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(63i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinInteractiveSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinLocalAccountAndAdministratorSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(106i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinLocalAccountSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(105i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinLocalLogonSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(80i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinLocalServiceSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(23i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinLocalSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinLocalSystemSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(22i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinLogonIdsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(21i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinLowLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(66i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinMediumLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(67i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinMediumPlusLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(79i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinNTLMAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(51i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinNetworkServiceSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(24i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinNetworkSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinNewEnterpriseReadonlyControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(77i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinNonCacheablePrincipalsGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(73i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinNtAuthoritySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinNullSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinOtherOrganizationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(55i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinProxySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinRemoteLogonIdSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(20i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinRestrictedCodeSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinSChannelAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(53i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinSelfSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinServiceSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinSystemLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(69i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinTerminalServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(19i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinThisOrganizationCertificateSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(82i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinThisOrganizationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(54i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinUntrustedLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(65i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinUserModeDriversSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(98i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinWorldSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security\"`*"]
+pub const WinWriteRestrictedCodeSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(70i32);
 #[doc = "*Required features: `\"Win32_Security\"`*"]
 pub const cwcFILENAMESUFFIXMAX: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Security\"`*"]
@@ -1639,32 +2275,6 @@ pub const wszRPAREN: ::windows_core::PCWSTR = ::windows_core::w!(")");
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CONTAINER_INHERIT_ACE: ACE_FLAGS = ACE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const FAILED_ACCESS_ACE_FLAG: ACE_FLAGS = ACE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const INHERIT_ONLY_ACE: ACE_FLAGS = ACE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const INHERITED_ACE: ACE_FLAGS = ACE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const NO_PROPAGATE_INHERIT_ACE: ACE_FLAGS = ACE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const OBJECT_INHERIT_ACE: ACE_FLAGS = ACE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SUCCESSFUL_ACCESS_ACE_FLAG: ACE_FLAGS = ACE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SUB_CONTAINERS_AND_OBJECTS_INHERIT: ACE_FLAGS = ACE_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SUB_CONTAINERS_ONLY_INHERIT: ACE_FLAGS = ACE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SUB_OBJECTS_ONLY_INHERIT: ACE_FLAGS = ACE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = ACE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const INHERIT_ONLY: ACE_FLAGS = ACE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const NO_INHERITANCE: ACE_FLAGS = ACE_FLAGS(0u32);
 impl ::core::marker::Copy for ACE_FLAGS {}
 impl ::core::clone::Clone for ACE_FLAGS {
     fn clone(&self) -> Self {
@@ -1721,10 +2331,6 @@ impl ::core::ops::Not for ACE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACE_REVISION(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ACL_REVISION: ACE_REVISION = ACE_REVISION(2u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ACL_REVISION_DS: ACE_REVISION = ACE_REVISION(4u32);
 impl ::core::marker::Copy for ACE_REVISION {}
 impl ::core::clone::Clone for ACE_REVISION {
     fn clone(&self) -> Self {
@@ -1748,10 +2354,6 @@ impl ::core::fmt::Debug for ACE_REVISION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACL_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const AclRevisionInformation: ACL_INFORMATION_CLASS = ACL_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const AclSizeInformation: ACL_INFORMATION_CLASS = ACL_INFORMATION_CLASS(2i32);
 impl ::core::marker::Copy for ACL_INFORMATION_CLASS {}
 impl ::core::clone::Clone for ACL_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -1775,10 +2377,6 @@ impl ::core::fmt::Debug for ACL_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIT_EVENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = AUDIT_EVENT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const AuditEventDirectoryServiceAccess: AUDIT_EVENT_TYPE = AUDIT_EVENT_TYPE(1i32);
 impl ::core::marker::Copy for AUDIT_EVENT_TYPE {}
 impl ::core::clone::Clone for AUDIT_EVENT_TYPE {
     fn clone(&self) -> Self {
@@ -1802,18 +2400,6 @@ impl ::core::fmt::Debug for AUDIT_EVENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = CLAIM_SECURITY_ATTRIBUTE_FLAGS(32u32);
 impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_FLAGS {}
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
     fn clone(&self) -> Self {
@@ -1870,20 +2456,6 @@ impl ::core::ops::Not for CLAIM_SECURITY_ATTRIBUTE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(pub u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(1u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(2u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(3u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(16u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(4u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_SID: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(5u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE(6u16);
 impl ::core::marker::Copy for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {}
 impl ::core::clone::Clone for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
     fn clone(&self) -> Self {
@@ -1907,14 +2479,6 @@ impl ::core::fmt::Debug for CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_RESTRICTED_TOKEN_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const DISABLE_MAX_PRIVILEGE: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SANDBOX_INERT: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LUA_TOKEN: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WRITE_RESTRICTED: CREATE_RESTRICTED_TOKEN_FLAGS = CREATE_RESTRICTED_TOKEN_FLAGS(8u32);
 impl ::core::marker::Copy for CREATE_RESTRICTED_TOKEN_FLAGS {}
 impl ::core::clone::Clone for CREATE_RESTRICTED_TOKEN_FLAGS {
     fn clone(&self) -> Self {
@@ -1971,22 +2535,6 @@ impl ::core::ops::Not for CREATE_RESTRICTED_TOKEN_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_PERIOD(pub i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ENUM_PERIOD_INVALID: ENUM_PERIOD = ENUM_PERIOD(-1i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ENUM_PERIOD_SECONDS: ENUM_PERIOD = ENUM_PERIOD(0i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ENUM_PERIOD_MINUTES: ENUM_PERIOD = ENUM_PERIOD(1i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ENUM_PERIOD_HOURS: ENUM_PERIOD = ENUM_PERIOD(2i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ENUM_PERIOD_DAYS: ENUM_PERIOD = ENUM_PERIOD(3i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ENUM_PERIOD_WEEKS: ENUM_PERIOD = ENUM_PERIOD(4i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ENUM_PERIOD_MONTHS: ENUM_PERIOD = ENUM_PERIOD(5i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ENUM_PERIOD_YEARS: ENUM_PERIOD = ENUM_PERIOD(6i32);
 impl ::core::marker::Copy for ENUM_PERIOD {}
 impl ::core::clone::Clone for ENUM_PERIOD {
     fn clone(&self) -> Self {
@@ -2010,20 +2558,6 @@ impl ::core::fmt::Debug for ENUM_PERIOD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOGON32_LOGON(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LOGON32_LOGON_BATCH: LOGON32_LOGON = LOGON32_LOGON(4u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LOGON32_LOGON_INTERACTIVE: LOGON32_LOGON = LOGON32_LOGON(2u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LOGON32_LOGON_NETWORK: LOGON32_LOGON = LOGON32_LOGON(3u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LOGON32_LOGON_NETWORK_CLEARTEXT: LOGON32_LOGON = LOGON32_LOGON(8u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LOGON32_LOGON_NEW_CREDENTIALS: LOGON32_LOGON = LOGON32_LOGON(9u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LOGON32_LOGON_SERVICE: LOGON32_LOGON = LOGON32_LOGON(5u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LOGON32_LOGON_UNLOCK: LOGON32_LOGON = LOGON32_LOGON(7u32);
 impl ::core::marker::Copy for LOGON32_LOGON {}
 impl ::core::clone::Clone for LOGON32_LOGON {
     fn clone(&self) -> Self {
@@ -2047,12 +2581,6 @@ impl ::core::fmt::Debug for LOGON32_LOGON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOGON32_PROVIDER(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LOGON32_PROVIDER_DEFAULT: LOGON32_PROVIDER = LOGON32_PROVIDER(0u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LOGON32_PROVIDER_WINNT50: LOGON32_PROVIDER = LOGON32_PROVIDER(3u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LOGON32_PROVIDER_WINNT40: LOGON32_PROVIDER = LOGON32_PROVIDER(2u32);
 impl ::core::marker::Copy for LOGON32_PROVIDER {}
 impl ::core::clone::Clone for LOGON32_PROVIDER {
     fn clone(&self) -> Self {
@@ -2076,20 +2604,6 @@ impl ::core::fmt::Debug for LOGON32_PROVIDER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MANDATORY_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const MandatoryLevelUntrusted: MANDATORY_LEVEL = MANDATORY_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const MandatoryLevelLow: MANDATORY_LEVEL = MANDATORY_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const MandatoryLevelMedium: MANDATORY_LEVEL = MANDATORY_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const MandatoryLevelHigh: MANDATORY_LEVEL = MANDATORY_LEVEL(3i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const MandatoryLevelSystem: MANDATORY_LEVEL = MANDATORY_LEVEL(4i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const MandatoryLevelSecureProcess: MANDATORY_LEVEL = MANDATORY_LEVEL(5i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const MandatoryLevelCount: MANDATORY_LEVEL = MANDATORY_LEVEL(6i32);
 impl ::core::marker::Copy for MANDATORY_LEVEL {}
 impl ::core::clone::Clone for MANDATORY_LEVEL {
     fn clone(&self) -> Self {
@@ -2113,30 +2627,6 @@ impl ::core::fmt::Debug for MANDATORY_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBJECT_SECURITY_INFORMATION(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ATTRIBUTE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(32u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const BACKUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(65536u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(4u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const GROUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(2u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const LABEL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(16u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const OWNER_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(1u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const PROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(2147483648u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const PROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(1073741824u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(8u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SCOPE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(64u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const UNPROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(536870912u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const UNPROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(268435456u32);
 impl ::core::marker::Copy for OBJECT_SECURITY_INFORMATION {}
 impl ::core::clone::Clone for OBJECT_SECURITY_INFORMATION {
     fn clone(&self) -> Self {
@@ -2193,28 +2683,6 @@ impl ::core::ops::Not for OBJECT_SECURITY_INFORMATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECURITY_AUTO_INHERIT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SEF_AVOID_OWNER_CHECK: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SEF_AVOID_OWNER_RESTRICTION: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SEF_AVOID_PRIVILEGE_CHECK: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SEF_DACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SEF_DEFAULT_DESCRIPTOR_FOR_OBJECT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SEF_DEFAULT_GROUP_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SEF_DEFAULT_OWNER_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SEF_MACL_NO_EXECUTE_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = SECURITY_AUTO_INHERIT_FLAGS(2u32);
 impl ::core::marker::Copy for SECURITY_AUTO_INHERIT_FLAGS {}
 impl ::core::clone::Clone for SECURITY_AUTO_INHERIT_FLAGS {
     fn clone(&self) -> Self {
@@ -2271,34 +2739,6 @@ impl ::core::ops::Not for SECURITY_AUTO_INHERIT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECURITY_DESCRIPTOR_CONTROL(pub u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_OWNER_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(1u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_GROUP_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(2u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_DACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(4u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_DACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(8u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_SACL_PRESENT: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(16u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_SACL_DEFAULTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(32u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_DACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(256u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_SACL_AUTO_INHERIT_REQ: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(512u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_DACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(1024u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_SACL_AUTO_INHERITED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(2048u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_DACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(4096u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_SACL_PROTECTED: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(8192u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_RM_CONTROL_VALID: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(16384u16);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_SELF_RELATIVE: SECURITY_DESCRIPTOR_CONTROL = SECURITY_DESCRIPTOR_CONTROL(32768u16);
 impl ::core::marker::Copy for SECURITY_DESCRIPTOR_CONTROL {}
 impl ::core::clone::Clone for SECURITY_DESCRIPTOR_CONTROL {
     fn clone(&self) -> Self {
@@ -2355,14 +2795,6 @@ impl ::core::ops::Not for SECURITY_DESCRIPTOR_CONTROL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECURITY_IMPERSONATION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SecurityIdentification: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SecurityImpersonation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = SECURITY_IMPERSONATION_LEVEL(3i32);
 impl ::core::marker::Copy for SECURITY_IMPERSONATION_LEVEL {}
 impl ::core::clone::Clone for SECURITY_IMPERSONATION_LEVEL {
     fn clone(&self) -> Self {
@@ -2386,28 +2818,6 @@ impl ::core::fmt::Debug for SECURITY_IMPERSONATION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SID_NAME_USE(pub i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SidTypeUser: SID_NAME_USE = SID_NAME_USE(1i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SidTypeGroup: SID_NAME_USE = SID_NAME_USE(2i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SidTypeDomain: SID_NAME_USE = SID_NAME_USE(3i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SidTypeAlias: SID_NAME_USE = SID_NAME_USE(4i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SidTypeWellKnownGroup: SID_NAME_USE = SID_NAME_USE(5i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SidTypeDeletedAccount: SID_NAME_USE = SID_NAME_USE(6i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SidTypeInvalid: SID_NAME_USE = SID_NAME_USE(7i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SidTypeUnknown: SID_NAME_USE = SID_NAME_USE(8i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SidTypeComputer: SID_NAME_USE = SID_NAME_USE(9i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SidTypeLabel: SID_NAME_USE = SID_NAME_USE(10i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SidTypeLogonSession: SID_NAME_USE = SID_NAME_USE(11i32);
 impl ::core::marker::Copy for SID_NAME_USE {}
 impl ::core::clone::Clone for SID_NAME_USE {
     fn clone(&self) -> Self {
@@ -2431,10 +2841,6 @@ impl ::core::fmt::Debug for SID_NAME_USE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_AUDIT_OBJECT_ACE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = SYSTEM_AUDIT_OBJECT_ACE_FLAGS(2u32);
 impl ::core::marker::Copy for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {}
 impl ::core::clone::Clone for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
     fn clone(&self) -> Self {
@@ -2491,48 +2897,6 @@ impl ::core::ops::Not for SYSTEM_AUDIT_OBJECT_ACE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_ACCESS_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_DELETE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(65536u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_READ_CONTROL: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131072u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_WRITE_DAC: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(262144u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_WRITE_OWNER: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(524288u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_ACCESS_SYSTEM_SECURITY: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(16777216u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_ASSIGN_PRIMARY: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(1u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_DUPLICATE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(2u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_IMPERSONATE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(4u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_QUERY: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(8u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_QUERY_SOURCE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(16u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_ADJUST_PRIVILEGES: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(32u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_ADJUST_GROUPS: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(64u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_ADJUST_DEFAULT: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(128u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_ADJUST_SESSIONID: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(256u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_READ: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131080u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_WRITE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131296u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_EXECUTE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131072u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_TRUST_CONSTRAINT_MASK: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(131096u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_ACCESS_PSEUDO_HANDLE_WIN8: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(24u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_ACCESS_PSEUDO_HANDLE: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(24u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_ALL_ACCESS: TOKEN_ACCESS_MASK = TOKEN_ACCESS_MASK(983551u32);
 impl ::core::marker::Copy for TOKEN_ACCESS_MASK {}
 impl ::core::clone::Clone for TOKEN_ACCESS_MASK {
     fn clone(&self) -> Self {
@@ -2589,12 +2953,6 @@ impl ::core::ops::Not for TOKEN_ACCESS_MASK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_ELEVATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenElevationTypeDefault: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenElevationTypeFull: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenElevationTypeLimited: TOKEN_ELEVATION_TYPE = TOKEN_ELEVATION_TYPE(3i32);
 impl ::core::marker::Copy for TOKEN_ELEVATION_TYPE {}
 impl ::core::clone::Clone for TOKEN_ELEVATION_TYPE {
     fn clone(&self) -> Self {
@@ -2618,104 +2976,6 @@ impl ::core::fmt::Debug for TOKEN_ELEVATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenUser: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenGroups: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenPrivileges: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenOwner: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenPrimaryGroup: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenDefaultDacl: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenSource: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenType: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenImpersonationLevel: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(9i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenStatistics: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(10i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenRestrictedSids: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(11i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenSessionId: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(12i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenGroupsAndPrivileges: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(13i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenSessionReference: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(14i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenSandBoxInert: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(15i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenAuditPolicy: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(16i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenOrigin: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(17i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenElevationType: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(18i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenLinkedToken: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(19i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenElevation: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(20i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenHasRestrictions: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(21i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenAccessInformation: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(22i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenVirtualizationAllowed: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(23i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenVirtualizationEnabled: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(24i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenIntegrityLevel: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(25i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenUIAccess: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(26i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenMandatoryPolicy: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(27i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenLogonSid: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(28i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenIsAppContainer: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(29i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenCapabilities: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(30i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenAppContainerSid: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(31i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenAppContainerNumber: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(32i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenUserClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(33i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenDeviceClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(34i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenRestrictedUserClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(35i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenRestrictedDeviceClaimAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(36i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenDeviceGroups: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(37i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenRestrictedDeviceGroups: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(38i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenSecurityAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(39i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenIsRestricted: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(40i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenProcessTrustLevel: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(41i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenPrivateNameSpace: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(42i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenSingletonAttributes: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(43i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenBnoIsolation: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(44i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenChildProcessFlags: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(45i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenIsLessPrivilegedAppContainer: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(46i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenIsSandboxed: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(47i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenIsAppSilo: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(48i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = TOKEN_INFORMATION_CLASS(49i32);
 impl ::core::marker::Copy for TOKEN_INFORMATION_CLASS {}
 impl ::core::clone::Clone for TOKEN_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -2739,14 +2999,6 @@ impl ::core::fmt::Debug for TOKEN_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_MANDATORY_POLICY_ID(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_MANDATORY_POLICY_OFF: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(0u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(1u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(2u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TOKEN_MANDATORY_POLICY_VALID_MASK: TOKEN_MANDATORY_POLICY_ID = TOKEN_MANDATORY_POLICY_ID(3u32);
 impl ::core::marker::Copy for TOKEN_MANDATORY_POLICY_ID {}
 impl ::core::clone::Clone for TOKEN_MANDATORY_POLICY_ID {
     fn clone(&self) -> Self {
@@ -2770,14 +3022,6 @@ impl ::core::fmt::Debug for TOKEN_MANDATORY_POLICY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_PRIVILEGES_ATTRIBUTES(pub u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_PRIVILEGE_ENABLED: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(2u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(1u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_PRIVILEGE_REMOVED: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(4u32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const SE_PRIVILEGE_USED_FOR_ACCESS: TOKEN_PRIVILEGES_ATTRIBUTES = TOKEN_PRIVILEGES_ATTRIBUTES(2147483648u32);
 impl ::core::marker::Copy for TOKEN_PRIVILEGES_ATTRIBUTES {}
 impl ::core::clone::Clone for TOKEN_PRIVILEGES_ATTRIBUTES {
     fn clone(&self) -> Self {
@@ -2834,10 +3078,6 @@ impl ::core::ops::Not for TOKEN_PRIVILEGES_ATTRIBUTES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOKEN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenPrimary: TOKEN_TYPE = TOKEN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const TokenImpersonation: TOKEN_TYPE = TOKEN_TYPE(2i32);
 impl ::core::marker::Copy for TOKEN_TYPE {}
 impl ::core::clone::Clone for TOKEN_TYPE {
     fn clone(&self) -> Self {
@@ -2861,246 +3101,6 @@ impl ::core::fmt::Debug for TOKEN_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WELL_KNOWN_SID_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinNullSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinWorldSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinLocalSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCreatorOwnerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCreatorGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCreatorOwnerServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCreatorGroupServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinNtAuthoritySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinDialupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinNetworkSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBatchSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinInteractiveSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinServiceSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAnonymousSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinProxySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinEnterpriseControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinSelfSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAuthenticatedUserSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinRestrictedCodeSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinTerminalServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinRemoteLogonIdSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(20i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinLogonIdsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(21i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinLocalSystemSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(22i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinLocalServiceSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(23i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinNetworkServiceSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(24i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinDomainSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(25i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinAdministratorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(26i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(27i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinGuestsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(28i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinPowerUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(29i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinAccountOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(30i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinSystemOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(31i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinPrintOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinBackupOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(33i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinReplicatorSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(34i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinPreWindows2000CompatibleAccessSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(35i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinRemoteDesktopUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(36i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinNetworkConfigurationOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(37i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountAdministratorSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(38i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountGuestSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(39i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountKrbtgtSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(40i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountDomainAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(41i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountDomainUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(42i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountDomainGuestsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(43i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountComputersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(44i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(45i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountCertAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(46i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountSchemaAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(47i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountEnterpriseAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(48i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountPolicyAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(49i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountRasAndIasServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(50i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinNTLMAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(51i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinDigestAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(52i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinSChannelAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(53i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinThisOrganizationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(54i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinOtherOrganizationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(55i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinIncomingForestTrustBuildersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(56i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinPerfMonitoringUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(57i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinPerfLoggingUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(58i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinAuthorizationAccessSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(59i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinTerminalServerLicenseServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(60i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinDCOMUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(61i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinIUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(62i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinIUserSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(63i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinCryptoOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(64i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinUntrustedLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(65i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinLowLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(66i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinMediumLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(67i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinHighLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(68i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinSystemLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(69i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinWriteRestrictedCodeSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(70i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCreatorOwnerRightsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(71i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCacheablePrincipalsGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(72i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinNonCacheablePrincipalsGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(73i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinEnterpriseReadonlyControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(74i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountReadonlyControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(75i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinEventLogReadersGroup: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(76i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinNewEnterpriseReadonlyControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(77i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinCertSvcDComAccessGroup: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(78i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinMediumPlusLabelSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(79i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinLocalLogonSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(80i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinConsoleLogonSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(81i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinThisOrganizationCertificateSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(82i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinApplicationPackageAuthoritySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(83i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinAnyPackageSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(84i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilityInternetClientSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(85i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilityInternetClientServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(86i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilityPrivateNetworkClientServerSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(87i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilityPicturesLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(88i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilityVideosLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(89i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilityMusicLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(90i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilityDocumentsLibrarySid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(91i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilitySharedUserCertificatesSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(92i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilityEnterpriseAuthenticationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(93i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilityRemovableStorageSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(94i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinRDSRemoteAccessServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(95i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinRDSEndpointServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(96i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinRDSManagementServersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(97i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinUserModeDriversSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(98i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinHyperVAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(99i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountCloneableControllersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(100i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinAccessControlAssistanceOperatorsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(101i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinRemoteManagementUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(102i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAuthenticationAuthorityAssertedSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(103i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAuthenticationServiceAssertedSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(104i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinLocalAccountSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(105i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinLocalAccountAndAdministratorSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(106i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountProtectedUsersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(107i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilityAppointmentsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(108i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinCapabilityContactsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(109i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountDefaultSystemManagedSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(110i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinDefaultSystemManagedGroupSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(111i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinStorageReplicaAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(112i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountKeyAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(113i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAccountEnterpriseKeyAdminsSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(114i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAuthenticationKeyTrustSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(115i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAuthenticationKeyPropertyMFASid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(116i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAuthenticationKeyPropertyAttestationSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(117i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinAuthenticationFreshKeyAuthSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(118i32);
-#[doc = "*Required features: `\"Win32_Security\"`*"]
-pub const WinBuiltinDeviceOwnersSid: WELL_KNOWN_SID_TYPE = WELL_KNOWN_SID_TYPE(119i32);
 impl ::core::marker::Copy for WELL_KNOWN_SID_TYPE {}
 impl ::core::clone::Clone for WELL_KNOWN_SID_TYPE {
     fn clone(&self) -> Self {

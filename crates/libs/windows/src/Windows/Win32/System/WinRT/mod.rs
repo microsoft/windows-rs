@@ -2288,29 +2288,91 @@ pub struct IWebAuthenticationCoreManagerInterop_Vtbl {
     RequestTokenWithWebAccountForWindowAsync: usize,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = ACTIVATIONTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = ACTIVATIONTYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_FROM_MONIKER: ACTIVATIONTYPE = ACTIVATIONTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = ACTIVATIONTYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = ACTIVATIONTYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = ACTIVATIONTYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const BSOS_DEFAULT: BSOS_OPTIONS = BSOS_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const BSOS_PREFERDESTINATIONSTREAM: BSOS_OPTIONS = BSOS_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const BaseTrust: TrustLevel = TrustLevel(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_STATE_CONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CastingSourceInfo_Property_CastingTypes: ::windows_core::PCWSTR = ::windows_core::w!("CastingTypes");
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CastingSourceInfo_Property_PreferredSourceUriScheme: ::windows_core::PCWSTR = ::windows_core::w!("PreferredSourceUriScheme");
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CastingSourceInfo_Property_ProtectedMedia: ::windows_core::PCWSTR = ::windows_core::w!("ProtectedMedia");
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const FullTrust: TrustLevel = TrustLevel(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const PartialTrust: TrustLevel = TrustLevel(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const RO_ERROR_REPORTING_SUPPRESSSETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = RO_INIT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
+pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTIVATIONTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = ACTIVATIONTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_FROM_MONIKER: ACTIVATIONTYPE = ACTIVATIONTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = ACTIVATIONTYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = ACTIVATIONTYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = ACTIVATIONTYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = ACTIVATIONTYPE(16i32);
 impl ::core::marker::Copy for ACTIVATIONTYPE {}
 impl ::core::clone::Clone for ACTIVATIONTYPE {
     fn clone(&self) -> Self {
@@ -2334,10 +2396,6 @@ impl ::core::fmt::Debug for ACTIVATIONTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AgileReferenceOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);
 impl ::core::marker::Copy for AgileReferenceOptions {}
 impl ::core::clone::Clone for AgileReferenceOptions {
     fn clone(&self) -> Self {
@@ -2361,10 +2419,6 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BSOS_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const BSOS_DEFAULT: BSOS_OPTIONS = BSOS_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const BSOS_PREFERDESTINATIONSTREAM: BSOS_OPTIONS = BSOS_OPTIONS(1i32);
 impl ::core::marker::Copy for BSOS_OPTIONS {}
 impl ::core::clone::Clone for BSOS_OPTIONS {
     fn clone(&self) -> Self {
@@ -2388,20 +2442,6 @@ impl ::core::fmt::Debug for BSOS_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(6i32);
 impl ::core::marker::Copy for CASTING_CONNECTION_ERROR_STATUS {}
 impl ::core::clone::Clone for CASTING_CONNECTION_ERROR_STATUS {
     fn clone(&self) -> Self {
@@ -2425,16 +2465,6 @@ impl ::core::fmt::Debug for CASTING_CONNECTION_ERROR_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CASTING_CONNECTION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_STATE_CONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(4i32);
 impl ::core::marker::Copy for CASTING_CONNECTION_STATE {}
 impl ::core::clone::Clone for CASTING_CONNECTION_STATE {
     fn clone(&self) -> Self {
@@ -2458,12 +2488,6 @@ impl ::core::fmt::Debug for CASTING_CONNECTION_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(2i32);
 impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {}
 impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
     fn clone(&self) -> Self {
@@ -2487,10 +2511,6 @@ impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(2i32);
 impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_TYPE {}
 impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_TYPE {
     fn clone(&self) -> Self {
@@ -2514,16 +2534,6 @@ impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RO_ERROR_REPORTING_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const RO_ERROR_REPORTING_SUPPRESSSETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(8i32);
 impl ::core::marker::Copy for RO_ERROR_REPORTING_FLAGS {}
 impl ::core::clone::Clone for RO_ERROR_REPORTING_FLAGS {
     fn clone(&self) -> Self {
@@ -2580,10 +2590,6 @@ impl ::core::ops::Not for RO_ERROR_REPORTING_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RO_INIT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = RO_INIT_TYPE(1i32);
 impl ::core::marker::Copy for RO_INIT_TYPE {}
 impl ::core::clone::Clone for RO_INIT_TYPE {
     fn clone(&self) -> Self {
@@ -2607,12 +2613,6 @@ impl ::core::fmt::Debug for RO_INIT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TrustLevel(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const BaseTrust: TrustLevel = TrustLevel(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const PartialTrust: TrustLevel = TrustLevel(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
-pub const FullTrust: TrustLevel = TrustLevel(2i32);
 impl ::core::marker::Copy for TrustLevel {}
 impl ::core::clone::Clone for TrustLevel {
     fn clone(&self) -> Self {

@@ -7567,6 +7567,10 @@ pub const CounterPropPage: ::windows_core::GUID = ::windows_core::GUID::from_u12
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const Counters: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2b066d2_2aac_11cf_942f_008029004347);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const DIID_DICounterItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08c4ff2_0e2e_11cf_942c_008029004347);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const DIID_DILogFileItem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d093ffc_f777_4917_82d1_833fbc54c58f);
@@ -7647,6 +7651,8 @@ pub const PDH_CSTATUS_NO_OBJECT: u32 = 3221228472u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_CSTATUS_VALID_DATA: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_CVERSION_WIN50: PDH_DLL_VERSION = PDH_DLL_VERSION(1280u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_DATA_SOURCE_IS_LOG_FILE: u32 = 3221228494u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_DATA_SOURCE_IS_REAL_TIME: u32 = 3221228495u32;
@@ -7660,6 +7666,16 @@ pub const PDH_ENTRY_NOT_IN_LOG_FILE: u32 = 3221228493u32;
 pub const PDH_FILE_ALREADY_EXISTS: u32 = 3221228498u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_FILE_NOT_FOUND: u32 = 3221228497u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_FLAGS_FILE_BROWSER_ONLY: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_FLAGS_NONE: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_FMT_DOUBLE: PDH_FMT = PDH_FMT(512u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_FMT_LARGE: PDH_FMT = PDH_FMT(1024u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_FMT_LONG: PDH_FMT = PDH_FMT(256u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_FUNCTION_NOT_FOUND: u32 = 3221228478u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -7695,15 +7711,33 @@ pub const PDH_LOG_FILE_OPEN_ERROR: u32 = 3221228490u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_LOG_FILE_TOO_SMALL: u32 = 3221228508u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_LOG_READ_ACCESS: PDH_LOG = PDH_LOG(65536u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_LOG_SAMPLE_TOO_SMALL: u32 = 3221228536u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_LOG_TYPE_BINARY: PDH_LOG_TYPE = PDH_LOG_TYPE(8u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_LOG_TYPE_CSV: PDH_LOG_TYPE = PDH_LOG_TYPE(1u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_LOG_TYPE_NOT_FOUND: u32 = 3221228491u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_LOG_TYPE_PERFMON: PDH_LOG_TYPE = PDH_LOG_TYPE(6u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_LOG_TYPE_RETIRED_BIN: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_LOG_TYPE_SQL: PDH_LOG_TYPE = PDH_LOG_TYPE(7u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_LOG_TYPE_TRACE_GENERIC: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_LOG_TYPE_TRACE_KERNEL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_LOG_TYPE_TSV: PDH_LOG_TYPE = PDH_LOG_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_LOG_TYPE_UNDEFINED: PDH_LOG_TYPE = PDH_LOG_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_LOG_UPDATE_ACCESS: PDH_LOG = PDH_LOG(262144u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_LOG_WRITE_ACCESS: PDH_LOG = PDH_LOG(131072u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_MAX_COUNTER_NAME: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -7738,6 +7772,12 @@ pub const PDH_NO_MORE_DATA: u32 = 3221228492u32;
 pub const PDH_OS_EARLIER_VERSION: u32 = 3221228538u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_OS_LATER_VERSION: u32 = 3221228537u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_PATH_WBEM_INPUT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_PATH_WBEM_NONE: PDH_PATH_FLAGS = PDH_PATH_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_PATH_WBEM_RESULT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_PLA_COLLECTION_ALREADY_RUNNING: u32 = 3221228521u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -7799,13 +7839,23 @@ pub const PDH_UNKNOWN_LOG_FORMAT: u32 = 3221228502u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_UNMATCHED_APPEND_COUNTER: u32 = 3221228540u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PDH_VERSION: PDH_DLL_VERSION = PDH_DLL_VERSION(1283u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PDH_WBEM_ERROR: u32 = 3221228506u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_ADD_COUNTER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_AGGREGATE_AVG: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(2u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_AGGREGATE_INSTANCE: ::windows_core::PCWSTR = ::windows_core::w!("_Total");
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_AGGREGATE_MAX: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_AGGREGATE_MIN: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(3u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_AGGREGATE_TOTAL: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(1u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_AGGREGATE_UNDEFINED: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(0u32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_ATTRIB_BY_REFERENCE: u64 = 1u64;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -7820,6 +7870,8 @@ pub const PERF_ATTRIB_NO_GROUP_SEPARATOR: u64 = 4u64;
 pub const PERF_COLLECT_END: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_COLLECT_START: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_COUNTERSET: PerfCounterDataType = PerfCounterDataType(6i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_COUNTERSET_FLAG_AGGREGATE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -7861,6 +7913,14 @@ pub const PERF_DELTA_BASE: u32 = 8388608u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_DELTA_COUNTER: u32 = 4194304u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_DETAIL_ADVANCED: PERF_DETAIL = PERF_DETAIL(200u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_DETAIL_EXPERT: PERF_DETAIL = PERF_DETAIL(300u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_DETAIL_NOVICE: PERF_DETAIL = PERF_DETAIL(100u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_DETAIL_WIZARD: PERF_DETAIL = PERF_DETAIL(400u32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_DISPLAY_NOSHOW: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_DISPLAY_NO_SUFFIX: u32 = 0u32;
@@ -7873,6 +7933,8 @@ pub const PERF_DISPLAY_SECONDS: u32 = 805306368u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_ENUM_INSTANCES: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_ERROR_RETURN: PerfCounterDataType = PerfCounterDataType(0i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_FILTER: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
@@ -7882,6 +7944,10 @@ pub const PERF_MAX_INSTANCE_NAME: u32 = 1024u32;
 pub const PERF_METADATA_MULTIPLE_INSTANCES: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_METADATA_NO_INSTANCES: i32 = -3i32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_MULTIPLE_COUNTERS: PerfCounterDataType = PerfCounterDataType(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_MULTIPLE_INSTANCES: PerfCounterDataType = PerfCounterDataType(4i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_MULTI_COUNTER: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -7903,7 +7969,29 @@ pub const PERF_PROVIDER_KERNEL_MODE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_PROVIDER_USER_MODE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_REG_COUNTERSET_ENGLISH_NAME: PerfRegInfoType = PerfRegInfoType(9i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_REG_COUNTERSET_HELP_STRING: PerfRegInfoType = PerfRegInfoType(4i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_REG_COUNTERSET_NAME_STRING: PerfRegInfoType = PerfRegInfoType(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_REG_COUNTERSET_STRUCT: PerfRegInfoType = PerfRegInfoType(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_REG_COUNTER_ENGLISH_NAMES: PerfRegInfoType = PerfRegInfoType(10i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_REG_COUNTER_HELP_STRINGS: PerfRegInfoType = PerfRegInfoType(6i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_REG_COUNTER_NAME_STRINGS: PerfRegInfoType = PerfRegInfoType(5i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_REG_COUNTER_STRUCT: PerfRegInfoType = PerfRegInfoType(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_REG_PROVIDER_GUID: PerfRegInfoType = PerfRegInfoType(8i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_REG_PROVIDER_NAME: PerfRegInfoType = PerfRegInfoType(7i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_REMOVE_COUNTER: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const PERF_SINGLE_COUNTER: PerfCounterDataType = PerfCounterDataType(1i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const PERF_SIZE_DWORD: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -7995,19 +8083,123 @@ pub const WINPERF_LOG_USER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AutoPathFormat(pub i32);
+pub const plaAlert: DataCollectorType = DataCollectorType(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaApiTrace: DataCollectorType = DataCollectorType(4i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaBinary: FileFormat = FileFormat(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaBoth: StreamMode = StreamMode(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaBuffering: StreamMode = StreamMode(4i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaCommaSeparated: FileFormat = FileFormat(0i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaCompiling: DataCollectorSetStatus = DataCollectorSetStatus(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaComputer: AutoPathFormat = AutoPathFormat(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaConfiguration: DataCollectorType = DataCollectorType(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaCreateCab: FolderActionSteps = FolderActionSteps(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaCreateHtml: DataManagerSteps = DataManagerSteps(4i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaCreateNew: CommitMode = CommitMode(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaCreateOrModify: CommitMode = CommitMode(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaCreateReport: DataManagerSteps = DataManagerSteps(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaCycle: ClockType = ClockType(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaDeleteCab: FolderActionSteps = FolderActionSteps(8i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaDeleteData: FolderActionSteps = FolderActionSteps(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaDeleteLargest: ResourcePolicy = ResourcePolicy(0i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaDeleteOldest: ResourcePolicy = ResourcePolicy(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaDeleteReport: FolderActionSteps = FolderActionSteps(16i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaEveryday: WeekDays = WeekDays(127i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaFile: StreamMode = StreamMode(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaFlag: ValueMapType = ValueMapType(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaFlagArray: ValueMapType = ValueMapType(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaFlushTrace: CommitMode = CommitMode(32i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaFolderActions: DataManagerSteps = DataManagerSteps(8i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaFriday: WeekDays = WeekDays(32i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaIndex: ValueMapType = ValueMapType(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaModify: CommitMode = CommitMode(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaMonday: WeekDays = WeekDays(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaMonthDayHour: AutoPathFormat = AutoPathFormat(256i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaMonthDayHourMinute: AutoPathFormat = AutoPathFormat(16384i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaNone: AutoPathFormat = AutoPathFormat(0i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaPattern: AutoPathFormat = AutoPathFormat(1i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaComputer: AutoPathFormat = AutoPathFormat(2i32);
+pub const plaPending: DataCollectorSetStatus = DataCollectorSetStatus(3i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaMonthDayHour: AutoPathFormat = AutoPathFormat(256i32);
+pub const plaPerformance: ClockType = ClockType(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaPerformanceCounter: DataCollectorType = DataCollectorType(0i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaRealTime: StreamMode = StreamMode(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaResourceFreeing: DataManagerSteps = DataManagerSteps(16i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaRunOnce: WeekDays = WeekDays(0i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaRunRules: DataManagerSteps = DataManagerSteps(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaRunning: DataCollectorSetStatus = DataCollectorSetStatus(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaSaturday: WeekDays = WeekDays(64i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaSendCab: FolderActionSteps = FolderActionSteps(4i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaSerialNumber: AutoPathFormat = AutoPathFormat(512i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaSql: FileFormat = FileFormat(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaStopped: DataCollectorSetStatus = DataCollectorSetStatus(0i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaSunday: WeekDays = WeekDays(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaSystem: ClockType = ClockType(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaTabSeparated: FileFormat = FileFormat(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaThursday: WeekDays = WeekDays(16i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaTimeStamp: ClockType = ClockType(0i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaTrace: DataCollectorType = DataCollectorType(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaTuesday: WeekDays = WeekDays(4i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaUndefined: DataCollectorSetStatus = DataCollectorSetStatus(4i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaUpdateRunningInstance: CommitMode = CommitMode(16i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaValidateOnly: CommitMode = CommitMode(4096i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaValidation: ValueMapType = ValueMapType(4i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const plaWednesday: WeekDays = WeekDays(8i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaYearDayOfYear: AutoPathFormat = AutoPathFormat(1024i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
@@ -8017,7 +8209,69 @@ pub const plaYearMonthDay: AutoPathFormat = AutoPathFormat(4096i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 pub const plaYearMonthDayHour: AutoPathFormat = AutoPathFormat(8192i32);
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaMonthDayHourMinute: AutoPathFormat = AutoPathFormat(16384i32);
+pub const sysmonAverage: ReportValueTypeConstants = ReportValueTypeConstants(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonBatchAddCounters: SysmonBatchReason = SysmonBatchReason(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonBatchAddFiles: SysmonBatchReason = SysmonBatchReason(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonBatchAddFilesAutoCounters: SysmonBatchReason = SysmonBatchReason(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonBatchNone: SysmonBatchReason = SysmonBatchReason(0i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonChartArea: DisplayTypeConstants = DisplayTypeConstants(4i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonChartStackedArea: DisplayTypeConstants = DisplayTypeConstants(5i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonCurrentActivity: DataSourceTypeConstants = DataSourceTypeConstants(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonCurrentValue: ReportValueTypeConstants = ReportValueTypeConstants(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonDataAvg: SysmonDataType = SysmonDataType(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonDataCount: SysmonDataType = SysmonDataType(5i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonDataMax: SysmonDataType = SysmonDataType(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonDataMin: SysmonDataType = SysmonDataType(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonDataTime: SysmonDataType = SysmonDataType(4i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonDefaultValue: ReportValueTypeConstants = ReportValueTypeConstants(0i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonFileBlg: SysmonFileType = SysmonFileType(5i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonFileCsv: SysmonFileType = SysmonFileType(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonFileGif: SysmonFileType = SysmonFileType(7i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonFileHtml: SysmonFileType = SysmonFileType(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonFileReport: SysmonFileType = SysmonFileType(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonFileRetiredBlg: SysmonFileType = SysmonFileType(6i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonFileTsv: SysmonFileType = SysmonFileType(4i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonHistogram: DisplayTypeConstants = DisplayTypeConstants(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonLineGraph: DisplayTypeConstants = DisplayTypeConstants(1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonLogFiles: DataSourceTypeConstants = DataSourceTypeConstants(2i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonMaximum: ReportValueTypeConstants = ReportValueTypeConstants(4i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonMinimum: ReportValueTypeConstants = ReportValueTypeConstants(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonNullDataSource: DataSourceTypeConstants = DataSourceTypeConstants(-1i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonReport: DisplayTypeConstants = DisplayTypeConstants(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+pub const sysmonSqlLog: DataSourceTypeConstants = DataSourceTypeConstants(3i32);
+#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AutoPathFormat(pub i32);
 impl ::core::marker::Copy for AutoPathFormat {}
 impl ::core::clone::Clone for AutoPathFormat {
     fn clone(&self) -> Self {
@@ -8041,14 +8295,6 @@ impl ::core::fmt::Debug for AutoPathFormat {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ClockType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaTimeStamp: ClockType = ClockType(0i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaPerformance: ClockType = ClockType(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaSystem: ClockType = ClockType(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaCycle: ClockType = ClockType(3i32);
 impl ::core::marker::Copy for ClockType {}
 impl ::core::clone::Clone for ClockType {
     fn clone(&self) -> Self {
@@ -8072,18 +8318,6 @@ impl ::core::fmt::Debug for ClockType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CommitMode(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaCreateNew: CommitMode = CommitMode(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaModify: CommitMode = CommitMode(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaCreateOrModify: CommitMode = CommitMode(3i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaUpdateRunningInstance: CommitMode = CommitMode(16i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaFlushTrace: CommitMode = CommitMode(32i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaValidateOnly: CommitMode = CommitMode(4096i32);
 impl ::core::marker::Copy for CommitMode {}
 impl ::core::clone::Clone for CommitMode {
     fn clone(&self) -> Self {
@@ -8107,16 +8341,6 @@ impl ::core::fmt::Debug for CommitMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataCollectorSetStatus(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaStopped: DataCollectorSetStatus = DataCollectorSetStatus(0i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaRunning: DataCollectorSetStatus = DataCollectorSetStatus(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaCompiling: DataCollectorSetStatus = DataCollectorSetStatus(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaPending: DataCollectorSetStatus = DataCollectorSetStatus(3i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaUndefined: DataCollectorSetStatus = DataCollectorSetStatus(4i32);
 impl ::core::marker::Copy for DataCollectorSetStatus {}
 impl ::core::clone::Clone for DataCollectorSetStatus {
     fn clone(&self) -> Self {
@@ -8140,16 +8364,6 @@ impl ::core::fmt::Debug for DataCollectorSetStatus {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataCollectorType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaPerformanceCounter: DataCollectorType = DataCollectorType(0i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaTrace: DataCollectorType = DataCollectorType(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaConfiguration: DataCollectorType = DataCollectorType(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaAlert: DataCollectorType = DataCollectorType(3i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaApiTrace: DataCollectorType = DataCollectorType(4i32);
 impl ::core::marker::Copy for DataCollectorType {}
 impl ::core::clone::Clone for DataCollectorType {
     fn clone(&self) -> Self {
@@ -8173,16 +8387,6 @@ impl ::core::fmt::Debug for DataCollectorType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataManagerSteps(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaCreateReport: DataManagerSteps = DataManagerSteps(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaRunRules: DataManagerSteps = DataManagerSteps(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaCreateHtml: DataManagerSteps = DataManagerSteps(4i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaFolderActions: DataManagerSteps = DataManagerSteps(8i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaResourceFreeing: DataManagerSteps = DataManagerSteps(16i32);
 impl ::core::marker::Copy for DataManagerSteps {}
 impl ::core::clone::Clone for DataManagerSteps {
     fn clone(&self) -> Self {
@@ -8206,14 +8410,6 @@ impl ::core::fmt::Debug for DataManagerSteps {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataSourceTypeConstants(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonNullDataSource: DataSourceTypeConstants = DataSourceTypeConstants(-1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonCurrentActivity: DataSourceTypeConstants = DataSourceTypeConstants(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonLogFiles: DataSourceTypeConstants = DataSourceTypeConstants(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonSqlLog: DataSourceTypeConstants = DataSourceTypeConstants(3i32);
 impl ::core::marker::Copy for DataSourceTypeConstants {}
 impl ::core::clone::Clone for DataSourceTypeConstants {
     fn clone(&self) -> Self {
@@ -8237,16 +8433,6 @@ impl ::core::fmt::Debug for DataSourceTypeConstants {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayTypeConstants(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonLineGraph: DisplayTypeConstants = DisplayTypeConstants(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonHistogram: DisplayTypeConstants = DisplayTypeConstants(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonReport: DisplayTypeConstants = DisplayTypeConstants(3i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonChartArea: DisplayTypeConstants = DisplayTypeConstants(4i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonChartStackedArea: DisplayTypeConstants = DisplayTypeConstants(5i32);
 impl ::core::marker::Copy for DisplayTypeConstants {}
 impl ::core::clone::Clone for DisplayTypeConstants {
     fn clone(&self) -> Self {
@@ -8270,14 +8456,6 @@ impl ::core::fmt::Debug for DisplayTypeConstants {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FileFormat(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaCommaSeparated: FileFormat = FileFormat(0i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaTabSeparated: FileFormat = FileFormat(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaSql: FileFormat = FileFormat(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaBinary: FileFormat = FileFormat(3i32);
 impl ::core::marker::Copy for FileFormat {}
 impl ::core::clone::Clone for FileFormat {
     fn clone(&self) -> Self {
@@ -8301,16 +8479,6 @@ impl ::core::fmt::Debug for FileFormat {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FolderActionSteps(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaCreateCab: FolderActionSteps = FolderActionSteps(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaDeleteData: FolderActionSteps = FolderActionSteps(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaSendCab: FolderActionSteps = FolderActionSteps(4i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaDeleteCab: FolderActionSteps = FolderActionSteps(8i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaDeleteReport: FolderActionSteps = FolderActionSteps(16i32);
 impl ::core::marker::Copy for FolderActionSteps {}
 impl ::core::clone::Clone for FolderActionSteps {
     fn clone(&self) -> Self {
@@ -8334,10 +8502,6 @@ impl ::core::fmt::Debug for FolderActionSteps {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_DLL_VERSION(pub u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_CVERSION_WIN50: PDH_DLL_VERSION = PDH_DLL_VERSION(1280u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_VERSION: PDH_DLL_VERSION = PDH_DLL_VERSION(1283u32);
 impl ::core::marker::Copy for PDH_DLL_VERSION {}
 impl ::core::clone::Clone for PDH_DLL_VERSION {
     fn clone(&self) -> Self {
@@ -8361,12 +8525,6 @@ impl ::core::fmt::Debug for PDH_DLL_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_FMT(pub u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_FMT_DOUBLE: PDH_FMT = PDH_FMT(512u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_FMT_LARGE: PDH_FMT = PDH_FMT(1024u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_FMT_LONG: PDH_FMT = PDH_FMT(256u32);
 impl ::core::marker::Copy for PDH_FMT {}
 impl ::core::clone::Clone for PDH_FMT {
     fn clone(&self) -> Self {
@@ -8390,12 +8548,6 @@ impl ::core::fmt::Debug for PDH_FMT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_LOG(pub u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_READ_ACCESS: PDH_LOG = PDH_LOG(65536u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_WRITE_ACCESS: PDH_LOG = PDH_LOG(131072u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_UPDATE_ACCESS: PDH_LOG = PDH_LOG(262144u32);
 impl ::core::marker::Copy for PDH_LOG {}
 impl ::core::clone::Clone for PDH_LOG {
     fn clone(&self) -> Self {
@@ -8419,18 +8571,6 @@ impl ::core::fmt::Debug for PDH_LOG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_LOG_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_TYPE_UNDEFINED: PDH_LOG_TYPE = PDH_LOG_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_TYPE_CSV: PDH_LOG_TYPE = PDH_LOG_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_TYPE_SQL: PDH_LOG_TYPE = PDH_LOG_TYPE(7u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_TYPE_TSV: PDH_LOG_TYPE = PDH_LOG_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_TYPE_BINARY: PDH_LOG_TYPE = PDH_LOG_TYPE(8u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_LOG_TYPE_PERFMON: PDH_LOG_TYPE = PDH_LOG_TYPE(6u32);
 impl ::core::marker::Copy for PDH_LOG_TYPE {}
 impl ::core::clone::Clone for PDH_LOG_TYPE {
     fn clone(&self) -> Self {
@@ -8454,12 +8594,6 @@ impl ::core::fmt::Debug for PDH_LOG_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_PATH_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PATH_WBEM_RESULT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PATH_WBEM_INPUT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_PATH_WBEM_NONE: PDH_PATH_FLAGS = PDH_PATH_FLAGS(0u32);
 impl ::core::marker::Copy for PDH_PATH_FLAGS {}
 impl ::core::clone::Clone for PDH_PATH_FLAGS {
     fn clone(&self) -> Self {
@@ -8483,10 +8617,6 @@ impl ::core::fmt::Debug for PDH_PATH_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDH_SELECT_DATA_SOURCE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_FLAGS_FILE_BROWSER_ONLY: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PDH_FLAGS_NONE: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(0u32);
 impl ::core::marker::Copy for PDH_SELECT_DATA_SOURCE_FLAGS {}
 impl ::core::clone::Clone for PDH_SELECT_DATA_SOURCE_FLAGS {
     fn clone(&self) -> Self {
@@ -8510,14 +8640,6 @@ impl ::core::fmt::Debug for PDH_SELECT_DATA_SOURCE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PERF_COUNTER_AGGREGATE_FUNC(pub u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_AGGREGATE_UNDEFINED: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(0u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_AGGREGATE_TOTAL: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(1u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_AGGREGATE_AVG: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(2u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_AGGREGATE_MIN: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(3u32);
 impl ::core::marker::Copy for PERF_COUNTER_AGGREGATE_FUNC {}
 impl ::core::clone::Clone for PERF_COUNTER_AGGREGATE_FUNC {
     fn clone(&self) -> Self {
@@ -8541,14 +8663,6 @@ impl ::core::fmt::Debug for PERF_COUNTER_AGGREGATE_FUNC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PERF_DETAIL(pub u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_DETAIL_NOVICE: PERF_DETAIL = PERF_DETAIL(100u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_DETAIL_ADVANCED: PERF_DETAIL = PERF_DETAIL(200u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_DETAIL_EXPERT: PERF_DETAIL = PERF_DETAIL(300u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_DETAIL_WIZARD: PERF_DETAIL = PERF_DETAIL(400u32);
 impl ::core::marker::Copy for PERF_DETAIL {}
 impl ::core::clone::Clone for PERF_DETAIL {
     fn clone(&self) -> Self {
@@ -8572,16 +8686,6 @@ impl ::core::fmt::Debug for PERF_DETAIL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PerfCounterDataType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_ERROR_RETURN: PerfCounterDataType = PerfCounterDataType(0i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_SINGLE_COUNTER: PerfCounterDataType = PerfCounterDataType(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_MULTIPLE_COUNTERS: PerfCounterDataType = PerfCounterDataType(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_MULTIPLE_INSTANCES: PerfCounterDataType = PerfCounterDataType(4i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_COUNTERSET: PerfCounterDataType = PerfCounterDataType(6i32);
 impl ::core::marker::Copy for PerfCounterDataType {}
 impl ::core::clone::Clone for PerfCounterDataType {
     fn clone(&self) -> Self {
@@ -8605,26 +8709,6 @@ impl ::core::fmt::Debug for PerfCounterDataType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PerfRegInfoType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_REG_COUNTERSET_STRUCT: PerfRegInfoType = PerfRegInfoType(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_REG_COUNTER_STRUCT: PerfRegInfoType = PerfRegInfoType(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_REG_COUNTERSET_NAME_STRING: PerfRegInfoType = PerfRegInfoType(3i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_REG_COUNTERSET_HELP_STRING: PerfRegInfoType = PerfRegInfoType(4i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_REG_COUNTER_NAME_STRINGS: PerfRegInfoType = PerfRegInfoType(5i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_REG_COUNTER_HELP_STRINGS: PerfRegInfoType = PerfRegInfoType(6i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_REG_PROVIDER_NAME: PerfRegInfoType = PerfRegInfoType(7i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_REG_PROVIDER_GUID: PerfRegInfoType = PerfRegInfoType(8i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_REG_COUNTERSET_ENGLISH_NAME: PerfRegInfoType = PerfRegInfoType(9i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const PERF_REG_COUNTER_ENGLISH_NAMES: PerfRegInfoType = PerfRegInfoType(10i32);
 impl ::core::marker::Copy for PerfRegInfoType {}
 impl ::core::clone::Clone for PerfRegInfoType {
     fn clone(&self) -> Self {
@@ -8648,10 +8732,6 @@ impl ::core::fmt::Debug for PerfRegInfoType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REAL_TIME_DATA_SOURCE_ID_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(4u32);
 impl ::core::marker::Copy for REAL_TIME_DATA_SOURCE_ID_FLAGS {}
 impl ::core::clone::Clone for REAL_TIME_DATA_SOURCE_ID_FLAGS {
     fn clone(&self) -> Self {
@@ -8675,16 +8755,6 @@ impl ::core::fmt::Debug for REAL_TIME_DATA_SOURCE_ID_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ReportValueTypeConstants(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonDefaultValue: ReportValueTypeConstants = ReportValueTypeConstants(0i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonCurrentValue: ReportValueTypeConstants = ReportValueTypeConstants(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonAverage: ReportValueTypeConstants = ReportValueTypeConstants(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonMinimum: ReportValueTypeConstants = ReportValueTypeConstants(3i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonMaximum: ReportValueTypeConstants = ReportValueTypeConstants(4i32);
 impl ::core::marker::Copy for ReportValueTypeConstants {}
 impl ::core::clone::Clone for ReportValueTypeConstants {
     fn clone(&self) -> Self {
@@ -8708,10 +8778,6 @@ impl ::core::fmt::Debug for ReportValueTypeConstants {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ResourcePolicy(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaDeleteLargest: ResourcePolicy = ResourcePolicy(0i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaDeleteOldest: ResourcePolicy = ResourcePolicy(1i32);
 impl ::core::marker::Copy for ResourcePolicy {}
 impl ::core::clone::Clone for ResourcePolicy {
     fn clone(&self) -> Self {
@@ -8735,14 +8801,6 @@ impl ::core::fmt::Debug for ResourcePolicy {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StreamMode(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaFile: StreamMode = StreamMode(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaRealTime: StreamMode = StreamMode(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaBoth: StreamMode = StreamMode(3i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaBuffering: StreamMode = StreamMode(4i32);
 impl ::core::marker::Copy for StreamMode {}
 impl ::core::clone::Clone for StreamMode {
     fn clone(&self) -> Self {
@@ -8766,14 +8824,6 @@ impl ::core::fmt::Debug for StreamMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SysmonBatchReason(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonBatchNone: SysmonBatchReason = SysmonBatchReason(0i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonBatchAddFiles: SysmonBatchReason = SysmonBatchReason(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonBatchAddCounters: SysmonBatchReason = SysmonBatchReason(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonBatchAddFilesAutoCounters: SysmonBatchReason = SysmonBatchReason(3i32);
 impl ::core::marker::Copy for SysmonBatchReason {}
 impl ::core::clone::Clone for SysmonBatchReason {
     fn clone(&self) -> Self {
@@ -8797,16 +8847,6 @@ impl ::core::fmt::Debug for SysmonBatchReason {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SysmonDataType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonDataAvg: SysmonDataType = SysmonDataType(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonDataMin: SysmonDataType = SysmonDataType(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonDataMax: SysmonDataType = SysmonDataType(3i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonDataTime: SysmonDataType = SysmonDataType(4i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonDataCount: SysmonDataType = SysmonDataType(5i32);
 impl ::core::marker::Copy for SysmonDataType {}
 impl ::core::clone::Clone for SysmonDataType {
     fn clone(&self) -> Self {
@@ -8830,20 +8870,6 @@ impl ::core::fmt::Debug for SysmonDataType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SysmonFileType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonFileHtml: SysmonFileType = SysmonFileType(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonFileReport: SysmonFileType = SysmonFileType(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonFileCsv: SysmonFileType = SysmonFileType(3i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonFileTsv: SysmonFileType = SysmonFileType(4i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonFileBlg: SysmonFileType = SysmonFileType(5i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonFileRetiredBlg: SysmonFileType = SysmonFileType(6i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const sysmonFileGif: SysmonFileType = SysmonFileType(7i32);
 impl ::core::marker::Copy for SysmonFileType {}
 impl ::core::clone::Clone for SysmonFileType {
     fn clone(&self) -> Self {
@@ -8867,14 +8893,6 @@ impl ::core::fmt::Debug for SysmonFileType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ValueMapType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaIndex: ValueMapType = ValueMapType(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaFlag: ValueMapType = ValueMapType(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaFlagArray: ValueMapType = ValueMapType(3i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaValidation: ValueMapType = ValueMapType(4i32);
 impl ::core::marker::Copy for ValueMapType {}
 impl ::core::clone::Clone for ValueMapType {
     fn clone(&self) -> Self {
@@ -8898,24 +8916,6 @@ impl ::core::fmt::Debug for ValueMapType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WeekDays(pub i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaRunOnce: WeekDays = WeekDays(0i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaSunday: WeekDays = WeekDays(1i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaMonday: WeekDays = WeekDays(2i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaTuesday: WeekDays = WeekDays(4i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaWednesday: WeekDays = WeekDays(8i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaThursday: WeekDays = WeekDays(16i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaFriday: WeekDays = WeekDays(32i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaSaturday: WeekDays = WeekDays(64i32);
-#[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-pub const plaEveryday: WeekDays = WeekDays(127i32);
 impl ::core::marker::Copy for WeekDays {}
 impl ::core::clone::Clone for WeekDays {
     fn clone(&self) -> Self {

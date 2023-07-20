@@ -2642,7 +2642,57 @@ pub const WSMAN_CMDSHELL_OPTION_CONSOLEMODE_STDIN: ::windows_core::PCWSTR = ::wi
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSMAN_CMDSHELL_OPTION_SKIP_CMD_SHELL: ::windows_core::PCWSTR = ::windows_core::w!("WINRS_SKIP_CMD_SHELL");
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_DATA_NONE: WSManDataType = WSManDataType(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_DATA_TYPE_BINARY: WSManDataType = WSManDataType(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_DATA_TYPE_DWORD: WSManDataType = WSManDataType(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_DATA_TYPE_TEXT: WSManDataType = WSManDataType(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSMAN_DEFAULT_TIMEOUT_MS: u32 = 60000u32;
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_AUTH_BASIC: WSManAuthenticationFlags = WSManAuthenticationFlags(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_AUTH_CLIENT_CERTIFICATE: WSManAuthenticationFlags = WSManAuthenticationFlags(32i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_AUTH_CREDSSP: WSManAuthenticationFlags = WSManAuthenticationFlags(128i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_AUTH_DIGEST: WSManAuthenticationFlags = WSManAuthenticationFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_AUTH_KERBEROS: WSManAuthenticationFlags = WSManAuthenticationFlags(16i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_AUTH_NEGOTIATE: WSManAuthenticationFlags = WSManAuthenticationFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_CALLBACK_END_OF_OPERATION: WSManCallbackFlags = WSManCallbackFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_CALLBACK_END_OF_STREAM: WSManCallbackFlags = WSManCallbackFlags(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_CALLBACK_NETWORK_FAILURE_DETECTED: WSManCallbackFlags = WSManCallbackFlags(256i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_CALLBACK_RECEIVE_DELAY_STREAM_REQUEST_PROCESSED: WSManCallbackFlags = WSManCallbackFlags(8192i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_CALLBACK_RECONNECTED_AFTER_NETWORK_FAILURE: WSManCallbackFlags = WSManCallbackFlags(1024i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_CALLBACK_RETRYING_AFTER_NETWORK_FAILURE: WSManCallbackFlags = WSManCallbackFlags(512i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_CALLBACK_RETRY_ABORTED_DUE_TO_INTERNAL_ERROR: WSManCallbackFlags = WSManCallbackFlags(4096i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTED: WSManCallbackFlags = WSManCallbackFlags(64i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTING: WSManCallbackFlags = WSManCallbackFlags(2048i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_CALLBACK_SHELL_SUPPORTS_DISCONNECT: WSManCallbackFlags = WSManCallbackFlags(32i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_DEFAULT_AUTHENTICATION: WSManAuthenticationFlags = WSManAuthenticationFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_DELETE_SERVER_SESSION: WSManShellFlag = WSManShellFlag(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_NO_AUTHENTICATION: WSManAuthenticationFlags = WSManAuthenticationFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_NO_COMPRESSION: WSManShellFlag = WSManShellFlag(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_RECEIVE_DELAY_OUTPUT_STREAM: WSManShellFlag = WSManShellFlag(16i32);
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSMAN_FLAG_RECEIVE_FLUSH: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
@@ -2656,9 +2706,67 @@ pub const WSMAN_FLAG_REQUESTED_API_VERSION_1_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSMAN_FLAG_SEND_NO_MORE_DATA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_BLOCK: WSManShellFlag = WSManShellFlag(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_DROP: WSManShellFlag = WSManShellFlag(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSMAN_OPERATION_INFOV1: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSMAN_OPERATION_INFOV2: u32 = 2864434397u32;
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionOption = WSManSessionOption(32i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_DEFAULT_OPERATION_TIMEOUTMS: WSManSessionOption = WSManSessionOption(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_ENABLE_SPN_SERVER_PORT: WSManSessionOption = WSManSessionOption(22i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_LOCALE: WSManSessionOption = WSManSessionOption(25i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_MACHINE_ID: WSManSessionOption = WSManSessionOption(23i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_MAX_ENVELOPE_SIZE_KB: WSManSessionOption = WSManSessionOption(28i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_MAX_RETRY_TIME: WSManSessionOption = WSManSessionOption(11i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_PROXY_AUTO_DETECT: WSManProxyAccessType = WSManProxyAccessType(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_PROXY_IE_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_PROXY_NO_PROXY_SERVER: WSManProxyAccessType = WSManProxyAccessType(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_PROXY_WINHTTP_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_REDIRECT_LOCATION: WSManSessionOption = WSManSessionOption(30i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_SHELL_MAX_DATA_SIZE_PER_MESSAGE_KB: WSManSessionOption = WSManSessionOption(29i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_SKIP_CA_CHECK: WSManSessionOption = WSManSessionOption(18i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_SKIP_CN_CHECK: WSManSessionOption = WSManSessionOption(19i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_SKIP_REVOCATION_CHECK: WSManSessionOption = WSManSessionOption(31i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_TIMEOUTMS_CLOSE_SHELL: WSManSessionOption = WSManSessionOption(17i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_TIMEOUTMS_CREATE_SHELL: WSManSessionOption = WSManSessionOption(12i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_TIMEOUTMS_RECEIVE_SHELL_OUTPUT: WSManSessionOption = WSManSessionOption(14i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_TIMEOUTMS_RUN_SHELL_COMMAND: WSManSessionOption = WSManSessionOption(13i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_TIMEOUTMS_SEND_SHELL_INPUT: WSManSessionOption = WSManSessionOption(15i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_TIMEOUTMS_SIGNAL_SHELL: WSManSessionOption = WSManSessionOption(16i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_UI_LANGUAGE: WSManSessionOption = WSManSessionOption(26i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_UNENCRYPTED_MESSAGES: WSManSessionOption = WSManSessionOption(20i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_USE_INTEARACTIVE_TOKEN: WSManSessionOption = WSManSessionOption(34i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_USE_SSL: WSManSessionOption = WSManSessionOption(33i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSMAN_OPTION_UTF16: WSManSessionOption = WSManSessionOption(21i32);
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSMAN_PLUGIN_PARAMS_AUTORESTART: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
@@ -2708,27 +2816,77 @@ pub const WSMAN_STREAM_ID_STDOUT: ::windows_core::PCWSTR = ::windows_core::w!("s
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSMan: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbced617b_ec03_420b_8508_977dc7a686bd);
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagAllowNegotiateImplicitCredentials: WSManSessionFlags = WSManSessionFlags(67108864i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagAssociatedInstance: WSManEnumFlags = WSManEnumFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagAssociationInstance: WSManEnumFlags = WSManEnumFlags(128i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagCredUsernamePassword: WSManSessionFlags = WSManSessionFlags(4096i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagEnableSPNServerPort: WSManSessionFlags = WSManSessionFlags(4194304i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagHierarchyDeep: WSManEnumFlags = WSManEnumFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagHierarchyDeepBasePropsOnly: WSManEnumFlags = WSManEnumFlags(64i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagHierarchyShallow: WSManEnumFlags = WSManEnumFlags(32i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagNoEncryption: WSManSessionFlags = WSManSessionFlags(1048576i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagNonXmlText: WSManEnumFlags = WSManEnumFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagProxyAuthenticationUseBasic: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagProxyAuthenticationUseDigest: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagProxyAuthenticationUseNegotiate: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagReturnEPR: WSManEnumFlags = WSManEnumFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagReturnObject: WSManEnumFlags = WSManEnumFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagReturnObjectAndEPR: WSManEnumFlags = WSManEnumFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagSkipCACheck: WSManSessionFlags = WSManSessionFlags(8192i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagSkipCNCheck: WSManSessionFlags = WSManSessionFlags(16384i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagSkipRevocationCheck: WSManSessionFlags = WSManSessionFlags(33554432i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagUTF16: WSManSessionFlags = WSManSessionFlags(8388608i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagUTF8: WSManSessionFlags = WSManSessionFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagUseBasic: WSManSessionFlags = WSManSessionFlags(262144i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagUseClientCertificate: WSManSessionFlags = WSManSessionFlags(2097152i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagUseCredSsp: WSManSessionFlags = WSManSessionFlags(16777216i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagUseDigest: WSManSessionFlags = WSManSessionFlags(65536i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagUseKerberos: WSManSessionFlags = WSManSessionFlags(524288i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagUseNegotiate: WSManSessionFlags = WSManSessionFlags(131072i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagUseNoAuthentication: WSManSessionFlags = WSManSessionFlags(32768i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManFlagUseSsl: WSManSessionFlags = WSManSessionFlags(134217728i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub const WSManInternal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7de087a5_5dcb_4df7_bb12_0924ad8fbd9a);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManProxyAutoDetect: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManProxyIEConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManProxyNoProxyServer: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
+pub const WSManProxyWinHttpConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(2i32);
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSManAuthenticationFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_DEFAULT_AUTHENTICATION: WSManAuthenticationFlags = WSManAuthenticationFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_NO_AUTHENTICATION: WSManAuthenticationFlags = WSManAuthenticationFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_AUTH_DIGEST: WSManAuthenticationFlags = WSManAuthenticationFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_AUTH_NEGOTIATE: WSManAuthenticationFlags = WSManAuthenticationFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_AUTH_BASIC: WSManAuthenticationFlags = WSManAuthenticationFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_AUTH_KERBEROS: WSManAuthenticationFlags = WSManAuthenticationFlags(16i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_AUTH_CREDSSP: WSManAuthenticationFlags = WSManAuthenticationFlags(128i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_AUTH_CLIENT_CERTIFICATE: WSManAuthenticationFlags = WSManAuthenticationFlags(32i32);
 impl ::core::marker::Copy for WSManAuthenticationFlags {}
 impl ::core::clone::Clone for WSManAuthenticationFlags {
     fn clone(&self) -> Self {
@@ -2752,26 +2910,6 @@ impl ::core::fmt::Debug for WSManAuthenticationFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSManCallbackFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_CALLBACK_END_OF_OPERATION: WSManCallbackFlags = WSManCallbackFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_CALLBACK_END_OF_STREAM: WSManCallbackFlags = WSManCallbackFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_CALLBACK_SHELL_SUPPORTS_DISCONNECT: WSManCallbackFlags = WSManCallbackFlags(32i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTED: WSManCallbackFlags = WSManCallbackFlags(64i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_CALLBACK_NETWORK_FAILURE_DETECTED: WSManCallbackFlags = WSManCallbackFlags(256i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_CALLBACK_RETRYING_AFTER_NETWORK_FAILURE: WSManCallbackFlags = WSManCallbackFlags(512i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_CALLBACK_RECONNECTED_AFTER_NETWORK_FAILURE: WSManCallbackFlags = WSManCallbackFlags(1024i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_CALLBACK_SHELL_AUTODISCONNECTING: WSManCallbackFlags = WSManCallbackFlags(2048i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_CALLBACK_RETRY_ABORTED_DUE_TO_INTERNAL_ERROR: WSManCallbackFlags = WSManCallbackFlags(4096i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_CALLBACK_RECEIVE_DELAY_STREAM_REQUEST_PROCESSED: WSManCallbackFlags = WSManCallbackFlags(8192i32);
 impl ::core::marker::Copy for WSManCallbackFlags {}
 impl ::core::clone::Clone for WSManCallbackFlags {
     fn clone(&self) -> Self {
@@ -2795,14 +2933,6 @@ impl ::core::fmt::Debug for WSManCallbackFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSManDataType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_DATA_NONE: WSManDataType = WSManDataType(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_DATA_TYPE_TEXT: WSManDataType = WSManDataType(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_DATA_TYPE_BINARY: WSManDataType = WSManDataType(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_DATA_TYPE_DWORD: WSManDataType = WSManDataType(4i32);
 impl ::core::marker::Copy for WSManDataType {}
 impl ::core::clone::Clone for WSManDataType {
     fn clone(&self) -> Self {
@@ -2826,24 +2956,6 @@ impl ::core::fmt::Debug for WSManDataType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSManEnumFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagNonXmlText: WSManEnumFlags = WSManEnumFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagReturnObject: WSManEnumFlags = WSManEnumFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagReturnEPR: WSManEnumFlags = WSManEnumFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagReturnObjectAndEPR: WSManEnumFlags = WSManEnumFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagHierarchyDeep: WSManEnumFlags = WSManEnumFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagHierarchyShallow: WSManEnumFlags = WSManEnumFlags(32i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagHierarchyDeepBasePropsOnly: WSManEnumFlags = WSManEnumFlags(64i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagAssociatedInstance: WSManEnumFlags = WSManEnumFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagAssociationInstance: WSManEnumFlags = WSManEnumFlags(128i32);
 impl ::core::marker::Copy for WSManEnumFlags {}
 impl ::core::clone::Clone for WSManEnumFlags {
     fn clone(&self) -> Self {
@@ -2867,14 +2979,6 @@ impl ::core::fmt::Debug for WSManEnumFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSManProxyAccessType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_PROXY_IE_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_PROXY_WINHTTP_PROXY_CONFIG: WSManProxyAccessType = WSManProxyAccessType(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_PROXY_AUTO_DETECT: WSManProxyAccessType = WSManProxyAccessType(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_PROXY_NO_PROXY_SERVER: WSManProxyAccessType = WSManProxyAccessType(8i32);
 impl ::core::marker::Copy for WSManProxyAccessType {}
 impl ::core::clone::Clone for WSManProxyAccessType {
     fn clone(&self) -> Self {
@@ -2898,14 +3002,6 @@ impl ::core::fmt::Debug for WSManProxyAccessType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSManProxyAccessTypeFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManProxyIEConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManProxyWinHttpConfig: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManProxyAutoDetect: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManProxyNoProxyServer: WSManProxyAccessTypeFlags = WSManProxyAccessTypeFlags(8i32);
 impl ::core::marker::Copy for WSManProxyAccessTypeFlags {}
 impl ::core::clone::Clone for WSManProxyAccessTypeFlags {
     fn clone(&self) -> Self {
@@ -2929,12 +3025,6 @@ impl ::core::fmt::Debug for WSManProxyAccessTypeFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSManProxyAuthenticationFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagProxyAuthenticationUseNegotiate: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagProxyAuthenticationUseBasic: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagProxyAuthenticationUseDigest: WSManProxyAuthenticationFlags = WSManProxyAuthenticationFlags(4i32);
 impl ::core::marker::Copy for WSManProxyAuthenticationFlags {}
 impl ::core::clone::Clone for WSManProxyAuthenticationFlags {
     fn clone(&self) -> Self {
@@ -2958,40 +3048,6 @@ impl ::core::fmt::Debug for WSManProxyAuthenticationFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSManSessionFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagUTF8: WSManSessionFlags = WSManSessionFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagCredUsernamePassword: WSManSessionFlags = WSManSessionFlags(4096i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagSkipCACheck: WSManSessionFlags = WSManSessionFlags(8192i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagSkipCNCheck: WSManSessionFlags = WSManSessionFlags(16384i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagUseNoAuthentication: WSManSessionFlags = WSManSessionFlags(32768i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagUseDigest: WSManSessionFlags = WSManSessionFlags(65536i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagUseNegotiate: WSManSessionFlags = WSManSessionFlags(131072i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagUseBasic: WSManSessionFlags = WSManSessionFlags(262144i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagUseKerberos: WSManSessionFlags = WSManSessionFlags(524288i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagNoEncryption: WSManSessionFlags = WSManSessionFlags(1048576i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagUseClientCertificate: WSManSessionFlags = WSManSessionFlags(2097152i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagEnableSPNServerPort: WSManSessionFlags = WSManSessionFlags(4194304i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagUTF16: WSManSessionFlags = WSManSessionFlags(8388608i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagUseCredSsp: WSManSessionFlags = WSManSessionFlags(16777216i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagSkipRevocationCheck: WSManSessionFlags = WSManSessionFlags(33554432i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagAllowNegotiateImplicitCredentials: WSManSessionFlags = WSManSessionFlags(67108864i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSManFlagUseSsl: WSManSessionFlags = WSManSessionFlags(134217728i32);
 impl ::core::marker::Copy for WSManSessionFlags {}
 impl ::core::clone::Clone for WSManSessionFlags {
     fn clone(&self) -> Self {
@@ -3015,52 +3071,6 @@ impl ::core::fmt::Debug for WSManSessionFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSManSessionOption(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_DEFAULT_OPERATION_TIMEOUTMS: WSManSessionOption = WSManSessionOption(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_MAX_RETRY_TIME: WSManSessionOption = WSManSessionOption(11i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_TIMEOUTMS_CREATE_SHELL: WSManSessionOption = WSManSessionOption(12i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_TIMEOUTMS_RUN_SHELL_COMMAND: WSManSessionOption = WSManSessionOption(13i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_TIMEOUTMS_RECEIVE_SHELL_OUTPUT: WSManSessionOption = WSManSessionOption(14i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_TIMEOUTMS_SEND_SHELL_INPUT: WSManSessionOption = WSManSessionOption(15i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_TIMEOUTMS_SIGNAL_SHELL: WSManSessionOption = WSManSessionOption(16i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_TIMEOUTMS_CLOSE_SHELL: WSManSessionOption = WSManSessionOption(17i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_SKIP_CA_CHECK: WSManSessionOption = WSManSessionOption(18i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_SKIP_CN_CHECK: WSManSessionOption = WSManSessionOption(19i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_UNENCRYPTED_MESSAGES: WSManSessionOption = WSManSessionOption(20i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_UTF16: WSManSessionOption = WSManSessionOption(21i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_ENABLE_SPN_SERVER_PORT: WSManSessionOption = WSManSessionOption(22i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_MACHINE_ID: WSManSessionOption = WSManSessionOption(23i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_LOCALE: WSManSessionOption = WSManSessionOption(25i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_UI_LANGUAGE: WSManSessionOption = WSManSessionOption(26i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_MAX_ENVELOPE_SIZE_KB: WSManSessionOption = WSManSessionOption(28i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_SHELL_MAX_DATA_SIZE_PER_MESSAGE_KB: WSManSessionOption = WSManSessionOption(29i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_REDIRECT_LOCATION: WSManSessionOption = WSManSessionOption(30i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_SKIP_REVOCATION_CHECK: WSManSessionOption = WSManSessionOption(31i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_ALLOW_NEGOTIATE_IMPLICIT_CREDENTIALS: WSManSessionOption = WSManSessionOption(32i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_USE_SSL: WSManSessionOption = WSManSessionOption(33i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_OPTION_USE_INTEARACTIVE_TOKEN: WSManSessionOption = WSManSessionOption(34i32);
 impl ::core::marker::Copy for WSManSessionOption {}
 impl ::core::clone::Clone for WSManSessionOption {
     fn clone(&self) -> Self {
@@ -3084,16 +3094,6 @@ impl ::core::fmt::Debug for WSManSessionOption {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSManShellFlag(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_NO_COMPRESSION: WSManShellFlag = WSManShellFlag(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_DELETE_SERVER_SESSION: WSManShellFlag = WSManShellFlag(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_DROP: WSManShellFlag = WSManShellFlag(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_SERVER_BUFFERING_MODE_BLOCK: WSManShellFlag = WSManShellFlag(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
-pub const WSMAN_FLAG_RECEIVE_DELAY_OUTPUT_STREAM: WSManShellFlag = WSManShellFlag(16i32);
 impl ::core::marker::Copy for WSManShellFlag {}
 impl ::core::clone::Clone for WSManShellFlag {
     fn clone(&self) -> Self {

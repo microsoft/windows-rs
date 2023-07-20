@@ -1676,11 +1676,39 @@ pub const DXC_ARG_SKIP_VALIDATION: ::windows_core::PCWSTR = ::windows_core::w!("
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_ARG_WARNINGS_ARE_ERRORS: ::windows_core::PCWSTR = ::windows_core::w!("-WX");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_CP_ACP: DXC_CP = DXC_CP(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_CP_UTF16: DXC_CP = DXC_CP(1200u32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_CP_UTF8: DXC_CP = DXC_CP(65001u32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_EXTRA_OUTPUT_NAME_STDERR: ::windows_core::PCWSTR = ::windows_core::w!("*stderr*");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_EXTRA_OUTPUT_NAME_STDOUT: ::windows_core::PCWSTR = ::windows_core::w!("*stdout*");
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = DXC_OUT_KIND(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_ERRORS: DXC_OUT_KIND = DXC_OUT_KIND(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = DXC_OUT_KIND(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_HLSL: DXC_OUT_KIND = DXC_OUT_KIND(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_NONE: DXC_OUT_KIND = DXC_OUT_KIND(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_OBJECT: DXC_OUT_KIND = DXC_OUT_KIND(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_PDB: DXC_OUT_KIND = DXC_OUT_KIND(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = DXC_OUT_KIND(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = DXC_OUT_KIND(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = DXC_OUT_KIND(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
+pub const DXC_OUT_TEXT: DXC_OUT_KIND = DXC_OUT_KIND(7i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
 pub const DxcValidatorFlags_Default: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
@@ -1701,12 +1729,6 @@ pub const DxcVersionInfoFlags_None: u32 = 0u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXC_CP(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_CP_ACP: DXC_CP = DXC_CP(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_CP_UTF16: DXC_CP = DXC_CP(1200u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_CP_UTF8: DXC_CP = DXC_CP(65001u32);
 impl ::core::marker::Copy for DXC_CP {}
 impl ::core::clone::Clone for DXC_CP {
     fn clone(&self) -> Self {
@@ -1730,28 +1752,6 @@ impl ::core::fmt::Debug for DXC_CP {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXC_OUT_KIND(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_NONE: DXC_OUT_KIND = DXC_OUT_KIND(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_OBJECT: DXC_OUT_KIND = DXC_OUT_KIND(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_ERRORS: DXC_OUT_KIND = DXC_OUT_KIND(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_PDB: DXC_OUT_KIND = DXC_OUT_KIND(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = DXC_OUT_KIND(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = DXC_OUT_KIND(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_HLSL: DXC_OUT_KIND = DXC_OUT_KIND(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_TEXT: DXC_OUT_KIND = DXC_OUT_KIND(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = DXC_OUT_KIND(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = DXC_OUT_KIND(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct3D_Dxc\"`*"]
-pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = DXC_OUT_KIND(10i32);
 impl ::core::marker::Copy for DXC_OUT_KIND {}
 impl ::core::clone::Clone for DXC_OUT_KIND {
     fn clone(&self) -> Self {

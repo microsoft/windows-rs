@@ -5422,6 +5422,24 @@ pub struct Iwfolders_Vtbl {
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const ADDRESSBAND: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = ADDURL_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ADDURL_ADDTOHISTORYANDCACHE: ADDURL_FLAG = ADDURL_FLAG(0i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ADDURL_FIRST: ADDURL_FLAG = ADDURL_FLAG(0i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ADDURL_Max: ADDURL_FLAG = ADDURL_FLAG(2147483647i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ActivityContentCount: OpenServiceActivityContentType = OpenServiceActivityContentType(3i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ActivityContentDocument: OpenServiceActivityContentType = OpenServiceActivityContentType(0i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ActivityContentLink: OpenServiceActivityContentType = OpenServiceActivityContentType(2i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ActivityContentNone: OpenServiceActivityContentType = OpenServiceActivityContentType(-1i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ActivityContentSelection: OpenServiceActivityContentType = OpenServiceActivityContentType(1i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const AnchorClick: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13d5413c_33b9_11d2_95a7_00c04f8ecb02);
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const CATID_MSOfficeAntiVirus: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56ffcc30_d398_11d0_b2ae_00a0c908fa49);
@@ -5878,6 +5896,38 @@ pub const E_SURFACE_NOTMYPOINTER: i32 = -2147434494i32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const E_SURFACE_UNKNOWN_FORMAT: i32 = -2147434495i32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ExtensionValidationContextDynamic: ExtensionValidationContexts = ExtensionValidationContexts(1i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ExtensionValidationContextNone: ExtensionValidationContexts = ExtensionValidationContexts(0i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ExtensionValidationContextParsed: ExtensionValidationContexts = ExtensionValidationContexts(2i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ExtensionValidationResultArrestPageLoad: ExtensionValidationResults = ExtensionValidationResults(2i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ExtensionValidationResultDoNotInstantiate: ExtensionValidationResults = ExtensionValidationResults(1i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const ExtensionValidationResultNone: ExtensionValidationResults = ExtensionValidationResults(0i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const FINDFRAME_INTERNAL: FINDFRAME_FLAGS = FINDFRAME_FLAGS(-2147483648i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const FINDFRAME_JUSTTESTEXISTENCE: FINDFRAME_FLAGS = FINDFRAME_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const FINDFRAME_NONE: FINDFRAME_FLAGS = FINDFRAME_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const FRAMEOPTIONS_BROWSERBAND: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const FRAMEOPTIONS_DESKTOP: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const FRAMEOPTIONS_NO3DBORDER: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const FRAMEOPTIONS_NORESIZE: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const FRAMEOPTIONS_SCROLL_AUTO: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const FRAMEOPTIONS_SCROLL_NO: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const FRAMEOPTIONS_SCROLL_YES: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const HomePage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x766bf2ae_d650_11d1_9811_00c04fc31d2e);
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const HomePageSetting: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x374cede0_873a_4c4f_bc86_bcc8cf5116a3);
@@ -5905,6 +5955,14 @@ pub const IECMDID_SET_INVOKE_DEFAULT_BROWSER_ON_NEW_WINDOW: u32 = 5u32;
 pub const IEGetProcessModule_PROC_NAME: ::windows_core::PCSTR = ::windows_core::s!("IEGetProcessModule");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const IEGetTabWindowExports_PROC_NAME: ::windows_core::PCSTR = ::windows_core::s!("IEGetTabWindowExports");
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const IELAUNCHOPTION_FORCE_COMPAT: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const IEPROCESS_MODULE_NAME: ::windows_core::PCWSTR = ::windows_core::w!("IERtUtil.dll");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -5942,6 +6000,12 @@ pub const IMGDECODE_HINT_FULLWIDTH: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const IMGDECODE_HINT_TOPDOWN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const INTERNETEXPLORERCONFIGURATION_HOST: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(1i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(2i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(4i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const IntelliForms: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x613ab92e_16bf_11d2_bca5_00c04fd929db);
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const InternetExplorerManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf4fcc34_067a_4e0a_8352_4a1a5095346e);
@@ -5957,6 +6021,34 @@ pub const MAPMIME_DEFAULT_ALWAYS: u32 = 3u32;
 pub const MAPMIME_DISABLE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const MAX_SEARCH_FORMAT_STRING: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const MediaCasting: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const MediaPlayback: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const MediaRecording: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const NAVIGATEFRAME_FL_AUTH_FAIL_CACHE_OK: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const NAVIGATEFRAME_FL_NO_DOC_CACHE: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const NAVIGATEFRAME_FL_NO_IMAGE_CACHE: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const NAVIGATEFRAME_FL_POST: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const NAVIGATEFRAME_FL_REALLY_SENDING_FROM_FORM: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const NAVIGATEFRAME_FL_RECORD: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const NAVIGATEFRAME_FL_SENDING_FROM_FORM: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const OS_E_CANCELLED: OpenServiceErrors = OpenServiceErrors(-2147471631i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const OS_E_GPDISABLED: OpenServiceErrors = OpenServiceErrors(-1072886820i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const OS_E_NOTFOUND: OpenServiceErrors = OpenServiceErrors(-2147287038i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const OS_E_NOTSUPPORTED: OpenServiceErrors = OpenServiceErrors(-2147467231i32);
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const OpenServiceActivityManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5efd803_50f8_43cd_9ab8_aafc1394c9e0);
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
@@ -6256,6 +6348,16 @@ pub const REGSTR_VAL_VISIBLEBANDS_DEF: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const REGSTR_VAL_WEBCHARSET: ::windows_core::PCWSTR = ::windows_core::w!("WebCharset");
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const SCMP_BOTTOM: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(1i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const SCMP_FULL: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(4i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const SCMP_LEFT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(2i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const SCMP_RIGHT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(3i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
+pub const SCMP_TOP: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(0i32);
+#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const STATURLFLAG_ISCACHED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
 pub const STATURLFLAG_ISTOPLEVEL: u32 = 2u32;
@@ -6365,14 +6467,6 @@ pub const wfolders: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbae
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDURL_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ADDURL_FIRST: ADDURL_FLAG = ADDURL_FLAG(0i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ADDURL_ADDTOHISTORYANDCACHE: ADDURL_FLAG = ADDURL_FLAG(0i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ADDURL_ADDTOCACHE: ADDURL_FLAG = ADDURL_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ADDURL_Max: ADDURL_FLAG = ADDURL_FLAG(2147483647i32);
 impl ::core::marker::Copy for ADDURL_FLAG {}
 impl ::core::clone::Clone for ADDURL_FLAG {
     fn clone(&self) -> Self {
@@ -6396,12 +6490,6 @@ impl ::core::fmt::Debug for ADDURL_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtensionValidationContexts(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ExtensionValidationContextNone: ExtensionValidationContexts = ExtensionValidationContexts(0i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ExtensionValidationContextDynamic: ExtensionValidationContexts = ExtensionValidationContexts(1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ExtensionValidationContextParsed: ExtensionValidationContexts = ExtensionValidationContexts(2i32);
 impl ::core::marker::Copy for ExtensionValidationContexts {}
 impl ::core::clone::Clone for ExtensionValidationContexts {
     fn clone(&self) -> Self {
@@ -6425,12 +6513,6 @@ impl ::core::fmt::Debug for ExtensionValidationContexts {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtensionValidationResults(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ExtensionValidationResultNone: ExtensionValidationResults = ExtensionValidationResults(0i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ExtensionValidationResultDoNotInstantiate: ExtensionValidationResults = ExtensionValidationResults(1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ExtensionValidationResultArrestPageLoad: ExtensionValidationResults = ExtensionValidationResults(2i32);
 impl ::core::marker::Copy for ExtensionValidationResults {}
 impl ::core::clone::Clone for ExtensionValidationResults {
     fn clone(&self) -> Self {
@@ -6454,12 +6536,6 @@ impl ::core::fmt::Debug for ExtensionValidationResults {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FINDFRAME_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const FINDFRAME_NONE: FINDFRAME_FLAGS = FINDFRAME_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const FINDFRAME_JUSTTESTEXISTENCE: FINDFRAME_FLAGS = FINDFRAME_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const FINDFRAME_INTERNAL: FINDFRAME_FLAGS = FINDFRAME_FLAGS(-2147483648i32);
 impl ::core::marker::Copy for FINDFRAME_FLAGS {}
 impl ::core::clone::Clone for FINDFRAME_FLAGS {
     fn clone(&self) -> Self {
@@ -6483,20 +6559,6 @@ impl ::core::fmt::Debug for FINDFRAME_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FRAMEOPTIONS_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const FRAMEOPTIONS_SCROLL_YES: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const FRAMEOPTIONS_SCROLL_NO: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const FRAMEOPTIONS_SCROLL_AUTO: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const FRAMEOPTIONS_NORESIZE: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const FRAMEOPTIONS_NO3DBORDER: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const FRAMEOPTIONS_DESKTOP: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const FRAMEOPTIONS_BROWSERBAND: FRAMEOPTIONS_FLAGS = FRAMEOPTIONS_FLAGS(64i32);
 impl ::core::marker::Copy for FRAMEOPTIONS_FLAGS {}
 impl ::core::clone::Clone for FRAMEOPTIONS_FLAGS {
     fn clone(&self) -> Self {
@@ -6520,14 +6582,6 @@ impl ::core::fmt::Debug for FRAMEOPTIONS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IELAUNCHOPTION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IELAUNCHOPTION_SCRIPTDEBUG: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IELAUNCHOPTION_FORCE_COMPAT: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IELAUNCHOPTION_FORCE_EDGE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const IELAUNCHOPTION_LOCK_ENGINE: IELAUNCHOPTION_FLAGS = IELAUNCHOPTION_FLAGS(8i32);
 impl ::core::marker::Copy for IELAUNCHOPTION_FLAGS {}
 impl ::core::clone::Clone for IELAUNCHOPTION_FLAGS {
     fn clone(&self) -> Self {
@@ -6551,12 +6605,6 @@ impl ::core::fmt::Debug for IELAUNCHOPTION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNETEXPLORERCONFIGURATION(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const INTERNETEXPLORERCONFIGURATION_HOST: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(2i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const INTERNETEXPLORERCONFIGURATION_WEB_DRIVER_EDGE: INTERNETEXPLORERCONFIGURATION = INTERNETEXPLORERCONFIGURATION(4i32);
 impl ::core::marker::Copy for INTERNETEXPLORERCONFIGURATION {}
 impl ::core::clone::Clone for INTERNETEXPLORERCONFIGURATION {
     fn clone(&self) -> Self {
@@ -6580,12 +6628,6 @@ impl ::core::fmt::Debug for INTERNETEXPLORERCONFIGURATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIA_ACTIVITY_NOTIFY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const MediaPlayback: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const MediaRecording: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const MediaCasting: MEDIA_ACTIVITY_NOTIFY_TYPE = MEDIA_ACTIVITY_NOTIFY_TYPE(2i32);
 impl ::core::marker::Copy for MEDIA_ACTIVITY_NOTIFY_TYPE {}
 impl ::core::clone::Clone for MEDIA_ACTIVITY_NOTIFY_TYPE {
     fn clone(&self) -> Self {
@@ -6609,20 +6651,6 @@ impl ::core::fmt::Debug for MEDIA_ACTIVITY_NOTIFY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAVIGATEFRAME_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const NAVIGATEFRAME_FL_RECORD: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const NAVIGATEFRAME_FL_POST: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const NAVIGATEFRAME_FL_NO_DOC_CACHE: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const NAVIGATEFRAME_FL_NO_IMAGE_CACHE: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const NAVIGATEFRAME_FL_AUTH_FAIL_CACHE_OK: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const NAVIGATEFRAME_FL_SENDING_FROM_FORM: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const NAVIGATEFRAME_FL_REALLY_SENDING_FROM_FORM: NAVIGATEFRAME_FLAGS = NAVIGATEFRAME_FLAGS(64i32);
 impl ::core::marker::Copy for NAVIGATEFRAME_FLAGS {}
 impl ::core::clone::Clone for NAVIGATEFRAME_FLAGS {
     fn clone(&self) -> Self {
@@ -6646,16 +6674,6 @@ impl ::core::fmt::Debug for NAVIGATEFRAME_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OpenServiceActivityContentType(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ActivityContentNone: OpenServiceActivityContentType = OpenServiceActivityContentType(-1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ActivityContentDocument: OpenServiceActivityContentType = OpenServiceActivityContentType(0i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ActivityContentSelection: OpenServiceActivityContentType = OpenServiceActivityContentType(1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ActivityContentLink: OpenServiceActivityContentType = OpenServiceActivityContentType(2i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const ActivityContentCount: OpenServiceActivityContentType = OpenServiceActivityContentType(3i32);
 impl ::core::marker::Copy for OpenServiceActivityContentType {}
 impl ::core::clone::Clone for OpenServiceActivityContentType {
     fn clone(&self) -> Self {
@@ -6679,14 +6697,6 @@ impl ::core::fmt::Debug for OpenServiceActivityContentType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OpenServiceErrors(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const OS_E_NOTFOUND: OpenServiceErrors = OpenServiceErrors(-2147287038i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const OS_E_NOTSUPPORTED: OpenServiceErrors = OpenServiceErrors(-2147467231i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const OS_E_CANCELLED: OpenServiceErrors = OpenServiceErrors(-2147471631i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const OS_E_GPDISABLED: OpenServiceErrors = OpenServiceErrors(-1072886820i32);
 impl ::core::marker::Copy for OpenServiceErrors {}
 impl ::core::clone::Clone for OpenServiceErrors {
     fn clone(&self) -> Self {
@@ -6710,16 +6720,6 @@ impl ::core::fmt::Debug for OpenServiceErrors {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCROLLABLECONTEXTMENU_PLACEMENT(pub i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SCMP_TOP: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(0i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SCMP_BOTTOM: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(1i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SCMP_LEFT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(2i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SCMP_RIGHT: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(3i32);
-#[doc = "*Required features: `\"Win32_Web_InternetExplorer\"`*"]
-pub const SCMP_FULL: SCROLLABLECONTEXTMENU_PLACEMENT = SCROLLABLECONTEXTMENU_PLACEMENT(4i32);
 impl ::core::marker::Copy for SCROLLABLECONTEXTMENU_PLACEMENT {}
 impl ::core::clone::Clone for SCROLLABLECONTEXTMENU_PLACEMENT {
     fn clone(&self) -> Self {

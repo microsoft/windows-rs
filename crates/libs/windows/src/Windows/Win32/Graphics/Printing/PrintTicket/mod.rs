@@ -134,13 +134,19 @@ pub const S_PT_CONFLICT_RESOLVED: u32 = 262146u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const S_PT_NO_CONFLICT: u32 = 262145u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EDefaultDevmodeType(pub i32);
+pub const kPTDocumentScope: EPrintTicketScope = EPrintTicketScope(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const kPTJobScope: EPrintTicketScope = EPrintTicketScope(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EDefaultDevmodeType(pub i32);
 impl ::core::marker::Copy for EDefaultDevmodeType {}
 impl ::core::clone::Clone for EDefaultDevmodeType {
     fn clone(&self) -> Self {
@@ -164,12 +170,6 @@ impl ::core::fmt::Debug for EDefaultDevmodeType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EPrintTicketScope(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const kPTDocumentScope: EPrintTicketScope = EPrintTicketScope(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const kPTJobScope: EPrintTicketScope = EPrintTicketScope(2i32);
 impl ::core::marker::Copy for EPrintTicketScope {}
 impl ::core::clone::Clone for EPrintTicketScope {
     fn clone(&self) -> Self {

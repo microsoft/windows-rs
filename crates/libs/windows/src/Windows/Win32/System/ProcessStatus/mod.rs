@@ -489,19 +489,19 @@ where
     QueryWorkingSetEx(hprocess.into_param().abi(), pv, cb).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub const PSAPI_VERSION: u32 = 2u32;
+pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
+pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(3u32);
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(0u32);
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(1u32);
+pub const PSAPI_VERSION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(2u32);
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
 impl ::core::marker::Copy for ENUM_PROCESS_MODULES_EX_FLAGS {}
 impl ::core::clone::Clone for ENUM_PROCESS_MODULES_EX_FLAGS {
     fn clone(&self) -> Self {

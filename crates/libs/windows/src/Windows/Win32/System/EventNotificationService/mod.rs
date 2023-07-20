@@ -335,6 +335,10 @@ pub struct ISensOnNow_Vtbl {
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const CONNECTION_AOL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
+pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
+pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const NETWORK_ALIVE_AOL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
@@ -362,10 +366,6 @@ pub const SENSGUID_SUBSCRIBER_WININET: ::windows_core::GUID = ::windows_core::GU
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SENS_CONNECTION_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
-pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
-pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(1u32);
 impl ::core::marker::Copy for SENS_CONNECTION_TYPE {}
 impl ::core::clone::Clone for SENS_CONNECTION_TYPE {
     fn clone(&self) -> Self {

@@ -5,9 +5,41 @@ pub const ComponentTypeEnforcementClientRp: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const extendedIsolationStateInfected: ExtendedIsolationState = ExtendedIsolationState(2i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const extendedIsolationStateNoData: ExtendedIsolationState = ExtendedIsolationState(0i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const extendedIsolationStateTransition: ExtendedIsolationState = ExtendedIsolationState(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const extendedIsolationStateUnknown: ExtendedIsolationState = ExtendedIsolationState(3i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryClientCommunication: FailureCategory = FailureCategory(3i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryClientComponent: FailureCategory = FailureCategory(2i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const failureCategoryCount: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryNone: FailureCategory = FailureCategory(0i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryOther: FailureCategory = FailureCategory(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryServerCommunication: FailureCategory = FailureCategory(5i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const failureCategoryServerComponent: FailureCategory = FailureCategory(4i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const fixupStateCouldNotUpdate: FixupState = FixupState(2i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const fixupStateInProgress: FixupState = FixupState(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const fixupStateSuccess: FixupState = FixupState(0i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const freshSoHRequest: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const isolationStateInProbation: IsolationState = IsolationState(2i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const isolationStateNotRestricted: IsolationState = IsolationState(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const isolationStateRestrictedAccess: IsolationState = IsolationState(3i32);
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const maxConnectionCountPerEnforcer: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
@@ -27,21 +59,31 @@ pub const maxSystemHealthEntityCount: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const minNetworkSoHSize: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const napNotifyTypeQuarState: NapNotifyType = NapNotifyType(2i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const napNotifyTypeServiceState: NapNotifyType = NapNotifyType(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const napNotifyTypeUnknown: NapNotifyType = NapNotifyType(0i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const percentageNotSupported: u32 = 101u32;
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const remoteConfigTypeConfigBlob: RemoteConfigurationType = RemoteConfigurationType(2i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const remoteConfigTypeMachine: RemoteConfigurationType = RemoteConfigurationType(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 pub const shaFixup: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const tracingLevelAdvanced: NapTracingLevel = NapTracingLevel(2i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const tracingLevelBasic: NapTracingLevel = NapTracingLevel(1i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const tracingLevelDebug: NapTracingLevel = NapTracingLevel(3i32);
+#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
+pub const tracingLevelUndefined: NapTracingLevel = NapTracingLevel(0i32);
 #[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedIsolationState(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const extendedIsolationStateNoData: ExtendedIsolationState = ExtendedIsolationState(0i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const extendedIsolationStateTransition: ExtendedIsolationState = ExtendedIsolationState(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const extendedIsolationStateInfected: ExtendedIsolationState = ExtendedIsolationState(2i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const extendedIsolationStateUnknown: ExtendedIsolationState = ExtendedIsolationState(3i32);
 impl ::core::marker::Copy for ExtendedIsolationState {}
 impl ::core::clone::Clone for ExtendedIsolationState {
     fn clone(&self) -> Self {
@@ -65,18 +107,6 @@ impl ::core::fmt::Debug for ExtendedIsolationState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FailureCategory(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryNone: FailureCategory = FailureCategory(0i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryOther: FailureCategory = FailureCategory(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryClientComponent: FailureCategory = FailureCategory(2i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryClientCommunication: FailureCategory = FailureCategory(3i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryServerComponent: FailureCategory = FailureCategory(4i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const failureCategoryServerCommunication: FailureCategory = FailureCategory(5i32);
 impl ::core::marker::Copy for FailureCategory {}
 impl ::core::clone::Clone for FailureCategory {
     fn clone(&self) -> Self {
@@ -100,12 +130,6 @@ impl ::core::fmt::Debug for FailureCategory {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FixupState(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const fixupStateSuccess: FixupState = FixupState(0i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const fixupStateInProgress: FixupState = FixupState(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const fixupStateCouldNotUpdate: FixupState = FixupState(2i32);
 impl ::core::marker::Copy for FixupState {}
 impl ::core::clone::Clone for FixupState {
     fn clone(&self) -> Self {
@@ -129,12 +153,6 @@ impl ::core::fmt::Debug for FixupState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IsolationState(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const isolationStateNotRestricted: IsolationState = IsolationState(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const isolationStateInProbation: IsolationState = IsolationState(2i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const isolationStateRestrictedAccess: IsolationState = IsolationState(3i32);
 impl ::core::marker::Copy for IsolationState {}
 impl ::core::clone::Clone for IsolationState {
     fn clone(&self) -> Self {
@@ -158,12 +176,6 @@ impl ::core::fmt::Debug for IsolationState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NapNotifyType(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const napNotifyTypeUnknown: NapNotifyType = NapNotifyType(0i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const napNotifyTypeServiceState: NapNotifyType = NapNotifyType(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const napNotifyTypeQuarState: NapNotifyType = NapNotifyType(2i32);
 impl ::core::marker::Copy for NapNotifyType {}
 impl ::core::clone::Clone for NapNotifyType {
     fn clone(&self) -> Self {
@@ -187,14 +199,6 @@ impl ::core::fmt::Debug for NapNotifyType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NapTracingLevel(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const tracingLevelUndefined: NapTracingLevel = NapTracingLevel(0i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const tracingLevelBasic: NapTracingLevel = NapTracingLevel(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const tracingLevelAdvanced: NapTracingLevel = NapTracingLevel(2i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const tracingLevelDebug: NapTracingLevel = NapTracingLevel(3i32);
 impl ::core::marker::Copy for NapTracingLevel {}
 impl ::core::clone::Clone for NapTracingLevel {
     fn clone(&self) -> Self {
@@ -218,10 +222,6 @@ impl ::core::fmt::Debug for NapTracingLevel {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RemoteConfigurationType(pub i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const remoteConfigTypeMachine: RemoteConfigurationType = RemoteConfigurationType(1i32);
-#[doc = "*Required features: `\"Win32_Security_NetworkAccessProtection\"`*"]
-pub const remoteConfigTypeConfigBlob: RemoteConfigurationType = RemoteConfigurationType(2i32);
 impl ::core::marker::Copy for RemoteConfigurationType {}
 impl ::core::clone::Clone for RemoteConfigurationType {
     fn clone(&self) -> Self {

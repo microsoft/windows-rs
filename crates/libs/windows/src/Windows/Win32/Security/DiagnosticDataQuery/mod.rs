@@ -341,15 +341,15 @@ where
     DdqSetTranscriptConfiguration(hsession.into_param().abi(), desiredconfig).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DdqAccessLevel(pub i32);
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
+pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
+pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DdqAccessLevel(pub i32);
 impl ::core::marker::Copy for DdqAccessLevel {}
 impl ::core::clone::Clone for DdqAccessLevel {
     fn clone(&self) -> Self {

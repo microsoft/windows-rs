@@ -11759,9 +11759,493 @@ pub struct ITnef_Vtbl {
     FinishComponent: usize,
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = ACDGROUP_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = ACDGROUP_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = ACDQUEUE_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ACDQE_QUEUE_REMOVED: ACDQUEUE_EVENT = ACDQUEUE_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ACS_ADDRESSDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ACS_LINEDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ACS_PERMANENTDEVICEGUID: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ACS_PROTOCOL: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ACS_PROVIDERSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ACS_SWITCHSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_ADDRESSCAPFLAGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(23i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_ADDRESSFEATURES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(29i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_ADDRESSID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(33i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_ADDRESSTYPES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_ANSWERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(14i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_BEARERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_CALLCOMPLETIONCONDITIONS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(40i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_CALLCOMPLETIONMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(41i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_CALLEDIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(19i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_CALLERIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(18i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_CALLFEATURES1: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(24i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_CALLFEATURES2: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(25i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_CONNECTEDIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(20i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_DEVCAPFLAGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(13i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_FORWARDMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(34i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_GATHERDIGITSMAXTIMEOUT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(44i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_GATHERDIGITSMINTIMEOUT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(43i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_GENERATEDIGITDEFAULTDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(47i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_GENERATEDIGITMAXDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(46i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_GENERATEDIGITMINDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(45i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_GENERATEDIGITSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_GENERATETONEMAXNUMFREQ: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_GENERATETONEMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_LINEFEATURES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(15i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_LINEID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(32i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MAXACTIVECALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MAXCALLCOMPLETIONS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(39i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MAXCALLDATASIZE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(31i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MAXFORWARDENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(35i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MAXFWDNUMRINGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(38i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MAXNUMCONFERENCE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MAXNUMTRANSCONF: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MAXONHOLDCALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MAXONHOLDPENDINGCALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MAXSPECIFICENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(36i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MINFWDNUMRINGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(37i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MONITORDIGITSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MONITORTONEMAXNUMENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_MONITORTONEMAXNUMFREQ: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_PARKSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(17i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_PERMANENTDEVICEID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(42i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_PREDICTIVEAUTOTRANSFERSTATES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(30i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_REDIRECTINGIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(22i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_REDIRECTIONIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(21i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_REMOVEFROMCONFCAPS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(26i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_REMOVEFROMCONFSTATE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(27i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_SETTABLEDEVSTATUS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AC_TRANSFERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(28i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ADDRESS_TERMINAL_UNAVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_BUSY_ACD: AGENT_EVENT = AGENT_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_BUSY_INCOMING: AGENT_EVENT = AGENT_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_BUSY_OUTGOING: AGENT_EVENT = AGENT_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_CAPSCHANGE: ADDRESS_EVENT = ADDRESS_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_CONFIGCHANGE: ADDRESS_EVENT = ADDRESS_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_FORWARD: ADDRESS_EVENT = ADDRESS_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_LASTITEM: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_MSGWAITOFF: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_MSGWAITON: ADDRESS_EVENT = ADDRESS_EVENT(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_NEWTERMINAL: ADDRESS_EVENT = ADDRESS_EVENT(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_NOT_READY: AGENT_EVENT = AGENT_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_READY: AGENT_EVENT = AGENT_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_REMOVETERMINAL: ADDRESS_EVENT = ADDRESS_EVENT(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_RINGING: ADDRESS_EVENT = ADDRESS_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_STATE: ADDRESS_EVENT = ADDRESS_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AE_UNKNOWN: AGENT_EVENT = AGENT_EVENT(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AHE_AGENTHANDLER_REMOVED: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AHE_NEW_AGENTHANDLER: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ASE_BUSY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ASE_END: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ASE_NEW_SESSION: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ASE_NOT_READY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ASE_READY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ASE_WRAPUP: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ASST_BUSY_ON_CALL: AGENT_SESSION_STATE = AGENT_SESSION_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ASST_BUSY_WRAPUP: AGENT_SESSION_STATE = AGENT_SESSION_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ASST_NOT_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ASST_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ASST_SESSION_ENDED: AGENT_SESSION_STATE = AGENT_SESSION_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AS_BUSY_ACD: AGENT_STATE = AGENT_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AS_BUSY_INCOMING: AGENT_STATE = AGENT_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AS_BUSY_OUTGOING: AGENT_STATE = AGENT_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AS_INSERVICE: ADDRESS_STATE = ADDRESS_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AS_NOT_READY: AGENT_STATE = AGENT_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AS_OUTOFSERVICE: ADDRESS_STATE = ADDRESS_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AS_READY: AGENT_STATE = AGENT_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const AS_UNKNOWN: AGENT_STATE = AGENT_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_CAUSE_BAD_DEVICE: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_CAUSE_CONNECT_FAIL: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_CAUSE_LOCAL_REQUEST: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_CAUSE_MEDIA_RECOVERED: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_CAUSE_MEDIA_TIMEOUT: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_CAUSE_QUALITY_OF_SERVICE: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_CAUSE_REMOTE_REQUEST: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_CAUSE_UNKNOWN: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_NEW_STREAM: MSP_CALL_EVENT = MSP_CALL_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_STREAM_ACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_STREAM_FAIL: MSP_CALL_EVENT = MSP_CALL_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_STREAM_INACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_STREAM_NOT_USED: MSP_CALL_EVENT = MSP_CALL_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CALL_TERMINAL_FAIL: MSP_CALL_EVENT = MSP_CALL_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CEC_DISCONNECT_BADADDRESS: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CEC_DISCONNECT_BLOCKED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CEC_DISCONNECT_BUSY: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CEC_DISCONNECT_CANCELLED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CEC_DISCONNECT_FAILED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CEC_DISCONNECT_NOANSWER: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CEC_DISCONNECT_NORMAL: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CEC_DISCONNECT_REJECTED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CEC_NONE: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CHE_CALLHUBIDLE: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CHE_CALLHUBNEW: CALLHUB_EVENT = CALLHUB_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CHE_CALLJOIN: CALLHUB_EVENT = CALLHUB_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CHE_CALLLEAVE: CALLHUB_EVENT = CALLHUB_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CHE_LASTITEM: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CHS_ACTIVE: CALLHUB_STATE = CALLHUB_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CHS_IDLE: CALLHUB_STATE = CALLHUB_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIB_CALLDATABUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIB_CHARGINGINFOBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIB_DEVSPECIFICBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIB_HIGHLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIB_LOWLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIB_USERUSERINFO: CALLINFO_BUFFER = CALLINFO_BUFFER(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_APPSPECIFIC: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_BEARERMODE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_CALLDATA: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(24i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_CALLEDID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(15i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_CALLERID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(14i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_CALLID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_CHARGINGINFO: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(22i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_COMPLETIONID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_CONNECTEDID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_DEVSPECIFIC: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_HIGHLEVELCOMP: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(20i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_LASTITEM: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_LOWLEVELCOMP: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(21i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_MEDIATYPE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_NUMMONITORS: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_NUMOWNERDECR: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_NUMOWNERINCR: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_ORIGIN: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_OTHER: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_PRIVILEGE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(25i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_RATE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_REASON: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_REDIRECTINGID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(18i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_REDIRECTIONID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(17i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_RELATEDCALLID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_TREATMENT: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(23i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_TRUNK: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(13i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIC_USERUSERINFO: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(19i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_APPSPECIFIC: CALLINFO_LONG = CALLINFO_LONG(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_BEARERMODE: CALLINFO_LONG = CALLINFO_LONG(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_CALLEDIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_CALLERIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_CALLID: CALLINFO_LONG = CALLINFO_LONG(15i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_CALLPARAMSFLAGS: CALLINFO_LONG = CALLINFO_LONG(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_CALLTREATMENT: CALLINFO_LONG = CALLINFO_LONG(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_COMPLETIONID: CALLINFO_LONG = CALLINFO_LONG(17i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_CONNECTEDIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_COUNTRYCODE: CALLINFO_LONG = CALLINFO_LONG(14i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_GENERATEDIGITDURATION: CALLINFO_LONG = CALLINFO_LONG(22i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_MAXRATE: CALLINFO_LONG = CALLINFO_LONG(13i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_MEDIATYPESAVAILABLE: CALLINFO_LONG = CALLINFO_LONG(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_MINRATE: CALLINFO_LONG = CALLINFO_LONG(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_MONITORDIGITMODES: CALLINFO_LONG = CALLINFO_LONG(23i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_MONITORMEDIAMODES: CALLINFO_LONG = CALLINFO_LONG(24i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_NUMBEROFMONITORS: CALLINFO_LONG = CALLINFO_LONG(19i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_NUMBEROFOWNERS: CALLINFO_LONG = CALLINFO_LONG(18i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_ORIGIN: CALLINFO_LONG = CALLINFO_LONG(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_RATE: CALLINFO_LONG = CALLINFO_LONG(21i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_REASON: CALLINFO_LONG = CALLINFO_LONG(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_REDIRECTINGIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_REDIRECTIONIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_RELATEDCALLID: CALLINFO_LONG = CALLINFO_LONG(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIL_TRUNK: CALLINFO_LONG = CALLINFO_LONG(20i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_CALLEDIDNAME: CALLINFO_STRING = CALLINFO_STRING(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_CALLEDIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_CALLEDPARTYFRIENDLYNAME: CALLINFO_STRING = CALLINFO_STRING(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_CALLERIDNAME: CALLINFO_STRING = CALLINFO_STRING(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_CALLERIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_CALLINGPARTYID: CALLINFO_STRING = CALLINFO_STRING(13i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_COMMENT: CALLINFO_STRING = CALLINFO_STRING(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_CONNECTEDIDNAME: CALLINFO_STRING = CALLINFO_STRING(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_CONNECTEDIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_DISPLAYABLEADDRESS: CALLINFO_STRING = CALLINFO_STRING(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_REDIRECTINGIDNAME: CALLINFO_STRING = CALLINFO_STRING(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_REDIRECTINGIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_REDIRECTIONIDNAME: CALLINFO_STRING = CALLINFO_STRING(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CIS_REDIRECTIONIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CMC_BAD_DEVICE: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CMC_CONNECT_FAIL: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CMC_LOCAL_REQUEST: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CMC_MEDIA_RECOVERED: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CMC_MEDIA_TIMEOUT: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CMC_QUALITY_OF_SERVICE: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CMC_REMOTE_REQUEST: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CMC_UNKNOWN: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CME_LASTITEM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CME_NEW_STREAM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CME_STREAM_ACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CME_STREAM_FAIL: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CME_STREAM_INACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CME_STREAM_NOT_USED: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CME_TERMINAL_FAIL: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CNE_LASTITEM: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CNE_MONITOR: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CNE_OWNER: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CP_MONITOR: CALL_PRIVILEGE = CALL_PRIVILEGE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CP_OWNER: CALL_PRIVILEGE = CALL_PRIVILEGE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CS_CONNECTED: CALL_STATE = CALL_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CS_DISCONNECTED: CALL_STATE = CALL_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CS_HOLD: CALL_STATE = CALL_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CS_IDLE: CALL_STATE = CALL_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CS_INPROGRESS: CALL_STATE = CALL_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CS_LASTITEM: CALL_STATE = CALL_STATE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CS_OFFERING: CALL_STATE = CALL_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const CS_QUEUED: CALL_STATE = CALL_STATE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const DC_NOANSWER: DISCONNECT_CODE = DISCONNECT_CODE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const DC_NORMAL: DISCONNECT_CODE = DISCONNECT_CODE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const DC_REJECTED: DISCONNECT_CODE = DISCONNECT_CODE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const DISPIDMASK: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const DT_ILS: DIRECTORY_TYPE = DIRECTORY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const DT_NTDS: DIRECTORY_TYPE = DIRECTORY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const DispatchMapper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const FDS_SUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const FDS_UNKNOWN: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const FM_ASCONFERENCE: FINISH_MODE = FINISH_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const FM_ASTRANSFER: FINISH_MODE = FINISH_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const FTEC_END_OF_FILE: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const FTEC_NORMAL: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const FTEC_READ_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const FTEC_WRITE_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(3i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const GETTNEFSTREAMCODEPAGE: ::windows_core::PCSTR = ::windows_core::s!("GetTnefStreamCodePage");
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
@@ -13105,11 +13589,215 @@ pub const LINE_REPLY: i32 = 12i32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const LINE_REQUEST: i32 = 13i32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const LM_BROKENFLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(64i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const LM_DUMMY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const LM_FLASH: PHONE_LAMP_MODE = PHONE_LAMP_MODE(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const LM_FLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(32i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const LM_OFF: PHONE_LAMP_MODE = PHONE_LAMP_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const LM_STEADY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const LM_UNKNOWN: PHONE_LAMP_MODE = PHONE_LAMP_MODE(128i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const LM_WINK: PHONE_LAMP_MODE = PHONE_LAMP_MODE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ME_ADDRESS_EVENT: MSP_EVENT = MSP_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ME_ASR_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ME_CALL_EVENT: MSP_EVENT = MSP_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ME_FILE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ME_PRIVATE_EVENT: MSP_EVENT = MSP_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ME_TONE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ME_TSP_DATA: MSP_EVENT = MSP_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const ME_TTS_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const McastAddressAllocation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const OPENTNEFSTREAM: ::windows_core::PCSTR = ::windows_core::s!("OpenTnefStream");
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const OPENTNEFSTREAMEX: ::windows_core::PCSTR = ::windows_core::s!("OpenTnefStreamEx");
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const OT_CONFERENCE: DIRECTORY_OBJECT_TYPE = DIRECTORY_OBJECT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const OT_USER: DIRECTORY_OBJECT_TYPE = DIRECTORY_OBJECT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_ABBREVDIAL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_BRIDGEDAPP: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(28i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_BUSY: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(29i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_CALLAPP: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(30i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_CALLID: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(34i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_CAMPON: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(43i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_CONFERENCE: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_CONNECT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_COVER: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(33i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_DATAOFF: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(25i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_DATAON: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(24i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_DATETIME: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(31i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_DIRECTORY: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(32i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_DISCONNECT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_DONOTDISTURB: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(26i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_DROP: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_FLASH: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(23i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_FORWARD: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_HOLD: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_INTERCOM: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(27i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_LASTNUM: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(35i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_MSGINDICATOR: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(38i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_MSGWAITOFF: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_MSGWAITON: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_MUTE: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(18i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_NIGHTSRV: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(36i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_NONE: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(46i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_PARK: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(15i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_PICKUP: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(13i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_QUEUECALL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(45i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_RECALL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_REDIRECT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(17i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_REJECT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_REPDIAL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(39i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_RINGAGAIN: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(14i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_SAVEREPEAT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(44i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_SELECTRING: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_SEND: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(47i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_SENDCALLS: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(37i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_SETREPDIAL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(40i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_SPEAKEROFF: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(22i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_SPEAKERON: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(21i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_STATIONSPEED: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(42i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_SYSTEMSPEED: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(41i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_TRANSFER: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_UNKNOWN: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_VOLUMEDOWN: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(20i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBF_VOLUMEUP: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(19i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBM_CALL: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBM_DISPLAY: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBM_DUMMY: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBM_FEATURE: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBM_KEYPAD: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBM_LOCAL: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBS_DOWN: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBS_UNAVAIL: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBS_UNKNOWN: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PBS_UP: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCB_DEVSPECIFICBUFFER: PHONECAPS_BUFFER = PHONECAPS_BUFFER(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCL_DISPLAYNUMCOLUMNS: PHONECAPS_LONG = PHONECAPS_LONG(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCL_DISPLAYNUMROWS: PHONECAPS_LONG = PHONECAPS_LONG(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCL_GENERICPHONE: PHONECAPS_LONG = PHONECAPS_LONG(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCL_HANDSETHOOKSWITCHMODES: PHONECAPS_LONG = PHONECAPS_LONG(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCL_HEADSETHOOKSWITCHMODES: PHONECAPS_LONG = PHONECAPS_LONG(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCL_HOOKSWITCHES: PHONECAPS_LONG = PHONECAPS_LONG(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCL_NUMBUTTONLAMPS: PHONECAPS_LONG = PHONECAPS_LONG(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCL_NUMRINGMODES: PHONECAPS_LONG = PHONECAPS_LONG(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCL_SPEAKERPHONEHOOKSWITCHMODES: PHONECAPS_LONG = PHONECAPS_LONG(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCS_PHONEINFO: PHONECAPS_STRING = PHONECAPS_STRING(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCS_PHONENAME: PHONECAPS_STRING = PHONECAPS_STRING(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PCS_PROVIDERINFO: PHONECAPS_STRING = PHONECAPS_STRING(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_ANSWER: PHONE_EVENT = PHONE_EVENT(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_BUTTON: PHONE_EVENT = PHONE_EVENT(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_CAPSCHANGE: PHONE_EVENT = PHONE_EVENT(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_CLOSE: PHONE_EVENT = PHONE_EVENT(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_DIALING: PHONE_EVENT = PHONE_EVENT(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_DISCONNECT: PHONE_EVENT = PHONE_EVENT(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_DISPLAY: PHONE_EVENT = PHONE_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_HOOKSWITCH: PHONE_EVENT = PHONE_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_LAMPMODE: PHONE_EVENT = PHONE_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_LASTITEM: PHONE_EVENT = PHONE_EVENT(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_NUMBERGATHERED: PHONE_EVENT = PHONE_EVENT(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_RINGMODE: PHONE_EVENT = PHONE_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PE_RINGVOLUME: PHONE_EVENT = PHONE_EVENT(3i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PHONEBUTTONFUNCTION_ABBREVDIAL: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
@@ -13465,6 +14153,24 @@ pub const PHONE_REPLY: i32 = 17i32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PHONE_STATE: i32 = 18i32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PHSD_HANDSET: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PHSD_HEADSET: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PHSD_SPEAKERPHONE: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PHSS_OFFHOOK: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PHSS_OFFHOOK_MIC_ONLY: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PHSS_OFFHOOK_SPEAKER_ONLY: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PHSS_ONHOOK: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PP_MONITOR: PHONE_PRIVILEGE = PHONE_PRIVILEGE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PP_OWNER: PHONE_PRIVILEGE = PHONE_PRIVILEGE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PRIVATEOBJECT_ADDRESS: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PRIVATEOBJECT_CALL: u32 = 4u32;
@@ -13476,6 +14182,74 @@ pub const PRIVATEOBJECT_LINE: u32 = 3u32;
 pub const PRIVATEOBJECT_NONE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const PRIVATEOBJECT_PHONE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_BUSY: PHONE_TONE = PHONE_TONE(18i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_ERRORTONE: PHONE_TONE = PHONE_TONE(20i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_EXTERNALDIALTONE: PHONE_TONE = PHONE_TONE(17i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADA: PHONE_TONE = PHONE_TONE(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADB: PHONE_TONE = PHONE_TONE(13i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADC: PHONE_TONE = PHONE_TONE(14i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADD: PHONE_TONE = PHONE_TONE(15i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADEIGHT: PHONE_TONE = PHONE_TONE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADFIVE: PHONE_TONE = PHONE_TONE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADFOUR: PHONE_TONE = PHONE_TONE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADNINE: PHONE_TONE = PHONE_TONE(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADONE: PHONE_TONE = PHONE_TONE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADPOUND: PHONE_TONE = PHONE_TONE(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADSEVEN: PHONE_TONE = PHONE_TONE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADSIX: PHONE_TONE = PHONE_TONE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADSTAR: PHONE_TONE = PHONE_TONE(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADTHREE: PHONE_TONE = PHONE_TONE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADTWO: PHONE_TONE = PHONE_TONE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_KEYPADZERO: PHONE_TONE = PHONE_TONE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_NORMALDIALTONE: PHONE_TONE = PHONE_TONE(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_RINGBACK: PHONE_TONE = PHONE_TONE(19i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const PT_SILENCE: PHONE_TONE = PHONE_TONE(21i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const QE_ADMISSIONFAILURE: QOS_EVENT = QOS_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const QE_GENERICERROR: QOS_EVENT = QOS_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const QE_LASTITEM: QOS_EVENT = QOS_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const QE_NOQOS: QOS_EVENT = QOS_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const QE_POLICYFAILURE: QOS_EVENT = QOS_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const QSL_BEST_EFFORT: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const QSL_IF_AVAILABLE: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const QSL_NEEDED: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const RAS_LOCAL: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const RAS_REGION: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const RAS_SITE: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const RAS_WORLD: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(4i32);
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const RENDBIND_AUTHENTICATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
@@ -13767,6 +14541,114 @@ pub const TAPI_E_WRONG_STATE: ::windows_core::HRESULT = ::windows_core::HRESULT(
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TAPI_REPLY: u32 = 1123u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TD_BIDIRECTIONAL: TERMINAL_DIRECTION = TERMINAL_DIRECTION(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TD_CAPTURE: TERMINAL_DIRECTION = TERMINAL_DIRECTION(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TD_MULTITRACK_MIXED: TERMINAL_DIRECTION = TERMINAL_DIRECTION(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TD_NONE: TERMINAL_DIRECTION = TERMINAL_DIRECTION(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TD_RENDER: TERMINAL_DIRECTION = TERMINAL_DIRECTION(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_ACDGROUP: TAPI_EVENT = TAPI_EVENT(8192i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_ADDRESS: TAPI_EVENT = TAPI_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_ADDRESSCLOSE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_ADDRESSCREATE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_ADDRESSDEVSPECIFIC: TAPI_EVENT = TAPI_EVENT(16777216i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_ADDRESSREMOVE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_AGENT: TAPI_EVENT = TAPI_EVENT(512i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_AGENTHANDLER: TAPI_EVENT = TAPI_EVENT(4096i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_AGENTSESSION: TAPI_EVENT = TAPI_EVENT(1024i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_ASRTERMINAL: TAPI_EVENT = TAPI_EVENT(131072i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_CALLHUB: TAPI_EVENT = TAPI_EVENT(32i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_CALLINFOCHANGE: TAPI_EVENT = TAPI_EVENT(64i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_CALLMEDIA: TAPI_EVENT = TAPI_EVENT(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_CALLNOTIFICATION: TAPI_EVENT = TAPI_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_CALLSTATE: TAPI_EVENT = TAPI_EVENT(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_DIGITEVENT: TAPI_EVENT = TAPI_EVENT(32768i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_FILETERMINAL: TAPI_EVENT = TAPI_EVENT(524288i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_GATHERDIGITS: TAPI_EVENT = TAPI_EVENT(8388608i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_GENERATEEVENT: TAPI_EVENT = TAPI_EVENT(65536i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_PHONECREATE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_PHONEDEVSPECIFIC: TAPI_EVENT = TAPI_EVENT(33554432i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_PHONEEVENT: TAPI_EVENT = TAPI_EVENT(2097152i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_PHONEREMOVE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_PRIVATE: TAPI_EVENT = TAPI_EVENT(128i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_QOSEVENT: TAPI_EVENT = TAPI_EVENT(2048i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_QUEUE: TAPI_EVENT = TAPI_EVENT(16384i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_REINIT: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_REQUEST: TAPI_EVENT = TAPI_EVENT(256i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_TAPIOBJECT: TAPI_EVENT = TAPI_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_TONEEVENT: TAPI_EVENT = TAPI_EVENT(4194304i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_TONETERMINAL: TAPI_EVENT = TAPI_EVENT(1048576i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_TRANSLATECHANGE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TE_TTSTERMINAL: TAPI_EVENT = TAPI_EVENT(262144i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TGT_BUFFERFULL: TAPI_GATHERTERM = TAPI_GATHERTERM(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TGT_CANCEL: TAPI_GATHERTERM = TAPI_GATHERTERM(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TGT_FIRSTTIMEOUT: TAPI_GATHERTERM = TAPI_GATHERTERM(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TGT_INTERTIMEOUT: TAPI_GATHERTERM = TAPI_GATHERTERM(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TGT_TERMDIGIT: TAPI_GATHERTERM = TAPI_GATHERTERM(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TMS_ACTIVE: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TMS_IDLE: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TMS_LASTITEM: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TMS_PAUSED: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TOT_ADDRESS: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TOT_CALL: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TOT_CALLHUB: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TOT_NONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TOT_PHONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TOT_TAPI: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TOT_TERMINAL: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TSPI_LINEACCEPT: u32 = 500u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TSPI_LINEADDTOCONFERENCE: u32 = 501u32;
@@ -13991,6 +14873,22 @@ pub const TSPI_PROVIDERREMOVE: u32 = 593u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TSPI_PROVIDERSHUTDOWN: u32 = 594u32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TS_INUSE: TERMINAL_STATE = TERMINAL_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TS_NOTINUSE: TERMINAL_STATE = TERMINAL_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TTM_BEEP: TAPI_TONEMODE = TAPI_TONEMODE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TTM_BILLING: TAPI_TONEMODE = TAPI_TONEMODE(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TTM_BUSY: TAPI_TONEMODE = TAPI_TONEMODE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TTM_RINGBACK: TAPI_TONEMODE = TAPI_TONEMODE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TT_DYNAMIC: TERMINAL_TYPE = TERMINAL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
+pub const TT_STATIC: TERMINAL_TYPE = TERMINAL_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TUISPIDLL_OBJECT_DIALOGINSTANCE: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
 pub const TUISPIDLL_OBJECT_LINEID: i32 = 1i32;
@@ -14028,10 +14926,6 @@ pub const prioNorm: u32 = 2u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACDGROUP_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = ACDGROUP_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = ACDGROUP_EVENT(1i32);
 impl ::core::marker::Copy for ACDGROUP_EVENT {}
 impl ::core::clone::Clone for ACDGROUP_EVENT {
     fn clone(&self) -> Self {
@@ -14055,10 +14949,6 @@ impl ::core::fmt::Debug for ACDGROUP_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACDQUEUE_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = ACDQUEUE_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ACDQE_QUEUE_REMOVED: ACDQUEUE_EVENT = ACDQUEUE_EVENT(1i32);
 impl ::core::marker::Copy for ACDQUEUE_EVENT {}
 impl ::core::clone::Clone for ACDQUEUE_EVENT {
     fn clone(&self) -> Self {
@@ -14082,102 +14972,6 @@ impl ::core::fmt::Debug for ACDQUEUE_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDRESS_CAPABILITY(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_ADDRESSTYPES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_BEARERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MAXACTIVECALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MAXONHOLDCALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MAXONHOLDPENDINGCALLS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MAXNUMCONFERENCE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MAXNUMTRANSCONF: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MONITORDIGITSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_GENERATEDIGITSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_GENERATETONEMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_GENERATETONEMAXNUMFREQ: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MONITORTONEMAXNUMFREQ: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(11i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MONITORTONEMAXNUMENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_DEVCAPFLAGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(13i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_ANSWERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(14i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_LINEFEATURES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(15i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_SETTABLEDEVSTATUS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_PARKSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(17i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_CALLERIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(18i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_CALLEDIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(19i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_CONNECTEDIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(20i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_REDIRECTIONIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(21i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_REDIRECTINGIDSUPPORT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(22i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_ADDRESSCAPFLAGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(23i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_CALLFEATURES1: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(24i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_CALLFEATURES2: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(25i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_REMOVEFROMCONFCAPS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(26i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_REMOVEFROMCONFSTATE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(27i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_TRANSFERMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(28i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_ADDRESSFEATURES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(29i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_PREDICTIVEAUTOTRANSFERSTATES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(30i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MAXCALLDATASIZE: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(31i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_LINEID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(32i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_ADDRESSID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(33i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_FORWARDMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(34i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MAXFORWARDENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(35i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MAXSPECIFICENTRIES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(36i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MINFWDNUMRINGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(37i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MAXFWDNUMRINGS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(38i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_MAXCALLCOMPLETIONS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(39i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_CALLCOMPLETIONCONDITIONS: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(40i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_CALLCOMPLETIONMODES: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(41i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_PERMANENTDEVICEID: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(42i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_GATHERDIGITSMINTIMEOUT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(43i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_GATHERDIGITSMAXTIMEOUT: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(44i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_GENERATEDIGITMINDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(45i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_GENERATEDIGITMAXDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(46i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AC_GENERATEDIGITDEFAULTDURATION: ADDRESS_CAPABILITY = ADDRESS_CAPABILITY(47i32);
 impl ::core::marker::Copy for ADDRESS_CAPABILITY {}
 impl ::core::clone::Clone for ADDRESS_CAPABILITY {
     fn clone(&self) -> Self {
@@ -14201,18 +14995,6 @@ impl ::core::fmt::Debug for ADDRESS_CAPABILITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDRESS_CAPABILITY_STRING(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ACS_PROTOCOL: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ACS_ADDRESSDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ACS_LINEDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ACS_PROVIDERSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ACS_SWITCHSPECIFIC: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ACS_PERMANENTDEVICEGUID: ADDRESS_CAPABILITY_STRING = ADDRESS_CAPABILITY_STRING(5i32);
 impl ::core::marker::Copy for ADDRESS_CAPABILITY_STRING {}
 impl ::core::clone::Clone for ADDRESS_CAPABILITY_STRING {
     fn clone(&self) -> Self {
@@ -14236,26 +15018,6 @@ impl ::core::fmt::Debug for ADDRESS_CAPABILITY_STRING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDRESS_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_STATE: ADDRESS_EVENT = ADDRESS_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_CAPSCHANGE: ADDRESS_EVENT = ADDRESS_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_RINGING: ADDRESS_EVENT = ADDRESS_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_CONFIGCHANGE: ADDRESS_EVENT = ADDRESS_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_FORWARD: ADDRESS_EVENT = ADDRESS_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_NEWTERMINAL: ADDRESS_EVENT = ADDRESS_EVENT(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_REMOVETERMINAL: ADDRESS_EVENT = ADDRESS_EVENT(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_MSGWAITON: ADDRESS_EVENT = ADDRESS_EVENT(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_MSGWAITOFF: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_LASTITEM: ADDRESS_EVENT = ADDRESS_EVENT(8i32);
 impl ::core::marker::Copy for ADDRESS_EVENT {}
 impl ::core::clone::Clone for ADDRESS_EVENT {
     fn clone(&self) -> Self {
@@ -14279,10 +15041,6 @@ impl ::core::fmt::Debug for ADDRESS_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADDRESS_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AS_INSERVICE: ADDRESS_STATE = ADDRESS_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AS_OUTOFSERVICE: ADDRESS_STATE = ADDRESS_STATE(1i32);
 impl ::core::marker::Copy for ADDRESS_STATE {}
 impl ::core::clone::Clone for ADDRESS_STATE {
     fn clone(&self) -> Self {
@@ -14306,10 +15064,6 @@ impl ::core::fmt::Debug for ADDRESS_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AGENTHANDLER_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AHE_NEW_AGENTHANDLER: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AHE_AGENTHANDLER_REMOVED: AGENTHANDLER_EVENT = AGENTHANDLER_EVENT(1i32);
 impl ::core::marker::Copy for AGENTHANDLER_EVENT {}
 impl ::core::clone::Clone for AGENTHANDLER_EVENT {
     fn clone(&self) -> Self {
@@ -14333,18 +15087,6 @@ impl ::core::fmt::Debug for AGENTHANDLER_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AGENT_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_NOT_READY: AGENT_EVENT = AGENT_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_READY: AGENT_EVENT = AGENT_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_BUSY_ACD: AGENT_EVENT = AGENT_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_BUSY_INCOMING: AGENT_EVENT = AGENT_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_BUSY_OUTGOING: AGENT_EVENT = AGENT_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AE_UNKNOWN: AGENT_EVENT = AGENT_EVENT(5i32);
 impl ::core::marker::Copy for AGENT_EVENT {}
 impl ::core::clone::Clone for AGENT_EVENT {
     fn clone(&self) -> Self {
@@ -14368,18 +15110,6 @@ impl ::core::fmt::Debug for AGENT_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AGENT_SESSION_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ASE_NEW_SESSION: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ASE_NOT_READY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ASE_READY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ASE_BUSY: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ASE_WRAPUP: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ASE_END: AGENT_SESSION_EVENT = AGENT_SESSION_EVENT(5i32);
 impl ::core::marker::Copy for AGENT_SESSION_EVENT {}
 impl ::core::clone::Clone for AGENT_SESSION_EVENT {
     fn clone(&self) -> Self {
@@ -14403,16 +15133,6 @@ impl ::core::fmt::Debug for AGENT_SESSION_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AGENT_SESSION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ASST_NOT_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ASST_READY: AGENT_SESSION_STATE = AGENT_SESSION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ASST_BUSY_ON_CALL: AGENT_SESSION_STATE = AGENT_SESSION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ASST_BUSY_WRAPUP: AGENT_SESSION_STATE = AGENT_SESSION_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ASST_SESSION_ENDED: AGENT_SESSION_STATE = AGENT_SESSION_STATE(4i32);
 impl ::core::marker::Copy for AGENT_SESSION_STATE {}
 impl ::core::clone::Clone for AGENT_SESSION_STATE {
     fn clone(&self) -> Self {
@@ -14436,18 +15156,6 @@ impl ::core::fmt::Debug for AGENT_SESSION_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AGENT_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AS_NOT_READY: AGENT_STATE = AGENT_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AS_READY: AGENT_STATE = AGENT_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AS_BUSY_ACD: AGENT_STATE = AGENT_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AS_BUSY_INCOMING: AGENT_STATE = AGENT_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AS_BUSY_OUTGOING: AGENT_STATE = AGENT_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const AS_UNKNOWN: AGENT_STATE = AGENT_STATE(5i32);
 impl ::core::marker::Copy for AGENT_STATE {}
 impl ::core::clone::Clone for AGENT_STATE {
     fn clone(&self) -> Self {
@@ -14471,16 +15179,6 @@ impl ::core::fmt::Debug for AGENT_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLHUB_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CHE_CALLJOIN: CALLHUB_EVENT = CALLHUB_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CHE_CALLLEAVE: CALLHUB_EVENT = CALLHUB_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CHE_CALLHUBNEW: CALLHUB_EVENT = CALLHUB_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CHE_CALLHUBIDLE: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CHE_LASTITEM: CALLHUB_EVENT = CALLHUB_EVENT(3i32);
 impl ::core::marker::Copy for CALLHUB_EVENT {}
 impl ::core::clone::Clone for CALLHUB_EVENT {
     fn clone(&self) -> Self {
@@ -14504,10 +15202,6 @@ impl ::core::fmt::Debug for CALLHUB_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLHUB_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CHS_ACTIVE: CALLHUB_STATE = CALLHUB_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CHS_IDLE: CALLHUB_STATE = CALLHUB_STATE(1i32);
 impl ::core::marker::Copy for CALLHUB_STATE {}
 impl ::core::clone::Clone for CALLHUB_STATE {
     fn clone(&self) -> Self {
@@ -14531,62 +15225,6 @@ impl ::core::fmt::Debug for CALLHUB_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLINFOCHANGE_CAUSE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_OTHER: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_DEVSPECIFIC: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_BEARERMODE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_RATE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_APPSPECIFIC: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_CALLID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_RELATEDCALLID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_ORIGIN: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_REASON: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_COMPLETIONID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_NUMOWNERINCR: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_NUMOWNERDECR: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(11i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_NUMMONITORS: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_TRUNK: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(13i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_CALLERID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(14i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_CALLEDID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(15i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_CONNECTEDID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_REDIRECTIONID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(17i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_REDIRECTINGID: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(18i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_USERUSERINFO: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(19i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_HIGHLEVELCOMP: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(20i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_LOWLEVELCOMP: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(21i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_CHARGINGINFO: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(22i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_TREATMENT: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(23i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_CALLDATA: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(24i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_PRIVILEGE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(25i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_MEDIATYPE: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIC_LASTITEM: CALLINFOCHANGE_CAUSE = CALLINFOCHANGE_CAUSE(26i32);
 impl ::core::marker::Copy for CALLINFOCHANGE_CAUSE {}
 impl ::core::clone::Clone for CALLINFOCHANGE_CAUSE {
     fn clone(&self) -> Self {
@@ -14610,18 +15248,6 @@ impl ::core::fmt::Debug for CALLINFOCHANGE_CAUSE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLINFO_BUFFER(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIB_USERUSERINFO: CALLINFO_BUFFER = CALLINFO_BUFFER(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIB_DEVSPECIFICBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIB_CALLDATABUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIB_CHARGINGINFOBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIB_HIGHLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIB_LOWLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = CALLINFO_BUFFER(5i32);
 impl ::core::marker::Copy for CALLINFO_BUFFER {}
 impl ::core::clone::Clone for CALLINFO_BUFFER {
     fn clone(&self) -> Self {
@@ -14645,56 +15271,6 @@ impl ::core::fmt::Debug for CALLINFO_BUFFER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLINFO_LONG(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_MEDIATYPESAVAILABLE: CALLINFO_LONG = CALLINFO_LONG(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_BEARERMODE: CALLINFO_LONG = CALLINFO_LONG(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_CALLERIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_CALLEDIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_CONNECTEDIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_REDIRECTIONIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_REDIRECTINGIDADDRESSTYPE: CALLINFO_LONG = CALLINFO_LONG(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_ORIGIN: CALLINFO_LONG = CALLINFO_LONG(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_REASON: CALLINFO_LONG = CALLINFO_LONG(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_APPSPECIFIC: CALLINFO_LONG = CALLINFO_LONG(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_CALLPARAMSFLAGS: CALLINFO_LONG = CALLINFO_LONG(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_CALLTREATMENT: CALLINFO_LONG = CALLINFO_LONG(11i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_MINRATE: CALLINFO_LONG = CALLINFO_LONG(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_MAXRATE: CALLINFO_LONG = CALLINFO_LONG(13i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_COUNTRYCODE: CALLINFO_LONG = CALLINFO_LONG(14i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_CALLID: CALLINFO_LONG = CALLINFO_LONG(15i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_RELATEDCALLID: CALLINFO_LONG = CALLINFO_LONG(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_COMPLETIONID: CALLINFO_LONG = CALLINFO_LONG(17i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_NUMBEROFOWNERS: CALLINFO_LONG = CALLINFO_LONG(18i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_NUMBEROFMONITORS: CALLINFO_LONG = CALLINFO_LONG(19i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_TRUNK: CALLINFO_LONG = CALLINFO_LONG(20i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_RATE: CALLINFO_LONG = CALLINFO_LONG(21i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_GENERATEDIGITDURATION: CALLINFO_LONG = CALLINFO_LONG(22i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_MONITORDIGITMODES: CALLINFO_LONG = CALLINFO_LONG(23i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIL_MONITORMEDIAMODES: CALLINFO_LONG = CALLINFO_LONG(24i32);
 impl ::core::marker::Copy for CALLINFO_LONG {}
 impl ::core::clone::Clone for CALLINFO_LONG {
     fn clone(&self) -> Self {
@@ -14718,34 +15294,6 @@ impl ::core::fmt::Debug for CALLINFO_LONG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLINFO_STRING(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_CALLERIDNAME: CALLINFO_STRING = CALLINFO_STRING(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_CALLERIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_CALLEDIDNAME: CALLINFO_STRING = CALLINFO_STRING(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_CALLEDIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_CONNECTEDIDNAME: CALLINFO_STRING = CALLINFO_STRING(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_CONNECTEDIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_REDIRECTIONIDNAME: CALLINFO_STRING = CALLINFO_STRING(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_REDIRECTIONIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_REDIRECTINGIDNAME: CALLINFO_STRING = CALLINFO_STRING(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_REDIRECTINGIDNUMBER: CALLINFO_STRING = CALLINFO_STRING(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_CALLEDPARTYFRIENDLYNAME: CALLINFO_STRING = CALLINFO_STRING(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_COMMENT: CALLINFO_STRING = CALLINFO_STRING(11i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_DISPLAYABLEADDRESS: CALLINFO_STRING = CALLINFO_STRING(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CIS_CALLINGPARTYID: CALLINFO_STRING = CALLINFO_STRING(13i32);
 impl ::core::marker::Copy for CALLINFO_STRING {}
 impl ::core::clone::Clone for CALLINFO_STRING {
     fn clone(&self) -> Self {
@@ -14769,20 +15317,6 @@ impl ::core::fmt::Debug for CALLINFO_STRING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_MEDIA_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CME_NEW_STREAM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CME_STREAM_FAIL: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CME_TERMINAL_FAIL: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CME_STREAM_NOT_USED: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CME_STREAM_ACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CME_STREAM_INACTIVE: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CME_LASTITEM: CALL_MEDIA_EVENT = CALL_MEDIA_EVENT(5i32);
 impl ::core::marker::Copy for CALL_MEDIA_EVENT {}
 impl ::core::clone::Clone for CALL_MEDIA_EVENT {
     fn clone(&self) -> Self {
@@ -14806,22 +15340,6 @@ impl ::core::fmt::Debug for CALL_MEDIA_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_MEDIA_EVENT_CAUSE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CMC_UNKNOWN: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CMC_BAD_DEVICE: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CMC_CONNECT_FAIL: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CMC_LOCAL_REQUEST: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CMC_REMOTE_REQUEST: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CMC_MEDIA_TIMEOUT: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CMC_MEDIA_RECOVERED: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CMC_QUALITY_OF_SERVICE: CALL_MEDIA_EVENT_CAUSE = CALL_MEDIA_EVENT_CAUSE(7i32);
 impl ::core::marker::Copy for CALL_MEDIA_EVENT_CAUSE {}
 impl ::core::clone::Clone for CALL_MEDIA_EVENT_CAUSE {
     fn clone(&self) -> Self {
@@ -14845,12 +15363,6 @@ impl ::core::fmt::Debug for CALL_MEDIA_EVENT_CAUSE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_NOTIFICATION_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CNE_OWNER: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CNE_MONITOR: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CNE_LASTITEM: CALL_NOTIFICATION_EVENT = CALL_NOTIFICATION_EVENT(1i32);
 impl ::core::marker::Copy for CALL_NOTIFICATION_EVENT {}
 impl ::core::clone::Clone for CALL_NOTIFICATION_EVENT {
     fn clone(&self) -> Self {
@@ -14874,10 +15386,6 @@ impl ::core::fmt::Debug for CALL_NOTIFICATION_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_PRIVILEGE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CP_OWNER: CALL_PRIVILEGE = CALL_PRIVILEGE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CP_MONITOR: CALL_PRIVILEGE = CALL_PRIVILEGE(1i32);
 impl ::core::marker::Copy for CALL_PRIVILEGE {}
 impl ::core::clone::Clone for CALL_PRIVILEGE {
     fn clone(&self) -> Self {
@@ -14901,22 +15409,6 @@ impl ::core::fmt::Debug for CALL_PRIVILEGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CS_IDLE: CALL_STATE = CALL_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CS_INPROGRESS: CALL_STATE = CALL_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CS_CONNECTED: CALL_STATE = CALL_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CS_DISCONNECTED: CALL_STATE = CALL_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CS_OFFERING: CALL_STATE = CALL_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CS_HOLD: CALL_STATE = CALL_STATE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CS_QUEUED: CALL_STATE = CALL_STATE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CS_LASTITEM: CALL_STATE = CALL_STATE(6i32);
 impl ::core::marker::Copy for CALL_STATE {}
 impl ::core::clone::Clone for CALL_STATE {
     fn clone(&self) -> Self {
@@ -14940,24 +15432,6 @@ impl ::core::fmt::Debug for CALL_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALL_STATE_EVENT_CAUSE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CEC_NONE: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CEC_DISCONNECT_NORMAL: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CEC_DISCONNECT_BUSY: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CEC_DISCONNECT_BADADDRESS: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CEC_DISCONNECT_NOANSWER: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CEC_DISCONNECT_CANCELLED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CEC_DISCONNECT_REJECTED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CEC_DISCONNECT_FAILED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CEC_DISCONNECT_BLOCKED: CALL_STATE_EVENT_CAUSE = CALL_STATE_EVENT_CAUSE(8i32);
 impl ::core::marker::Copy for CALL_STATE_EVENT_CAUSE {}
 impl ::core::clone::Clone for CALL_STATE_EVENT_CAUSE {
     fn clone(&self) -> Self {
@@ -14981,10 +15455,6 @@ impl ::core::fmt::Debug for CALL_STATE_EVENT_CAUSE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTORY_OBJECT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const OT_CONFERENCE: DIRECTORY_OBJECT_TYPE = DIRECTORY_OBJECT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const OT_USER: DIRECTORY_OBJECT_TYPE = DIRECTORY_OBJECT_TYPE(2i32);
 impl ::core::marker::Copy for DIRECTORY_OBJECT_TYPE {}
 impl ::core::clone::Clone for DIRECTORY_OBJECT_TYPE {
     fn clone(&self) -> Self {
@@ -15008,10 +15478,6 @@ impl ::core::fmt::Debug for DIRECTORY_OBJECT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTORY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const DT_NTDS: DIRECTORY_TYPE = DIRECTORY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const DT_ILS: DIRECTORY_TYPE = DIRECTORY_TYPE(2i32);
 impl ::core::marker::Copy for DIRECTORY_TYPE {}
 impl ::core::clone::Clone for DIRECTORY_TYPE {
     fn clone(&self) -> Self {
@@ -15035,12 +15501,6 @@ impl ::core::fmt::Debug for DIRECTORY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISCONNECT_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const DC_NORMAL: DISCONNECT_CODE = DISCONNECT_CODE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const DC_NOANSWER: DISCONNECT_CODE = DISCONNECT_CODE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const DC_REJECTED: DISCONNECT_CODE = DISCONNECT_CODE(2i32);
 impl ::core::marker::Copy for DISCONNECT_CODE {}
 impl ::core::clone::Clone for DISCONNECT_CODE {
     fn clone(&self) -> Self {
@@ -15064,10 +15524,6 @@ impl ::core::fmt::Debug for DISCONNECT_CODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FINISH_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const FM_ASTRANSFER: FINISH_MODE = FINISH_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const FM_ASCONFERENCE: FINISH_MODE = FINISH_MODE(1i32);
 impl ::core::marker::Copy for FINISH_MODE {}
 impl ::core::clone::Clone for FINISH_MODE {
     fn clone(&self) -> Self {
@@ -15091,14 +15547,6 @@ impl ::core::fmt::Debug for FINISH_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FT_STATE_EVENT_CAUSE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const FTEC_NORMAL: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const FTEC_END_OF_FILE: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const FTEC_READ_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const FTEC_WRITE_ERROR: FT_STATE_EVENT_CAUSE = FT_STATE_EVENT_CAUSE(3i32);
 impl ::core::marker::Copy for FT_STATE_EVENT_CAUSE {}
 impl ::core::clone::Clone for FT_STATE_EVENT_CAUSE {
     fn clone(&self) -> Self {
@@ -15122,12 +15570,6 @@ impl ::core::fmt::Debug for FT_STATE_EVENT_CAUSE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FULLDUPLEX_SUPPORT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const FDS_SUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const FDS_UNKNOWN: FULLDUPLEX_SUPPORT = FULLDUPLEX_SUPPORT(2i32);
 impl ::core::marker::Copy for FULLDUPLEX_SUPPORT {}
 impl ::core::clone::Clone for FULLDUPLEX_SUPPORT {
     fn clone(&self) -> Self {
@@ -15151,10 +15593,6 @@ impl ::core::fmt::Debug for FULLDUPLEX_SUPPORT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSP_ADDRESS_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ADDRESS_TERMINAL_UNAVAILABLE: MSP_ADDRESS_EVENT = MSP_ADDRESS_EVENT(1i32);
 impl ::core::marker::Copy for MSP_ADDRESS_EVENT {}
 impl ::core::clone::Clone for MSP_ADDRESS_EVENT {
     fn clone(&self) -> Self {
@@ -15178,18 +15616,6 @@ impl ::core::fmt::Debug for MSP_ADDRESS_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSP_CALL_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_NEW_STREAM: MSP_CALL_EVENT = MSP_CALL_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_STREAM_FAIL: MSP_CALL_EVENT = MSP_CALL_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_TERMINAL_FAIL: MSP_CALL_EVENT = MSP_CALL_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_STREAM_NOT_USED: MSP_CALL_EVENT = MSP_CALL_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_STREAM_ACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_STREAM_INACTIVE: MSP_CALL_EVENT = MSP_CALL_EVENT(5i32);
 impl ::core::marker::Copy for MSP_CALL_EVENT {}
 impl ::core::clone::Clone for MSP_CALL_EVENT {
     fn clone(&self) -> Self {
@@ -15213,22 +15639,6 @@ impl ::core::fmt::Debug for MSP_CALL_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSP_CALL_EVENT_CAUSE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_CAUSE_UNKNOWN: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_CAUSE_BAD_DEVICE: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_CAUSE_CONNECT_FAIL: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_CAUSE_LOCAL_REQUEST: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_CAUSE_REMOTE_REQUEST: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_CAUSE_MEDIA_TIMEOUT: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_CAUSE_MEDIA_RECOVERED: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const CALL_CAUSE_QUALITY_OF_SERVICE: MSP_CALL_EVENT_CAUSE = MSP_CALL_EVENT_CAUSE(7i32);
 impl ::core::marker::Copy for MSP_CALL_EVENT_CAUSE {}
 impl ::core::clone::Clone for MSP_CALL_EVENT_CAUSE {
     fn clone(&self) -> Self {
@@ -15252,22 +15662,6 @@ impl ::core::fmt::Debug for MSP_CALL_EVENT_CAUSE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSP_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ME_ADDRESS_EVENT: MSP_EVENT = MSP_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ME_CALL_EVENT: MSP_EVENT = MSP_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ME_TSP_DATA: MSP_EVENT = MSP_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ME_PRIVATE_EVENT: MSP_EVENT = MSP_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ME_ASR_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ME_TTS_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ME_FILE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const ME_TONE_TERMINAL_EVENT: MSP_EVENT = MSP_EVENT(7i32);
 impl ::core::marker::Copy for MSP_EVENT {}
 impl ::core::clone::Clone for MSP_EVENT {
     fn clone(&self) -> Self {
@@ -15291,8 +15685,6 @@ impl ::core::fmt::Debug for MSP_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONECAPS_BUFFER(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCB_DEVSPECIFICBUFFER: PHONECAPS_BUFFER = PHONECAPS_BUFFER(0i32);
 impl ::core::marker::Copy for PHONECAPS_BUFFER {}
 impl ::core::clone::Clone for PHONECAPS_BUFFER {
     fn clone(&self) -> Self {
@@ -15316,24 +15708,6 @@ impl ::core::fmt::Debug for PHONECAPS_BUFFER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONECAPS_LONG(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCL_HOOKSWITCHES: PHONECAPS_LONG = PHONECAPS_LONG(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCL_HANDSETHOOKSWITCHMODES: PHONECAPS_LONG = PHONECAPS_LONG(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCL_HEADSETHOOKSWITCHMODES: PHONECAPS_LONG = PHONECAPS_LONG(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCL_SPEAKERPHONEHOOKSWITCHMODES: PHONECAPS_LONG = PHONECAPS_LONG(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCL_DISPLAYNUMROWS: PHONECAPS_LONG = PHONECAPS_LONG(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCL_DISPLAYNUMCOLUMNS: PHONECAPS_LONG = PHONECAPS_LONG(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCL_NUMRINGMODES: PHONECAPS_LONG = PHONECAPS_LONG(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCL_NUMBUTTONLAMPS: PHONECAPS_LONG = PHONECAPS_LONG(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCL_GENERICPHONE: PHONECAPS_LONG = PHONECAPS_LONG(8i32);
 impl ::core::marker::Copy for PHONECAPS_LONG {}
 impl ::core::clone::Clone for PHONECAPS_LONG {
     fn clone(&self) -> Self {
@@ -15357,12 +15731,6 @@ impl ::core::fmt::Debug for PHONECAPS_LONG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONECAPS_STRING(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCS_PHONENAME: PHONECAPS_STRING = PHONECAPS_STRING(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCS_PHONEINFO: PHONECAPS_STRING = PHONECAPS_STRING(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PCS_PROVIDERINFO: PHONECAPS_STRING = PHONECAPS_STRING(2i32);
 impl ::core::marker::Copy for PHONECAPS_STRING {}
 impl ::core::clone::Clone for PHONECAPS_STRING {
     fn clone(&self) -> Self {
@@ -15386,102 +15754,6 @@ impl ::core::fmt::Debug for PHONECAPS_STRING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_BUTTON_FUNCTION(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_UNKNOWN: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_CONFERENCE: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_TRANSFER: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_DROP: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_HOLD: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_RECALL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_DISCONNECT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_CONNECT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_MSGWAITON: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_MSGWAITOFF: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_SELECTRING: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_ABBREVDIAL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(11i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_FORWARD: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_PICKUP: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(13i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_RINGAGAIN: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(14i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_PARK: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(15i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_REJECT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_REDIRECT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(17i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_MUTE: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(18i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_VOLUMEUP: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(19i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_VOLUMEDOWN: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(20i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_SPEAKERON: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(21i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_SPEAKEROFF: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(22i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_FLASH: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(23i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_DATAON: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(24i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_DATAOFF: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(25i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_DONOTDISTURB: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(26i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_INTERCOM: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(27i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_BRIDGEDAPP: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(28i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_BUSY: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(29i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_CALLAPP: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(30i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_DATETIME: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(31i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_DIRECTORY: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(32i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_COVER: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(33i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_CALLID: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(34i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_LASTNUM: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(35i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_NIGHTSRV: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(36i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_SENDCALLS: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(37i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_MSGINDICATOR: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(38i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_REPDIAL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(39i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_SETREPDIAL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(40i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_SYSTEMSPEED: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(41i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_STATIONSPEED: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(42i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_CAMPON: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(43i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_SAVEREPEAT: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(44i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_QUEUECALL: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(45i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_NONE: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(46i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBF_SEND: PHONE_BUTTON_FUNCTION = PHONE_BUTTON_FUNCTION(47i32);
 impl ::core::marker::Copy for PHONE_BUTTON_FUNCTION {}
 impl ::core::clone::Clone for PHONE_BUTTON_FUNCTION {
     fn clone(&self) -> Self {
@@ -15505,18 +15777,6 @@ impl ::core::fmt::Debug for PHONE_BUTTON_FUNCTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_BUTTON_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBM_DUMMY: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBM_CALL: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBM_FEATURE: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBM_KEYPAD: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBM_LOCAL: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBM_DISPLAY: PHONE_BUTTON_MODE = PHONE_BUTTON_MODE(5i32);
 impl ::core::marker::Copy for PHONE_BUTTON_MODE {}
 impl ::core::clone::Clone for PHONE_BUTTON_MODE {
     fn clone(&self) -> Self {
@@ -15540,14 +15800,6 @@ impl ::core::fmt::Debug for PHONE_BUTTON_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_BUTTON_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBS_UP: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBS_DOWN: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBS_UNKNOWN: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PBS_UNAVAIL: PHONE_BUTTON_STATE = PHONE_BUTTON_STATE(8i32);
 impl ::core::marker::Copy for PHONE_BUTTON_STATE {}
 impl ::core::clone::Clone for PHONE_BUTTON_STATE {
     fn clone(&self) -> Self {
@@ -15571,32 +15823,6 @@ impl ::core::fmt::Debug for PHONE_BUTTON_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_DISPLAY: PHONE_EVENT = PHONE_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_LAMPMODE: PHONE_EVENT = PHONE_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_RINGMODE: PHONE_EVENT = PHONE_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_RINGVOLUME: PHONE_EVENT = PHONE_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_HOOKSWITCH: PHONE_EVENT = PHONE_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_CAPSCHANGE: PHONE_EVENT = PHONE_EVENT(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_BUTTON: PHONE_EVENT = PHONE_EVENT(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_CLOSE: PHONE_EVENT = PHONE_EVENT(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_NUMBERGATHERED: PHONE_EVENT = PHONE_EVENT(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_DIALING: PHONE_EVENT = PHONE_EVENT(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_ANSWER: PHONE_EVENT = PHONE_EVENT(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_DISCONNECT: PHONE_EVENT = PHONE_EVENT(11i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PE_LASTITEM: PHONE_EVENT = PHONE_EVENT(11i32);
 impl ::core::marker::Copy for PHONE_EVENT {}
 impl ::core::clone::Clone for PHONE_EVENT {
     fn clone(&self) -> Self {
@@ -15620,12 +15846,6 @@ impl ::core::fmt::Debug for PHONE_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_HOOK_SWITCH_DEVICE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PHSD_HANDSET: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PHSD_SPEAKERPHONE: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PHSD_HEADSET: PHONE_HOOK_SWITCH_DEVICE = PHONE_HOOK_SWITCH_DEVICE(4i32);
 impl ::core::marker::Copy for PHONE_HOOK_SWITCH_DEVICE {}
 impl ::core::clone::Clone for PHONE_HOOK_SWITCH_DEVICE {
     fn clone(&self) -> Self {
@@ -15649,14 +15869,6 @@ impl ::core::fmt::Debug for PHONE_HOOK_SWITCH_DEVICE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_HOOK_SWITCH_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PHSS_ONHOOK: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PHSS_OFFHOOK_MIC_ONLY: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PHSS_OFFHOOK_SPEAKER_ONLY: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PHSS_OFFHOOK: PHONE_HOOK_SWITCH_STATE = PHONE_HOOK_SWITCH_STATE(8i32);
 impl ::core::marker::Copy for PHONE_HOOK_SWITCH_STATE {}
 impl ::core::clone::Clone for PHONE_HOOK_SWITCH_STATE {
     fn clone(&self) -> Self {
@@ -15680,22 +15892,6 @@ impl ::core::fmt::Debug for PHONE_HOOK_SWITCH_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_LAMP_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const LM_DUMMY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const LM_OFF: PHONE_LAMP_MODE = PHONE_LAMP_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const LM_STEADY: PHONE_LAMP_MODE = PHONE_LAMP_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const LM_WINK: PHONE_LAMP_MODE = PHONE_LAMP_MODE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const LM_FLASH: PHONE_LAMP_MODE = PHONE_LAMP_MODE(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const LM_FLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(32i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const LM_BROKENFLUTTER: PHONE_LAMP_MODE = PHONE_LAMP_MODE(64i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const LM_UNKNOWN: PHONE_LAMP_MODE = PHONE_LAMP_MODE(128i32);
 impl ::core::marker::Copy for PHONE_LAMP_MODE {}
 impl ::core::clone::Clone for PHONE_LAMP_MODE {
     fn clone(&self) -> Self {
@@ -15719,10 +15915,6 @@ impl ::core::fmt::Debug for PHONE_LAMP_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_PRIVILEGE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PP_OWNER: PHONE_PRIVILEGE = PHONE_PRIVILEGE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PP_MONITOR: PHONE_PRIVILEGE = PHONE_PRIVILEGE(1i32);
 impl ::core::marker::Copy for PHONE_PRIVILEGE {}
 impl ::core::clone::Clone for PHONE_PRIVILEGE {
     fn clone(&self) -> Self {
@@ -15746,50 +15938,6 @@ impl ::core::fmt::Debug for PHONE_PRIVILEGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHONE_TONE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADZERO: PHONE_TONE = PHONE_TONE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADONE: PHONE_TONE = PHONE_TONE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADTWO: PHONE_TONE = PHONE_TONE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADTHREE: PHONE_TONE = PHONE_TONE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADFOUR: PHONE_TONE = PHONE_TONE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADFIVE: PHONE_TONE = PHONE_TONE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADSIX: PHONE_TONE = PHONE_TONE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADSEVEN: PHONE_TONE = PHONE_TONE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADEIGHT: PHONE_TONE = PHONE_TONE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADNINE: PHONE_TONE = PHONE_TONE(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADSTAR: PHONE_TONE = PHONE_TONE(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADPOUND: PHONE_TONE = PHONE_TONE(11i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADA: PHONE_TONE = PHONE_TONE(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADB: PHONE_TONE = PHONE_TONE(13i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADC: PHONE_TONE = PHONE_TONE(14i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_KEYPADD: PHONE_TONE = PHONE_TONE(15i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_NORMALDIALTONE: PHONE_TONE = PHONE_TONE(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_EXTERNALDIALTONE: PHONE_TONE = PHONE_TONE(17i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_BUSY: PHONE_TONE = PHONE_TONE(18i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_RINGBACK: PHONE_TONE = PHONE_TONE(19i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_ERRORTONE: PHONE_TONE = PHONE_TONE(20i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const PT_SILENCE: PHONE_TONE = PHONE_TONE(21i32);
 impl ::core::marker::Copy for PHONE_TONE {}
 impl ::core::clone::Clone for PHONE_TONE {
     fn clone(&self) -> Self {
@@ -15813,16 +15961,6 @@ impl ::core::fmt::Debug for PHONE_TONE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const QE_NOQOS: QOS_EVENT = QOS_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const QE_ADMISSIONFAILURE: QOS_EVENT = QOS_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const QE_POLICYFAILURE: QOS_EVENT = QOS_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const QE_GENERICERROR: QOS_EVENT = QOS_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const QE_LASTITEM: QOS_EVENT = QOS_EVENT(4i32);
 impl ::core::marker::Copy for QOS_EVENT {}
 impl ::core::clone::Clone for QOS_EVENT {
     fn clone(&self) -> Self {
@@ -15846,12 +15984,6 @@ impl ::core::fmt::Debug for QOS_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_SERVICE_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const QSL_NEEDED: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const QSL_IF_AVAILABLE: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const QSL_BEST_EFFORT: QOS_SERVICE_LEVEL = QOS_SERVICE_LEVEL(3i32);
 impl ::core::marker::Copy for QOS_SERVICE_LEVEL {}
 impl ::core::clone::Clone for QOS_SERVICE_LEVEL {
     fn clone(&self) -> Self {
@@ -15875,14 +16007,6 @@ impl ::core::fmt::Debug for QOS_SERVICE_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RND_ADVERTISING_SCOPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const RAS_LOCAL: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const RAS_SITE: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const RAS_REGION: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const RAS_WORLD: RND_ADVERTISING_SCOPE = RND_ADVERTISING_SCOPE(4i32);
 impl ::core::marker::Copy for RND_ADVERTISING_SCOPE {}
 impl ::core::clone::Clone for RND_ADVERTISING_SCOPE {
     fn clone(&self) -> Self {
@@ -15906,20 +16030,6 @@ impl ::core::fmt::Debug for RND_ADVERTISING_SCOPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPIOBJECT_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_ADDRESSCREATE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_ADDRESSREMOVE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_REINIT: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_TRANSLATECHANGE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_ADDRESSCLOSE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_PHONECREATE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_PHONEREMOVE: TAPIOBJECT_EVENT = TAPIOBJECT_EVENT(6i32);
 impl ::core::marker::Copy for TAPIOBJECT_EVENT {}
 impl ::core::clone::Clone for TAPIOBJECT_EVENT {
     fn clone(&self) -> Self {
@@ -15943,58 +16053,6 @@ impl ::core::fmt::Debug for TAPIOBJECT_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPI_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_TAPIOBJECT: TAPI_EVENT = TAPI_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_ADDRESS: TAPI_EVENT = TAPI_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_CALLNOTIFICATION: TAPI_EVENT = TAPI_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_CALLSTATE: TAPI_EVENT = TAPI_EVENT(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_CALLMEDIA: TAPI_EVENT = TAPI_EVENT(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_CALLHUB: TAPI_EVENT = TAPI_EVENT(32i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_CALLINFOCHANGE: TAPI_EVENT = TAPI_EVENT(64i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_PRIVATE: TAPI_EVENT = TAPI_EVENT(128i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_REQUEST: TAPI_EVENT = TAPI_EVENT(256i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_AGENT: TAPI_EVENT = TAPI_EVENT(512i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_AGENTSESSION: TAPI_EVENT = TAPI_EVENT(1024i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_QOSEVENT: TAPI_EVENT = TAPI_EVENT(2048i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_AGENTHANDLER: TAPI_EVENT = TAPI_EVENT(4096i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_ACDGROUP: TAPI_EVENT = TAPI_EVENT(8192i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_QUEUE: TAPI_EVENT = TAPI_EVENT(16384i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_DIGITEVENT: TAPI_EVENT = TAPI_EVENT(32768i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_GENERATEEVENT: TAPI_EVENT = TAPI_EVENT(65536i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_ASRTERMINAL: TAPI_EVENT = TAPI_EVENT(131072i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_TTSTERMINAL: TAPI_EVENT = TAPI_EVENT(262144i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_FILETERMINAL: TAPI_EVENT = TAPI_EVENT(524288i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_TONETERMINAL: TAPI_EVENT = TAPI_EVENT(1048576i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_PHONEEVENT: TAPI_EVENT = TAPI_EVENT(2097152i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_TONEEVENT: TAPI_EVENT = TAPI_EVENT(4194304i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_GATHERDIGITS: TAPI_EVENT = TAPI_EVENT(8388608i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_ADDRESSDEVSPECIFIC: TAPI_EVENT = TAPI_EVENT(16777216i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TE_PHONEDEVSPECIFIC: TAPI_EVENT = TAPI_EVENT(33554432i32);
 impl ::core::marker::Copy for TAPI_EVENT {}
 impl ::core::clone::Clone for TAPI_EVENT {
     fn clone(&self) -> Self {
@@ -16018,16 +16076,6 @@ impl ::core::fmt::Debug for TAPI_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPI_GATHERTERM(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TGT_BUFFERFULL: TAPI_GATHERTERM = TAPI_GATHERTERM(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TGT_TERMDIGIT: TAPI_GATHERTERM = TAPI_GATHERTERM(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TGT_FIRSTTIMEOUT: TAPI_GATHERTERM = TAPI_GATHERTERM(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TGT_INTERTIMEOUT: TAPI_GATHERTERM = TAPI_GATHERTERM(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TGT_CANCEL: TAPI_GATHERTERM = TAPI_GATHERTERM(16i32);
 impl ::core::marker::Copy for TAPI_GATHERTERM {}
 impl ::core::clone::Clone for TAPI_GATHERTERM {
     fn clone(&self) -> Self {
@@ -16051,20 +16099,6 @@ impl ::core::fmt::Debug for TAPI_GATHERTERM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPI_OBJECT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TOT_NONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TOT_TAPI: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TOT_ADDRESS: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TOT_TERMINAL: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TOT_CALL: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TOT_CALLHUB: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TOT_PHONE: TAPI_OBJECT_TYPE = TAPI_OBJECT_TYPE(6i32);
 impl ::core::marker::Copy for TAPI_OBJECT_TYPE {}
 impl ::core::clone::Clone for TAPI_OBJECT_TYPE {
     fn clone(&self) -> Self {
@@ -16088,14 +16122,6 @@ impl ::core::fmt::Debug for TAPI_OBJECT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPI_TONEMODE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TTM_RINGBACK: TAPI_TONEMODE = TAPI_TONEMODE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TTM_BUSY: TAPI_TONEMODE = TAPI_TONEMODE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TTM_BEEP: TAPI_TONEMODE = TAPI_TONEMODE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TTM_BILLING: TAPI_TONEMODE = TAPI_TONEMODE(16i32);
 impl ::core::marker::Copy for TAPI_TONEMODE {}
 impl ::core::clone::Clone for TAPI_TONEMODE {
     fn clone(&self) -> Self {
@@ -16119,16 +16145,6 @@ impl ::core::fmt::Debug for TAPI_TONEMODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TERMINAL_DIRECTION(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TD_CAPTURE: TERMINAL_DIRECTION = TERMINAL_DIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TD_RENDER: TERMINAL_DIRECTION = TERMINAL_DIRECTION(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TD_BIDIRECTIONAL: TERMINAL_DIRECTION = TERMINAL_DIRECTION(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TD_MULTITRACK_MIXED: TERMINAL_DIRECTION = TERMINAL_DIRECTION(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TD_NONE: TERMINAL_DIRECTION = TERMINAL_DIRECTION(4i32);
 impl ::core::marker::Copy for TERMINAL_DIRECTION {}
 impl ::core::clone::Clone for TERMINAL_DIRECTION {
     fn clone(&self) -> Self {
@@ -16152,14 +16168,6 @@ impl ::core::fmt::Debug for TERMINAL_DIRECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TERMINAL_MEDIA_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TMS_IDLE: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TMS_ACTIVE: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TMS_PAUSED: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TMS_LASTITEM: TERMINAL_MEDIA_STATE = TERMINAL_MEDIA_STATE(2i32);
 impl ::core::marker::Copy for TERMINAL_MEDIA_STATE {}
 impl ::core::clone::Clone for TERMINAL_MEDIA_STATE {
     fn clone(&self) -> Self {
@@ -16183,10 +16191,6 @@ impl ::core::fmt::Debug for TERMINAL_MEDIA_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TERMINAL_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TS_INUSE: TERMINAL_STATE = TERMINAL_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TS_NOTINUSE: TERMINAL_STATE = TERMINAL_STATE(1i32);
 impl ::core::marker::Copy for TERMINAL_STATE {}
 impl ::core::clone::Clone for TERMINAL_STATE {
     fn clone(&self) -> Self {
@@ -16210,10 +16214,6 @@ impl ::core::fmt::Debug for TERMINAL_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TERMINAL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TT_STATIC: TERMINAL_TYPE = TERMINAL_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Tapi\"`*"]
-pub const TT_DYNAMIC: TERMINAL_TYPE = TERMINAL_TYPE(1i32);
 impl ::core::marker::Copy for TERMINAL_TYPE {}
 impl ::core::clone::Clone for TERMINAL_TYPE {
     fn clone(&self) -> Self {

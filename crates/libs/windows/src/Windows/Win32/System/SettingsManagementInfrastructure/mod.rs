@@ -884,11 +884,35 @@ pub struct ITargetInfo_Vtbl {
     pub GetSchemaHiveMountName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmountname: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const AllEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(3i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const OfflineMode: WcmTargetMode = WcmTargetMode(1i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const OnlineMode: WcmTargetMode = WcmTargetMode(2i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const ReadOnlyAccess: WcmNamespaceAccess = WcmNamespaceAccess(1i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const ReadWriteAccess: WcmNamespaceAccess = WcmNamespaceAccess(2i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const SettingsEngine: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bb5_20b3_11da_81a5_0030f1642e3c);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const SharedEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const UnknownStatus: WcmUserStatus = WcmUserStatus(0i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const UserEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const UserLoaded: WcmUserStatus = WcmUserStatus(3i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const UserRegistered: WcmUserStatus = WcmUserStatus(1i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const UserUnloaded: WcmUserStatus = WcmUserStatus(4i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const UserUnregistered: WcmUserStatus = WcmUserStatus(2i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_ABORTOPERATION: ::windows_core::HRESULT = ::windows_core::HRESULT(-2145255384i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
@@ -1010,31 +1034,45 @@ pub const WCM_S_LEGACYSETTINGWARNING: ::windows_core::HRESULT = ::windows_core::
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_S_NAMESPACENOTFOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(2232326i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WcmDataType(pub i32);
+pub const dataTypeBoolean: WcmDataType = WcmDataType(11i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeByte: WcmDataType = WcmDataType(1i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const dataTypeSByte: WcmDataType = WcmDataType(2i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const dataTypeUInt16: WcmDataType = WcmDataType(3i32);
+pub const dataTypeFlagArray: WcmDataType = WcmDataType(32768i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeInt16: WcmDataType = WcmDataType(4i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const dataTypeUInt32: WcmDataType = WcmDataType(5i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeInt32: WcmDataType = WcmDataType(6i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const dataTypeUInt64: WcmDataType = WcmDataType(7i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeInt64: WcmDataType = WcmDataType(8i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const dataTypeBoolean: WcmDataType = WcmDataType(11i32);
+pub const dataTypeSByte: WcmDataType = WcmDataType(2i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeString: WcmDataType = WcmDataType(12i32);
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const dataTypeFlagArray: WcmDataType = WcmDataType(32768i32);
+pub const dataTypeUInt16: WcmDataType = WcmDataType(3i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const dataTypeUInt32: WcmDataType = WcmDataType(5i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const dataTypeUInt64: WcmDataType = WcmDataType(7i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const restrictionFacetEnumeration: WcmRestrictionFacets = WcmRestrictionFacets(2i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const restrictionFacetMaxInclusive: WcmRestrictionFacets = WcmRestrictionFacets(4i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const restrictionFacetMaxLength: WcmRestrictionFacets = WcmRestrictionFacets(1i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const restrictionFacetMinInclusive: WcmRestrictionFacets = WcmRestrictionFacets(8i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const settingTypeComplex: WcmSettingType = WcmSettingType(2i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const settingTypeList: WcmSettingType = WcmSettingType(3i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+pub const settingTypeScalar: WcmSettingType = WcmSettingType(1i32);
+#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WcmDataType(pub i32);
 impl ::core::marker::Copy for WcmDataType {}
 impl ::core::clone::Clone for WcmDataType {
     fn clone(&self) -> Self {
@@ -1058,10 +1096,6 @@ impl ::core::fmt::Debug for WcmDataType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmNamespaceAccess(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const ReadOnlyAccess: WcmNamespaceAccess = WcmNamespaceAccess(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const ReadWriteAccess: WcmNamespaceAccess = WcmNamespaceAccess(2i32);
 impl ::core::marker::Copy for WcmNamespaceAccess {}
 impl ::core::clone::Clone for WcmNamespaceAccess {
     fn clone(&self) -> Self {
@@ -1085,12 +1119,6 @@ impl ::core::fmt::Debug for WcmNamespaceAccess {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmNamespaceEnumerationFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const SharedEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const UserEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const AllEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(3i32);
 impl ::core::marker::Copy for WcmNamespaceEnumerationFlags {}
 impl ::core::clone::Clone for WcmNamespaceEnumerationFlags {
     fn clone(&self) -> Self {
@@ -1114,14 +1142,6 @@ impl ::core::fmt::Debug for WcmNamespaceEnumerationFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmRestrictionFacets(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const restrictionFacetMaxLength: WcmRestrictionFacets = WcmRestrictionFacets(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const restrictionFacetEnumeration: WcmRestrictionFacets = WcmRestrictionFacets(2i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const restrictionFacetMaxInclusive: WcmRestrictionFacets = WcmRestrictionFacets(4i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const restrictionFacetMinInclusive: WcmRestrictionFacets = WcmRestrictionFacets(8i32);
 impl ::core::marker::Copy for WcmRestrictionFacets {}
 impl ::core::clone::Clone for WcmRestrictionFacets {
     fn clone(&self) -> Self {
@@ -1145,12 +1165,6 @@ impl ::core::fmt::Debug for WcmRestrictionFacets {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmSettingType(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const settingTypeScalar: WcmSettingType = WcmSettingType(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const settingTypeComplex: WcmSettingType = WcmSettingType(2i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const settingTypeList: WcmSettingType = WcmSettingType(3i32);
 impl ::core::marker::Copy for WcmSettingType {}
 impl ::core::clone::Clone for WcmSettingType {
     fn clone(&self) -> Self {
@@ -1174,10 +1188,6 @@ impl ::core::fmt::Debug for WcmSettingType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmTargetMode(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const OfflineMode: WcmTargetMode = WcmTargetMode(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const OnlineMode: WcmTargetMode = WcmTargetMode(2i32);
 impl ::core::marker::Copy for WcmTargetMode {}
 impl ::core::clone::Clone for WcmTargetMode {
     fn clone(&self) -> Self {
@@ -1201,16 +1211,6 @@ impl ::core::fmt::Debug for WcmTargetMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmUserStatus(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const UnknownStatus: WcmUserStatus = WcmUserStatus(0i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const UserRegistered: WcmUserStatus = WcmUserStatus(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const UserUnregistered: WcmUserStatus = WcmUserStatus(2i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const UserLoaded: WcmUserStatus = WcmUserStatus(3i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
-pub const UserUnloaded: WcmUserStatus = WcmUserStatus(4i32);
 impl ::core::marker::Copy for WcmUserStatus {}
 impl ::core::clone::Clone for WcmUserStatus {
     fn clone(&self) -> Self {

@@ -2426,6 +2426,14 @@ pub const CMOD_CALLCONV_NAME_STDCALL: ::windows_core::PCSTR = ::windows_core::s!
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const CMOD_CALLCONV_NAME_THISCALL: ::windows_core::PCSTR = ::windows_core::s!("CallConvThiscall");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COINITCOR_DEFAULT: COINITICOR = COINITICOR(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COINITEE_DEFAULT: COINITIEE = COINITIEE(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COINITEE_DLL: COINITIEE = COINITIEE(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COINITEE_MAIN: COINITIEE = COINITIEE(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const COMPILATIONRELAXATIONS_TYPE: ::windows_core::PCSTR = ::windows_core::s!("System.Runtime.CompilerServices.CompilationRelaxationsAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const COMPILATIONRELAXATIONS_TYPE_W: ::windows_core::PCWSTR = ::windows_core::w!("System.Runtime.CompilerServices.CompilationRelaxationsAttribute");
@@ -2472,6 +2480,20 @@ pub const COR_E_TARGETPARAMCOUNT: ::windows_core::HRESULT = ::windows_core::HRES
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const COR_E_UNAUTHORIZEDACCESS: i32 = -2147024891i32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COR_ILEXCEPTION_CLAUSE_DEPRECATED: CorExceptionFlag = CorExceptionFlag(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COR_ILEXCEPTION_CLAUSE_DUPLICATED: CorExceptionFlag = CorExceptionFlag(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COR_ILEXCEPTION_CLAUSE_FAULT: CorExceptionFlag = CorExceptionFlag(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COR_ILEXCEPTION_CLAUSE_FILTER: CorExceptionFlag = CorExceptionFlag(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COR_ILEXCEPTION_CLAUSE_FINALLY: CorExceptionFlag = CorExceptionFlag(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COR_ILEXCEPTION_CLAUSE_NONE: CorExceptionFlag = CorExceptionFlag(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COR_ILEXCEPTION_CLAUSE_OFFSETLEN: CorExceptionFlag = CorExceptionFlag(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const COR_NATIVE_LINK_CUSTOM_VALUE: ::windows_core::PCWSTR = ::windows_core::w!("COMPLUS_NativeLink");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const COR_NATIVE_LINK_CUSTOM_VALUE_ANSI: ::windows_core::PCSTR = ::windows_core::s!("COMPLUS_NativeLink");
@@ -2493,6 +2515,42 @@ pub const COR_UNVER_CODE_ATTRIBUTE_ANSI: ::windows_core::PCSTR = ::windows_core:
 pub const COR_VTABLEGAP_NAME_A: ::windows_core::PCSTR = ::windows_core::s!("_VtblGap");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const COR_VTABLEGAP_NAME_W: ::windows_core::PCWSTR = ::windows_core::w!("_VtblGap");
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COUNINITEE_DEFAULT: COUNINITIEE = COUNINITIEE(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const COUNINITEE_DLL: COUNINITIEE = COUNINITIEE(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CompilationRelaxations_NoStringInterning: CompilationRelaxationsEnum = CompilationRelaxationsEnum(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_CompressedIL: CorILMethodFlags = CorILMethodFlags(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_FatFormat: CorILMethodFlags = CorILMethodFlags(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_FormatMask: CorILMethodFlags = CorILMethodFlags(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_FormatShift: CorILMethodFlags = CorILMethodFlags(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_InitLocals: CorILMethodFlags = CorILMethodFlags(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_MoreSects: CorILMethodFlags = CorILMethodFlags(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_Sect_EHTable: CorILMethodSect = CorILMethodSect(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_Sect_FatFormat: CorILMethodSect = CorILMethodSect(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_Sect_KindMask: CorILMethodSect = CorILMethodSect(63i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_Sect_MoreSects: CorILMethodSect = CorILMethodSect(128i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_Sect_OptILTable: CorILMethodSect = CorILMethodSect(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_Sect_Reserved: CorILMethodSect = CorILMethodSect(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_SmallFormat: CorILMethodFlags = CorILMethodFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_TinyFormat: CorILMethodFlags = CorILMethodFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const CorILMethod_TinyFormat1: CorILMethodFlags = CorILMethodFlags(6i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const DEFAULTDEPENDENCY_TYPE: ::windows_core::PCSTR = ::windows_core::s!("System.Runtime.CompilerServices.DefaultDependencyAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -2521,6 +2579,80 @@ pub const DESCR_GROUP_METHODIMPL: i32 = 1i32;
 pub const DISABLED_PRIVATE_REFLECTION_TYPE: ::windows_core::PCSTR = ::windows_core::s!("System.Runtime.CompilerServices.DisablePrivateReflectionAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const DISABLED_PRIVATE_REFLECTION_TYPE_W: ::windows_core::PCWSTR = ::windows_core::w!("System.Runtime.CompilerServices.DisablePrivateReflectionAttribute");
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const DropMemberRefCAs: MergeFlags = MergeFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_ARRAY: CorElementType = CorElementType(20u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_BOOLEAN: CorElementType = CorElementType(2u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_BYREF: CorElementType = CorElementType(16u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_CHAR: CorElementType = CorElementType(3u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_CLASS: CorElementType = CorElementType(18u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_CMOD_OPT: CorElementType = CorElementType(32u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_CMOD_REQD: CorElementType = CorElementType(31u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_END: CorElementType = CorElementType(0u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_FNPTR: CorElementType = CorElementType(27u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_GENERICINST: CorElementType = CorElementType(21u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_I: CorElementType = CorElementType(24u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_I1: CorElementType = CorElementType(4u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_I2: CorElementType = CorElementType(6u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_I4: CorElementType = CorElementType(8u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_I8: CorElementType = CorElementType(10u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_INTERNAL: CorElementType = CorElementType(33u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_MAX: CorElementType = CorElementType(34u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_MODIFIER: CorElementType = CorElementType(64u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_MVAR: CorElementType = CorElementType(30u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_OBJECT: CorElementType = CorElementType(28u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_PINNED: CorElementType = CorElementType(69u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_PTR: CorElementType = CorElementType(15u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_R4: CorElementType = CorElementType(12u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_R8: CorElementType = CorElementType(13u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_SENTINEL: CorElementType = CorElementType(65u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_STRING: CorElementType = CorElementType(14u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_SZARRAY: CorElementType = CorElementType(29u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_TYPEDBYREF: CorElementType = CorElementType(22u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_U: CorElementType = CorElementType(25u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_U1: CorElementType = CorElementType(5u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_U2: CorElementType = CorElementType(7u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_U4: CorElementType = CorElementType(9u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_U8: CorElementType = CorElementType(11u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_VALUETYPE: CorElementType = CorElementType(17u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_VAR: CorElementType = CorElementType(19u8);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ELEMENT_TYPE_VOID: CorElementType = CorElementType(1u8);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const FORWARD_INTEROP_STUB_METHOD_TYPE: ::windows_core::PCSTR = ::windows_core::s!("System.Runtime.InteropServices.ManagedToNativeComInteropStubAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -2551,6 +2683,72 @@ pub const GUID_ManagedName: ::windows_core::GUID = ::windows_core::GUID::from_u1
 pub const GUID_PropGetCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2941ff83_88d8_4f73_b6a9_bdf8712d000d);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const GUID_PropPutCA: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29533527_3683_4364_abc0_db1add822fa2);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_BYVALUE: CorArgType = CorArgType(10i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_C: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_DEFAULT: CorCallingConvention = CorCallingConvention(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_EXPLICITTHIS: CorCallingConvention = CorCallingConvention(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_FASTCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_FIELD: CorCallingConvention = CorCallingConvention(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_GENERIC: CorCallingConvention = CorCallingConvention(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_GENERICINST: CorCallingConvention = CorCallingConvention(10i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_HASTHIS: CorCallingConvention = CorCallingConvention(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_LOCAL_SIG: CorCallingConvention = CorCallingConvention(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_MASK: CorCallingConvention = CorCallingConvention(15i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_MAX: CorCallingConvention = CorCallingConvention(12i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_NATIVEVARARG: CorCallingConvention = CorCallingConvention(11i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_PROPERTY: CorCallingConvention = CorCallingConvention(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_STDCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_THISCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_UNMGD: CorCallingConvention = CorCallingConvention(9i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_CALLCONV_VARARG: CorCallingConvention = CorCallingConvention(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_END: CorArgType = CorArgType(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_I4: CorArgType = CorArgType(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_I8: CorArgType = CorArgType(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_OBJECT: CorArgType = CorArgType(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_PTR: CorArgType = CorArgType(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_R4: CorArgType = CorArgType(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_R8: CorArgType = CorArgType(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_STRUCT32: CorArgType = CorArgType(9i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_STRUCT4: CorArgType = CorArgType(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_CS_VOID: CorArgType = CorArgType(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_UNMANAGED_CALLCONV_C: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_UNMANAGED_CALLCONV_FASTCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_UNMANAGED_CALLCONV_STDCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_CEE_UNMANAGED_CALLCONV_THISCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const IMAGE_DIRECTORY_ENTRY_COMHEADER: ReplacesGeneralNumericDefines = ReplacesGeneralNumericDefines(14i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const INTEROP_AUTOPROXY_TYPE: ::windows_core::PCSTR = ::windows_core::s!("System.Runtime.InteropServices.AutomationProxyAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -2718,15 +2916,205 @@ pub const INVALID_TASK_ID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const LIBID_ComPlusRuntime: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbed7f4ea_1a96_11d2_8f08_00a0c9a6186d);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const LoadAlways: LoadHintEnum = LoadHintEnum(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const LoadDefault: LoadHintEnum = LoadHintEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const LoadNever: LoadHintEnum = LoadHintEnum(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const LoadSometimes: LoadHintEnum = LoadHintEnum(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const MAIN_CLR_MODULE_NAME_A: ::windows_core::PCSTR = ::windows_core::s!("coreclr");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const MAIN_CLR_MODULE_NAME_W: ::windows_core::PCWSTR = ::windows_core::w!("coreclr");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const MAX_CONNECTION_NAME: u32 = 260u32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDAssembly: CorLinkerOptions = CorLinkerOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupAll: CorCheckDuplicatesFor = CorCheckDuplicatesFor(-1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupAssembly: CorCheckDuplicatesFor = CorCheckDuplicatesFor(268435456i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupAssemblyRef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(32768i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupCustomAttribute: CorCheckDuplicatesFor = CorCheckDuplicatesFor(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupDefault: CorCheckDuplicatesFor = CorCheckDuplicatesFor(1058840i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupENC: CorCheckDuplicatesFor = CorCheckDuplicatesFor(-1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupEvent: CorCheckDuplicatesFor = CorCheckDuplicatesFor(512i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupExportedType: CorCheckDuplicatesFor = CorCheckDuplicatesFor(131072i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupFieldDef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupFile: CorCheckDuplicatesFor = CorCheckDuplicatesFor(65536i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupGenericParam: CorCheckDuplicatesFor = CorCheckDuplicatesFor(524288i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupGenericParamConstraint: CorCheckDuplicatesFor = CorCheckDuplicatesFor(2097152i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupImplMap: CorCheckDuplicatesFor = CorCheckDuplicatesFor(16384i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupInterfaceImpl: CorCheckDuplicatesFor = CorCheckDuplicatesFor(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupManifestResource: CorCheckDuplicatesFor = CorCheckDuplicatesFor(262144i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupMemberRef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupMethodDef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupMethodSpec: CorCheckDuplicatesFor = CorCheckDuplicatesFor(1048576i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupModuleRef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(4096i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupParamDef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupPermission: CorCheckDuplicatesFor = CorCheckDuplicatesFor(128i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupProperty: CorCheckDuplicatesFor = CorCheckDuplicatesFor(256i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupSignature: CorCheckDuplicatesFor = CorCheckDuplicatesFor(2048i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupTypeDef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupTypeRef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDDupTypeSpec: CorCheckDuplicatesFor = CorCheckDuplicatesFor(8192i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDErrorOutOfOrderAll: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(-1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDErrorOutOfOrderDefault: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDErrorOutOfOrderNone: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDEventOutOfOrder: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDFieldOutOfOrder: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDImportOptionAll: CorImportOptions = CorImportOptions(-1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDImportOptionAllCustomAttributes: CorImportOptions = CorImportOptions(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDImportOptionAllEvents: CorImportOptions = CorImportOptions(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDImportOptionAllExportedTypes: CorImportOptions = CorImportOptions(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDImportOptionAllFieldDefs: CorImportOptions = CorImportOptions(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDImportOptionAllMethodDefs: CorImportOptions = CorImportOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDImportOptionAllProperties: CorImportOptions = CorImportOptions(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDImportOptionAllTypeDefs: CorImportOptions = CorImportOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDImportOptionDefault: CorImportOptions = CorImportOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDMemberRefToDef: CorRefToDefCheck = CorRefToDefCheck(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDMethodOutOfOrder: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNetModule: CorLinkerOptions = CorLinkerOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNoDupChecks: CorCheckDuplicatesFor = CorCheckDuplicatesFor(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyAll: CorNotificationForTokenMovement = CorNotificationForTokenMovement(-1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyAssemblyRef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(16777216i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyCustomAttribute: CorNotificationForTokenMovement = CorNotificationForTokenMovement(2048i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyDefault: CorNotificationForTokenMovement = CorNotificationForTokenMovement(15i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyEvent: CorNotificationForTokenMovement = CorNotificationForTokenMovement(256i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyExportedType: CorNotificationForTokenMovement = CorNotificationForTokenMovement(67108864i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyFieldDef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyFile: CorNotificationForTokenMovement = CorNotificationForTokenMovement(33554432i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyInterfaceImpl: CorNotificationForTokenMovement = CorNotificationForTokenMovement(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyMemberRef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyMethodDef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyModuleRef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(16384i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyNameSpace: CorNotificationForTokenMovement = CorNotificationForTokenMovement(32768i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyNone: CorNotificationForTokenMovement = CorNotificationForTokenMovement(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyParamDef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyPermission: CorNotificationForTokenMovement = CorNotificationForTokenMovement(8192i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyProperty: CorNotificationForTokenMovement = CorNotificationForTokenMovement(128i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyResource: CorNotificationForTokenMovement = CorNotificationForTokenMovement(134217728i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifySecurityValue: CorNotificationForTokenMovement = CorNotificationForTokenMovement(4096i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifySignature: CorNotificationForTokenMovement = CorNotificationForTokenMovement(512i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyTypeDef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyTypeRef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDNotifyTypeSpec: CorNotificationForTokenMovement = CorNotificationForTokenMovement(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDParamOutOfOrder: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDPreserveLocalMemberRef: CorLocalRefPreservation = CorLocalRefPreservation(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDPreserveLocalRefsNone: CorLocalRefPreservation = CorLocalRefPreservation(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDPreserveLocalTypeRef: CorLocalRefPreservation = CorLocalRefPreservation(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDPropertyOutOfOrder: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDRefToDefAll: CorRefToDefCheck = CorRefToDefCheck(-1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDRefToDefDefault: CorRefToDefCheck = CorRefToDefCheck(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDRefToDefNone: CorRefToDefCheck = CorRefToDefCheck(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDSetENCOff: CorSetENC = CorSetENC(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDSetENCOn: CorSetENC = CorSetENC(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDThreadSafetyDefault: CorThreadSafetyOptions = CorThreadSafetyOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDThreadSafetyOff: CorThreadSafetyOptions = CorThreadSafetyOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDThreadSafetyOn: CorThreadSafetyOptions = CorThreadSafetyOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDTypeRefToDef: CorRefToDefCheck = CorRefToDefCheck(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDUpdateDelta: CorSetENC = CorSetENC(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDUpdateENC: CorSetENC = CorSetENC(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDUpdateExtension: CorSetENC = CorSetENC(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDUpdateFull: CorSetENC = CorSetENC(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDUpdateIncremental: CorSetENC = CorSetENC(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MDUpdateMask: CorSetENC = CorSetENC(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const MSCOREE_SHIM_A: ::windows_core::PCSTR = ::windows_core::s!("mscoree.dll");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const MSCOREE_SHIM_W: ::windows_core::PCWSTR = ::windows_core::w!("mscoree.dll");
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MergeExportedTypes: MergeFlags = MergeFlags(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MergeFlagsNone: MergeFlags = MergeFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const MergeManifest: MergeFlags = MergeFlags(1i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const MetaDataCheckDuplicatesFor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30fe7be8_d7d9_11d2_9f80_00c04f79a0a3);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -2754,13 +3142,159 @@ pub const MetaDataThreadSafetyOptions: ::windows_core::GUID = ::windows_core::GU
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const MetaDataTypeLibImportNamespace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf17ff889_5a63_11d3_9ff2_00c04ff7431a);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_ANSIBSTR: CorNativeType = CorNativeType(35i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_ARRAY: CorNativeType = CorNativeType(42i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_ASANY: CorNativeType = CorNativeType(40i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_BOOLEAN: CorNativeType = CorNativeType(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_BSTR: CorNativeType = CorNativeType(19i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_BYVALSTR: CorNativeType = CorNativeType(34i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_CURRENCY: CorNativeType = CorNativeType(15i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_CUSTOMMARSHALER: CorNativeType = CorNativeType(44i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_DATE: CorNativeType = CorNativeType(18i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_DECIMAL: CorNativeType = CorNativeType(17i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_END: CorNativeType = CorNativeType(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_ERROR: CorNativeType = CorNativeType(45i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_FIXEDARRAY: CorNativeType = CorNativeType(30i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_FIXEDSYSSTRING: CorNativeType = CorNativeType(23i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_FUNC: CorNativeType = CorNativeType(38i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_HSTRING: CorNativeType = CorNativeType(47i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_I1: CorNativeType = CorNativeType(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_I2: CorNativeType = CorNativeType(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_I4: CorNativeType = CorNativeType(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_I8: CorNativeType = CorNativeType(9i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_IDISPATCH: CorNativeType = CorNativeType(26i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_IINSPECTABLE: CorNativeType = CorNativeType(46i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_INT: CorNativeType = CorNativeType(31i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_INTF: CorNativeType = CorNativeType(28i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_IUNKNOWN: CorNativeType = CorNativeType(25i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_LPSTR: CorNativeType = CorNativeType(20i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_LPSTRUCT: CorNativeType = CorNativeType(43i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_LPTSTR: CorNativeType = CorNativeType(22i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_LPUTF8STR: CorNativeType = CorNativeType(48i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_LPWSTR: CorNativeType = CorNativeType(21i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_MAX: CorNativeType = CorNativeType(80i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_NESTEDSTRUCT: CorNativeType = CorNativeType(33i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_OBJECTREF: CorNativeType = CorNativeType(24i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_PTR: CorNativeType = CorNativeType(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_R4: CorNativeType = CorNativeType(11i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_R8: CorNativeType = CorNativeType(12i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_SAFEARRAY: CorNativeType = CorNativeType(29i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_STRUCT: CorNativeType = CorNativeType(27i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_SYSCHAR: CorNativeType = CorNativeType(13i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_TBSTR: CorNativeType = CorNativeType(36i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_U1: CorNativeType = CorNativeType(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_U2: CorNativeType = CorNativeType(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_U4: CorNativeType = CorNativeType(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_U8: CorNativeType = CorNativeType(10i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_UINT: CorNativeType = CorNativeType(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_VARIANT: CorNativeType = CorNativeType(14i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_VARIANTBOOL: CorNativeType = CorNativeType(37i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NATIVE_TYPE_VOID: CorNativeType = CorNativeType(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NGenDefault: NGenHintEnum = NGenHintEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NGenEager: NGenHintEnum = NGenHintEnum(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NGenLazy: NGenHintEnum = NGenHintEnum(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NGenNever: NGenHintEnum = NGenHintEnum(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const NONVERSIONABLE_TYPE: ::windows_core::PCSTR = ::windows_core::s!("System.Runtime.Versioning.NonVersionableAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const NONVERSIONABLE_TYPE_W: ::windows_core::PCWSTR = ::windows_core::w!("System.Runtime.Versioning.NonVersionableAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const NoDupCheck: MergeFlags = MergeFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const RUNTIMECOMPATIBILITY_TYPE: ::windows_core::PCSTR = ::windows_core::s!("System.Runtime.CompilerServices.RuntimeCompatibilityAttribute");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const RUNTIMECOMPATIBILITY_TYPE_W: ::windows_core::PCWSTR = ::windows_core::w!("System.Runtime.CompilerServices.RuntimeCompatibilityAttribute");
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_BOOLEAN: CorSerializationType = CorSerializationType(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_CHAR: CorSerializationType = CorSerializationType(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_ENUM: CorSerializationType = CorSerializationType(85i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_FIELD: CorSerializationType = CorSerializationType(83i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_I1: CorSerializationType = CorSerializationType(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_I2: CorSerializationType = CorSerializationType(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_I4: CorSerializationType = CorSerializationType(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_I8: CorSerializationType = CorSerializationType(10i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_PROPERTY: CorSerializationType = CorSerializationType(84i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_R4: CorSerializationType = CorSerializationType(12i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_R8: CorSerializationType = CorSerializationType(13i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_STRING: CorSerializationType = CorSerializationType(14i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_SZARRAY: CorSerializationType = CorSerializationType(29i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_TAGGED_OBJECT: CorSerializationType = CorSerializationType(81i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_TYPE: CorSerializationType = CorSerializationType(80i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_U1: CorSerializationType = CorSerializationType(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_U2: CorSerializationType = CorSerializationType(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_U4: CorSerializationType = CorSerializationType(9i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_U8: CorSerializationType = CorSerializationType(11i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const SERIALIZATION_TYPE_UNDEFINED: CorSerializationType = CorSerializationType(0i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const SIGN_MASK_FOURBYTE: i32 = -268435456i32;
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -2780,11 +3314,609 @@ pub const USER_FRAMEWORK_REGISTRY_KEY: ::windows_core::PCSTR = ::windows_core::s
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 pub const USER_FRAMEWORK_REGISTRY_KEY_W: ::windows_core::PCWSTR = ::windows_core::w!("Software\\Microsoft\\.NETFramework64");
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ValidatorModuleTypeEnc: CorValidatorModuleType = CorValidatorModuleType(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ValidatorModuleTypeIncr: CorValidatorModuleType = CorValidatorModuleType(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ValidatorModuleTypeInvalid: CorValidatorModuleType = CorValidatorModuleType(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ValidatorModuleTypeMax: CorValidatorModuleType = CorValidatorModuleType(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ValidatorModuleTypeMin: CorValidatorModuleType = CorValidatorModuleType(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ValidatorModuleTypeObj: CorValidatorModuleType = CorValidatorModuleType(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ValidatorModuleTypePE: CorValidatorModuleType = CorValidatorModuleType(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afContentType_Default: CorAssemblyFlags = CorAssemblyFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afContentType_Mask: CorAssemblyFlags = CorAssemblyFlags(3584i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afContentType_WindowsRuntime: CorAssemblyFlags = CorAssemblyFlags(512i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afDisableJITcompileOptimizer: CorAssemblyFlags = CorAssemblyFlags(16384i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afEnableJITcompileTracking: CorAssemblyFlags = CorAssemblyFlags(32768i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPA_AMD64: CorAssemblyFlags = CorAssemblyFlags(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPA_ARM: CorAssemblyFlags = CorAssemblyFlags(80i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPA_FullMask: CorAssemblyFlags = CorAssemblyFlags(240i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPA_IA64: CorAssemblyFlags = CorAssemblyFlags(48i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPA_MSIL: CorAssemblyFlags = CorAssemblyFlags(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPA_Mask: CorAssemblyFlags = CorAssemblyFlags(112i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPA_NoPlatform: CorAssemblyFlags = CorAssemblyFlags(112i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPA_None: CorAssemblyFlags = CorAssemblyFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPA_Shift: CorAssemblyFlags = CorAssemblyFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPA_Specified: CorAssemblyFlags = CorAssemblyFlags(128i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPA_x86: CorAssemblyFlags = CorAssemblyFlags(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afPublicKey: CorAssemblyFlags = CorAssemblyFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const afRetargetable: CorAssemblyFlags = CorAssemblyFlags(256i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catAll: CorAttributeTargets = CorAttributeTargets(24575i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catAssembly: CorAttributeTargets = CorAttributeTargets(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catClass: CorAttributeTargets = CorAttributeTargets(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catClassMembers: CorAttributeTargets = CorAttributeTargets(6140i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catConstructor: CorAttributeTargets = CorAttributeTargets(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catDelegate: CorAttributeTargets = CorAttributeTargets(4096i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catEnum: CorAttributeTargets = CorAttributeTargets(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catEvent: CorAttributeTargets = CorAttributeTargets(512i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catField: CorAttributeTargets = CorAttributeTargets(256i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catGenericParameter: CorAttributeTargets = CorAttributeTargets(16384i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catInterface: CorAttributeTargets = CorAttributeTargets(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catMethod: CorAttributeTargets = CorAttributeTargets(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catModule: CorAttributeTargets = CorAttributeTargets(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catParameter: CorAttributeTargets = CorAttributeTargets(2048i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catProperty: CorAttributeTargets = CorAttributeTargets(128i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const catStruct: CorAttributeTargets = CorAttributeTargets(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const cssAccurate: CorSaveSize = CorSaveSize(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const cssDiscardTransientCAs: CorSaveSize = CorSaveSize(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const cssQuick: CorSaveSize = CorSaveSize(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclActionMask: CorDeclSecurity = CorDeclSecurity(31i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclActionNil: CorDeclSecurity = CorDeclSecurity(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclAssert: CorDeclSecurity = CorDeclSecurity(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclDemand: CorDeclSecurity = CorDeclSecurity(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclDeny: CorDeclSecurity = CorDeclSecurity(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclInheritanceCheck: CorDeclSecurity = CorDeclSecurity(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclLinktimeCheck: CorDeclSecurity = CorDeclSecurity(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclMaximumValue: CorDeclSecurity = CorDeclSecurity(15i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclNonCasDemand: CorDeclSecurity = CorDeclSecurity(13i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclNonCasInheritance: CorDeclSecurity = CorDeclSecurity(15i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclNonCasLinkDemand: CorDeclSecurity = CorDeclSecurity(14i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclPermitOnly: CorDeclSecurity = CorDeclSecurity(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclPrejitDenied: CorDeclSecurity = CorDeclSecurity(12i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclPrejitGrant: CorDeclSecurity = CorDeclSecurity(11i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclRequest: CorDeclSecurity = CorDeclSecurity(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclRequestMinimum: CorDeclSecurity = CorDeclSecurity(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclRequestOptional: CorDeclSecurity = CorDeclSecurity(9i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const dclRequestRefuse: CorDeclSecurity = CorDeclSecurity(10i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const evRTSpecialName: CorEventAttr = CorEventAttr(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const evReservedMask: CorEventAttr = CorEventAttr(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const evSpecialName: CorEventAttr = CorEventAttr(512i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdAssembly: CorFieldAttr = CorFieldAttr(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdFamANDAssem: CorFieldAttr = CorFieldAttr(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdFamORAssem: CorFieldAttr = CorFieldAttr(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdFamily: CorFieldAttr = CorFieldAttr(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdFieldAccessMask: CorFieldAttr = CorFieldAttr(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdHasDefault: CorFieldAttr = CorFieldAttr(32768i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdHasFieldMarshal: CorFieldAttr = CorFieldAttr(4096i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdHasFieldRVA: CorFieldAttr = CorFieldAttr(256i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdInitOnly: CorFieldAttr = CorFieldAttr(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdLiteral: CorFieldAttr = CorFieldAttr(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdNotSerialized: CorFieldAttr = CorFieldAttr(128i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdPinvokeImpl: CorFieldAttr = CorFieldAttr(8192i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdPrivate: CorFieldAttr = CorFieldAttr(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdPrivateScope: CorFieldAttr = CorFieldAttr(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdPublic: CorFieldAttr = CorFieldAttr(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdRTSpecialName: CorFieldAttr = CorFieldAttr(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdReservedMask: CorFieldAttr = CorFieldAttr(38144i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdSpecialName: CorFieldAttr = CorFieldAttr(512i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fdStatic: CorFieldAttr = CorFieldAttr(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ffContainsMetaData: CorFileFlags = CorFileFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ffContainsNoMetaData: CorFileFlags = CorFileFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fmExecutableImage: CorFileMapping = CorFileMapping(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const fmFlat: CorFileMapping = CorFileMapping(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const gpContravariant: CorGenericParamAttr = CorGenericParamAttr(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const gpCovariant: CorGenericParamAttr = CorGenericParamAttr(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const gpDefaultConstructorConstraint: CorGenericParamAttr = CorGenericParamAttr(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const gpNoSpecialConstraint: CorGenericParamAttr = CorGenericParamAttr(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const gpNonVariant: CorGenericParamAttr = CorGenericParamAttr(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const gpNotNullableValueTypeConstraint: CorGenericParamAttr = CorGenericParamAttr(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const gpReferenceTypeConstraint: CorGenericParamAttr = CorGenericParamAttr(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const gpSpecialConstraintMask: CorGenericParamAttr = CorGenericParamAttr(28i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const gpVarianceMask: CorGenericParamAttr = CorGenericParamAttr(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdAbstract: CorMethodAttr = CorMethodAttr(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdAssem: CorMethodAttr = CorMethodAttr(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdCheckAccessOnOverride: CorMethodAttr = CorMethodAttr(512i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdFamANDAssem: CorMethodAttr = CorMethodAttr(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdFamORAssem: CorMethodAttr = CorMethodAttr(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdFamily: CorMethodAttr = CorMethodAttr(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdFinal: CorMethodAttr = CorMethodAttr(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdHasSecurity: CorMethodAttr = CorMethodAttr(16384i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdHideBySig: CorMethodAttr = CorMethodAttr(128i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdMemberAccessMask: CorMethodAttr = CorMethodAttr(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdNewSlot: CorMethodAttr = CorMethodAttr(256i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdPinvokeImpl: CorMethodAttr = CorMethodAttr(8192i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdPrivate: CorMethodAttr = CorMethodAttr(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdPrivateScope: CorMethodAttr = CorMethodAttr(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdPublic: CorMethodAttr = CorMethodAttr(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdRTSpecialName: CorMethodAttr = CorMethodAttr(4096i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdRequireSecObject: CorMethodAttr = CorMethodAttr(32768i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdReservedMask: CorMethodAttr = CorMethodAttr(53248i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdReuseSlot: CorMethodAttr = CorMethodAttr(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdSpecialName: CorMethodAttr = CorMethodAttr(2048i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdStatic: CorMethodAttr = CorMethodAttr(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdUnmanagedExport: CorMethodAttr = CorMethodAttr(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdVirtual: CorMethodAttr = CorMethodAttr(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdVtableLayoutMask: CorMethodAttr = CorMethodAttr(256i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtAssembly: CorTokenType = CorTokenType(536870912i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtAssemblyRef: CorTokenType = CorTokenType(587202560i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtBaseType: CorTokenType = CorTokenType(1912602624i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtCustomAttribute: CorTokenType = CorTokenType(201326592i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtEvent: CorTokenType = CorTokenType(335544320i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtExportedType: CorTokenType = CorTokenType(654311424i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtFieldDef: CorTokenType = CorTokenType(67108864i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtFile: CorTokenType = CorTokenType(637534208i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtGenericParam: CorTokenType = CorTokenType(704643072i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtGenericParamConstraint: CorTokenType = CorTokenType(738197504i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtInterfaceImpl: CorTokenType = CorTokenType(150994944i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtManifestResource: CorTokenType = CorTokenType(671088640i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtMemberRef: CorTokenType = CorTokenType(167772160i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtMethodDef: CorTokenType = CorTokenType(100663296i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtMethodImpl: CorTokenType = CorTokenType(419430400i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtMethodSpec: CorTokenType = CorTokenType(721420288i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtModule: CorTokenType = CorTokenType(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtModuleRef: CorTokenType = CorTokenType(436207616i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtName: CorTokenType = CorTokenType(1895825408i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtParamDef: CorTokenType = CorTokenType(134217728i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtPermission: CorTokenType = CorTokenType(234881024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtProperty: CorTokenType = CorTokenType(385875968i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtSignature: CorTokenType = CorTokenType(285212672i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtString: CorTokenType = CorTokenType(1879048192i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtTypeDef: CorTokenType = CorTokenType(33554432i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtTypeRef: CorTokenType = CorTokenType(16777216i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mdtTypeSpec: CorTokenType = CorTokenType(452984832i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miAggressiveInlining: CorMethodImpl = CorMethodImpl(256i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miCodeTypeMask: CorMethodImpl = CorMethodImpl(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miForwardRef: CorMethodImpl = CorMethodImpl(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miIL: CorMethodImpl = CorMethodImpl(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miInternalCall: CorMethodImpl = CorMethodImpl(4096i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miManaged: CorMethodImpl = CorMethodImpl(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miManagedMask: CorMethodImpl = CorMethodImpl(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miMaxMethodImplVal: CorMethodImpl = CorMethodImpl(65535i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miNative: CorMethodImpl = CorMethodImpl(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miNoInlining: CorMethodImpl = CorMethodImpl(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miNoOptimization: CorMethodImpl = CorMethodImpl(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miOPTIL: CorMethodImpl = CorMethodImpl(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miPreserveSig: CorMethodImpl = CorMethodImpl(128i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miRuntime: CorMethodImpl = CorMethodImpl(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miSecurityMitigations: CorMethodImpl = CorMethodImpl(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miSynchronized: CorMethodImpl = CorMethodImpl(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miUnmanaged: CorMethodImpl = CorMethodImpl(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const miUserMask: CorMethodImpl = CorMethodImpl(5628i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mrPrivate: CorManifestResourceFlags = CorManifestResourceFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mrPublic: CorManifestResourceFlags = CorManifestResourceFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const mrVisibilityMask: CorManifestResourceFlags = CorManifestResourceFlags(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const msAddOn: CorMethodSemanticsAttr = CorMethodSemanticsAttr(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const msFire: CorMethodSemanticsAttr = CorMethodSemanticsAttr(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const msGetter: CorMethodSemanticsAttr = CorMethodSemanticsAttr(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const msOther: CorMethodSemanticsAttr = CorMethodSemanticsAttr(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const msRemoveOn: CorMethodSemanticsAttr = CorMethodSemanticsAttr(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const msSetter: CorMethodSemanticsAttr = CorMethodSemanticsAttr(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const nlfLastError: CorNativeLinkFlags = CorNativeLinkFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const nlfMaxValue: CorNativeLinkFlags = CorNativeLinkFlags(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const nlfNoMangle: CorNativeLinkFlags = CorNativeLinkFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const nlfNone: CorNativeLinkFlags = CorNativeLinkFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const nltAnsi: CorNativeLinkType = CorNativeLinkType(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const nltAuto: CorNativeLinkType = CorNativeLinkType(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const nltMaxValue: CorNativeLinkType = CorNativeLinkType(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const nltNone: CorNativeLinkType = CorNativeLinkType(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const nltOle: CorNativeLinkType = CorNativeLinkType(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const nltUnicode: CorNativeLinkType = CorNativeLinkType(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ntaReserved: NativeTypeArrayFlags = NativeTypeArrayFlags(65534i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ntaSizeParamIndexSpecified: NativeTypeArrayFlags = NativeTypeArrayFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofCheckIntegrity: CorOpenFlags = CorOpenFlags(2048i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofCopyMemory: CorOpenFlags = CorOpenFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofNoTransform: CorOpenFlags = CorOpenFlags(4096i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofNoTypeLib: CorOpenFlags = CorOpenFlags(128i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofRead: CorOpenFlags = CorOpenFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofReadOnly: CorOpenFlags = CorOpenFlags(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofReadWriteMask: CorOpenFlags = CorOpenFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofReserved: CorOpenFlags = CorOpenFlags(-6336i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofReserved1: CorOpenFlags = CorOpenFlags(256i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofReserved2: CorOpenFlags = CorOpenFlags(512i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofReserved3: CorOpenFlags = CorOpenFlags(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofTakeOwnership: CorOpenFlags = CorOpenFlags(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const ofWrite: CorOpenFlags = CorOpenFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pdHasDefault: CorParamAttr = CorParamAttr(4096i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pdHasFieldMarshal: CorParamAttr = CorParamAttr(8192i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pdIn: CorParamAttr = CorParamAttr(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pdOptional: CorParamAttr = CorParamAttr(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pdOut: CorParamAttr = CorParamAttr(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pdReservedMask: CorParamAttr = CorParamAttr(61440i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pdUnused: CorParamAttr = CorParamAttr(53216i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pe32BitPreferred: CorPEKind = CorPEKind(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pe32BitRequired: CorPEKind = CorPEKind(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pe32Plus: CorPEKind = CorPEKind(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pe32Unmanaged: CorPEKind = CorPEKind(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const peILonly: CorPEKind = CorPEKind(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const peNot: CorPEKind = CorPEKind(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmBestFitDisabled: CorPinvokeMap = CorPinvokeMap(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmBestFitEnabled: CorPinvokeMap = CorPinvokeMap(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmBestFitMask: CorPinvokeMap = CorPinvokeMap(48i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmBestFitUseAssem: CorPinvokeMap = CorPinvokeMap(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmCallConvCdecl: CorPinvokeMap = CorPinvokeMap(512i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmCallConvFastcall: CorPinvokeMap = CorPinvokeMap(1280i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmCallConvMask: CorPinvokeMap = CorPinvokeMap(1792i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmCallConvStdcall: CorPinvokeMap = CorPinvokeMap(768i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmCallConvThiscall: CorPinvokeMap = CorPinvokeMap(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmCallConvWinapi: CorPinvokeMap = CorPinvokeMap(256i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmCharSetAnsi: CorPinvokeMap = CorPinvokeMap(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmCharSetAuto: CorPinvokeMap = CorPinvokeMap(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmCharSetMask: CorPinvokeMap = CorPinvokeMap(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmCharSetNotSpec: CorPinvokeMap = CorPinvokeMap(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmCharSetUnicode: CorPinvokeMap = CorPinvokeMap(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmMaxValue: CorPinvokeMap = CorPinvokeMap(65535i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmNoMangle: CorPinvokeMap = CorPinvokeMap(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmSupportsLastError: CorPinvokeMap = CorPinvokeMap(64i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmThrowOnUnmappableCharDisabled: CorPinvokeMap = CorPinvokeMap(8192i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmThrowOnUnmappableCharEnabled: CorPinvokeMap = CorPinvokeMap(4096i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmThrowOnUnmappableCharMask: CorPinvokeMap = CorPinvokeMap(12288i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const pmThrowOnUnmappableCharUseAssem: CorPinvokeMap = CorPinvokeMap(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const prHasDefault: CorPropertyAttr = CorPropertyAttr(4096i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const prRTSpecialName: CorPropertyAttr = CorPropertyAttr(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const prReservedMask: CorPropertyAttr = CorPropertyAttr(62464i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const prSpecialName: CorPropertyAttr = CorPropertyAttr(512i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const prUnused: CorPropertyAttr = CorPropertyAttr(59903i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const regConfig: CorRegFlags = CorRegFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const regHasRefs: CorRegFlags = CorRegFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const regNoCopy: CorRegFlags = CorRegFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const sdExecute: CeeSectionAttr = CeeSectionAttr(1610612768i64);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const sdNone: CeeSectionAttr = CeeSectionAttr(0i64);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const sdReadOnly: CeeSectionAttr = CeeSectionAttr(1073741888i64);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const sdReadWrite: CeeSectionAttr = CeeSectionAttr(3221225536i64);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srNoBaseReloc: CeeSectionRelocType = CeeSectionRelocType(16384i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocAbsolute: CeeSectionRelocType = CeeSectionRelocType(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocAbsolutePtr: CeeSectionRelocType = CeeSectionRelocType(32768i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocAbsoluteTagged: CeeSectionRelocType = CeeSectionRelocType(13i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocCodeRelative: CeeSectionRelocType = CeeSectionRelocType(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocDir64: CeeSectionRelocType = CeeSectionRelocType(10i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocDir64Ptr: CeeSectionRelocType = CeeSectionRelocType(32778i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocFilePos: CeeSectionRelocType = CeeSectionRelocType(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocHighAdj: CeeSectionRelocType = CeeSectionRelocType(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocHighLow: CeeSectionRelocType = CeeSectionRelocType(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocHighLowPtr: CeeSectionRelocType = CeeSectionRelocType(32771i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocIA64Imm64: CeeSectionRelocType = CeeSectionRelocType(9i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocIA64Imm64Ptr: CeeSectionRelocType = CeeSectionRelocType(32777i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocIA64PcRel25: CeeSectionRelocType = CeeSectionRelocType(11i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocIA64PcRel64: CeeSectionRelocType = CeeSectionRelocType(12i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocMapToken: CeeSectionRelocType = CeeSectionRelocType(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocPtr: CeeSectionRelocType = CeeSectionRelocType(32768i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocRelative: CeeSectionRelocType = CeeSectionRelocType(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocRelativePtr: CeeSectionRelocType = CeeSectionRelocType(32774i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const srRelocSentinel: CeeSectionRelocType = CeeSectionRelocType(14i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdAbstract: CorTypeAttr = CorTypeAttr(128i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdAnsiClass: CorTypeAttr = CorTypeAttr(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdAutoClass: CorTypeAttr = CorTypeAttr(131072i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdAutoLayout: CorTypeAttr = CorTypeAttr(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdBeforeFieldInit: CorTypeAttr = CorTypeAttr(1048576i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdClass: CorTypeAttr = CorTypeAttr(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdClassSemanticsMask: CorTypeAttr = CorTypeAttr(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdCustomFormatClass: CorTypeAttr = CorTypeAttr(196608i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdCustomFormatMask: CorTypeAttr = CorTypeAttr(12582912i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdExplicitLayout: CorTypeAttr = CorTypeAttr(16i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdForwarder: CorTypeAttr = CorTypeAttr(2097152i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdHasSecurity: CorTypeAttr = CorTypeAttr(262144i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdImport: CorTypeAttr = CorTypeAttr(4096i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdInterface: CorTypeAttr = CorTypeAttr(32i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdLayoutMask: CorTypeAttr = CorTypeAttr(24i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdNestedAssembly: CorTypeAttr = CorTypeAttr(5i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdNestedFamANDAssem: CorTypeAttr = CorTypeAttr(6i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdNestedFamORAssem: CorTypeAttr = CorTypeAttr(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdNestedFamily: CorTypeAttr = CorTypeAttr(4i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdNestedPrivate: CorTypeAttr = CorTypeAttr(3i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdNestedPublic: CorTypeAttr = CorTypeAttr(2i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdNotPublic: CorTypeAttr = CorTypeAttr(0i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdPublic: CorTypeAttr = CorTypeAttr(1i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdRTSpecialName: CorTypeAttr = CorTypeAttr(2048i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdReservedMask: CorTypeAttr = CorTypeAttr(264192i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdSealed: CorTypeAttr = CorTypeAttr(256i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdSequentialLayout: CorTypeAttr = CorTypeAttr(8i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdSerializable: CorTypeAttr = CorTypeAttr(8192i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdSpecialName: CorTypeAttr = CorTypeAttr(1024i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdStringFormatMask: CorTypeAttr = CorTypeAttr(196608i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdUnicodeClass: CorTypeAttr = CorTypeAttr(65536i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdVisibilityMask: CorTypeAttr = CorTypeAttr(7i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
+pub const tdWindowsRuntime: CorTypeAttr = CorTypeAttr(16384i32);
+#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COINITICOR(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COINITCOR_DEFAULT: COINITICOR = COINITICOR(0i32);
 impl ::core::marker::Copy for COINITICOR {}
 impl ::core::clone::Clone for COINITICOR {
     fn clone(&self) -> Self {
@@ -2808,12 +3940,6 @@ impl ::core::fmt::Debug for COINITICOR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COINITIEE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COINITEE_DEFAULT: COINITIEE = COINITIEE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COINITEE_DLL: COINITIEE = COINITIEE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COINITEE_MAIN: COINITIEE = COINITIEE(2i32);
 impl ::core::marker::Copy for COINITIEE {}
 impl ::core::clone::Clone for COINITIEE {
     fn clone(&self) -> Self {
@@ -2837,10 +3963,6 @@ impl ::core::fmt::Debug for COINITIEE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COUNINITIEE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COUNINITEE_DEFAULT: COUNINITIEE = COUNINITIEE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COUNINITEE_DLL: COUNINITIEE = COUNINITIEE(1i32);
 impl ::core::marker::Copy for COUNINITIEE {}
 impl ::core::clone::Clone for COUNINITIEE {
     fn clone(&self) -> Self {
@@ -2864,14 +3986,6 @@ impl ::core::fmt::Debug for COUNINITIEE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CeeSectionAttr(pub i64);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const sdNone: CeeSectionAttr = CeeSectionAttr(0i64);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const sdReadOnly: CeeSectionAttr = CeeSectionAttr(1073741888i64);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const sdReadWrite: CeeSectionAttr = CeeSectionAttr(3221225536i64);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const sdExecute: CeeSectionAttr = CeeSectionAttr(1610612768i64);
 impl ::core::marker::Copy for CeeSectionAttr {}
 impl ::core::clone::Clone for CeeSectionAttr {
     fn clone(&self) -> Self {
@@ -2895,46 +4009,6 @@ impl ::core::fmt::Debug for CeeSectionAttr {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CeeSectionRelocType(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocAbsolute: CeeSectionRelocType = CeeSectionRelocType(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocHighLow: CeeSectionRelocType = CeeSectionRelocType(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocHighAdj: CeeSectionRelocType = CeeSectionRelocType(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocMapToken: CeeSectionRelocType = CeeSectionRelocType(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocRelative: CeeSectionRelocType = CeeSectionRelocType(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocFilePos: CeeSectionRelocType = CeeSectionRelocType(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocCodeRelative: CeeSectionRelocType = CeeSectionRelocType(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocIA64Imm64: CeeSectionRelocType = CeeSectionRelocType(9i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocDir64: CeeSectionRelocType = CeeSectionRelocType(10i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocIA64PcRel25: CeeSectionRelocType = CeeSectionRelocType(11i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocIA64PcRel64: CeeSectionRelocType = CeeSectionRelocType(12i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocAbsoluteTagged: CeeSectionRelocType = CeeSectionRelocType(13i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocSentinel: CeeSectionRelocType = CeeSectionRelocType(14i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srNoBaseReloc: CeeSectionRelocType = CeeSectionRelocType(16384i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocPtr: CeeSectionRelocType = CeeSectionRelocType(32768i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocAbsolutePtr: CeeSectionRelocType = CeeSectionRelocType(32768i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocHighLowPtr: CeeSectionRelocType = CeeSectionRelocType(32771i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocRelativePtr: CeeSectionRelocType = CeeSectionRelocType(32774i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocIA64Imm64Ptr: CeeSectionRelocType = CeeSectionRelocType(32777i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const srRelocDir64Ptr: CeeSectionRelocType = CeeSectionRelocType(32778i32);
 impl ::core::marker::Copy for CeeSectionRelocType {}
 impl ::core::clone::Clone for CeeSectionRelocType {
     fn clone(&self) -> Self {
@@ -2958,8 +4032,6 @@ impl ::core::fmt::Debug for CeeSectionRelocType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompilationRelaxationsEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CompilationRelaxations_NoStringInterning: CompilationRelaxationsEnum = CompilationRelaxationsEnum(8i32);
 impl ::core::marker::Copy for CompilationRelaxationsEnum {}
 impl ::core::clone::Clone for CompilationRelaxationsEnum {
     fn clone(&self) -> Self {
@@ -2983,28 +4055,6 @@ impl ::core::fmt::Debug for CompilationRelaxationsEnum {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorArgType(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_END: CorArgType = CorArgType(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_VOID: CorArgType = CorArgType(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_I4: CorArgType = CorArgType(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_I8: CorArgType = CorArgType(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_R4: CorArgType = CorArgType(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_R8: CorArgType = CorArgType(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_PTR: CorArgType = CorArgType(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_OBJECT: CorArgType = CorArgType(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_STRUCT4: CorArgType = CorArgType(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_STRUCT32: CorArgType = CorArgType(9i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_BYVALUE: CorArgType = CorArgType(10i32);
 impl ::core::marker::Copy for CorArgType {}
 impl ::core::clone::Clone for CorArgType {
     fn clone(&self) -> Self {
@@ -3028,42 +4078,6 @@ impl ::core::fmt::Debug for CorArgType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorAssemblyFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPublicKey: CorAssemblyFlags = CorAssemblyFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPA_None: CorAssemblyFlags = CorAssemblyFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPA_MSIL: CorAssemblyFlags = CorAssemblyFlags(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPA_x86: CorAssemblyFlags = CorAssemblyFlags(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPA_IA64: CorAssemblyFlags = CorAssemblyFlags(48i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPA_AMD64: CorAssemblyFlags = CorAssemblyFlags(64i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPA_ARM: CorAssemblyFlags = CorAssemblyFlags(80i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPA_NoPlatform: CorAssemblyFlags = CorAssemblyFlags(112i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPA_Specified: CorAssemblyFlags = CorAssemblyFlags(128i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPA_Mask: CorAssemblyFlags = CorAssemblyFlags(112i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPA_FullMask: CorAssemblyFlags = CorAssemblyFlags(240i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afPA_Shift: CorAssemblyFlags = CorAssemblyFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afEnableJITcompileTracking: CorAssemblyFlags = CorAssemblyFlags(32768i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afDisableJITcompileOptimizer: CorAssemblyFlags = CorAssemblyFlags(16384i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afRetargetable: CorAssemblyFlags = CorAssemblyFlags(256i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afContentType_Default: CorAssemblyFlags = CorAssemblyFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afContentType_WindowsRuntime: CorAssemblyFlags = CorAssemblyFlags(512i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const afContentType_Mask: CorAssemblyFlags = CorAssemblyFlags(3584i32);
 impl ::core::marker::Copy for CorAssemblyFlags {}
 impl ::core::clone::Clone for CorAssemblyFlags {
     fn clone(&self) -> Self {
@@ -3087,38 +4101,6 @@ impl ::core::fmt::Debug for CorAssemblyFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorAttributeTargets(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catAssembly: CorAttributeTargets = CorAttributeTargets(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catModule: CorAttributeTargets = CorAttributeTargets(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catClass: CorAttributeTargets = CorAttributeTargets(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catStruct: CorAttributeTargets = CorAttributeTargets(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catEnum: CorAttributeTargets = CorAttributeTargets(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catConstructor: CorAttributeTargets = CorAttributeTargets(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catMethod: CorAttributeTargets = CorAttributeTargets(64i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catProperty: CorAttributeTargets = CorAttributeTargets(128i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catField: CorAttributeTargets = CorAttributeTargets(256i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catEvent: CorAttributeTargets = CorAttributeTargets(512i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catInterface: CorAttributeTargets = CorAttributeTargets(1024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catParameter: CorAttributeTargets = CorAttributeTargets(2048i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catDelegate: CorAttributeTargets = CorAttributeTargets(4096i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catGenericParameter: CorAttributeTargets = CorAttributeTargets(16384i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catAll: CorAttributeTargets = CorAttributeTargets(24575i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const catClassMembers: CorAttributeTargets = CorAttributeTargets(6140i32);
 impl ::core::marker::Copy for CorAttributeTargets {}
 impl ::core::clone::Clone for CorAttributeTargets {
     fn clone(&self) -> Self {
@@ -3142,32 +4124,6 @@ impl ::core::fmt::Debug for CorAttributeTargets {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorCallingConvention(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_DEFAULT: CorCallingConvention = CorCallingConvention(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_VARARG: CorCallingConvention = CorCallingConvention(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_FIELD: CorCallingConvention = CorCallingConvention(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_LOCAL_SIG: CorCallingConvention = CorCallingConvention(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_PROPERTY: CorCallingConvention = CorCallingConvention(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_UNMGD: CorCallingConvention = CorCallingConvention(9i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_GENERICINST: CorCallingConvention = CorCallingConvention(10i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_NATIVEVARARG: CorCallingConvention = CorCallingConvention(11i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_MAX: CorCallingConvention = CorCallingConvention(12i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_MASK: CorCallingConvention = CorCallingConvention(15i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_HASTHIS: CorCallingConvention = CorCallingConvention(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_EXPLICITTHIS: CorCallingConvention = CorCallingConvention(64i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_GENERIC: CorCallingConvention = CorCallingConvention(16i32);
 impl ::core::marker::Copy for CorCallingConvention {}
 impl ::core::clone::Clone for CorCallingConvention {
     fn clone(&self) -> Self {
@@ -3191,60 +4147,6 @@ impl ::core::fmt::Debug for CorCallingConvention {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorCheckDuplicatesFor(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupAll: CorCheckDuplicatesFor = CorCheckDuplicatesFor(-1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupENC: CorCheckDuplicatesFor = CorCheckDuplicatesFor(-1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNoDupChecks: CorCheckDuplicatesFor = CorCheckDuplicatesFor(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupTypeDef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupInterfaceImpl: CorCheckDuplicatesFor = CorCheckDuplicatesFor(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupMethodDef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupTypeRef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupMemberRef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupCustomAttribute: CorCheckDuplicatesFor = CorCheckDuplicatesFor(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupParamDef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(64i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupPermission: CorCheckDuplicatesFor = CorCheckDuplicatesFor(128i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupProperty: CorCheckDuplicatesFor = CorCheckDuplicatesFor(256i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupEvent: CorCheckDuplicatesFor = CorCheckDuplicatesFor(512i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupFieldDef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(1024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupSignature: CorCheckDuplicatesFor = CorCheckDuplicatesFor(2048i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupModuleRef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(4096i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupTypeSpec: CorCheckDuplicatesFor = CorCheckDuplicatesFor(8192i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupImplMap: CorCheckDuplicatesFor = CorCheckDuplicatesFor(16384i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupAssemblyRef: CorCheckDuplicatesFor = CorCheckDuplicatesFor(32768i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupFile: CorCheckDuplicatesFor = CorCheckDuplicatesFor(65536i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupExportedType: CorCheckDuplicatesFor = CorCheckDuplicatesFor(131072i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupManifestResource: CorCheckDuplicatesFor = CorCheckDuplicatesFor(262144i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupGenericParam: CorCheckDuplicatesFor = CorCheckDuplicatesFor(524288i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupMethodSpec: CorCheckDuplicatesFor = CorCheckDuplicatesFor(1048576i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupGenericParamConstraint: CorCheckDuplicatesFor = CorCheckDuplicatesFor(2097152i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupAssembly: CorCheckDuplicatesFor = CorCheckDuplicatesFor(268435456i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDDupDefault: CorCheckDuplicatesFor = CorCheckDuplicatesFor(1058840i32);
 impl ::core::marker::Copy for CorCheckDuplicatesFor {}
 impl ::core::clone::Clone for CorCheckDuplicatesFor {
     fn clone(&self) -> Self {
@@ -3268,42 +4170,6 @@ impl ::core::fmt::Debug for CorCheckDuplicatesFor {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorDeclSecurity(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclActionMask: CorDeclSecurity = CorDeclSecurity(31i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclActionNil: CorDeclSecurity = CorDeclSecurity(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclRequest: CorDeclSecurity = CorDeclSecurity(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclDemand: CorDeclSecurity = CorDeclSecurity(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclAssert: CorDeclSecurity = CorDeclSecurity(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclDeny: CorDeclSecurity = CorDeclSecurity(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclPermitOnly: CorDeclSecurity = CorDeclSecurity(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclLinktimeCheck: CorDeclSecurity = CorDeclSecurity(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclInheritanceCheck: CorDeclSecurity = CorDeclSecurity(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclRequestMinimum: CorDeclSecurity = CorDeclSecurity(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclRequestOptional: CorDeclSecurity = CorDeclSecurity(9i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclRequestRefuse: CorDeclSecurity = CorDeclSecurity(10i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclPrejitGrant: CorDeclSecurity = CorDeclSecurity(11i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclPrejitDenied: CorDeclSecurity = CorDeclSecurity(12i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclNonCasDemand: CorDeclSecurity = CorDeclSecurity(13i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclNonCasLinkDemand: CorDeclSecurity = CorDeclSecurity(14i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclNonCasInheritance: CorDeclSecurity = CorDeclSecurity(15i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const dclMaximumValue: CorDeclSecurity = CorDeclSecurity(15i32);
 impl ::core::marker::Copy for CorDeclSecurity {}
 impl ::core::clone::Clone for CorDeclSecurity {
     fn clone(&self) -> Self {
@@ -3327,78 +4193,6 @@ impl ::core::fmt::Debug for CorDeclSecurity {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorElementType(pub u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_END: CorElementType = CorElementType(0u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_VOID: CorElementType = CorElementType(1u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_BOOLEAN: CorElementType = CorElementType(2u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_CHAR: CorElementType = CorElementType(3u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_I1: CorElementType = CorElementType(4u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_U1: CorElementType = CorElementType(5u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_I2: CorElementType = CorElementType(6u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_U2: CorElementType = CorElementType(7u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_I4: CorElementType = CorElementType(8u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_U4: CorElementType = CorElementType(9u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_I8: CorElementType = CorElementType(10u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_U8: CorElementType = CorElementType(11u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_R4: CorElementType = CorElementType(12u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_R8: CorElementType = CorElementType(13u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_STRING: CorElementType = CorElementType(14u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_PTR: CorElementType = CorElementType(15u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_BYREF: CorElementType = CorElementType(16u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_VALUETYPE: CorElementType = CorElementType(17u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_CLASS: CorElementType = CorElementType(18u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_VAR: CorElementType = CorElementType(19u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_ARRAY: CorElementType = CorElementType(20u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_GENERICINST: CorElementType = CorElementType(21u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_TYPEDBYREF: CorElementType = CorElementType(22u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_I: CorElementType = CorElementType(24u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_U: CorElementType = CorElementType(25u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_FNPTR: CorElementType = CorElementType(27u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_OBJECT: CorElementType = CorElementType(28u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_SZARRAY: CorElementType = CorElementType(29u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_MVAR: CorElementType = CorElementType(30u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_CMOD_REQD: CorElementType = CorElementType(31u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_CMOD_OPT: CorElementType = CorElementType(32u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_INTERNAL: CorElementType = CorElementType(33u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_MAX: CorElementType = CorElementType(34u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_MODIFIER: CorElementType = CorElementType(64u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_SENTINEL: CorElementType = CorElementType(65u8);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ELEMENT_TYPE_PINNED: CorElementType = CorElementType(69u8);
 impl ::core::marker::Copy for CorElementType {}
 impl ::core::clone::Clone for CorElementType {
     fn clone(&self) -> Self {
@@ -3422,22 +4216,6 @@ impl ::core::fmt::Debug for CorElementType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorErrorIfEmitOutOfOrder(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDErrorOutOfOrderDefault: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDErrorOutOfOrderNone: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDErrorOutOfOrderAll: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(-1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDMethodOutOfOrder: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDFieldOutOfOrder: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDParamOutOfOrder: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDPropertyOutOfOrder: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDEventOutOfOrder: CorErrorIfEmitOutOfOrder = CorErrorIfEmitOutOfOrder(16i32);
 impl ::core::marker::Copy for CorErrorIfEmitOutOfOrder {}
 impl ::core::clone::Clone for CorErrorIfEmitOutOfOrder {
     fn clone(&self) -> Self {
@@ -3461,12 +4239,6 @@ impl ::core::fmt::Debug for CorErrorIfEmitOutOfOrder {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorEventAttr(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const evSpecialName: CorEventAttr = CorEventAttr(512i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const evReservedMask: CorEventAttr = CorEventAttr(1024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const evRTSpecialName: CorEventAttr = CorEventAttr(1024i32);
 impl ::core::marker::Copy for CorEventAttr {}
 impl ::core::clone::Clone for CorEventAttr {
     fn clone(&self) -> Self {
@@ -3490,20 +4262,6 @@ impl ::core::fmt::Debug for CorEventAttr {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorExceptionFlag(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_ILEXCEPTION_CLAUSE_NONE: CorExceptionFlag = CorExceptionFlag(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_ILEXCEPTION_CLAUSE_OFFSETLEN: CorExceptionFlag = CorExceptionFlag(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_ILEXCEPTION_CLAUSE_DEPRECATED: CorExceptionFlag = CorExceptionFlag(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_ILEXCEPTION_CLAUSE_FILTER: CorExceptionFlag = CorExceptionFlag(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_ILEXCEPTION_CLAUSE_FINALLY: CorExceptionFlag = CorExceptionFlag(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_ILEXCEPTION_CLAUSE_FAULT: CorExceptionFlag = CorExceptionFlag(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const COR_ILEXCEPTION_CLAUSE_DUPLICATED: CorExceptionFlag = CorExceptionFlag(8i32);
 impl ::core::marker::Copy for CorExceptionFlag {}
 impl ::core::clone::Clone for CorExceptionFlag {
     fn clone(&self) -> Self {
@@ -3527,44 +4285,6 @@ impl ::core::fmt::Debug for CorExceptionFlag {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorFieldAttr(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdFieldAccessMask: CorFieldAttr = CorFieldAttr(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdPrivateScope: CorFieldAttr = CorFieldAttr(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdPrivate: CorFieldAttr = CorFieldAttr(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdFamANDAssem: CorFieldAttr = CorFieldAttr(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdAssembly: CorFieldAttr = CorFieldAttr(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdFamily: CorFieldAttr = CorFieldAttr(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdFamORAssem: CorFieldAttr = CorFieldAttr(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdPublic: CorFieldAttr = CorFieldAttr(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdStatic: CorFieldAttr = CorFieldAttr(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdInitOnly: CorFieldAttr = CorFieldAttr(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdLiteral: CorFieldAttr = CorFieldAttr(64i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdNotSerialized: CorFieldAttr = CorFieldAttr(128i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdSpecialName: CorFieldAttr = CorFieldAttr(512i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdPinvokeImpl: CorFieldAttr = CorFieldAttr(8192i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdReservedMask: CorFieldAttr = CorFieldAttr(38144i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdRTSpecialName: CorFieldAttr = CorFieldAttr(1024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdHasFieldMarshal: CorFieldAttr = CorFieldAttr(4096i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdHasDefault: CorFieldAttr = CorFieldAttr(32768i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fdHasFieldRVA: CorFieldAttr = CorFieldAttr(256i32);
 impl ::core::marker::Copy for CorFieldAttr {}
 impl ::core::clone::Clone for CorFieldAttr {
     fn clone(&self) -> Self {
@@ -3588,10 +4308,6 @@ impl ::core::fmt::Debug for CorFieldAttr {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorFileFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ffContainsMetaData: CorFileFlags = CorFileFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ffContainsNoMetaData: CorFileFlags = CorFileFlags(1i32);
 impl ::core::marker::Copy for CorFileFlags {}
 impl ::core::clone::Clone for CorFileFlags {
     fn clone(&self) -> Self {
@@ -3615,10 +4331,6 @@ impl ::core::fmt::Debug for CorFileFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorFileMapping(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fmFlat: CorFileMapping = CorFileMapping(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const fmExecutableImage: CorFileMapping = CorFileMapping(1i32);
 impl ::core::marker::Copy for CorFileMapping {}
 impl ::core::clone::Clone for CorFileMapping {
     fn clone(&self) -> Self {
@@ -3642,24 +4354,6 @@ impl ::core::fmt::Debug for CorFileMapping {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorGenericParamAttr(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const gpVarianceMask: CorGenericParamAttr = CorGenericParamAttr(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const gpNonVariant: CorGenericParamAttr = CorGenericParamAttr(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const gpCovariant: CorGenericParamAttr = CorGenericParamAttr(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const gpContravariant: CorGenericParamAttr = CorGenericParamAttr(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const gpSpecialConstraintMask: CorGenericParamAttr = CorGenericParamAttr(28i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const gpNoSpecialConstraint: CorGenericParamAttr = CorGenericParamAttr(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const gpReferenceTypeConstraint: CorGenericParamAttr = CorGenericParamAttr(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const gpNotNullableValueTypeConstraint: CorGenericParamAttr = CorGenericParamAttr(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const gpDefaultConstructorConstraint: CorGenericParamAttr = CorGenericParamAttr(16i32);
 impl ::core::marker::Copy for CorGenericParamAttr {}
 impl ::core::clone::Clone for CorGenericParamAttr {
     fn clone(&self) -> Self {
@@ -3683,24 +4377,6 @@ impl ::core::fmt::Debug for CorGenericParamAttr {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorILMethodFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_InitLocals: CorILMethodFlags = CorILMethodFlags(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_MoreSects: CorILMethodFlags = CorILMethodFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_CompressedIL: CorILMethodFlags = CorILMethodFlags(64i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_FormatShift: CorILMethodFlags = CorILMethodFlags(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_FormatMask: CorILMethodFlags = CorILMethodFlags(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_TinyFormat: CorILMethodFlags = CorILMethodFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_SmallFormat: CorILMethodFlags = CorILMethodFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_FatFormat: CorILMethodFlags = CorILMethodFlags(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_TinyFormat1: CorILMethodFlags = CorILMethodFlags(6i32);
 impl ::core::marker::Copy for CorILMethodFlags {}
 impl ::core::clone::Clone for CorILMethodFlags {
     fn clone(&self) -> Self {
@@ -3724,18 +4400,6 @@ impl ::core::fmt::Debug for CorILMethodFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorILMethodSect(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_Sect_Reserved: CorILMethodSect = CorILMethodSect(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_Sect_EHTable: CorILMethodSect = CorILMethodSect(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_Sect_OptILTable: CorILMethodSect = CorILMethodSect(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_Sect_KindMask: CorILMethodSect = CorILMethodSect(63i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_Sect_FatFormat: CorILMethodSect = CorILMethodSect(64i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const CorILMethod_Sect_MoreSects: CorILMethodSect = CorILMethodSect(128i32);
 impl ::core::marker::Copy for CorILMethodSect {}
 impl ::core::clone::Clone for CorILMethodSect {
     fn clone(&self) -> Self {
@@ -3759,24 +4423,6 @@ impl ::core::fmt::Debug for CorILMethodSect {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorImportOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDImportOptionDefault: CorImportOptions = CorImportOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDImportOptionAll: CorImportOptions = CorImportOptions(-1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDImportOptionAllTypeDefs: CorImportOptions = CorImportOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDImportOptionAllMethodDefs: CorImportOptions = CorImportOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDImportOptionAllFieldDefs: CorImportOptions = CorImportOptions(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDImportOptionAllProperties: CorImportOptions = CorImportOptions(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDImportOptionAllEvents: CorImportOptions = CorImportOptions(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDImportOptionAllCustomAttributes: CorImportOptions = CorImportOptions(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDImportOptionAllExportedTypes: CorImportOptions = CorImportOptions(64i32);
 impl ::core::marker::Copy for CorImportOptions {}
 impl ::core::clone::Clone for CorImportOptions {
     fn clone(&self) -> Self {
@@ -3800,10 +4446,6 @@ impl ::core::fmt::Debug for CorImportOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorLinkerOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDAssembly: CorLinkerOptions = CorLinkerOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNetModule: CorLinkerOptions = CorLinkerOptions(1i32);
 impl ::core::marker::Copy for CorLinkerOptions {}
 impl ::core::clone::Clone for CorLinkerOptions {
     fn clone(&self) -> Self {
@@ -3827,12 +4469,6 @@ impl ::core::fmt::Debug for CorLinkerOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorLocalRefPreservation(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDPreserveLocalRefsNone: CorLocalRefPreservation = CorLocalRefPreservation(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDPreserveLocalTypeRef: CorLocalRefPreservation = CorLocalRefPreservation(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDPreserveLocalMemberRef: CorLocalRefPreservation = CorLocalRefPreservation(2i32);
 impl ::core::marker::Copy for CorLocalRefPreservation {}
 impl ::core::clone::Clone for CorLocalRefPreservation {
     fn clone(&self) -> Self {
@@ -3856,12 +4492,6 @@ impl ::core::fmt::Debug for CorLocalRefPreservation {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorManifestResourceFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mrVisibilityMask: CorManifestResourceFlags = CorManifestResourceFlags(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mrPublic: CorManifestResourceFlags = CorManifestResourceFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mrPrivate: CorManifestResourceFlags = CorManifestResourceFlags(2i32);
 impl ::core::marker::Copy for CorManifestResourceFlags {}
 impl ::core::clone::Clone for CorManifestResourceFlags {
     fn clone(&self) -> Self {
@@ -3885,54 +4515,6 @@ impl ::core::fmt::Debug for CorManifestResourceFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorMethodAttr(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdMemberAccessMask: CorMethodAttr = CorMethodAttr(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdPrivateScope: CorMethodAttr = CorMethodAttr(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdPrivate: CorMethodAttr = CorMethodAttr(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdFamANDAssem: CorMethodAttr = CorMethodAttr(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdAssem: CorMethodAttr = CorMethodAttr(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdFamily: CorMethodAttr = CorMethodAttr(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdFamORAssem: CorMethodAttr = CorMethodAttr(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdPublic: CorMethodAttr = CorMethodAttr(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdStatic: CorMethodAttr = CorMethodAttr(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdFinal: CorMethodAttr = CorMethodAttr(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdVirtual: CorMethodAttr = CorMethodAttr(64i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdHideBySig: CorMethodAttr = CorMethodAttr(128i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdVtableLayoutMask: CorMethodAttr = CorMethodAttr(256i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdReuseSlot: CorMethodAttr = CorMethodAttr(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdNewSlot: CorMethodAttr = CorMethodAttr(256i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdCheckAccessOnOverride: CorMethodAttr = CorMethodAttr(512i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdAbstract: CorMethodAttr = CorMethodAttr(1024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdSpecialName: CorMethodAttr = CorMethodAttr(2048i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdPinvokeImpl: CorMethodAttr = CorMethodAttr(8192i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdUnmanagedExport: CorMethodAttr = CorMethodAttr(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdReservedMask: CorMethodAttr = CorMethodAttr(53248i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdRTSpecialName: CorMethodAttr = CorMethodAttr(4096i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdHasSecurity: CorMethodAttr = CorMethodAttr(16384i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdRequireSecObject: CorMethodAttr = CorMethodAttr(32768i32);
 impl ::core::marker::Copy for CorMethodAttr {}
 impl ::core::clone::Clone for CorMethodAttr {
     fn clone(&self) -> Self {
@@ -3956,42 +4538,6 @@ impl ::core::fmt::Debug for CorMethodAttr {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorMethodImpl(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miCodeTypeMask: CorMethodImpl = CorMethodImpl(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miIL: CorMethodImpl = CorMethodImpl(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miNative: CorMethodImpl = CorMethodImpl(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miOPTIL: CorMethodImpl = CorMethodImpl(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miRuntime: CorMethodImpl = CorMethodImpl(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miManagedMask: CorMethodImpl = CorMethodImpl(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miUnmanaged: CorMethodImpl = CorMethodImpl(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miManaged: CorMethodImpl = CorMethodImpl(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miForwardRef: CorMethodImpl = CorMethodImpl(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miPreserveSig: CorMethodImpl = CorMethodImpl(128i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miInternalCall: CorMethodImpl = CorMethodImpl(4096i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miSynchronized: CorMethodImpl = CorMethodImpl(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miNoInlining: CorMethodImpl = CorMethodImpl(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miAggressiveInlining: CorMethodImpl = CorMethodImpl(256i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miNoOptimization: CorMethodImpl = CorMethodImpl(64i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miSecurityMitigations: CorMethodImpl = CorMethodImpl(1024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miUserMask: CorMethodImpl = CorMethodImpl(5628i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const miMaxMethodImplVal: CorMethodImpl = CorMethodImpl(65535i32);
 impl ::core::marker::Copy for CorMethodImpl {}
 impl ::core::clone::Clone for CorMethodImpl {
     fn clone(&self) -> Self {
@@ -4015,18 +4561,6 @@ impl ::core::fmt::Debug for CorMethodImpl {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorMethodSemanticsAttr(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const msSetter: CorMethodSemanticsAttr = CorMethodSemanticsAttr(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const msGetter: CorMethodSemanticsAttr = CorMethodSemanticsAttr(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const msOther: CorMethodSemanticsAttr = CorMethodSemanticsAttr(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const msAddOn: CorMethodSemanticsAttr = CorMethodSemanticsAttr(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const msRemoveOn: CorMethodSemanticsAttr = CorMethodSemanticsAttr(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const msFire: CorMethodSemanticsAttr = CorMethodSemanticsAttr(32i32);
 impl ::core::marker::Copy for CorMethodSemanticsAttr {}
 impl ::core::clone::Clone for CorMethodSemanticsAttr {
     fn clone(&self) -> Self {
@@ -4050,14 +4584,6 @@ impl ::core::fmt::Debug for CorMethodSemanticsAttr {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorNativeLinkFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const nlfNone: CorNativeLinkFlags = CorNativeLinkFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const nlfLastError: CorNativeLinkFlags = CorNativeLinkFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const nlfNoMangle: CorNativeLinkFlags = CorNativeLinkFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const nlfMaxValue: CorNativeLinkFlags = CorNativeLinkFlags(3i32);
 impl ::core::marker::Copy for CorNativeLinkFlags {}
 impl ::core::clone::Clone for CorNativeLinkFlags {
     fn clone(&self) -> Self {
@@ -4081,18 +4607,6 @@ impl ::core::fmt::Debug for CorNativeLinkFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorNativeLinkType(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const nltNone: CorNativeLinkType = CorNativeLinkType(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const nltAnsi: CorNativeLinkType = CorNativeLinkType(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const nltUnicode: CorNativeLinkType = CorNativeLinkType(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const nltAuto: CorNativeLinkType = CorNativeLinkType(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const nltOle: CorNativeLinkType = CorNativeLinkType(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const nltMaxValue: CorNativeLinkType = CorNativeLinkType(7i32);
 impl ::core::marker::Copy for CorNativeLinkType {}
 impl ::core::clone::Clone for CorNativeLinkType {
     fn clone(&self) -> Self {
@@ -4116,102 +4630,6 @@ impl ::core::fmt::Debug for CorNativeLinkType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorNativeType(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_END: CorNativeType = CorNativeType(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_VOID: CorNativeType = CorNativeType(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_BOOLEAN: CorNativeType = CorNativeType(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_I1: CorNativeType = CorNativeType(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_U1: CorNativeType = CorNativeType(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_I2: CorNativeType = CorNativeType(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_U2: CorNativeType = CorNativeType(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_I4: CorNativeType = CorNativeType(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_U4: CorNativeType = CorNativeType(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_I8: CorNativeType = CorNativeType(9i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_U8: CorNativeType = CorNativeType(10i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_R4: CorNativeType = CorNativeType(11i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_R8: CorNativeType = CorNativeType(12i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_SYSCHAR: CorNativeType = CorNativeType(13i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_VARIANT: CorNativeType = CorNativeType(14i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_CURRENCY: CorNativeType = CorNativeType(15i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_PTR: CorNativeType = CorNativeType(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_DECIMAL: CorNativeType = CorNativeType(17i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_DATE: CorNativeType = CorNativeType(18i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_BSTR: CorNativeType = CorNativeType(19i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_LPSTR: CorNativeType = CorNativeType(20i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_LPWSTR: CorNativeType = CorNativeType(21i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_LPTSTR: CorNativeType = CorNativeType(22i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_FIXEDSYSSTRING: CorNativeType = CorNativeType(23i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_OBJECTREF: CorNativeType = CorNativeType(24i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_IUNKNOWN: CorNativeType = CorNativeType(25i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_IDISPATCH: CorNativeType = CorNativeType(26i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_STRUCT: CorNativeType = CorNativeType(27i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_INTF: CorNativeType = CorNativeType(28i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_SAFEARRAY: CorNativeType = CorNativeType(29i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_FIXEDARRAY: CorNativeType = CorNativeType(30i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_INT: CorNativeType = CorNativeType(31i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_UINT: CorNativeType = CorNativeType(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_NESTEDSTRUCT: CorNativeType = CorNativeType(33i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_BYVALSTR: CorNativeType = CorNativeType(34i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_ANSIBSTR: CorNativeType = CorNativeType(35i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_TBSTR: CorNativeType = CorNativeType(36i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_VARIANTBOOL: CorNativeType = CorNativeType(37i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_FUNC: CorNativeType = CorNativeType(38i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_ASANY: CorNativeType = CorNativeType(40i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_ARRAY: CorNativeType = CorNativeType(42i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_LPSTRUCT: CorNativeType = CorNativeType(43i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_CUSTOMMARSHALER: CorNativeType = CorNativeType(44i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_ERROR: CorNativeType = CorNativeType(45i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_IINSPECTABLE: CorNativeType = CorNativeType(46i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_HSTRING: CorNativeType = CorNativeType(47i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_LPUTF8STR: CorNativeType = CorNativeType(48i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NATIVE_TYPE_MAX: CorNativeType = CorNativeType(80i32);
 impl ::core::marker::Copy for CorNativeType {}
 impl ::core::clone::Clone for CorNativeType {
     fn clone(&self) -> Self {
@@ -4235,52 +4653,6 @@ impl ::core::fmt::Debug for CorNativeType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorNotificationForTokenMovement(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyDefault: CorNotificationForTokenMovement = CorNotificationForTokenMovement(15i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyAll: CorNotificationForTokenMovement = CorNotificationForTokenMovement(-1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyNone: CorNotificationForTokenMovement = CorNotificationForTokenMovement(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyMethodDef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyMemberRef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyFieldDef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyTypeRef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyTypeDef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyParamDef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyInterfaceImpl: CorNotificationForTokenMovement = CorNotificationForTokenMovement(64i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyProperty: CorNotificationForTokenMovement = CorNotificationForTokenMovement(128i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyEvent: CorNotificationForTokenMovement = CorNotificationForTokenMovement(256i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifySignature: CorNotificationForTokenMovement = CorNotificationForTokenMovement(512i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyTypeSpec: CorNotificationForTokenMovement = CorNotificationForTokenMovement(1024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyCustomAttribute: CorNotificationForTokenMovement = CorNotificationForTokenMovement(2048i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifySecurityValue: CorNotificationForTokenMovement = CorNotificationForTokenMovement(4096i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyPermission: CorNotificationForTokenMovement = CorNotificationForTokenMovement(8192i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyModuleRef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(16384i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyNameSpace: CorNotificationForTokenMovement = CorNotificationForTokenMovement(32768i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyAssemblyRef: CorNotificationForTokenMovement = CorNotificationForTokenMovement(16777216i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyFile: CorNotificationForTokenMovement = CorNotificationForTokenMovement(33554432i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyExportedType: CorNotificationForTokenMovement = CorNotificationForTokenMovement(67108864i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDNotifyResource: CorNotificationForTokenMovement = CorNotificationForTokenMovement(134217728i32);
 impl ::core::marker::Copy for CorNotificationForTokenMovement {}
 impl ::core::clone::Clone for CorNotificationForTokenMovement {
     fn clone(&self) -> Self {
@@ -4304,32 +4676,6 @@ impl ::core::fmt::Debug for CorNotificationForTokenMovement {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorOpenFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofRead: CorOpenFlags = CorOpenFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofWrite: CorOpenFlags = CorOpenFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofReadWriteMask: CorOpenFlags = CorOpenFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofCopyMemory: CorOpenFlags = CorOpenFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofReadOnly: CorOpenFlags = CorOpenFlags(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofTakeOwnership: CorOpenFlags = CorOpenFlags(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofNoTypeLib: CorOpenFlags = CorOpenFlags(128i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofNoTransform: CorOpenFlags = CorOpenFlags(4096i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofCheckIntegrity: CorOpenFlags = CorOpenFlags(2048i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofReserved1: CorOpenFlags = CorOpenFlags(256i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofReserved2: CorOpenFlags = CorOpenFlags(512i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofReserved3: CorOpenFlags = CorOpenFlags(1024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ofReserved: CorOpenFlags = CorOpenFlags(-6336i32);
 impl ::core::marker::Copy for CorOpenFlags {}
 impl ::core::clone::Clone for CorOpenFlags {
     fn clone(&self) -> Self {
@@ -4353,18 +4699,6 @@ impl ::core::fmt::Debug for CorOpenFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorPEKind(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const peNot: CorPEKind = CorPEKind(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const peILonly: CorPEKind = CorPEKind(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pe32BitRequired: CorPEKind = CorPEKind(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pe32Plus: CorPEKind = CorPEKind(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pe32Unmanaged: CorPEKind = CorPEKind(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pe32BitPreferred: CorPEKind = CorPEKind(16i32);
 impl ::core::marker::Copy for CorPEKind {}
 impl ::core::clone::Clone for CorPEKind {
     fn clone(&self) -> Self {
@@ -4388,20 +4722,6 @@ impl ::core::fmt::Debug for CorPEKind {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorParamAttr(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pdIn: CorParamAttr = CorParamAttr(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pdOut: CorParamAttr = CorParamAttr(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pdOptional: CorParamAttr = CorParamAttr(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pdReservedMask: CorParamAttr = CorParamAttr(61440i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pdHasDefault: CorParamAttr = CorParamAttr(4096i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pdHasFieldMarshal: CorParamAttr = CorParamAttr(8192i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pdUnused: CorParamAttr = CorParamAttr(53216i32);
 impl ::core::marker::Copy for CorParamAttr {}
 impl ::core::clone::Clone for CorParamAttr {
     fn clone(&self) -> Self {
@@ -4425,50 +4745,6 @@ impl ::core::fmt::Debug for CorParamAttr {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorPinvokeMap(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmNoMangle: CorPinvokeMap = CorPinvokeMap(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmCharSetMask: CorPinvokeMap = CorPinvokeMap(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmCharSetNotSpec: CorPinvokeMap = CorPinvokeMap(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmCharSetAnsi: CorPinvokeMap = CorPinvokeMap(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmCharSetUnicode: CorPinvokeMap = CorPinvokeMap(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmCharSetAuto: CorPinvokeMap = CorPinvokeMap(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmBestFitUseAssem: CorPinvokeMap = CorPinvokeMap(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmBestFitEnabled: CorPinvokeMap = CorPinvokeMap(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmBestFitDisabled: CorPinvokeMap = CorPinvokeMap(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmBestFitMask: CorPinvokeMap = CorPinvokeMap(48i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmThrowOnUnmappableCharUseAssem: CorPinvokeMap = CorPinvokeMap(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmThrowOnUnmappableCharEnabled: CorPinvokeMap = CorPinvokeMap(4096i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmThrowOnUnmappableCharDisabled: CorPinvokeMap = CorPinvokeMap(8192i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmThrowOnUnmappableCharMask: CorPinvokeMap = CorPinvokeMap(12288i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmSupportsLastError: CorPinvokeMap = CorPinvokeMap(64i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmCallConvMask: CorPinvokeMap = CorPinvokeMap(1792i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmCallConvWinapi: CorPinvokeMap = CorPinvokeMap(256i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmCallConvCdecl: CorPinvokeMap = CorPinvokeMap(512i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmCallConvStdcall: CorPinvokeMap = CorPinvokeMap(768i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmCallConvThiscall: CorPinvokeMap = CorPinvokeMap(1024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmCallConvFastcall: CorPinvokeMap = CorPinvokeMap(1280i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const pmMaxValue: CorPinvokeMap = CorPinvokeMap(65535i32);
 impl ::core::marker::Copy for CorPinvokeMap {}
 impl ::core::clone::Clone for CorPinvokeMap {
     fn clone(&self) -> Self {
@@ -4492,16 +4768,6 @@ impl ::core::fmt::Debug for CorPinvokeMap {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorPropertyAttr(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const prSpecialName: CorPropertyAttr = CorPropertyAttr(512i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const prReservedMask: CorPropertyAttr = CorPropertyAttr(62464i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const prRTSpecialName: CorPropertyAttr = CorPropertyAttr(1024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const prHasDefault: CorPropertyAttr = CorPropertyAttr(4096i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const prUnused: CorPropertyAttr = CorPropertyAttr(59903i32);
 impl ::core::marker::Copy for CorPropertyAttr {}
 impl ::core::clone::Clone for CorPropertyAttr {
     fn clone(&self) -> Self {
@@ -4525,16 +4791,6 @@ impl ::core::fmt::Debug for CorPropertyAttr {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorRefToDefCheck(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDRefToDefDefault: CorRefToDefCheck = CorRefToDefCheck(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDRefToDefAll: CorRefToDefCheck = CorRefToDefCheck(-1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDRefToDefNone: CorRefToDefCheck = CorRefToDefCheck(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDTypeRefToDef: CorRefToDefCheck = CorRefToDefCheck(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDMemberRefToDef: CorRefToDefCheck = CorRefToDefCheck(2i32);
 impl ::core::marker::Copy for CorRefToDefCheck {}
 impl ::core::clone::Clone for CorRefToDefCheck {
     fn clone(&self) -> Self {
@@ -4558,12 +4814,6 @@ impl ::core::fmt::Debug for CorRefToDefCheck {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorRegFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const regNoCopy: CorRegFlags = CorRegFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const regConfig: CorRegFlags = CorRegFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const regHasRefs: CorRegFlags = CorRegFlags(4i32);
 impl ::core::marker::Copy for CorRegFlags {}
 impl ::core::clone::Clone for CorRegFlags {
     fn clone(&self) -> Self {
@@ -4587,12 +4837,6 @@ impl ::core::fmt::Debug for CorRegFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorSaveSize(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const cssAccurate: CorSaveSize = CorSaveSize(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const cssQuick: CorSaveSize = CorSaveSize(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const cssDiscardTransientCAs: CorSaveSize = CorSaveSize(2i32);
 impl ::core::marker::Copy for CorSaveSize {}
 impl ::core::clone::Clone for CorSaveSize {
     fn clone(&self) -> Self {
@@ -4616,46 +4860,6 @@ impl ::core::fmt::Debug for CorSaveSize {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorSerializationType(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_UNDEFINED: CorSerializationType = CorSerializationType(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_BOOLEAN: CorSerializationType = CorSerializationType(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_CHAR: CorSerializationType = CorSerializationType(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_I1: CorSerializationType = CorSerializationType(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_U1: CorSerializationType = CorSerializationType(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_I2: CorSerializationType = CorSerializationType(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_U2: CorSerializationType = CorSerializationType(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_I4: CorSerializationType = CorSerializationType(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_U4: CorSerializationType = CorSerializationType(9i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_I8: CorSerializationType = CorSerializationType(10i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_U8: CorSerializationType = CorSerializationType(11i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_R4: CorSerializationType = CorSerializationType(12i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_R8: CorSerializationType = CorSerializationType(13i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_STRING: CorSerializationType = CorSerializationType(14i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_SZARRAY: CorSerializationType = CorSerializationType(29i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_TYPE: CorSerializationType = CorSerializationType(80i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_TAGGED_OBJECT: CorSerializationType = CorSerializationType(81i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_FIELD: CorSerializationType = CorSerializationType(83i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_PROPERTY: CorSerializationType = CorSerializationType(84i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const SERIALIZATION_TYPE_ENUM: CorSerializationType = CorSerializationType(85i32);
 impl ::core::marker::Copy for CorSerializationType {}
 impl ::core::clone::Clone for CorSerializationType {
     fn clone(&self) -> Self {
@@ -4679,22 +4883,6 @@ impl ::core::fmt::Debug for CorSerializationType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorSetENC(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDSetENCOn: CorSetENC = CorSetENC(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDSetENCOff: CorSetENC = CorSetENC(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDUpdateENC: CorSetENC = CorSetENC(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDUpdateFull: CorSetENC = CorSetENC(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDUpdateExtension: CorSetENC = CorSetENC(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDUpdateIncremental: CorSetENC = CorSetENC(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDUpdateDelta: CorSetENC = CorSetENC(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDUpdateMask: CorSetENC = CorSetENC(7i32);
 impl ::core::marker::Copy for CorSetENC {}
 impl ::core::clone::Clone for CorSetENC {
     fn clone(&self) -> Self {
@@ -4718,12 +4906,6 @@ impl ::core::fmt::Debug for CorSetENC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorThreadSafetyOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDThreadSafetyDefault: CorThreadSafetyOptions = CorThreadSafetyOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDThreadSafetyOff: CorThreadSafetyOptions = CorThreadSafetyOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MDThreadSafetyOn: CorThreadSafetyOptions = CorThreadSafetyOptions(1i32);
 impl ::core::marker::Copy for CorThreadSafetyOptions {}
 impl ::core::clone::Clone for CorThreadSafetyOptions {
     fn clone(&self) -> Self {
@@ -4747,60 +4929,6 @@ impl ::core::fmt::Debug for CorThreadSafetyOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorTokenType(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtModule: CorTokenType = CorTokenType(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtTypeRef: CorTokenType = CorTokenType(16777216i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtTypeDef: CorTokenType = CorTokenType(33554432i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtFieldDef: CorTokenType = CorTokenType(67108864i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtMethodDef: CorTokenType = CorTokenType(100663296i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtParamDef: CorTokenType = CorTokenType(134217728i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtInterfaceImpl: CorTokenType = CorTokenType(150994944i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtMemberRef: CorTokenType = CorTokenType(167772160i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtCustomAttribute: CorTokenType = CorTokenType(201326592i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtPermission: CorTokenType = CorTokenType(234881024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtSignature: CorTokenType = CorTokenType(285212672i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtEvent: CorTokenType = CorTokenType(335544320i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtProperty: CorTokenType = CorTokenType(385875968i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtMethodImpl: CorTokenType = CorTokenType(419430400i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtModuleRef: CorTokenType = CorTokenType(436207616i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtTypeSpec: CorTokenType = CorTokenType(452984832i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtAssembly: CorTokenType = CorTokenType(536870912i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtAssemblyRef: CorTokenType = CorTokenType(587202560i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtFile: CorTokenType = CorTokenType(637534208i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtExportedType: CorTokenType = CorTokenType(654311424i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtManifestResource: CorTokenType = CorTokenType(671088640i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtGenericParam: CorTokenType = CorTokenType(704643072i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtMethodSpec: CorTokenType = CorTokenType(721420288i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtGenericParamConstraint: CorTokenType = CorTokenType(738197504i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtString: CorTokenType = CorTokenType(1879048192i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtName: CorTokenType = CorTokenType(1895825408i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const mdtBaseType: CorTokenType = CorTokenType(1912602624i32);
 impl ::core::marker::Copy for CorTokenType {}
 impl ::core::clone::Clone for CorTokenType {
     fn clone(&self) -> Self {
@@ -4824,72 +4952,6 @@ impl ::core::fmt::Debug for CorTokenType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorTypeAttr(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdVisibilityMask: CorTypeAttr = CorTypeAttr(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdNotPublic: CorTypeAttr = CorTypeAttr(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdPublic: CorTypeAttr = CorTypeAttr(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdNestedPublic: CorTypeAttr = CorTypeAttr(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdNestedPrivate: CorTypeAttr = CorTypeAttr(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdNestedFamily: CorTypeAttr = CorTypeAttr(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdNestedAssembly: CorTypeAttr = CorTypeAttr(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdNestedFamANDAssem: CorTypeAttr = CorTypeAttr(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdNestedFamORAssem: CorTypeAttr = CorTypeAttr(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdLayoutMask: CorTypeAttr = CorTypeAttr(24i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdAutoLayout: CorTypeAttr = CorTypeAttr(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdSequentialLayout: CorTypeAttr = CorTypeAttr(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdExplicitLayout: CorTypeAttr = CorTypeAttr(16i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdClassSemanticsMask: CorTypeAttr = CorTypeAttr(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdClass: CorTypeAttr = CorTypeAttr(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdInterface: CorTypeAttr = CorTypeAttr(32i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdAbstract: CorTypeAttr = CorTypeAttr(128i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdSealed: CorTypeAttr = CorTypeAttr(256i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdSpecialName: CorTypeAttr = CorTypeAttr(1024i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdImport: CorTypeAttr = CorTypeAttr(4096i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdSerializable: CorTypeAttr = CorTypeAttr(8192i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdWindowsRuntime: CorTypeAttr = CorTypeAttr(16384i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdStringFormatMask: CorTypeAttr = CorTypeAttr(196608i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdAnsiClass: CorTypeAttr = CorTypeAttr(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdUnicodeClass: CorTypeAttr = CorTypeAttr(65536i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdAutoClass: CorTypeAttr = CorTypeAttr(131072i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdCustomFormatClass: CorTypeAttr = CorTypeAttr(196608i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdCustomFormatMask: CorTypeAttr = CorTypeAttr(12582912i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdBeforeFieldInit: CorTypeAttr = CorTypeAttr(1048576i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdForwarder: CorTypeAttr = CorTypeAttr(2097152i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdReservedMask: CorTypeAttr = CorTypeAttr(264192i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdRTSpecialName: CorTypeAttr = CorTypeAttr(2048i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const tdHasSecurity: CorTypeAttr = CorTypeAttr(262144i32);
 impl ::core::marker::Copy for CorTypeAttr {}
 impl ::core::clone::Clone for CorTypeAttr {
     fn clone(&self) -> Self {
@@ -4913,22 +4975,6 @@ impl ::core::fmt::Debug for CorTypeAttr {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorUnmanagedCallingConvention(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_UNMANAGED_CALLCONV_C: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_UNMANAGED_CALLCONV_STDCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_UNMANAGED_CALLCONV_THISCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_UNMANAGED_CALLCONV_FASTCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_C: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_STDCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_THISCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_CEE_CS_CALLCONV_FASTCALL: CorUnmanagedCallingConvention = CorUnmanagedCallingConvention(4i32);
 impl ::core::marker::Copy for CorUnmanagedCallingConvention {}
 impl ::core::clone::Clone for CorUnmanagedCallingConvention {
     fn clone(&self) -> Self {
@@ -4952,20 +4998,6 @@ impl ::core::fmt::Debug for CorUnmanagedCallingConvention {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorValidatorModuleType(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ValidatorModuleTypeInvalid: CorValidatorModuleType = CorValidatorModuleType(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ValidatorModuleTypeMin: CorValidatorModuleType = CorValidatorModuleType(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ValidatorModuleTypePE: CorValidatorModuleType = CorValidatorModuleType(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ValidatorModuleTypeObj: CorValidatorModuleType = CorValidatorModuleType(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ValidatorModuleTypeEnc: CorValidatorModuleType = CorValidatorModuleType(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ValidatorModuleTypeIncr: CorValidatorModuleType = CorValidatorModuleType(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ValidatorModuleTypeMax: CorValidatorModuleType = CorValidatorModuleType(4i32);
 impl ::core::marker::Copy for CorValidatorModuleType {}
 impl ::core::clone::Clone for CorValidatorModuleType {
     fn clone(&self) -> Self {
@@ -4989,14 +5021,6 @@ impl ::core::fmt::Debug for CorValidatorModuleType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LoadHintEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const LoadDefault: LoadHintEnum = LoadHintEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const LoadAlways: LoadHintEnum = LoadHintEnum(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const LoadSometimes: LoadHintEnum = LoadHintEnum(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const LoadNever: LoadHintEnum = LoadHintEnum(3i32);
 impl ::core::marker::Copy for LoadHintEnum {}
 impl ::core::clone::Clone for LoadHintEnum {
     fn clone(&self) -> Self {
@@ -5020,16 +5044,6 @@ impl ::core::fmt::Debug for LoadHintEnum {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MergeFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MergeFlagsNone: MergeFlags = MergeFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MergeManifest: MergeFlags = MergeFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const DropMemberRefCAs: MergeFlags = MergeFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NoDupCheck: MergeFlags = MergeFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const MergeExportedTypes: MergeFlags = MergeFlags(8i32);
 impl ::core::marker::Copy for MergeFlags {}
 impl ::core::clone::Clone for MergeFlags {
     fn clone(&self) -> Self {
@@ -5053,14 +5067,6 @@ impl ::core::fmt::Debug for MergeFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NGenHintEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NGenDefault: NGenHintEnum = NGenHintEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NGenEager: NGenHintEnum = NGenHintEnum(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NGenLazy: NGenHintEnum = NGenHintEnum(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const NGenNever: NGenHintEnum = NGenHintEnum(3i32);
 impl ::core::marker::Copy for NGenHintEnum {}
 impl ::core::clone::Clone for NGenHintEnum {
     fn clone(&self) -> Self {
@@ -5084,10 +5090,6 @@ impl ::core::fmt::Debug for NGenHintEnum {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NativeTypeArrayFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ntaSizeParamIndexSpecified: NativeTypeArrayFlags = NativeTypeArrayFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const ntaReserved: NativeTypeArrayFlags = NativeTypeArrayFlags(65534i32);
 impl ::core::marker::Copy for NativeTypeArrayFlags {}
 impl ::core::clone::Clone for NativeTypeArrayFlags {
     fn clone(&self) -> Self {
@@ -5111,8 +5113,6 @@ impl ::core::fmt::Debug for NativeTypeArrayFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ReplacesGeneralNumericDefines(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
-pub const IMAGE_DIRECTORY_ENTRY_COMHEADER: ReplacesGeneralNumericDefines = ReplacesGeneralNumericDefines(14i32);
 impl ::core::marker::Copy for ReplacesGeneralNumericDefines {}
 impl ::core::clone::Clone for ReplacesGeneralNumericDefines {
     fn clone(&self) -> Self {

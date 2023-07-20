@@ -512,6 +512,8 @@ where
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const DONT_RESOLVE_DLL_REFERENCES: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512u32;
@@ -524,7 +526,33 @@ pub const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_IGNORE_CODE_AUTHZ_LEVEL: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_LIBRARY_AS_DATAFILE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_LIBRARY_AS_IMAGE_RESOURCE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_LIBRARY_SAFE_CURRENT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_LIBRARY_SEARCH_SYSTEM32: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_LIBRARY_SEARCH_USER_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
+pub const LOAD_WITH_ALTERED_SEARCH_PATH: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
 pub const RESOURCE_ENUM_LN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
@@ -541,34 +569,6 @@ pub const SUPPORT_LANG_NUMBER: u32 = 32u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOAD_LIBRARY_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const DONT_RESOLVE_DLL_REFERENCES: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_LIBRARY_AS_DATAFILE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_WITH_ALTERED_SEARCH_PATH: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_IGNORE_CODE_AUTHZ_LEVEL: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_LIBRARY_AS_IMAGE_RESOURCE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_LIBRARY_AS_DATAFILE_EXCLUSIVE: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_LIBRARY_REQUIRE_SIGNED_TARGET: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_LIBRARY_SEARCH_DLL_LOAD_DIR: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_LIBRARY_SEARCH_APPLICATION_DIR: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_LIBRARY_SEARCH_USER_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_LIBRARY_SEARCH_SYSTEM32: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_LIBRARY_SAFE_CURRENT_DIRS: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_System_LibraryLoader\"`*"]
-pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: LOAD_LIBRARY_FLAGS = LOAD_LIBRARY_FLAGS(16384u32);
 impl ::core::marker::Copy for LOAD_LIBRARY_FLAGS {}
 impl ::core::clone::Clone for LOAD_LIBRARY_FLAGS {
     fn clone(&self) -> Self {

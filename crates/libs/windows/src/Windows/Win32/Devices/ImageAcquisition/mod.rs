@@ -2631,6 +2631,18 @@ pub const WHITEBALANCE_TUNGSTEN: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIAU_DEBUG_TSTR: ::windows_core::PCSTR = ::windows_core::s!("S");
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_CREATING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_DESTROYING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_NO_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_VIDEO_CREATED: WIAVIDEO_STATE = WIAVIDEO_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_VIDEO_PAUSED: WIAVIDEO_STATE = WIAVIDEO_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
+pub const WIAVIDEO_VIDEO_PLAYING: WIAVIDEO_STATE = WIAVIDEO_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_ACTION_EVENT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 pub const WIA_ADVANCED_PREVIEW: u32 = 0u32;
@@ -4740,18 +4752,6 @@ pub const g_dwDebugFlags: u32 = 0u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIAVIDEO_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_NO_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_CREATING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_VIDEO_CREATED: WIAVIDEO_STATE = WIAVIDEO_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_VIDEO_PLAYING: WIAVIDEO_STATE = WIAVIDEO_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_VIDEO_PAUSED: WIAVIDEO_STATE = WIAVIDEO_STATE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
-pub const WIAVIDEO_DESTROYING_VIDEO: WIAVIDEO_STATE = WIAVIDEO_STATE(6i32);
 impl ::core::marker::Copy for WIAVIDEO_STATE {}
 impl ::core::clone::Clone for WIAVIDEO_STATE {
     fn clone(&self) -> Self {

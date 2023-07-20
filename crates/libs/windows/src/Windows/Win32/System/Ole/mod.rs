@@ -10913,6 +10913,124 @@ pub struct IZoomEvents_Vtbl {
     pub OnZoomPercentChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulzoompercent: u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = ACTIVATEFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ACTIVEOBJECT_STRONG: ACTIVEOBJECT_FLAGS = ACTIVEOBJECT_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ACTIVEOBJECT_WEAK: ACTIVEOBJECT_FLAGS = ACTIVEOBJECT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const BINDSPEED_IMMEDIATE: BINDSPEED = BINDSPEED(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const BINDSPEED_INDEFINITE: BINDSPEED = BINDSPEED(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const BINDSPEED_MODERATE: BINDSPEED = BINDSPEED(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const BZ_DISABLECANCELBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const BZ_DISABLERETRYBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const BZ_DISABLESWITCHTOBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const BZ_NOTRESPONDINGDIALOG: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_BITMAP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(2u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_CONVERTONLY: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DIB: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(8u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DIBV5: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(17u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DIF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(5u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DISABLEACTIVATEAS: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DISABLEDISPLAYASICON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPBITMAP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(130u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPENHMETAFILE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(142u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPMETAFILEPICT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(131u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_DSPTEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(129u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_ENHMETAFILE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(14u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_GDIOBJFIRST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(768u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_GDIOBJLAST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(1023u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_HDROP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(15u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_HIDECHANGEICON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_LOCALE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(16u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_MAX: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(18u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_METAFILEPICT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(3u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_OEMTEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(7u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_OWNERDISPLAY: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(128u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PALETTE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(9u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PENDATA: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(10u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PRIVATEFIRST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(512u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_PRIVATELAST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(767u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_RIFF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(11u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SELECTACTIVATEAS: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SELECTCONVERTTO: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SETACTIVATEDEFAULT: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SETCONVERTDEFAULT: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SHOWHELPBUTTON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_SYLK: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(4u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_TEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(1u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_TIFF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(6u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_UNICODETEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(13u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CF_WAVE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(12u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CHANGEKIND_ADDMEMBER: CHANGEKIND = CHANGEKIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CHANGEKIND_CHANGEFAILED: CHANGEKIND = CHANGEKIND(6i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CHANGEKIND_DELETEMEMBER: CHANGEKIND = CHANGEKIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CHANGEKIND_GENERAL: CHANGEKIND = CHANGEKIND(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CHANGEKIND_INVALIDATE: CHANGEKIND = CHANGEKIND(5i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CHANGEKIND_MAX: CHANGEKIND = CHANGEKIND(7i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CHANGEKIND_SETDOCUMENTATION: CHANGEKIND = CHANGEKIND(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CHANGEKIND_SETNAMES: CHANGEKIND = CHANGEKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CIF_SELECTCURRENT: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CIF_SELECTDEFAULT: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CIF_SELECTFROMFILE: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CIF_SHOWHELP: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CIF_USEICONEXE: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const CLSID_CColorPropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0be35201_8f91_11ce_9de3_00aa004bb851);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const CLSID_CFontPropPage: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0be35200_8f91_11ce_9de3_00aa004bb851);
@@ -10943,7 +11061,19 @@ pub const CONNECT_S_FIRST: ::windows_core::HRESULT = ::windows_core::HRESULT(262
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const CONNECT_S_LAST: ::windows_core::HRESULT = ::windows_core::HRESULT(262671i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CSF_EXPLORER: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CSF_ONLYGETSOURCE: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CSF_SHOWHELP: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CSF_VALIDSOURCE: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const CTL_E_ILLEGALFUNCTIONCALL: i32 = -2146828283i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CTRLINFO_EATS_ESCAPE: CTRLINFO = CTRLINFO(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const CTRLINFO_EATS_RETURN: CTRLINFO = CTRLINFO(1i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DD_DEFDRAGDELAY: u32 = 200u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -10954,6 +11084,10 @@ pub const DD_DEFSCROLLDELAY: u32 = 50u32;
 pub const DD_DEFSCROLLINSET: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DD_DEFSCROLLINTERVAL: u32 = 50u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DISCARDCACHE_NOSAVE: DISCARDCACHE = DISCARDCACHE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DISCARDCACHE_SAVEIFDIRTY: DISCARDCACHE = DISCARDCACHE(0i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DISPATCH_CONSTRUCT: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -11191,7 +11325,67 @@ pub const DISPID_VALUE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const DISPID_WORDWRAP: i32 = -536i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DOCMISC_CANCREATEMULTIPLEVIEWS: DOCMISC = DOCMISC(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DOCMISC_CANTOPENEDIT: DOCMISC = DOCMISC(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DOCMISC_NOFILESUPPORT: DOCMISC = DOCMISC(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DOCMISC_SUPPORTCOMPLEXRECTANGLES: DOCMISC = DOCMISC(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DROPEFFECT_COPY: DROPEFFECT = DROPEFFECT(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DROPEFFECT_LINK: DROPEFFECT = DROPEFFECT(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DROPEFFECT_MOVE: DROPEFFECT = DROPEFFECT(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DROPEFFECT_NONE: DROPEFFECT = DROPEFFECT(0u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DROPEFFECT_SCROLL: DROPEFFECT = DROPEFFECT(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DVASPECTINFOFLAG_CANOPTIMIZE: DVASPECTINFOFLAG = DVASPECTINFOFLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DVEXTENT_CONTENT: DVEXTENTMODE = DVEXTENTMODE(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const DVEXTENT_INTEGRAL: DVEXTENTMODE = DVEXTENTMODE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ELF_DISABLECANCELLINK: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ELF_DISABLECHANGESOURCE: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ELF_DISABLEOPENSOURCE: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ELF_DISABLEUPDATENOW: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const ELF_SHOWHELP: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const EMBDHLP_CREATENOW: EMBDHLP_FLAGS = EMBDHLP_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const EMBDHLP_DELAYCREATE: EMBDHLP_FLAGS = EMBDHLP_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const EMBDHLP_INPROC_HANDLER: EMBDHLP_FLAGS = EMBDHLP_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const EMBDHLP_INPROC_SERVER: EMBDHLP_FLAGS = EMBDHLP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const GCW_WCH_SIBLING: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const GC_WCH_ALL: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const GC_WCH_CONTAINED: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const GC_WCH_CONTAINER: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const GC_WCH_FONLYAFTER: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const GC_WCH_FONLYBEFORE: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(536870912u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const GC_WCH_FREVERSEDIR: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(134217728u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const GC_WCH_FSELECTED: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GC_WCH_SIBLING: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const GUIDKIND_DEFAULT_SOURCE_DISP_IID: GUIDKIND = GUIDKIND(1i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GUID_CHECKVALUEEXCLUSIVE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6650430c_be0f_101a_8bbb_00aa00300cab);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -11232,6 +11426,14 @@ pub const GUID_YPOSPIXEL: ::windows_core::GUID = ::windows_core::GUID::from_u128
 pub const GUID_YSIZE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66504309_be0f_101a_8bbb_00aa00300cab);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const GUID_YSIZEPIXEL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66504305_be0f_101a_8bbb_00aa00300cab);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const HITRESULT_CLOSE: HITRESULT = HITRESULT(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const HITRESULT_HIT: HITRESULT = HITRESULT(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const HITRESULT_OUTSIDE: HITRESULT = HITRESULT(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const HITRESULT_TRANSPARENT: HITRESULT = HITRESULT(1i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const IDC_BZ_ICON: u32 = 601u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -11501,17 +11703,79 @@ pub const ID_BROWSE_INSERTFILE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const ID_DEFAULTINST: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IGNOREMIME_PROMPT: IGNOREMIME = IGNOREMIME(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IGNOREMIME_TEXT: IGNOREMIME = IGNOREMIME(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const INSTALL_SCOPE_INVALID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const INSTALL_SCOPE_MACHINE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const INSTALL_SCOPE_USER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_CHECKDISPLAYASICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_CHECKLINK: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_CREATEFILEOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_CREATELINKOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_CREATENEWOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_DISABLEDISPLAYASICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_DISABLELINK: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_HIDECHANGEICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_SELECTCREATECONTROL: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_SELECTCREATEFROMFILE: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_SELECTCREATENEW: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_SHOWHELP: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_SHOWINSERTCONTROL: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const IOF_VERIFYSERVERSEXIST: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const KEYMOD_ALT: KEYMODIFIERS = KEYMODIFIERS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const KEYMOD_CONTROL: KEYMODIFIERS = KEYMODIFIERS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const KEYMOD_SHIFT: KEYMODIFIERS = KEYMODIFIERS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LIBFLAG_FCONTROL: LIBFLAGS = LIBFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LIBFLAG_FHASDISKIMAGE: LIBFLAGS = LIBFLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LIBFLAG_FHIDDEN: LIBFLAGS = LIBFLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LIBFLAG_FRESTRICTED: LIBFLAGS = LIBFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const LOAD_TLB_AS_32BIT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const LOAD_TLB_AS_64BIT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const LOCALE_USE_NLS: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LP_COLOR: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LP_DEFAULT: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LP_MONOCHROME: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const LP_VGACOLOR: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const MEDIAPLAYBACK_PAUSE: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const MEDIAPLAYBACK_PAUSE_AND_SUSPEND: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const MEDIAPLAYBACK_RESUME: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const MEDIAPLAYBACK_RESUME_FROM_SUSPEND: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(3i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const MEMBERID_NIL: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -11529,6 +11793,46 @@ pub const MSOCMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const MSOCMDERR_E_UNKNOWNGROUP: i32 = -2147221244i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const MULTICLASSINFO_GETIIDPRIMARY: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const MULTICLASSINFO_GETIIDSOURCE: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const MULTICLASSINFO_GETTYPEINFO: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_CURRENCY: NUMPARSE_FLAGS = NUMPARSE_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_DECIMAL: NUMPARSE_FLAGS = NUMPARSE_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_EXPONENT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_HEX_OCT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_INEXACT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_LEADING_MINUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_LEADING_PLUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_LEADING_WHITE: NUMPARSE_FLAGS = NUMPARSE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_NEG: NUMPARSE_FLAGS = NUMPARSE_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_PARENS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_STD: NUMPARSE_FLAGS = NUMPARSE_FLAGS(8191u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_THOUSANDS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_TRAILING_MINUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_TRAILING_PLUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_TRAILING_WHITE: NUMPARSE_FLAGS = NUMPARSE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const NUMPRS_USE_ALL: NUMPARSE_FLAGS = NUMPARSE_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OCM__BASE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OF_GET: u32 = 2u32;
@@ -11536,6 +11840,12 @@ pub const OF_GET: u32 = 2u32;
 pub const OF_HANDLER: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OF_SET: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECLOSE_NOSAVE: OLECLOSE = OLECLOSE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECLOSE_PROMPTSAVE: OLECLOSE = OLECLOSE(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECLOSE_SAVEIFDIRTY: OLECLOSE = OLECLOSE(0i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDARGINDEX_ACTIVEXINSTALL_CLSID: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -11565,11 +11875,473 @@ pub const OLECMDERR_E_NOTSUPPORTED: i32 = -2147221248i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMDERR_E_UNKNOWNGROUP: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147221244i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDEXECOPT_DODEFAULT: OLECMDEXECOPT = OLECMDEXECOPT(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDEXECOPT_DONTPROMPTUSER: OLECMDEXECOPT = OLECMDEXECOPT(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDEXECOPT_PROMPTUSER: OLECMDEXECOPT = OLECMDEXECOPT(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDEXECOPT_SHOWHELP: OLECMDEXECOPT = OLECMDEXECOPT(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDF_DEFHIDEONCTXTMENU: OLECMDF = OLECMDF(32i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDF_ENABLED: OLECMDF = OLECMDF(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDF_INVISIBLE: OLECMDF = OLECMDF(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDF_LATCHED: OLECMDF = OLECMDF(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDF_NINCHED: OLECMDF = OLECMDF(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDF_SUPPORTED: OLECMDF = OLECMDF(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_BROWSERSTATE_BLOCKEDVERSION: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(64i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_BROWSERSTATE_DESKTOPHTMLDIALOG: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(32i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_BROWSERSTATE_EXTENSIONSOFF: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_BROWSERSTATE_IESECURITY: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_BROWSERSTATE_PROTECTEDMODE_OFF: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_BROWSERSTATE_REQUIRESACTIVEX: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_BROWSERSTATE_RESET: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_OPTICAL_ZOOM_NOLAYOUT: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_OPTICAL_ZOOM_NOPERSIST: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_OPTICAL_ZOOM_NOTRANSIENT: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(32i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_OPTICAL_ZOOM_RELOADFORNEWTAB: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(64i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_ACTIVEXDISALLOW: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_ACTIVEXINSTALL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_ACTIVEXTRUSTFAIL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_ACTIVEXUNSAFE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(32i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_ACTIVEXUSERAPPROVAL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(262144i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_ACTIVEXUSERDISABLE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_ACTIVEX_EPM_INCOMPATIBLE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16777216i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_EXTENSION_COMPAT_BLOCKED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(268435456i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_FILEDOWNLOAD: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_GENERIC_STATE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1073741824i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_INTRANETZONEREQUEST: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2097152i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_INVALID_CERT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1048576i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_LOCALMACHINE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(128i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_MIMETEXTPLAIN: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(256i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_MIXEDCONTENT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(524288i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_NORESETACTIVEX: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(536870912i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_POPUPALLOWED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(65536i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_POPUPWINDOW: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(64i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNDENY: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(32768i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTERNET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8192i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTRANET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4096i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNLOCALMACHINE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1024i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNRESTRICTED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16384i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNTRUSTED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2048i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_RESET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(-2147483648i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(512i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXINSTALL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(512i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXUSERAPPROVAL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(33554432i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_SCRIPTPROMPT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(131072i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_SPOOFABLEIDNHOST: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8388608i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_WPCBLOCKED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(67108864i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_WPCBLOCKED_ACTIVEX: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(134217728i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_PAGEACTION_XSSFILTERED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4194304i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_CLEARUSERINPUT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4096i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_COMPLETELY: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_CONTINUE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_IFEXPIRED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_LEVELMASK: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(255i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_NORMAL: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_NO_CACHE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_ACTIVEXINSTALL: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(65536i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_ALLOW_VERSION: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(134217728i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_FILEDOWNLOAD: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(131072i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_INVALID_CERT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(67108864i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_LOCALMACHINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(262144i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_MIXEDCONTENT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(33554432i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_POPUPWINDOW: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(524288i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTERNET: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(8388608i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTRANET: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4194304i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNLOCALMACHINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(1048576i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNRESTRICTED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(16777216i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNTRUSTED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(2097152i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_PROMPTIFOFFLINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(8192i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_RELOAD: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(5i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_SKIPBEFOREUNLOADEVENT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(32768i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_REFRESH_THROUGHSCRIPT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(16384i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM_VALID: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(131072i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH_VALID: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(65536i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_WINDOWSTATE_ENABLED: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_WINDOWSTATE_ENABLED_VALID: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(131072i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_WINDOWSTATE_USERVISIBLE: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDIDF_WINDOWSTATE_USERVISIBLE_VALID: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(65536i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_ACTIVEXINSTALLSCOPE: OLECMDID = OLECMDID(66i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_ADDTRAVELENTRY: OLECMDID = OLECMDID(60i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_ALLOWUILESSSAVEAS: OLECMDID = OLECMDID(46i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_CLEARSELECTION: OLECMDID = OLECMDID(18i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_CLOSE: OLECMDID = OLECMDID(45i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_COPY: OLECMDID = OLECMDID(12i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_CUT: OLECMDID = OLECMDID(11i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_DELETE: OLECMDID = OLECMDID(33i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_DONTDOWNLOADCSS: OLECMDID = OLECMDID(47i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_ENABLE_INTERACTION: OLECMDID = OLECMDID(36i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_ENABLE_VISIBILITY: OLECMDID = OLECMDID(77i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_EXITFULLSCREEN: OLECMDID = OLECMDID(81i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_FIND: OLECMDID = OLECMDID(32i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_FOCUSVIEWCONTROLS: OLECMDID = OLECMDID(57i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_FOCUSVIEWCONTROLSQUERY: OLECMDID = OLECMDID(58i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_GETPRINTTEMPLATE: OLECMDID = OLECMDID(52i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_GETUSERSCALABLE: OLECMDID = OLECMDID(75i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_GETZOOMRANGE: OLECMDID = OLECMDID(20i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_HIDETOOLBARS: OLECMDID = OLECMDID(24i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_HTTPEQUIV: OLECMDID = OLECMDID(34i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_HTTPEQUIV_DONE: OLECMDID = OLECMDID(35i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_LAYOUT_VIEWPORT_WIDTH: OLECMDID = OLECMDID(71i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_MEDIA_PLAYBACK: OLECMDID = OLECMDID(78i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_NEW: OLECMDID = OLECMDID(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_ONBEFOREUNLOAD: OLECMDID = OLECMDID(83i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_ONTOOLBARACTIVATED: OLECMDID = OLECMDID(31i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_ONUNLOAD: OLECMDID = OLECMDID(37i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_OPEN: OLECMDID = OLECMDID(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_OPTICAL_GETZOOMRANGE: OLECMDID = OLECMDID(64i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_OPTICAL_ZOOM: OLECMDID = OLECMDID(63i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PAGEACTIONBLOCKED: OLECMDID = OLECMDID(55i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PAGEACTIONUIQUERY: OLECMDID = OLECMDID(56i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PAGEAVAILABLE: OLECMDID = OLECMDID(74i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PAGESETUP: OLECMDID = OLECMDID(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PASTE: OLECMDID = OLECMDID(13i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PASTESPECIAL: OLECMDID = OLECMDID(14i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_POPSTATEEVENT: OLECMDID = OLECMDID(69i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PREREFRESH: OLECMDID = OLECMDID(39i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PRINT: OLECMDID = OLECMDID(6i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PRINT2: OLECMDID = OLECMDID(49i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PRINTPREVIEW: OLECMDID = OLECMDID(7i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PRINTPREVIEW2: OLECMDID = OLECMDID(50i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PROPERTIES: OLECMDID = OLECMDID(10i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_PROPERTYBAG2: OLECMDID = OLECMDID(38i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_REDO: OLECMDID = OLECMDID(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_REFRESH: OLECMDID = OLECMDID(22i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SAVE: OLECMDID = OLECMDID(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SAVEAS: OLECMDID = OLECMDID(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SAVECOPYAS: OLECMDID = OLECMDID(5i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SCROLLCOMPLETE: OLECMDID = OLECMDID(82i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SELECTALL: OLECMDID = OLECMDID(17i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SETDOWNLOADSTATE: OLECMDID = OLECMDID(29i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SETFAVICON: OLECMDID = OLECMDID(79i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SETPRINTTEMPLATE: OLECMDID = OLECMDID(51i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SETPROGRESSMAX: OLECMDID = OLECMDID(25i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SETPROGRESSPOS: OLECMDID = OLECMDID(26i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SETPROGRESSTEXT: OLECMDID = OLECMDID(27i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SETTITLE: OLECMDID = OLECMDID(28i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SET_HOST_FULLSCREENMODE: OLECMDID = OLECMDID(80i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SHOWFIND: OLECMDID = OLECMDID(42i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SHOWMESSAGE: OLECMDID = OLECMDID(41i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SHOWMESSAGE_BLOCKABLE: OLECMDID = OLECMDID(84i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SHOWPAGEACTIONMENU: OLECMDID = OLECMDID(59i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SHOWPAGESETUP: OLECMDID = OLECMDID(43i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SHOWPRINT: OLECMDID = OLECMDID(44i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SHOWSCRIPTERROR: OLECMDID = OLECMDID(40i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SHOWTASKDLG: OLECMDID = OLECMDID(68i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SHOWTASKDLG_BLOCKABLE: OLECMDID = OLECMDID(85i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_SPELL: OLECMDID = OLECMDID(9i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_STOP: OLECMDID = OLECMDID(23i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_STOPDOWNLOAD: OLECMDID = OLECMDID(30i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_UNDO: OLECMDID = OLECMDID(15i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_UPDATEBACKFORWARDSTATE: OLECMDID = OLECMDID(62i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_UPDATECOMMANDS: OLECMDID = OLECMDID(21i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_UPDATEPAGESTATUS: OLECMDID = OLECMDID(48i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_UPDATETRAVELENTRY: OLECMDID = OLECMDID(61i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_UPDATETRAVELENTRY_DATARECOVERY: OLECMDID = OLECMDID(67i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_UPDATE_CARET: OLECMDID = OLECMDID(76i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_USER_OPTICAL_ZOOM: OLECMDID = OLECMDID(73i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_VIEWPORT_MODE: OLECMDID = OLECMDID(70i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_VISUAL_VIEWPORT_EXCLUDE_BOTTOM: OLECMDID = OLECMDID(72i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_WINDOWSTATECHANGED: OLECMDID = OLECMDID(65i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDID_ZOOM: OLECMDID = OLECMDID(19i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDTEXTF_NAME: OLECMDTEXTF = OLECMDTEXTF(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDTEXTF_NONE: OLECMDTEXTF = OLECMDTEXTF(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECMDTEXTF_STATUS: OLECMDTEXTF = OLECMDTEXTF(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLECMD_TASKDLGID_ONBEFOREUNLOAD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECONTF_EMBEDDINGS: OLECONTF = OLECONTF(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECONTF_LINKS: OLECONTF = OLECONTF(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECONTF_ONLYIFRUNNING: OLECONTF = OLECONTF(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECONTF_ONLYUSER: OLECONTF = OLECONTF(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECONTF_OTHERS: OLECONTF = OLECONTF(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECREATE_LEAVERUNNING: OLECREATE = OLECREATE(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLECREATE_ZERO: OLECREATE = OLECREATE(0u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEDC_NODRAW: OLEDCFLAGS = OLEDCFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEDC_OFFSCREEN: OLEDCFLAGS = OLEDCFLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEDC_PAINTBKGND: OLEDCFLAGS = OLEDCFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEGETMONIKER_FORCEASSIGN: OLEGETMONIKER = OLEGETMONIKER(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEGETMONIKER_ONLYIFTHERE: OLEGETMONIKER = OLEGETMONIKER(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = OLEGETMONIKER(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = OLEGETMONIKER(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_DISCARDUNDOSTATE: OLEIVERB = OLEIVERB(-6i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_HIDE: OLEIVERB = OLEIVERB(-3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_INPLACEACTIVATE: OLEIVERB = OLEIVERB(-5i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_OPEN: OLEIVERB = OLEIVERB(-2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_PRIMARY: OLEIVERB = OLEIVERB(0i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEIVERB_PROPERTIES: i32 = -7i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_SHOW: OLEIVERB = OLEIVERB(-1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEIVERB_UIACTIVATE: OLEIVERB = OLEIVERB(-4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = OLELINKBIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_ACTIVATEWHENVISIBLE: OLEMISC = OLEMISC(256i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_ACTSLIKEBUTTON: OLEMISC = OLEMISC(4096i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_ACTSLIKELABEL: OLEMISC = OLEMISC(8192i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_ALIGNABLE: OLEMISC = OLEMISC(32768i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_ALWAYSRUN: OLEMISC = OLEMISC(2048i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_CANLINKBYOLE1: OLEMISC = OLEMISC(32i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_CANTLINKINSIDE: OLEMISC = OLEMISC(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_IGNOREACTIVATEWHENVISIBLE: OLEMISC = OLEMISC(524288i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_IMEMODE: OLEMISC = OLEMISC(262144i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_INSERTNOTREPLACE: OLEMISC = OLEMISC(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_INSIDEOUT: OLEMISC = OLEMISC(128i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_INVISIBLEATRUNTIME: OLEMISC = OLEMISC(1024i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_ISLINKOBJECT: OLEMISC = OLEMISC(64i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_NOUIACTIVATE: OLEMISC = OLEMISC(16384i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_ONLYICONIC: OLEMISC = OLEMISC(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_RECOMPOSEONRESIZE: OLEMISC = OLEMISC(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_RENDERINGISDEVICEINDEPENDENT: OLEMISC = OLEMISC(512i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_SETCLIENTSITEFIRST: OLEMISC = OLEMISC(131072i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_SIMPLEFRAME: OLEMISC = OLEMISC(65536i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_STATIC: OLEMISC = OLEMISC(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_SUPPORTSMULTILEVELUNDO: OLEMISC = OLEMISC(2097152i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEMISC_WANTSTOMENUMERGE: OLEMISC = OLEMISC(1048576i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLERENDER_ASIS: OLERENDER = OLERENDER(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLERENDER_DRAW: OLERENDER = OLERENDER(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLERENDER_FORMAT: OLERENDER = OLERENDER(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLERENDER_NONE: OLERENDER = OLERENDER(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLESTDDELIM: ::windows_core::PCWSTR = ::windows_core::w!("\\");
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_ENABLEICON: OLEUIPASTEFLAG = OLEUIPASTEFLAG(2048i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_LINKANYTYPE: OLEUIPASTEFLAG = OLEUIPASTEFLAG(1024i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_LINKTYPE1: OLEUIPASTEFLAG = OLEUIPASTEFLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_LINKTYPE2: OLEUIPASTEFLAG = OLEUIPASTEFLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_LINKTYPE3: OLEUIPASTEFLAG = OLEUIPASTEFLAG(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_LINKTYPE4: OLEUIPASTEFLAG = OLEUIPASTEFLAG(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_LINKTYPE5: OLEUIPASTEFLAG = OLEUIPASTEFLAG(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_LINKTYPE6: OLEUIPASTEFLAG = OLEUIPASTEFLAG(32i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_LINKTYPE7: OLEUIPASTEFLAG = OLEUIPASTEFLAG(64i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_LINKTYPE8: OLEUIPASTEFLAG = OLEUIPASTEFLAG(128i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_PASTE: OLEUIPASTEFLAG = OLEUIPASTEFLAG(512i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUIPASTE_PASTEONLY: OLEUIPASTEFLAG = OLEUIPASTEFLAG(0i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEUI_BZERR_HTASKINVALID: u32 = 116u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -11737,13 +12509,59 @@ pub const OLEUI_VPERR_DVASPECTINVALID: u32 = 132u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEUI_VPERR_METAPICTINVALID: u32 = 131u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUPDATE_ALWAYS: OLEUPDATE = OLEUPDATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEUPDATE_ONCALL: OLEUPDATE = OLEUPDATE(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEVERBATTRIB_NEVERDIRTIES: OLEVERBATTRIB = OLEVERBATTRIB(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEVERBATTRIB_ONCONTAINERMENU: OLEVERBATTRIB = OLEVERBATTRIB(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OLEVERB_PRIMARY: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEWHICHMK_CONTAINER: OLEWHICHMK = OLEWHICHMK(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEWHICHMK_OBJFULL: OLEWHICHMK = OLEWHICHMK(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OLEWHICHMK_OBJREL: OLEWHICHMK = OLEWHICHMK(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OPF_DISABLECONVERT: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OPF_NOFILLDEFAULT: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OPF_OBJECTISLINK: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const OPF_SHOWHELP: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OT_EMBEDDED: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OT_LINK: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const OT_STATIC: i32 = 3i32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PAGEACTION_UI_DEFAULT: PAGEACTION_UI = PAGEACTION_UI(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PAGEACTION_UI_MODAL: PAGEACTION_UI = PAGEACTION_UI(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = PAGEACTION_UI(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = PAGEACTION_UI(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FHASCUSTDATA: PARAMFLAGS = PARAMFLAGS(64u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FHASDEFAULT: PARAMFLAGS = PARAMFLAGS(32u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FIN: PARAMFLAGS = PARAMFLAGS(1u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FLCID: PARAMFLAGS = PARAMFLAGS(4u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FOPT: PARAMFLAGS = PARAMFLAGS(16u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FOUT: PARAMFLAGS = PARAMFLAGS(2u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_FRETVAL: PARAMFLAGS = PARAMFLAGS(8u16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PARAMFLAG_NONE: PARAMFLAGS = PARAMFLAGS(0u16);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PERPROP_E_FIRST: i32 = -2147220992i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -11755,9 +12573,113 @@ pub const PERPROP_S_FIRST: ::windows_core::HRESULT = ::windows_core::HRESULT(262
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PERPROP_S_LAST: ::windows_core::HRESULT = ::windows_core::HRESULT(262671i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTURE_SCALABLE: PICTUREATTRIBUTES = PICTUREATTRIBUTES(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTURE_TRANSPARENT: PICTUREATTRIBUTES = PICTUREATTRIBUTES(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_BITMAP: PICTYPE = PICTYPE(1i16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_ENHMETAFILE: PICTYPE = PICTYPE(4i16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_ICON: PICTYPE = PICTYPE(3i16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_METAFILE: PICTYPE = PICTYPE(2i16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_NONE: PICTYPE = PICTYPE(0i16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PICTYPE_UNINITIALIZED: PICTYPE = PICTYPE(-1i16);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const POINTERINACTIVE_ACTIVATEONDRAG: POINTERINACTIVE = POINTERINACTIVE(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const POINTERINACTIVE_ACTIVATEONENTRY: POINTERINACTIVE = POINTERINACTIVE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const POINTERINACTIVE_DEACTIVATEONLEAVE: POINTERINACTIVE = POINTERINACTIVE(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PRINTFLAG_DONTACTUALLYPRINT: PRINTFLAG = PRINTFLAG(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PRINTFLAG_FORCEPROPERTIES: PRINTFLAG = PRINTFLAG(32i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PRINTFLAG_MAYBOTHERUSER: PRINTFLAG = PRINTFLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PRINTFLAG_PRINTTOFILE: PRINTFLAG = PRINTFLAG(64i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PRINTFLAG_PROMPTUSER: PRINTFLAG = PRINTFLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PRINTFLAG_RECOMPOSETODEVICE: PRINTFLAG = PRINTFLAG(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PRINTFLAG_USERMAYCHANGEPRINTER: PRINTFLAG = PRINTFLAG(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PROPBAG2_TYPE_DATA: PROPBAG2_TYPE = PROPBAG2_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PROPBAG2_TYPE_MONIKER: PROPBAG2_TYPE = PROPBAG2_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PROPBAG2_TYPE_OBJECT: PROPBAG2_TYPE = PROPBAG2_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PROPBAG2_TYPE_STORAGE: PROPBAG2_TYPE = PROPBAG2_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PROPBAG2_TYPE_STREAM: PROPBAG2_TYPE = PROPBAG2_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = PROPBAG2_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PROPBAG2_TYPE_URL: PROPBAG2_TYPE = PROPBAG2_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PROPPAGESTATUS_CLEAN: PROPPAGESTATUS = PROPPAGESTATUS(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = PROPPAGESTATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PROPPAGESTATUS_VALIDATE: PROPPAGESTATUS = PROPPAGESTATUS(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PROP_HWND_CHGICONDLG: ::windows_core::PCWSTR = ::windows_core::w!("HWND_CIDLG");
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_CHECKDISPLAYASICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_DISABLEDISPLAYASICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_HIDECHANGEICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_NOREFRESHDATAOBJECT: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_SELECTPASTE: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_SELECTPASTELINK: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_SHOWHELP: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const PSF_STAYONCLIPBOARDCHANGE: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const PS_MAXLINKTYPES: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const QACONTAINER_AUTOCLIP: QACONTAINERFLAGS = QACONTAINERFLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const QACONTAINER_DISPLAYASDEFAULT: QACONTAINERFLAGS = QACONTAINERFLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const QACONTAINER_MESSAGEREFLECT: QACONTAINERFLAGS = QACONTAINERFLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const QACONTAINER_SHOWGRABHANDLES: QACONTAINERFLAGS = QACONTAINERFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const QACONTAINER_SHOWHATCHING: QACONTAINERFLAGS = QACONTAINERFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const QACONTAINER_SUPPORTSMNEMONICS: QACONTAINERFLAGS = QACONTAINERFLAGS(128i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const QACONTAINER_UIDEAD: QACONTAINERFLAGS = QACONTAINERFLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const QACONTAINER_USERMODE: QACONTAINERFLAGS = QACONTAINERFLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const READYSTATE_COMPLETE: READYSTATE = READYSTATE(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const READYSTATE_INTERACTIVE: READYSTATE = READYSTATE(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const READYSTATE_LOADED: READYSTATE = READYSTATE(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const READYSTATE_LOADING: READYSTATE = READYSTATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const READYSTATE_UNINITIALIZED: READYSTATE = READYSTATE(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const REGKIND_DEFAULT: REGKIND = REGKIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const REGKIND_NONE: REGKIND = REGKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const REGKIND_REGISTER: REGKIND = REGKIND(1i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const SELFREG_E_CLASS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220991i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -11770,6 +12692,28 @@ pub const SELFREG_E_TYPELIB: ::windows_core::HRESULT = ::windows_core::HRESULT(-
 pub const SELFREG_S_FIRST: ::windows_core::HRESULT = ::windows_core::HRESULT(262656i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const SELFREG_S_LAST: ::windows_core::HRESULT = ::windows_core::HRESULT(262671i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const SF_BSTR: SF_TYPE = SF_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const SF_DISPATCH: SF_TYPE = SF_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const SF_ERROR: SF_TYPE = SF_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const SF_HAVEIID: SF_TYPE = SF_TYPE(32781i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const SF_I1: SF_TYPE = SF_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const SF_I2: SF_TYPE = SF_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const SF_I4: SF_TYPE = SF_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const SF_I8: SF_TYPE = SF_TYPE(20i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const SF_RECORD: SF_TYPE = SF_TYPE(36i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const SF_UNKNOWN: SF_TYPE = SF_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const SF_VARIANT: SF_TYPE = SF_TYPE(12i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const SID_GetCaller: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4717cc40_bcb9_11d0_9336_00a0c90dcaa9);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -11813,6 +12757,128 @@ pub const SZOLEUI_MSG_HELP: ::windows_core::PCWSTR = ::windows_core::w!("OLEUI_M
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const TIFLAGS_EXTENDDISPATCHONLY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FAGGREGATABLE: TYPEFLAGS = TYPEFLAGS(1024i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FAPPOBJECT: TYPEFLAGS = TYPEFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FCANCREATE: TYPEFLAGS = TYPEFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FCONTROL: TYPEFLAGS = TYPEFLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FDISPATCHABLE: TYPEFLAGS = TYPEFLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FDUAL: TYPEFLAGS = TYPEFLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FHIDDEN: TYPEFLAGS = TYPEFLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FLICENSED: TYPEFLAGS = TYPEFLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FNONEXTENSIBLE: TYPEFLAGS = TYPEFLAGS(128i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FOLEAUTOMATION: TYPEFLAGS = TYPEFLAGS(256i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FPREDECLID: TYPEFLAGS = TYPEFLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FPROXY: TYPEFLAGS = TYPEFLAGS(16384i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FREPLACEABLE: TYPEFLAGS = TYPEFLAGS(2048i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FRESTRICTED: TYPEFLAGS = TYPEFLAGS(512i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const TYPEFLAG_FREVERSEBIND: TYPEFLAGS = TYPEFLAGS(8192i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UAS_BLOCKED: UASFLAGS = UASFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UAS_MASK: UASFLAGS = UASFLAGS(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UAS_NOPARENTENABLE: UASFLAGS = UASFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UAS_NORMAL: UASFLAGS = UASFLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UPDFCACHE_ALL: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483647u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UPDFCACHE_ALLBUTNODATACACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483646u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UPDFCACHE_IFBLANK: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UPDFCACHE_IFBLANKORONSAVECACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(18u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UPDFCACHE_NODATACACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UPDFCACHE_NORMALCACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UPDFCACHE_ONLYIFBLANK: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UPDFCACHE_ONSAVECACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const UPDFCACHE_ONSTOPCACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const USERCLASSTYPE_APPNAME: USERCLASSTYPE = USERCLASSTYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const USERCLASSTYPE_FULL: USERCLASSTYPE = USERCLASSTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const USERCLASSTYPE_SHORT: USERCLASSTYPE = USERCLASSTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARCMP_EQ: VARCMP = VARCMP(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARCMP_GT: VARCMP = VARCMP(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARCMP_LT: VARCMP = VARCMP(0u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARCMP_NULL: VARCMP = VARCMP(3u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_FRIDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(5i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_MONDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_SATURDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(6i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_SUNDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(7i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_SYSTEMDEFAULT: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_THURSDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_TUESDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_DAY_WEDNESDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_WEEK_CONTAINS_JANUARY_FIRST: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_WEEK_HAS_SEVEN_DAYS: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_WEEK_LARGER_HALF_IN_CURRENT_YEAR: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_FIRST_WEEK_SYSTEMDEFAULT: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_GROUP_NOTTHOUSANDS: VARFORMAT_GROUP = VARFORMAT_GROUP(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_GROUP_SYSTEMDEFAULT: VARFORMAT_GROUP = VARFORMAT_GROUP(-2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_GROUP_THOUSANDS: VARFORMAT_GROUP = VARFORMAT_GROUP(-1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_LEADING_DIGIT_INCLUDED: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(-1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_LEADING_DIGIT_NOTINCLUDED: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_LEADING_DIGIT_SYSTEMDEFAULT: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(-2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_NAMED_FORMAT_GENERALDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_NAMED_FORMAT_LONGDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_NAMED_FORMAT_LONGTIME: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(3i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_NAMED_FORMAT_SHORTDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_NAMED_FORMAT_SHORTTIME: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_PARENTHESES_NOTUSED: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_PARENTHESES_SYSTEMDEFAULT: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(-2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VARFORMAT_PARENTHESES_USED: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(-1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VAR_CALENDAR_GREGORIAN: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VAR_CALENDAR_HIJRI: u32 = 8u32;
@@ -11831,6 +12897,24 @@ pub const VAR_TIMEVALUEONLY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VAR_VALIDDATE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VIEWSTATUS_3DSURFACE: VIEWSTATUS = VIEWSTATUS(32i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VIEWSTATUS_DVASPECTOPAQUE: VIEWSTATUS = VIEWSTATUS(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VIEWSTATUS_DVASPECTTRANSPARENT: VIEWSTATUS = VIEWSTATUS(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VIEWSTATUS_OPAQUE: VIEWSTATUS = VIEWSTATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VIEWSTATUS_SOLIDBKGND: VIEWSTATUS = VIEWSTATUS(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VIEWSTATUS_SURFACE: VIEWSTATUS = VIEWSTATUS(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VPF_DISABLERELATIVE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VPF_DISABLESCALE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const VPF_SELECTRELATIVE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VTDATEGRE_MAX: u32 = 2958465u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const VTDATEGRE_MIN: i32 = -657434i32;
@@ -11844,6 +12928,20 @@ pub const VT_STREAMED_PROPSET: u32 = 73u32;
 pub const VT_VERBOSE_ENUM: u32 = 76u32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const WIN32: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const WPCSETTING_FILEDOWNLOAD_BLOCKED: WPCSETTING = WPCSETTING(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const WPCSETTING_LOGGING_ENABLED: WPCSETTING = WPCSETTING(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const XFORMCOORDS_CONTAINERTOHIMETRIC: XFORMCOORDS = XFORMCOORDS(8i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const XFORMCOORDS_EVENTCOMPAT: XFORMCOORDS = XFORMCOORDS(16i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const XFORMCOORDS_HIMETRICTOCONTAINER: XFORMCOORDS = XFORMCOORDS(4i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const XFORMCOORDS_POSITION: XFORMCOORDS = XFORMCOORDS(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const XFORMCOORDS_SIZE: XFORMCOORDS = XFORMCOORDS(2i32);
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const fdexEnumAll: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
@@ -11861,11 +12959,43 @@ pub const fdexNameInternal: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 pub const fdexNameNoDynamicProperties: i32 = 32i32;
 #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCanCall: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCanConstruct: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCanGet: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCanPut: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCanPutRef: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCanSourceEvents: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCannotCall: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCannotConstruct: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCannotGet: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCannotPut: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCannotPutRef: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropCannotSourceEvents: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropDynamicType: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const fdexPropNoSideEffects: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const triChecked: OLE_TRISTATE = OLE_TRISTATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const triGray: OLE_TRISTATE = OLE_TRISTATE(2i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
+pub const triUnchecked: OLE_TRISTATE = OLE_TRISTATE(0i32);
+#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTIVATEFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ACTIVATE_WINDOWLESS: ACTIVATEFLAGS = ACTIVATEFLAGS(1i32);
 impl ::core::marker::Copy for ACTIVATEFLAGS {}
 impl ::core::clone::Clone for ACTIVATEFLAGS {
     fn clone(&self) -> Self {
@@ -11889,10 +13019,6 @@ impl ::core::fmt::Debug for ACTIVATEFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTIVEOBJECT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ACTIVEOBJECT_STRONG: ACTIVEOBJECT_FLAGS = ACTIVEOBJECT_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ACTIVEOBJECT_WEAK: ACTIVEOBJECT_FLAGS = ACTIVEOBJECT_FLAGS(1u32);
 impl ::core::marker::Copy for ACTIVEOBJECT_FLAGS {}
 impl ::core::clone::Clone for ACTIVEOBJECT_FLAGS {
     fn clone(&self) -> Self {
@@ -11949,12 +13075,6 @@ impl ::core::ops::Not for ACTIVEOBJECT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDSPEED(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const BINDSPEED_INDEFINITE: BINDSPEED = BINDSPEED(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const BINDSPEED_MODERATE: BINDSPEED = BINDSPEED(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const BINDSPEED_IMMEDIATE: BINDSPEED = BINDSPEED(3i32);
 impl ::core::marker::Copy for BINDSPEED {}
 impl ::core::clone::Clone for BINDSPEED {
     fn clone(&self) -> Self {
@@ -11978,14 +13098,6 @@ impl ::core::fmt::Debug for BINDSPEED {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BUSY_DIALOG_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const BZ_DISABLECANCELBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const BZ_DISABLESWITCHTOBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const BZ_DISABLERETRYBUTTON: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const BZ_NOTRESPONDINGDIALOG: BUSY_DIALOG_FLAGS = BUSY_DIALOG_FLAGS(8u32);
 impl ::core::marker::Copy for BUSY_DIALOG_FLAGS {}
 impl ::core::clone::Clone for BUSY_DIALOG_FLAGS {
     fn clone(&self) -> Self {
@@ -12042,22 +13154,6 @@ impl ::core::ops::Not for BUSY_DIALOG_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANGEKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CHANGEKIND_ADDMEMBER: CHANGEKIND = CHANGEKIND(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CHANGEKIND_DELETEMEMBER: CHANGEKIND = CHANGEKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CHANGEKIND_SETNAMES: CHANGEKIND = CHANGEKIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CHANGEKIND_SETDOCUMENTATION: CHANGEKIND = CHANGEKIND(3i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CHANGEKIND_GENERAL: CHANGEKIND = CHANGEKIND(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CHANGEKIND_INVALIDATE: CHANGEKIND = CHANGEKIND(5i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CHANGEKIND_CHANGEFAILED: CHANGEKIND = CHANGEKIND(6i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CHANGEKIND_MAX: CHANGEKIND = CHANGEKIND(7i32);
 impl ::core::marker::Copy for CHANGEKIND {}
 impl ::core::clone::Clone for CHANGEKIND {
     fn clone(&self) -> Self {
@@ -12081,16 +13177,6 @@ impl ::core::fmt::Debug for CHANGEKIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANGE_ICON_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CIF_SHOWHELP: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CIF_SELECTCURRENT: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CIF_SELECTDEFAULT: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CIF_SELECTFROMFILE: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CIF_USEICONEXE: CHANGE_ICON_FLAGS = CHANGE_ICON_FLAGS(16u32);
 impl ::core::marker::Copy for CHANGE_ICON_FLAGS {}
 impl ::core::clone::Clone for CHANGE_ICON_FLAGS {
     fn clone(&self) -> Self {
@@ -12147,14 +13233,6 @@ impl ::core::ops::Not for CHANGE_ICON_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANGE_SOURCE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CSF_SHOWHELP: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CSF_VALIDSOURCE: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CSF_ONLYGETSOURCE: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CSF_EXPLORER: CHANGE_SOURCE_FLAGS = CHANGE_SOURCE_FLAGS(8u32);
 impl ::core::marker::Copy for CHANGE_SOURCE_FLAGS {}
 impl ::core::clone::Clone for CHANGE_SOURCE_FLAGS {
     fn clone(&self) -> Self {
@@ -12211,60 +13289,6 @@ impl ::core::ops::Not for CHANGE_SOURCE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLIPBOARD_FORMAT(pub u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_TEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(1u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_BITMAP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(2u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_METAFILEPICT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(3u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_SYLK: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(4u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_DIF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(5u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_TIFF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(6u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_OEMTEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(7u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_DIB: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(8u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_PALETTE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(9u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_PENDATA: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(10u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_RIFF: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(11u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_WAVE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(12u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_UNICODETEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(13u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_ENHMETAFILE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(14u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_HDROP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(15u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_LOCALE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(16u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_DIBV5: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(17u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_MAX: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(18u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_OWNERDISPLAY: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(128u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_DSPTEXT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(129u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_DSPBITMAP: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(130u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_DSPMETAFILEPICT: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(131u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_DSPENHMETAFILE: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(142u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_PRIVATEFIRST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(512u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_PRIVATELAST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(767u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_GDIOBJFIRST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(768u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_GDIOBJLAST: CLIPBOARD_FORMAT = CLIPBOARD_FORMAT(1023u16);
 impl ::core::marker::Copy for CLIPBOARD_FORMAT {}
 impl ::core::clone::Clone for CLIPBOARD_FORMAT {
     fn clone(&self) -> Self {
@@ -12288,10 +13312,6 @@ impl ::core::fmt::Debug for CLIPBOARD_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CTRLINFO(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CTRLINFO_EATS_RETURN: CTRLINFO = CTRLINFO(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CTRLINFO_EATS_ESCAPE: CTRLINFO = CTRLINFO(2i32);
 impl ::core::marker::Copy for CTRLINFO {}
 impl ::core::clone::Clone for CTRLINFO {
     fn clone(&self) -> Self {
@@ -12315,10 +13335,6 @@ impl ::core::fmt::Debug for CTRLINFO {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISCARDCACHE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DISCARDCACHE_SAVEIFDIRTY: DISCARDCACHE = DISCARDCACHE(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DISCARDCACHE_NOSAVE: DISCARDCACHE = DISCARDCACHE(1i32);
 impl ::core::marker::Copy for DISCARDCACHE {}
 impl ::core::clone::Clone for DISCARDCACHE {
     fn clone(&self) -> Self {
@@ -12342,14 +13358,6 @@ impl ::core::fmt::Debug for DISCARDCACHE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOCMISC(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DOCMISC_CANCREATEMULTIPLEVIEWS: DOCMISC = DOCMISC(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DOCMISC_SUPPORTCOMPLEXRECTANGLES: DOCMISC = DOCMISC(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DOCMISC_CANTOPENEDIT: DOCMISC = DOCMISC(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DOCMISC_NOFILESUPPORT: DOCMISC = DOCMISC(8i32);
 impl ::core::marker::Copy for DOCMISC {}
 impl ::core::clone::Clone for DOCMISC {
     fn clone(&self) -> Self {
@@ -12373,16 +13381,6 @@ impl ::core::fmt::Debug for DOCMISC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DROPEFFECT(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_NONE: DROPEFFECT = DROPEFFECT(0u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_COPY: DROPEFFECT = DROPEFFECT(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_MOVE: DROPEFFECT = DROPEFFECT(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_LINK: DROPEFFECT = DROPEFFECT(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DROPEFFECT_SCROLL: DROPEFFECT = DROPEFFECT(2147483648u32);
 impl ::core::marker::Copy for DROPEFFECT {}
 impl ::core::clone::Clone for DROPEFFECT {
     fn clone(&self) -> Self {
@@ -12439,8 +13437,6 @@ impl ::core::ops::Not for DROPEFFECT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVASPECTINFOFLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DVASPECTINFOFLAG_CANOPTIMIZE: DVASPECTINFOFLAG = DVASPECTINFOFLAG(1i32);
 impl ::core::marker::Copy for DVASPECTINFOFLAG {}
 impl ::core::clone::Clone for DVASPECTINFOFLAG {
     fn clone(&self) -> Self {
@@ -12464,10 +13460,6 @@ impl ::core::fmt::Debug for DVASPECTINFOFLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVEXTENTMODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DVEXTENT_CONTENT: DVEXTENTMODE = DVEXTENTMODE(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const DVEXTENT_INTEGRAL: DVEXTENTMODE = DVEXTENTMODE(1i32);
 impl ::core::marker::Copy for DVEXTENTMODE {}
 impl ::core::clone::Clone for DVEXTENTMODE {
     fn clone(&self) -> Self {
@@ -12491,16 +13483,6 @@ impl ::core::fmt::Debug for DVEXTENTMODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDIT_LINKS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ELF_SHOWHELP: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ELF_DISABLEUPDATENOW: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ELF_DISABLEOPENSOURCE: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ELF_DISABLECHANGESOURCE: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const ELF_DISABLECANCELLINK: EDIT_LINKS_FLAGS = EDIT_LINKS_FLAGS(16u32);
 impl ::core::marker::Copy for EDIT_LINKS_FLAGS {}
 impl ::core::clone::Clone for EDIT_LINKS_FLAGS {
     fn clone(&self) -> Self {
@@ -12557,14 +13539,6 @@ impl ::core::ops::Not for EDIT_LINKS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMBDHLP_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const EMBDHLP_INPROC_HANDLER: EMBDHLP_FLAGS = EMBDHLP_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const EMBDHLP_INPROC_SERVER: EMBDHLP_FLAGS = EMBDHLP_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const EMBDHLP_CREATENOW: EMBDHLP_FLAGS = EMBDHLP_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const EMBDHLP_DELAYCREATE: EMBDHLP_FLAGS = EMBDHLP_FLAGS(65536u32);
 impl ::core::marker::Copy for EMBDHLP_FLAGS {}
 impl ::core::clone::Clone for EMBDHLP_FLAGS {
     fn clone(&self) -> Self {
@@ -12621,22 +13595,6 @@ impl ::core::ops::Not for EMBDHLP_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_CONTROLS_WHICH_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const GCW_WCH_SIBLING: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const GC_WCH_CONTAINER: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const GC_WCH_CONTAINED: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const GC_WCH_ALL: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const GC_WCH_FREVERSEDIR: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(134217728u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const GC_WCH_FONLYAFTER: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const GC_WCH_FONLYBEFORE: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(536870912u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const GC_WCH_FSELECTED: ENUM_CONTROLS_WHICH_FLAGS = ENUM_CONTROLS_WHICH_FLAGS(1073741824u32);
 impl ::core::marker::Copy for ENUM_CONTROLS_WHICH_FLAGS {}
 impl ::core::clone::Clone for ENUM_CONTROLS_WHICH_FLAGS {
     fn clone(&self) -> Self {
@@ -12660,34 +13618,6 @@ impl ::core::fmt::Debug for ENUM_CONTROLS_WHICH_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FDEX_PROP_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanGet: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotGet: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanPut: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotPut: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanPutRef: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotPutRef: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropNoSideEffects: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropDynamicType: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanCall: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotCall: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanConstruct: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotConstruct: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCanSourceEvents: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const fdexPropCannotSourceEvents: FDEX_PROP_FLAGS = FDEX_PROP_FLAGS(8192u32);
 impl ::core::marker::Copy for FDEX_PROP_FLAGS {}
 impl ::core::clone::Clone for FDEX_PROP_FLAGS {
     fn clone(&self) -> Self {
@@ -12744,8 +13674,6 @@ impl ::core::ops::Not for FDEX_PROP_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GUIDKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const GUIDKIND_DEFAULT_SOURCE_DISP_IID: GUIDKIND = GUIDKIND(1i32);
 impl ::core::marker::Copy for GUIDKIND {}
 impl ::core::clone::Clone for GUIDKIND {
     fn clone(&self) -> Self {
@@ -12769,14 +13697,6 @@ impl ::core::fmt::Debug for GUIDKIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HITRESULT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const HITRESULT_OUTSIDE: HITRESULT = HITRESULT(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const HITRESULT_TRANSPARENT: HITRESULT = HITRESULT(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const HITRESULT_CLOSE: HITRESULT = HITRESULT(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const HITRESULT_HIT: HITRESULT = HITRESULT(3i32);
 impl ::core::marker::Copy for HITRESULT {}
 impl ::core::clone::Clone for HITRESULT {
     fn clone(&self) -> Self {
@@ -12800,10 +13720,6 @@ impl ::core::fmt::Debug for HITRESULT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IGNOREMIME(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IGNOREMIME_PROMPT: IGNOREMIME = IGNOREMIME(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IGNOREMIME_TEXT: IGNOREMIME = IGNOREMIME(2i32);
 impl ::core::marker::Copy for IGNOREMIME {}
 impl ::core::clone::Clone for IGNOREMIME {
     fn clone(&self) -> Self {
@@ -12827,34 +13743,6 @@ impl ::core::fmt::Debug for IGNOREMIME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INSERT_OBJECT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_SHOWHELP: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_SELECTCREATENEW: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_SELECTCREATEFROMFILE: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_CHECKLINK: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_CHECKDISPLAYASICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_CREATENEWOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_CREATEFILEOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_CREATELINKOBJECT: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_DISABLELINK: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_VERIFYSERVERSEXIST: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_DISABLEDISPLAYASICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_HIDECHANGEICON: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_SHOWINSERTCONTROL: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const IOF_SELECTCREATECONTROL: INSERT_OBJECT_FLAGS = INSERT_OBJECT_FLAGS(8192u32);
 impl ::core::marker::Copy for INSERT_OBJECT_FLAGS {}
 impl ::core::clone::Clone for INSERT_OBJECT_FLAGS {
     fn clone(&self) -> Self {
@@ -12911,12 +13799,6 @@ impl ::core::ops::Not for INSERT_OBJECT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KEYMODIFIERS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const KEYMOD_SHIFT: KEYMODIFIERS = KEYMODIFIERS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const KEYMOD_CONTROL: KEYMODIFIERS = KEYMODIFIERS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const KEYMOD_ALT: KEYMODIFIERS = KEYMODIFIERS(4u32);
 impl ::core::marker::Copy for KEYMODIFIERS {}
 impl ::core::clone::Clone for KEYMODIFIERS {
     fn clone(&self) -> Self {
@@ -12973,14 +13855,6 @@ impl ::core::ops::Not for KEYMODIFIERS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIBFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LIBFLAG_FRESTRICTED: LIBFLAGS = LIBFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LIBFLAG_FCONTROL: LIBFLAGS = LIBFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LIBFLAG_FHIDDEN: LIBFLAGS = LIBFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LIBFLAG_FHASDISKIMAGE: LIBFLAGS = LIBFLAGS(8i32);
 impl ::core::marker::Copy for LIBFLAGS {}
 impl ::core::clone::Clone for LIBFLAGS {
     fn clone(&self) -> Self {
@@ -13004,14 +13878,6 @@ impl ::core::fmt::Debug for LIBFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOAD_PICTURE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LP_DEFAULT: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LP_MONOCHROME: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LP_VGACOLOR: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const LP_COLOR: LOAD_PICTURE_FLAGS = LOAD_PICTURE_FLAGS(4u32);
 impl ::core::marker::Copy for LOAD_PICTURE_FLAGS {}
 impl ::core::clone::Clone for LOAD_PICTURE_FLAGS {
     fn clone(&self) -> Self {
@@ -13068,14 +13934,6 @@ impl ::core::ops::Not for LOAD_PICTURE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIAPLAYBACK_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const MEDIAPLAYBACK_RESUME: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const MEDIAPLAYBACK_PAUSE: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const MEDIAPLAYBACK_PAUSE_AND_SUSPEND: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const MEDIAPLAYBACK_RESUME_FROM_SUSPEND: MEDIAPLAYBACK_STATE = MEDIAPLAYBACK_STATE(3i32);
 impl ::core::marker::Copy for MEDIAPLAYBACK_STATE {}
 impl ::core::clone::Clone for MEDIAPLAYBACK_STATE {
     fn clone(&self) -> Self {
@@ -13099,14 +13957,6 @@ impl ::core::fmt::Debug for MEDIAPLAYBACK_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MULTICLASSINFO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const MULTICLASSINFO_GETTYPEINFO: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const MULTICLASSINFO_GETNUMRESERVEDDISPIDS: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const MULTICLASSINFO_GETIIDPRIMARY: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const MULTICLASSINFO_GETIIDSOURCE: MULTICLASSINFO_FLAGS = MULTICLASSINFO_FLAGS(8u32);
 impl ::core::marker::Copy for MULTICLASSINFO_FLAGS {}
 impl ::core::clone::Clone for MULTICLASSINFO_FLAGS {
     fn clone(&self) -> Self {
@@ -13130,38 +13980,6 @@ impl ::core::fmt::Debug for MULTICLASSINFO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NUMPARSE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_LEADING_WHITE: NUMPARSE_FLAGS = NUMPARSE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_TRAILING_WHITE: NUMPARSE_FLAGS = NUMPARSE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_LEADING_PLUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_TRAILING_PLUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_LEADING_MINUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_TRAILING_MINUS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_HEX_OCT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_PARENS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_DECIMAL: NUMPARSE_FLAGS = NUMPARSE_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_THOUSANDS: NUMPARSE_FLAGS = NUMPARSE_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_CURRENCY: NUMPARSE_FLAGS = NUMPARSE_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_EXPONENT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_USE_ALL: NUMPARSE_FLAGS = NUMPARSE_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_STD: NUMPARSE_FLAGS = NUMPARSE_FLAGS(8191u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_NEG: NUMPARSE_FLAGS = NUMPARSE_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const NUMPRS_INEXACT: NUMPARSE_FLAGS = NUMPARSE_FLAGS(131072u32);
 impl ::core::marker::Copy for NUMPARSE_FLAGS {}
 impl ::core::clone::Clone for NUMPARSE_FLAGS {
     fn clone(&self) -> Self {
@@ -13218,14 +14036,6 @@ impl ::core::ops::Not for NUMPARSE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBJECT_PROPERTIES_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OPF_OBJECTISLINK: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OPF_NOFILLDEFAULT: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OPF_SHOWHELP: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OPF_DISABLECONVERT: OBJECT_PROPERTIES_FLAGS = OBJECT_PROPERTIES_FLAGS(8u32);
 impl ::core::marker::Copy for OBJECT_PROPERTIES_FLAGS {}
 impl ::core::clone::Clone for OBJECT_PROPERTIES_FLAGS {
     fn clone(&self) -> Self {
@@ -13282,12 +14092,6 @@ impl ::core::ops::Not for OBJECT_PROPERTIES_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECLOSE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECLOSE_SAVEIFDIRTY: OLECLOSE = OLECLOSE(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECLOSE_NOSAVE: OLECLOSE = OLECLOSE(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECLOSE_PROMPTSAVE: OLECLOSE = OLECLOSE(2i32);
 impl ::core::marker::Copy for OLECLOSE {}
 impl ::core::clone::Clone for OLECLOSE {
     fn clone(&self) -> Self {
@@ -13311,14 +14115,6 @@ impl ::core::fmt::Debug for OLECLOSE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDEXECOPT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDEXECOPT_DODEFAULT: OLECMDEXECOPT = OLECMDEXECOPT(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDEXECOPT_PROMPTUSER: OLECMDEXECOPT = OLECMDEXECOPT(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDEXECOPT_DONTPROMPTUSER: OLECMDEXECOPT = OLECMDEXECOPT(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDEXECOPT_SHOWHELP: OLECMDEXECOPT = OLECMDEXECOPT(3i32);
 impl ::core::marker::Copy for OLECMDEXECOPT {}
 impl ::core::clone::Clone for OLECMDEXECOPT {
     fn clone(&self) -> Self {
@@ -13342,18 +14138,6 @@ impl ::core::fmt::Debug for OLECMDEXECOPT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDF(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDF_SUPPORTED: OLECMDF = OLECMDF(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDF_ENABLED: OLECMDF = OLECMDF(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDF_LATCHED: OLECMDF = OLECMDF(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDF_NINCHED: OLECMDF = OLECMDF(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDF_INVISIBLE: OLECMDF = OLECMDF(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDF_DEFHIDEONCTXTMENU: OLECMDF = OLECMDF(32i32);
 impl ::core::marker::Copy for OLECMDF {}
 impl ::core::clone::Clone for OLECMDF {
     fn clone(&self) -> Self {
@@ -13377,172 +14161,6 @@ impl ::core::fmt::Debug for OLECMDF {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_OPEN: OLECMDID = OLECMDID(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_NEW: OLECMDID = OLECMDID(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SAVE: OLECMDID = OLECMDID(3i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SAVEAS: OLECMDID = OLECMDID(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SAVECOPYAS: OLECMDID = OLECMDID(5i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PRINT: OLECMDID = OLECMDID(6i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PRINTPREVIEW: OLECMDID = OLECMDID(7i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PAGESETUP: OLECMDID = OLECMDID(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SPELL: OLECMDID = OLECMDID(9i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PROPERTIES: OLECMDID = OLECMDID(10i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_CUT: OLECMDID = OLECMDID(11i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_COPY: OLECMDID = OLECMDID(12i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PASTE: OLECMDID = OLECMDID(13i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PASTESPECIAL: OLECMDID = OLECMDID(14i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_UNDO: OLECMDID = OLECMDID(15i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_REDO: OLECMDID = OLECMDID(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SELECTALL: OLECMDID = OLECMDID(17i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_CLEARSELECTION: OLECMDID = OLECMDID(18i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_ZOOM: OLECMDID = OLECMDID(19i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_GETZOOMRANGE: OLECMDID = OLECMDID(20i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_UPDATECOMMANDS: OLECMDID = OLECMDID(21i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_REFRESH: OLECMDID = OLECMDID(22i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_STOP: OLECMDID = OLECMDID(23i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_HIDETOOLBARS: OLECMDID = OLECMDID(24i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SETPROGRESSMAX: OLECMDID = OLECMDID(25i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SETPROGRESSPOS: OLECMDID = OLECMDID(26i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SETPROGRESSTEXT: OLECMDID = OLECMDID(27i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SETTITLE: OLECMDID = OLECMDID(28i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SETDOWNLOADSTATE: OLECMDID = OLECMDID(29i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_STOPDOWNLOAD: OLECMDID = OLECMDID(30i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_ONTOOLBARACTIVATED: OLECMDID = OLECMDID(31i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_FIND: OLECMDID = OLECMDID(32i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_DELETE: OLECMDID = OLECMDID(33i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_HTTPEQUIV: OLECMDID = OLECMDID(34i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_HTTPEQUIV_DONE: OLECMDID = OLECMDID(35i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_ENABLE_INTERACTION: OLECMDID = OLECMDID(36i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_ONUNLOAD: OLECMDID = OLECMDID(37i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PROPERTYBAG2: OLECMDID = OLECMDID(38i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PREREFRESH: OLECMDID = OLECMDID(39i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SHOWSCRIPTERROR: OLECMDID = OLECMDID(40i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SHOWMESSAGE: OLECMDID = OLECMDID(41i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SHOWFIND: OLECMDID = OLECMDID(42i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SHOWPAGESETUP: OLECMDID = OLECMDID(43i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SHOWPRINT: OLECMDID = OLECMDID(44i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_CLOSE: OLECMDID = OLECMDID(45i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_ALLOWUILESSSAVEAS: OLECMDID = OLECMDID(46i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_DONTDOWNLOADCSS: OLECMDID = OLECMDID(47i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_UPDATEPAGESTATUS: OLECMDID = OLECMDID(48i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PRINT2: OLECMDID = OLECMDID(49i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PRINTPREVIEW2: OLECMDID = OLECMDID(50i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SETPRINTTEMPLATE: OLECMDID = OLECMDID(51i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_GETPRINTTEMPLATE: OLECMDID = OLECMDID(52i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PAGEACTIONBLOCKED: OLECMDID = OLECMDID(55i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PAGEACTIONUIQUERY: OLECMDID = OLECMDID(56i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_FOCUSVIEWCONTROLS: OLECMDID = OLECMDID(57i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_FOCUSVIEWCONTROLSQUERY: OLECMDID = OLECMDID(58i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SHOWPAGEACTIONMENU: OLECMDID = OLECMDID(59i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_ADDTRAVELENTRY: OLECMDID = OLECMDID(60i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_UPDATETRAVELENTRY: OLECMDID = OLECMDID(61i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_UPDATEBACKFORWARDSTATE: OLECMDID = OLECMDID(62i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_OPTICAL_ZOOM: OLECMDID = OLECMDID(63i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_OPTICAL_GETZOOMRANGE: OLECMDID = OLECMDID(64i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_WINDOWSTATECHANGED: OLECMDID = OLECMDID(65i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_ACTIVEXINSTALLSCOPE: OLECMDID = OLECMDID(66i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_UPDATETRAVELENTRY_DATARECOVERY: OLECMDID = OLECMDID(67i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SHOWTASKDLG: OLECMDID = OLECMDID(68i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_POPSTATEEVENT: OLECMDID = OLECMDID(69i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_VIEWPORT_MODE: OLECMDID = OLECMDID(70i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_LAYOUT_VIEWPORT_WIDTH: OLECMDID = OLECMDID(71i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_VISUAL_VIEWPORT_EXCLUDE_BOTTOM: OLECMDID = OLECMDID(72i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_USER_OPTICAL_ZOOM: OLECMDID = OLECMDID(73i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_PAGEAVAILABLE: OLECMDID = OLECMDID(74i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_GETUSERSCALABLE: OLECMDID = OLECMDID(75i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_UPDATE_CARET: OLECMDID = OLECMDID(76i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_ENABLE_VISIBILITY: OLECMDID = OLECMDID(77i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_MEDIA_PLAYBACK: OLECMDID = OLECMDID(78i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SETFAVICON: OLECMDID = OLECMDID(79i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SET_HOST_FULLSCREENMODE: OLECMDID = OLECMDID(80i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_EXITFULLSCREEN: OLECMDID = OLECMDID(81i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SCROLLCOMPLETE: OLECMDID = OLECMDID(82i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_ONBEFOREUNLOAD: OLECMDID = OLECMDID(83i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SHOWMESSAGE_BLOCKABLE: OLECMDID = OLECMDID(84i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDID_SHOWTASKDLG_BLOCKABLE: OLECMDID = OLECMDID(85i32);
 impl ::core::marker::Copy for OLECMDID {}
 impl ::core::clone::Clone for OLECMDID {
     fn clone(&self) -> Self {
@@ -13566,20 +14184,6 @@ impl ::core::fmt::Debug for OLECMDID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_BROWSERSTATEFLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_BROWSERSTATE_EXTENSIONSOFF: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_BROWSERSTATE_IESECURITY: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_BROWSERSTATE_PROTECTEDMODE_OFF: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_BROWSERSTATE_RESET: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_BROWSERSTATE_REQUIRESACTIVEX: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_BROWSERSTATE_DESKTOPHTMLDIALOG: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(32i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_BROWSERSTATE_BLOCKEDVERSION: OLECMDID_BROWSERSTATEFLAG = OLECMDID_BROWSERSTATEFLAG(64i32);
 impl ::core::marker::Copy for OLECMDID_BROWSERSTATEFLAG {}
 impl ::core::clone::Clone for OLECMDID_BROWSERSTATEFLAG {
     fn clone(&self) -> Self {
@@ -13603,14 +14207,6 @@ impl ::core::fmt::Debug for OLECMDID_BROWSERSTATEFLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_OPTICAL_ZOOMFLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_OPTICAL_ZOOM_NOPERSIST: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_OPTICAL_ZOOM_NOLAYOUT: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_OPTICAL_ZOOM_NOTRANSIENT: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(32i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_OPTICAL_ZOOM_RELOADFORNEWTAB: OLECMDID_OPTICAL_ZOOMFLAG = OLECMDID_OPTICAL_ZOOMFLAG(64i32);
 impl ::core::marker::Copy for OLECMDID_OPTICAL_ZOOMFLAG {}
 impl ::core::clone::Clone for OLECMDID_OPTICAL_ZOOMFLAG {
     fn clone(&self) -> Self {
@@ -13634,72 +14230,6 @@ impl ::core::fmt::Debug for OLECMDID_OPTICAL_ZOOMFLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_PAGEACTIONFLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_FILEDOWNLOAD: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_ACTIVEXINSTALL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_ACTIVEXTRUSTFAIL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_ACTIVEXUSERDISABLE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_ACTIVEXDISALLOW: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_ACTIVEXUNSAFE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(32i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_POPUPWINDOW: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(64i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_LOCALMACHINE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(128i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_MIMETEXTPLAIN: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(256i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(512i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXINSTALL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(512i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNLOCALMACHINE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1024i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNTRUSTED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2048i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTRANET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4096i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNINTERNET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8192i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNRESTRICTED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16384i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_PROTLOCKDOWNDENY: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(32768i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_POPUPALLOWED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(65536i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_SCRIPTPROMPT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(131072i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_ACTIVEXUSERAPPROVAL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(262144i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_MIXEDCONTENT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(524288i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_INVALID_CERT: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1048576i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_INTRANETZONEREQUEST: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(2097152i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_XSSFILTERED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(4194304i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_SPOOFABLEIDNHOST: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(8388608i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_ACTIVEX_EPM_INCOMPATIBLE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(16777216i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_SCRIPTNAVIGATE_ACTIVEXUSERAPPROVAL: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(33554432i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_WPCBLOCKED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(67108864i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_WPCBLOCKED_ACTIVEX: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(134217728i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_EXTENSION_COMPAT_BLOCKED: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(268435456i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_NORESETACTIVEX: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(536870912i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_GENERIC_STATE: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(1073741824i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_PAGEACTION_RESET: OLECMDID_PAGEACTIONFLAG = OLECMDID_PAGEACTIONFLAG(-2147483648i32);
 impl ::core::marker::Copy for OLECMDID_PAGEACTIONFLAG {}
 impl ::core::clone::Clone for OLECMDID_PAGEACTIONFLAG {
     fn clone(&self) -> Self {
@@ -13723,52 +14253,6 @@ impl ::core::fmt::Debug for OLECMDID_PAGEACTIONFLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_REFRESHFLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_NORMAL: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_IFEXPIRED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_CONTINUE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_COMPLETELY: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(3i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_NO_CACHE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_RELOAD: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(5i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_LEVELMASK: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(255i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_CLEARUSERINPUT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4096i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PROMPTIFOFFLINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(8192i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_THROUGHSCRIPT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(16384i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_SKIPBEFOREUNLOADEVENT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(32768i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_ACTIVEXINSTALL: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(65536i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_FILEDOWNLOAD: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(131072i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_LOCALMACHINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(262144i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_POPUPWINDOW: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(524288i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNLOCALMACHINE: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(1048576i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNTRUSTED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(2097152i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTRANET: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(4194304i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNINTERNET: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(8388608i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_PROTLOCKDOWNRESTRICTED: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(16777216i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_MIXEDCONTENT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(33554432i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_INVALID_CERT: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(67108864i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_REFRESH_PAGEACTION_ALLOW_VERSION: OLECMDID_REFRESHFLAG = OLECMDID_REFRESHFLAG(134217728i32);
 impl ::core::marker::Copy for OLECMDID_REFRESHFLAG {}
 impl ::core::clone::Clone for OLECMDID_REFRESHFLAG {
     fn clone(&self) -> Self {
@@ -13792,14 +14276,6 @@ impl ::core::fmt::Debug for OLECMDID_REFRESHFLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_VIEWPORT_MODE_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_VIEWPORTMODE_FIXED_LAYOUT_WIDTH_VALID: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(65536i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_VIEWPORTMODE_EXCLUDE_VISUAL_BOTTOM_VALID: OLECMDID_VIEWPORT_MODE_FLAG = OLECMDID_VIEWPORT_MODE_FLAG(131072i32);
 impl ::core::marker::Copy for OLECMDID_VIEWPORT_MODE_FLAG {}
 impl ::core::clone::Clone for OLECMDID_VIEWPORT_MODE_FLAG {
     fn clone(&self) -> Self {
@@ -13823,14 +14299,6 @@ impl ::core::fmt::Debug for OLECMDID_VIEWPORT_MODE_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDID_WINDOWSTATE_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_WINDOWSTATE_USERVISIBLE: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_WINDOWSTATE_ENABLED: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_WINDOWSTATE_USERVISIBLE_VALID: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(65536i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDIDF_WINDOWSTATE_ENABLED_VALID: OLECMDID_WINDOWSTATE_FLAG = OLECMDID_WINDOWSTATE_FLAG(131072i32);
 impl ::core::marker::Copy for OLECMDID_WINDOWSTATE_FLAG {}
 impl ::core::clone::Clone for OLECMDID_WINDOWSTATE_FLAG {
     fn clone(&self) -> Self {
@@ -13854,12 +14322,6 @@ impl ::core::fmt::Debug for OLECMDID_WINDOWSTATE_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECMDTEXTF(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDTEXTF_NONE: OLECMDTEXTF = OLECMDTEXTF(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDTEXTF_NAME: OLECMDTEXTF = OLECMDTEXTF(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECMDTEXTF_STATUS: OLECMDTEXTF = OLECMDTEXTF(2i32);
 impl ::core::marker::Copy for OLECMDTEXTF {}
 impl ::core::clone::Clone for OLECMDTEXTF {
     fn clone(&self) -> Self {
@@ -13883,16 +14345,6 @@ impl ::core::fmt::Debug for OLECMDTEXTF {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECONTF(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECONTF_EMBEDDINGS: OLECONTF = OLECONTF(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECONTF_LINKS: OLECONTF = OLECONTF(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECONTF_OTHERS: OLECONTF = OLECONTF(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECONTF_ONLYUSER: OLECONTF = OLECONTF(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECONTF_ONLYIFRUNNING: OLECONTF = OLECONTF(16i32);
 impl ::core::marker::Copy for OLECONTF {}
 impl ::core::clone::Clone for OLECONTF {
     fn clone(&self) -> Self {
@@ -13916,10 +14368,6 @@ impl ::core::fmt::Debug for OLECONTF {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLECREATE(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECREATE_ZERO: OLECREATE = OLECREATE(0u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLECREATE_LEAVERUNNING: OLECREATE = OLECREATE(1u32);
 impl ::core::marker::Copy for OLECREATE {}
 impl ::core::clone::Clone for OLECREATE {
     fn clone(&self) -> Self {
@@ -13943,12 +14391,6 @@ impl ::core::fmt::Debug for OLECREATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEDCFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEDC_NODRAW: OLEDCFLAGS = OLEDCFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEDC_PAINTBKGND: OLEDCFLAGS = OLEDCFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEDC_OFFSCREEN: OLEDCFLAGS = OLEDCFLAGS(4i32);
 impl ::core::marker::Copy for OLEDCFLAGS {}
 impl ::core::clone::Clone for OLEDCFLAGS {
     fn clone(&self) -> Self {
@@ -13972,14 +14414,6 @@ impl ::core::fmt::Debug for OLEDCFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEGETMONIKER(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEGETMONIKER_ONLYIFTHERE: OLEGETMONIKER = OLEGETMONIKER(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEGETMONIKER_FORCEASSIGN: OLEGETMONIKER = OLEGETMONIKER(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEGETMONIKER_UNASSIGN: OLEGETMONIKER = OLEGETMONIKER(3i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEGETMONIKER_TEMPFORUSER: OLEGETMONIKER = OLEGETMONIKER(4i32);
 impl ::core::marker::Copy for OLEGETMONIKER {}
 impl ::core::clone::Clone for OLEGETMONIKER {
     fn clone(&self) -> Self {
@@ -14003,20 +14437,6 @@ impl ::core::fmt::Debug for OLEGETMONIKER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEIVERB(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_PRIMARY: OLEIVERB = OLEIVERB(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_SHOW: OLEIVERB = OLEIVERB(-1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_OPEN: OLEIVERB = OLEIVERB(-2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_HIDE: OLEIVERB = OLEIVERB(-3i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_UIACTIVATE: OLEIVERB = OLEIVERB(-4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_INPLACEACTIVATE: OLEIVERB = OLEIVERB(-5i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEIVERB_DISCARDUNDOSTATE: OLEIVERB = OLEIVERB(-6i32);
 impl ::core::marker::Copy for OLEIVERB {}
 impl ::core::clone::Clone for OLEIVERB {
     fn clone(&self) -> Self {
@@ -14040,8 +14460,6 @@ impl ::core::fmt::Debug for OLEIVERB {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLELINKBIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLELINKBIND_EVENIFCLASSDIFF: OLELINKBIND = OLELINKBIND(1i32);
 impl ::core::marker::Copy for OLELINKBIND {}
 impl ::core::clone::Clone for OLELINKBIND {
     fn clone(&self) -> Self {
@@ -14065,50 +14483,6 @@ impl ::core::fmt::Debug for OLELINKBIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEMISC(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_RECOMPOSEONRESIZE: OLEMISC = OLEMISC(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_ONLYICONIC: OLEMISC = OLEMISC(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_INSERTNOTREPLACE: OLEMISC = OLEMISC(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_STATIC: OLEMISC = OLEMISC(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_CANTLINKINSIDE: OLEMISC = OLEMISC(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_CANLINKBYOLE1: OLEMISC = OLEMISC(32i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_ISLINKOBJECT: OLEMISC = OLEMISC(64i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_INSIDEOUT: OLEMISC = OLEMISC(128i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_ACTIVATEWHENVISIBLE: OLEMISC = OLEMISC(256i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_RENDERINGISDEVICEINDEPENDENT: OLEMISC = OLEMISC(512i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_INVISIBLEATRUNTIME: OLEMISC = OLEMISC(1024i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_ALWAYSRUN: OLEMISC = OLEMISC(2048i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_ACTSLIKEBUTTON: OLEMISC = OLEMISC(4096i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_ACTSLIKELABEL: OLEMISC = OLEMISC(8192i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_NOUIACTIVATE: OLEMISC = OLEMISC(16384i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_ALIGNABLE: OLEMISC = OLEMISC(32768i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_SIMPLEFRAME: OLEMISC = OLEMISC(65536i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_SETCLIENTSITEFIRST: OLEMISC = OLEMISC(131072i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_IMEMODE: OLEMISC = OLEMISC(262144i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_IGNOREACTIVATEWHENVISIBLE: OLEMISC = OLEMISC(524288i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_WANTSTOMENUMERGE: OLEMISC = OLEMISC(1048576i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEMISC_SUPPORTSMULTILEVELUNDO: OLEMISC = OLEMISC(2097152i32);
 impl ::core::marker::Copy for OLEMISC {}
 impl ::core::clone::Clone for OLEMISC {
     fn clone(&self) -> Self {
@@ -14132,14 +14506,6 @@ impl ::core::fmt::Debug for OLEMISC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLERENDER(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLERENDER_NONE: OLERENDER = OLERENDER(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLERENDER_DRAW: OLERENDER = OLERENDER(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLERENDER_FORMAT: OLERENDER = OLERENDER(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLERENDER_ASIS: OLERENDER = OLERENDER(3i32);
 impl ::core::marker::Copy for OLERENDER {}
 impl ::core::clone::Clone for OLERENDER {
     fn clone(&self) -> Self {
@@ -14163,30 +14529,6 @@ impl ::core::fmt::Debug for OLERENDER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEUIPASTEFLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_ENABLEICON: OLEUIPASTEFLAG = OLEUIPASTEFLAG(2048i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_PASTEONLY: OLEUIPASTEFLAG = OLEUIPASTEFLAG(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_PASTE: OLEUIPASTEFLAG = OLEUIPASTEFLAG(512i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_LINKANYTYPE: OLEUIPASTEFLAG = OLEUIPASTEFLAG(1024i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_LINKTYPE1: OLEUIPASTEFLAG = OLEUIPASTEFLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_LINKTYPE2: OLEUIPASTEFLAG = OLEUIPASTEFLAG(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_LINKTYPE3: OLEUIPASTEFLAG = OLEUIPASTEFLAG(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_LINKTYPE4: OLEUIPASTEFLAG = OLEUIPASTEFLAG(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_LINKTYPE5: OLEUIPASTEFLAG = OLEUIPASTEFLAG(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_LINKTYPE6: OLEUIPASTEFLAG = OLEUIPASTEFLAG(32i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_LINKTYPE7: OLEUIPASTEFLAG = OLEUIPASTEFLAG(64i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUIPASTE_LINKTYPE8: OLEUIPASTEFLAG = OLEUIPASTEFLAG(128i32);
 impl ::core::marker::Copy for OLEUIPASTEFLAG {}
 impl ::core::clone::Clone for OLEUIPASTEFLAG {
     fn clone(&self) -> Self {
@@ -14210,10 +14552,6 @@ impl ::core::fmt::Debug for OLEUIPASTEFLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEUPDATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUPDATE_ALWAYS: OLEUPDATE = OLEUPDATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEUPDATE_ONCALL: OLEUPDATE = OLEUPDATE(3i32);
 impl ::core::marker::Copy for OLEUPDATE {}
 impl ::core::clone::Clone for OLEUPDATE {
     fn clone(&self) -> Self {
@@ -14237,10 +14575,6 @@ impl ::core::fmt::Debug for OLEUPDATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEVERBATTRIB(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEVERBATTRIB_NEVERDIRTIES: OLEVERBATTRIB = OLEVERBATTRIB(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEVERBATTRIB_ONCONTAINERMENU: OLEVERBATTRIB = OLEVERBATTRIB(2i32);
 impl ::core::marker::Copy for OLEVERBATTRIB {}
 impl ::core::clone::Clone for OLEVERBATTRIB {
     fn clone(&self) -> Self {
@@ -14264,12 +14598,6 @@ impl ::core::fmt::Debug for OLEVERBATTRIB {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLEWHICHMK(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEWHICHMK_CONTAINER: OLEWHICHMK = OLEWHICHMK(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEWHICHMK_OBJREL: OLEWHICHMK = OLEWHICHMK(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const OLEWHICHMK_OBJFULL: OLEWHICHMK = OLEWHICHMK(3i32);
 impl ::core::marker::Copy for OLEWHICHMK {}
 impl ::core::clone::Clone for OLEWHICHMK {
     fn clone(&self) -> Self {
@@ -14293,12 +14621,6 @@ impl ::core::fmt::Debug for OLEWHICHMK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OLE_TRISTATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const triUnchecked: OLE_TRISTATE = OLE_TRISTATE(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const triChecked: OLE_TRISTATE = OLE_TRISTATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const triGray: OLE_TRISTATE = OLE_TRISTATE(2i32);
 impl ::core::marker::Copy for OLE_TRISTATE {}
 impl ::core::clone::Clone for OLE_TRISTATE {
     fn clone(&self) -> Self {
@@ -14322,14 +14644,6 @@ impl ::core::fmt::Debug for OLE_TRISTATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAGEACTION_UI(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PAGEACTION_UI_DEFAULT: PAGEACTION_UI = PAGEACTION_UI(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PAGEACTION_UI_MODAL: PAGEACTION_UI = PAGEACTION_UI(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = PAGEACTION_UI(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = PAGEACTION_UI(3i32);
 impl ::core::marker::Copy for PAGEACTION_UI {}
 impl ::core::clone::Clone for PAGEACTION_UI {
     fn clone(&self) -> Self {
@@ -14353,22 +14667,6 @@ impl ::core::fmt::Debug for PAGEACTION_UI {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARAMFLAGS(pub u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_NONE: PARAMFLAGS = PARAMFLAGS(0u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FIN: PARAMFLAGS = PARAMFLAGS(1u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FOUT: PARAMFLAGS = PARAMFLAGS(2u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FLCID: PARAMFLAGS = PARAMFLAGS(4u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FRETVAL: PARAMFLAGS = PARAMFLAGS(8u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FOPT: PARAMFLAGS = PARAMFLAGS(16u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FHASDEFAULT: PARAMFLAGS = PARAMFLAGS(32u16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PARAMFLAG_FHASCUSTDATA: PARAMFLAGS = PARAMFLAGS(64u16);
 impl ::core::marker::Copy for PARAMFLAGS {}
 impl ::core::clone::Clone for PARAMFLAGS {
     fn clone(&self) -> Self {
@@ -14425,22 +14723,6 @@ impl ::core::ops::Not for PARAMFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PASTE_SPECIAL_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_SHOWHELP: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_SELECTPASTE: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_SELECTPASTELINK: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_CHECKDISPLAYASICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_DISABLEDISPLAYASICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_HIDECHANGEICON: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_STAYONCLIPBOARDCHANGE: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PSF_NOREFRESHDATAOBJECT: PASTE_SPECIAL_FLAGS = PASTE_SPECIAL_FLAGS(128u32);
 impl ::core::marker::Copy for PASTE_SPECIAL_FLAGS {}
 impl ::core::clone::Clone for PASTE_SPECIAL_FLAGS {
     fn clone(&self) -> Self {
@@ -14497,10 +14779,6 @@ impl ::core::ops::Not for PASTE_SPECIAL_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PICTUREATTRIBUTES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTURE_SCALABLE: PICTUREATTRIBUTES = PICTUREATTRIBUTES(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTURE_TRANSPARENT: PICTUREATTRIBUTES = PICTUREATTRIBUTES(2i32);
 impl ::core::marker::Copy for PICTUREATTRIBUTES {}
 impl ::core::clone::Clone for PICTUREATTRIBUTES {
     fn clone(&self) -> Self {
@@ -14524,18 +14802,6 @@ impl ::core::fmt::Debug for PICTUREATTRIBUTES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PICTYPE(pub i16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_UNINITIALIZED: PICTYPE = PICTYPE(-1i16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_NONE: PICTYPE = PICTYPE(0i16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_BITMAP: PICTYPE = PICTYPE(1i16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_METAFILE: PICTYPE = PICTYPE(2i16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_ICON: PICTYPE = PICTYPE(3i16);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PICTYPE_ENHMETAFILE: PICTYPE = PICTYPE(4i16);
 impl ::core::marker::Copy for PICTYPE {}
 impl ::core::clone::Clone for PICTYPE {
     fn clone(&self) -> Self {
@@ -14559,12 +14825,6 @@ impl ::core::fmt::Debug for PICTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTERINACTIVE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const POINTERINACTIVE_ACTIVATEONENTRY: POINTERINACTIVE = POINTERINACTIVE(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const POINTERINACTIVE_DEACTIVATEONLEAVE: POINTERINACTIVE = POINTERINACTIVE(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const POINTERINACTIVE_ACTIVATEONDRAG: POINTERINACTIVE = POINTERINACTIVE(4i32);
 impl ::core::marker::Copy for POINTERINACTIVE {}
 impl ::core::clone::Clone for POINTERINACTIVE {
     fn clone(&self) -> Self {
@@ -14588,20 +14848,6 @@ impl ::core::fmt::Debug for POINTERINACTIVE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRINTFLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_MAYBOTHERUSER: PRINTFLAG = PRINTFLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_PROMPTUSER: PRINTFLAG = PRINTFLAG(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_USERMAYCHANGEPRINTER: PRINTFLAG = PRINTFLAG(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_RECOMPOSETODEVICE: PRINTFLAG = PRINTFLAG(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_DONTACTUALLYPRINT: PRINTFLAG = PRINTFLAG(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_FORCEPROPERTIES: PRINTFLAG = PRINTFLAG(32i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PRINTFLAG_PRINTTOFILE: PRINTFLAG = PRINTFLAG(64i32);
 impl ::core::marker::Copy for PRINTFLAG {}
 impl ::core::clone::Clone for PRINTFLAG {
     fn clone(&self) -> Self {
@@ -14658,20 +14904,6 @@ impl ::core::ops::Not for PRINTFLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPBAG2_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PROPBAG2_TYPE_UNDEFINED: PROPBAG2_TYPE = PROPBAG2_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PROPBAG2_TYPE_DATA: PROPBAG2_TYPE = PROPBAG2_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PROPBAG2_TYPE_URL: PROPBAG2_TYPE = PROPBAG2_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PROPBAG2_TYPE_OBJECT: PROPBAG2_TYPE = PROPBAG2_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PROPBAG2_TYPE_STREAM: PROPBAG2_TYPE = PROPBAG2_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PROPBAG2_TYPE_STORAGE: PROPBAG2_TYPE = PROPBAG2_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PROPBAG2_TYPE_MONIKER: PROPBAG2_TYPE = PROPBAG2_TYPE(6i32);
 impl ::core::marker::Copy for PROPBAG2_TYPE {}
 impl ::core::clone::Clone for PROPBAG2_TYPE {
     fn clone(&self) -> Self {
@@ -14695,12 +14927,6 @@ impl ::core::fmt::Debug for PROPBAG2_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPPAGESTATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PROPPAGESTATUS_DIRTY: PROPPAGESTATUS = PROPPAGESTATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PROPPAGESTATUS_VALIDATE: PROPPAGESTATUS = PROPPAGESTATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const PROPPAGESTATUS_CLEAN: PROPPAGESTATUS = PROPPAGESTATUS(4i32);
 impl ::core::marker::Copy for PROPPAGESTATUS {}
 impl ::core::clone::Clone for PROPPAGESTATUS {
     fn clone(&self) -> Self {
@@ -14724,22 +14950,6 @@ impl ::core::fmt::Debug for PROPPAGESTATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QACONTAINERFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const QACONTAINER_SHOWHATCHING: QACONTAINERFLAGS = QACONTAINERFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const QACONTAINER_SHOWGRABHANDLES: QACONTAINERFLAGS = QACONTAINERFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const QACONTAINER_USERMODE: QACONTAINERFLAGS = QACONTAINERFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const QACONTAINER_DISPLAYASDEFAULT: QACONTAINERFLAGS = QACONTAINERFLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const QACONTAINER_UIDEAD: QACONTAINERFLAGS = QACONTAINERFLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const QACONTAINER_AUTOCLIP: QACONTAINERFLAGS = QACONTAINERFLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const QACONTAINER_MESSAGEREFLECT: QACONTAINERFLAGS = QACONTAINERFLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const QACONTAINER_SUPPORTSMNEMONICS: QACONTAINERFLAGS = QACONTAINERFLAGS(128i32);
 impl ::core::marker::Copy for QACONTAINERFLAGS {}
 impl ::core::clone::Clone for QACONTAINERFLAGS {
     fn clone(&self) -> Self {
@@ -14763,16 +14973,6 @@ impl ::core::fmt::Debug for QACONTAINERFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct READYSTATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const READYSTATE_UNINITIALIZED: READYSTATE = READYSTATE(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const READYSTATE_LOADING: READYSTATE = READYSTATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const READYSTATE_LOADED: READYSTATE = READYSTATE(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const READYSTATE_INTERACTIVE: READYSTATE = READYSTATE(3i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const READYSTATE_COMPLETE: READYSTATE = READYSTATE(4i32);
 impl ::core::marker::Copy for READYSTATE {}
 impl ::core::clone::Clone for READYSTATE {
     fn clone(&self) -> Self {
@@ -14796,12 +14996,6 @@ impl ::core::fmt::Debug for READYSTATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REGKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const REGKIND_DEFAULT: REGKIND = REGKIND(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const REGKIND_REGISTER: REGKIND = REGKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const REGKIND_NONE: REGKIND = REGKIND(2i32);
 impl ::core::marker::Copy for REGKIND {}
 impl ::core::clone::Clone for REGKIND {
     fn clone(&self) -> Self {
@@ -14825,28 +15019,6 @@ impl ::core::fmt::Debug for REGKIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SF_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SF_ERROR: SF_TYPE = SF_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SF_I1: SF_TYPE = SF_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SF_I2: SF_TYPE = SF_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SF_I4: SF_TYPE = SF_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SF_I8: SF_TYPE = SF_TYPE(20i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SF_BSTR: SF_TYPE = SF_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SF_UNKNOWN: SF_TYPE = SF_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SF_DISPATCH: SF_TYPE = SF_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SF_VARIANT: SF_TYPE = SF_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SF_RECORD: SF_TYPE = SF_TYPE(36i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const SF_HAVEIID: SF_TYPE = SF_TYPE(32781i32);
 impl ::core::marker::Copy for SF_TYPE {}
 impl ::core::clone::Clone for SF_TYPE {
     fn clone(&self) -> Self {
@@ -14870,36 +15042,6 @@ impl ::core::fmt::Debug for SF_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TYPEFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FAPPOBJECT: TYPEFLAGS = TYPEFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FCANCREATE: TYPEFLAGS = TYPEFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FLICENSED: TYPEFLAGS = TYPEFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FPREDECLID: TYPEFLAGS = TYPEFLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FHIDDEN: TYPEFLAGS = TYPEFLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FCONTROL: TYPEFLAGS = TYPEFLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FDUAL: TYPEFLAGS = TYPEFLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FNONEXTENSIBLE: TYPEFLAGS = TYPEFLAGS(128i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FOLEAUTOMATION: TYPEFLAGS = TYPEFLAGS(256i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FRESTRICTED: TYPEFLAGS = TYPEFLAGS(512i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FAGGREGATABLE: TYPEFLAGS = TYPEFLAGS(1024i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FREPLACEABLE: TYPEFLAGS = TYPEFLAGS(2048i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FDISPATCHABLE: TYPEFLAGS = TYPEFLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FREVERSEBIND: TYPEFLAGS = TYPEFLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const TYPEFLAG_FPROXY: TYPEFLAGS = TYPEFLAGS(16384i32);
 impl ::core::marker::Copy for TYPEFLAGS {}
 impl ::core::clone::Clone for TYPEFLAGS {
     fn clone(&self) -> Self {
@@ -14923,14 +15065,6 @@ impl ::core::fmt::Debug for TYPEFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UASFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UAS_NORMAL: UASFLAGS = UASFLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UAS_BLOCKED: UASFLAGS = UASFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UAS_NOPARENTENABLE: UASFLAGS = UASFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UAS_MASK: UASFLAGS = UASFLAGS(3i32);
 impl ::core::marker::Copy for UASFLAGS {}
 impl ::core::clone::Clone for UASFLAGS {
     fn clone(&self) -> Self {
@@ -14954,24 +15088,6 @@ impl ::core::fmt::Debug for UASFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_CONVERT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_SHOWHELPBUTTON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_SETCONVERTDEFAULT: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_SETACTIVATEDEFAULT: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_SELECTCONVERTTO: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_SELECTACTIVATEAS: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_DISABLEDISPLAYASICON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_DISABLEACTIVATEAS: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_HIDECHANGEICON: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const CF_CONVERTONLY: UI_CONVERT_FLAGS = UI_CONVERT_FLAGS(256u32);
 impl ::core::marker::Copy for UI_CONVERT_FLAGS {}
 impl ::core::clone::Clone for UI_CONVERT_FLAGS {
     fn clone(&self) -> Self {
@@ -15028,24 +15144,6 @@ impl ::core::ops::Not for UI_CONVERT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UPDFCACHE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UPDFCACHE_ALL: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483647u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UPDFCACHE_ALLBUTNODATACACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483646u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UPDFCACHE_NORMALCACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UPDFCACHE_IFBLANK: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UPDFCACHE_ONLYIFBLANK: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UPDFCACHE_NODATACACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UPDFCACHE_ONSAVECACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UPDFCACHE_ONSTOPCACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const UPDFCACHE_IFBLANKORONSAVECACHE: UPDFCACHE_FLAGS = UPDFCACHE_FLAGS(18u32);
 impl ::core::marker::Copy for UPDFCACHE_FLAGS {}
 impl ::core::clone::Clone for UPDFCACHE_FLAGS {
     fn clone(&self) -> Self {
@@ -15102,12 +15200,6 @@ impl ::core::ops::Not for UPDFCACHE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USERCLASSTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const USERCLASSTYPE_FULL: USERCLASSTYPE = USERCLASSTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const USERCLASSTYPE_SHORT: USERCLASSTYPE = USERCLASSTYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const USERCLASSTYPE_APPNAME: USERCLASSTYPE = USERCLASSTYPE(3i32);
 impl ::core::marker::Copy for USERCLASSTYPE {}
 impl ::core::clone::Clone for USERCLASSTYPE {
     fn clone(&self) -> Self {
@@ -15131,14 +15223,6 @@ impl ::core::fmt::Debug for USERCLASSTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARCMP(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARCMP_LT: VARCMP = VARCMP(0u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARCMP_EQ: VARCMP = VARCMP(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARCMP_GT: VARCMP = VARCMP(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARCMP_NULL: VARCMP = VARCMP(3u32);
 impl ::core::marker::Copy for VARCMP {}
 impl ::core::clone::Clone for VARCMP {
     fn clone(&self) -> Self {
@@ -15162,22 +15246,6 @@ impl ::core::fmt::Debug for VARCMP {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARFORMAT_FIRST_DAY(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_DAY_SYSTEMDEFAULT: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_DAY_MONDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_DAY_TUESDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_DAY_WEDNESDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(3i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_DAY_THURSDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_DAY_FRIDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(5i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_DAY_SATURDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(6i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_DAY_SUNDAY: VARFORMAT_FIRST_DAY = VARFORMAT_FIRST_DAY(7i32);
 impl ::core::marker::Copy for VARFORMAT_FIRST_DAY {}
 impl ::core::clone::Clone for VARFORMAT_FIRST_DAY {
     fn clone(&self) -> Self {
@@ -15201,14 +15269,6 @@ impl ::core::fmt::Debug for VARFORMAT_FIRST_DAY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARFORMAT_FIRST_WEEK(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_WEEK_SYSTEMDEFAULT: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_WEEK_CONTAINS_JANUARY_FIRST: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_WEEK_LARGER_HALF_IN_CURRENT_YEAR: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_FIRST_WEEK_HAS_SEVEN_DAYS: VARFORMAT_FIRST_WEEK = VARFORMAT_FIRST_WEEK(3i32);
 impl ::core::marker::Copy for VARFORMAT_FIRST_WEEK {}
 impl ::core::clone::Clone for VARFORMAT_FIRST_WEEK {
     fn clone(&self) -> Self {
@@ -15232,12 +15292,6 @@ impl ::core::fmt::Debug for VARFORMAT_FIRST_WEEK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARFORMAT_GROUP(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_GROUP_SYSTEMDEFAULT: VARFORMAT_GROUP = VARFORMAT_GROUP(-2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_GROUP_THOUSANDS: VARFORMAT_GROUP = VARFORMAT_GROUP(-1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_GROUP_NOTTHOUSANDS: VARFORMAT_GROUP = VARFORMAT_GROUP(0i32);
 impl ::core::marker::Copy for VARFORMAT_GROUP {}
 impl ::core::clone::Clone for VARFORMAT_GROUP {
     fn clone(&self) -> Self {
@@ -15261,12 +15315,6 @@ impl ::core::fmt::Debug for VARFORMAT_GROUP {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARFORMAT_LEADING_DIGIT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_LEADING_DIGIT_SYSTEMDEFAULT: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(-2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_LEADING_DIGIT_INCLUDED: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(-1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_LEADING_DIGIT_NOTINCLUDED: VARFORMAT_LEADING_DIGIT = VARFORMAT_LEADING_DIGIT(0i32);
 impl ::core::marker::Copy for VARFORMAT_LEADING_DIGIT {}
 impl ::core::clone::Clone for VARFORMAT_LEADING_DIGIT {
     fn clone(&self) -> Self {
@@ -15290,16 +15338,6 @@ impl ::core::fmt::Debug for VARFORMAT_LEADING_DIGIT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARFORMAT_NAMED_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_NAMED_FORMAT_GENERALDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_NAMED_FORMAT_LONGDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_NAMED_FORMAT_SHORTDATE: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_NAMED_FORMAT_LONGTIME: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(3i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_NAMED_FORMAT_SHORTTIME: VARFORMAT_NAMED_FORMAT = VARFORMAT_NAMED_FORMAT(4i32);
 impl ::core::marker::Copy for VARFORMAT_NAMED_FORMAT {}
 impl ::core::clone::Clone for VARFORMAT_NAMED_FORMAT {
     fn clone(&self) -> Self {
@@ -15323,12 +15361,6 @@ impl ::core::fmt::Debug for VARFORMAT_NAMED_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARFORMAT_PARENTHESES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_PARENTHESES_SYSTEMDEFAULT: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(-2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_PARENTHESES_USED: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(-1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VARFORMAT_PARENTHESES_NOTUSED: VARFORMAT_PARENTHESES = VARFORMAT_PARENTHESES(0i32);
 impl ::core::marker::Copy for VARFORMAT_PARENTHESES {}
 impl ::core::clone::Clone for VARFORMAT_PARENTHESES {
     fn clone(&self) -> Self {
@@ -15352,18 +15384,6 @@ impl ::core::fmt::Debug for VARFORMAT_PARENTHESES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIEWSTATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VIEWSTATUS_OPAQUE: VIEWSTATUS = VIEWSTATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VIEWSTATUS_SOLIDBKGND: VIEWSTATUS = VIEWSTATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VIEWSTATUS_DVASPECTOPAQUE: VIEWSTATUS = VIEWSTATUS(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VIEWSTATUS_DVASPECTTRANSPARENT: VIEWSTATUS = VIEWSTATUS(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VIEWSTATUS_SURFACE: VIEWSTATUS = VIEWSTATUS(16i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VIEWSTATUS_3DSURFACE: VIEWSTATUS = VIEWSTATUS(32i32);
 impl ::core::marker::Copy for VIEWSTATUS {}
 impl ::core::clone::Clone for VIEWSTATUS {
     fn clone(&self) -> Self {
@@ -15387,12 +15407,6 @@ impl ::core::fmt::Debug for VIEWSTATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIEW_OBJECT_PROPERTIES_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VPF_SELECTRELATIVE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VPF_DISABLERELATIVE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const VPF_DISABLESCALE: VIEW_OBJECT_PROPERTIES_FLAGS = VIEW_OBJECT_PROPERTIES_FLAGS(4u32);
 impl ::core::marker::Copy for VIEW_OBJECT_PROPERTIES_FLAGS {}
 impl ::core::clone::Clone for VIEW_OBJECT_PROPERTIES_FLAGS {
     fn clone(&self) -> Self {
@@ -15449,10 +15463,6 @@ impl ::core::ops::Not for VIEW_OBJECT_PROPERTIES_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPCSETTING(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const WPCSETTING_LOGGING_ENABLED: WPCSETTING = WPCSETTING(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const WPCSETTING_FILEDOWNLOAD_BLOCKED: WPCSETTING = WPCSETTING(2i32);
 impl ::core::marker::Copy for WPCSETTING {}
 impl ::core::clone::Clone for WPCSETTING {
     fn clone(&self) -> Self {
@@ -15476,16 +15486,6 @@ impl ::core::fmt::Debug for WPCSETTING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XFORMCOORDS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const XFORMCOORDS_POSITION: XFORMCOORDS = XFORMCOORDS(1i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const XFORMCOORDS_SIZE: XFORMCOORDS = XFORMCOORDS(2i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const XFORMCOORDS_HIMETRICTOCONTAINER: XFORMCOORDS = XFORMCOORDS(4i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const XFORMCOORDS_CONTAINERTOHIMETRIC: XFORMCOORDS = XFORMCOORDS(8i32);
-#[doc = "*Required features: `\"Win32_System_Ole\"`*"]
-pub const XFORMCOORDS_EVENTCOMPAT: XFORMCOORDS = XFORMCOORDS(16i32);
 impl ::core::marker::Copy for XFORMCOORDS {}
 impl ::core::clone::Clone for XFORMCOORDS {
     fn clone(&self) -> Self {

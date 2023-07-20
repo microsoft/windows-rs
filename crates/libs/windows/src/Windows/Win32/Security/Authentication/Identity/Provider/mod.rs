@@ -1058,7 +1058,29 @@ pub struct IIdentityStoreEx_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const CIdentityProfileHandler: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const CONNECTING: ACCOUNT_STATE = ACCOUNT_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const CONNECT_COMPLETED: ACCOUNT_STATE = ACCOUNT_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const CoClassIdentityStore: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30d49246_d217_465f_b00b_ac9ddd652eb7);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_CONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_CREATED: IdentityUpdateEvent = IdentityUpdateEvent(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_DELETED: IdentityUpdateEvent = IdentityUpdateEvent(16i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(128i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_IMPORTED: IdentityUpdateEvent = IdentityUpdateEvent(8i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_KEYWORD_ASSOCIATED: ::windows_core::PCWSTR = ::windows_core::w!("associated");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
@@ -1067,6 +1089,24 @@ pub const IDENTITY_KEYWORD_CONNECTED: ::windows_core::PCWSTR = ::windows_core::w
 pub const IDENTITY_KEYWORD_HOMEGROUP: ::windows_core::PCWSTR = ::windows_core::w!("homegroup");
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_KEYWORD_LOCAL: ::windows_core::PCWSTR = ::windows_core::w!("local");
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = IdentityUpdateEvent(32i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_URL_ACCOUNT_SETTINGS: IDENTITY_URL = IDENTITY_URL(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_URL_CHANGE_PASSWORD_WIZARD: IDENTITY_URL = IDENTITY_URL(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_URL_CONNECT_WIZARD: IDENTITY_URL = IDENTITY_URL(6i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = IDENTITY_URL(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_URL_IFEXISTS_WIZARD: IDENTITY_URL = IDENTITY_URL(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_URL_RESTORE_WIZARD: IDENTITY_URL = IDENTITY_URL(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const IDENTITY_URL_SIGN_IN_WIZARD: IDENTITY_URL = IDENTITY_URL(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
+pub const NOT_CONNECTED: ACCOUNT_STATE = ACCOUNT_STATE(0i32);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const OID_OAssociatedIdentityProviderObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61);
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
@@ -1087,12 +1127,6 @@ pub const STR_USER_NAME: ::windows_core::PCWSTR = ::windows_core::w!("Username")
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACCOUNT_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const NOT_CONNECTED: ACCOUNT_STATE = ACCOUNT_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const CONNECTING: ACCOUNT_STATE = ACCOUNT_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const CONNECT_COMPLETED: ACCOUNT_STATE = ACCOUNT_STATE(2i32);
 impl ::core::marker::Copy for ACCOUNT_STATE {}
 impl ::core::clone::Clone for ACCOUNT_STATE {
     fn clone(&self) -> Self {
@@ -1116,10 +1150,6 @@ impl ::core::fmt::Debug for ACCOUNT_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IDENTITY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
 impl ::core::marker::Copy for IDENTITY_TYPE {}
 impl ::core::clone::Clone for IDENTITY_TYPE {
     fn clone(&self) -> Self {
@@ -1143,20 +1173,6 @@ impl ::core::fmt::Debug for IDENTITY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IDENTITY_URL(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = IDENTITY_URL(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_URL_SIGN_IN_WIZARD: IDENTITY_URL = IDENTITY_URL(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_URL_CHANGE_PASSWORD_WIZARD: IDENTITY_URL = IDENTITY_URL(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_URL_IFEXISTS_WIZARD: IDENTITY_URL = IDENTITY_URL(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_URL_ACCOUNT_SETTINGS: IDENTITY_URL = IDENTITY_URL(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_URL_RESTORE_WIZARD: IDENTITY_URL = IDENTITY_URL(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_URL_CONNECT_WIZARD: IDENTITY_URL = IDENTITY_URL(6i32);
 impl ::core::marker::Copy for IDENTITY_URL {}
 impl ::core::clone::Clone for IDENTITY_URL {
     fn clone(&self) -> Self {
@@ -1180,22 +1196,6 @@ impl ::core::fmt::Debug for IDENTITY_URL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IdentityUpdateEvent(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_CREATED: IdentityUpdateEvent = IdentityUpdateEvent(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_IMPORTED: IdentityUpdateEvent = IdentityUpdateEvent(8i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_DELETED: IdentityUpdateEvent = IdentityUpdateEvent(16i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = IdentityUpdateEvent(32i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_CONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
-pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(128i32);
 impl ::core::marker::Copy for IdentityUpdateEvent {}
 impl ::core::clone::Clone for IdentityUpdateEvent {
     fn clone(&self) -> Self {

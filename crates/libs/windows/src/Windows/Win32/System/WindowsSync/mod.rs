@@ -4954,6 +4954,36 @@ pub struct ISynchronousDataRetriever_Vtbl {
     GetIdParameters: usize,
     pub LoadChangeData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ploadchangecontext: *mut ::core::ffi::c_void, ppunkdata: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CCR_COLLISION: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CCR_IDENTITY: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CCR_NOPARENT: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CCR_OTHER: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CRP_DESTINATION_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CRP_LAST: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CRP_NONE: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const CRP_SOURCE_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const FCT_INTERSECTION: FILTER_COMBINATION_TYPE = FILTER_COMBINATION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const FT_CURRENT_ITEMS_AND_VERSIONS_FOR_MOVED_OUT_ITEMS: FILTERING_TYPE = FILTERING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const FT_CURRENT_ITEMS_ONLY: FILTERING_TYPE = FILTERING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const KCCR_COOKIE_KNOWLEDGE_CONTAINED: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const KCCR_COOKIE_KNOWLEDGE_CONTAINS: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const KCCR_COOKIE_KNOWLEDGE_EQUAL: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const KCCR_COOKIE_KNOWLEDGE_NOT_COMPARABLE: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(3i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x554b24ea_e8e3_45ba_9352_dfb561e171e4), pid: 5 };
@@ -5031,7 +5061,63 @@ pub const SCC_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SCC_MODIFY_NOT_SUPPORTED: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SCRA_ACCEPT_DESTINATION_PROVIDER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SCRA_ACCEPT_SOURCE_PROVIDER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SCRA_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SCRA_MERGE: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(4i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SCRA_RENAME_DESTINATION: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(6i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SCRA_RENAME_SOURCE: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(5i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SCRA_TRANSFER_AND_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SFEA_ABORT: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SFEA_FULL_ENUMERATION: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SFEA_PARTIAL_SYNC: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SPC_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SPR_DESTINATION: SYNC_PROVIDER_ROLE = SYNC_PROVIDER_ROLE(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SPR_SOURCE: SYNC_PROVIDER_ROLE = SYNC_PROVIDER_ROLE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SPS_CHANGE_APPLICATION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SPS_CHANGE_DETECTION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SPS_CHANGE_ENUMERATION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRA_ACCEPT_DESTINATION_PROVIDER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRA_ACCEPT_SOURCE_PROVIDER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRA_DEFER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRA_LAST: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(5i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRA_MERGE: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRA_TRANSFER_AND_DEFER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(4i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRE_CONFIGUI_ADDED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRE_CONFIGUI_REMOVED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(5i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRE_CONFIGUI_UPDATED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(6i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRE_PROVIDER_ADDED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRE_PROVIDER_REMOVED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRE_PROVIDER_STATE_CHANGED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SRE_PROVIDER_UPDATED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(2i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_32_BIT_SUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
@@ -5059,7 +5145,15 @@ pub const SYNC_PROVIDER_STATE_DIRTY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_PROVIDER_STATE_ENABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_SERIALIZATION_VERSION_V1: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_SERIALIZATION_VERSION_V2: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(4i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_SERIALIZATION_VERSION_V3: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(5i32);
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
+pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = SYNC_STATISTICS(0i32);
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
@@ -5070,14 +5164,6 @@ pub const SyncProviderRegistration: ::windows_core::GUID = ::windows_core::GUID:
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONFLICT_RESOLUTION_POLICY(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CRP_NONE: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CRP_DESTINATION_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CRP_SOURCE_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CRP_LAST: CONFLICT_RESOLUTION_POLICY = CONFLICT_RESOLUTION_POLICY(3i32);
 impl ::core::marker::Copy for CONFLICT_RESOLUTION_POLICY {}
 impl ::core::clone::Clone for CONFLICT_RESOLUTION_POLICY {
     fn clone(&self) -> Self {
@@ -5101,14 +5187,6 @@ impl ::core::fmt::Debug for CONFLICT_RESOLUTION_POLICY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONSTRAINT_CONFLICT_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CCR_OTHER: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CCR_COLLISION: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CCR_NOPARENT: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const CCR_IDENTITY: CONSTRAINT_CONFLICT_REASON = CONSTRAINT_CONFLICT_REASON(3i32);
 impl ::core::marker::Copy for CONSTRAINT_CONFLICT_REASON {}
 impl ::core::clone::Clone for CONSTRAINT_CONFLICT_REASON {
     fn clone(&self) -> Self {
@@ -5132,10 +5210,6 @@ impl ::core::fmt::Debug for CONSTRAINT_CONFLICT_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILTERING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const FT_CURRENT_ITEMS_ONLY: FILTERING_TYPE = FILTERING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const FT_CURRENT_ITEMS_AND_VERSIONS_FOR_MOVED_OUT_ITEMS: FILTERING_TYPE = FILTERING_TYPE(1i32);
 impl ::core::marker::Copy for FILTERING_TYPE {}
 impl ::core::clone::Clone for FILTERING_TYPE {
     fn clone(&self) -> Self {
@@ -5159,8 +5233,6 @@ impl ::core::fmt::Debug for FILTERING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILTER_COMBINATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const FCT_INTERSECTION: FILTER_COMBINATION_TYPE = FILTER_COMBINATION_TYPE(0i32);
 impl ::core::marker::Copy for FILTER_COMBINATION_TYPE {}
 impl ::core::clone::Clone for FILTER_COMBINATION_TYPE {
     fn clone(&self) -> Self {
@@ -5184,14 +5256,6 @@ impl ::core::fmt::Debug for FILTER_COMBINATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KNOWLEDGE_COOKIE_COMPARISON_RESULT(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const KCCR_COOKIE_KNOWLEDGE_EQUAL: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const KCCR_COOKIE_KNOWLEDGE_CONTAINED: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const KCCR_COOKIE_KNOWLEDGE_CONTAINS: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const KCCR_COOKIE_KNOWLEDGE_NOT_COMPARABLE: KNOWLEDGE_COOKIE_COMPARISON_RESULT = KNOWLEDGE_COOKIE_COMPARISON_RESULT(3i32);
 impl ::core::marker::Copy for KNOWLEDGE_COOKIE_COMPARISON_RESULT {}
 impl ::core::clone::Clone for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
     fn clone(&self) -> Self {
@@ -5215,20 +5279,6 @@ impl ::core::fmt::Debug for KNOWLEDGE_COOKIE_COMPARISON_RESULT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_CONSTRAINT_RESOLVE_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SCRA_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SCRA_ACCEPT_DESTINATION_PROVIDER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SCRA_ACCEPT_SOURCE_PROVIDER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SCRA_TRANSFER_AND_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(3i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SCRA_MERGE: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(4i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SCRA_RENAME_SOURCE: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(5i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SCRA_RENAME_DESTINATION: SYNC_CONSTRAINT_RESOLVE_ACTION = SYNC_CONSTRAINT_RESOLVE_ACTION(6i32);
 impl ::core::marker::Copy for SYNC_CONSTRAINT_RESOLVE_ACTION {}
 impl ::core::clone::Clone for SYNC_CONSTRAINT_RESOLVE_ACTION {
     fn clone(&self) -> Self {
@@ -5252,12 +5302,6 @@ impl ::core::fmt::Debug for SYNC_CONSTRAINT_RESOLVE_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_FULL_ENUMERATION_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SFEA_FULL_ENUMERATION: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SFEA_PARTIAL_SYNC: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SFEA_ABORT: SYNC_FULL_ENUMERATION_ACTION = SYNC_FULL_ENUMERATION_ACTION(2i32);
 impl ::core::marker::Copy for SYNC_FULL_ENUMERATION_ACTION {}
 impl ::core::clone::Clone for SYNC_FULL_ENUMERATION_ACTION {
     fn clone(&self) -> Self {
@@ -5281,12 +5325,6 @@ impl ::core::fmt::Debug for SYNC_FULL_ENUMERATION_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_PROGRESS_STAGE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SPS_CHANGE_DETECTION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SPS_CHANGE_ENUMERATION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SPS_CHANGE_APPLICATION: SYNC_PROGRESS_STAGE = SYNC_PROGRESS_STAGE(2i32);
 impl ::core::marker::Copy for SYNC_PROGRESS_STAGE {}
 impl ::core::clone::Clone for SYNC_PROGRESS_STAGE {
     fn clone(&self) -> Self {
@@ -5310,10 +5348,6 @@ impl ::core::fmt::Debug for SYNC_PROGRESS_STAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_PROVIDER_ROLE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SPR_SOURCE: SYNC_PROVIDER_ROLE = SYNC_PROVIDER_ROLE(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SPR_DESTINATION: SYNC_PROVIDER_ROLE = SYNC_PROVIDER_ROLE(1i32);
 impl ::core::marker::Copy for SYNC_PROVIDER_ROLE {}
 impl ::core::clone::Clone for SYNC_PROVIDER_ROLE {
     fn clone(&self) -> Self {
@@ -5337,20 +5371,6 @@ impl ::core::fmt::Debug for SYNC_PROVIDER_ROLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_REGISTRATION_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRE_PROVIDER_ADDED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRE_PROVIDER_REMOVED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRE_PROVIDER_UPDATED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRE_PROVIDER_STATE_CHANGED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRE_CONFIGUI_ADDED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRE_CONFIGUI_REMOVED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(5i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRE_CONFIGUI_UPDATED: SYNC_REGISTRATION_EVENT = SYNC_REGISTRATION_EVENT(6i32);
 impl ::core::marker::Copy for SYNC_REGISTRATION_EVENT {}
 impl ::core::clone::Clone for SYNC_REGISTRATION_EVENT {
     fn clone(&self) -> Self {
@@ -5374,18 +5394,6 @@ impl ::core::fmt::Debug for SYNC_REGISTRATION_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_RESOLVE_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRA_DEFER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRA_ACCEPT_DESTINATION_PROVIDER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRA_ACCEPT_SOURCE_PROVIDER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRA_MERGE: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(3i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRA_TRANSFER_AND_DEFER: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(4i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SRA_LAST: SYNC_RESOLVE_ACTION = SYNC_RESOLVE_ACTION(5i32);
 impl ::core::marker::Copy for SYNC_RESOLVE_ACTION {}
 impl ::core::clone::Clone for SYNC_RESOLVE_ACTION {
     fn clone(&self) -> Self {
@@ -5409,12 +5417,6 @@ impl ::core::fmt::Debug for SYNC_RESOLVE_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_SERIALIZATION_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_SERIALIZATION_VERSION_V1: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_SERIALIZATION_VERSION_V2: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(4i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_SERIALIZATION_VERSION_V3: SYNC_SERIALIZATION_VERSION = SYNC_SERIALIZATION_VERSION(5i32);
 impl ::core::marker::Copy for SYNC_SERIALIZATION_VERSION {}
 impl ::core::clone::Clone for SYNC_SERIALIZATION_VERSION {
     fn clone(&self) -> Self {
@@ -5438,8 +5440,6 @@ impl ::core::fmt::Debug for SYNC_SERIALIZATION_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_STATISTICS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsSync\"`*"]
-pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = SYNC_STATISTICS(0i32);
 impl ::core::marker::Copy for SYNC_STATISTICS {}
 impl ::core::clone::Clone for SYNC_STATISTICS {
     fn clone(&self) -> Self {

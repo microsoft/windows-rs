@@ -1606,6 +1606,54 @@ pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_PREFERRED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_REQUIRED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ACTION_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ADDRESSING_VERSION_0_9: WS_ADDRESSING_VERSION = WS_ADDRESSING_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ADDRESSING_VERSION_1_0: WS_ADDRESSING_VERSION = WS_ADDRESSING_VERSION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ADDRESSING_VERSION_TRANSPORT: WS_ADDRESSING_VERSION = WS_ADDRESSING_VERSION(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ANY_ATTRIBUTES_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ANY_ATTRIBUTES_TYPE: WS_TYPE = WS_TYPE(34i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ANY_CONTENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ANY_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ANY_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ATTRIBUTE_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_AUTO_COOKIE_MODE: WS_COOKIE_MODE = WS_COOKIE_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_BLANK_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_BOOL_TYPE: WS_TYPE = WS_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_BOOL_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_BUFFERED_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_BYTES_TYPE: WS_TYPE = WS_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_BYTE_ARRAY_TYPE: WS_TYPE = WS_TYPE(24i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CALL_PROPERTY_CALL_ID: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CALL_PROPERTY_CHECK_MUST_UNDERSTAND: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CALL_PROPERTY_RECEIVE_MESSAGE_CONTEXT: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CALL_PROPERTY_SEND_MESSAGE_CONTEXT: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CERT_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_CERT_FAILURE_CN_MISMATCH: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_CERT_FAILURE_INVALID_DATE: i32 = 2i32;
@@ -1616,6 +1664,264 @@ pub const WS_CERT_FAILURE_UNTRUSTED_ROOT: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_CERT_FAILURE_WRONG_USAGE: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CERT_SIGNED_SAML_AUTHENTICATOR_TYPE: WS_SAML_AUTHENTICATOR_TYPE = WS_SAML_AUTHENTICATOR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_ADDRESSING_VERSION: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_ALLOW_UNSECURED_FAULTS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(46i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_ASYNC_CALLBACK_MODEL: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_CHANNEL_TYPE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(34i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_CLOSE_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_CONNECT_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_COOKIE_MODE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(39i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_CUSTOM_CHANNEL_CALLBACKS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(24i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_CUSTOM_CHANNEL_INSTANCE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(26i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_CUSTOM_CHANNEL_PARAMETERS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(25i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_CUSTOM_HTTP_PROXY: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(41i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_DECODER: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(37i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_ENABLE_HTTP_REDIRECT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(43i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_ENABLE_TIMEOUTS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(17i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_ENCODER: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(36i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_ENCODING: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_ENVELOPE_VERSION: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_FAULTS_AS_ERRORS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(45i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_HTTP_CONNECTION_ID: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(23i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_HTTP_MESSAGE_MAPPING: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(42i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_HTTP_PROXY_SETTING_MODE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(40i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_HTTP_PROXY_SPN: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(48i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_HTTP_REDIRECT_CALLBACK_CONTEXT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(44i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_HTTP_SERVER_SPN: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(47i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_IP_VERSION: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_IS_SESSION_SHUT_DOWN: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(33i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_KEEP_ALIVE_INTERVAL: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(31i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_KEEP_ALIVE_TIME: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(30i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_MAX_BUFFERED_MESSAGE_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_MAX_HTTP_REQUEST_HEADERS_BUFFER_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(49i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_MAX_HTTP_SERVER_CONNECTIONS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(32i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_MAX_SESSION_DICTIONARY_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_MAX_STREAMED_FLUSH_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_MAX_STREAMED_MESSAGE_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_MAX_STREAMED_START_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_MULTICAST_HOPS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(20i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_MULTICAST_INTERFACE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(19i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_NO_DELAY: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(28i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_PROTECTION_LEVEL: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(38i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_RECEIVE_RESPONSE_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_RECEIVE_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_REMOTE_ADDRESS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(21i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_REMOTE_IP_ADDRESS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(22i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_RESOLVE_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_SEND_KEEP_ALIVES: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(29i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_SEND_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_STATE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_TRANSFER_MODE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(18i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_TRANSPORT_URL: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(27i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_PROPERTY_TRIM_BUFFERED_MESSAGE_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(35i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_STATE_ACCEPTING: WS_CHANNEL_STATE = WS_CHANNEL_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_STATE_CLOSED: WS_CHANNEL_STATE = WS_CHANNEL_STATE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_STATE_CLOSING: WS_CHANNEL_STATE = WS_CHANNEL_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_STATE_CREATED: WS_CHANNEL_STATE = WS_CHANNEL_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_STATE_FAULTED: WS_CHANNEL_STATE = WS_CHANNEL_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_STATE_OPEN: WS_CHANNEL_STATE = WS_CHANNEL_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_STATE_OPENING: WS_CHANNEL_STATE = WS_CHANNEL_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_TYPE_DUPLEX: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_TYPE_DUPLEX_SESSION: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_TYPE_INPUT: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_TYPE_INPUT_SESSION: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_TYPE_OUTPUT: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_TYPE_OUTPUT_SESSION: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_TYPE_REPLY: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_TYPE_REQUEST: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHANNEL_TYPE_SESSION: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHARSET_AUTO: WS_CHARSET = WS_CHARSET(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHARSET_UTF16BE: WS_CHARSET = WS_CHARSET(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHARSET_UTF16LE: WS_CHARSET = WS_CHARSET(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHARSET_UTF8: WS_CHARSET = WS_CHARSET(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CHAR_ARRAY_TYPE: WS_TYPE = WS_TYPE(22i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CUSTOM_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CUSTOM_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_CUSTOM_TYPE: WS_TYPE = WS_TYPE(27i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DATETIME_FORMAT_LOCAL: WS_DATETIME_FORMAT = WS_DATETIME_FORMAT(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DATETIME_FORMAT_NONE: WS_DATETIME_FORMAT = WS_DATETIME_FORMAT(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DATETIME_FORMAT_UTC: WS_DATETIME_FORMAT = WS_DATETIME_FORMAT(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DATETIME_TYPE: WS_TYPE = WS_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DATETIME_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DECIMAL_TYPE: WS_TYPE = WS_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DECIMAL_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DESCRIPTION_TYPE: WS_TYPE = WS_TYPE(25i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DNS_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DOUBLE_TYPE: WS_TYPE = WS_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DOUBLE_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DUPLICATE_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DURATION_TYPE: WS_TYPE = WS_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_DURATION_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ELEMENT_CHOICE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ELEMENT_CONTENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENCODING_RAW: WS_ENCODING = WS_ENCODING(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENCODING_XML_BINARY_1: WS_ENCODING = WS_ENCODING(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENCODING_XML_BINARY_SESSION_1: WS_ENCODING = WS_ENCODING(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENCODING_XML_MTOM_UTF16BE: WS_ENCODING = WS_ENCODING(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENCODING_XML_MTOM_UTF16LE: WS_ENCODING = WS_ENCODING(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENCODING_XML_MTOM_UTF8: WS_ENCODING = WS_ENCODING(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENCODING_XML_UTF16BE: WS_ENCODING = WS_ENCODING(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENCODING_XML_UTF16LE: WS_ENCODING = WS_ENCODING(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENCODING_XML_UTF8: WS_ENCODING = WS_ENCODING(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENDPOINT_ADDRESS_EXTENSION_METADATA_ADDRESS: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE = WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENDPOINT_ADDRESS_TYPE: WS_TYPE = WS_TYPE(28i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENDPOINT_POLICY_EXTENSION_TYPE: WS_POLICY_EXTENSION_TYPE = WS_POLICY_EXTENSION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENUM_TYPE: WS_TYPE = WS_TYPE(31i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENVELOPE_VERSION_NONE: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSION(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENVELOPE_VERSION_SOAP_1_1: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ENVELOPE_VERSION_SOAP_1_2: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ERROR_PROPERTY_LANGID: WS_ERROR_PROPERTY_ID = WS_ERROR_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ERROR_PROPERTY_ORIGINAL_ERROR_CODE: WS_ERROR_PROPERTY_ID = WS_ERROR_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ERROR_PROPERTY_STRING_COUNT: WS_ERROR_PROPERTY_ID = WS_ERROR_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_EXCEPTION_CODE_INTERNAL_FAILURE: WS_EXCEPTION_CODE = WS_EXCEPTION_CODE(-1069744127i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_EXCEPTION_CODE_USAGE_FAILURE: WS_EXCEPTION_CODE = WS_EXCEPTION_CODE(-1069744128i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_EXCLUSIVE_WITH_COMMENTS_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_EXCLUSIVE_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_EXTENDED_PROTECTION_POLICY_ALWAYS: WS_EXTENDED_PROTECTION_POLICY = WS_EXTENDED_PROTECTION_POLICY(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_EXTENDED_PROTECTION_POLICY_NEVER: WS_EXTENDED_PROTECTION_POLICY = WS_EXTENDED_PROTECTION_POLICY(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_EXTENDED_PROTECTION_POLICY_WHEN_SUPPORTED: WS_EXTENDED_PROTECTION_POLICY = WS_EXTENDED_PROTECTION_POLICY(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_EXTENDED_PROTECTION_SCENARIO_BOUND_SERVER: WS_EXTENDED_PROTECTION_SCENARIO = WS_EXTENDED_PROTECTION_SCENARIO(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_EXTENDED_PROTECTION_SCENARIO_TERMINATED_SSL: WS_EXTENDED_PROTECTION_SCENARIO = WS_EXTENDED_PROTECTION_SCENARIO(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_FAULT_ERROR_PROPERTY_ACTION: WS_FAULT_ERROR_PROPERTY_ID = WS_FAULT_ERROR_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_FAULT_ERROR_PROPERTY_FAULT: WS_FAULT_ERROR_PROPERTY_ID = WS_FAULT_ERROR_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_FAULT_ERROR_PROPERTY_HEADER: WS_FAULT_ERROR_PROPERTY_ID = WS_FAULT_ERROR_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_FAULT_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_FAULT_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_FAULT_TYPE: WS_TYPE = WS_TYPE(29i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_FIELD_NILLABLE: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_FIELD_NILLABLE_ITEM: i32 = 8i32;
@@ -1625,6 +1931,32 @@ pub const WS_FIELD_OPTIONAL: i32 = 2i32;
 pub const WS_FIELD_OTHER_NAMESPACE: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_FIELD_POINTER: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_FLOAT_TYPE: WS_TYPE = WS_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_FLOAT_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_FROM_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_FULL_FAULT_DISCLOSURE: WS_FAULT_DISCLOSURE = WS_FAULT_DISCLOSURE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_GUID_TYPE: WS_TYPE = WS_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_GUID_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HEAP_PROPERTY_ACTUAL_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HEAP_PROPERTY_MAX_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HEAP_PROPERTY_REQUESTED_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HEAP_PROPERTY_TRIM_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_HEADER_AUTH_SCHEME_BASIC: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -1638,17 +1970,125 @@ pub const WS_HTTP_HEADER_AUTH_SCHEME_NTLM: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_HEADER_AUTH_SCHEME_PASSPORT: i32 = 32i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_HEADER_AUTH_TARGET_PROXY: WS_HTTP_HEADER_AUTH_TARGET = WS_HTTP_HEADER_AUTH_TARGET(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_HEADER_AUTH_TARGET_SERVICE: WS_HTTP_HEADER_AUTH_TARGET = WS_HTTP_HEADER_AUTH_TARGET(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_HEADER_MAPPING_COMMA_SEPARATOR: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_HEADER_MAPPING_QUOTED_VALUE: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_HEADER_MAPPING_SEMICOLON_SEPARATOR: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_PROXY_SETTING_MODE_AUTO: WS_HTTP_PROXY_SETTING_MODE = WS_HTTP_PROXY_SETTING_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_PROXY_SETTING_MODE_CUSTOM: WS_HTTP_PROXY_SETTING_MODE = WS_HTTP_PROXY_SETTING_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_PROXY_SETTING_MODE_NONE: WS_HTTP_PROXY_SETTING_MODE = WS_HTTP_PROXY_SETTING_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_REQUEST_MAPPING_VERB: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_RESPONSE_MAPPING_STATUS_CODE: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_HTTP_RESPONSE_MAPPING_STATUS_TEXT: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_SSL_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_INCLUSIVE_WITH_COMMENTS_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_INCLUSIVE_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_INT16_TYPE: WS_TYPE = WS_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_INT16_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_INT32_TYPE: WS_TYPE = WS_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_INT32_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_INT64_TYPE: WS_TYPE = WS_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_INT64_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_INT8_TYPE: WS_TYPE = WS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_INT8_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_IP_VERSION_4: WS_IP_VERSION = WS_IP_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_IP_VERSION_6: WS_IP_VERSION = WS_IP_VERSION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_IP_VERSION_AUTO: WS_IP_VERSION = WS_IP_VERSION(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_ASYNC_CALLBACK_MODEL: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_CHANNEL_BINDING: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_CHANNEL_TYPE: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_CLOSE_TIMEOUT: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_CONNECT_TIMEOUT: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_CUSTOM_LISTENER_CALLBACKS: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_CUSTOM_LISTENER_INSTANCE: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_CUSTOM_LISTENER_PARAMETERS: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_DISALLOWED_USER_AGENT: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_IP_VERSION: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_IS_MULTICAST: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_LISTEN_BACKLOG: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_MULTICAST_INTERFACES: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_MULTICAST_LOOPBACK: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_STATE: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_TO_HEADER_MATCHING_OPTIONS: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_PROPERTY_TRANSPORT_URL_MATCHING_OPTIONS: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_STATE_CLOSED: WS_LISTENER_STATE = WS_LISTENER_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_STATE_CLOSING: WS_LISTENER_STATE = WS_LISTENER_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_STATE_CREATED: WS_LISTENER_STATE = WS_LISTENER_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_STATE_FAULTED: WS_LISTENER_STATE = WS_LISTENER_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_STATE_OPEN: WS_LISTENER_STATE = WS_LISTENER_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LISTENER_STATE_OPENING: WS_LISTENER_STATE = WS_LISTENER_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_LONG_CALLBACK: WS_CALLBACK_MODEL = WS_CALLBACK_MODEL(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MANUAL_COOKIE_MODE: WS_COOKIE_MODE = WS_COOKIE_MODE(1i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_MATCH_URL_DNS_FULLY_QUALIFIED_HOST: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -1670,11 +2110,569 @@ pub const WS_MATCH_URL_PREFIX_PATH: i32 = 128i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_MATCH_URL_THIS_HOST: i32 = 31i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_ID_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_ADDRESSING_VERSION: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_BODY_READER: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_BODY_WRITER: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_ENCODED_CERT: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_ENVELOPE_VERSION: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_HEADER_BUFFER: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_HEADER_POSITION: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_HEAP: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_HEAP_PROPERTIES: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_HTTP_HEADER_AUTH_WINDOWS_TOKEN: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(17i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_IS_ADDRESSED: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_IS_FAULT: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_MAX_PROCESSED_HEADERS: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_MESSAGE_SECURITY_WINDOWS_TOKEN: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(18i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_PROTECTION_LEVEL: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(21i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_SAML_ASSERTION: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(19i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_SECURITY_CONTEXT: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(20i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_STATE: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_TRANSPORT_SECURITY_WINDOWS_TOKEN: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_USERNAME: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_XML_READER_PROPERTIES: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_PROPERTY_XML_WRITER_PROPERTIES: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_STATE_DONE: WS_MESSAGE_STATE = WS_MESSAGE_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_STATE_EMPTY: WS_MESSAGE_STATE = WS_MESSAGE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_STATE_INITIALIZED: WS_MESSAGE_STATE = WS_MESSAGE_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_STATE_READING: WS_MESSAGE_STATE = WS_MESSAGE_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MESSAGE_STATE_WRITING: WS_MESSAGE_STATE = WS_MESSAGE_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_EXCHANGE_TYPE_HTTP_GET: WS_METADATA_EXCHANGE_TYPE = WS_METADATA_EXCHANGE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_EXCHANGE_TYPE_MEX: WS_METADATA_EXCHANGE_TYPE = WS_METADATA_EXCHANGE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_EXCHANGE_TYPE_NONE: WS_METADATA_EXCHANGE_TYPE = WS_METADATA_EXCHANGE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_PROPERTY_HEAP_PROPERTIES: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_PROPERTY_HEAP_REQUESTED_SIZE: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_PROPERTY_HOST_NAMES: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_PROPERTY_MAX_DOCUMENTS: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_PROPERTY_POLICY_PROPERTIES: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_PROPERTY_STATE: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_PROPERTY_VERIFY_HOST_NAMES: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_STATE_CREATED: WS_METADATA_STATE = WS_METADATA_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_STATE_FAULTED: WS_METADATA_STATE = WS_METADATA_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_METADATA_STATE_RESOLVED: WS_METADATA_STATE = WS_METADATA_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MINIMAL_FAULT_DISCLOSURE: WS_FAULT_DISCLOSURE = WS_FAULT_DISCLOSURE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_BOF: WS_MOVE_TO = WS_MOVE_TO(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_CHILD_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_CHILD_NODE: WS_MOVE_TO = WS_MOVE_TO(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_END_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_EOF: WS_MOVE_TO = WS_MOVE_TO(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_FIRST_NODE: WS_MOVE_TO = WS_MOVE_TO(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_NEXT_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_NEXT_NODE: WS_MOVE_TO = WS_MOVE_TO(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_PARENT_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_PREVIOUS_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_PREVIOUS_NODE: WS_MOVE_TO = WS_MOVE_TO(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_MOVE_TO_ROOT_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_MUST_UNDERSTAND_HEADER_ATTRIBUTE: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_NAMEDPIPE_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_NON_RPC_LITERAL_OPERATION: WS_OPERATION_STYLE = WS_OPERATION_STYLE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_NO_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_OPERATION_CONTEXT_PROPERTY_CHANNEL: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_OPERATION_CONTEXT_PROPERTY_CHANNEL_USER_STATE: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_OPERATION_CONTEXT_PROPERTY_CONTRACT_DESCRIPTION: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_OPERATION_CONTEXT_PROPERTY_ENDPOINT_ADDRESS: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_OPERATION_CONTEXT_PROPERTY_HEAP: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_OPERATION_CONTEXT_PROPERTY_HOST_USER_STATE: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_OPERATION_CONTEXT_PROPERTY_INPUT_MESSAGE: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_OPERATION_CONTEXT_PROPERTY_LISTENER: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_OPERATION_CONTEXT_PROPERTY_OUTPUT_MESSAGE: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PARAMETER_TYPE_ARRAY: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PARAMETER_TYPE_ARRAY_COUNT: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PARAMETER_TYPE_MESSAGES: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PARAMETER_TYPE_NORMAL: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_POLICY_PROPERTY_MAX_ALTERNATIVES: WS_POLICY_PROPERTY_ID = WS_POLICY_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_POLICY_PROPERTY_MAX_DEPTH: WS_POLICY_PROPERTY_ID = WS_POLICY_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_POLICY_PROPERTY_MAX_EXTENSIONS: WS_POLICY_PROPERTY_ID = WS_POLICY_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_POLICY_PROPERTY_STATE: WS_POLICY_PROPERTY_ID = WS_POLICY_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_POLICY_STATE_CREATED: WS_POLICY_STATE = WS_POLICY_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_POLICY_STATE_FAULTED: WS_POLICY_STATE = WS_POLICY_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PROTECTION_LEVEL_NONE: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PROTECTION_LEVEL_SIGN: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PROTECTION_LEVEL_SIGN_AND_ENCRYPT: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PROXY_FAULT_LANG_ID: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PROXY_PROPERTY_CALL_TIMEOUT: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PROXY_PROPERTY_MAX_CALL_POOL_SIZE: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PROXY_PROPERTY_MAX_CLOSE_TIMEOUT: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PROXY_PROPERTY_MAX_PENDING_CALLS: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PROXY_PROPERTY_MESSAGE_PROPERTIES: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_PROXY_PROPERTY_STATE: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_READ_NILLABLE_POINTER: WS_READ_OPTION = WS_READ_OPTION(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_READ_NILLABLE_VALUE: WS_READ_OPTION = WS_READ_OPTION(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_READ_OPTIONAL_POINTER: WS_READ_OPTION = WS_READ_OPTION(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_READ_REQUIRED_POINTER: WS_READ_OPTION = WS_READ_OPTION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_READ_REQUIRED_VALUE: WS_READ_OPTION = WS_READ_OPTION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_RECEIVE_OPTIONAL_MESSAGE: WS_RECEIVE_OPTION = WS_RECEIVE_OPTION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_RECEIVE_REQUIRED_MESSAGE: WS_RECEIVE_OPTION = WS_RECEIVE_OPTION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_RELATES_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(4i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_RELAY_HEADER_ATTRIBUTE: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REPEATING_ANY_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REPEATING_ELEMENT_CHOICE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REPEATING_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REPEATING_HEADER: WS_REPEATING_HEADER_OPTION = WS_REPEATING_HEADER_OPTION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REPLY_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REPLY_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_ACTION_ISSUE: WS_REQUEST_SECURITY_TOKEN_ACTION = WS_REQUEST_SECURITY_TOKEN_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_ACTION_NEW_CONTEXT: WS_REQUEST_SECURITY_TOKEN_ACTION = WS_REQUEST_SECURITY_TOKEN_ACTION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_ACTION_RENEW_CONTEXT: WS_REQUEST_SECURITY_TOKEN_ACTION = WS_REQUEST_SECURITY_TOKEN_ACTION(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_APPLIES_TO: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_BEARER_KEY_TYPE_VERSION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_EXISTING_TOKEN: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_KEY_ENTROPY: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_KEY_SIZE: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_KEY_TYPE: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_TYPE: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_LOCAL_REQUEST_PARAMETERS: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_MESSAGE_PROPERTIES: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_REQUEST_ACTION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_SECURE_CONVERSATION_VERSION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_SERVICE_REQUEST_PARAMETERS: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_TRUST_VERSION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_RPC_LITERAL_OPERATION: WS_OPERATION_STYLE = WS_OPERATION_STYLE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_RSA_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SAML_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURE_CONVERSATION_VERSION_1_3: WS_SECURE_CONVERSATION_VERSION = WS_SECURE_CONVERSATION_VERSION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURE_CONVERSATION_VERSION_FEBRUARY_2005: WS_SECURE_CONVERSATION_VERSION = WS_SECURE_CONVERSATION_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURE_PROTOCOL_SSL2: WS_SECURE_PROTOCOL = WS_SECURE_PROTOCOL(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURE_PROTOCOL_SSL3: WS_SECURE_PROTOCOL = WS_SECURE_PROTOCOL(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURE_PROTOCOL_TLS1_0: WS_SECURE_PROTOCOL = WS_SECURE_PROTOCOL(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURE_PROTOCOL_TLS1_1: WS_SECURE_PROTOCOL = WS_SECURE_PROTOCOL(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURE_PROTOCOL_TLS1_2: WS_SECURE_PROTOCOL = WS_SECURE_PROTOCOL(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_KEYWRAP_RSA_1_5: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_KEYWRAP_RSA_OAEP: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(17i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_DSA_SHA1: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA1: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA_256: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA_384: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA_512: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_CANONICALIZATION_EXCLUSIVE: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_CANONICALIZATION_EXCLUSIVE_WITH_COMMENTS: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_DEFAULT: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_DIGEST_SHA1: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_DIGEST_SHA_256: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_DIGEST_SHA_384: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_DIGEST_SHA_512: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_KEY_DERIVATION_P_SHA1: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(18i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128_SHA256: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128_SHA256_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192_SHA256: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192_SHA256_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256_SHA256: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256_SHA256_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA1: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA_256: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA_384: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA_512: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ERRATA_01: WS_SECURITY_BEARER_KEY_TYPE_VERSION = WS_SECURITY_BEARER_KEY_TYPE_VERSION(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ORIGINAL_SCHEMA: WS_SECURITY_BEARER_KEY_TYPE_VERSION = WS_SECURITY_BEARER_KEY_TYPE_VERSION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ORIGINAL_SPECIFICATION: WS_SECURITY_BEARER_KEY_TYPE_VERSION = WS_SECURITY_BEARER_KEY_TYPE_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_ALLOWED_IMPERSONATION_LEVEL: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_ALLOW_ANONYMOUS_CLIENTS: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(23i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_CERT_FAILURES_TO_IGNORE: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(20i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_DISABLE_CERT_REVOCATION_CHECK: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(21i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_DISALLOWED_SECURE_PROTOCOLS: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(22i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_BASIC_REALM: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_DIGEST_DOMAIN: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_DIGEST_REALM: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_SCHEME: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_TARGET: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_MESSAGE_PROPERTIES: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_REQUIRE_SERVER_AUTH: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_REQUIRE_SSL_CLIENT_CERT: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_SECURE_CONVERSATION_VERSION: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_KEY_ENTROPY_MODE: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_KEY_SIZE: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_MAX_ACTIVE_CONTEXTS: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_MAX_PENDING_CONTEXTS: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_RENEWAL_INTERVAL: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(18i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_ROLLOVER_INTERVAL: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(19i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_SUPPORT_RENEW: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(17i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_BINDING_PROPERTY_WINDOWS_INTEGRATED_AUTH_PACKAGE: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_CONTEXT_PROPERTY_IDENTIFIER: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_CONTEXT_PROPERTY_MESSAGE_SECURITY_WINDOWS_TOKEN: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_CONTEXT_PROPERTY_SAML_ASSERTION: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_CONTEXT_PROPERTY_USERNAME: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_HEADER_LAYOUT_LAX: WS_SECURITY_HEADER_LAYOUT = WS_SECURITY_HEADER_LAYOUT(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_HEADER_LAYOUT_LAX_WITH_TIMESTAMP_FIRST: WS_SECURITY_HEADER_LAYOUT = WS_SECURITY_HEADER_LAYOUT(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_HEADER_LAYOUT_LAX_WITH_TIMESTAMP_LAST: WS_SECURITY_HEADER_LAYOUT = WS_SECURITY_HEADER_LAYOUT(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_HEADER_LAYOUT_STRICT: WS_SECURITY_HEADER_LAYOUT = WS_SECURITY_HEADER_LAYOUT(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_HEADER_VERSION_1_0: WS_SECURITY_HEADER_VERSION = WS_SECURITY_HEADER_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_HEADER_VERSION_1_1: WS_SECURITY_HEADER_VERSION = WS_SECURITY_HEADER_VERSION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_KEY_ENTROPY_MODE_CLIENT_ONLY: WS_SECURITY_KEY_ENTROPY_MODE = WS_SECURITY_KEY_ENTROPY_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_KEY_ENTROPY_MODE_COMBINED: WS_SECURITY_KEY_ENTROPY_MODE = WS_SECURITY_KEY_ENTROPY_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_KEY_ENTROPY_MODE_SERVER_ONLY: WS_SECURITY_KEY_ENTROPY_MODE = WS_SECURITY_KEY_ENTROPY_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_KEY_TYPE_ASYMMETRIC: WS_SECURITY_KEY_TYPE = WS_SECURITY_KEY_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_KEY_TYPE_NONE: WS_SECURITY_KEY_TYPE = WS_SECURITY_KEY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_KEY_TYPE_SYMMETRIC: WS_SECURITY_KEY_TYPE = WS_SECURITY_KEY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_ALGORITHM_SUITE: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_ALGORITHM_SUITE_NAME: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_EXTENDED_PROTECTION_POLICY: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_EXTENDED_PROTECTION_SCENARIO: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_MAX_ALLOWED_CLOCK_SKEW: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_MAX_ALLOWED_LATENCY: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_SECURITY_HEADER_LAYOUT: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_SECURITY_HEADER_VERSION: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_SERVICE_IDENTITIES: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_TIMESTAMP_USAGE: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_TIMESTAMP_VALIDITY_DURATION: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_PROPERTY_TRANSPORT_PROTECTION_LEVEL: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TIMESTAMP_USAGE_ALWAYS: WS_SECURITY_TIMESTAMP_USAGE = WS_SECURITY_TIMESTAMP_USAGE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TIMESTAMP_USAGE_NEVER: WS_SECURITY_TIMESTAMP_USAGE = WS_SECURITY_TIMESTAMP_USAGE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TIMESTAMP_USAGE_REQUESTS_ONLY: WS_SECURITY_TIMESTAMP_USAGE = WS_SECURITY_TIMESTAMP_USAGE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE_XML: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_PROPERTY_KEY_TYPE: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_PROPERTY_SERIALIZED_XML: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_PROPERTY_SYMMETRIC_KEY: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_PROPERTY_UNATTACHED_REFERENCE_XML: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_PROPERTY_VALID_FROM_TIME: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_PROPERTY_VALID_TILL_TIME: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_REFERENCE_MODE_CERT_THUMBPRINT: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_REFERENCE_MODE_LOCAL_ID: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_REFERENCE_MODE_SAML_ASSERTION_ID: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_REFERENCE_MODE_SECURITY_CONTEXT_ID: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SECURITY_TOKEN_REFERENCE_MODE_XML_BUFFER: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_CHANNEL_FAULTED: WS_SERVICE_CANCEL_REASON = WS_SERVICE_CANCEL_REASON(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_ACCEPT_CHANNEL_CALLBACK: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_BODY_HEAP_MAX_SIZE: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_BODY_HEAP_TRIM_SIZE: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_CHECK_MUST_UNDERSTAND: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_CLOSE_CHANNEL_CALLBACK: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_LISTENER_PROPERTIES: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_MAX_ACCEPTING_CHANNELS: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_MAX_CALL_POOL_SIZE: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_MAX_CHANNELS: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_MAX_CHANNEL_POOL_SIZE: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_MAX_CONCURRENCY: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_MESSAGE_PROPERTIES: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA_EXCHANGE_TYPE: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA_EXCHANGE_URL_SUFFIX: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_HOST_ABORT: WS_SERVICE_CANCEL_REASON = WS_SERVICE_CANCEL_REASON(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_HOST_STATE_CLOSED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_HOST_STATE_CLOSING: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_HOST_STATE_CREATED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_HOST_STATE_FAULTED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_HOST_STATE_OPEN: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_HOST_STATE_OPENING: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_SERVICE_OPERATION_MESSAGE_NILLABLE_ELEMENT: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROPERTY_CLOSE_TIMEOUT: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROPERTY_FAULT_DISCLOSURE: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROPERTY_FAULT_LANGID: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROPERTY_HOST_STATE: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROPERTY_HOST_USER_STATE: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROPERTY_METADATA: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROXY_STATE_CLOSED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROXY_STATE_CLOSING: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROXY_STATE_CREATED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROXY_STATE_FAULTED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROXY_STATE_OPEN: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SERVICE_PROXY_STATE_OPENING: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SHORT_CALLBACK: WS_CALLBACK_MODEL = WS_CALLBACK_MODEL(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SINGLETON_HEADER: WS_REPEATING_HEADER_OPTION = WS_REPEATING_HEADER_OPTION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SPN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SSL_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_STREAMED_INPUT_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_STREAMED_OUTPUT_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_STREAMED_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_STRING_TYPE: WS_TYPE = WS_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_STRING_USERNAME_CREDENTIAL_TYPE: WS_USERNAME_CREDENTIAL_TYPE = WS_USERNAME_CREDENTIAL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_STRUCT_ABSTRACT: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
@@ -1682,21 +2680,673 @@ pub const WS_STRUCT_IGNORE_TRAILING_ELEMENT_CONTENT: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_STRUCT_IGNORE_UNHANDLED_ATTRIBUTES: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_STRUCT_TYPE: WS_TYPE = WS_TYPE(26i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SUBJECT_NAME_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_SUPPORTING_MESSAGE_SECURITY_USAGE: WS_MESSAGE_SECURITY_USAGE = WS_MESSAGE_SECURITY_USAGE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TCP_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TCP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TCP_SSPI_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TEXT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_THUMBPRINT_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TIMESPAN_TYPE: WS_TYPE = WS_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TIMESPAN_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ABANDON_MESSAGE: WS_TRACE_API = WS_TRACE_API(86i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ABORT_CALL: WS_TRACE_API = WS_TRACE_API(174i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ABORT_CHANNEL: WS_TRACE_API = WS_TRACE_API(83i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ABORT_LISTENER: WS_TRACE_API = WS_TRACE_API(113i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ABORT_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(164i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ABORT_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(171i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ACCEPT_CHANNEL: WS_TRACE_API = WS_TRACE_API(111i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ADDRESS_MESSAGE: WS_TRACE_API = WS_TRACE_API(142i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ADD_CUSTOM_HEADER: WS_TRACE_API = WS_TRACE_API(130i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ADD_ERROR_STRING: WS_TRACE_API = WS_TRACE_API(92i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ADD_MAPPED_HEADER: WS_TRACE_API = WS_TRACE_API(131i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ALLOC: WS_TRACE_API = WS_TRACE_API(105i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ASYNC_EXECUTE: WS_TRACE_API = WS_TRACE_API(68i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CALL: WS_TRACE_API = WS_TRACE_API(175i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CHECK_MUST_UNDERSTAND_HEADERS: WS_TRACE_API = WS_TRACE_API(143i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CLOSE_CHANNEL: WS_TRACE_API = WS_TRACE_API(82i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CLOSE_LISTENER: WS_TRACE_API = WS_TRACE_API(112i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CLOSE_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(163i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CLOSE_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(170i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_COMBINE_URL: WS_TRACE_API = WS_TRACE_API(178i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_COPY_ERROR: WS_TRACE_API = WS_TRACE_API(94i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_COPY_NODE: WS_TRACE_API = WS_TRACE_API(67i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_CHANNEL: WS_TRACE_API = WS_TRACE_API(69i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_CHANNEL_FOR_LISTENER: WS_TRACE_API = WS_TRACE_API(118i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_ERROR: WS_TRACE_API = WS_TRACE_API(91i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_FAULT_FROM_ERROR: WS_TRACE_API = WS_TRACE_API(101i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_HEAP: WS_TRACE_API = WS_TRACE_API(104i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_LISTENER: WS_TRACE_API = WS_TRACE_API(109i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_MESSAGE: WS_TRACE_API = WS_TRACE_API(119i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_MESSAGE_FOR_CHANNEL: WS_TRACE_API = WS_TRACE_API(120i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_METADATA: WS_TRACE_API = WS_TRACE_API(183i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_READER: WS_TRACE_API = WS_TRACE_API(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(161i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(168i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_WRITER: WS_TRACE_API = WS_TRACE_API(29i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_XML_BUFFER: WS_TRACE_API = WS_TRACE_API(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_CREATE_XML_SECURITY_TOKEN: WS_TRACE_API = WS_TRACE_API(149i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_DATETIME_TO_FILETIME: WS_TRACE_API = WS_TRACE_API(179i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_DECODE_URL: WS_TRACE_API = WS_TRACE_API(176i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_DUMP_MEMORY: WS_TRACE_API = WS_TRACE_API(181i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_ENCODE_URL: WS_TRACE_API = WS_TRACE_API(177i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_END_READER_CANONICALIZATION: WS_TRACE_API = WS_TRACE_API(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_END_WRITER_CANONICALIZATION: WS_TRACE_API = WS_TRACE_API(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FILETIME_TO_DATETIME: WS_TRACE_API = WS_TRACE_API(180i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FILL_BODY: WS_TRACE_API = WS_TRACE_API(145i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FILL_READER: WS_TRACE_API = WS_TRACE_API(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FIND_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(20i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FLUSH_BODY: WS_TRACE_API = WS_TRACE_API(146i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FLUSH_WRITER: WS_TRACE_API = WS_TRACE_API(34i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FREE_CHANNEL: WS_TRACE_API = WS_TRACE_API(84i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FREE_ERROR: WS_TRACE_API = WS_TRACE_API(98i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FREE_HEAP: WS_TRACE_API = WS_TRACE_API(108i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FREE_LISTENER: WS_TRACE_API = WS_TRACE_API(115i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FREE_MESSAGE: WS_TRACE_API = WS_TRACE_API(123i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FREE_METADATA: WS_TRACE_API = WS_TRACE_API(185i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FREE_SECURITY_TOKEN: WS_TRACE_API = WS_TRACE_API(150i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FREE_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(165i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FREE_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(172i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FREE_XML_READER: WS_TRACE_API = WS_TRACE_API(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_FREE_XML_WRITER: WS_TRACE_API = WS_TRACE_API(30i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_CHANNEL_PROPERTY: WS_TRACE_API = WS_TRACE_API(76i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_CONTEXT_PROPERTY: WS_TRACE_API = WS_TRACE_API(88i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_CUSTOM_HEADER: WS_TRACE_API = WS_TRACE_API(126i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_DICTIONARY: WS_TRACE_API = WS_TRACE_API(89i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_ERROR_PROPERTY: WS_TRACE_API = WS_TRACE_API(95i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_ERROR_STRING: WS_TRACE_API = WS_TRACE_API(93i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_FAULT_ERROR_DETAIL: WS_TRACE_API = WS_TRACE_API(103i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_FAULT_ERROR_PROPERTY: WS_TRACE_API = WS_TRACE_API(99i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_HEADER: WS_TRACE_API = WS_TRACE_API(125i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_HEADER_ATTRIBUTES: WS_TRACE_API = WS_TRACE_API(124i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_HEAP_PROPERTY: WS_TRACE_API = WS_TRACE_API(106i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_LISTENER_PROPERTY: WS_TRACE_API = WS_TRACE_API(116i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_MAPPED_HEADER: WS_TRACE_API = WS_TRACE_API(133i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_MESSAGE_PROPERTY: WS_TRACE_API = WS_TRACE_API(140i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_METADATA_ENDPOINTS: WS_TRACE_API = WS_TRACE_API(189i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_METADATA_PROPERTY: WS_TRACE_API = WS_TRACE_API(187i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_MISSING_METADATA_DOCUMENT_ADDRESS: WS_TRACE_API = WS_TRACE_API(188i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_POLICY_ALTERNATIVE_COUNT: WS_TRACE_API = WS_TRACE_API(192i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_POLICY_PROPERTY: WS_TRACE_API = WS_TRACE_API(191i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_READER_NODE: WS_TRACE_API = WS_TRACE_API(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_READER_POSITION: WS_TRACE_API = WS_TRACE_API(26i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_READER_PROPERTY: WS_TRACE_API = WS_TRACE_API(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_SECURITY_CONTEXT_PROPERTY: WS_TRACE_API = WS_TRACE_API(152i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_SECURITY_TOKEN_PROPERTY: WS_TRACE_API = WS_TRACE_API(148i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_SERVICE_HOST_PROPERTY: WS_TRACE_API = WS_TRACE_API(160i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_SERVICE_PROXY_PROPERTY: WS_TRACE_API = WS_TRACE_API(167i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_WRITER_POSITION: WS_TRACE_API = WS_TRACE_API(58i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_WRITER_PROPERTY: WS_TRACE_API = WS_TRACE_API(33i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_GET_XML_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(66i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_INITIALIZE_MESSAGE: WS_TRACE_API = WS_TRACE_API(121i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_MARK_HEADER_AS_UNDERSTOOD: WS_TRACE_API = WS_TRACE_API(144i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_MATCH_POLICY_ALTERNATIVE: WS_TRACE_API = WS_TRACE_API(190i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_MOVE_READER: WS_TRACE_API = WS_TRACE_API(28i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_MOVE_WRITER: WS_TRACE_API = WS_TRACE_API(60i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_NAMESPACE_FROM_PREFIX: WS_TRACE_API = WS_TRACE_API(64i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_NONE: WS_TRACE_API = WS_TRACE_API(-1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_OPEN_CHANNEL: WS_TRACE_API = WS_TRACE_API(70i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_OPEN_LISTENER: WS_TRACE_API = WS_TRACE_API(110i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_OPEN_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(162i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_OPEN_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(169i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_PREFIX_FROM_NAMESPACE: WS_TRACE_API = WS_TRACE_API(57i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_PULL_BYTES: WS_TRACE_API = WS_TRACE_API(51i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_PUSH_BYTES: WS_TRACE_API = WS_TRACE_API(50i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_ARRAY: WS_TRACE_API = WS_TRACE_API(25i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_ATTRIBUTE_TYPE: WS_TRACE_API = WS_TRACE_API(154i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_BODY: WS_TRACE_API = WS_TRACE_API(135i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_BYTES: WS_TRACE_API = WS_TRACE_API(24i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_CHARS: WS_TRACE_API = WS_TRACE_API(22i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_CHARS_UTF8: WS_TRACE_API = WS_TRACE_API(23i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_ELEMENT_TYPE: WS_TRACE_API = WS_TRACE_API(153i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_ELEMENT_VALUE: WS_TRACE_API = WS_TRACE_API(21i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_ENDPOINT_ADDRESS_EXTENSION: WS_TRACE_API = WS_TRACE_API(90i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_END_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_END_ELEMENT: WS_TRACE_API = WS_TRACE_API(19i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_ENVELOPE_END: WS_TRACE_API = WS_TRACE_API(139i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_ENVELOPE_START: WS_TRACE_API = WS_TRACE_API(138i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_MESSAGE_END: WS_TRACE_API = WS_TRACE_API(81i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_MESSAGE_START: WS_TRACE_API = WS_TRACE_API(80i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_METADATA: WS_TRACE_API = WS_TRACE_API(184i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_NODE: WS_TRACE_API = WS_TRACE_API(17i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_QUALIFIED_NAME: WS_TRACE_API = WS_TRACE_API(65i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_START_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_START_ELEMENT: WS_TRACE_API = WS_TRACE_API(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_TO_START_ELEMENT: WS_TRACE_API = WS_TRACE_API(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_TYPE: WS_TRACE_API = WS_TRACE_API(155i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_XML_BUFFER: WS_TRACE_API = WS_TRACE_API(42i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_READ_XML_BUFFER_FROM_BYTES: WS_TRACE_API = WS_TRACE_API(44i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_RECEIVE_MESSAGE: WS_TRACE_API = WS_TRACE_API(72i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_REMOVE_CUSTOM_HEADER: WS_TRACE_API = WS_TRACE_API(129i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_REMOVE_HEADER: WS_TRACE_API = WS_TRACE_API(127i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_REMOVE_MAPPED_HEADER: WS_TRACE_API = WS_TRACE_API(132i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_REMOVE_NODE: WS_TRACE_API = WS_TRACE_API(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_REQUEST_REPLY: WS_TRACE_API = WS_TRACE_API(73i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_REQUEST_SECURITY_TOKEN: WS_TRACE_API = WS_TRACE_API(147i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_RESET_CHANNEL: WS_TRACE_API = WS_TRACE_API(85i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_RESET_ERROR: WS_TRACE_API = WS_TRACE_API(97i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_RESET_HEAP: WS_TRACE_API = WS_TRACE_API(107i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_RESET_LISTENER: WS_TRACE_API = WS_TRACE_API(114i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_RESET_MESSAGE: WS_TRACE_API = WS_TRACE_API(122i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_RESET_METADATA: WS_TRACE_API = WS_TRACE_API(186i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_RESET_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(166i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_RESET_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(173i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_REVOKE_SECURITY_CONTEXT: WS_TRACE_API = WS_TRACE_API(151i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SEND_FAULT_MESSAGE_FOR_ERROR: WS_TRACE_API = WS_TRACE_API(75i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SEND_MESSAGE: WS_TRACE_API = WS_TRACE_API(71i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SEND_REPLY_MESSAGE: WS_TRACE_API = WS_TRACE_API(74i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SERVICE_REGISTER_FOR_CANCEL: WS_TRACE_API = WS_TRACE_API(159i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_AUTOFAIL: WS_TRACE_API = WS_TRACE_API(182i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_CHANNEL_PROPERTY: WS_TRACE_API = WS_TRACE_API(77i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_ERROR_PROPERTY: WS_TRACE_API = WS_TRACE_API(96i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_FAULT_ERROR_DETAIL: WS_TRACE_API = WS_TRACE_API(102i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_FAULT_ERROR_PROPERTY: WS_TRACE_API = WS_TRACE_API(100i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_HEADER: WS_TRACE_API = WS_TRACE_API(128i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_INPUT: WS_TRACE_API = WS_TRACE_API(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_INPUT_TO_BUFFER: WS_TRACE_API = WS_TRACE_API(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_LISTENER_PROPERTY: WS_TRACE_API = WS_TRACE_API(117i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_MESSAGE_PROPERTY: WS_TRACE_API = WS_TRACE_API(141i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_OUTPUT: WS_TRACE_API = WS_TRACE_API(31i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_OUTPUT_TO_BUFFER: WS_TRACE_API = WS_TRACE_API(32i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_READER_POSITION: WS_TRACE_API = WS_TRACE_API(27i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SET_WRITER_POSITION: WS_TRACE_API = WS_TRACE_API(59i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SHUTDOWN_SESSION_CHANNEL: WS_TRACE_API = WS_TRACE_API(87i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_SKIP_NODE: WS_TRACE_API = WS_TRACE_API(18i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_START_READER_CANONICALIZATION: WS_TRACE_API = WS_TRACE_API(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_START_WRITER_CANONICALIZATION: WS_TRACE_API = WS_TRACE_API(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_TRIM_XML_WHITESPACE: WS_TRACE_API = WS_TRACE_API(61i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_VERIFY_XML_NCNAME: WS_TRACE_API = WS_TRACE_API(62i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_ARRAY: WS_TRACE_API = WS_TRACE_API(45i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_ATTRIBUTE_TYPE: WS_TRACE_API = WS_TRACE_API(157i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_BODY: WS_TRACE_API = WS_TRACE_API(134i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_BYTES: WS_TRACE_API = WS_TRACE_API(49i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_CHARS: WS_TRACE_API = WS_TRACE_API(47i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_CHARS_UTF8: WS_TRACE_API = WS_TRACE_API(48i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_ELEMENT_TYPE: WS_TRACE_API = WS_TRACE_API(156i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_END_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(39i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_END_CDATA: WS_TRACE_API = WS_TRACE_API(55i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_END_ELEMENT: WS_TRACE_API = WS_TRACE_API(52i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_END_START_ELEMENT: WS_TRACE_API = WS_TRACE_API(36i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_ENVELOPE_END: WS_TRACE_API = WS_TRACE_API(137i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_ENVELOPE_START: WS_TRACE_API = WS_TRACE_API(136i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_MESSAGE_END: WS_TRACE_API = WS_TRACE_API(79i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_MESSAGE_START: WS_TRACE_API = WS_TRACE_API(78i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_NODE: WS_TRACE_API = WS_TRACE_API(56i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_QUALIFIED_NAME: WS_TRACE_API = WS_TRACE_API(46i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_START_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(38i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_START_CDATA: WS_TRACE_API = WS_TRACE_API(54i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_START_ELEMENT: WS_TRACE_API = WS_TRACE_API(35i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_TEXT: WS_TRACE_API = WS_TRACE_API(53i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_TYPE: WS_TRACE_API = WS_TRACE_API(158i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_VALUE: WS_TRACE_API = WS_TRACE_API(40i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_XMLNS_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(37i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_XML_BUFFER: WS_TRACE_API = WS_TRACE_API(41i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WRITE_XML_BUFFER_TO_BYTES: WS_TRACE_API = WS_TRACE_API(43i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WS_CREATE_SERVICE_HOST_FROM_TEMPLATE: WS_TRACE_API = WS_TRACE_API(194i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_WS_CREATE_SERVICE_PROXY_FROM_TEMPLATE: WS_TRACE_API = WS_TRACE_API(193i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRACE_API_XML_STRING_EQUALS: WS_TRACE_API = WS_TRACE_API(63i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRUST_VERSION_1_3: WS_TRUST_VERSION = WS_TRUST_VERSION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TRUST_VERSION_FEBRUARY_2005: WS_TRUST_VERSION = WS_TRUST_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_TYPE_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UDP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UINT16_TYPE: WS_TYPE = WS_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UINT16_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UINT32_TYPE: WS_TYPE = WS_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UINT32_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UINT64_TYPE: WS_TYPE = WS_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UINT64_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UINT8_TYPE: WS_TYPE = WS_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UINT8_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UNION_TYPE: WS_TYPE = WS_TYPE(33i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UNIQUE_ID_TYPE: WS_TYPE = WS_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UNKNOWN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UPN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_URL_FLAGS_ALLOW_HOST_WILDCARDS: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_URL_FLAGS_NO_PATH_COLLAPSE: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 pub const WS_URL_FLAGS_ZERO_TERMINATE: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_URL_HTTPS_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_URL_HTTP_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_URL_NETPIPE_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_URL_NETTCP_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_URL_SOAPUDP_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_USERNAME_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_UTF8_ARRAY_TYPE: WS_TYPE = WS_TYPE(23i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_VOID_TYPE: WS_TYPE = WS_TYPE(30i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_KERBEROS: WS_WINDOWS_INTEGRATED_AUTH_PACKAGE = WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_NTLM: WS_WINDOWS_INTEGRATED_AUTH_PACKAGE = WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_SPNEGO: WS_WINDOWS_INTEGRATED_AUTH_PACKAGE = WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_WRITE_NILLABLE_POINTER: WS_WRITE_OPTION = WS_WRITE_OPTION(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_WRITE_NILLABLE_VALUE: WS_WRITE_OPTION = WS_WRITE_OPTION(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_WRITE_REQUIRED_POINTER: WS_WRITE_OPTION = WS_WRITE_OPTION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_WRITE_REQUIRED_VALUE: WS_WRITE_OPTION = WS_WRITE_OPTION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_WSZ_TYPE: WS_TYPE = WS_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_BUFFER_TYPE: WS_TYPE = WS_TYPE(21i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_CANONICALIZATION_PROPERTY_ALGORITHM: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_CANONICALIZATION_PROPERTY_INCLUSIVE_PREFIXES: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_CANONICALIZATION_PROPERTY_OMITTED_ELEMENT: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_CANONICALIZATION_PROPERTY_OUTPUT_BUFFER_SIZE: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_NODE_TYPE_BOF: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_NODE_TYPE_CDATA: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_NODE_TYPE_COMMENT: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_NODE_TYPE_ELEMENT: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_NODE_TYPE_END_CDATA: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_NODE_TYPE_END_ELEMENT: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_NODE_TYPE_EOF: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_NODE_TYPE_TEXT: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_QNAME_TYPE: WS_TYPE = WS_TYPE(20i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_ENCODING_TYPE_BINARY: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_ENCODING_TYPE_MTOM: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_ENCODING_TYPE_RAW: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_ENCODING_TYPE_TEXT: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_INPUT_TYPE_BUFFER: WS_XML_READER_INPUT_TYPE = WS_XML_READER_INPUT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_INPUT_TYPE_STREAM: WS_XML_READER_INPUT_TYPE = WS_XML_READER_INPUT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_ALLOW_FRAGMENT: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_ALLOW_INVALID_CHARACTER_REFERENCES: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_CHARSET: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_COLUMN: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_IN_ATTRIBUTE: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_MAX_ATTRIBUTES: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_MAX_DEPTH: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_MAX_MIME_PARTS: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_MAX_NAMESPACES: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_READ_DECLARATION: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_ROW: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_STREAM_BUFFER_SIZE: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_STREAM_MAX_MIME_HEADERS_SIZE: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_STREAM_MAX_ROOT_MIME_PART_SIZE: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_READER_PROPERTY_UTF8_TRIM_SIZE: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_SECURITY_TOKEN_PROPERTY_UNATTACHED_REFERENCE: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_SECURITY_TOKEN_PROPERTY_VALID_FROM_TIME: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_SECURITY_TOKEN_PROPERTY_VALID_TILL_TIME: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_STRING_TYPE: WS_TYPE = WS_TYPE(19i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_BASE64: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_BOOL: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_DATETIME: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_DECIMAL: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_DOUBLE: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_FLOAT: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_GUID: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_INT32: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_INT64: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_LIST: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_QNAME: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_TIMESPAN: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_UINT64: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_UNIQUE_ID: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_UTF16: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TEXT_TYPE_UTF8: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_TOKEN_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_ENCODING_TYPE_BINARY: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_ENCODING_TYPE_MTOM: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_ENCODING_TYPE_RAW: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_ENCODING_TYPE_TEXT: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_OUTPUT_TYPE_BUFFER: WS_XML_WRITER_OUTPUT_TYPE = WS_XML_WRITER_OUTPUT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_OUTPUT_TYPE_STREAM: WS_XML_WRITER_OUTPUT_TYPE = WS_XML_WRITER_OUTPUT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_ALLOW_FRAGMENT: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_ALLOW_INVALID_CHARACTER_REFERENCES: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_BUFFERS: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_BUFFER_MAX_SIZE: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_BUFFER_TRIM_SIZE: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_BYTES: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_BYTES_TO_CLOSE: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_BYTES_WRITTEN: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_CHARSET: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_COMPRESS_EMPTY_ELEMENTS: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(17i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_EMIT_UNCOMPRESSED_EMPTY_ELEMENTS: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(18i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_INDENT: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_INITIAL_BUFFER: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_IN_ATTRIBUTE: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_MAX_ATTRIBUTES: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_MAX_DEPTH: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_MAX_MIME_PARTS_BUFFER_SIZE: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_MAX_NAMESPACES: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
+pub const WS_XML_WRITER_PROPERTY_WRITE_DECLARATION: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ADDRESSING_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ADDRESSING_VERSION_0_9: WS_ADDRESSING_VERSION = WS_ADDRESSING_VERSION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ADDRESSING_VERSION_1_0: WS_ADDRESSING_VERSION = WS_ADDRESSING_VERSION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ADDRESSING_VERSION_TRANSPORT: WS_ADDRESSING_VERSION = WS_ADDRESSING_VERSION(3i32);
 impl ::core::marker::Copy for WS_ADDRESSING_VERSION {}
 impl ::core::clone::Clone for WS_ADDRESSING_VERSION {
     fn clone(&self) -> Self {
@@ -1720,34 +3370,6 @@ impl ::core::fmt::Debug for WS_ADDRESSING_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_BINDING_TEMPLATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_SSL_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_HEADER_AUTH_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_SSL_HEADER_AUTH_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_SSL_USERNAME_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_SSL_KERBEROS_APREQ_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TCP_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TCP_SSPI_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TCP_SSPI_USERNAME_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TCP_SSPI_KERBEROS_APREQ_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_SSL_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_SSL_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TCP_SSPI_USERNAME_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TCP_SSPI_KERBEROS_APREQ_SECURITY_CONTEXT_BINDING_TEMPLATE_TYPE: WS_BINDING_TEMPLATE_TYPE = WS_BINDING_TEMPLATE_TYPE(13i32);
 impl ::core::marker::Copy for WS_BINDING_TEMPLATE_TYPE {}
 impl ::core::clone::Clone for WS_BINDING_TEMPLATE_TYPE {
     fn clone(&self) -> Self {
@@ -1771,10 +3393,6 @@ impl ::core::fmt::Debug for WS_BINDING_TEMPLATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CALLBACK_MODEL(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SHORT_CALLBACK: WS_CALLBACK_MODEL = WS_CALLBACK_MODEL(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LONG_CALLBACK: WS_CALLBACK_MODEL = WS_CALLBACK_MODEL(1i32);
 impl ::core::marker::Copy for WS_CALLBACK_MODEL {}
 impl ::core::clone::Clone for WS_CALLBACK_MODEL {
     fn clone(&self) -> Self {
@@ -1798,14 +3416,6 @@ impl ::core::fmt::Debug for WS_CALLBACK_MODEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CALL_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CALL_PROPERTY_CHECK_MUST_UNDERSTAND: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CALL_PROPERTY_SEND_MESSAGE_CONTEXT: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CALL_PROPERTY_RECEIVE_MESSAGE_CONTEXT: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CALL_PROPERTY_CALL_ID: WS_CALL_PROPERTY_ID = WS_CALL_PROPERTY_ID(3i32);
 impl ::core::marker::Copy for WS_CALL_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_CALL_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -1829,12 +3439,6 @@ impl ::core::fmt::Debug for WS_CALL_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CERT_CREDENTIAL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SUBJECT_NAME_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_THUMBPRINT_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CUSTOM_CERT_CREDENTIAL_TYPE: WS_CERT_CREDENTIAL_TYPE = WS_CERT_CREDENTIAL_TYPE(3i32);
 impl ::core::marker::Copy for WS_CERT_CREDENTIAL_TYPE {}
 impl ::core::clone::Clone for WS_CERT_CREDENTIAL_TYPE {
     fn clone(&self) -> Self {
@@ -1858,16 +3462,6 @@ impl ::core::fmt::Debug for WS_CERT_CREDENTIAL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CHANNEL_BINDING(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TCP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UDP_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CUSTOM_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_NAMEDPIPE_CHANNEL_BINDING: WS_CHANNEL_BINDING = WS_CHANNEL_BINDING(4i32);
 impl ::core::marker::Copy for WS_CHANNEL_BINDING {}
 impl ::core::clone::Clone for WS_CHANNEL_BINDING {
     fn clone(&self) -> Self {
@@ -1891,106 +3485,6 @@ impl ::core::fmt::Debug for WS_CHANNEL_BINDING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CHANNEL_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_MAX_BUFFERED_MESSAGE_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_MAX_STREAMED_MESSAGE_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_MAX_STREAMED_START_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_MAX_STREAMED_FLUSH_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_ENCODING: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_ENVELOPE_VERSION: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_ADDRESSING_VERSION: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_MAX_SESSION_DICTIONARY_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_STATE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_ASYNC_CALLBACK_MODEL: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_IP_VERSION: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_RESOLVE_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_CONNECT_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_SEND_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_RECEIVE_RESPONSE_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_RECEIVE_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(15i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_CLOSE_TIMEOUT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(16i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_ENABLE_TIMEOUTS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(17i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_TRANSFER_MODE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(18i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_MULTICAST_INTERFACE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(19i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_MULTICAST_HOPS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(20i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_REMOTE_ADDRESS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(21i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_REMOTE_IP_ADDRESS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(22i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_HTTP_CONNECTION_ID: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(23i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_CUSTOM_CHANNEL_CALLBACKS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(24i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_CUSTOM_CHANNEL_PARAMETERS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(25i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_CUSTOM_CHANNEL_INSTANCE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(26i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_TRANSPORT_URL: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(27i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_NO_DELAY: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(28i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_SEND_KEEP_ALIVES: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(29i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_KEEP_ALIVE_TIME: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(30i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_KEEP_ALIVE_INTERVAL: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(31i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_MAX_HTTP_SERVER_CONNECTIONS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(32i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_IS_SESSION_SHUT_DOWN: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(33i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_CHANNEL_TYPE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(34i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_TRIM_BUFFERED_MESSAGE_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(35i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_ENCODER: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(36i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_DECODER: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(37i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_PROTECTION_LEVEL: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(38i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_COOKIE_MODE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(39i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_HTTP_PROXY_SETTING_MODE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(40i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_CUSTOM_HTTP_PROXY: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(41i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_HTTP_MESSAGE_MAPPING: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(42i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_ENABLE_HTTP_REDIRECT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(43i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_HTTP_REDIRECT_CALLBACK_CONTEXT: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(44i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_FAULTS_AS_ERRORS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(45i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_ALLOW_UNSECURED_FAULTS: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(46i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_HTTP_SERVER_SPN: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(47i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_HTTP_PROXY_SPN: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(48i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_PROPERTY_MAX_HTTP_REQUEST_HEADERS_BUFFER_SIZE: WS_CHANNEL_PROPERTY_ID = WS_CHANNEL_PROPERTY_ID(49i32);
 impl ::core::marker::Copy for WS_CHANNEL_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_CHANNEL_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -2014,20 +3508,6 @@ impl ::core::fmt::Debug for WS_CHANNEL_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CHANNEL_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_STATE_CREATED: WS_CHANNEL_STATE = WS_CHANNEL_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_STATE_OPENING: WS_CHANNEL_STATE = WS_CHANNEL_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_STATE_ACCEPTING: WS_CHANNEL_STATE = WS_CHANNEL_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_STATE_OPEN: WS_CHANNEL_STATE = WS_CHANNEL_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_STATE_FAULTED: WS_CHANNEL_STATE = WS_CHANNEL_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_STATE_CLOSING: WS_CHANNEL_STATE = WS_CHANNEL_STATE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_STATE_CLOSED: WS_CHANNEL_STATE = WS_CHANNEL_STATE(6i32);
 impl ::core::marker::Copy for WS_CHANNEL_STATE {}
 impl ::core::clone::Clone for WS_CHANNEL_STATE {
     fn clone(&self) -> Self {
@@ -2051,24 +3531,6 @@ impl ::core::fmt::Debug for WS_CHANNEL_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CHANNEL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_TYPE_INPUT: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_TYPE_OUTPUT: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_TYPE_SESSION: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_TYPE_INPUT_SESSION: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_TYPE_OUTPUT_SESSION: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_TYPE_DUPLEX: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_TYPE_DUPLEX_SESSION: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_TYPE_REQUEST: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHANNEL_TYPE_REPLY: WS_CHANNEL_TYPE = WS_CHANNEL_TYPE(16i32);
 impl ::core::marker::Copy for WS_CHANNEL_TYPE {}
 impl ::core::clone::Clone for WS_CHANNEL_TYPE {
     fn clone(&self) -> Self {
@@ -2092,14 +3554,6 @@ impl ::core::fmt::Debug for WS_CHANNEL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_CHARSET(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHARSET_AUTO: WS_CHARSET = WS_CHARSET(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHARSET_UTF8: WS_CHARSET = WS_CHARSET(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHARSET_UTF16LE: WS_CHARSET = WS_CHARSET(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHARSET_UTF16BE: WS_CHARSET = WS_CHARSET(3i32);
 impl ::core::marker::Copy for WS_CHARSET {}
 impl ::core::clone::Clone for WS_CHARSET {
     fn clone(&self) -> Self {
@@ -2123,10 +3577,6 @@ impl ::core::fmt::Debug for WS_CHARSET {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_COOKIE_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MANUAL_COOKIE_MODE: WS_COOKIE_MODE = WS_COOKIE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_AUTO_COOKIE_MODE: WS_COOKIE_MODE = WS_COOKIE_MODE(2i32);
 impl ::core::marker::Copy for WS_COOKIE_MODE {}
 impl ::core::clone::Clone for WS_COOKIE_MODE {
     fn clone(&self) -> Self {
@@ -2150,12 +3600,6 @@ impl ::core::fmt::Debug for WS_COOKIE_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_DATETIME_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DATETIME_FORMAT_UTC: WS_DATETIME_FORMAT = WS_DATETIME_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DATETIME_FORMAT_LOCAL: WS_DATETIME_FORMAT = WS_DATETIME_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DATETIME_FORMAT_NONE: WS_DATETIME_FORMAT = WS_DATETIME_FORMAT(2i32);
 impl ::core::marker::Copy for WS_DATETIME_FORMAT {}
 impl ::core::clone::Clone for WS_DATETIME_FORMAT {
     fn clone(&self) -> Self {
@@ -2179,24 +3623,6 @@ impl ::core::fmt::Debug for WS_DATETIME_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ENCODING(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENCODING_XML_BINARY_1: WS_ENCODING = WS_ENCODING(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENCODING_XML_BINARY_SESSION_1: WS_ENCODING = WS_ENCODING(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENCODING_XML_MTOM_UTF8: WS_ENCODING = WS_ENCODING(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENCODING_XML_MTOM_UTF16BE: WS_ENCODING = WS_ENCODING(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENCODING_XML_MTOM_UTF16LE: WS_ENCODING = WS_ENCODING(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENCODING_XML_UTF8: WS_ENCODING = WS_ENCODING(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENCODING_XML_UTF16BE: WS_ENCODING = WS_ENCODING(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENCODING_XML_UTF16LE: WS_ENCODING = WS_ENCODING(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENCODING_RAW: WS_ENCODING = WS_ENCODING(8i32);
 impl ::core::marker::Copy for WS_ENCODING {}
 impl ::core::clone::Clone for WS_ENCODING {
     fn clone(&self) -> Self {
@@ -2220,8 +3646,6 @@ impl ::core::fmt::Debug for WS_ENCODING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENDPOINT_ADDRESS_EXTENSION_METADATA_ADDRESS: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE = WS_ENDPOINT_ADDRESS_EXTENSION_TYPE(1i32);
 impl ::core::marker::Copy for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {}
 impl ::core::clone::Clone for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {
     fn clone(&self) -> Self {
@@ -2245,18 +3669,6 @@ impl ::core::fmt::Debug for WS_ENDPOINT_ADDRESS_EXTENSION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ENDPOINT_IDENTITY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DNS_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UPN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SPN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_RSA_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CERT_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UNKNOWN_ENDPOINT_IDENTITY_TYPE: WS_ENDPOINT_IDENTITY_TYPE = WS_ENDPOINT_IDENTITY_TYPE(6i32);
 impl ::core::marker::Copy for WS_ENDPOINT_IDENTITY_TYPE {}
 impl ::core::clone::Clone for WS_ENDPOINT_IDENTITY_TYPE {
     fn clone(&self) -> Self {
@@ -2280,12 +3692,6 @@ impl ::core::fmt::Debug for WS_ENDPOINT_IDENTITY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ENVELOPE_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENVELOPE_VERSION_SOAP_1_1: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENVELOPE_VERSION_SOAP_1_2: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENVELOPE_VERSION_NONE: WS_ENVELOPE_VERSION = WS_ENVELOPE_VERSION(3i32);
 impl ::core::marker::Copy for WS_ENVELOPE_VERSION {}
 impl ::core::clone::Clone for WS_ENVELOPE_VERSION {
     fn clone(&self) -> Self {
@@ -2309,12 +3715,6 @@ impl ::core::fmt::Debug for WS_ENVELOPE_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_ERROR_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ERROR_PROPERTY_STRING_COUNT: WS_ERROR_PROPERTY_ID = WS_ERROR_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ERROR_PROPERTY_ORIGINAL_ERROR_CODE: WS_ERROR_PROPERTY_ID = WS_ERROR_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ERROR_PROPERTY_LANGID: WS_ERROR_PROPERTY_ID = WS_ERROR_PROPERTY_ID(2i32);
 impl ::core::marker::Copy for WS_ERROR_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_ERROR_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -2338,10 +3738,6 @@ impl ::core::fmt::Debug for WS_ERROR_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_EXCEPTION_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_EXCEPTION_CODE_USAGE_FAILURE: WS_EXCEPTION_CODE = WS_EXCEPTION_CODE(-1069744128i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_EXCEPTION_CODE_INTERNAL_FAILURE: WS_EXCEPTION_CODE = WS_EXCEPTION_CODE(-1069744127i32);
 impl ::core::marker::Copy for WS_EXCEPTION_CODE {}
 impl ::core::clone::Clone for WS_EXCEPTION_CODE {
     fn clone(&self) -> Self {
@@ -2365,12 +3761,6 @@ impl ::core::fmt::Debug for WS_EXCEPTION_CODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_EXTENDED_PROTECTION_POLICY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_EXTENDED_PROTECTION_POLICY_NEVER: WS_EXTENDED_PROTECTION_POLICY = WS_EXTENDED_PROTECTION_POLICY(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_EXTENDED_PROTECTION_POLICY_WHEN_SUPPORTED: WS_EXTENDED_PROTECTION_POLICY = WS_EXTENDED_PROTECTION_POLICY(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_EXTENDED_PROTECTION_POLICY_ALWAYS: WS_EXTENDED_PROTECTION_POLICY = WS_EXTENDED_PROTECTION_POLICY(3i32);
 impl ::core::marker::Copy for WS_EXTENDED_PROTECTION_POLICY {}
 impl ::core::clone::Clone for WS_EXTENDED_PROTECTION_POLICY {
     fn clone(&self) -> Self {
@@ -2394,10 +3784,6 @@ impl ::core::fmt::Debug for WS_EXTENDED_PROTECTION_POLICY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_EXTENDED_PROTECTION_SCENARIO(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_EXTENDED_PROTECTION_SCENARIO_BOUND_SERVER: WS_EXTENDED_PROTECTION_SCENARIO = WS_EXTENDED_PROTECTION_SCENARIO(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_EXTENDED_PROTECTION_SCENARIO_TERMINATED_SSL: WS_EXTENDED_PROTECTION_SCENARIO = WS_EXTENDED_PROTECTION_SCENARIO(2i32);
 impl ::core::marker::Copy for WS_EXTENDED_PROTECTION_SCENARIO {}
 impl ::core::clone::Clone for WS_EXTENDED_PROTECTION_SCENARIO {
     fn clone(&self) -> Self {
@@ -2421,10 +3807,6 @@ impl ::core::fmt::Debug for WS_EXTENDED_PROTECTION_SCENARIO {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_FAULT_DISCLOSURE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MINIMAL_FAULT_DISCLOSURE: WS_FAULT_DISCLOSURE = WS_FAULT_DISCLOSURE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_FULL_FAULT_DISCLOSURE: WS_FAULT_DISCLOSURE = WS_FAULT_DISCLOSURE(1i32);
 impl ::core::marker::Copy for WS_FAULT_DISCLOSURE {}
 impl ::core::clone::Clone for WS_FAULT_DISCLOSURE {
     fn clone(&self) -> Self {
@@ -2448,12 +3830,6 @@ impl ::core::fmt::Debug for WS_FAULT_DISCLOSURE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_FAULT_ERROR_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_FAULT_ERROR_PROPERTY_FAULT: WS_FAULT_ERROR_PROPERTY_ID = WS_FAULT_ERROR_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_FAULT_ERROR_PROPERTY_ACTION: WS_FAULT_ERROR_PROPERTY_ID = WS_FAULT_ERROR_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_FAULT_ERROR_PROPERTY_HEADER: WS_FAULT_ERROR_PROPERTY_ID = WS_FAULT_ERROR_PROPERTY_ID(2i32);
 impl ::core::marker::Copy for WS_FAULT_ERROR_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_FAULT_ERROR_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -2477,32 +3853,6 @@ impl ::core::fmt::Debug for WS_FAULT_ERROR_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_FIELD_MAPPING(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TYPE_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REPEATING_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TEXT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_NO_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_ATTRIBUTE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ELEMENT_CHOICE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REPEATING_ELEMENT_CHOICE_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ANY_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REPEATING_ANY_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ANY_CONTENT_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ANY_ATTRIBUTES_FIELD_MAPPING: WS_FIELD_MAPPING = WS_FIELD_MAPPING(12i32);
 impl ::core::marker::Copy for WS_FIELD_MAPPING {}
 impl ::core::clone::Clone for WS_FIELD_MAPPING {
     fn clone(&self) -> Self {
@@ -2526,20 +3876,6 @@ impl ::core::fmt::Debug for WS_FIELD_MAPPING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_HEADER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ACTION_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_ID_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_RELATES_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_FROM_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REPLY_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_FAULT_TO_HEADER: WS_HEADER_TYPE = WS_HEADER_TYPE(7i32);
 impl ::core::marker::Copy for WS_HEADER_TYPE {}
 impl ::core::clone::Clone for WS_HEADER_TYPE {
     fn clone(&self) -> Self {
@@ -2563,14 +3899,6 @@ impl ::core::fmt::Debug for WS_HEADER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_HEAP_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HEAP_PROPERTY_MAX_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HEAP_PROPERTY_TRIM_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HEAP_PROPERTY_REQUESTED_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HEAP_PROPERTY_ACTUAL_SIZE: WS_HEAP_PROPERTY_ID = WS_HEAP_PROPERTY_ID(3i32);
 impl ::core::marker::Copy for WS_HEAP_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_HEAP_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -2594,10 +3922,6 @@ impl ::core::fmt::Debug for WS_HEAP_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_HTTP_HEADER_AUTH_TARGET(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_HEADER_AUTH_TARGET_SERVICE: WS_HTTP_HEADER_AUTH_TARGET = WS_HTTP_HEADER_AUTH_TARGET(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_HEADER_AUTH_TARGET_PROXY: WS_HTTP_HEADER_AUTH_TARGET = WS_HTTP_HEADER_AUTH_TARGET(2i32);
 impl ::core::marker::Copy for WS_HTTP_HEADER_AUTH_TARGET {}
 impl ::core::clone::Clone for WS_HTTP_HEADER_AUTH_TARGET {
     fn clone(&self) -> Self {
@@ -2621,12 +3945,6 @@ impl ::core::fmt::Debug for WS_HTTP_HEADER_AUTH_TARGET {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_HTTP_PROXY_SETTING_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_PROXY_SETTING_MODE_AUTO: WS_HTTP_PROXY_SETTING_MODE = WS_HTTP_PROXY_SETTING_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_PROXY_SETTING_MODE_NONE: WS_HTTP_PROXY_SETTING_MODE = WS_HTTP_PROXY_SETTING_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_PROXY_SETTING_MODE_CUSTOM: WS_HTTP_PROXY_SETTING_MODE = WS_HTTP_PROXY_SETTING_MODE(3i32);
 impl ::core::marker::Copy for WS_HTTP_PROXY_SETTING_MODE {}
 impl ::core::clone::Clone for WS_HTTP_PROXY_SETTING_MODE {
     fn clone(&self) -> Self {
@@ -2650,12 +3968,6 @@ impl ::core::fmt::Debug for WS_HTTP_PROXY_SETTING_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_IP_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_IP_VERSION_4: WS_IP_VERSION = WS_IP_VERSION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_IP_VERSION_6: WS_IP_VERSION = WS_IP_VERSION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_IP_VERSION_AUTO: WS_IP_VERSION = WS_IP_VERSION(3i32);
 impl ::core::marker::Copy for WS_IP_VERSION {}
 impl ::core::clone::Clone for WS_IP_VERSION {
     fn clone(&self) -> Self {
@@ -2679,40 +3991,6 @@ impl ::core::fmt::Debug for WS_IP_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_LISTENER_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_LISTEN_BACKLOG: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_IP_VERSION: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_STATE: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_ASYNC_CALLBACK_MODEL: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_CHANNEL_TYPE: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_CHANNEL_BINDING: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_CONNECT_TIMEOUT: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_IS_MULTICAST: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_MULTICAST_INTERFACES: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_MULTICAST_LOOPBACK: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_CLOSE_TIMEOUT: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_TO_HEADER_MATCHING_OPTIONS: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_TRANSPORT_URL_MATCHING_OPTIONS: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_CUSTOM_LISTENER_CALLBACKS: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_CUSTOM_LISTENER_PARAMETERS: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_CUSTOM_LISTENER_INSTANCE: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(15i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_PROPERTY_DISALLOWED_USER_AGENT: WS_LISTENER_PROPERTY_ID = WS_LISTENER_PROPERTY_ID(16i32);
 impl ::core::marker::Copy for WS_LISTENER_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_LISTENER_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -2736,18 +4014,6 @@ impl ::core::fmt::Debug for WS_LISTENER_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_LISTENER_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_STATE_CREATED: WS_LISTENER_STATE = WS_LISTENER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_STATE_OPENING: WS_LISTENER_STATE = WS_LISTENER_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_STATE_OPEN: WS_LISTENER_STATE = WS_LISTENER_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_STATE_FAULTED: WS_LISTENER_STATE = WS_LISTENER_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_STATE_CLOSING: WS_LISTENER_STATE = WS_LISTENER_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_LISTENER_STATE_CLOSED: WS_LISTENER_STATE = WS_LISTENER_STATE(5i32);
 impl ::core::marker::Copy for WS_LISTENER_STATE {}
 impl ::core::clone::Clone for WS_LISTENER_STATE {
     fn clone(&self) -> Self {
@@ -2771,16 +4037,6 @@ impl ::core::fmt::Debug for WS_LISTENER_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_MESSAGE_INITIALIZATION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_BLANK_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DUPLICATE_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REPLY_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_FAULT_MESSAGE: WS_MESSAGE_INITIALIZATION = WS_MESSAGE_INITIALIZATION(4i32);
 impl ::core::marker::Copy for WS_MESSAGE_INITIALIZATION {}
 impl ::core::clone::Clone for WS_MESSAGE_INITIALIZATION {
     fn clone(&self) -> Self {
@@ -2804,50 +4060,6 @@ impl ::core::fmt::Debug for WS_MESSAGE_INITIALIZATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_MESSAGE_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_STATE: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_HEAP: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_ENVELOPE_VERSION: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_ADDRESSING_VERSION: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_HEADER_BUFFER: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_HEADER_POSITION: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_BODY_READER: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_BODY_WRITER: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_IS_ADDRESSED: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_HEAP_PROPERTIES: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_XML_READER_PROPERTIES: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_XML_WRITER_PROPERTIES: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_IS_FAULT: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_MAX_PROCESSED_HEADERS: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_USERNAME: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_ENCODED_CERT: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(15i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_TRANSPORT_SECURITY_WINDOWS_TOKEN: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(16i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_HTTP_HEADER_AUTH_WINDOWS_TOKEN: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(17i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_MESSAGE_SECURITY_WINDOWS_TOKEN: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(18i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_SAML_ASSERTION: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(19i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_SECURITY_CONTEXT: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(20i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_PROPERTY_PROTECTION_LEVEL: WS_MESSAGE_PROPERTY_ID = WS_MESSAGE_PROPERTY_ID(21i32);
 impl ::core::marker::Copy for WS_MESSAGE_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_MESSAGE_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -2871,8 +4083,6 @@ impl ::core::fmt::Debug for WS_MESSAGE_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_MESSAGE_SECURITY_USAGE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SUPPORTING_MESSAGE_SECURITY_USAGE: WS_MESSAGE_SECURITY_USAGE = WS_MESSAGE_SECURITY_USAGE(1i32);
 impl ::core::marker::Copy for WS_MESSAGE_SECURITY_USAGE {}
 impl ::core::clone::Clone for WS_MESSAGE_SECURITY_USAGE {
     fn clone(&self) -> Self {
@@ -2896,16 +4106,6 @@ impl ::core::fmt::Debug for WS_MESSAGE_SECURITY_USAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_MESSAGE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_STATE_EMPTY: WS_MESSAGE_STATE = WS_MESSAGE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_STATE_INITIALIZED: WS_MESSAGE_STATE = WS_MESSAGE_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_STATE_READING: WS_MESSAGE_STATE = WS_MESSAGE_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_STATE_WRITING: WS_MESSAGE_STATE = WS_MESSAGE_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MESSAGE_STATE_DONE: WS_MESSAGE_STATE = WS_MESSAGE_STATE(5i32);
 impl ::core::marker::Copy for WS_MESSAGE_STATE {}
 impl ::core::clone::Clone for WS_MESSAGE_STATE {
     fn clone(&self) -> Self {
@@ -2929,12 +4129,6 @@ impl ::core::fmt::Debug for WS_MESSAGE_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_METADATA_EXCHANGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_EXCHANGE_TYPE_NONE: WS_METADATA_EXCHANGE_TYPE = WS_METADATA_EXCHANGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_EXCHANGE_TYPE_MEX: WS_METADATA_EXCHANGE_TYPE = WS_METADATA_EXCHANGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_EXCHANGE_TYPE_HTTP_GET: WS_METADATA_EXCHANGE_TYPE = WS_METADATA_EXCHANGE_TYPE(2i32);
 impl ::core::marker::Copy for WS_METADATA_EXCHANGE_TYPE {}
 impl ::core::clone::Clone for WS_METADATA_EXCHANGE_TYPE {
     fn clone(&self) -> Self {
@@ -2958,20 +4152,6 @@ impl ::core::fmt::Debug for WS_METADATA_EXCHANGE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_METADATA_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_PROPERTY_STATE: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_PROPERTY_HEAP_PROPERTIES: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_PROPERTY_POLICY_PROPERTIES: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_PROPERTY_HEAP_REQUESTED_SIZE: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_PROPERTY_MAX_DOCUMENTS: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_PROPERTY_HOST_NAMES: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_PROPERTY_VERIFY_HOST_NAMES: WS_METADATA_PROPERTY_ID = WS_METADATA_PROPERTY_ID(7i32);
 impl ::core::marker::Copy for WS_METADATA_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_METADATA_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -2995,12 +4175,6 @@ impl ::core::fmt::Debug for WS_METADATA_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_METADATA_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_STATE_CREATED: WS_METADATA_STATE = WS_METADATA_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_STATE_RESOLVED: WS_METADATA_STATE = WS_METADATA_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_METADATA_STATE_FAULTED: WS_METADATA_STATE = WS_METADATA_STATE(3i32);
 impl ::core::marker::Copy for WS_METADATA_STATE {}
 impl ::core::clone::Clone for WS_METADATA_STATE {
     fn clone(&self) -> Self {
@@ -3024,30 +4198,6 @@ impl ::core::fmt::Debug for WS_METADATA_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_MOVE_TO(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_ROOT_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_NEXT_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_PREVIOUS_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_CHILD_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_END_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_PARENT_ELEMENT: WS_MOVE_TO = WS_MOVE_TO(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_NEXT_NODE: WS_MOVE_TO = WS_MOVE_TO(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_PREVIOUS_NODE: WS_MOVE_TO = WS_MOVE_TO(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_FIRST_NODE: WS_MOVE_TO = WS_MOVE_TO(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_BOF: WS_MOVE_TO = WS_MOVE_TO(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_EOF: WS_MOVE_TO = WS_MOVE_TO(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_MOVE_TO_CHILD_NODE: WS_MOVE_TO = WS_MOVE_TO(11i32);
 impl ::core::marker::Copy for WS_MOVE_TO {}
 impl ::core::clone::Clone for WS_MOVE_TO {
     fn clone(&self) -> Self {
@@ -3071,24 +4221,6 @@ impl ::core::fmt::Debug for WS_MOVE_TO {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_OPERATION_CONTEXT_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_OPERATION_CONTEXT_PROPERTY_CHANNEL: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_OPERATION_CONTEXT_PROPERTY_CONTRACT_DESCRIPTION: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_OPERATION_CONTEXT_PROPERTY_HOST_USER_STATE: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_OPERATION_CONTEXT_PROPERTY_CHANNEL_USER_STATE: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_OPERATION_CONTEXT_PROPERTY_INPUT_MESSAGE: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_OPERATION_CONTEXT_PROPERTY_OUTPUT_MESSAGE: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_OPERATION_CONTEXT_PROPERTY_HEAP: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_OPERATION_CONTEXT_PROPERTY_LISTENER: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_OPERATION_CONTEXT_PROPERTY_ENDPOINT_ADDRESS: WS_OPERATION_CONTEXT_PROPERTY_ID = WS_OPERATION_CONTEXT_PROPERTY_ID(8i32);
 impl ::core::marker::Copy for WS_OPERATION_CONTEXT_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_OPERATION_CONTEXT_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -3112,10 +4244,6 @@ impl ::core::fmt::Debug for WS_OPERATION_CONTEXT_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_OPERATION_STYLE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_NON_RPC_LITERAL_OPERATION: WS_OPERATION_STYLE = WS_OPERATION_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_RPC_LITERAL_OPERATION: WS_OPERATION_STYLE = WS_OPERATION_STYLE(1i32);
 impl ::core::marker::Copy for WS_OPERATION_STYLE {}
 impl ::core::clone::Clone for WS_OPERATION_STYLE {
     fn clone(&self) -> Self {
@@ -3139,14 +4267,6 @@ impl ::core::fmt::Debug for WS_OPERATION_STYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_PARAMETER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PARAMETER_TYPE_NORMAL: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PARAMETER_TYPE_ARRAY: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PARAMETER_TYPE_ARRAY_COUNT: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PARAMETER_TYPE_MESSAGES: WS_PARAMETER_TYPE = WS_PARAMETER_TYPE(3i32);
 impl ::core::marker::Copy for WS_PARAMETER_TYPE {}
 impl ::core::clone::Clone for WS_PARAMETER_TYPE {
     fn clone(&self) -> Self {
@@ -3170,8 +4290,6 @@ impl ::core::fmt::Debug for WS_PARAMETER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_POLICY_EXTENSION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENDPOINT_POLICY_EXTENSION_TYPE: WS_POLICY_EXTENSION_TYPE = WS_POLICY_EXTENSION_TYPE(1i32);
 impl ::core::marker::Copy for WS_POLICY_EXTENSION_TYPE {}
 impl ::core::clone::Clone for WS_POLICY_EXTENSION_TYPE {
     fn clone(&self) -> Self {
@@ -3195,14 +4313,6 @@ impl ::core::fmt::Debug for WS_POLICY_EXTENSION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_POLICY_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_POLICY_PROPERTY_STATE: WS_POLICY_PROPERTY_ID = WS_POLICY_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_POLICY_PROPERTY_MAX_ALTERNATIVES: WS_POLICY_PROPERTY_ID = WS_POLICY_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_POLICY_PROPERTY_MAX_DEPTH: WS_POLICY_PROPERTY_ID = WS_POLICY_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_POLICY_PROPERTY_MAX_EXTENSIONS: WS_POLICY_PROPERTY_ID = WS_POLICY_PROPERTY_ID(4i32);
 impl ::core::marker::Copy for WS_POLICY_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_POLICY_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -3226,10 +4336,6 @@ impl ::core::fmt::Debug for WS_POLICY_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_POLICY_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_POLICY_STATE_CREATED: WS_POLICY_STATE = WS_POLICY_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_POLICY_STATE_FAULTED: WS_POLICY_STATE = WS_POLICY_STATE(2i32);
 impl ::core::marker::Copy for WS_POLICY_STATE {}
 impl ::core::clone::Clone for WS_POLICY_STATE {
     fn clone(&self) -> Self {
@@ -3253,12 +4359,6 @@ impl ::core::fmt::Debug for WS_POLICY_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_PROTECTION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PROTECTION_LEVEL_NONE: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PROTECTION_LEVEL_SIGN: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PROTECTION_LEVEL_SIGN_AND_ENCRYPT: WS_PROTECTION_LEVEL = WS_PROTECTION_LEVEL(3i32);
 impl ::core::marker::Copy for WS_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for WS_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
@@ -3282,20 +4382,6 @@ impl ::core::fmt::Debug for WS_PROTECTION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_PROXY_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PROXY_PROPERTY_CALL_TIMEOUT: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PROXY_PROPERTY_MESSAGE_PROPERTIES: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PROXY_PROPERTY_MAX_CALL_POOL_SIZE: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PROXY_PROPERTY_STATE: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PROXY_PROPERTY_MAX_PENDING_CALLS: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PROXY_PROPERTY_MAX_CLOSE_TIMEOUT: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_PROXY_FAULT_LANG_ID: WS_PROXY_PROPERTY_ID = WS_PROXY_PROPERTY_ID(6i32);
 impl ::core::marker::Copy for WS_PROXY_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_PROXY_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -3319,16 +4405,6 @@ impl ::core::fmt::Debug for WS_PROXY_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_READ_OPTION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_READ_REQUIRED_VALUE: WS_READ_OPTION = WS_READ_OPTION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_READ_REQUIRED_POINTER: WS_READ_OPTION = WS_READ_OPTION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_READ_OPTIONAL_POINTER: WS_READ_OPTION = WS_READ_OPTION(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_READ_NILLABLE_POINTER: WS_READ_OPTION = WS_READ_OPTION(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_READ_NILLABLE_VALUE: WS_READ_OPTION = WS_READ_OPTION(5i32);
 impl ::core::marker::Copy for WS_READ_OPTION {}
 impl ::core::clone::Clone for WS_READ_OPTION {
     fn clone(&self) -> Self {
@@ -3352,10 +4428,6 @@ impl ::core::fmt::Debug for WS_READ_OPTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_RECEIVE_OPTION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_RECEIVE_REQUIRED_MESSAGE: WS_RECEIVE_OPTION = WS_RECEIVE_OPTION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_RECEIVE_OPTIONAL_MESSAGE: WS_RECEIVE_OPTION = WS_RECEIVE_OPTION(2i32);
 impl ::core::marker::Copy for WS_RECEIVE_OPTION {}
 impl ::core::clone::Clone for WS_RECEIVE_OPTION {
     fn clone(&self) -> Self {
@@ -3379,10 +4451,6 @@ impl ::core::fmt::Debug for WS_RECEIVE_OPTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_REPEATING_HEADER_OPTION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REPEATING_HEADER: WS_REPEATING_HEADER_OPTION = WS_REPEATING_HEADER_OPTION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SINGLETON_HEADER: WS_REPEATING_HEADER_OPTION = WS_REPEATING_HEADER_OPTION(2i32);
 impl ::core::marker::Copy for WS_REPEATING_HEADER_OPTION {}
 impl ::core::clone::Clone for WS_REPEATING_HEADER_OPTION {
     fn clone(&self) -> Self {
@@ -3406,12 +4474,6 @@ impl ::core::fmt::Debug for WS_REPEATING_HEADER_OPTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_REQUEST_SECURITY_TOKEN_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_ACTION_ISSUE: WS_REQUEST_SECURITY_TOKEN_ACTION = WS_REQUEST_SECURITY_TOKEN_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_ACTION_NEW_CONTEXT: WS_REQUEST_SECURITY_TOKEN_ACTION = WS_REQUEST_SECURITY_TOKEN_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_ACTION_RENEW_CONTEXT: WS_REQUEST_SECURITY_TOKEN_ACTION = WS_REQUEST_SECURITY_TOKEN_ACTION(3i32);
 impl ::core::marker::Copy for WS_REQUEST_SECURITY_TOKEN_ACTION {}
 impl ::core::clone::Clone for WS_REQUEST_SECURITY_TOKEN_ACTION {
     fn clone(&self) -> Self {
@@ -3435,32 +4497,6 @@ impl ::core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_APPLIES_TO: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_TRUST_VERSION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_SECURE_CONVERSATION_VERSION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_TYPE: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_REQUEST_ACTION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_EXISTING_TOKEN: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_KEY_TYPE: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_KEY_SIZE: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_ISSUED_TOKEN_KEY_ENTROPY: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_LOCAL_REQUEST_PARAMETERS: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_SERVICE_REQUEST_PARAMETERS: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_MESSAGE_PROPERTIES: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_REQUEST_SECURITY_TOKEN_PROPERTY_BEARER_KEY_TYPE_VERSION: WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID = WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID(13i32);
 impl ::core::marker::Copy for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -3484,8 +4520,6 @@ impl ::core::fmt::Debug for WS_REQUEST_SECURITY_TOKEN_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SAML_AUTHENTICATOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CERT_SIGNED_SAML_AUTHENTICATOR_TYPE: WS_SAML_AUTHENTICATOR_TYPE = WS_SAML_AUTHENTICATOR_TYPE(1i32);
 impl ::core::marker::Copy for WS_SAML_AUTHENTICATOR_TYPE {}
 impl ::core::clone::Clone for WS_SAML_AUTHENTICATOR_TYPE {
     fn clone(&self) -> Self {
@@ -3509,10 +4543,6 @@ impl ::core::fmt::Debug for WS_SAML_AUTHENTICATOR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURE_CONVERSATION_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURE_CONVERSATION_VERSION_FEBRUARY_2005: WS_SECURE_CONVERSATION_VERSION = WS_SECURE_CONVERSATION_VERSION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURE_CONVERSATION_VERSION_1_3: WS_SECURE_CONVERSATION_VERSION = WS_SECURE_CONVERSATION_VERSION(2i32);
 impl ::core::marker::Copy for WS_SECURE_CONVERSATION_VERSION {}
 impl ::core::clone::Clone for WS_SECURE_CONVERSATION_VERSION {
     fn clone(&self) -> Self {
@@ -3536,16 +4566,6 @@ impl ::core::fmt::Debug for WS_SECURE_CONVERSATION_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURE_PROTOCOL(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURE_PROTOCOL_SSL2: WS_SECURE_PROTOCOL = WS_SECURE_PROTOCOL(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURE_PROTOCOL_SSL3: WS_SECURE_PROTOCOL = WS_SECURE_PROTOCOL(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURE_PROTOCOL_TLS1_0: WS_SECURE_PROTOCOL = WS_SECURE_PROTOCOL(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURE_PROTOCOL_TLS1_1: WS_SECURE_PROTOCOL = WS_SECURE_PROTOCOL(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURE_PROTOCOL_TLS1_2: WS_SECURE_PROTOCOL = WS_SECURE_PROTOCOL(16i32);
 impl ::core::marker::Copy for WS_SECURE_PROTOCOL {}
 impl ::core::clone::Clone for WS_SECURE_PROTOCOL {
     fn clone(&self) -> Self {
@@ -3569,44 +4589,6 @@ impl ::core::fmt::Debug for WS_SECURE_PROTOCOL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_ALGORITHM_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_DEFAULT: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_CANONICALIZATION_EXCLUSIVE: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_CANONICALIZATION_EXCLUSIVE_WITH_COMMENTS: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_DIGEST_SHA1: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_DIGEST_SHA_256: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_DIGEST_SHA_384: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_DIGEST_SHA_512: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA1: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA_256: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA_384: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SYMMETRIC_SIGNATURE_HMAC_SHA_512: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA1: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_DSA_SHA1: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA_256: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA_384: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_SIGNATURE_RSA_SHA_512: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(15i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_KEYWRAP_RSA_1_5: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(16i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_ASYMMETRIC_KEYWRAP_RSA_OAEP: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(17i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_KEY_DERIVATION_P_SHA1: WS_SECURITY_ALGORITHM_ID = WS_SECURITY_ALGORITHM_ID(18i32);
 impl ::core::marker::Copy for WS_SECURITY_ALGORITHM_ID {}
 impl ::core::clone::Clone for WS_SECURITY_ALGORITHM_ID {
     fn clone(&self) -> Self {
@@ -3653,30 +4635,6 @@ impl ::core::fmt::Debug for WS_SECURITY_ALGORITHM_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_ALGORITHM_SUITE_NAME(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256_SHA256: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192_SHA256: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128_SHA256: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC256_SHA256_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC192_SHA256_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_ALGORITHM_SUITE_NAME_BASIC128_SHA256_RSA15: WS_SECURITY_ALGORITHM_SUITE_NAME = WS_SECURITY_ALGORITHM_SUITE_NAME(12i32);
 impl ::core::marker::Copy for WS_SECURITY_ALGORITHM_SUITE_NAME {}
 impl ::core::clone::Clone for WS_SECURITY_ALGORITHM_SUITE_NAME {
     fn clone(&self) -> Self {
@@ -3700,12 +4658,6 @@ impl ::core::fmt::Debug for WS_SECURITY_ALGORITHM_SUITE_NAME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_BEARER_KEY_TYPE_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ORIGINAL_SPECIFICATION: WS_SECURITY_BEARER_KEY_TYPE_VERSION = WS_SECURITY_BEARER_KEY_TYPE_VERSION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ORIGINAL_SCHEMA: WS_SECURITY_BEARER_KEY_TYPE_VERSION = WS_SECURITY_BEARER_KEY_TYPE_VERSION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BEARER_KEY_TYPE_VERSION_1_3_ERRATA_01: WS_SECURITY_BEARER_KEY_TYPE_VERSION = WS_SECURITY_BEARER_KEY_TYPE_VERSION(3i32);
 impl ::core::marker::Copy for WS_SECURITY_BEARER_KEY_TYPE_VERSION {}
 impl ::core::clone::Clone for WS_SECURITY_BEARER_KEY_TYPE_VERSION {
     fn clone(&self) -> Self {
@@ -3729,22 +4681,6 @@ impl ::core::fmt::Debug for WS_SECURITY_BEARER_KEY_TYPE_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_BINDING_CONSTRAINT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_HEADER_AUTH_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_USERNAME_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CERT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_CONSTRAINT_TYPE: WS_SECURITY_BINDING_CONSTRAINT_TYPE = WS_SECURITY_BINDING_CONSTRAINT_TYPE(8i32);
 impl ::core::marker::Copy for WS_SECURITY_BINDING_CONSTRAINT_TYPE {}
 impl ::core::clone::Clone for WS_SECURITY_BINDING_CONSTRAINT_TYPE {
     fn clone(&self) -> Self {
@@ -3768,52 +4704,6 @@ impl ::core::fmt::Debug for WS_SECURITY_BINDING_CONSTRAINT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_BINDING_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_REQUIRE_SSL_CLIENT_CERT: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_WINDOWS_INTEGRATED_AUTH_PACKAGE: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_REQUIRE_SERVER_AUTH: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_ALLOW_ANONYMOUS_CLIENTS: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_ALLOWED_IMPERSONATION_LEVEL: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_SCHEME: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_TARGET: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_BASIC_REALM: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_DIGEST_REALM: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_HTTP_HEADER_AUTH_DIGEST_DOMAIN: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_KEY_SIZE: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_KEY_ENTROPY_MODE: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_MESSAGE_PROPERTIES: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_MAX_PENDING_CONTEXTS: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_MAX_ACTIVE_CONTEXTS: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(15i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_SECURE_CONVERSATION_VERSION: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(16i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_SUPPORT_RENEW: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(17i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_RENEWAL_INTERVAL: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(18i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_SECURITY_CONTEXT_ROLLOVER_INTERVAL: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(19i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_CERT_FAILURES_TO_IGNORE: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(20i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_DISABLE_CERT_REVOCATION_CHECK: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(21i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_DISALLOWED_SECURE_PROTOCOLS: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(22i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_BINDING_PROPERTY_CERTIFICATE_VALIDATION_CALLBACK_CONTEXT: WS_SECURITY_BINDING_PROPERTY_ID = WS_SECURITY_BINDING_PROPERTY_ID(23i32);
 impl ::core::marker::Copy for WS_SECURITY_BINDING_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_SECURITY_BINDING_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -3837,24 +4727,6 @@ impl ::core::fmt::Debug for WS_SECURITY_BINDING_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_BINDING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SSL_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TCP_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_HTTP_HEADER_AUTH_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_USERNAME_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_KERBEROS_APREQ_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TOKEN_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SAML_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_CONTEXT_MESSAGE_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_NAMEDPIPE_SSPI_TRANSPORT_SECURITY_BINDING_TYPE: WS_SECURITY_BINDING_TYPE = WS_SECURITY_BINDING_TYPE(9i32);
 impl ::core::marker::Copy for WS_SECURITY_BINDING_TYPE {}
 impl ::core::clone::Clone for WS_SECURITY_BINDING_TYPE {
     fn clone(&self) -> Self {
@@ -3878,14 +4750,6 @@ impl ::core::fmt::Debug for WS_SECURITY_BINDING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_CONTEXT_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_CONTEXT_PROPERTY_IDENTIFIER: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_CONTEXT_PROPERTY_USERNAME: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_CONTEXT_PROPERTY_MESSAGE_SECURITY_WINDOWS_TOKEN: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_CONTEXT_PROPERTY_SAML_ASSERTION: WS_SECURITY_CONTEXT_PROPERTY_ID = WS_SECURITY_CONTEXT_PROPERTY_ID(4i32);
 impl ::core::marker::Copy for WS_SECURITY_CONTEXT_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_SECURITY_CONTEXT_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -3909,14 +4773,6 @@ impl ::core::fmt::Debug for WS_SECURITY_CONTEXT_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_HEADER_LAYOUT(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_HEADER_LAYOUT_STRICT: WS_SECURITY_HEADER_LAYOUT = WS_SECURITY_HEADER_LAYOUT(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_HEADER_LAYOUT_LAX: WS_SECURITY_HEADER_LAYOUT = WS_SECURITY_HEADER_LAYOUT(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_HEADER_LAYOUT_LAX_WITH_TIMESTAMP_FIRST: WS_SECURITY_HEADER_LAYOUT = WS_SECURITY_HEADER_LAYOUT(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_HEADER_LAYOUT_LAX_WITH_TIMESTAMP_LAST: WS_SECURITY_HEADER_LAYOUT = WS_SECURITY_HEADER_LAYOUT(4i32);
 impl ::core::marker::Copy for WS_SECURITY_HEADER_LAYOUT {}
 impl ::core::clone::Clone for WS_SECURITY_HEADER_LAYOUT {
     fn clone(&self) -> Self {
@@ -3940,10 +4796,6 @@ impl ::core::fmt::Debug for WS_SECURITY_HEADER_LAYOUT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_HEADER_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_HEADER_VERSION_1_0: WS_SECURITY_HEADER_VERSION = WS_SECURITY_HEADER_VERSION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_HEADER_VERSION_1_1: WS_SECURITY_HEADER_VERSION = WS_SECURITY_HEADER_VERSION(2i32);
 impl ::core::marker::Copy for WS_SECURITY_HEADER_VERSION {}
 impl ::core::clone::Clone for WS_SECURITY_HEADER_VERSION {
     fn clone(&self) -> Self {
@@ -3967,12 +4819,6 @@ impl ::core::fmt::Debug for WS_SECURITY_HEADER_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_KEY_ENTROPY_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_KEY_ENTROPY_MODE_CLIENT_ONLY: WS_SECURITY_KEY_ENTROPY_MODE = WS_SECURITY_KEY_ENTROPY_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_KEY_ENTROPY_MODE_SERVER_ONLY: WS_SECURITY_KEY_ENTROPY_MODE = WS_SECURITY_KEY_ENTROPY_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_KEY_ENTROPY_MODE_COMBINED: WS_SECURITY_KEY_ENTROPY_MODE = WS_SECURITY_KEY_ENTROPY_MODE(3i32);
 impl ::core::marker::Copy for WS_SECURITY_KEY_ENTROPY_MODE {}
 impl ::core::clone::Clone for WS_SECURITY_KEY_ENTROPY_MODE {
     fn clone(&self) -> Self {
@@ -3996,12 +4842,6 @@ impl ::core::fmt::Debug for WS_SECURITY_KEY_ENTROPY_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_KEY_HANDLE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_RAW_SYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_NCRYPT_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CAPI_ASYMMETRIC_SECURITY_KEY_HANDLE_TYPE: WS_SECURITY_KEY_HANDLE_TYPE = WS_SECURITY_KEY_HANDLE_TYPE(3i32);
 impl ::core::marker::Copy for WS_SECURITY_KEY_HANDLE_TYPE {}
 impl ::core::clone::Clone for WS_SECURITY_KEY_HANDLE_TYPE {
     fn clone(&self) -> Self {
@@ -4025,12 +4865,6 @@ impl ::core::fmt::Debug for WS_SECURITY_KEY_HANDLE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_KEY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_KEY_TYPE_NONE: WS_SECURITY_KEY_TYPE = WS_SECURITY_KEY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_KEY_TYPE_SYMMETRIC: WS_SECURITY_KEY_TYPE = WS_SECURITY_KEY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_KEY_TYPE_ASYMMETRIC: WS_SECURITY_KEY_TYPE = WS_SECURITY_KEY_TYPE(3i32);
 impl ::core::marker::Copy for WS_SECURITY_KEY_TYPE {}
 impl ::core::clone::Clone for WS_SECURITY_KEY_TYPE {
     fn clone(&self) -> Self {
@@ -4054,30 +4888,6 @@ impl ::core::fmt::Debug for WS_SECURITY_KEY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_TRANSPORT_PROTECTION_LEVEL: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_ALGORITHM_SUITE: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_ALGORITHM_SUITE_NAME: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_MAX_ALLOWED_LATENCY: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_TIMESTAMP_VALIDITY_DURATION: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_MAX_ALLOWED_CLOCK_SKEW: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_TIMESTAMP_USAGE: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_SECURITY_HEADER_LAYOUT: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_SECURITY_HEADER_VERSION: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_EXTENDED_PROTECTION_POLICY: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_EXTENDED_PROTECTION_SCENARIO: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_PROPERTY_SERVICE_IDENTITIES: WS_SECURITY_PROPERTY_ID = WS_SECURITY_PROPERTY_ID(12i32);
 impl ::core::marker::Copy for WS_SECURITY_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_SECURITY_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -4101,12 +4911,6 @@ impl ::core::fmt::Debug for WS_SECURITY_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_TIMESTAMP_USAGE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TIMESTAMP_USAGE_ALWAYS: WS_SECURITY_TIMESTAMP_USAGE = WS_SECURITY_TIMESTAMP_USAGE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TIMESTAMP_USAGE_NEVER: WS_SECURITY_TIMESTAMP_USAGE = WS_SECURITY_TIMESTAMP_USAGE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TIMESTAMP_USAGE_REQUESTS_ONLY: WS_SECURITY_TIMESTAMP_USAGE = WS_SECURITY_TIMESTAMP_USAGE(3i32);
 impl ::core::marker::Copy for WS_SECURITY_TIMESTAMP_USAGE {}
 impl ::core::clone::Clone for WS_SECURITY_TIMESTAMP_USAGE {
     fn clone(&self) -> Self {
@@ -4130,20 +4934,6 @@ impl ::core::fmt::Debug for WS_SECURITY_TIMESTAMP_USAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_TOKEN_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_PROPERTY_KEY_TYPE: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_PROPERTY_VALID_FROM_TIME: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_PROPERTY_VALID_TILL_TIME: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_PROPERTY_SERIALIZED_XML: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE_XML: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_PROPERTY_UNATTACHED_REFERENCE_XML: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_PROPERTY_SYMMETRIC_KEY: WS_SECURITY_TOKEN_PROPERTY_ID = WS_SECURITY_TOKEN_PROPERTY_ID(7i32);
 impl ::core::marker::Copy for WS_SECURITY_TOKEN_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_SECURITY_TOKEN_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -4167,16 +4957,6 @@ impl ::core::fmt::Debug for WS_SECURITY_TOKEN_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SECURITY_TOKEN_REFERENCE_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_REFERENCE_MODE_LOCAL_ID: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_REFERENCE_MODE_XML_BUFFER: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_REFERENCE_MODE_CERT_THUMBPRINT: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_REFERENCE_MODE_SECURITY_CONTEXT_ID: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SECURITY_TOKEN_REFERENCE_MODE_SAML_ASSERTION_ID: WS_SECURITY_TOKEN_REFERENCE_MODE = WS_SECURITY_TOKEN_REFERENCE_MODE(5i32);
 impl ::core::marker::Copy for WS_SECURITY_TOKEN_REFERENCE_MODE {}
 impl ::core::clone::Clone for WS_SECURITY_TOKEN_REFERENCE_MODE {
     fn clone(&self) -> Self {
@@ -4200,10 +4980,6 @@ impl ::core::fmt::Debug for WS_SECURITY_TOKEN_REFERENCE_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SERVICE_CANCEL_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_HOST_ABORT: WS_SERVICE_CANCEL_REASON = WS_SERVICE_CANCEL_REASON(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_CHANNEL_FAULTED: WS_SERVICE_CANCEL_REASON = WS_SERVICE_CANCEL_REASON(1i32);
 impl ::core::marker::Copy for WS_SERVICE_CANCEL_REASON {}
 impl ::core::clone::Clone for WS_SERVICE_CANCEL_REASON {
     fn clone(&self) -> Self {
@@ -4227,36 +5003,6 @@ impl ::core::fmt::Debug for WS_SERVICE_CANCEL_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SERVICE_ENDPOINT_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_ACCEPT_CHANNEL_CALLBACK: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_CLOSE_CHANNEL_CALLBACK: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_MAX_ACCEPTING_CHANNELS: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_MAX_CONCURRENCY: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_BODY_HEAP_MAX_SIZE: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_BODY_HEAP_TRIM_SIZE: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_MESSAGE_PROPERTIES: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_MAX_CALL_POOL_SIZE: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_MAX_CHANNEL_POOL_SIZE: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_LISTENER_PROPERTIES: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_CHECK_MUST_UNDERSTAND: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA_EXCHANGE_TYPE: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_METADATA_EXCHANGE_URL_SUFFIX: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_ENDPOINT_PROPERTY_MAX_CHANNELS: WS_SERVICE_ENDPOINT_PROPERTY_ID = WS_SERVICE_ENDPOINT_PROPERTY_ID(14i32);
 impl ::core::marker::Copy for WS_SERVICE_ENDPOINT_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_SERVICE_ENDPOINT_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -4280,18 +5026,6 @@ impl ::core::fmt::Debug for WS_SERVICE_ENDPOINT_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SERVICE_HOST_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_HOST_STATE_CREATED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_HOST_STATE_OPENING: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_HOST_STATE_OPEN: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_HOST_STATE_CLOSING: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_HOST_STATE_CLOSED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_HOST_STATE_FAULTED: WS_SERVICE_HOST_STATE = WS_SERVICE_HOST_STATE(5i32);
 impl ::core::marker::Copy for WS_SERVICE_HOST_STATE {}
 impl ::core::clone::Clone for WS_SERVICE_HOST_STATE {
     fn clone(&self) -> Self {
@@ -4315,18 +5049,6 @@ impl ::core::fmt::Debug for WS_SERVICE_HOST_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SERVICE_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROPERTY_HOST_USER_STATE: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROPERTY_FAULT_DISCLOSURE: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROPERTY_FAULT_LANGID: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROPERTY_HOST_STATE: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROPERTY_METADATA: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROPERTY_CLOSE_TIMEOUT: WS_SERVICE_PROPERTY_ID = WS_SERVICE_PROPERTY_ID(5i32);
 impl ::core::marker::Copy for WS_SERVICE_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_SERVICE_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -4350,18 +5072,6 @@ impl ::core::fmt::Debug for WS_SERVICE_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_SERVICE_PROXY_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROXY_STATE_CREATED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROXY_STATE_OPENING: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROXY_STATE_OPEN: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROXY_STATE_CLOSING: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROXY_STATE_CLOSED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_SERVICE_PROXY_STATE_FAULTED: WS_SERVICE_PROXY_STATE = WS_SERVICE_PROXY_STATE(5i32);
 impl ::core::marker::Copy for WS_SERVICE_PROXY_STATE {}
 impl ::core::clone::Clone for WS_SERVICE_PROXY_STATE {
     fn clone(&self) -> Self {
@@ -4385,398 +5095,6 @@ impl ::core::fmt::Debug for WS_SERVICE_PROXY_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_TRACE_API(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_NONE: WS_TRACE_API = WS_TRACE_API(-1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_START_READER_CANONICALIZATION: WS_TRACE_API = WS_TRACE_API(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_END_READER_CANONICALIZATION: WS_TRACE_API = WS_TRACE_API(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_START_WRITER_CANONICALIZATION: WS_TRACE_API = WS_TRACE_API(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_END_WRITER_CANONICALIZATION: WS_TRACE_API = WS_TRACE_API(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_XML_BUFFER: WS_TRACE_API = WS_TRACE_API(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_REMOVE_NODE: WS_TRACE_API = WS_TRACE_API(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_READER: WS_TRACE_API = WS_TRACE_API(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_INPUT: WS_TRACE_API = WS_TRACE_API(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_INPUT_TO_BUFFER: WS_TRACE_API = WS_TRACE_API(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FREE_XML_READER: WS_TRACE_API = WS_TRACE_API(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_READER_PROPERTY: WS_TRACE_API = WS_TRACE_API(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_READER_NODE: WS_TRACE_API = WS_TRACE_API(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FILL_READER: WS_TRACE_API = WS_TRACE_API(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_START_ELEMENT: WS_TRACE_API = WS_TRACE_API(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_TO_START_ELEMENT: WS_TRACE_API = WS_TRACE_API(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_START_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(15i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_END_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(16i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_NODE: WS_TRACE_API = WS_TRACE_API(17i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SKIP_NODE: WS_TRACE_API = WS_TRACE_API(18i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_END_ELEMENT: WS_TRACE_API = WS_TRACE_API(19i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FIND_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(20i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_ELEMENT_VALUE: WS_TRACE_API = WS_TRACE_API(21i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_CHARS: WS_TRACE_API = WS_TRACE_API(22i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_CHARS_UTF8: WS_TRACE_API = WS_TRACE_API(23i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_BYTES: WS_TRACE_API = WS_TRACE_API(24i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_ARRAY: WS_TRACE_API = WS_TRACE_API(25i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_READER_POSITION: WS_TRACE_API = WS_TRACE_API(26i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_READER_POSITION: WS_TRACE_API = WS_TRACE_API(27i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_MOVE_READER: WS_TRACE_API = WS_TRACE_API(28i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_WRITER: WS_TRACE_API = WS_TRACE_API(29i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FREE_XML_WRITER: WS_TRACE_API = WS_TRACE_API(30i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_OUTPUT: WS_TRACE_API = WS_TRACE_API(31i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_OUTPUT_TO_BUFFER: WS_TRACE_API = WS_TRACE_API(32i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_WRITER_PROPERTY: WS_TRACE_API = WS_TRACE_API(33i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FLUSH_WRITER: WS_TRACE_API = WS_TRACE_API(34i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_START_ELEMENT: WS_TRACE_API = WS_TRACE_API(35i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_END_START_ELEMENT: WS_TRACE_API = WS_TRACE_API(36i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_XMLNS_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(37i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_START_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(38i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_END_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(39i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_VALUE: WS_TRACE_API = WS_TRACE_API(40i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_XML_BUFFER: WS_TRACE_API = WS_TRACE_API(41i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_XML_BUFFER: WS_TRACE_API = WS_TRACE_API(42i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_XML_BUFFER_TO_BYTES: WS_TRACE_API = WS_TRACE_API(43i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_XML_BUFFER_FROM_BYTES: WS_TRACE_API = WS_TRACE_API(44i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_ARRAY: WS_TRACE_API = WS_TRACE_API(45i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_QUALIFIED_NAME: WS_TRACE_API = WS_TRACE_API(46i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_CHARS: WS_TRACE_API = WS_TRACE_API(47i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_CHARS_UTF8: WS_TRACE_API = WS_TRACE_API(48i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_BYTES: WS_TRACE_API = WS_TRACE_API(49i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_PUSH_BYTES: WS_TRACE_API = WS_TRACE_API(50i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_PULL_BYTES: WS_TRACE_API = WS_TRACE_API(51i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_END_ELEMENT: WS_TRACE_API = WS_TRACE_API(52i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_TEXT: WS_TRACE_API = WS_TRACE_API(53i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_START_CDATA: WS_TRACE_API = WS_TRACE_API(54i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_END_CDATA: WS_TRACE_API = WS_TRACE_API(55i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_NODE: WS_TRACE_API = WS_TRACE_API(56i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_PREFIX_FROM_NAMESPACE: WS_TRACE_API = WS_TRACE_API(57i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_WRITER_POSITION: WS_TRACE_API = WS_TRACE_API(58i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_WRITER_POSITION: WS_TRACE_API = WS_TRACE_API(59i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_MOVE_WRITER: WS_TRACE_API = WS_TRACE_API(60i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_TRIM_XML_WHITESPACE: WS_TRACE_API = WS_TRACE_API(61i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_VERIFY_XML_NCNAME: WS_TRACE_API = WS_TRACE_API(62i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_XML_STRING_EQUALS: WS_TRACE_API = WS_TRACE_API(63i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_NAMESPACE_FROM_PREFIX: WS_TRACE_API = WS_TRACE_API(64i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_QUALIFIED_NAME: WS_TRACE_API = WS_TRACE_API(65i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_XML_ATTRIBUTE: WS_TRACE_API = WS_TRACE_API(66i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_COPY_NODE: WS_TRACE_API = WS_TRACE_API(67i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ASYNC_EXECUTE: WS_TRACE_API = WS_TRACE_API(68i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_CHANNEL: WS_TRACE_API = WS_TRACE_API(69i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_OPEN_CHANNEL: WS_TRACE_API = WS_TRACE_API(70i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SEND_MESSAGE: WS_TRACE_API = WS_TRACE_API(71i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_RECEIVE_MESSAGE: WS_TRACE_API = WS_TRACE_API(72i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_REQUEST_REPLY: WS_TRACE_API = WS_TRACE_API(73i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SEND_REPLY_MESSAGE: WS_TRACE_API = WS_TRACE_API(74i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SEND_FAULT_MESSAGE_FOR_ERROR: WS_TRACE_API = WS_TRACE_API(75i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_CHANNEL_PROPERTY: WS_TRACE_API = WS_TRACE_API(76i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_CHANNEL_PROPERTY: WS_TRACE_API = WS_TRACE_API(77i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_MESSAGE_START: WS_TRACE_API = WS_TRACE_API(78i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_MESSAGE_END: WS_TRACE_API = WS_TRACE_API(79i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_MESSAGE_START: WS_TRACE_API = WS_TRACE_API(80i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_MESSAGE_END: WS_TRACE_API = WS_TRACE_API(81i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CLOSE_CHANNEL: WS_TRACE_API = WS_TRACE_API(82i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ABORT_CHANNEL: WS_TRACE_API = WS_TRACE_API(83i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FREE_CHANNEL: WS_TRACE_API = WS_TRACE_API(84i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_RESET_CHANNEL: WS_TRACE_API = WS_TRACE_API(85i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ABANDON_MESSAGE: WS_TRACE_API = WS_TRACE_API(86i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SHUTDOWN_SESSION_CHANNEL: WS_TRACE_API = WS_TRACE_API(87i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_CONTEXT_PROPERTY: WS_TRACE_API = WS_TRACE_API(88i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_DICTIONARY: WS_TRACE_API = WS_TRACE_API(89i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_ENDPOINT_ADDRESS_EXTENSION: WS_TRACE_API = WS_TRACE_API(90i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_ERROR: WS_TRACE_API = WS_TRACE_API(91i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ADD_ERROR_STRING: WS_TRACE_API = WS_TRACE_API(92i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_ERROR_STRING: WS_TRACE_API = WS_TRACE_API(93i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_COPY_ERROR: WS_TRACE_API = WS_TRACE_API(94i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_ERROR_PROPERTY: WS_TRACE_API = WS_TRACE_API(95i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_ERROR_PROPERTY: WS_TRACE_API = WS_TRACE_API(96i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_RESET_ERROR: WS_TRACE_API = WS_TRACE_API(97i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FREE_ERROR: WS_TRACE_API = WS_TRACE_API(98i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_FAULT_ERROR_PROPERTY: WS_TRACE_API = WS_TRACE_API(99i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_FAULT_ERROR_PROPERTY: WS_TRACE_API = WS_TRACE_API(100i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_FAULT_FROM_ERROR: WS_TRACE_API = WS_TRACE_API(101i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_FAULT_ERROR_DETAIL: WS_TRACE_API = WS_TRACE_API(102i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_FAULT_ERROR_DETAIL: WS_TRACE_API = WS_TRACE_API(103i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_HEAP: WS_TRACE_API = WS_TRACE_API(104i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ALLOC: WS_TRACE_API = WS_TRACE_API(105i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_HEAP_PROPERTY: WS_TRACE_API = WS_TRACE_API(106i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_RESET_HEAP: WS_TRACE_API = WS_TRACE_API(107i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FREE_HEAP: WS_TRACE_API = WS_TRACE_API(108i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_LISTENER: WS_TRACE_API = WS_TRACE_API(109i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_OPEN_LISTENER: WS_TRACE_API = WS_TRACE_API(110i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ACCEPT_CHANNEL: WS_TRACE_API = WS_TRACE_API(111i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CLOSE_LISTENER: WS_TRACE_API = WS_TRACE_API(112i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ABORT_LISTENER: WS_TRACE_API = WS_TRACE_API(113i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_RESET_LISTENER: WS_TRACE_API = WS_TRACE_API(114i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FREE_LISTENER: WS_TRACE_API = WS_TRACE_API(115i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_LISTENER_PROPERTY: WS_TRACE_API = WS_TRACE_API(116i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_LISTENER_PROPERTY: WS_TRACE_API = WS_TRACE_API(117i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_CHANNEL_FOR_LISTENER: WS_TRACE_API = WS_TRACE_API(118i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_MESSAGE: WS_TRACE_API = WS_TRACE_API(119i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_MESSAGE_FOR_CHANNEL: WS_TRACE_API = WS_TRACE_API(120i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_INITIALIZE_MESSAGE: WS_TRACE_API = WS_TRACE_API(121i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_RESET_MESSAGE: WS_TRACE_API = WS_TRACE_API(122i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FREE_MESSAGE: WS_TRACE_API = WS_TRACE_API(123i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_HEADER_ATTRIBUTES: WS_TRACE_API = WS_TRACE_API(124i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_HEADER: WS_TRACE_API = WS_TRACE_API(125i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_CUSTOM_HEADER: WS_TRACE_API = WS_TRACE_API(126i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_REMOVE_HEADER: WS_TRACE_API = WS_TRACE_API(127i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_HEADER: WS_TRACE_API = WS_TRACE_API(128i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_REMOVE_CUSTOM_HEADER: WS_TRACE_API = WS_TRACE_API(129i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ADD_CUSTOM_HEADER: WS_TRACE_API = WS_TRACE_API(130i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ADD_MAPPED_HEADER: WS_TRACE_API = WS_TRACE_API(131i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_REMOVE_MAPPED_HEADER: WS_TRACE_API = WS_TRACE_API(132i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_MAPPED_HEADER: WS_TRACE_API = WS_TRACE_API(133i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_BODY: WS_TRACE_API = WS_TRACE_API(134i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_BODY: WS_TRACE_API = WS_TRACE_API(135i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_ENVELOPE_START: WS_TRACE_API = WS_TRACE_API(136i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_ENVELOPE_END: WS_TRACE_API = WS_TRACE_API(137i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_ENVELOPE_START: WS_TRACE_API = WS_TRACE_API(138i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_ENVELOPE_END: WS_TRACE_API = WS_TRACE_API(139i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_MESSAGE_PROPERTY: WS_TRACE_API = WS_TRACE_API(140i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_MESSAGE_PROPERTY: WS_TRACE_API = WS_TRACE_API(141i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ADDRESS_MESSAGE: WS_TRACE_API = WS_TRACE_API(142i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CHECK_MUST_UNDERSTAND_HEADERS: WS_TRACE_API = WS_TRACE_API(143i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_MARK_HEADER_AS_UNDERSTOOD: WS_TRACE_API = WS_TRACE_API(144i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FILL_BODY: WS_TRACE_API = WS_TRACE_API(145i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FLUSH_BODY: WS_TRACE_API = WS_TRACE_API(146i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_REQUEST_SECURITY_TOKEN: WS_TRACE_API = WS_TRACE_API(147i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_SECURITY_TOKEN_PROPERTY: WS_TRACE_API = WS_TRACE_API(148i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_XML_SECURITY_TOKEN: WS_TRACE_API = WS_TRACE_API(149i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FREE_SECURITY_TOKEN: WS_TRACE_API = WS_TRACE_API(150i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_REVOKE_SECURITY_CONTEXT: WS_TRACE_API = WS_TRACE_API(151i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_SECURITY_CONTEXT_PROPERTY: WS_TRACE_API = WS_TRACE_API(152i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_ELEMENT_TYPE: WS_TRACE_API = WS_TRACE_API(153i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_ATTRIBUTE_TYPE: WS_TRACE_API = WS_TRACE_API(154i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_TYPE: WS_TRACE_API = WS_TRACE_API(155i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_ELEMENT_TYPE: WS_TRACE_API = WS_TRACE_API(156i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_ATTRIBUTE_TYPE: WS_TRACE_API = WS_TRACE_API(157i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WRITE_TYPE: WS_TRACE_API = WS_TRACE_API(158i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SERVICE_REGISTER_FOR_CANCEL: WS_TRACE_API = WS_TRACE_API(159i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_SERVICE_HOST_PROPERTY: WS_TRACE_API = WS_TRACE_API(160i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(161i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_OPEN_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(162i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CLOSE_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(163i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ABORT_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(164i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FREE_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(165i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_RESET_SERVICE_HOST: WS_TRACE_API = WS_TRACE_API(166i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_SERVICE_PROXY_PROPERTY: WS_TRACE_API = WS_TRACE_API(167i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(168i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_OPEN_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(169i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CLOSE_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(170i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ABORT_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(171i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FREE_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(172i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_RESET_SERVICE_PROXY: WS_TRACE_API = WS_TRACE_API(173i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ABORT_CALL: WS_TRACE_API = WS_TRACE_API(174i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CALL: WS_TRACE_API = WS_TRACE_API(175i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_DECODE_URL: WS_TRACE_API = WS_TRACE_API(176i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_ENCODE_URL: WS_TRACE_API = WS_TRACE_API(177i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_COMBINE_URL: WS_TRACE_API = WS_TRACE_API(178i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_DATETIME_TO_FILETIME: WS_TRACE_API = WS_TRACE_API(179i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FILETIME_TO_DATETIME: WS_TRACE_API = WS_TRACE_API(180i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_DUMP_MEMORY: WS_TRACE_API = WS_TRACE_API(181i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_SET_AUTOFAIL: WS_TRACE_API = WS_TRACE_API(182i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_CREATE_METADATA: WS_TRACE_API = WS_TRACE_API(183i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_READ_METADATA: WS_TRACE_API = WS_TRACE_API(184i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_FREE_METADATA: WS_TRACE_API = WS_TRACE_API(185i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_RESET_METADATA: WS_TRACE_API = WS_TRACE_API(186i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_METADATA_PROPERTY: WS_TRACE_API = WS_TRACE_API(187i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_MISSING_METADATA_DOCUMENT_ADDRESS: WS_TRACE_API = WS_TRACE_API(188i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_METADATA_ENDPOINTS: WS_TRACE_API = WS_TRACE_API(189i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_MATCH_POLICY_ALTERNATIVE: WS_TRACE_API = WS_TRACE_API(190i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_POLICY_PROPERTY: WS_TRACE_API = WS_TRACE_API(191i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_GET_POLICY_ALTERNATIVE_COUNT: WS_TRACE_API = WS_TRACE_API(192i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WS_CREATE_SERVICE_PROXY_FROM_TEMPLATE: WS_TRACE_API = WS_TRACE_API(193i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRACE_API_WS_CREATE_SERVICE_HOST_FROM_TEMPLATE: WS_TRACE_API = WS_TRACE_API(194i32);
 impl ::core::marker::Copy for WS_TRACE_API {}
 impl ::core::clone::Clone for WS_TRACE_API {
     fn clone(&self) -> Self {
@@ -4800,14 +5118,6 @@ impl ::core::fmt::Debug for WS_TRACE_API {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_TRANSFER_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_STREAMED_INPUT_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_STREAMED_OUTPUT_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_BUFFERED_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_STREAMED_TRANSFER_MODE: WS_TRANSFER_MODE = WS_TRANSFER_MODE(3i32);
 impl ::core::marker::Copy for WS_TRANSFER_MODE {}
 impl ::core::clone::Clone for WS_TRANSFER_MODE {
     fn clone(&self) -> Self {
@@ -4831,10 +5141,6 @@ impl ::core::fmt::Debug for WS_TRANSFER_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_TRUST_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRUST_VERSION_FEBRUARY_2005: WS_TRUST_VERSION = WS_TRUST_VERSION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TRUST_VERSION_1_3: WS_TRUST_VERSION = WS_TRUST_VERSION(2i32);
 impl ::core::marker::Copy for WS_TRUST_VERSION {}
 impl ::core::clone::Clone for WS_TRUST_VERSION {
     fn clone(&self) -> Self {
@@ -4858,76 +5164,6 @@ impl ::core::fmt::Debug for WS_TRUST_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_BOOL_TYPE: WS_TYPE = WS_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_INT8_TYPE: WS_TYPE = WS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_INT16_TYPE: WS_TYPE = WS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_INT32_TYPE: WS_TYPE = WS_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_INT64_TYPE: WS_TYPE = WS_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UINT8_TYPE: WS_TYPE = WS_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UINT16_TYPE: WS_TYPE = WS_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UINT32_TYPE: WS_TYPE = WS_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UINT64_TYPE: WS_TYPE = WS_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_FLOAT_TYPE: WS_TYPE = WS_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DOUBLE_TYPE: WS_TYPE = WS_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DECIMAL_TYPE: WS_TYPE = WS_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DATETIME_TYPE: WS_TYPE = WS_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TIMESPAN_TYPE: WS_TYPE = WS_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_GUID_TYPE: WS_TYPE = WS_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UNIQUE_ID_TYPE: WS_TYPE = WS_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_STRING_TYPE: WS_TYPE = WS_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_WSZ_TYPE: WS_TYPE = WS_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_BYTES_TYPE: WS_TYPE = WS_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_STRING_TYPE: WS_TYPE = WS_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_QNAME_TYPE: WS_TYPE = WS_TYPE(20i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_BUFFER_TYPE: WS_TYPE = WS_TYPE(21i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CHAR_ARRAY_TYPE: WS_TYPE = WS_TYPE(22i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UTF8_ARRAY_TYPE: WS_TYPE = WS_TYPE(23i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_BYTE_ARRAY_TYPE: WS_TYPE = WS_TYPE(24i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DESCRIPTION_TYPE: WS_TYPE = WS_TYPE(25i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_STRUCT_TYPE: WS_TYPE = WS_TYPE(26i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_CUSTOM_TYPE: WS_TYPE = WS_TYPE(27i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENDPOINT_ADDRESS_TYPE: WS_TYPE = WS_TYPE(28i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_FAULT_TYPE: WS_TYPE = WS_TYPE(29i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_VOID_TYPE: WS_TYPE = WS_TYPE(30i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ENUM_TYPE: WS_TYPE = WS_TYPE(31i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DURATION_TYPE: WS_TYPE = WS_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UNION_TYPE: WS_TYPE = WS_TYPE(33i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ANY_ATTRIBUTES_TYPE: WS_TYPE = WS_TYPE(34i32);
 impl ::core::marker::Copy for WS_TYPE {}
 impl ::core::clone::Clone for WS_TYPE {
     fn clone(&self) -> Self {
@@ -4951,14 +5187,6 @@ impl ::core::fmt::Debug for WS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_TYPE_MAPPING(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ATTRIBUTE_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ELEMENT_CONTENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_ANY_ELEMENT_TYPE_MAPPING: WS_TYPE_MAPPING = WS_TYPE_MAPPING(4i32);
 impl ::core::marker::Copy for WS_TYPE_MAPPING {}
 impl ::core::clone::Clone for WS_TYPE_MAPPING {
     fn clone(&self) -> Self {
@@ -4982,16 +5210,6 @@ impl ::core::fmt::Debug for WS_TYPE_MAPPING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_URL_SCHEME_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_URL_HTTP_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_URL_HTTPS_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_URL_NETTCP_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_URL_SOAPUDP_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_URL_NETPIPE_SCHEME_TYPE: WS_URL_SCHEME_TYPE = WS_URL_SCHEME_TYPE(4i32);
 impl ::core::marker::Copy for WS_URL_SCHEME_TYPE {}
 impl ::core::clone::Clone for WS_URL_SCHEME_TYPE {
     fn clone(&self) -> Self {
@@ -5015,8 +5233,6 @@ impl ::core::fmt::Debug for WS_URL_SCHEME_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_USERNAME_CREDENTIAL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_STRING_USERNAME_CREDENTIAL_TYPE: WS_USERNAME_CREDENTIAL_TYPE = WS_USERNAME_CREDENTIAL_TYPE(1i32);
 impl ::core::marker::Copy for WS_USERNAME_CREDENTIAL_TYPE {}
 impl ::core::clone::Clone for WS_USERNAME_CREDENTIAL_TYPE {
     fn clone(&self) -> Self {
@@ -5040,38 +5256,6 @@ impl ::core::fmt::Debug for WS_USERNAME_CREDENTIAL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_VALUE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_BOOL_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_INT8_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_INT16_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_INT32_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_INT64_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UINT8_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UINT16_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UINT32_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_UINT64_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_FLOAT_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DOUBLE_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DECIMAL_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DATETIME_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_TIMESPAN_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_GUID_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DURATION_VALUE_TYPE: WS_VALUE_TYPE = WS_VALUE_TYPE(15i32);
 impl ::core::marker::Copy for WS_VALUE_TYPE {}
 impl ::core::clone::Clone for WS_VALUE_TYPE {
     fn clone(&self) -> Self {
@@ -5095,12 +5279,6 @@ impl ::core::fmt::Debug for WS_VALUE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_DEFAULT_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_OPAQUE_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE: WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE = WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE(3i32);
 impl ::core::marker::Copy for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {}
 impl ::core::clone::Clone for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
     fn clone(&self) -> Self {
@@ -5124,12 +5302,6 @@ impl ::core::fmt::Debug for WS_WINDOWS_INTEGRATED_AUTH_CREDENTIAL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_KERBEROS: WS_WINDOWS_INTEGRATED_AUTH_PACKAGE = WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_NTLM: WS_WINDOWS_INTEGRATED_AUTH_PACKAGE = WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_WINDOWS_INTEGRATED_AUTH_PACKAGE_SPNEGO: WS_WINDOWS_INTEGRATED_AUTH_PACKAGE = WS_WINDOWS_INTEGRATED_AUTH_PACKAGE(3i32);
 impl ::core::marker::Copy for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {}
 impl ::core::clone::Clone for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
     fn clone(&self) -> Self {
@@ -5153,14 +5325,6 @@ impl ::core::fmt::Debug for WS_WINDOWS_INTEGRATED_AUTH_PACKAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_WRITE_OPTION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_WRITE_REQUIRED_VALUE: WS_WRITE_OPTION = WS_WRITE_OPTION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_WRITE_REQUIRED_POINTER: WS_WRITE_OPTION = WS_WRITE_OPTION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_WRITE_NILLABLE_VALUE: WS_WRITE_OPTION = WS_WRITE_OPTION(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_WRITE_NILLABLE_POINTER: WS_WRITE_OPTION = WS_WRITE_OPTION(4i32);
 impl ::core::marker::Copy for WS_WRITE_OPTION {}
 impl ::core::clone::Clone for WS_WRITE_OPTION {
     fn clone(&self) -> Self {
@@ -5207,14 +5371,6 @@ impl ::core::fmt::Debug for WS_XML_BUFFER_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_CANONICALIZATION_ALGORITHM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_EXCLUSIVE_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_EXCLUSIVE_WITH_COMMENTS_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_INCLUSIVE_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_INCLUSIVE_WITH_COMMENTS_XML_CANONICALIZATION_ALGORITHM: WS_XML_CANONICALIZATION_ALGORITHM = WS_XML_CANONICALIZATION_ALGORITHM(3i32);
 impl ::core::marker::Copy for WS_XML_CANONICALIZATION_ALGORITHM {}
 impl ::core::clone::Clone for WS_XML_CANONICALIZATION_ALGORITHM {
     fn clone(&self) -> Self {
@@ -5238,14 +5394,6 @@ impl ::core::fmt::Debug for WS_XML_CANONICALIZATION_ALGORITHM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_CANONICALIZATION_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_CANONICALIZATION_PROPERTY_ALGORITHM: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_CANONICALIZATION_PROPERTY_INCLUSIVE_PREFIXES: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_CANONICALIZATION_PROPERTY_OMITTED_ELEMENT: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_CANONICALIZATION_PROPERTY_OUTPUT_BUFFER_SIZE: WS_XML_CANONICALIZATION_PROPERTY_ID = WS_XML_CANONICALIZATION_PROPERTY_ID(3i32);
 impl ::core::marker::Copy for WS_XML_CANONICALIZATION_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_XML_CANONICALIZATION_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -5269,22 +5417,6 @@ impl ::core::fmt::Debug for WS_XML_CANONICALIZATION_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_NODE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_NODE_TYPE_ELEMENT: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_NODE_TYPE_TEXT: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_NODE_TYPE_END_ELEMENT: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_NODE_TYPE_COMMENT: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_NODE_TYPE_CDATA: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_NODE_TYPE_END_CDATA: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_NODE_TYPE_EOF: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_NODE_TYPE_BOF: WS_XML_NODE_TYPE = WS_XML_NODE_TYPE(9i32);
 impl ::core::marker::Copy for WS_XML_NODE_TYPE {}
 impl ::core::clone::Clone for WS_XML_NODE_TYPE {
     fn clone(&self) -> Self {
@@ -5308,14 +5440,6 @@ impl ::core::fmt::Debug for WS_XML_NODE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_READER_ENCODING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_ENCODING_TYPE_TEXT: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_ENCODING_TYPE_BINARY: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_ENCODING_TYPE_MTOM: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_ENCODING_TYPE_RAW: WS_XML_READER_ENCODING_TYPE = WS_XML_READER_ENCODING_TYPE(4i32);
 impl ::core::marker::Copy for WS_XML_READER_ENCODING_TYPE {}
 impl ::core::clone::Clone for WS_XML_READER_ENCODING_TYPE {
     fn clone(&self) -> Self {
@@ -5339,10 +5463,6 @@ impl ::core::fmt::Debug for WS_XML_READER_ENCODING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_READER_INPUT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_INPUT_TYPE_BUFFER: WS_XML_READER_INPUT_TYPE = WS_XML_READER_INPUT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_INPUT_TYPE_STREAM: WS_XML_READER_INPUT_TYPE = WS_XML_READER_INPUT_TYPE(2i32);
 impl ::core::marker::Copy for WS_XML_READER_INPUT_TYPE {}
 impl ::core::clone::Clone for WS_XML_READER_INPUT_TYPE {
     fn clone(&self) -> Self {
@@ -5366,36 +5486,6 @@ impl ::core::fmt::Debug for WS_XML_READER_INPUT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_READER_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_MAX_DEPTH: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_ALLOW_FRAGMENT: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_MAX_ATTRIBUTES: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_READ_DECLARATION: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_CHARSET: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_ROW: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_COLUMN: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_UTF8_TRIM_SIZE: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_STREAM_BUFFER_SIZE: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_IN_ATTRIBUTE: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_STREAM_MAX_ROOT_MIME_PART_SIZE: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_STREAM_MAX_MIME_HEADERS_SIZE: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_MAX_MIME_PARTS: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_ALLOW_INVALID_CHARACTER_REFERENCES: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_READER_PROPERTY_MAX_NAMESPACES: WS_XML_READER_PROPERTY_ID = WS_XML_READER_PROPERTY_ID(14i32);
 impl ::core::marker::Copy for WS_XML_READER_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_XML_READER_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -5419,14 +5509,6 @@ impl ::core::fmt::Debug for WS_XML_READER_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_SECURITY_TOKEN_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_SECURITY_TOKEN_PROPERTY_ATTACHED_REFERENCE: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_SECURITY_TOKEN_PROPERTY_UNATTACHED_REFERENCE: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_SECURITY_TOKEN_PROPERTY_VALID_FROM_TIME: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_SECURITY_TOKEN_PROPERTY_VALID_TILL_TIME: WS_XML_SECURITY_TOKEN_PROPERTY_ID = WS_XML_SECURITY_TOKEN_PROPERTY_ID(4i32);
 impl ::core::marker::Copy for WS_XML_SECURITY_TOKEN_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_XML_SECURITY_TOKEN_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -5450,38 +5532,6 @@ impl ::core::fmt::Debug for WS_XML_SECURITY_TOKEN_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_TEXT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_UTF8: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_UTF16: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_BASE64: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_BOOL: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_INT32: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_INT64: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_UINT64: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_FLOAT: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_DOUBLE: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_DECIMAL: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_GUID: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_UNIQUE_ID: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_DATETIME: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_TIMESPAN: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_QNAME: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_TEXT_TYPE_LIST: WS_XML_TEXT_TYPE = WS_XML_TEXT_TYPE(16i32);
 impl ::core::marker::Copy for WS_XML_TEXT_TYPE {}
 impl ::core::clone::Clone for WS_XML_TEXT_TYPE {
     fn clone(&self) -> Self {
@@ -5505,14 +5555,6 @@ impl ::core::fmt::Debug for WS_XML_TEXT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_WRITER_ENCODING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_ENCODING_TYPE_TEXT: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_ENCODING_TYPE_BINARY: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_ENCODING_TYPE_MTOM: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_ENCODING_TYPE_RAW: WS_XML_WRITER_ENCODING_TYPE = WS_XML_WRITER_ENCODING_TYPE(4i32);
 impl ::core::marker::Copy for WS_XML_WRITER_ENCODING_TYPE {}
 impl ::core::clone::Clone for WS_XML_WRITER_ENCODING_TYPE {
     fn clone(&self) -> Self {
@@ -5536,10 +5578,6 @@ impl ::core::fmt::Debug for WS_XML_WRITER_ENCODING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_WRITER_OUTPUT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_OUTPUT_TYPE_BUFFER: WS_XML_WRITER_OUTPUT_TYPE = WS_XML_WRITER_OUTPUT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_OUTPUT_TYPE_STREAM: WS_XML_WRITER_OUTPUT_TYPE = WS_XML_WRITER_OUTPUT_TYPE(2i32);
 impl ::core::marker::Copy for WS_XML_WRITER_OUTPUT_TYPE {}
 impl ::core::clone::Clone for WS_XML_WRITER_OUTPUT_TYPE {
     fn clone(&self) -> Self {
@@ -5563,44 +5601,6 @@ impl ::core::fmt::Debug for WS_XML_WRITER_OUTPUT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WS_XML_WRITER_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_MAX_DEPTH: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_ALLOW_FRAGMENT: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_MAX_ATTRIBUTES: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_WRITE_DECLARATION: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_INDENT: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_BUFFER_TRIM_SIZE: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_CHARSET: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_BUFFERS: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_BUFFER_MAX_SIZE: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_BYTES: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_IN_ATTRIBUTE: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_MAX_MIME_PARTS_BUFFER_SIZE: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_INITIAL_BUFFER: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_ALLOW_INVALID_CHARACTER_REFERENCES: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_MAX_NAMESPACES: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_BYTES_WRITTEN: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(15i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_BYTES_TO_CLOSE: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(16i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_COMPRESS_EMPTY_ELEMENTS: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(17i32);
-#[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
-pub const WS_XML_WRITER_PROPERTY_EMIT_UNCOMPRESSED_EMPTY_ELEMENTS: WS_XML_WRITER_PROPERTY_ID = WS_XML_WRITER_PROPERTY_ID(18i32);
 impl ::core::marker::Copy for WS_XML_WRITER_PROPERTY_ID {}
 impl ::core::clone::Clone for WS_XML_WRITER_PROPERTY_ID {
     fn clone(&self) -> Self {

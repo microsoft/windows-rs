@@ -667,11 +667,133 @@ where
     HcsWaitForProcessExit(computesystem.into_param().abi(), timeoutms, ::core::mem::transmute(result.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = HCS_CREATE_OPTIONS(65536i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventGroupOperationInfo: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-1073741823i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventGroupVmLifecycle: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-2147483646i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventInvalid: HCS_EVENT_TYPE = HCS_EVENT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventOperationCallback: HCS_EVENT_TYPE = HCS_EVENT_TYPE(16777216i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventOptionEnableVmLifecycle: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(2i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventProcessExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(65536i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventServiceDisconnect: HCS_EVENT_TYPE = HCS_EVENT_TYPE(33554432i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemCrashInitiated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemCrashReport: HCS_EVENT_TYPE = HCS_EVENT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemGuestConnectionClosed: HCS_EVENT_TYPE = HCS_EVENT_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemRdpEnhancedModeStateChanged: HCS_EVENT_TYPE = HCS_EVENT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsEventSystemSiloJobCreated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(-2147483648i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationFlagsReserved: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(-268435456i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationInvalid: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationOperationProgressUpdate: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(256i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(65536i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16777216i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemCrashInitiated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(13i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemCrashReport: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(6i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemCreateCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(2i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemGetPropertiesCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(11i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemGuestConnectionClosed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(14i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemModifyCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(12i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemOperationCompletion: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(15i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemPauseCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(4i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemRdpEnhancedModeStateChanged: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(9i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemResumeCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(5i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemSaveCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(8i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemShutdownCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemShutdownFailed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemSiloJobCreated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(7i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsNotificationSystemStartCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(3i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationOptionNone: HCS_OPERATION_OPTIONS = HCS_OPERATION_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationOptionProgressUpdate: HCS_OPERATION_OPTIONS = HCS_OPERATION_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeCrash: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeCreate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeCreateProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeEnumerate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeGetProcessInfo: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeGetProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeModify: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeNone: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(-1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypePause: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeResume: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeSave: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeShutdown: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeSignalProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeStart: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsOperationTypeTerminate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsResourceTypeFile: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsResourceTypeJob: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
+pub const HcsResourceTypeNone: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_CREATE_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = HCS_CREATE_OPTIONS(65536i32);
 impl ::core::marker::Copy for HCS_CREATE_OPTIONS {}
 impl ::core::clone::Clone for HCS_CREATE_OPTIONS {
     fn clone(&self) -> Self {
@@ -695,12 +817,6 @@ impl ::core::fmt::Debug for HCS_CREATE_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_EVENT_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventOptionEnableVmLifecycle: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(2i32);
 impl ::core::marker::Copy for HCS_EVENT_OPTIONS {}
 impl ::core::clone::Clone for HCS_EVENT_OPTIONS {
     fn clone(&self) -> Self {
@@ -757,30 +873,6 @@ impl ::core::ops::Not for HCS_EVENT_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_EVENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventInvalid: HCS_EVENT_TYPE = HCS_EVENT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemCrashInitiated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemCrashReport: HCS_EVENT_TYPE = HCS_EVENT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemRdpEnhancedModeStateChanged: HCS_EVENT_TYPE = HCS_EVENT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemSiloJobCreated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventSystemGuestConnectionClosed: HCS_EVENT_TYPE = HCS_EVENT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventProcessExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(65536i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventOperationCallback: HCS_EVENT_TYPE = HCS_EVENT_TYPE(16777216i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventServiceDisconnect: HCS_EVENT_TYPE = HCS_EVENT_TYPE(33554432i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventGroupVmLifecycle: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-2147483646i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsEventGroupOperationInfo: HCS_EVENT_TYPE = HCS_EVENT_TYPE(-1073741823i32);
 impl ::core::marker::Copy for HCS_EVENT_TYPE {}
 impl ::core::clone::Clone for HCS_EVENT_TYPE {
     fn clone(&self) -> Self {
@@ -804,50 +896,6 @@ impl ::core::fmt::Debug for HCS_EVENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_NOTIFICATIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationInvalid: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemCreateCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(2i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemStartCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(3i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemPauseCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(4i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemResumeCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(5i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemCrashReport: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(6i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemSiloJobCreated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(7i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemSaveCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(8i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemRdpEnhancedModeStateChanged: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(9i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemShutdownFailed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemShutdownCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemGetPropertiesCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(11i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemModifyCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(12i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemCrashInitiated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(13i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemGuestConnectionClosed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(14i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemOperationCompletion: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(15i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationOperationProgressUpdate: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(256i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(65536i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16777216i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationFlagsReserved: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(-268435456i32);
 impl ::core::marker::Copy for HCS_NOTIFICATIONS {}
 impl ::core::clone::Clone for HCS_NOTIFICATIONS {
     fn clone(&self) -> Self {
@@ -871,10 +919,6 @@ impl ::core::fmt::Debug for HCS_NOTIFICATIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_NOTIFICATION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(-2147483648i32);
 impl ::core::marker::Copy for HCS_NOTIFICATION_FLAGS {}
 impl ::core::clone::Clone for HCS_NOTIFICATION_FLAGS {
     fn clone(&self) -> Self {
@@ -898,10 +942,6 @@ impl ::core::fmt::Debug for HCS_NOTIFICATION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_OPERATION_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationOptionNone: HCS_OPERATION_OPTIONS = HCS_OPERATION_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationOptionProgressUpdate: HCS_OPERATION_OPTIONS = HCS_OPERATION_OPTIONS(1i32);
 impl ::core::marker::Copy for HCS_OPERATION_OPTIONS {}
 impl ::core::clone::Clone for HCS_OPERATION_OPTIONS {
     fn clone(&self) -> Self {
@@ -958,40 +998,6 @@ impl ::core::ops::Not for HCS_OPERATION_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_OPERATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeNone: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(-1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeEnumerate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeCreate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeStart: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeShutdown: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypePause: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeResume: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeSave: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeTerminate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeModify: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeGetProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeCreateProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeSignalProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeGetProcessInfo: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsOperationTypeCrash: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(15i32);
 impl ::core::marker::Copy for HCS_OPERATION_TYPE {}
 impl ::core::clone::Clone for HCS_OPERATION_TYPE {
     fn clone(&self) -> Self {
@@ -1015,12 +1021,6 @@ impl ::core::fmt::Debug for HCS_OPERATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCS_RESOURCE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsResourceTypeNone: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsResourceTypeFile: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
-pub const HcsResourceTypeJob: HCS_RESOURCE_TYPE = HCS_RESOURCE_TYPE(2i32);
 impl ::core::marker::Copy for HCS_RESOURCE_TYPE {}
 impl ::core::clone::Clone for HCS_RESOURCE_TYPE {
     fn clone(&self) -> Self {

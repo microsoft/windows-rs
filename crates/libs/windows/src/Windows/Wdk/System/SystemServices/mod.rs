@@ -9121,6 +9121,8 @@ where
     vDbgPrintExWithPrefix(prefix.into_param().abi(), componentid, level, format.into_param().abi(), arglist)
 }
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ACPIBus: INTERFACE_TYPE = INTERFACE_TYPE(17i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const ADAPTER_INFO_API_BYPASS: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const ADAPTER_INFO_SYNCHRONOUS_CALLBACK: u32 = 1u32;
@@ -9147,9 +9149,135 @@ pub const ARM_PROCESSOR_ERROR_SECTION_GUID: ::windows_core::GUID = ::windows_cor
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const ATS_DEVICE_SVM_OPTOUT: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const AccessFlagFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const AddressSizeFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const AgpControl: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const AllLoggerHandlesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const AperturePageSize: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ApertureSize: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ApicDestinationModeLogicalClustered: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ApicDestinationModeLogicalFlat: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ApicDestinationModePhysical: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ApicDestinationModeUnknown: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterActionAddReserved: ARBITER_ACTION = ARBITER_ACTION(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterActionBootAllocation: ARBITER_ACTION = ARBITER_ACTION(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterActionCommitAllocation: ARBITER_ACTION = ARBITER_ACTION(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterActionQueryAllocatedResources: ARBITER_ACTION = ARBITER_ACTION(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterActionQueryArbitrate: ARBITER_ACTION = ARBITER_ACTION(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterActionQueryConflict: ARBITER_ACTION = ARBITER_ACTION(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterActionRetestAllocation: ARBITER_ACTION = ARBITER_ACTION(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterActionRollbackAllocation: ARBITER_ACTION = ARBITER_ACTION(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterActionTestAllocation: ARBITER_ACTION = ARBITER_ACTION(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterActionWriteReservedResources: ARBITER_ACTION = ARBITER_ACTION(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterRequestHalReported: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterRequestLegacyAssigned: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterRequestLegacyReported: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterRequestPnpDetected: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterRequestPnpEnumerated: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterRequestUndefined: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(-1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterResultExternalConflict: ARBITER_RESULT = ARBITER_RESULT(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterResultNullRequest: ARBITER_RESULT = ARBITER_RESULT(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterResultSuccess: ARBITER_RESULT = ARBITER_RESULT(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArbiterResultUndefined: ARBITER_RESULT = ARBITER_RESULT(-1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ArcSystem: CONFIGURATION_TYPE = CONFIGURATION_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const AssignSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const AudioController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(23i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const BMC_NOTIFY_TYPE_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x487565ba_6494_4367_95ca_4eff893522f6);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const BOOT_NOTIFY_TYPE_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d61a466_ab40_409a_a698_f362d464b38f);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BackgroundWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BdCbClassificationEnd: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BdCbClassificationKnownBadImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BdCbClassificationKnownBadImageBootCritical: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BdCbClassificationKnownGoodImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BdCbClassificationUnknownImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BdCbInitializeImage: BDCB_CALLBACK_TYPE = BDCB_CALLBACK_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BdCbStatusPrepareForDependencyLoad: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BdCbStatusPrepareForDriverLoad: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BdCbStatusPrepareForUnload: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BdCbStatusUpdate: BDCB_CALLBACK_TYPE = BDCB_CALLBACK_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BoundExceptionContinueSearch: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BoundExceptionError: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BoundExceptionHandled: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BoundExceptionMaximum: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BufferEmpty: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BufferFinished: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BufferIncomplete: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BufferInserted: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BufferStarted: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BusQueryCompatibleIDs: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BusQueryContainerID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BusQueryDeviceID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BusQueryDeviceSerialNumber: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BusQueryHardwareIDs: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BusQueryInstanceID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BusRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BusWidth32Bits: PCI_BUS_WIDTH = PCI_BUS_WIDTH(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const BusWidth64Bits: PCI_BUS_WIDTH = PCI_BUS_WIDTH(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CBus: INTERFACE_TYPE = INTERFACE_TYPE(9i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -9305,6 +9433,14 @@ pub const CP_GET_NODATA: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const CP_GET_SUCCESS: u32 = 0u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CardPresent: PCI_EXPRESS_CARD_PRESENCE = PCI_EXPRESS_CARD_PRESENCE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CbusConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CdromController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(15i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CentralProcessor: CONFIGURATION_TYPE = CONFIGURATION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const ClfsClientRecord: u8 = 3u8;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const ClfsContainerActive: u32 = 4u32;
@@ -9337,6 +9473,14 @@ pub const ClsContainerPendingArchive: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CmResourceShareDeviceExclusive: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CmResourceShareDriverExclusive: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CmResourceShareShared: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CmResourceShareUndetermined: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const CmResourceTypeBusNumber: u32 = 6u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const CmResourceTypeConfigData: u32 = 128u32;
@@ -9366,6 +9510,40 @@ pub const CmResourceTypeNull: u32 = 0u32;
 pub const CmResourceTypePcCardConfig: u32 = 130u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const CmResourceTypePort: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Cmos: BUS_DATA_TYPE = BUS_DATA_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CommonBufferConfigTypeHardwareAccessPermissions: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CommonBufferConfigTypeLogicalAddressLimits: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CommonBufferConfigTypeMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CommonBufferConfigTypeSubSection: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CommonBufferHardwareAccessMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CommonBufferHardwareAccessReadOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CommonBufferHardwareAccessReadWrite: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CommonBufferHardwareAccessWriteOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Compatible: DMA_SPEED = DMA_SPEED(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ConfigurationSpaceUndefined: BUS_DATA_TYPE = BUS_DATA_TYPE(-1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ContinueCompletion: IO_COMPLETION_ROUTINE_RESULT = IO_COMPLETION_ROUTINE_RESULT(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CreateFileTypeMailslot: CREATE_FILE_TYPE = CREATE_FILE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CreateFileTypeNamedPipe: CREATE_FILE_TYPE = CREATE_FILE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CreateFileTypeNone: CREATE_FILE_TYPE = CREATE_FILE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const CustomPriorityWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(32i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const D3COLD_SUPPORT_INTERFACE_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -9506,6 +9684,156 @@ pub const DRVO_REINIT_REGISTERED: u32 = 8u32;
 pub const DRVO_UNLOAD_INVOKED: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const DUPLICATE_SAME_ATTRIBUTES: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeallocateObject: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeallocateObjectKeepRegisters: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DelayExecution: KWAIT_REASON = KWAIT_REASON(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DelayedWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeleteSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceDirectoryData: DEVICE_DIRECTORY_TYPE = DEVICE_DIRECTORY_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePowerState: POWER_STATE_TYPE = POWER_STATE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyAddress: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyAllocatedResources: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(21i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyBootConfiguration: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyBootConfigurationTranslated: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyBusNumber: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyBusTypeGuid: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(8204i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyClassGuid: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4102i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyClassName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4101i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyCompatibleIDs: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16386i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyContainerID: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4118i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyDeviceDescription: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4096i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyDriverKeyName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4103i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyEnumeratorName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4111i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyFriendlyName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4105i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyHardwareID: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16385i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyInstallState: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(18i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyLegacyBusType: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(13i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyLocationInformation: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4106i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyManufacturer: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4104i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyPhysicalDeviceObjectName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4107i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyRemovalPolicy: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(19i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyResourceRequirements: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(20i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DevicePropertyUINumber: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(17i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceTextDescription: DEVICE_TEXT_TYPE = DEVICE_TEXT_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceTextLocationInformation: DEVICE_TEXT_TYPE = DEVICE_TEXT_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceUsageTypeBoot: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceUsageTypeDumpFile: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceUsageTypeGuestAssigned: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceUsageTypeHibernation: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceUsageTypePaging: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceUsageTypePostDisplay: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceUsageTypeUndefined: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceWakeDepthD0: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceWakeDepthD1: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceWakeDepthD2: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceWakeDepthD3cold: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceWakeDepthD3hot: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceWakeDepthMaximum: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DeviceWakeDepthNotWakeable: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DirectoryNotifyExtendedInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DirectoryNotifyFullInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DirectoryNotifyInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DirectoryNotifyMaximumInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DisabledControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(11i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DiskController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(13i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DiskIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(11i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DiskPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(25i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DisplayController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(19i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DmaAborted: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DmaCancelled: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DmaComplete: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DmaError: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DockingInformation: CONFIGURATION_TYPE = CONFIGURATION_TYPE(38i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DomainConfigurationArm64: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DomainConfigurationInvalid: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DomainConfigurationX64: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DomainTypeMax: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DomainTypePassThrough: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DomainTypeTranslate: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DomainTypeUnmanaged: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DriverDirectoryData: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DriverDirectoryImage: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DriverDirectorySharedData: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DriverRegKeyParameters: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DriverRegKeyPersistentState: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DriverRegKeySharedPersistentState: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DrvRtPoolNxOptIn: DRIVER_RUNTIME_INIT_FLAGS = DRIVER_RUNTIME_INIT_FLAGS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const DtiAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(11i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const EFLAG_SIGN: u32 = 32768u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -9696,6 +10024,32 @@ pub const EX_RUNDOWN_COUNT_SHIFT: u32 = 1u32;
 pub const EX_TIMER_HIGH_RESOLUTION: u32 = 4u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const EX_TIMER_NO_WAKE: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Eisa: INTERFACE_TYPE = INTERFACE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const EisaAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const EisaConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const EjectionRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const EndAlternatives: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const EventCategoryDeviceInterfaceChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const EventCategoryHardwareProfileChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const EventCategoryKernelSoftRestart: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const EventCategoryReserved: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const EventCategoryTargetDeviceChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const EventLoggerHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Executive: KWAIT_REASON = KWAIT_REASON(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ExternalFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(3i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const FILE_128_BYTE_ALIGNMENT: u32 = 127u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -9925,6 +10279,24 @@ pub const FPB_VECTOR_SIZE_SUPPORTED_512BITS: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const FPB_VECTOR_SIZE_SUPPORTED_8KBITS: u32 = 5u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const FailControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const FaultInformationArm64: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const FaultInformationInvalid: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const FaultInformationX64: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const FloatingPointProcessor: CONFIGURATION_TYPE = CONFIGURATION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const FloppyDiskPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(26i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const FltIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(13i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const FreePage: KWAIT_REASON = KWAIT_REASON(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const FunctionLevelDeviceReset: DEVICE_RESET_TYPE = DEVICE_RESET_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const GENERIC_NOTIFY_TYPE_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e62a467_ab40_409a_a698_f362d464b38f);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const GENERIC_SECTION_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe71254e8_c1b9_4940_ab76_909703a4320f);
@@ -9973,6 +10345,22 @@ pub const GENPROC_PROCTYPE_XPF: u32 = 0u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const GUID_ECP_CREATE_USER_PROCESS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0e429ff_6ddc_4e65_aab6_45d05a038a08);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const GartHigh: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const GartLow: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const GenericEqual: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const GenericGreaterThan: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const GenericLessThan: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const GlobalLoggerHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const GroupAffinityAllGroupZero: IRQ_GROUP_POLICY = IRQ_GROUP_POLICY(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const GroupAffinityDontCare: IRQ_GROUP_POLICY = IRQ_GROUP_POLICY(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const HAL_DISPATCH_VERSION: u32 = 5u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const HAL_DMA_ADAPTER_VERSION_1: u32 = 1u32;
@@ -9982,6 +10370,10 @@ pub const HAL_MASK_UNMASK_FLAGS_NONE: u32 = 0u32;
 pub const HAL_MASK_UNMASK_FLAGS_SERVICING_COMPLETE: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const HAL_MASK_UNMASK_FLAGS_SERVICING_DEFERRED: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HAL_MCA_RECORD: MCA_EXCEPTION_TYPE = MCA_EXCEPTION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HAL_MCE_RECORD: MCA_EXCEPTION_TYPE = MCA_EXCEPTION_TYPE(0i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const HAL_PLATFORM_ACPI_TABLES_CACHED: i32 = 32i32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -10002,6 +10394,186 @@ pub const HASH_STRING_ALGORITHM_X65599: u32 = 1u32;
 pub const HIGH_LEVEL: u32 = 31u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const HIGH_PRIORITY: u32 = 31u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalAcpiAuditInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(26i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalCallbackInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalChannelTopologyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(31i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalCmcLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalCmcLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(13i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalCmcRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalCpeLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalCpeLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalCpeRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalDisplayBiosInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalDisplayEmulatedBios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalDisplayInt10Bios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalDisplayNoBios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalDmaCrashDumpRegisterSet1: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalDmaCrashDumpRegisterSet2: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalDmaCrashDumpRegisterSetMax: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalDmaRemappingInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(47i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalEnlightenment: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(11i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalErrorInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(12i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalExternalCacheInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(32i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalFrameBufferCachingInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalFrequencyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(22i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalFwBootPerformanceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(34i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalFwS3PerformanceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(35i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalGenerateCmcInterrupt: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalGetChannelPowerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(36i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalHardwareWatchdogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(46i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalHeterogeneousMemoryAttributesInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(49i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalHypervisorInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(24i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalI386ExceptionChainTerminatorInformation: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(15i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalInformationClassUnused1: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalInitLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(21i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalInstalledBusInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalInterruptControllerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(39i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalIrtInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(27i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalKernelErrorHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalMapRegisterInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalMcaLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalMcaLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalMcaRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalNumaRangeTableInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(30i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalNumaTopologyInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(11i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalParkingPageInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(29i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalPartitionIpiInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(18i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalPlatformInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(19i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalPlatformTimerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(25i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalPowerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalProcessorBrandString: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(23i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalProcessorFeatureInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalProcessorSpeedInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalProfileDpgoSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(12i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalProfileSourceAdd: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(20i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalProfileSourceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalProfileSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalProfileSourceInterval: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalProfileSourceRemove: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(21i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalProfileSourceTimerHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalPsciInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(38i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryAMLIIllegalIOPortAddresses: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryAcpiWakeAlarmSystemPowerStateInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(43i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryArmErrataInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(41i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryDebuggerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(33i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryHyperlaunchEntrypoint: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(45i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryIommuReservedRegionInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(40i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryMaxHotPlugMemoryAddress: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(17i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryMcaInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(15i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryPerDeviceMsiLimitInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(50i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryProcessorEfficiencyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(42i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryProfileCorruptionStatus: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(51i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryProfileCounterOwnership: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(52i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryProfileNumberOfCounters: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(44i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryProfileSourceList: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(20i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryStateElementInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(37i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalQueryUnused0001: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(48i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalRegisterSecondaryInterruptInterface: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(13i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalSecondaryInterruptInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(28i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalSetChannelPowerInformation: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalSetClockTimerMinimumInterval: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(23i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalSetHvciEnabled: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(18i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalSetProcessorTraceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(19i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalSetPsciSuspendMode: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(17i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalSetResetParkDisposition: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HalSetSwInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(22i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HighImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HighPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(32i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HighPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(32i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HighPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(40i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HighPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(41i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HotSpareControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const HyperCriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(2i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const IMAGE_ADDRESSING_MODE_32BIT: u32 = 3u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -10393,6 +10965,170 @@ pub const IRP_UM_DRIVER_INITIATED_IO: u32 = 4194304u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const IRP_WRITE_OPERATION: u32 = 512u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InACriticalArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InAFailedArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IndicatorBlink: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IndicatorOff: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IndicatorOn: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InitiateReset: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InstallStateFailedInstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InstallStateFinishInstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InstallStateInstalled: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InstallStateNeedsReinstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IntelCacheData: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IntelCacheInstruction: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IntelCacheNull: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IntelCacheRam: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IntelCacheTrace: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IntelCacheUnified: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InterfaceTypeUndefined: INTERFACE_TYPE = INTERFACE_TYPE(-1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Internal: INTERFACE_TYPE = INTERFACE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InternalPowerBus: INTERFACE_TYPE = INTERFACE_TYPE(13i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InterruptActiveBoth: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InterruptActiveBothTriggerHigh: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InterruptActiveBothTriggerLow: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InterruptActiveHigh: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InterruptActiveLow: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InterruptFallingEdge: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InterruptPolarityUnknown: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InterruptRisingEdge: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const InvalidDeviceTypeControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoMaxContainerInformationClass: IO_CONTAINER_INFORMATION_CLASS = IO_CONTAINER_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoMaxContainerNotificationClass: IO_CONTAINER_NOTIFICATION_CLASS = IO_CONTAINER_NOTIFICATION_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoModifyAccess: LOCK_OPERATION = LOCK_OPERATION(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoPagingPriorityHigh: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoPagingPriorityInvalid: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoPagingPriorityNormal: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoPagingPriorityReserved1: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoPagingPriorityReserved2: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoQueryDeviceComponentInformation: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoQueryDeviceConfigurationData: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoQueryDeviceIdentifier: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoQueryDeviceMaxData: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoReadAccess: LOCK_OPERATION = LOCK_OPERATION(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionEventConnected: IO_SESSION_EVENT = IO_SESSION_EVENT(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionEventCreated: IO_SESSION_EVENT = IO_SESSION_EVENT(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionEventDisconnected: IO_SESSION_EVENT = IO_SESSION_EVENT(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionEventIgnore: IO_SESSION_EVENT = IO_SESSION_EVENT(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionEventLogoff: IO_SESSION_EVENT = IO_SESSION_EVENT(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionEventLogon: IO_SESSION_EVENT = IO_SESSION_EVENT(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionEventMax: IO_SESSION_EVENT = IO_SESSION_EVENT(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionEventTerminated: IO_SESSION_EVENT = IO_SESSION_EVENT(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionStateConnected: IO_SESSION_STATE = IO_SESSION_STATE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionStateCreated: IO_SESSION_STATE = IO_SESSION_STATE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionStateDisconnected: IO_SESSION_STATE = IO_SESSION_STATE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionStateDisconnectedLoggedOn: IO_SESSION_STATE = IO_SESSION_STATE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionStateInformation: IO_CONTAINER_INFORMATION_CLASS = IO_CONTAINER_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionStateInitialized: IO_SESSION_STATE = IO_SESSION_STATE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionStateLoggedOff: IO_SESSION_STATE = IO_SESSION_STATE(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionStateLoggedOn: IO_SESSION_STATE = IO_SESSION_STATE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionStateMax: IO_SESSION_STATE = IO_SESSION_STATE(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionStateNotification: IO_CONTAINER_NOTIFICATION_CLASS = IO_CONTAINER_NOTIFICATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoSessionStateTerminated: IO_SESSION_STATE = IO_SESSION_STATE(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IoWriteAccess: LOCK_OPERATION = LOCK_OPERATION(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IommuDeviceCreationConfigTypeAcpi: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IommuDeviceCreationConfigTypeDeviceId: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IommuDeviceCreationConfigTypeMax: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IommuDeviceCreationConfigTypeNone: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IommuDmaLogicalAllocatorBuddy: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IommuDmaLogicalAllocatorMax: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IommuDmaLogicalAllocatorNone: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IrqPolicyAllCloseProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IrqPolicyAllProcessorsInMachine: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IrqPolicyAllProcessorsInMachineWhenSteered: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IrqPolicyMachineDefault: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IrqPolicyOneCloseProcessor: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IrqPolicySpecifiedProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IrqPolicySpreadMessagesAcrossAllProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IrqPriorityHigh: IRQ_PRIORITY = IRQ_PRIORITY(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IrqPriorityLow: IRQ_PRIORITY = IRQ_PRIORITY(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IrqPriorityNormal: IRQ_PRIORITY = IRQ_PRIORITY(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IrqPriorityUndefined: IRQ_PRIORITY = IRQ_PRIORITY(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Isa: INTERFACE_TYPE = INTERFACE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IsochCommand: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const IsochStatus: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const KADDRESS_BASE: u32 = 0u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const KB_ADD_PAGES_FLAG_ADDITIONAL_RANGES_EXIST: u32 = 2147483648u32;
@@ -10413,6 +11149,8 @@ pub const KB_SECONDARY_DATA_FLAG_NO_DEVICE_ACCESS: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const KB_TRIAGE_DUMP_DATA_FLAG_BUGCHECK_ACTIVE: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KD_OPTION_SET_BLOCK_ENABLE: KD_OPTION = KD_OPTION(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const KENCODED_TIMER_PROCESSOR: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const KERNEL_LARGE_STACK_COMMIT: u32 = 12288u32;
@@ -10432,6 +11170,144 @@ pub const KE_PROCESSOR_CHANGE_ADD_EXISTING: u32 = 1u32;
 pub const KI_USER_SHARED_DATA: u32 = 4292804608u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const KUMS_UCH_VOLATILE_BIT: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbCallbackAddPages: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbCallbackDumpIo: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbCallbackInvalid: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbCallbackRemovePages: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbCallbackReserved1: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbCallbackReserved2: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbCallbackSecondaryDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbCallbackSecondaryMultiPartDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbCallbackTriageDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbDumpIoBody: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbDumpIoComplete: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbDumpIoHeader: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbDumpIoInvalid: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KbDumpIoSecondaryData: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KdConfigureDeviceAndContinue: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KdConfigureDeviceAndStop: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KdNameSpaceACPI: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KdNameSpaceAny: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KdNameSpaceMax: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KdNameSpaceNone: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KdNameSpacePCI: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KdSkipDeviceAndContinue: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KdSkipDeviceAndStop: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeProcessorAddCompleteNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeProcessorAddFailureNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeProcessorAddStartNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeepObject: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KernelMode: MODE = MODE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyBasicInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyCachedInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyFlagsInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyFullInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyHandleTagsInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyLayerInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyNameInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyNodeInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyTrustInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyValueBasicInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyValueFullInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyValueFullInformationAlign64: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyValueLayerInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyValuePartialInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyValuePartialInformationAlign64: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyVirtualizationInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyboardController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(22i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const KeyboardPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(32i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0sAndL1EntryDisabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0sAndL1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0sAndL1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0sEntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0sEntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0s_128ns_256ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0s_1us_2us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0s_256ns_512ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0s_2us_4us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0s_512ns_1us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0s_64ns_128ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0s_Above4us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L0s_Below64ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L1_16us_32us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L1_1us_2us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L1_2us_4us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L1_32us_64us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L1_4us_8us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L1_8us_16us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L1_Above64us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const L1_Below1us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(0i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const LOCK_QUEUE_HALTED: u32 = 4u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -10460,6 +11336,42 @@ pub const LOW_LEVEL: u32 = 0u32;
 pub const LOW_PRIORITY: u32 = 0u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const LOW_REALTIME_PRIORITY: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LastDStateTransitionD3cold: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LastDStateTransitionD3hot: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LastDStateTransitionStatusUnknown: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LastDrvRtFlag: DRIVER_RUNTIME_INIT_FLAGS = DRIVER_RUNTIME_INIT_FLAGS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Latched: KINTERRUPT_MODE = KINTERRUPT_MODE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LevelSensitive: KINTERRUPT_MODE = KINTERRUPT_MODE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LinePeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(35i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LocateControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LocationTypeFileSystem: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LocationTypeMaximum: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LocationTypeRegistry: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LoggerEventsLoggedClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LoggerEventsLostClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LowImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LowPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LowPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LowPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const LowPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(9i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const MAXIMUM_DEBUG_BARS: u32 = 6u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -10581,13 +11493,271 @@ pub const MM_SYSTEM_SPACE_END: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const MM_SYSTEM_VIEW_EXCEPTIONS_FOR_INPAGE_ERRORS: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MPIBus: INTERFACE_TYPE = INTERFACE_TYPE(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MPIConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MPSABus: INTERFACE_TYPE = INTERFACE_TYPE(11i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MPSAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MRLClosed: PCI_EXPRESS_MRL_STATE = PCI_EXPRESS_MRL_STATE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MRLOpen: PCI_EXPRESS_MRL_STATE = PCI_EXPRESS_MRL_STATE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const MU_TELEMETRY_SECTION_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85183a8b_9c41_429c_939c_5c3c087ca280);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MapPhysicalAddressTypeContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MapPhysicalAddressTypeMax: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MapPhysicalAddressTypeMdl: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MapPhysicalAddressTypePfn: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxFaultType: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxKeyInfoClass: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxKeyValueInfoClass: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxPayload1024Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxPayload128Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxPayload2048Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxPayload256Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxPayload4096Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxPayload512Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxRegNtNotifyClass: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(51i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxSubsystemInformationType: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxTimerInfoClass: TIMER_SET_INFORMATION_CLASS = TIMER_SET_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaxTraceInformationClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaximumBusDataType: BUS_DATA_TYPE = BUS_DATA_TYPE(12i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaximumDmaSpeed: DMA_SPEED = DMA_SPEED(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaximumDmaWidth: DMA_WIDTH = DMA_WIDTH(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaximumInterfaceType: INTERFACE_TYPE = INTERFACE_TYPE(18i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaximumMode: MODE = MODE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaximumType: CONFIGURATION_TYPE = CONFIGURATION_TYPE(41i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaximumWaitReason: KWAIT_REASON = KWAIT_REASON(42i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MaximumWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(7i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const MdlMappingNoExecute: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const MdlMappingNoWrite: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const MdlMappingWithGuardPtes: u32 = 536870912u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MediumHighImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MediumImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MicroChannel: INTERFACE_TYPE = INTERFACE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmFrameBufferCached: MEMORY_CACHING_TYPE_ORIG = MEMORY_CACHING_TYPE_ORIG(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmHardwareCoherentCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmLargeSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmMaximumCacheType: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmMaximumRotateDirection: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmMdlPageContentsDynamic: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmMdlPageContentsInvariant: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmMdlPageContentsQuery: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmMediumSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmNonCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmNonCachedUnordered: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmNotMapped: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(-1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmSmallSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmToFrameBuffer: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmToFrameBufferNoCopy: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmToRegularMemory: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmToRegularMemoryNoCopy: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmUSWCCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MmWriteCombined: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ModemPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(28i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ModifyAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(29i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(28i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(49i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(47i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(19i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(46i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(45i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(48i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(17i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(12i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(15i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(22i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(27i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(44i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(42i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(43i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(52i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(40i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(41i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(18i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(13i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(50i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(24i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(25i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(11i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(20i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(21i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(29i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(26i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(51i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(23i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(35i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(36i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(39i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(31i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(32i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(34i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(37i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(38i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(54i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(33i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(30i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const MultiFunctionAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(12i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const NEC98x86: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(1i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const NMI_NOTIFY_TYPE_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5bad89ff_b7e6_42c9_814a_cf2485d6e98a);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -10609,6 +11779,26 @@ pub const NX_SUPPORT_POLICY_OPTIN: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const NX_SUPPORT_POLICY_OPTOUT: u32 = 3u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const NetworkController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(18i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const NetworkPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(36i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const NoAspmSupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const NormalPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const NormalPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const NormalPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(24i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const NormalPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(25i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const NormalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const NuBus: INTERFACE_TYPE = INTERFACE_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const NuBusConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const OBJECT_TYPE_CREATE: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const OB_FLT_REGISTRATION_VERSION: u32 = 256u32;
@@ -10618,6 +11808,8 @@ pub const OB_FLT_REGISTRATION_VERSION_0100: u32 = 256u32;
 pub const OB_OPERATION_HANDLE_CREATE: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const OB_OPERATION_HANDLE_DUPLICATE: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const OB_PREOP_SUCCESS: OB_PREOP_CALLBACK_STATUS = OB_PREOP_CALLBACK_STATUS(0i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const OPLOCK_KEY_FLAG_PARENT_KEY: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -10634,6 +11826,12 @@ pub const OSC_FIRMWARE_FAILURE: u32 = 2u32;
 pub const OSC_UNRECOGNIZED_REVISION: u32 = 8u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const OSC_UNRECOGNIZED_UUID: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const OkControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const OtherController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(24i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const OtherPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(34i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PAGE_ENCLAVE_NO_CHANGE: u32 = 536870912u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -10710,6 +11908,10 @@ pub const PCCARD_NO_PIC: u32 = 4u32;
 pub const PCCARD_NO_TIMER: u32 = 3u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PCCARD_SCAN_DISABLED: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PCIBus: INTERFACE_TYPE = INTERFACE_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PCIConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(4i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PCIEXPRESS_ERROR_SECTION_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd995e954_bbc1_430f_ad91_b44dcb3c6f35);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -11253,6 +12455,10 @@ pub const PCI_WHICHSPACE_ROM: u32 = 1382638416u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PCIe_NOTIFY_TYPE_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf93c01f_1a16_4dfc_b8bc_9c4daf67c104);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PCMCIABus: INTERFACE_TYPE = INTERFACE_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PCMCIAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PCR_BTI_MITIGATION_CSWAP_HVC: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PCR_BTI_MITIGATION_CSWAP_SMC: u32 = 32u32;
@@ -11281,6 +12487,8 @@ pub const PDI_SHIFT: u32 = 21u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PEI_NOTIFY_TYPE_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09a9d5ac_5204_4214_96e5_94992e752bcd);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PFAControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PLUGPLAY_PROPERTY_PERSISTENT: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PLUGPLAY_REGKEY_CURRENT_HWPROFILE: u32 = 4u32;
@@ -11289,7 +12497,15 @@ pub const PLUGPLAY_REGKEY_DEVICE: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PLUGPLAY_REGKEY_DRIVER: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PMEM_ERROR_SECTION_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81687003_dbfd_4728_9ffd_f0904f97597d);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PNPBus: INTERFACE_TYPE = INTERFACE_TYPE(15i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PNPISABus: INTERFACE_TYPE = INTERFACE_TYPE(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PNPISAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(10i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -11455,6 +12671,216 @@ pub const PTE_TOP: u32 = 3225419775u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PTI_SHIFT: u32 = 12u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PageIn: KWAIT_REASON = KWAIT_REASON(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ParallelController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(20i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciAcsBitDisable: PCI_ACS_BIT = PCI_ACS_BIT(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciAcsBitDontCare: PCI_ACS_BIT = PCI_ACS_BIT(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciAcsBitEnable: PCI_ACS_BIT = PCI_ACS_BIT(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciAcsReserved: PCI_ACS_BIT = PCI_ACS_BIT(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciConventional: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciDeviceD3Cold_Reason_Default_State_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciDeviceD3Cold_Reason_INF_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciDeviceD3Cold_Reason_Interface_Api_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciDeviceD3Cold_State_Disabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciDeviceD3Cold_State_Disabled_Bridge_HackFlags_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciDeviceD3Cold_State_Enabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciDeviceD3Cold_State_ParentRootPortS0WakeSupported_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpress: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressASPMLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressASPMLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressDownstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressLegacyEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressPciPmLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressPciPmLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressRootComplexEventCollector: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressRootComplexIntegratedEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressRootPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressToPciXBridge: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciExpressUpstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciXMode1: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciXMode2: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PciXToExpressBridge: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PcwCallbackAddCounter: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PcwCallbackCollectData: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PcwCallbackEnumerateInstances: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PcwCallbackRemoveCounter: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PcwRegistrationNone: PCW_REGISTRATION_FLAGS = PCW_REGISTRATION_FLAGS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PcwRegistrationSiloNeutral: PCW_REGISTRATION_FLAGS = PCW_REGISTRATION_FLAGS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PermissionFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PlatformLevelDeviceReset: DEVICE_RESET_TYPE = DEVICE_RESET_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoAc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoDc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoFxPerfStateTypeDiscrete: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoFxPerfStateTypeMaximum: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoFxPerfStateTypeRange: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoFxPerfStateUnitBandwidth: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoFxPerfStateUnitFrequency: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoFxPerfStateUnitMaximum: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoFxPerfStateUnitOther: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoHot: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoThermalRequestActive: PO_THERMAL_REQUEST_TYPE = PO_THERMAL_REQUEST_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoThermalRequestPassive: PO_THERMAL_REQUEST_TYPE = PO_THERMAL_REQUEST_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PointerController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(21i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PointerPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(31i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoolAllocation: KWAIT_REASON = KWAIT_REASON(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoolExtendedParameterInvalidType: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoolExtendedParameterMax: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoolExtendedParameterNumaNode: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoolExtendedParameterPriority: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PoolExtendedParameterSecurePool: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Pos: BUS_DATA_TYPE = BUS_DATA_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PowerOff: PCI_EXPRESS_POWER_STATE = PCI_EXPRESS_POWER_STATE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PowerOn: PCI_EXPRESS_POWER_STATE = PCI_EXPRESS_POWER_STATE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PowerRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PrimaryDcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PrimaryIcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PrinterPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(30i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProcessorInternal: INTERFACE_TYPE = INTERFACE_TYPE(12i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Profile2Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(15i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Profile3Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Profile4Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(17i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileAlignmentFixup: KPROFILE_SOURCE = KPROFILE_SOURCE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileBranchInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileBranchMispredictions: KPROFILE_SOURCE = KPROFILE_SOURCE(11i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileCacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileDcacheAccesses: KPROFILE_SOURCE = KPROFILE_SOURCE(21i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileDcacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileFpInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(13i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileIcacheIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(20i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileIcacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileIntegerInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileLoadInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileLoadLinkedIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(23i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileMaximum: KPROFILE_SOURCE = KPROFILE_SOURCE(24i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileMemoryBarrierCycles: KPROFILE_SOURCE = KPROFILE_SOURCE(22i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfilePipelineDry: KPROFILE_SOURCE = KPROFILE_SOURCE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfilePipelineFrozen: KPROFILE_SOURCE = KPROFILE_SOURCE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileSpecialInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(18i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileStoreInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(12i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileTime: KPROFILE_SOURCE = KPROFILE_SOURCE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileTotalCycles: KPROFILE_SOURCE = KPROFILE_SOURCE(19i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileTotalIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ProfileTotalNonissues: KPROFILE_SOURCE = KPROFILE_SOURCE(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PsCreateProcessNotifySubsystems: PSCREATEPROCESSNOTIFYTYPE = PSCREATEPROCESSNOTIFYTYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PsCreateThreadNotifyNonSystem: PSCREATETHREADNOTIFYTYPE = PSCREATETHREADNOTIFYTYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PsCreateThreadNotifySubsystems: PSCREATETHREADNOTIFYTYPE = PSCREATETHREADNOTIFYTYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PshedFADiscovery: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PshedFAErrorInfoRetrieval: u32 = 8u32;
@@ -11466,6 +12892,32 @@ pub const PshedFAErrorRecordPersistence: u32 = 4u32;
 pub const PshedFAErrorRecovery: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const PshedFAErrorSourceControl: u32 = 2u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PshedPiEnableNotifyErrorCreateNotifyEvent: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PshedPiEnableNotifyErrorCreateSystemThread: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PshedPiEnableNotifyErrorMax: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PshedPiErrReadingPcieOverridesBadSignature: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PshedPiErrReadingPcieOverridesBadSize: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PshedPiErrReadingPcieOverridesNoCapOffset: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PshedPiErrReadingPcieOverridesNoErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PshedPiErrReadingPcieOverridesNoMemory: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PshedPiErrReadingPcieOverridesNotBinary: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const PshedPiErrReadingPcieOverridesQueryErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const QuerySecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RCB128Bytes: PCI_EXPRESS_RCB = PCI_EXPRESS_RCB(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RCB64Bytes: PCI_EXPRESS_RCB = PCI_EXPRESS_RCB(0i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const RECOVERY_INFO_SECTION_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc34832a1_02c3_4c52_a9f1_9f1d5d7723fc);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -11529,11 +12981,175 @@ pub const RTL_REGISTRY_WINDOWS_NT: u32 = 3u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const RTL_STACK_WALKING_MODE_FRAMES_TO_SKIP_SHIFT: u32 = 8u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RandomAccess: IO_ACCESS_MODE = IO_ACCESS_MODE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ReadAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RealModeIrqRoutingTable: CONFIGURATION_TYPE = CONFIGURATION_TYPE(39i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RealModePCIEnumeration: CONFIGURATION_TYPE = CONFIGURATION_TYPE(40i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RealTimeWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RebuildControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtCallbackObjectContextCleanup: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(40i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostCreateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(11i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostCreateKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(27i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(15i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(17i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(20i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(21i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostFlushKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(31i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(25i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(33i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostOpenKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(13i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostOpenKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(29i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(22i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostQueryKeyName: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(48i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostQueryKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(37i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(24i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(23i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(19i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostReplaceKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(46i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostRestoreKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(42i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostSaveKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(44i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostSaveMergedKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(50i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(18i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostSetKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(39i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPostUnLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(35i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreCreateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreCreateKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(26i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreFlushKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(30i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(32i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreOpenKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(12i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreOpenKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(28i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreQueryKeyName: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(47i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreQueryKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(36i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreReplaceKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(45i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreRestoreKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(41i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreSaveKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(43i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreSaveMergedKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(49i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreSetKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(38i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtPreUnLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(34i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RegNtSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RemovalPolicyExpectNoRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RemovalPolicyExpectOrderlyRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RemovalPolicyExpectSurpriseRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const RemovalRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const ResourceNeverExclusive: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const ResourceOwnedExclusive: u32 = 128u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const ResourceReleaseByOtherThread: u32 = 32u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ResourceTypeEventBuffer: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ResourceTypeExtendedCounterConfiguration: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ResourceTypeIdenitificationTag: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ResourceTypeMax: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ResourceTypeOverflow: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ResourceTypeRange: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ResourceTypeSingle: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ResultNegative: INTERLOCKED_RESULT = INTERLOCKED_RESULT(32768i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ResultPositive: INTERLOCKED_RESULT = INTERLOCKED_RESULT(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ResultZero: INTERLOCKED_RESULT = INTERLOCKED_RESULT(16384i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const SCI_NOTIFY_TYPE_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9d59197_94ee_4a4f_8ad8_9b7d8bd93d2e);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -11773,6 +13389,20 @@ pub const SL_WRITE_ACCESS_GRANTED: u32 = 4u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const SL_WRITE_THROUGH: u32 = 4u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SOC_SUBSYS_AUDIO_DSP: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SOC_SUBSYS_COMPUTE_DSP: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SOC_SUBSYS_SECURE_PROC: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SOC_SUBSYS_SENSORS: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SOC_SUBSYS_VENDOR_DEFINED: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(65536i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SOC_SUBSYS_WIRELESS_MODEM: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SOC_SUBSYS_WIRELSS_CONNECTIVITY: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const SSINFO_FLAGS_ALIGNED_DEVICE: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const SSINFO_FLAGS_BYTE_ADDRESSABLE: u32 = 16u32;
@@ -11793,11 +13423,69 @@ pub const SYSTEM_CALL_INT_2E: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const SYSTEM_CALL_SYSCALL: u32 = 0u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ScsiAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SeImageTypeDriver: SE_IMAGE_TYPE = SE_IMAGE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SeImageTypeDynamicCodeFile: SE_IMAGE_TYPE = SE_IMAGE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SeImageTypeElamDriver: SE_IMAGE_TYPE = SE_IMAGE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SeImageTypeMax: SE_IMAGE_TYPE = SE_IMAGE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SeImageTypePlatformSecureFile: SE_IMAGE_TYPE = SE_IMAGE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SeImageVerificationCallbackInformational: SE_IMAGE_VERIFICATION_CALLBACK_TYPE = SE_IMAGE_VERIFICATION_CALLBACK_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SecondaryCache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SecondaryDcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SecondaryIcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SequentialAccess: IO_ACCESS_MODE = IO_ACCESS_MODE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SerialController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(17i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SetSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SgiInternalConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(11i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const SharedInterruptTime: u32 = 4292804616u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const SharedSystemTime: u32 = 4292804628u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const SharedTickCount: u32 = 4292805408u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SingleBusRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SlotEmpty: PCI_EXPRESS_CARD_PRESENCE = PCI_EXPRESS_CARD_PRESENCE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const StandardDesign: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const StopCompletion: IO_COMPLETION_ROUTINE_RESULT = IO_COMPLETION_ROUTINE_RESULT(-1073741802i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SubsystemInformationTypeWSL: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SubsystemInformationTypeWin32: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SuperCriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Suspended: KWAIT_REASON = KWAIT_REASON(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SystemFirmwareTable_Enumerate: SYSTEM_FIRMWARE_TABLE_ACTION = SYSTEM_FIRMWARE_TABLE_ACTION(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SystemFirmwareTable_Get: SYSTEM_FIRMWARE_TABLE_ACTION = SYSTEM_FIRMWARE_TABLE_ACTION(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SystemMemory: CONFIGURATION_TYPE = CONFIGURATION_TYPE(37i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SystemMemoryPartitionDedicatedMemoryInformation: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SystemMemoryPartitionInformation: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SystemMemoryPartitionOpenDedicatedMemory: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const SystemPowerState: POWER_STATE_TYPE = POWER_STATE_TYPE(0i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const THREAD_ALERT: u32 = 4u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -11821,7 +13509,79 @@ pub const TREE_CONNECT_WRITE_THROUGH: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const TXF_MINIVERSION_DEFAULT_VIEW: u32 = 65534u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TableEmptyTree: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TableFoundNode: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TableInsertAsLeft: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TableInsertAsRight: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TapeController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TapePeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(27i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TargetDeviceRelation: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TcAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TerminalPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(33i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TimerSetCoalescableTimer: TIMER_SET_INFORMATION_CLASS = TIMER_SET_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TlbMatchConflict: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TraceEnableFlagsClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TraceEnableLevelClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TraceHandleByNameClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TraceHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TraceIdClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TraceInformationClassReserved1: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(12i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TraceInformationClassReserved2: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TraceSessionSettingsClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TranslateChildToParent: RESOURCE_TRANSLATION_DIRECTION = RESOURCE_TRANSLATION_DIRECTION(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TranslateParentToChild: RESOURCE_TRANSLATION_DIRECTION = RESOURCE_TRANSLATION_DIRECTION(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TranslationFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TransportRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TurboChannel: INTERFACE_TYPE = INTERFACE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TypeA: DMA_SPEED = DMA_SPEED(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TypeB: DMA_SPEED = DMA_SPEED(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TypeC: DMA_SPEED = DMA_SPEED(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const TypeF: DMA_SPEED = DMA_SPEED(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const UADDRESS_BASE: u32 = 0u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const UnsupportedUpstreamTransaction: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const UserMode: MODE = MODE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const UserPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const UserRequest: KWAIT_REASON = KWAIT_REASON(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const UserUnknown: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(255i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const VMEBus: INTERFACE_TYPE = INTERFACE_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const VMEConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(5i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const VPB_DIRECT_WRITES_ALLOWED: u32 = 32u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -11838,6 +13598,12 @@ pub const VPB_PERSISTENT: u32 = 4u32;
 pub const VPB_RAW_MOUNT: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const VPB_REMOVE_PENDING: u32 = 8u32;
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ViewShare: SECTION_INHERIT = SECTION_INHERIT(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const ViewUnmap: SECTION_INHERIT = SECTION_INHERIT(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Vmcs: INTERFACE_TYPE = INTERFACE_TYPE(16i32);
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const WCS_RAS_REGISTER_NAME_MAX_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
@@ -11997,6 +13763,454 @@ pub const WMIREG_ACTION_UPDATE_GUIDS: u32 = 4u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const WMIUPDATE: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WdfNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(15i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaCpuVendorAmd: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaCpuVendorIntel: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaCpuVendorOther: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaDataFormatGeneric: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaDataFormatIPFSalRecord: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaDataFormatMax: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaDataFormatMemory: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaDataFormatNMIPort: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaDataFormatPCIExpress: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaDataFormatPCIXBus: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaDataFormatPCIXDevice: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaDataFormatXPFMCA: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrSevCorrected: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrSevFatal: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrSevInformational: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrSevRecoverable: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrTypeGeneric: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrTypeMemory: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrTypeNMI: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrTypePCIExpress: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrTypePCIXBus: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrTypePCIXDevice: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrTypePmem: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaErrTypeProcessor: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventBugCheckRecoveryEntry: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventBugCheckRecoveryMax: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventBugCheckRecoveryReturn: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogAzccRootBusList: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483617i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogAzccRootBusPoisonSet: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483602i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogAzccRootBusSearchErr: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483618i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogCmciFinalRestart: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483620i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogCmciRestart: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483621i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryEarlyError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483594i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryEtwOverFlow: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483619i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdAcpiTimeOut: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483622i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdAddRemoveErrorSource: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483636i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdAerNotGrantedToOs: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483624i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdAttemptErrorRecovery: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483634i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdBadHestNotifyData: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483565i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdBadPageLimitReached: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483596i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdClearedPoison: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483630i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdCmcPollingTimeout: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483647i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdCmcSwitchToPolling: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483645i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdCmciImplPresent: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483608i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdCmciInitError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483607i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdCpuBusesInitFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483571i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdCpusFrozen: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483552i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdCpusFrozenNoCrashDump: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483551i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdCreateGenericRecord: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483627i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdDefectListCorrupt: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483566i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdDefectListFull: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483568i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdDefectListUEFIVarFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483567i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdDeviceDriver: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483609i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdDroppedCorrectedError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483644i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdDrvErrSrcInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483605i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdDrvHandleBusy: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483604i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdEnableKeyNotifFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483580i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdErrDimmInfoMismatch: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483600i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdErrSrcArrayInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483623i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdErrSrcInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483616i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdErrorRecord: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483626i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdErrorRecordLimit: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483625i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdFailedAddToDefectList: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483569i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdGenericErrMemMap: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483615i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdKeyNotificationFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483579i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdMcaErrorCleared: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483631i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdMcaFoundErrorInBank: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483633i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdMcaStuckErrorCheck: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483632i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdMemoryAddDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483575i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdMemoryRemoveDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483574i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdMemorySummaryFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483573i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdOscCapabilities: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483638i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPFAMemoryOfflined: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483642i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPFAMemoryPolicy: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483640i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPFAMemoryRemoveMonitor: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483641i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPcieAddDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483577i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPcieConfigInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483591i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPcieDpcError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483572i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPcieOverrideInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483593i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPcieRemoveDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483578i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPcieSpuriousErrSource: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483576i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPcieSummaryFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483584i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdProcessEINJ: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483629i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdProcessHEST: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483628i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPshedCallbackCollision: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483614i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPshedInjectError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483639i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPshedPiTraceLog: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147221488i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPshedPluginInitFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483570i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPshedPluginLoad: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483612i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPshedPluginRegister: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483637i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPshedPluginSupported: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483610i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdPshedPluginUnload: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483611i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdReadPcieOverridesErr: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483592i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdRowFailure: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483561i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdSELBugCheckInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483601i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdSELBugCheckProgress: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483613i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdSELBugCheckRecovery: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483606i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdSrasTableEntries: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483562i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdSrasTableError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483563i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdSrasTableNotFound: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483564i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdStartedReportHwError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483643i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdThrottleAddErrSrcFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483582i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdThrottleRegCorrupt: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483583i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdThrottleRegDataIgnored: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483581i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdWheaHeartbeat: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483603i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdWheaInit: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483646i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdWorkQueueItem: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483635i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryIdeDpcEnabled: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483599i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryPageOfflineDone: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483598i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryPageOfflinePendMax: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483597i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntrySrarDetail: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483595i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryTypeError: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryTypeInformational: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaEventLogEntryTypeWarning: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaMemoryThrottle: WHEA_THROTTLE_TYPE = WHEA_THROTTLE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciExpressDownstreamSwitchPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciExpressEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciExpressLegacyEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciExpressRootComplexEventCollector: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciExpressRootComplexIntegratedEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciExpressRootPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciExpressToPciXBridge: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciExpressUpstreamSwitchPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciREcoveryStatusUnknown: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciRecoverySignalAer: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciRecoverySignalDpc: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciRecoverySignalUnknown: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciRecoveryStatusBusNotFound: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciRecoveryStatusComplexTree: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciRecoveryStatusLinkDisableTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciRecoveryStatusLinkEnableTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciRecoveryStatusNoError: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciRecoveryStatusRpBusyTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPciXToExpressBridge: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPcieThrottle: WHEA_THROTTLE_TYPE = WHEA_THROTTLE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPfaRemoveCapacity: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPfaRemoveErrorThreshold: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaPfaRemoveTimeout: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRawDataFormatAMD64MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRawDataFormatGeneric: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRawDataFormatIA32MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRawDataFormatIPFSalRecord: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRawDataFormatIntel64MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRawDataFormatMax: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRawDataFormatMemory: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRawDataFormatNMIPort: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRawDataFormatPCIExpress: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRawDataFormatPCIXBus: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRawDataFormatPCIXDevice: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryContextErrorTypeMax: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryContextErrorTypeMemory: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryContextErrorTypePmem: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonFarNotValid: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(17i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonHighIrql: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonInsufficientAltContextWrappers: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(11i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonInterruptsDisabled: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(12i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonInvalidAddressMode: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonKernelCouldNotMarkMemoryBad: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonKernelMarkMemoryBadTimedOut: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonKernelWillPageFaultBCAtCurrentIrql: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonMax: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(18i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonMiscOrAddrNotValid: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonNoRecoveryContext: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonNotContinuable: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonNotSupported: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonOverflow: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(6i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonPcc: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonStackOverflow: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonSwapBusy: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(13i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryFailureReasonUnexpectedFailure: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(15i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryTypeActionOptional: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryTypeActionRequired: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheaRecoveryTypeMax: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheapDpcErrBusNotFound: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheapDpcErrDeviceIdBad: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheapDpcErrDpcedSubtree: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheapDpcErrNoChildren: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheapDpcErrNoErr: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheapDpcErrResetFailed: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheapPfaOfflinePredictiveFailure: WHEAP_PFA_OFFLINE_DECISION_TYPE = WHEAP_PFA_OFFLINE_DECISION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WheapPfaOfflineUncorrectedError: WHEAP_PFA_OFFLINE_DECISION_TYPE = WHEAP_PFA_OFFLINE_DECISION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Width16Bits: DMA_WIDTH = DMA_WIDTH(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Width32Bits: DMA_WIDTH = DMA_WIDTH(2i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Width64Bits: DMA_WIDTH = DMA_WIDTH(3i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const Width8Bits: DMA_WIDTH = DMA_WIDTH(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WidthNoWrap: DMA_WIDTH = DMA_WIDTH(4i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WormController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrAlertByThreadId: KWAIT_REASON = KWAIT_REASON(37i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrCalloutStack: KWAIT_REASON = KWAIT_REASON(25i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrCpuRateControl: KWAIT_REASON = KWAIT_REASON(24i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrDeferredPreempt: KWAIT_REASON = KWAIT_REASON(38i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrDelayExecution: KWAIT_REASON = KWAIT_REASON(11i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrDispatchInt: KWAIT_REASON = KWAIT_REASON(31i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrExecutive: KWAIT_REASON = KWAIT_REASON(7i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrFastMutex: KWAIT_REASON = KWAIT_REASON(34i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrFreePage: KWAIT_REASON = KWAIT_REASON(8i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrGuardedMutex: KWAIT_REASON = KWAIT_REASON(35i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrIoRing: KWAIT_REASON = KWAIT_REASON(40i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrKernel: KWAIT_REASON = KWAIT_REASON(26i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrKeyedEvent: KWAIT_REASON = KWAIT_REASON(21i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrLpcReceive: KWAIT_REASON = KWAIT_REASON(16i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrLpcReply: KWAIT_REASON = KWAIT_REASON(17i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrMdlCache: KWAIT_REASON = KWAIT_REASON(41i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrMutex: KWAIT_REASON = KWAIT_REASON(29i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrPageIn: KWAIT_REASON = KWAIT_REASON(9i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrPageOut: KWAIT_REASON = KWAIT_REASON(19i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrPhysicalFault: KWAIT_REASON = KWAIT_REASON(39i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrPoolAllocation: KWAIT_REASON = KWAIT_REASON(10i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrPreempted: KWAIT_REASON = KWAIT_REASON(32i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrProcessInSwap: KWAIT_REASON = KWAIT_REASON(23i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrPushLock: KWAIT_REASON = KWAIT_REASON(28i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrQuantumEnd: KWAIT_REASON = KWAIT_REASON(30i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrQueue: KWAIT_REASON = KWAIT_REASON(15i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrRendezvous: KWAIT_REASON = KWAIT_REASON(20i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrResource: KWAIT_REASON = KWAIT_REASON(27i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrRundown: KWAIT_REASON = KWAIT_REASON(36i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrSpare0: KWAIT_REASON = KWAIT_REASON(14i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrSuspended: KWAIT_REASON = KWAIT_REASON(12i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrTerminated: KWAIT_REASON = KWAIT_REASON(22i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrUserRequest: KWAIT_REASON = KWAIT_REASON(13i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrVirtualMemory: KWAIT_REASON = KWAIT_REASON(18i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WrYieldExecution: KWAIT_REASON = KWAIT_REASON(33i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
+pub const WriteAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const XPF_BUS_CHECK_ADDRESS_IO: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
 pub const XPF_BUS_CHECK_ADDRESS_MEMORY: u32 = 0u32;
@@ -12120,12 +14334,6 @@ pub const __string_type: u32 = 4096u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ALTERNATIVE_ARCHITECTURE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const StandardDesign: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const NEC98x86: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const EndAlternatives: ALTERNATIVE_ARCHITECTURE_TYPE = ALTERNATIVE_ARCHITECTURE_TYPE(2i32);
 impl ::core::marker::Copy for ALTERNATIVE_ARCHITECTURE_TYPE {}
 impl ::core::clone::Clone for ALTERNATIVE_ARCHITECTURE_TYPE {
     fn clone(&self) -> Self {
@@ -12149,26 +14357,6 @@ impl ::core::fmt::Debug for ALTERNATIVE_ARCHITECTURE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARBITER_ACTION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterActionTestAllocation: ARBITER_ACTION = ARBITER_ACTION(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterActionRetestAllocation: ARBITER_ACTION = ARBITER_ACTION(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterActionCommitAllocation: ARBITER_ACTION = ARBITER_ACTION(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterActionRollbackAllocation: ARBITER_ACTION = ARBITER_ACTION(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterActionQueryAllocatedResources: ARBITER_ACTION = ARBITER_ACTION(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterActionWriteReservedResources: ARBITER_ACTION = ARBITER_ACTION(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterActionQueryConflict: ARBITER_ACTION = ARBITER_ACTION(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterActionQueryArbitrate: ARBITER_ACTION = ARBITER_ACTION(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterActionAddReserved: ARBITER_ACTION = ARBITER_ACTION(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterActionBootAllocation: ARBITER_ACTION = ARBITER_ACTION(9i32);
 impl ::core::marker::Copy for ARBITER_ACTION {}
 impl ::core::clone::Clone for ARBITER_ACTION {
     fn clone(&self) -> Self {
@@ -12192,18 +14380,6 @@ impl ::core::fmt::Debug for ARBITER_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARBITER_REQUEST_SOURCE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterRequestUndefined: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(-1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterRequestLegacyReported: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterRequestHalReported: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterRequestLegacyAssigned: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterRequestPnpDetected: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterRequestPnpEnumerated: ARBITER_REQUEST_SOURCE = ARBITER_REQUEST_SOURCE(4i32);
 impl ::core::marker::Copy for ARBITER_REQUEST_SOURCE {}
 impl ::core::clone::Clone for ARBITER_REQUEST_SOURCE {
     fn clone(&self) -> Self {
@@ -12227,14 +14403,6 @@ impl ::core::fmt::Debug for ARBITER_REQUEST_SOURCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARBITER_RESULT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterResultUndefined: ARBITER_RESULT = ARBITER_RESULT(-1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterResultSuccess: ARBITER_RESULT = ARBITER_RESULT(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterResultExternalConflict: ARBITER_RESULT = ARBITER_RESULT(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArbiterResultNullRequest: ARBITER_RESULT = ARBITER_RESULT(2i32);
 impl ::core::marker::Copy for ARBITER_RESULT {}
 impl ::core::clone::Clone for ARBITER_RESULT {
     fn clone(&self) -> Self {
@@ -12258,10 +14426,6 @@ impl ::core::fmt::Debug for ARBITER_RESULT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDCB_CALLBACK_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BdCbStatusUpdate: BDCB_CALLBACK_TYPE = BDCB_CALLBACK_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BdCbInitializeImage: BDCB_CALLBACK_TYPE = BDCB_CALLBACK_TYPE(1i32);
 impl ::core::marker::Copy for BDCB_CALLBACK_TYPE {}
 impl ::core::clone::Clone for BDCB_CALLBACK_TYPE {
     fn clone(&self) -> Self {
@@ -12285,16 +14449,6 @@ impl ::core::fmt::Debug for BDCB_CALLBACK_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDCB_CLASSIFICATION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BdCbClassificationUnknownImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BdCbClassificationKnownGoodImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BdCbClassificationKnownBadImage: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BdCbClassificationKnownBadImageBootCritical: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BdCbClassificationEnd: BDCB_CLASSIFICATION = BDCB_CLASSIFICATION(4i32);
 impl ::core::marker::Copy for BDCB_CLASSIFICATION {}
 impl ::core::clone::Clone for BDCB_CLASSIFICATION {
     fn clone(&self) -> Self {
@@ -12318,12 +14472,6 @@ impl ::core::fmt::Debug for BDCB_CLASSIFICATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDCB_STATUS_UPDATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BdCbStatusPrepareForDependencyLoad: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BdCbStatusPrepareForDriverLoad: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BdCbStatusPrepareForUnload: BDCB_STATUS_UPDATE_TYPE = BDCB_STATUS_UPDATE_TYPE(2i32);
 impl ::core::marker::Copy for BDCB_STATUS_UPDATE_TYPE {}
 impl ::core::clone::Clone for BDCB_STATUS_UPDATE_TYPE {
     fn clone(&self) -> Self {
@@ -12347,14 +14495,6 @@ impl ::core::fmt::Debug for BDCB_STATUS_UPDATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BOUND_CALLBACK_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BoundExceptionContinueSearch: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BoundExceptionHandled: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BoundExceptionError: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BoundExceptionMaximum: BOUND_CALLBACK_STATUS = BOUND_CALLBACK_STATUS(3i32);
 impl ::core::marker::Copy for BOUND_CALLBACK_STATUS {}
 impl ::core::clone::Clone for BOUND_CALLBACK_STATUS {
     fn clone(&self) -> Self {
@@ -12378,34 +14518,6 @@ impl ::core::fmt::Debug for BOUND_CALLBACK_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BUS_DATA_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ConfigurationSpaceUndefined: BUS_DATA_TYPE = BUS_DATA_TYPE(-1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Cmos: BUS_DATA_TYPE = BUS_DATA_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const EisaConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Pos: BUS_DATA_TYPE = BUS_DATA_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CbusConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PCIConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const VMEConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const NuBusConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PCMCIAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MPIConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MPSAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PNPISAConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SgiInternalConfiguration: BUS_DATA_TYPE = BUS_DATA_TYPE(11i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaximumBusDataType: BUS_DATA_TYPE = BUS_DATA_TYPE(12i32);
 impl ::core::marker::Copy for BUS_DATA_TYPE {}
 impl ::core::clone::Clone for BUS_DATA_TYPE {
     fn clone(&self) -> Self {
@@ -12429,18 +14541,6 @@ impl ::core::fmt::Debug for BUS_DATA_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BUS_QUERY_ID_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BusQueryDeviceID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BusQueryHardwareIDs: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BusQueryCompatibleIDs: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BusQueryInstanceID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BusQueryDeviceSerialNumber: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BusQueryContainerID: BUS_QUERY_ID_TYPE = BUS_QUERY_ID_TYPE(5i32);
 impl ::core::marker::Copy for BUS_QUERY_ID_TYPE {}
 impl ::core::clone::Clone for BUS_QUERY_ID_TYPE {
     fn clone(&self) -> Self {
@@ -12464,14 +14564,6 @@ impl ::core::fmt::Debug for BUS_QUERY_ID_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CM_SHARE_DISPOSITION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CmResourceShareUndetermined: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CmResourceShareDeviceExclusive: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CmResourceShareDriverExclusive: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CmResourceShareShared: CM_SHARE_DISPOSITION = CM_SHARE_DISPOSITION(3i32);
 impl ::core::marker::Copy for CM_SHARE_DISPOSITION {}
 impl ::core::clone::Clone for CM_SHARE_DISPOSITION {
     fn clone(&self) -> Self {
@@ -12495,90 +14587,6 @@ impl ::core::fmt::Debug for CM_SHARE_DISPOSITION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONFIGURATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ArcSystem: CONFIGURATION_TYPE = CONFIGURATION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CentralProcessor: CONFIGURATION_TYPE = CONFIGURATION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const FloatingPointProcessor: CONFIGURATION_TYPE = CONFIGURATION_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PrimaryIcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PrimaryDcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SecondaryIcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SecondaryDcache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SecondaryCache: CONFIGURATION_TYPE = CONFIGURATION_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const EisaAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TcAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ScsiAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DtiAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(11i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MultiFunctionAdapter: CONFIGURATION_TYPE = CONFIGURATION_TYPE(12i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DiskController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(13i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TapeController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CdromController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(15i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WormController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SerialController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(17i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const NetworkController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(18i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DisplayController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(19i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ParallelController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(20i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PointerController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(21i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyboardController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(22i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const AudioController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(23i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const OtherController: CONFIGURATION_TYPE = CONFIGURATION_TYPE(24i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DiskPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(25i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const FloppyDiskPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(26i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TapePeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(27i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ModemPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(28i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(29i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PrinterPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(30i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PointerPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(31i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyboardPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(32i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TerminalPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(33i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const OtherPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(34i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LinePeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(35i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const NetworkPeripheral: CONFIGURATION_TYPE = CONFIGURATION_TYPE(36i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SystemMemory: CONFIGURATION_TYPE = CONFIGURATION_TYPE(37i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DockingInformation: CONFIGURATION_TYPE = CONFIGURATION_TYPE(38i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RealModeIrqRoutingTable: CONFIGURATION_TYPE = CONFIGURATION_TYPE(39i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RealModePCIEnumeration: CONFIGURATION_TYPE = CONFIGURATION_TYPE(40i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaximumType: CONFIGURATION_TYPE = CONFIGURATION_TYPE(41i32);
 impl ::core::marker::Copy for CONFIGURATION_TYPE {}
 impl ::core::clone::Clone for CONFIGURATION_TYPE {
     fn clone(&self) -> Self {
@@ -12602,12 +14610,6 @@ impl ::core::fmt::Debug for CONFIGURATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_FILE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CreateFileTypeNone: CREATE_FILE_TYPE = CREATE_FILE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CreateFileTypeNamedPipe: CREATE_FILE_TYPE = CREATE_FILE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CreateFileTypeMailslot: CREATE_FILE_TYPE = CREATE_FILE_TYPE(2i32);
 impl ::core::marker::Copy for CREATE_FILE_TYPE {}
 impl ::core::clone::Clone for CREATE_FILE_TYPE {
     fn clone(&self) -> Self {
@@ -12631,12 +14633,6 @@ impl ::core::fmt::Debug for CREATE_FILE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3COLD_LAST_TRANSITION_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LastDStateTransitionStatusUnknown: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LastDStateTransitionD3hot: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LastDStateTransitionD3cold: D3COLD_LAST_TRANSITION_STATUS = D3COLD_LAST_TRANSITION_STATUS(2i32);
 impl ::core::marker::Copy for D3COLD_LAST_TRANSITION_STATUS {}
 impl ::core::clone::Clone for D3COLD_LAST_TRANSITION_STATUS {
     fn clone(&self) -> Self {
@@ -12660,8 +14656,6 @@ impl ::core::fmt::Debug for D3COLD_LAST_TRANSITION_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_DIRECTORY_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceDirectoryData: DEVICE_DIRECTORY_TYPE = DEVICE_DIRECTORY_TYPE(0i32);
 impl ::core::marker::Copy for DEVICE_DIRECTORY_TYPE {}
 impl ::core::clone::Clone for DEVICE_DIRECTORY_TYPE {
     fn clone(&self) -> Self {
@@ -12685,14 +14679,6 @@ impl ::core::fmt::Debug for DEVICE_DIRECTORY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_INSTALL_STATE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InstallStateInstalled: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InstallStateNeedsReinstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InstallStateFailedInstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InstallStateFinishInstall: DEVICE_INSTALL_STATE = DEVICE_INSTALL_STATE(3i32);
 impl ::core::marker::Copy for DEVICE_INSTALL_STATE {}
 impl ::core::clone::Clone for DEVICE_INSTALL_STATE {
     fn clone(&self) -> Self {
@@ -12716,52 +14702,6 @@ impl ::core::fmt::Debug for DEVICE_INSTALL_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_REGISTRY_PROPERTY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyDeviceDescription: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4096i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyHardwareID: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16385i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyCompatibleIDs: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16386i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyBootConfiguration: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyBootConfigurationTranslated: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyClassName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4101i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyClassGuid: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4102i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyDriverKeyName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4103i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyManufacturer: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4104i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyFriendlyName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4105i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyLocationInformation: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4106i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyPhysicalDeviceObjectName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4107i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyBusTypeGuid: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(8204i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyLegacyBusType: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(13i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyBusNumber: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyEnumeratorName: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4111i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyAddress: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyUINumber: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(17i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyInstallState: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(18i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyRemovalPolicy: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(19i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyResourceRequirements: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(20i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyAllocatedResources: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(21i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePropertyContainerID: DEVICE_REGISTRY_PROPERTY = DEVICE_REGISTRY_PROPERTY(4118i32);
 impl ::core::marker::Copy for DEVICE_REGISTRY_PROPERTY {}
 impl ::core::clone::Clone for DEVICE_REGISTRY_PROPERTY {
     fn clone(&self) -> Self {
@@ -12785,20 +14725,6 @@ impl ::core::fmt::Debug for DEVICE_REGISTRY_PROPERTY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_RELATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BusRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const EjectionRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PowerRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RemovalRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TargetDeviceRelation: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SingleBusRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TransportRelations: DEVICE_RELATION_TYPE = DEVICE_RELATION_TYPE(6i32);
 impl ::core::marker::Copy for DEVICE_RELATION_TYPE {}
 impl ::core::clone::Clone for DEVICE_RELATION_TYPE {
     fn clone(&self) -> Self {
@@ -12822,12 +14748,6 @@ impl ::core::fmt::Debug for DEVICE_RELATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_REMOVAL_POLICY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RemovalPolicyExpectNoRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RemovalPolicyExpectOrderlyRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RemovalPolicyExpectSurpriseRemoval: DEVICE_REMOVAL_POLICY = DEVICE_REMOVAL_POLICY(3i32);
 impl ::core::marker::Copy for DEVICE_REMOVAL_POLICY {}
 impl ::core::clone::Clone for DEVICE_REMOVAL_POLICY {
     fn clone(&self) -> Self {
@@ -12851,10 +14771,6 @@ impl ::core::fmt::Debug for DEVICE_REMOVAL_POLICY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_RESET_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const FunctionLevelDeviceReset: DEVICE_RESET_TYPE = DEVICE_RESET_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PlatformLevelDeviceReset: DEVICE_RESET_TYPE = DEVICE_RESET_TYPE(1i32);
 impl ::core::marker::Copy for DEVICE_RESET_TYPE {}
 impl ::core::clone::Clone for DEVICE_RESET_TYPE {
     fn clone(&self) -> Self {
@@ -12878,10 +14794,6 @@ impl ::core::fmt::Debug for DEVICE_RESET_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_TEXT_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceTextDescription: DEVICE_TEXT_TYPE = DEVICE_TEXT_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceTextLocationInformation: DEVICE_TEXT_TYPE = DEVICE_TEXT_TYPE(1i32);
 impl ::core::marker::Copy for DEVICE_TEXT_TYPE {}
 impl ::core::clone::Clone for DEVICE_TEXT_TYPE {
     fn clone(&self) -> Self {
@@ -12905,20 +14817,6 @@ impl ::core::fmt::Debug for DEVICE_TEXT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_USAGE_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceUsageTypeUndefined: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceUsageTypePaging: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceUsageTypeHibernation: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceUsageTypeDumpFile: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceUsageTypeBoot: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceUsageTypePostDisplay: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceUsageTypeGuestAssigned: DEVICE_USAGE_NOTIFICATION_TYPE = DEVICE_USAGE_NOTIFICATION_TYPE(6i32);
 impl ::core::marker::Copy for DEVICE_USAGE_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for DEVICE_USAGE_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
@@ -12942,20 +14840,6 @@ impl ::core::fmt::Debug for DEVICE_USAGE_NOTIFICATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_WAKE_DEPTH(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceWakeDepthNotWakeable: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceWakeDepthD0: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceWakeDepthD1: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceWakeDepthD2: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceWakeDepthD3hot: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceWakeDepthD3cold: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeviceWakeDepthMaximum: DEVICE_WAKE_DEPTH = DEVICE_WAKE_DEPTH(6i32);
 impl ::core::marker::Copy for DEVICE_WAKE_DEPTH {}
 impl ::core::clone::Clone for DEVICE_WAKE_DEPTH {
     fn clone(&self) -> Self {
@@ -12979,14 +14863,6 @@ impl ::core::fmt::Debug for DEVICE_WAKE_DEPTH {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DirectoryNotifyInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DirectoryNotifyExtendedInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DirectoryNotifyFullInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DirectoryNotifyMaximumInformation: DIRECTORY_NOTIFY_INFORMATION_CLASS = DIRECTORY_NOTIFY_INFORMATION_CLASS(4i32);
 impl ::core::marker::Copy for DIRECTORY_NOTIFY_INFORMATION_CLASS {}
 impl ::core::clone::Clone for DIRECTORY_NOTIFY_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -13010,14 +14886,6 @@ impl ::core::fmt::Debug for DIRECTORY_NOTIFY_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CommonBufferHardwareAccessReadOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CommonBufferHardwareAccessWriteOnly: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CommonBufferHardwareAccessReadWrite: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CommonBufferHardwareAccessMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE(3i32);
 impl ::core::marker::Copy for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE {}
 impl ::core::clone::Clone for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE {
     fn clone(&self) -> Self {
@@ -13041,14 +14909,6 @@ impl ::core::fmt::Debug for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CommonBufferConfigTypeLogicalAddressLimits: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CommonBufferConfigTypeSubSection: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CommonBufferConfigTypeHardwareAccessPermissions: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CommonBufferConfigTypeMax: DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE(3i32);
 impl ::core::marker::Copy for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE {}
 impl ::core::clone::Clone for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE {
     fn clone(&self) -> Self {
@@ -13072,14 +14932,6 @@ impl ::core::fmt::Debug for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DMA_COMPLETION_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DmaComplete: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DmaAborted: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DmaError: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DmaCancelled: DMA_COMPLETION_STATUS = DMA_COMPLETION_STATUS(3i32);
 impl ::core::marker::Copy for DMA_COMPLETION_STATUS {}
 impl ::core::clone::Clone for DMA_COMPLETION_STATUS {
     fn clone(&self) -> Self {
@@ -13103,18 +14955,6 @@ impl ::core::fmt::Debug for DMA_COMPLETION_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DMA_SPEED(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Compatible: DMA_SPEED = DMA_SPEED(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TypeA: DMA_SPEED = DMA_SPEED(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TypeB: DMA_SPEED = DMA_SPEED(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TypeC: DMA_SPEED = DMA_SPEED(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TypeF: DMA_SPEED = DMA_SPEED(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaximumDmaSpeed: DMA_SPEED = DMA_SPEED(5i32);
 impl ::core::marker::Copy for DMA_SPEED {}
 impl ::core::clone::Clone for DMA_SPEED {
     fn clone(&self) -> Self {
@@ -13138,18 +14978,6 @@ impl ::core::fmt::Debug for DMA_SPEED {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DMA_WIDTH(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Width8Bits: DMA_WIDTH = DMA_WIDTH(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Width16Bits: DMA_WIDTH = DMA_WIDTH(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Width32Bits: DMA_WIDTH = DMA_WIDTH(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Width64Bits: DMA_WIDTH = DMA_WIDTH(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WidthNoWrap: DMA_WIDTH = DMA_WIDTH(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaximumDmaWidth: DMA_WIDTH = DMA_WIDTH(5i32);
 impl ::core::marker::Copy for DMA_WIDTH {}
 impl ::core::clone::Clone for DMA_WIDTH {
     fn clone(&self) -> Self {
@@ -13173,12 +15001,6 @@ impl ::core::fmt::Debug for DMA_WIDTH {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOMAIN_CONFIGURATION_ARCH(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DomainConfigurationArm64: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DomainConfigurationX64: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DomainConfigurationInvalid: DOMAIN_CONFIGURATION_ARCH = DOMAIN_CONFIGURATION_ARCH(2i32);
 impl ::core::marker::Copy for DOMAIN_CONFIGURATION_ARCH {}
 impl ::core::clone::Clone for DOMAIN_CONFIGURATION_ARCH {
     fn clone(&self) -> Self {
@@ -13202,12 +15024,6 @@ impl ::core::fmt::Debug for DOMAIN_CONFIGURATION_ARCH {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRIVER_DIRECTORY_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DriverDirectoryImage: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DriverDirectoryData: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DriverDirectorySharedData: DRIVER_DIRECTORY_TYPE = DRIVER_DIRECTORY_TYPE(2i32);
 impl ::core::marker::Copy for DRIVER_DIRECTORY_TYPE {}
 impl ::core::clone::Clone for DRIVER_DIRECTORY_TYPE {
     fn clone(&self) -> Self {
@@ -13231,12 +15047,6 @@ impl ::core::fmt::Debug for DRIVER_DIRECTORY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRIVER_REGKEY_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DriverRegKeyParameters: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DriverRegKeyPersistentState: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DriverRegKeySharedPersistentState: DRIVER_REGKEY_TYPE = DRIVER_REGKEY_TYPE(2i32);
 impl ::core::marker::Copy for DRIVER_REGKEY_TYPE {}
 impl ::core::clone::Clone for DRIVER_REGKEY_TYPE {
     fn clone(&self) -> Self {
@@ -13260,10 +15070,6 @@ impl ::core::fmt::Debug for DRIVER_REGKEY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRIVER_RUNTIME_INIT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DrvRtPoolNxOptIn: DRIVER_RUNTIME_INIT_FLAGS = DRIVER_RUNTIME_INIT_FLAGS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LastDrvRtFlag: DRIVER_RUNTIME_INIT_FLAGS = DRIVER_RUNTIME_INIT_FLAGS(2i32);
 impl ::core::marker::Copy for DRIVER_RUNTIME_INIT_FLAGS {}
 impl ::core::clone::Clone for DRIVER_RUNTIME_INIT_FLAGS {
     fn clone(&self) -> Self {
@@ -13287,20 +15093,6 @@ impl ::core::fmt::Debug for DRIVER_RUNTIME_INIT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXTENDED_AGP_REGISTER(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IsochStatus: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const AgpControl: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ApertureSize: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const AperturePageSize: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const GartLow: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const GartHigh: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IsochCommand: EXTENDED_AGP_REGISTER = EXTENDED_AGP_REGISTER(6i32);
 impl ::core::marker::Copy for EXTENDED_AGP_REGISTER {}
 impl ::core::clone::Clone for EXTENDED_AGP_REGISTER {
     fn clone(&self) -> Self {
@@ -13324,24 +15116,6 @@ impl ::core::fmt::Debug for EXTENDED_AGP_REGISTER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EX_POOL_PRIORITY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LowPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LowPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LowPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const NormalPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const NormalPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(24i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const NormalPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(25i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HighPoolPriority: EX_POOL_PRIORITY = EX_POOL_PRIORITY(32i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HighPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(40i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HighPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = EX_POOL_PRIORITY(41i32);
 impl ::core::marker::Copy for EX_POOL_PRIORITY {}
 impl ::core::clone::Clone for EX_POOL_PRIORITY {
     fn clone(&self) -> Self {
@@ -13365,12 +15139,6 @@ impl ::core::fmt::Debug for EX_POOL_PRIORITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAULT_INFORMATION_ARCH(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const FaultInformationInvalid: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const FaultInformationArm64: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const FaultInformationX64: FAULT_INFORMATION_ARCH = FAULT_INFORMATION_ARCH(2i32);
 impl ::core::marker::Copy for FAULT_INFORMATION_ARCH {}
 impl ::core::clone::Clone for FAULT_INFORMATION_ARCH {
     fn clone(&self) -> Self {
@@ -13394,22 +15162,6 @@ impl ::core::fmt::Debug for FAULT_INFORMATION_ARCH {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FAULT_INFORMATION_ARM64_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const UnsupportedUpstreamTransaction: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const AddressSizeFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TlbMatchConflict: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ExternalFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PermissionFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const AccessFlagFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TranslationFault: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxFaultType: FAULT_INFORMATION_ARM64_TYPE = FAULT_INFORMATION_ARM64_TYPE(7i32);
 impl ::core::marker::Copy for FAULT_INFORMATION_ARM64_TYPE {}
 impl ::core::clone::Clone for FAULT_INFORMATION_ARM64_TYPE {
     fn clone(&self) -> Self {
@@ -13433,14 +15185,6 @@ impl ::core::fmt::Debug for FAULT_INFORMATION_ARM64_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HAL_APIC_DESTINATION_MODE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ApicDestinationModePhysical: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ApicDestinationModeLogicalFlat: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ApicDestinationModeLogicalClustered: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ApicDestinationModeUnknown: HAL_APIC_DESTINATION_MODE = HAL_APIC_DESTINATION_MODE(4i32);
 impl ::core::marker::Copy for HAL_APIC_DESTINATION_MODE {}
 impl ::core::clone::Clone for HAL_APIC_DESTINATION_MODE {
     fn clone(&self) -> Self {
@@ -13464,12 +15208,6 @@ impl ::core::fmt::Debug for HAL_APIC_DESTINATION_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HAL_DISPLAY_BIOS_INFORMATION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalDisplayInt10Bios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalDisplayEmulatedBios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalDisplayNoBios: HAL_DISPLAY_BIOS_INFORMATION = HAL_DISPLAY_BIOS_INFORMATION(2i32);
 impl ::core::marker::Copy for HAL_DISPLAY_BIOS_INFORMATION {}
 impl ::core::clone::Clone for HAL_DISPLAY_BIOS_INFORMATION {
     fn clone(&self) -> Self {
@@ -13493,12 +15231,6 @@ impl ::core::fmt::Debug for HAL_DISPLAY_BIOS_INFORMATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HAL_DMA_CRASH_DUMP_REGISTER_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalDmaCrashDumpRegisterSet1: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalDmaCrashDumpRegisterSet2: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalDmaCrashDumpRegisterSetMax: HAL_DMA_CRASH_DUMP_REGISTER_TYPE = HAL_DMA_CRASH_DUMP_REGISTER_TYPE(2i32);
 impl ::core::marker::Copy for HAL_DMA_CRASH_DUMP_REGISTER_TYPE {}
 impl ::core::clone::Clone for HAL_DMA_CRASH_DUMP_REGISTER_TYPE {
     fn clone(&self) -> Self {
@@ -13522,112 +15254,6 @@ impl ::core::fmt::Debug for HAL_DMA_CRASH_DUMP_REGISTER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HAL_QUERY_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalInstalledBusInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalProfileSourceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalInformationClassUnused1: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalPowerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalProcessorSpeedInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalCallbackInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalMapRegisterInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalMcaLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalFrameBufferCachingInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalDisplayBiosInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalProcessorFeatureInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalNumaTopologyInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(11i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalErrorInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(12i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalCmcLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(13i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalCpeLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryMcaInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(15i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryAMLIIllegalIOPortAddresses: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryMaxHotPlugMemoryAddress: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(17i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalPartitionIpiInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(18i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalPlatformInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(19i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryProfileSourceList: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(20i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalInitLogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(21i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalFrequencyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(22i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalProcessorBrandString: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(23i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalHypervisorInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(24i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalPlatformTimerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(25i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalAcpiAuditInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(26i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalIrtInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(27i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalSecondaryInterruptInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(28i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalParkingPageInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(29i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalNumaRangeTableInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(30i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalChannelTopologyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(31i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalExternalCacheInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(32i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryDebuggerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(33i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalFwBootPerformanceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(34i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalFwS3PerformanceInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(35i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalGetChannelPowerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(36i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryStateElementInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(37i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalPsciInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(38i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalInterruptControllerInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(39i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryIommuReservedRegionInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(40i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryArmErrataInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(41i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryProcessorEfficiencyInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(42i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryAcpiWakeAlarmSystemPowerStateInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(43i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryProfileNumberOfCounters: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(44i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryHyperlaunchEntrypoint: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(45i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalHardwareWatchdogInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(46i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalDmaRemappingInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(47i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryUnused0001: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(48i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalHeterogeneousMemoryAttributesInterface: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(49i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryPerDeviceMsiLimitInformation: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(50i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryProfileCorruptionStatus: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(51i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalQueryProfileCounterOwnership: HAL_QUERY_INFORMATION_CLASS = HAL_QUERY_INFORMATION_CLASS(52i32);
 impl ::core::marker::Copy for HAL_QUERY_INFORMATION_CLASS {}
 impl ::core::clone::Clone for HAL_QUERY_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -13651,54 +15277,6 @@ impl ::core::fmt::Debug for HAL_QUERY_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HAL_SET_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalProfileSourceInterval: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalProfileSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalMcaRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalKernelErrorHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalCmcRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalCpeRegisterDriver: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalMcaLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalCmcLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalCpeLog: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalGenerateCmcInterrupt: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalProfileSourceTimerHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalEnlightenment: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(11i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalProfileDpgoSourceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(12i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalRegisterSecondaryInterruptInterface: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(13i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalSetChannelPowerInformation: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalI386ExceptionChainTerminatorInformation: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(15i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalSetResetParkDisposition: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalSetPsciSuspendMode: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(17i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalSetHvciEnabled: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(18i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalSetProcessorTraceInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(19i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalProfileSourceAdd: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(20i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalProfileSourceRemove: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(21i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalSetSwInterruptHandler: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(22i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HalSetClockTimerMinimumInterval: HAL_SET_INFORMATION_CLASS = HAL_SET_INFORMATION_CLASS(23i32);
 impl ::core::marker::Copy for HAL_SET_INFORMATION_CLASS {}
 impl ::core::clone::Clone for HAL_SET_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -13722,10 +15300,6 @@ impl ::core::fmt::Debug for HAL_SET_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HARDWARE_COUNTER_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxHardwareCounterType: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(1i32);
 impl ::core::marker::Copy for HARDWARE_COUNTER_TYPE {}
 impl ::core::clone::Clone for HARDWARE_COUNTER_TYPE {
     fn clone(&self) -> Self {
@@ -13749,18 +15323,6 @@ impl ::core::fmt::Debug for HARDWARE_COUNTER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTEL_CACHE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IntelCacheNull: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IntelCacheData: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IntelCacheInstruction: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IntelCacheUnified: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IntelCacheRam: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IntelCacheTrace: INTEL_CACHE_TYPE = INTEL_CACHE_TYPE(5i32);
 impl ::core::marker::Copy for INTEL_CACHE_TYPE {}
 impl ::core::clone::Clone for INTEL_CACHE_TYPE {
     fn clone(&self) -> Self {
@@ -13784,46 +15346,6 @@ impl ::core::fmt::Debug for INTEL_CACHE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERFACE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InterfaceTypeUndefined: INTERFACE_TYPE = INTERFACE_TYPE(-1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Internal: INTERFACE_TYPE = INTERFACE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Isa: INTERFACE_TYPE = INTERFACE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Eisa: INTERFACE_TYPE = INTERFACE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MicroChannel: INTERFACE_TYPE = INTERFACE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TurboChannel: INTERFACE_TYPE = INTERFACE_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PCIBus: INTERFACE_TYPE = INTERFACE_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const VMEBus: INTERFACE_TYPE = INTERFACE_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const NuBus: INTERFACE_TYPE = INTERFACE_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PCMCIABus: INTERFACE_TYPE = INTERFACE_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CBus: INTERFACE_TYPE = INTERFACE_TYPE(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MPIBus: INTERFACE_TYPE = INTERFACE_TYPE(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MPSABus: INTERFACE_TYPE = INTERFACE_TYPE(11i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProcessorInternal: INTERFACE_TYPE = INTERFACE_TYPE(12i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InternalPowerBus: INTERFACE_TYPE = INTERFACE_TYPE(13i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PNPISABus: INTERFACE_TYPE = INTERFACE_TYPE(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PNPBus: INTERFACE_TYPE = INTERFACE_TYPE(15i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Vmcs: INTERFACE_TYPE = INTERFACE_TYPE(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ACPIBus: INTERFACE_TYPE = INTERFACE_TYPE(17i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaximumInterfaceType: INTERFACE_TYPE = INTERFACE_TYPE(18i32);
 impl ::core::marker::Copy for INTERFACE_TYPE {}
 impl ::core::clone::Clone for INTERFACE_TYPE {
     fn clone(&self) -> Self {
@@ -13847,12 +15369,6 @@ impl ::core::fmt::Debug for INTERFACE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERLOCKED_RESULT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ResultNegative: INTERLOCKED_RESULT = INTERLOCKED_RESULT(32768i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ResultZero: INTERLOCKED_RESULT = INTERLOCKED_RESULT(16384i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ResultPositive: INTERLOCKED_RESULT = INTERLOCKED_RESULT(0i32);
 impl ::core::marker::Copy for INTERLOCKED_RESULT {}
 impl ::core::clone::Clone for INTERLOCKED_RESULT {
     fn clone(&self) -> Self {
@@ -13876,14 +15392,6 @@ impl ::core::fmt::Debug for INTERLOCKED_RESULT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IommuDeviceCreationConfigTypeNone: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IommuDeviceCreationConfigTypeAcpi: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IommuDeviceCreationConfigTypeDeviceId: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IommuDeviceCreationConfigTypeMax: IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE = IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE(3i32);
 impl ::core::marker::Copy for IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE {}
 impl ::core::clone::Clone for IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE {
     fn clone(&self) -> Self {
@@ -13907,14 +15415,6 @@ impl ::core::fmt::Debug for IOMMU_DEVICE_CREATION_CONFIGURATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IOMMU_DMA_DOMAIN_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DomainTypeTranslate: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DomainTypePassThrough: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DomainTypeUnmanaged: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DomainTypeMax: IOMMU_DMA_DOMAIN_TYPE = IOMMU_DMA_DOMAIN_TYPE(3i32);
 impl ::core::marker::Copy for IOMMU_DMA_DOMAIN_TYPE {}
 impl ::core::clone::Clone for IOMMU_DMA_DOMAIN_TYPE {
     fn clone(&self) -> Self {
@@ -13938,12 +15438,6 @@ impl ::core::fmt::Debug for IOMMU_DMA_DOMAIN_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IommuDmaLogicalAllocatorNone: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IommuDmaLogicalAllocatorBuddy: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IommuDmaLogicalAllocatorMax: IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE(2i32);
 impl ::core::marker::Copy for IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE {}
 impl ::core::clone::Clone for IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE {
     fn clone(&self) -> Self {
@@ -13967,14 +15461,6 @@ impl ::core::fmt::Debug for IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MapPhysicalAddressTypeMdl: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MapPhysicalAddressTypeContiguousRange: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MapPhysicalAddressTypePfn: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MapPhysicalAddressTypeMax: IOMMU_MAP_PHYSICAL_ADDRESS_TYPE = IOMMU_MAP_PHYSICAL_ADDRESS_TYPE(3i32);
 impl ::core::marker::Copy for IOMMU_MAP_PHYSICAL_ADDRESS_TYPE {}
 impl ::core::clone::Clone for IOMMU_MAP_PHYSICAL_ADDRESS_TYPE {
     fn clone(&self) -> Self {
@@ -13998,10 +15484,6 @@ impl ::core::fmt::Debug for IOMMU_MAP_PHYSICAL_ADDRESS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_ACCESS_MODE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SequentialAccess: IO_ACCESS_MODE = IO_ACCESS_MODE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RandomAccess: IO_ACCESS_MODE = IO_ACCESS_MODE(1i32);
 impl ::core::marker::Copy for IO_ACCESS_MODE {}
 impl ::core::clone::Clone for IO_ACCESS_MODE {
     fn clone(&self) -> Self {
@@ -14025,12 +15507,6 @@ impl ::core::fmt::Debug for IO_ACCESS_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_ACCESS_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ReadAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WriteAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ModifyAccess: IO_ACCESS_TYPE = IO_ACCESS_TYPE(2i32);
 impl ::core::marker::Copy for IO_ACCESS_TYPE {}
 impl ::core::clone::Clone for IO_ACCESS_TYPE {
     fn clone(&self) -> Self {
@@ -14054,12 +15530,6 @@ impl ::core::fmt::Debug for IO_ACCESS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_ALLOCATION_ACTION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeepObject: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeallocateObject: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeallocateObjectKeepRegisters: IO_ALLOCATION_ACTION = IO_ALLOCATION_ACTION(3i32);
 impl ::core::marker::Copy for IO_ALLOCATION_ACTION {}
 impl ::core::clone::Clone for IO_ALLOCATION_ACTION {
     fn clone(&self) -> Self {
@@ -14083,10 +15553,6 @@ impl ::core::fmt::Debug for IO_ALLOCATION_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_COMPLETION_ROUTINE_RESULT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ContinueCompletion: IO_COMPLETION_ROUTINE_RESULT = IO_COMPLETION_ROUTINE_RESULT(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const StopCompletion: IO_COMPLETION_ROUTINE_RESULT = IO_COMPLETION_ROUTINE_RESULT(-1073741802i32);
 impl ::core::marker::Copy for IO_COMPLETION_ROUTINE_RESULT {}
 impl ::core::clone::Clone for IO_COMPLETION_ROUTINE_RESULT {
     fn clone(&self) -> Self {
@@ -14110,10 +15576,6 @@ impl ::core::fmt::Debug for IO_COMPLETION_ROUTINE_RESULT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_CONTAINER_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionStateInformation: IO_CONTAINER_INFORMATION_CLASS = IO_CONTAINER_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoMaxContainerInformationClass: IO_CONTAINER_INFORMATION_CLASS = IO_CONTAINER_INFORMATION_CLASS(1i32);
 impl ::core::marker::Copy for IO_CONTAINER_INFORMATION_CLASS {}
 impl ::core::clone::Clone for IO_CONTAINER_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -14137,10 +15599,6 @@ impl ::core::fmt::Debug for IO_CONTAINER_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_CONTAINER_NOTIFICATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionStateNotification: IO_CONTAINER_NOTIFICATION_CLASS = IO_CONTAINER_NOTIFICATION_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoMaxContainerNotificationClass: IO_CONTAINER_NOTIFICATION_CLASS = IO_CONTAINER_NOTIFICATION_CLASS(1i32);
 impl ::core::marker::Copy for IO_CONTAINER_NOTIFICATION_CLASS {}
 impl ::core::clone::Clone for IO_CONTAINER_NOTIFICATION_CLASS {
     fn clone(&self) -> Self {
@@ -14164,16 +15622,6 @@ impl ::core::fmt::Debug for IO_CONTAINER_NOTIFICATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_NOTIFICATION_EVENT_CATEGORY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const EventCategoryReserved: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const EventCategoryHardwareProfileChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const EventCategoryDeviceInterfaceChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const EventCategoryTargetDeviceChange: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const EventCategoryKernelSoftRestart: IO_NOTIFICATION_EVENT_CATEGORY = IO_NOTIFICATION_EVENT_CATEGORY(4i32);
 impl ::core::marker::Copy for IO_NOTIFICATION_EVENT_CATEGORY {}
 impl ::core::clone::Clone for IO_NOTIFICATION_EVENT_CATEGORY {
     fn clone(&self) -> Self {
@@ -14197,16 +15645,6 @@ impl ::core::fmt::Debug for IO_NOTIFICATION_EVENT_CATEGORY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_PAGING_PRIORITY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoPagingPriorityInvalid: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoPagingPriorityNormal: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoPagingPriorityHigh: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoPagingPriorityReserved1: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoPagingPriorityReserved2: IO_PAGING_PRIORITY = IO_PAGING_PRIORITY(4i32);
 impl ::core::marker::Copy for IO_PAGING_PRIORITY {}
 impl ::core::clone::Clone for IO_PAGING_PRIORITY {
     fn clone(&self) -> Self {
@@ -14230,14 +15668,6 @@ impl ::core::fmt::Debug for IO_PAGING_PRIORITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_QUERY_DEVICE_DATA_FORMAT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoQueryDeviceIdentifier: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoQueryDeviceConfigurationData: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoQueryDeviceComponentInformation: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoQueryDeviceMaxData: IO_QUERY_DEVICE_DATA_FORMAT = IO_QUERY_DEVICE_DATA_FORMAT(3i32);
 impl ::core::marker::Copy for IO_QUERY_DEVICE_DATA_FORMAT {}
 impl ::core::clone::Clone for IO_QUERY_DEVICE_DATA_FORMAT {
     fn clone(&self) -> Self {
@@ -14261,22 +15691,6 @@ impl ::core::fmt::Debug for IO_QUERY_DEVICE_DATA_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_SESSION_EVENT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionEventIgnore: IO_SESSION_EVENT = IO_SESSION_EVENT(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionEventCreated: IO_SESSION_EVENT = IO_SESSION_EVENT(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionEventTerminated: IO_SESSION_EVENT = IO_SESSION_EVENT(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionEventConnected: IO_SESSION_EVENT = IO_SESSION_EVENT(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionEventDisconnected: IO_SESSION_EVENT = IO_SESSION_EVENT(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionEventLogon: IO_SESSION_EVENT = IO_SESSION_EVENT(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionEventLogoff: IO_SESSION_EVENT = IO_SESSION_EVENT(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionEventMax: IO_SESSION_EVENT = IO_SESSION_EVENT(7i32);
 impl ::core::marker::Copy for IO_SESSION_EVENT {}
 impl ::core::clone::Clone for IO_SESSION_EVENT {
     fn clone(&self) -> Self {
@@ -14300,24 +15714,6 @@ impl ::core::fmt::Debug for IO_SESSION_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_SESSION_STATE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionStateCreated: IO_SESSION_STATE = IO_SESSION_STATE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionStateInitialized: IO_SESSION_STATE = IO_SESSION_STATE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionStateConnected: IO_SESSION_STATE = IO_SESSION_STATE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionStateDisconnected: IO_SESSION_STATE = IO_SESSION_STATE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionStateDisconnectedLoggedOn: IO_SESSION_STATE = IO_SESSION_STATE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionStateLoggedOn: IO_SESSION_STATE = IO_SESSION_STATE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionStateLoggedOff: IO_SESSION_STATE = IO_SESSION_STATE(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionStateTerminated: IO_SESSION_STATE = IO_SESSION_STATE(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoSessionStateMax: IO_SESSION_STATE = IO_SESSION_STATE(9i32);
 impl ::core::marker::Copy for IO_SESSION_STATE {}
 impl ::core::clone::Clone for IO_SESSION_STATE {
     fn clone(&self) -> Self {
@@ -14341,20 +15737,6 @@ impl ::core::fmt::Debug for IO_SESSION_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IRQ_DEVICE_POLICY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IrqPolicyMachineDefault: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IrqPolicyAllCloseProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IrqPolicyOneCloseProcessor: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IrqPolicyAllProcessorsInMachine: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IrqPolicySpecifiedProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IrqPolicySpreadMessagesAcrossAllProcessors: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IrqPolicyAllProcessorsInMachineWhenSteered: IRQ_DEVICE_POLICY = IRQ_DEVICE_POLICY(6i32);
 impl ::core::marker::Copy for IRQ_DEVICE_POLICY {}
 impl ::core::clone::Clone for IRQ_DEVICE_POLICY {
     fn clone(&self) -> Self {
@@ -14378,10 +15760,6 @@ impl ::core::fmt::Debug for IRQ_DEVICE_POLICY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IRQ_GROUP_POLICY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const GroupAffinityAllGroupZero: IRQ_GROUP_POLICY = IRQ_GROUP_POLICY(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const GroupAffinityDontCare: IRQ_GROUP_POLICY = IRQ_GROUP_POLICY(1i32);
 impl ::core::marker::Copy for IRQ_GROUP_POLICY {}
 impl ::core::clone::Clone for IRQ_GROUP_POLICY {
     fn clone(&self) -> Self {
@@ -14405,14 +15783,6 @@ impl ::core::fmt::Debug for IRQ_GROUP_POLICY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IRQ_PRIORITY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IrqPriorityUndefined: IRQ_PRIORITY = IRQ_PRIORITY(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IrqPriorityLow: IRQ_PRIORITY = IRQ_PRIORITY(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IrqPriorityNormal: IRQ_PRIORITY = IRQ_PRIORITY(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IrqPriorityHigh: IRQ_PRIORITY = IRQ_PRIORITY(3i32);
 impl ::core::marker::Copy for IRQ_PRIORITY {}
 impl ::core::clone::Clone for IRQ_PRIORITY {
     fn clone(&self) -> Self {
@@ -14436,16 +15806,6 @@ impl ::core::fmt::Debug for IRQ_PRIORITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KBUGCHECK_BUFFER_DUMP_STATE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BufferEmpty: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BufferInserted: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BufferStarted: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BufferFinished: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BufferIncomplete: KBUGCHECK_BUFFER_DUMP_STATE = KBUGCHECK_BUFFER_DUMP_STATE(4i32);
 impl ::core::marker::Copy for KBUGCHECK_BUFFER_DUMP_STATE {}
 impl ::core::clone::Clone for KBUGCHECK_BUFFER_DUMP_STATE {
     fn clone(&self) -> Self {
@@ -14469,24 +15829,6 @@ impl ::core::fmt::Debug for KBUGCHECK_BUFFER_DUMP_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KBUGCHECK_CALLBACK_REASON(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbCallbackInvalid: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbCallbackReserved1: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbCallbackSecondaryDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbCallbackDumpIo: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbCallbackAddPages: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbCallbackSecondaryMultiPartDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbCallbackRemovePages: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbCallbackTriageDumpData: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbCallbackReserved2: KBUGCHECK_CALLBACK_REASON = KBUGCHECK_CALLBACK_REASON(8i32);
 impl ::core::marker::Copy for KBUGCHECK_CALLBACK_REASON {}
 impl ::core::clone::Clone for KBUGCHECK_CALLBACK_REASON {
     fn clone(&self) -> Self {
@@ -14510,16 +15852,6 @@ impl ::core::fmt::Debug for KBUGCHECK_CALLBACK_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KBUGCHECK_DUMP_IO_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbDumpIoInvalid: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbDumpIoHeader: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbDumpIoBody: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbDumpIoSecondaryData: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KbDumpIoComplete: KBUGCHECK_DUMP_IO_TYPE = KBUGCHECK_DUMP_IO_TYPE(4i32);
 impl ::core::marker::Copy for KBUGCHECK_DUMP_IO_TYPE {}
 impl ::core::clone::Clone for KBUGCHECK_DUMP_IO_TYPE {
     fn clone(&self) -> Self {
@@ -14543,14 +15875,6 @@ impl ::core::fmt::Debug for KBUGCHECK_DUMP_IO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KDPC_IMPORTANCE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LowImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MediumImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HighImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MediumHighImportance: KDPC_IMPORTANCE = KDPC_IMPORTANCE(3i32);
 impl ::core::marker::Copy for KDPC_IMPORTANCE {}
 impl ::core::clone::Clone for KDPC_IMPORTANCE {
     fn clone(&self) -> Self {
@@ -14574,14 +15898,6 @@ impl ::core::fmt::Debug for KDPC_IMPORTANCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KD_CALLBACK_ACTION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KdConfigureDeviceAndContinue: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KdSkipDeviceAndContinue: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KdConfigureDeviceAndStop: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KdSkipDeviceAndStop: KD_CALLBACK_ACTION = KD_CALLBACK_ACTION(3i32);
 impl ::core::marker::Copy for KD_CALLBACK_ACTION {}
 impl ::core::clone::Clone for KD_CALLBACK_ACTION {
     fn clone(&self) -> Self {
@@ -14605,16 +15921,6 @@ impl ::core::fmt::Debug for KD_CALLBACK_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KD_NAMESPACE_ENUM(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KdNameSpacePCI: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KdNameSpaceACPI: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KdNameSpaceAny: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KdNameSpaceNone: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KdNameSpaceMax: KD_NAMESPACE_ENUM = KD_NAMESPACE_ENUM(4i32);
 impl ::core::marker::Copy for KD_NAMESPACE_ENUM {}
 impl ::core::clone::Clone for KD_NAMESPACE_ENUM {
     fn clone(&self) -> Self {
@@ -14638,8 +15944,6 @@ impl ::core::fmt::Debug for KD_NAMESPACE_ENUM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KD_OPTION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KD_OPTION_SET_BLOCK_ENABLE: KD_OPTION = KD_OPTION(0i32);
 impl ::core::marker::Copy for KD_OPTION {}
 impl ::core::clone::Clone for KD_OPTION {
     fn clone(&self) -> Self {
@@ -14663,28 +15967,6 @@ impl ::core::fmt::Debug for KD_OPTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KEY_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyBasicInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyNodeInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyFullInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyNameInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyCachedInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyFlagsInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyVirtualizationInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyHandleTagsInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyTrustInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyLayerInformation: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxKeyInfoClass: KEY_INFORMATION_CLASS = KEY_INFORMATION_CLASS(10i32);
 impl ::core::marker::Copy for KEY_INFORMATION_CLASS {}
 impl ::core::clone::Clone for KEY_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -14708,20 +15990,6 @@ impl ::core::fmt::Debug for KEY_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KEY_VALUE_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyValueBasicInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyValueFullInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyValuePartialInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyValueFullInformationAlign64: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyValuePartialInformationAlign64: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeyValueLayerInformation: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxKeyValueInfoClass: KEY_VALUE_INFORMATION_CLASS = KEY_VALUE_INFORMATION_CLASS(6i32);
 impl ::core::marker::Copy for KEY_VALUE_INFORMATION_CLASS {}
 impl ::core::clone::Clone for KEY_VALUE_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -14745,12 +16013,6 @@ impl ::core::fmt::Debug for KEY_VALUE_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KE_PROCESSOR_CHANGE_NOTIFY_STATE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeProcessorAddStartNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeProcessorAddCompleteNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KeProcessorAddFailureNotify: KE_PROCESSOR_CHANGE_NOTIFY_STATE = KE_PROCESSOR_CHANGE_NOTIFY_STATE(2i32);
 impl ::core::marker::Copy for KE_PROCESSOR_CHANGE_NOTIFY_STATE {}
 impl ::core::clone::Clone for KE_PROCESSOR_CHANGE_NOTIFY_STATE {
     fn clone(&self) -> Self {
@@ -14774,10 +16036,6 @@ impl ::core::fmt::Debug for KE_PROCESSOR_CHANGE_NOTIFY_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KINTERRUPT_MODE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LevelSensitive: KINTERRUPT_MODE = KINTERRUPT_MODE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Latched: KINTERRUPT_MODE = KINTERRUPT_MODE(1i32);
 impl ::core::marker::Copy for KINTERRUPT_MODE {}
 impl ::core::clone::Clone for KINTERRUPT_MODE {
     fn clone(&self) -> Self {
@@ -14801,22 +16059,6 @@ impl ::core::fmt::Debug for KINTERRUPT_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KINTERRUPT_POLARITY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InterruptPolarityUnknown: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InterruptActiveHigh: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InterruptRisingEdge: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InterruptActiveLow: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InterruptFallingEdge: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InterruptActiveBoth: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InterruptActiveBothTriggerLow: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InterruptActiveBothTriggerHigh: KINTERRUPT_POLARITY = KINTERRUPT_POLARITY(4i32);
 impl ::core::marker::Copy for KINTERRUPT_POLARITY {}
 impl ::core::clone::Clone for KINTERRUPT_POLARITY {
     fn clone(&self) -> Self {
@@ -14840,56 +16082,6 @@ impl ::core::fmt::Debug for KINTERRUPT_POLARITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KPROFILE_SOURCE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileTime: KPROFILE_SOURCE = KPROFILE_SOURCE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileAlignmentFixup: KPROFILE_SOURCE = KPROFILE_SOURCE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileTotalIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfilePipelineDry: KPROFILE_SOURCE = KPROFILE_SOURCE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileLoadInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfilePipelineFrozen: KPROFILE_SOURCE = KPROFILE_SOURCE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileBranchInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileTotalNonissues: KPROFILE_SOURCE = KPROFILE_SOURCE(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileDcacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileIcacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileCacheMisses: KPROFILE_SOURCE = KPROFILE_SOURCE(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileBranchMispredictions: KPROFILE_SOURCE = KPROFILE_SOURCE(11i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileStoreInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(12i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileFpInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(13i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileIntegerInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Profile2Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(15i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Profile3Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Profile4Issue: KPROFILE_SOURCE = KPROFILE_SOURCE(17i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileSpecialInstructions: KPROFILE_SOURCE = KPROFILE_SOURCE(18i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileTotalCycles: KPROFILE_SOURCE = KPROFILE_SOURCE(19i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileIcacheIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(20i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileDcacheAccesses: KPROFILE_SOURCE = KPROFILE_SOURCE(21i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileMemoryBarrierCycles: KPROFILE_SOURCE = KPROFILE_SOURCE(22i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileLoadLinkedIssues: KPROFILE_SOURCE = KPROFILE_SOURCE(23i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ProfileMaximum: KPROFILE_SOURCE = KPROFILE_SOURCE(24i32);
 impl ::core::marker::Copy for KPROFILE_SOURCE {}
 impl ::core::clone::Clone for KPROFILE_SOURCE {
     fn clone(&self) -> Self {
@@ -14913,92 +16105,6 @@ impl ::core::fmt::Debug for KPROFILE_SOURCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KWAIT_REASON(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Executive: KWAIT_REASON = KWAIT_REASON(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const FreePage: KWAIT_REASON = KWAIT_REASON(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PageIn: KWAIT_REASON = KWAIT_REASON(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoolAllocation: KWAIT_REASON = KWAIT_REASON(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DelayExecution: KWAIT_REASON = KWAIT_REASON(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const Suspended: KWAIT_REASON = KWAIT_REASON(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const UserRequest: KWAIT_REASON = KWAIT_REASON(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrExecutive: KWAIT_REASON = KWAIT_REASON(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrFreePage: KWAIT_REASON = KWAIT_REASON(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrPageIn: KWAIT_REASON = KWAIT_REASON(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrPoolAllocation: KWAIT_REASON = KWAIT_REASON(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrDelayExecution: KWAIT_REASON = KWAIT_REASON(11i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrSuspended: KWAIT_REASON = KWAIT_REASON(12i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrUserRequest: KWAIT_REASON = KWAIT_REASON(13i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrSpare0: KWAIT_REASON = KWAIT_REASON(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrQueue: KWAIT_REASON = KWAIT_REASON(15i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrLpcReceive: KWAIT_REASON = KWAIT_REASON(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrLpcReply: KWAIT_REASON = KWAIT_REASON(17i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrVirtualMemory: KWAIT_REASON = KWAIT_REASON(18i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrPageOut: KWAIT_REASON = KWAIT_REASON(19i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrRendezvous: KWAIT_REASON = KWAIT_REASON(20i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrKeyedEvent: KWAIT_REASON = KWAIT_REASON(21i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrTerminated: KWAIT_REASON = KWAIT_REASON(22i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrProcessInSwap: KWAIT_REASON = KWAIT_REASON(23i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrCpuRateControl: KWAIT_REASON = KWAIT_REASON(24i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrCalloutStack: KWAIT_REASON = KWAIT_REASON(25i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrKernel: KWAIT_REASON = KWAIT_REASON(26i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrResource: KWAIT_REASON = KWAIT_REASON(27i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrPushLock: KWAIT_REASON = KWAIT_REASON(28i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrMutex: KWAIT_REASON = KWAIT_REASON(29i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrQuantumEnd: KWAIT_REASON = KWAIT_REASON(30i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrDispatchInt: KWAIT_REASON = KWAIT_REASON(31i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrPreempted: KWAIT_REASON = KWAIT_REASON(32i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrYieldExecution: KWAIT_REASON = KWAIT_REASON(33i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrFastMutex: KWAIT_REASON = KWAIT_REASON(34i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrGuardedMutex: KWAIT_REASON = KWAIT_REASON(35i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrRundown: KWAIT_REASON = KWAIT_REASON(36i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrAlertByThreadId: KWAIT_REASON = KWAIT_REASON(37i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrDeferredPreempt: KWAIT_REASON = KWAIT_REASON(38i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrPhysicalFault: KWAIT_REASON = KWAIT_REASON(39i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrIoRing: KWAIT_REASON = KWAIT_REASON(40i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WrMdlCache: KWAIT_REASON = KWAIT_REASON(41i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaximumWaitReason: KWAIT_REASON = KWAIT_REASON(42i32);
 impl ::core::marker::Copy for KWAIT_REASON {}
 impl ::core::clone::Clone for KWAIT_REASON {
     fn clone(&self) -> Self {
@@ -15022,12 +16128,6 @@ impl ::core::fmt::Debug for KWAIT_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCK_OPERATION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoReadAccess: LOCK_OPERATION = LOCK_OPERATION(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoWriteAccess: LOCK_OPERATION = LOCK_OPERATION(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IoModifyAccess: LOCK_OPERATION = LOCK_OPERATION(2i32);
 impl ::core::marker::Copy for LOCK_OPERATION {}
 impl ::core::clone::Clone for LOCK_OPERATION {
     fn clone(&self) -> Self {
@@ -15051,10 +16151,6 @@ impl ::core::fmt::Debug for LOCK_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MCA_EXCEPTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HAL_MCE_RECORD: MCA_EXCEPTION_TYPE = MCA_EXCEPTION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HAL_MCA_RECORD: MCA_EXCEPTION_TYPE = MCA_EXCEPTION_TYPE(1i32);
 impl ::core::marker::Copy for MCA_EXCEPTION_TYPE {}
 impl ::core::clone::Clone for MCA_EXCEPTION_TYPE {
     fn clone(&self) -> Self {
@@ -15078,22 +16174,6 @@ impl ::core::fmt::Debug for MCA_EXCEPTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEMORY_CACHING_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmNonCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmWriteCombined: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmHardwareCoherentCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmNonCachedUnordered: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmUSWCCached: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmMaximumCacheType: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmNotMapped: MEMORY_CACHING_TYPE = MEMORY_CACHING_TYPE(-1i32);
 impl ::core::marker::Copy for MEMORY_CACHING_TYPE {}
 impl ::core::clone::Clone for MEMORY_CACHING_TYPE {
     fn clone(&self) -> Self {
@@ -15117,8 +16197,6 @@ impl ::core::fmt::Debug for MEMORY_CACHING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEMORY_CACHING_TYPE_ORIG(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmFrameBufferCached: MEMORY_CACHING_TYPE_ORIG = MEMORY_CACHING_TYPE_ORIG(2i32);
 impl ::core::marker::Copy for MEMORY_CACHING_TYPE_ORIG {}
 impl ::core::clone::Clone for MEMORY_CACHING_TYPE_ORIG {
     fn clone(&self) -> Self {
@@ -15142,16 +16220,6 @@ impl ::core::fmt::Debug for MEMORY_CACHING_TYPE_ORIG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(4i32);
 impl ::core::marker::Copy for MEM_DEDICATED_ATTRIBUTE_TYPE {}
 impl ::core::clone::Clone for MEM_DEDICATED_ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
@@ -15175,16 +16243,6 @@ impl ::core::fmt::Debug for MEM_DEDICATED_ATTRIBUTE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(4i32);
 impl ::core::marker::Copy for MEM_SECTION_EXTENDED_PARAMETER_TYPE {}
 impl ::core::clone::Clone for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
     fn clone(&self) -> Self {
@@ -15208,12 +16266,6 @@ impl ::core::fmt::Debug for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MM_MDL_PAGE_CONTENTS_STATE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmMdlPageContentsDynamic: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmMdlPageContentsInvariant: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmMdlPageContentsQuery: MM_MDL_PAGE_CONTENTS_STATE = MM_MDL_PAGE_CONTENTS_STATE(2i32);
 impl ::core::marker::Copy for MM_MDL_PAGE_CONTENTS_STATE {}
 impl ::core::clone::Clone for MM_MDL_PAGE_CONTENTS_STATE {
     fn clone(&self) -> Self {
@@ -15237,12 +16289,6 @@ impl ::core::fmt::Debug for MM_MDL_PAGE_CONTENTS_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MM_PAGE_PRIORITY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LowPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const NormalPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HighPagePriority: MM_PAGE_PRIORITY = MM_PAGE_PRIORITY(32i32);
 impl ::core::marker::Copy for MM_PAGE_PRIORITY {}
 impl ::core::clone::Clone for MM_PAGE_PRIORITY {
     fn clone(&self) -> Self {
@@ -15266,16 +16312,6 @@ impl ::core::fmt::Debug for MM_PAGE_PRIORITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MM_ROTATE_DIRECTION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmToFrameBuffer: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmToFrameBufferNoCopy: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmToRegularMemory: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmToRegularMemoryNoCopy: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmMaximumRotateDirection: MM_ROTATE_DIRECTION = MM_ROTATE_DIRECTION(4i32);
 impl ::core::marker::Copy for MM_ROTATE_DIRECTION {}
 impl ::core::clone::Clone for MM_ROTATE_DIRECTION {
     fn clone(&self) -> Self {
@@ -15299,12 +16335,6 @@ impl ::core::fmt::Debug for MM_ROTATE_DIRECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MM_SYSTEMSIZE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmSmallSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmMediumSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MmLargeSystem: MM_SYSTEMSIZE = MM_SYSTEMSIZE(2i32);
 impl ::core::marker::Copy for MM_SYSTEMSIZE {}
 impl ::core::clone::Clone for MM_SYSTEMSIZE {
     fn clone(&self) -> Self {
@@ -15328,12 +16358,6 @@ impl ::core::fmt::Debug for MM_SYSTEMSIZE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const KernelMode: MODE = MODE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const UserMode: MODE = MODE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaximumMode: MODE = MODE(2i32);
 impl ::core::marker::Copy for MODE {}
 impl ::core::clone::Clone for MODE {
     fn clone(&self) -> Self {
@@ -15357,28 +16381,6 @@ impl ::core::fmt::Debug for MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NPEM_CONTROL_STANDARD_CONTROL_BIT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InitiateReset: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const OkControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LocateControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const FailControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RebuildControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PFAControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HotSpareControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InACriticalArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InAFailedArrayControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const InvalidDeviceTypeControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DisabledControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = NPEM_CONTROL_STANDARD_CONTROL_BIT(11i32);
 impl ::core::marker::Copy for NPEM_CONTROL_STANDARD_CONTROL_BIT {}
 impl ::core::clone::Clone for NPEM_CONTROL_STANDARD_CONTROL_BIT {
     fn clone(&self) -> Self {
@@ -15402,8 +16404,6 @@ impl ::core::fmt::Debug for NPEM_CONTROL_STANDARD_CONTROL_BIT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OB_PREOP_CALLBACK_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const OB_PREOP_SUCCESS: OB_PREOP_CALLBACK_STATUS = OB_PREOP_CALLBACK_STATUS(0i32);
 impl ::core::marker::Copy for OB_PREOP_CALLBACK_STATUS {}
 impl ::core::clone::Clone for OB_PREOP_CALLBACK_STATUS {
     fn clone(&self) -> Self {
@@ -15427,12 +16427,6 @@ impl ::core::fmt::Debug for OB_PREOP_CALLBACK_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARTITION_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SystemMemoryPartitionInformation: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SystemMemoryPartitionDedicatedMemoryInformation: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SystemMemoryPartitionOpenDedicatedMemory: PARTITION_INFORMATION_CLASS = PARTITION_INFORMATION_CLASS(10i32);
 impl ::core::marker::Copy for PARTITION_INFORMATION_CLASS {}
 impl ::core::clone::Clone for PARTITION_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -15456,14 +16450,6 @@ impl ::core::fmt::Debug for PARTITION_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_ACS_BIT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciAcsReserved: PCI_ACS_BIT = PCI_ACS_BIT(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciAcsBitEnable: PCI_ACS_BIT = PCI_ACS_BIT(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciAcsBitDisable: PCI_ACS_BIT = PCI_ACS_BIT(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciAcsBitDontCare: PCI_ACS_BIT = PCI_ACS_BIT(3i32);
 impl ::core::marker::Copy for PCI_ACS_BIT {}
 impl ::core::clone::Clone for PCI_ACS_BIT {
     fn clone(&self) -> Self {
@@ -15487,10 +16473,6 @@ impl ::core::fmt::Debug for PCI_ACS_BIT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_BUS_WIDTH(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BusWidth32Bits: PCI_BUS_WIDTH = PCI_BUS_WIDTH(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BusWidth64Bits: PCI_BUS_WIDTH = PCI_BUS_WIDTH(1i32);
 impl ::core::marker::Copy for PCI_BUS_WIDTH {}
 impl ::core::clone::Clone for PCI_BUS_WIDTH {
     fn clone(&self) -> Self {
@@ -15514,20 +16496,6 @@ impl ::core::fmt::Debug for PCI_BUS_WIDTH {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_DEVICE_D3COLD_STATE_REASON(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciDeviceD3Cold_State_Disabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciDeviceD3Cold_State_Enabled_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciDeviceD3Cold_State_ParentRootPortS0WakeSupported_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciDeviceD3Cold_State_Disabled_Bridge_HackFlags_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciDeviceD3Cold_Reason_Default_State_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciDeviceD3Cold_Reason_INF_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciDeviceD3Cold_Reason_Interface_Api_BitIndex: PCI_DEVICE_D3COLD_STATE_REASON = PCI_DEVICE_D3COLD_STATE_REASON(10i32);
 impl ::core::marker::Copy for PCI_DEVICE_D3COLD_STATE_REASON {}
 impl ::core::clone::Clone for PCI_DEVICE_D3COLD_STATE_REASON {
     fn clone(&self) -> Self {
@@ -15551,14 +16519,6 @@ impl ::core::fmt::Debug for PCI_DEVICE_D3COLD_STATE_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_ASPM_CONTROL(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0sAndL1EntryDisabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0sEntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0sAndL1EntryEnabled: PCI_EXPRESS_ASPM_CONTROL = PCI_EXPRESS_ASPM_CONTROL(3i32);
 impl ::core::marker::Copy for PCI_EXPRESS_ASPM_CONTROL {}
 impl ::core::clone::Clone for PCI_EXPRESS_ASPM_CONTROL {
     fn clone(&self) -> Self {
@@ -15582,14 +16542,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_ASPM_CONTROL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_ASPM_SUPPORT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const NoAspmSupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0sEntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0sAndL1EntrySupport: PCI_EXPRESS_ASPM_SUPPORT = PCI_EXPRESS_ASPM_SUPPORT(3i32);
 impl ::core::marker::Copy for PCI_EXPRESS_ASPM_SUPPORT {}
 impl ::core::clone::Clone for PCI_EXPRESS_ASPM_SUPPORT {
     fn clone(&self) -> Self {
@@ -15613,10 +16565,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_ASPM_SUPPORT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_CARD_PRESENCE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SlotEmpty: PCI_EXPRESS_CARD_PRESENCE = PCI_EXPRESS_CARD_PRESENCE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CardPresent: PCI_EXPRESS_CARD_PRESENCE = PCI_EXPRESS_CARD_PRESENCE(1i32);
 impl ::core::marker::Copy for PCI_EXPRESS_CARD_PRESENCE {}
 impl ::core::clone::Clone for PCI_EXPRESS_CARD_PRESENCE {
     fn clone(&self) -> Self {
@@ -15640,24 +16588,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_CARD_PRESENCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_DEVICE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressLegacyEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressRootPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressUpstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressDownstreamSwitchPort: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressToPciXBridge: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciXToExpressBridge: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressRootComplexIntegratedEndpoint: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressRootComplexEventCollector: PCI_EXPRESS_DEVICE_TYPE = PCI_EXPRESS_DEVICE_TYPE(10i32);
 impl ::core::marker::Copy for PCI_EXPRESS_DEVICE_TYPE {}
 impl ::core::clone::Clone for PCI_EXPRESS_DEVICE_TYPE {
     fn clone(&self) -> Self {
@@ -15681,12 +16611,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_DEVICE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_INDICATOR_STATE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IndicatorOn: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IndicatorBlink: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const IndicatorOff: PCI_EXPRESS_INDICATOR_STATE = PCI_EXPRESS_INDICATOR_STATE(3i32);
 impl ::core::marker::Copy for PCI_EXPRESS_INDICATOR_STATE {}
 impl ::core::clone::Clone for PCI_EXPRESS_INDICATOR_STATE {
     fn clone(&self) -> Self {
@@ -15710,22 +16634,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_INDICATOR_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_L0s_EXIT_LATENCY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0s_Below64ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0s_64ns_128ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0s_128ns_256ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0s_256ns_512ns: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0s_512ns_1us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0s_1us_2us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0s_2us_4us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L0s_Above4us: PCI_EXPRESS_L0s_EXIT_LATENCY = PCI_EXPRESS_L0s_EXIT_LATENCY(7i32);
 impl ::core::marker::Copy for PCI_EXPRESS_L0s_EXIT_LATENCY {}
 impl ::core::clone::Clone for PCI_EXPRESS_L0s_EXIT_LATENCY {
     fn clone(&self) -> Self {
@@ -15749,22 +16657,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_L0s_EXIT_LATENCY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_L1_EXIT_LATENCY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L1_Below1us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L1_1us_2us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L1_2us_4us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L1_4us_8us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L1_8us_16us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L1_16us_32us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L1_32us_64us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const L1_Above64us: PCI_EXPRESS_L1_EXIT_LATENCY = PCI_EXPRESS_L1_EXIT_LATENCY(7i32);
 impl ::core::marker::Copy for PCI_EXPRESS_L1_EXIT_LATENCY {}
 impl ::core::clone::Clone for PCI_EXPRESS_L1_EXIT_LATENCY {
     fn clone(&self) -> Self {
@@ -15788,14 +16680,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_L1_EXIT_LATENCY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_LINK_SUBSTATE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressPciPmLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressPciPmLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressASPMLinkSubState_L11_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpressASPMLinkSubState_L12_BitIndex: PCI_EXPRESS_LINK_SUBSTATE = PCI_EXPRESS_LINK_SUBSTATE(3i32);
 impl ::core::marker::Copy for PCI_EXPRESS_LINK_SUBSTATE {}
 impl ::core::clone::Clone for PCI_EXPRESS_LINK_SUBSTATE {
     fn clone(&self) -> Self {
@@ -15819,18 +16703,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_LINK_SUBSTATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_MAX_PAYLOAD_SIZE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxPayload128Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxPayload256Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxPayload512Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxPayload1024Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxPayload2048Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxPayload4096Bytes: PCI_EXPRESS_MAX_PAYLOAD_SIZE = PCI_EXPRESS_MAX_PAYLOAD_SIZE(5i32);
 impl ::core::marker::Copy for PCI_EXPRESS_MAX_PAYLOAD_SIZE {}
 impl ::core::clone::Clone for PCI_EXPRESS_MAX_PAYLOAD_SIZE {
     fn clone(&self) -> Self {
@@ -15854,10 +16726,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_MAX_PAYLOAD_SIZE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_MRL_STATE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MRLClosed: PCI_EXPRESS_MRL_STATE = PCI_EXPRESS_MRL_STATE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MRLOpen: PCI_EXPRESS_MRL_STATE = PCI_EXPRESS_MRL_STATE(1i32);
 impl ::core::marker::Copy for PCI_EXPRESS_MRL_STATE {}
 impl ::core::clone::Clone for PCI_EXPRESS_MRL_STATE {
     fn clone(&self) -> Self {
@@ -15881,10 +16749,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_MRL_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_POWER_STATE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PowerOn: PCI_EXPRESS_POWER_STATE = PCI_EXPRESS_POWER_STATE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PowerOff: PCI_EXPRESS_POWER_STATE = PCI_EXPRESS_POWER_STATE(1i32);
 impl ::core::marker::Copy for PCI_EXPRESS_POWER_STATE {}
 impl ::core::clone::Clone for PCI_EXPRESS_POWER_STATE {
     fn clone(&self) -> Self {
@@ -15908,10 +16772,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_POWER_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_EXPRESS_RCB(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RCB64Bytes: PCI_EXPRESS_RCB = PCI_EXPRESS_RCB(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RCB128Bytes: PCI_EXPRESS_RCB = PCI_EXPRESS_RCB(1i32);
 impl ::core::marker::Copy for PCI_EXPRESS_RCB {}
 impl ::core::clone::Clone for PCI_EXPRESS_RCB {
     fn clone(&self) -> Self {
@@ -15935,14 +16795,6 @@ impl ::core::fmt::Debug for PCI_EXPRESS_RCB {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCI_HARDWARE_INTERFACE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciConventional: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciXMode1: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciXMode2: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PciExpress: PCI_HARDWARE_INTERFACE = PCI_HARDWARE_INTERFACE(3i32);
 impl ::core::marker::Copy for PCI_HARDWARE_INTERFACE {}
 impl ::core::clone::Clone for PCI_HARDWARE_INTERFACE {
     fn clone(&self) -> Self {
@@ -15966,14 +16818,6 @@ impl ::core::fmt::Debug for PCI_HARDWARE_INTERFACE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCW_CALLBACK_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PcwCallbackAddCounter: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PcwCallbackRemoveCounter: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PcwCallbackEnumerateInstances: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PcwCallbackCollectData: PCW_CALLBACK_TYPE = PCW_CALLBACK_TYPE(3i32);
 impl ::core::marker::Copy for PCW_CALLBACK_TYPE {}
 impl ::core::clone::Clone for PCW_CALLBACK_TYPE {
     fn clone(&self) -> Self {
@@ -15997,10 +16841,6 @@ impl ::core::fmt::Debug for PCW_CALLBACK_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PCW_REGISTRATION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PcwRegistrationNone: PCW_REGISTRATION_FLAGS = PCW_REGISTRATION_FLAGS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PcwRegistrationSiloNeutral: PCW_REGISTRATION_FLAGS = PCW_REGISTRATION_FLAGS(1i32);
 impl ::core::marker::Copy for PCW_REGISTRATION_FLAGS {}
 impl ::core::clone::Clone for PCW_REGISTRATION_FLAGS {
     fn clone(&self) -> Self {
@@ -16024,20 +16864,6 @@ impl ::core::fmt::Debug for PCW_REGISTRATION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ResourceTypeSingle: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ResourceTypeRange: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ResourceTypeExtendedCounterConfiguration: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ResourceTypeOverflow: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ResourceTypeEventBuffer: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ResourceTypeIdenitificationTag: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ResourceTypeMax: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE(6i32);
 impl ::core::marker::Copy for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE {}
 impl ::core::clone::Clone for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE {
     fn clone(&self) -> Self {
@@ -16061,16 +16887,6 @@ impl ::core::fmt::Debug for PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POOL_EXTENDED_PARAMETER_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoolExtendedParameterInvalidType: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoolExtendedParameterPriority: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoolExtendedParameterSecurePool: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoolExtendedParameterNumaNode: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoolExtendedParameterMax: POOL_EXTENDED_PARAMETER_TYPE = POOL_EXTENDED_PARAMETER_TYPE(4i32);
 impl ::core::marker::Copy for POOL_EXTENDED_PARAMETER_TYPE {}
 impl ::core::clone::Clone for POOL_EXTENDED_PARAMETER_TYPE {
     fn clone(&self) -> Self {
@@ -16094,118 +16910,6 @@ impl ::core::fmt::Debug for POOL_EXTENDED_PARAMETER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(11i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(12i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(13i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(15i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(17i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(18i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(19i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(20i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(21i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(22i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(23i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(24i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(25i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(26i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(27i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(28i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(29i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(30i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(31i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(32i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(33i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(34i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(35i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(36i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(37i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(38i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(39i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(40i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(41i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(42i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(43i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(44i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(45i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(46i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(47i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(48i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(49i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(50i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(51i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(52i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(54i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
 impl ::core::marker::Copy for POWER_MONITOR_REQUEST_REASON {}
 impl ::core::clone::Clone for POWER_MONITOR_REQUEST_REASON {
     fn clone(&self) -> Self {
@@ -16229,12 +16933,6 @@ impl ::core::fmt::Debug for POWER_MONITOR_REQUEST_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2i32);
 impl ::core::marker::Copy for POWER_MONITOR_REQUEST_TYPE {}
 impl ::core::clone::Clone for POWER_MONITOR_REQUEST_TYPE {
     fn clone(&self) -> Self {
@@ -16258,26 +16956,6 @@ impl ::core::fmt::Debug for POWER_MONITOR_REQUEST_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_PLATFORM_ROLE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(9i32);
 impl ::core::marker::Copy for POWER_PLATFORM_ROLE {}
 impl ::core::clone::Clone for POWER_PLATFORM_ROLE {
     fn clone(&self) -> Self {
@@ -16301,10 +16979,6 @@ impl ::core::fmt::Debug for POWER_PLATFORM_ROLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_STATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SystemPowerState: POWER_STATE_TYPE = POWER_STATE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DevicePowerState: POWER_STATE_TYPE = POWER_STATE_TYPE(1i32);
 impl ::core::marker::Copy for POWER_STATE_TYPE {}
 impl ::core::clone::Clone for POWER_STATE_TYPE {
     fn clone(&self) -> Self {
@@ -16328,12 +17002,6 @@ impl ::core::fmt::Debug for POWER_STATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_USER_PRESENCE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const UserPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const UserUnknown: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(255i32);
 impl ::core::marker::Copy for POWER_USER_PRESENCE_TYPE {}
 impl ::core::clone::Clone for POWER_USER_PRESENCE_TYPE {
     fn clone(&self) -> Self {
@@ -16357,12 +17025,6 @@ impl ::core::fmt::Debug for POWER_USER_PRESENCE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PO_FX_PERF_STATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoFxPerfStateTypeDiscrete: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoFxPerfStateTypeRange: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoFxPerfStateTypeMaximum: PO_FX_PERF_STATE_TYPE = PO_FX_PERF_STATE_TYPE(2i32);
 impl ::core::marker::Copy for PO_FX_PERF_STATE_TYPE {}
 impl ::core::clone::Clone for PO_FX_PERF_STATE_TYPE {
     fn clone(&self) -> Self {
@@ -16386,14 +17048,6 @@ impl ::core::fmt::Debug for PO_FX_PERF_STATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PO_FX_PERF_STATE_UNIT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoFxPerfStateUnitOther: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoFxPerfStateUnitFrequency: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoFxPerfStateUnitBandwidth: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoFxPerfStateUnitMaximum: PO_FX_PERF_STATE_UNIT = PO_FX_PERF_STATE_UNIT(3i32);
 impl ::core::marker::Copy for PO_FX_PERF_STATE_UNIT {}
 impl ::core::clone::Clone for PO_FX_PERF_STATE_UNIT {
     fn clone(&self) -> Self {
@@ -16417,10 +17071,6 @@ impl ::core::fmt::Debug for PO_FX_PERF_STATE_UNIT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PO_THERMAL_REQUEST_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoThermalRequestPassive: PO_THERMAL_REQUEST_TYPE = PO_THERMAL_REQUEST_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoThermalRequestActive: PO_THERMAL_REQUEST_TYPE = PO_THERMAL_REQUEST_TYPE(1i32);
 impl ::core::marker::Copy for PO_THERMAL_REQUEST_TYPE {}
 impl ::core::clone::Clone for PO_THERMAL_REQUEST_TYPE {
     fn clone(&self) -> Self {
@@ -16444,8 +17094,6 @@ impl ::core::fmt::Debug for PO_THERMAL_REQUEST_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSCREATEPROCESSNOTIFYTYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PsCreateProcessNotifySubsystems: PSCREATEPROCESSNOTIFYTYPE = PSCREATEPROCESSNOTIFYTYPE(0i32);
 impl ::core::marker::Copy for PSCREATEPROCESSNOTIFYTYPE {}
 impl ::core::clone::Clone for PSCREATEPROCESSNOTIFYTYPE {
     fn clone(&self) -> Self {
@@ -16469,10 +17117,6 @@ impl ::core::fmt::Debug for PSCREATEPROCESSNOTIFYTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSCREATETHREADNOTIFYTYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PsCreateThreadNotifyNonSystem: PSCREATETHREADNOTIFYTYPE = PSCREATETHREADNOTIFYTYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PsCreateThreadNotifySubsystems: PSCREATETHREADNOTIFYTYPE = PSCREATETHREADNOTIFYTYPE(1i32);
 impl ::core::marker::Copy for PSCREATETHREADNOTIFYTYPE {}
 impl ::core::clone::Clone for PSCREATETHREADNOTIFYTYPE {
     fn clone(&self) -> Self {
@@ -16496,20 +17140,6 @@ impl ::core::fmt::Debug for PSCREATETHREADNOTIFYTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSHED_PI_ERR_READING_PCIE_OVERRIDES(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PshedPiErrReadingPcieOverridesNoErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PshedPiErrReadingPcieOverridesNoMemory: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PshedPiErrReadingPcieOverridesQueryErr: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PshedPiErrReadingPcieOverridesBadSize: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PshedPiErrReadingPcieOverridesBadSignature: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PshedPiErrReadingPcieOverridesNoCapOffset: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PshedPiErrReadingPcieOverridesNotBinary: PSHED_PI_ERR_READING_PCIE_OVERRIDES = PSHED_PI_ERR_READING_PCIE_OVERRIDES(6i32);
 impl ::core::marker::Copy for PSHED_PI_ERR_READING_PCIE_OVERRIDES {}
 impl ::core::clone::Clone for PSHED_PI_ERR_READING_PCIE_OVERRIDES {
     fn clone(&self) -> Self {
@@ -16533,132 +17163,6 @@ impl ::core::fmt::Debug for PSHED_PI_ERR_READING_PCIE_OVERRIDES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REG_NOTIFY_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreCreateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostCreateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(11i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreOpenKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(12i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostOpenKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(13i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostDeleteKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(15i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostSetValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostDeleteValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(17i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostSetInformationKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(18i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostRenameKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(19i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostEnumerateKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(20i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostEnumerateValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(21i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostQueryKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(22i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostQueryValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(23i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostQueryMultipleValueKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(24i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostKeyHandleClose: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(25i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreCreateKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(26i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostCreateKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(27i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreOpenKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(28i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostOpenKeyEx: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(29i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreFlushKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(30i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostFlushKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(31i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(32i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(33i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreUnLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(34i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostUnLoadKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(35i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreQueryKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(36i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostQueryKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(37i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreSetKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(38i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostSetKeySecurity: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(39i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtCallbackObjectContextCleanup: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(40i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreRestoreKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(41i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostRestoreKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(42i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreSaveKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(43i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostSaveKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(44i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreReplaceKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(45i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostReplaceKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(46i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreQueryKeyName: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(47i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostQueryKeyName: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(48i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPreSaveMergedKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(49i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RegNtPostSaveMergedKey: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(50i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxRegNtNotifyClass: REG_NOTIFY_CLASS = REG_NOTIFY_CLASS(51i32);
 impl ::core::marker::Copy for REG_NOTIFY_CLASS {}
 impl ::core::clone::Clone for REG_NOTIFY_CLASS {
     fn clone(&self) -> Self {
@@ -16682,10 +17186,6 @@ impl ::core::fmt::Debug for REG_NOTIFY_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESOURCE_TRANSLATION_DIRECTION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TranslateChildToParent: RESOURCE_TRANSLATION_DIRECTION = RESOURCE_TRANSLATION_DIRECTION(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TranslateParentToChild: RESOURCE_TRANSLATION_DIRECTION = RESOURCE_TRANSLATION_DIRECTION(1i32);
 impl ::core::marker::Copy for RESOURCE_TRANSLATION_DIRECTION {}
 impl ::core::clone::Clone for RESOURCE_TRANSLATION_DIRECTION {
     fn clone(&self) -> Self {
@@ -16709,12 +17209,6 @@ impl ::core::fmt::Debug for RESOURCE_TRANSLATION_DIRECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTL_GENERIC_COMPARE_RESULTS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const GenericLessThan: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const GenericGreaterThan: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const GenericEqual: RTL_GENERIC_COMPARE_RESULTS = RTL_GENERIC_COMPARE_RESULTS(2i32);
 impl ::core::marker::Copy for RTL_GENERIC_COMPARE_RESULTS {}
 impl ::core::clone::Clone for RTL_GENERIC_COMPARE_RESULTS {
     fn clone(&self) -> Self {
@@ -16738,10 +17232,6 @@ impl ::core::fmt::Debug for RTL_GENERIC_COMPARE_RESULTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECTION_INHERIT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ViewShare: SECTION_INHERIT = SECTION_INHERIT(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const ViewUnmap: SECTION_INHERIT = SECTION_INHERIT(2i32);
 impl ::core::marker::Copy for SECTION_INHERIT {}
 impl ::core::clone::Clone for SECTION_INHERIT {
     fn clone(&self) -> Self {
@@ -16765,14 +17255,6 @@ impl ::core::fmt::Debug for SECTION_INHERIT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECURITY_OPERATION_CODE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SetSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const QuerySecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DeleteSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const AssignSecurityDescriptor: SECURITY_OPERATION_CODE = SECURITY_OPERATION_CODE(3i32);
 impl ::core::marker::Copy for SECURITY_OPERATION_CODE {}
 impl ::core::clone::Clone for SECURITY_OPERATION_CODE {
     fn clone(&self) -> Self {
@@ -16796,16 +17278,6 @@ impl ::core::fmt::Debug for SECURITY_OPERATION_CODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SE_IMAGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SeImageTypeElamDriver: SE_IMAGE_TYPE = SE_IMAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SeImageTypeDriver: SE_IMAGE_TYPE = SE_IMAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SeImageTypePlatformSecureFile: SE_IMAGE_TYPE = SE_IMAGE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SeImageTypeDynamicCodeFile: SE_IMAGE_TYPE = SE_IMAGE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SeImageTypeMax: SE_IMAGE_TYPE = SE_IMAGE_TYPE(4i32);
 impl ::core::marker::Copy for SE_IMAGE_TYPE {}
 impl ::core::clone::Clone for SE_IMAGE_TYPE {
     fn clone(&self) -> Self {
@@ -16829,8 +17301,6 @@ impl ::core::fmt::Debug for SE_IMAGE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SE_IMAGE_VERIFICATION_CALLBACK_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SeImageVerificationCallbackInformational: SE_IMAGE_VERIFICATION_CALLBACK_TYPE = SE_IMAGE_VERIFICATION_CALLBACK_TYPE(0i32);
 impl ::core::marker::Copy for SE_IMAGE_VERIFICATION_CALLBACK_TYPE {}
 impl ::core::clone::Clone for SE_IMAGE_VERIFICATION_CALLBACK_TYPE {
     fn clone(&self) -> Self {
@@ -16854,20 +17324,6 @@ impl ::core::fmt::Debug for SE_IMAGE_VERIFICATION_CALLBACK_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOC_SUBSYSTEM_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SOC_SUBSYS_WIRELESS_MODEM: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SOC_SUBSYS_AUDIO_DSP: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SOC_SUBSYS_WIRELSS_CONNECTIVITY: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SOC_SUBSYS_SENSORS: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SOC_SUBSYS_COMPUTE_DSP: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SOC_SUBSYS_SECURE_PROC: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SOC_SUBSYS_VENDOR_DEFINED: SOC_SUBSYSTEM_TYPE = SOC_SUBSYSTEM_TYPE(65536i32);
 impl ::core::marker::Copy for SOC_SUBSYSTEM_TYPE {}
 impl ::core::clone::Clone for SOC_SUBSYSTEM_TYPE {
     fn clone(&self) -> Self {
@@ -16891,12 +17347,6 @@ impl ::core::fmt::Debug for SOC_SUBSYSTEM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STATE_LOCATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LocationTypeRegistry: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LocationTypeFileSystem: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LocationTypeMaximum: STATE_LOCATION_TYPE = STATE_LOCATION_TYPE(2i32);
 impl ::core::marker::Copy for STATE_LOCATION_TYPE {}
 impl ::core::clone::Clone for STATE_LOCATION_TYPE {
     fn clone(&self) -> Self {
@@ -16920,12 +17370,6 @@ impl ::core::fmt::Debug for STATE_LOCATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SUBSYSTEM_INFORMATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SubsystemInformationTypeWin32: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SubsystemInformationTypeWSL: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxSubsystemInformationType: SUBSYSTEM_INFORMATION_TYPE = SUBSYSTEM_INFORMATION_TYPE(2i32);
 impl ::core::marker::Copy for SUBSYSTEM_INFORMATION_TYPE {}
 impl ::core::clone::Clone for SUBSYSTEM_INFORMATION_TYPE {
     fn clone(&self) -> Self {
@@ -16949,10 +17393,6 @@ impl ::core::fmt::Debug for SUBSYSTEM_INFORMATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_FIRMWARE_TABLE_ACTION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SystemFirmwareTable_Enumerate: SYSTEM_FIRMWARE_TABLE_ACTION = SYSTEM_FIRMWARE_TABLE_ACTION(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SystemFirmwareTable_Get: SYSTEM_FIRMWARE_TABLE_ACTION = SYSTEM_FIRMWARE_TABLE_ACTION(1i32);
 impl ::core::marker::Copy for SYSTEM_FIRMWARE_TABLE_ACTION {}
 impl ::core::clone::Clone for SYSTEM_FIRMWARE_TABLE_ACTION {
     fn clone(&self) -> Self {
@@ -16976,14 +17416,6 @@ impl ::core::fmt::Debug for SYSTEM_FIRMWARE_TABLE_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_POWER_CONDITION(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoAc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoDc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoHot: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(3i32);
 impl ::core::marker::Copy for SYSTEM_POWER_CONDITION {}
 impl ::core::clone::Clone for SYSTEM_POWER_CONDITION {
     fn clone(&self) -> Self {
@@ -17007,14 +17439,6 @@ impl ::core::fmt::Debug for SYSTEM_POWER_CONDITION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TABLE_SEARCH_RESULT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TableEmptyTree: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TableFoundNode: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TableInsertAsLeft: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TableInsertAsRight: TABLE_SEARCH_RESULT = TABLE_SEARCH_RESULT(3i32);
 impl ::core::marker::Copy for TABLE_SEARCH_RESULT {}
 impl ::core::clone::Clone for TABLE_SEARCH_RESULT {
     fn clone(&self) -> Self {
@@ -17038,10 +17462,6 @@ impl ::core::fmt::Debug for TABLE_SEARCH_RESULT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TIMER_SET_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TimerSetCoalescableTimer: TIMER_SET_INFORMATION_CLASS = TIMER_SET_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxTimerInfoClass: TIMER_SET_INFORMATION_CLASS = TIMER_SET_INFORMATION_CLASS(1i32);
 impl ::core::marker::Copy for TIMER_SET_INFORMATION_CLASS {}
 impl ::core::clone::Clone for TIMER_SET_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -17065,40 +17485,6 @@ impl ::core::fmt::Debug for TIMER_SET_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRACE_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TraceIdClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TraceHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TraceEnableFlagsClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TraceEnableLevelClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const GlobalLoggerHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const EventLoggerHandleClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const AllLoggerHandlesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TraceHandleByNameClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LoggerEventsLostClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TraceSessionSettingsClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const LoggerEventsLoggedClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DiskIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(11i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TraceInformationClassReserved1: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(12i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const FltIoNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(13i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const TraceInformationClassReserved2: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WdfNotifyRoutinesClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(15i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaxTraceInformationClass: TRACE_INFORMATION_CLASS = TRACE_INFORMATION_CLASS(16i32);
 impl ::core::marker::Copy for TRACE_INFORMATION_CLASS {}
 impl ::core::clone::Clone for TRACE_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -17122,18 +17508,6 @@ impl ::core::fmt::Debug for TRACE_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEAP_DPC_ERROR_EVENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheapDpcErrNoErr: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheapDpcErrBusNotFound: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheapDpcErrDpcedSubtree: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheapDpcErrDeviceIdBad: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheapDpcErrResetFailed: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheapDpcErrNoChildren: WHEAP_DPC_ERROR_EVENT_TYPE = WHEAP_DPC_ERROR_EVENT_TYPE(5i32);
 impl ::core::marker::Copy for WHEAP_DPC_ERROR_EVENT_TYPE {}
 impl ::core::clone::Clone for WHEAP_DPC_ERROR_EVENT_TYPE {
     fn clone(&self) -> Self {
@@ -17157,10 +17531,6 @@ impl ::core::fmt::Debug for WHEAP_DPC_ERROR_EVENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEAP_PFA_OFFLINE_DECISION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheapPfaOfflinePredictiveFailure: WHEAP_PFA_OFFLINE_DECISION_TYPE = WHEAP_PFA_OFFLINE_DECISION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheapPfaOfflineUncorrectedError: WHEAP_PFA_OFFLINE_DECISION_TYPE = WHEAP_PFA_OFFLINE_DECISION_TYPE(2i32);
 impl ::core::marker::Copy for WHEAP_PFA_OFFLINE_DECISION_TYPE {}
 impl ::core::clone::Clone for WHEAP_PFA_OFFLINE_DECISION_TYPE {
     fn clone(&self) -> Self {
@@ -17184,12 +17554,6 @@ impl ::core::fmt::Debug for WHEAP_PFA_OFFLINE_DECISION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_BUGCHECK_RECOVERY_LOG_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventBugCheckRecoveryEntry: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventBugCheckRecoveryReturn: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventBugCheckRecoveryMax: WHEA_BUGCHECK_RECOVERY_LOG_TYPE = WHEA_BUGCHECK_RECOVERY_LOG_TYPE(2i32);
 impl ::core::marker::Copy for WHEA_BUGCHECK_RECOVERY_LOG_TYPE {}
 impl ::core::clone::Clone for WHEA_BUGCHECK_RECOVERY_LOG_TYPE {
     fn clone(&self) -> Self {
@@ -17213,12 +17577,6 @@ impl ::core::fmt::Debug for WHEA_BUGCHECK_RECOVERY_LOG_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_CPU_VENDOR(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaCpuVendorOther: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaCpuVendorIntel: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaCpuVendorAmd: WHEA_CPU_VENDOR = WHEA_CPU_VENDOR(2i32);
 impl ::core::marker::Copy for WHEA_CPU_VENDOR {}
 impl ::core::clone::Clone for WHEA_CPU_VENDOR {
     fn clone(&self) -> Self {
@@ -17242,24 +17600,6 @@ impl ::core::fmt::Debug for WHEA_CPU_VENDOR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_ERROR_PACKET_DATA_FORMAT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaDataFormatIPFSalRecord: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaDataFormatXPFMCA: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaDataFormatMemory: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaDataFormatPCIExpress: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaDataFormatNMIPort: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaDataFormatPCIXBus: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaDataFormatPCIXDevice: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaDataFormatGeneric: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaDataFormatMax: WHEA_ERROR_PACKET_DATA_FORMAT = WHEA_ERROR_PACKET_DATA_FORMAT(8i32);
 impl ::core::marker::Copy for WHEA_ERROR_PACKET_DATA_FORMAT {}
 impl ::core::clone::Clone for WHEA_ERROR_PACKET_DATA_FORMAT {
     fn clone(&self) -> Self {
@@ -17283,14 +17623,6 @@ impl ::core::fmt::Debug for WHEA_ERROR_PACKET_DATA_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_ERROR_SEVERITY(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrSevRecoverable: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrSevFatal: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrSevCorrected: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrSevInformational: WHEA_ERROR_SEVERITY = WHEA_ERROR_SEVERITY(3i32);
 impl ::core::marker::Copy for WHEA_ERROR_SEVERITY {}
 impl ::core::clone::Clone for WHEA_ERROR_SEVERITY {
     fn clone(&self) -> Self {
@@ -17314,22 +17646,6 @@ impl ::core::fmt::Debug for WHEA_ERROR_SEVERITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_ERROR_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrTypeProcessor: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrTypeMemory: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrTypePCIExpress: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrTypeNMI: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrTypePCIXBus: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrTypePCIXDevice: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrTypeGeneric: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaErrTypePmem: WHEA_ERROR_TYPE = WHEA_ERROR_TYPE(7i32);
 impl ::core::marker::Copy for WHEA_ERROR_TYPE {}
 impl ::core::clone::Clone for WHEA_ERROR_TYPE {
     fn clone(&self) -> Self {
@@ -17353,174 +17669,6 @@ impl ::core::fmt::Debug for WHEA_ERROR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_EVENT_LOG_ENTRY_ID(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdCmcPollingTimeout: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483647i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdWheaInit: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483646i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdCmcSwitchToPolling: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483645i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdDroppedCorrectedError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483644i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdStartedReportHwError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483643i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPFAMemoryOfflined: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483642i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPFAMemoryRemoveMonitor: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483641i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPFAMemoryPolicy: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483640i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPshedInjectError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483639i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdOscCapabilities: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483638i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPshedPluginRegister: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483637i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdAddRemoveErrorSource: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483636i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdWorkQueueItem: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483635i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdAttemptErrorRecovery: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483634i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdMcaFoundErrorInBank: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483633i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdMcaStuckErrorCheck: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483632i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdMcaErrorCleared: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483631i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdClearedPoison: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483630i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdProcessEINJ: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483629i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdProcessHEST: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483628i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdCreateGenericRecord: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483627i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdErrorRecord: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483626i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdErrorRecordLimit: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483625i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdAerNotGrantedToOs: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483624i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdErrSrcArrayInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483623i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdAcpiTimeOut: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483622i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogCmciRestart: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483621i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogCmciFinalRestart: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483620i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryEtwOverFlow: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483619i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogAzccRootBusSearchErr: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483618i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogAzccRootBusList: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483617i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdErrSrcInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483616i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdGenericErrMemMap: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483615i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPshedCallbackCollision: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483614i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdSELBugCheckProgress: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483613i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPshedPluginLoad: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483612i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPshedPluginUnload: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483611i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPshedPluginSupported: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483610i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdDeviceDriver: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483609i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdCmciImplPresent: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483608i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdCmciInitError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483607i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdSELBugCheckRecovery: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483606i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdDrvErrSrcInvalid: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483605i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdDrvHandleBusy: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483604i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdWheaHeartbeat: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483603i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogAzccRootBusPoisonSet: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483602i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdSELBugCheckInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483601i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdErrDimmInfoMismatch: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483600i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdeDpcEnabled: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483599i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryPageOfflineDone: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483598i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryPageOfflinePendMax: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483597i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdBadPageLimitReached: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483596i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntrySrarDetail: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483595i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryEarlyError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483594i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPcieOverrideInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483593i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdReadPcieOverridesErr: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483592i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPcieConfigInfo: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483591i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPcieSummaryFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483584i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdThrottleRegCorrupt: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483583i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdThrottleAddErrSrcFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483582i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdThrottleRegDataIgnored: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483581i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdEnableKeyNotifFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483580i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdKeyNotificationFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483579i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPcieRemoveDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483578i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPcieAddDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483577i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPcieSpuriousErrSource: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483576i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdMemoryAddDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483575i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdMemoryRemoveDevice: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483574i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdMemorySummaryFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483573i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPcieDpcError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483572i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdCpuBusesInitFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483571i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPshedPluginInitFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483570i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdFailedAddToDefectList: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483569i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdDefectListFull: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483568i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdDefectListUEFIVarFailed: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483567i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdDefectListCorrupt: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483566i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdBadHestNotifyData: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483565i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdSrasTableNotFound: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483564i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdSrasTableError: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483563i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdSrasTableEntries: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483562i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdRowFailure: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483561i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdCpusFrozen: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483552i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdCpusFrozenNoCrashDump: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147483551i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryIdPshedPiTraceLog: WHEA_EVENT_LOG_ENTRY_ID = WHEA_EVENT_LOG_ENTRY_ID(-2147221488i32);
 impl ::core::marker::Copy for WHEA_EVENT_LOG_ENTRY_ID {}
 impl ::core::clone::Clone for WHEA_EVENT_LOG_ENTRY_ID {
     fn clone(&self) -> Self {
@@ -17544,12 +17692,6 @@ impl ::core::fmt::Debug for WHEA_EVENT_LOG_ENTRY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_EVENT_LOG_ENTRY_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryTypeInformational: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryTypeWarning: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaEventLogEntryTypeError: WHEA_EVENT_LOG_ENTRY_TYPE = WHEA_EVENT_LOG_ENTRY_TYPE(2i32);
 impl ::core::marker::Copy for WHEA_EVENT_LOG_ENTRY_TYPE {}
 impl ::core::clone::Clone for WHEA_EVENT_LOG_ENTRY_TYPE {
     fn clone(&self) -> Self {
@@ -17573,24 +17715,6 @@ impl ::core::fmt::Debug for WHEA_EVENT_LOG_ENTRY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_PCIEXPRESS_DEVICE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciExpressEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciExpressLegacyEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciExpressRootPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciExpressUpstreamSwitchPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciExpressDownstreamSwitchPort: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciExpressToPciXBridge: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciXToExpressBridge: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciExpressRootComplexIntegratedEndpoint: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciExpressRootComplexEventCollector: WHEA_PCIEXPRESS_DEVICE_TYPE = WHEA_PCIEXPRESS_DEVICE_TYPE(10i32);
 impl ::core::marker::Copy for WHEA_PCIEXPRESS_DEVICE_TYPE {}
 impl ::core::clone::Clone for WHEA_PCIEXPRESS_DEVICE_TYPE {
     fn clone(&self) -> Self {
@@ -17614,12 +17738,6 @@ impl ::core::fmt::Debug for WHEA_PCIEXPRESS_DEVICE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_PCI_RECOVERY_SIGNAL(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciRecoverySignalUnknown: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciRecoverySignalAer: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciRecoverySignalDpc: WHEA_PCI_RECOVERY_SIGNAL = WHEA_PCI_RECOVERY_SIGNAL(2i32);
 impl ::core::marker::Copy for WHEA_PCI_RECOVERY_SIGNAL {}
 impl ::core::clone::Clone for WHEA_PCI_RECOVERY_SIGNAL {
     fn clone(&self) -> Self {
@@ -17643,20 +17761,6 @@ impl ::core::fmt::Debug for WHEA_PCI_RECOVERY_SIGNAL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_PCI_RECOVERY_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciREcoveryStatusUnknown: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciRecoveryStatusNoError: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciRecoveryStatusLinkDisableTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciRecoveryStatusLinkEnableTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciRecoveryStatusRpBusyTimeout: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciRecoveryStatusComplexTree: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPciRecoveryStatusBusNotFound: WHEA_PCI_RECOVERY_STATUS = WHEA_PCI_RECOVERY_STATUS(6i32);
 impl ::core::marker::Copy for WHEA_PCI_RECOVERY_STATUS {}
 impl ::core::clone::Clone for WHEA_PCI_RECOVERY_STATUS {
     fn clone(&self) -> Self {
@@ -17680,12 +17784,6 @@ impl ::core::fmt::Debug for WHEA_PCI_RECOVERY_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_PFA_REMOVE_TRIGGER(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPfaRemoveErrorThreshold: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPfaRemoveTimeout: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPfaRemoveCapacity: WHEA_PFA_REMOVE_TRIGGER = WHEA_PFA_REMOVE_TRIGGER(3i32);
 impl ::core::marker::Copy for WHEA_PFA_REMOVE_TRIGGER {}
 impl ::core::clone::Clone for WHEA_PFA_REMOVE_TRIGGER {
     fn clone(&self) -> Self {
@@ -17709,12 +17807,6 @@ impl ::core::fmt::Debug for WHEA_PFA_REMOVE_TRIGGER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PshedPiEnableNotifyErrorCreateNotifyEvent: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PshedPiEnableNotifyErrorCreateSystemThread: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const PshedPiEnableNotifyErrorMax: WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS = WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS(3i32);
 impl ::core::marker::Copy for WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS {}
 impl ::core::clone::Clone for WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS {
     fn clone(&self) -> Self {
@@ -17738,28 +17830,6 @@ impl ::core::fmt::Debug for WHEA_PSHED_PLUGIN_ENABLE_NOTIFY_ERRORS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_RAW_DATA_FORMAT(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRawDataFormatIPFSalRecord: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRawDataFormatIA32MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRawDataFormatIntel64MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRawDataFormatAMD64MCA: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRawDataFormatMemory: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRawDataFormatPCIExpress: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRawDataFormatNMIPort: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRawDataFormatPCIXBus: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRawDataFormatPCIXDevice: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRawDataFormatGeneric: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRawDataFormatMax: WHEA_RAW_DATA_FORMAT = WHEA_RAW_DATA_FORMAT(10i32);
 impl ::core::marker::Copy for WHEA_RAW_DATA_FORMAT {}
 impl ::core::clone::Clone for WHEA_RAW_DATA_FORMAT {
     fn clone(&self) -> Self {
@@ -17783,12 +17853,6 @@ impl ::core::fmt::Debug for WHEA_RAW_DATA_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_RECOVERY_CONTEXT_ERROR_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryContextErrorTypeMemory: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryContextErrorTypePmem: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryContextErrorTypeMax: WHEA_RECOVERY_CONTEXT_ERROR_TYPE = WHEA_RECOVERY_CONTEXT_ERROR_TYPE(3i32);
 impl ::core::marker::Copy for WHEA_RECOVERY_CONTEXT_ERROR_TYPE {}
 impl ::core::clone::Clone for WHEA_RECOVERY_CONTEXT_ERROR_TYPE {
     fn clone(&self) -> Self {
@@ -17812,42 +17876,6 @@ impl ::core::fmt::Debug for WHEA_RECOVERY_CONTEXT_ERROR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_RECOVERY_FAILURE_REASON(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonKernelCouldNotMarkMemoryBad: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonKernelMarkMemoryBadTimedOut: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonNoRecoveryContext: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonNotContinuable: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonPcc: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonOverflow: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonNotSupported: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonMiscOrAddrNotValid: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(8i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonInvalidAddressMode: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(9i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonHighIrql: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(10i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonInsufficientAltContextWrappers: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(11i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonInterruptsDisabled: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(12i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonSwapBusy: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(13i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonStackOverflow: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(14i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonUnexpectedFailure: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(15i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonKernelWillPageFaultBCAtCurrentIrql: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(16i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonFarNotValid: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(17i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryFailureReasonMax: WHEA_RECOVERY_FAILURE_REASON = WHEA_RECOVERY_FAILURE_REASON(18i32);
 impl ::core::marker::Copy for WHEA_RECOVERY_FAILURE_REASON {}
 impl ::core::clone::Clone for WHEA_RECOVERY_FAILURE_REASON {
     fn clone(&self) -> Self {
@@ -17871,12 +17899,6 @@ impl ::core::fmt::Debug for WHEA_RECOVERY_FAILURE_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_RECOVERY_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryTypeActionRequired: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryTypeActionOptional: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaRecoveryTypeMax: WHEA_RECOVERY_TYPE = WHEA_RECOVERY_TYPE(3i32);
 impl ::core::marker::Copy for WHEA_RECOVERY_TYPE {}
 impl ::core::clone::Clone for WHEA_RECOVERY_TYPE {
     fn clone(&self) -> Self {
@@ -17900,10 +17922,6 @@ impl ::core::fmt::Debug for WHEA_RECOVERY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHEA_THROTTLE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaPcieThrottle: WHEA_THROTTLE_TYPE = WHEA_THROTTLE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const WheaMemoryThrottle: WHEA_THROTTLE_TYPE = WHEA_THROTTLE_TYPE(1i32);
 impl ::core::marker::Copy for WHEA_THROTTLE_TYPE {}
 impl ::core::clone::Clone for WHEA_THROTTLE_TYPE {
     fn clone(&self) -> Self {
@@ -17927,24 +17945,6 @@ impl ::core::fmt::Debug for WHEA_THROTTLE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WORK_QUEUE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const DelayedWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const HyperCriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const NormalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const BackgroundWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const RealTimeWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const SuperCriticalWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const MaximumWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_System_SystemServices\"`*"]
-pub const CustomPriorityWorkQueue: WORK_QUEUE_TYPE = WORK_QUEUE_TYPE(32i32);
 impl ::core::marker::Copy for WORK_QUEUE_TYPE {}
 impl ::core::clone::Clone for WORK_QUEUE_TYPE {
     fn clone(&self) -> Self {

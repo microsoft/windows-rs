@@ -2154,6 +2154,36 @@ pub const PropertyStore: ::windows_core::GUID = ::windows_core::GUID::from_u128(
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 pub const PropertyStoreCollection: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedd36029_d753_4862_aa5b_5bccad2a4d29);
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QCT_LAYERED: QueryCategoryType = QueryCategoryType(1i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QC_CONTAINS: PropertyConstraint = PropertyConstraint(9i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QC_DOESNOTEXIST: PropertyConstraint = PropertyConstraint(8i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QC_EQUALS: PropertyConstraint = PropertyConstraint(0i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QC_EXISTS: PropertyConstraint = PropertyConstraint(7i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QC_GREATERTHAN: PropertyConstraint = PropertyConstraint(4i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QC_GREATERTHANOREQUAL: PropertyConstraint = PropertyConstraint(5i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QC_LESSTHAN: PropertyConstraint = PropertyConstraint(2i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QC_LESSTHANOREQUAL: PropertyConstraint = PropertyConstraint(3i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QC_NOTEQUAL: PropertyConstraint = PropertyConstraint(1i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QC_STARTSWITH: PropertyConstraint = PropertyConstraint(6i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QUA_ADD: QueryUpdateAction = QueryUpdateAction(0i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QUA_CHANGE: QueryUpdateAction = QueryUpdateAction(2i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const QUA_REMOVE: QueryUpdateAction = QueryUpdateAction(1i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 pub const SID_DeviceDisplayStatusManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf59aa553_8309_46ca_9736_1ac3c62d6031);
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 pub const SID_EnumDeviceFunction: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13e0e9e2_c3fa_4e3c_906e_64502fa4dc95);
@@ -2186,6 +2216,10 @@ pub const SSDP_CONSTRAINTVALUE_TYPE_ROOT: ::windows_core::PCWSTR = ::windows_cor
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 pub const SSDP_CONSTRAINTVALUE_TYPE_SVC_PREFIX: ::windows_core::PCWSTR = ::windows_core::w!("urn:schemas-upnp-org:service:");
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const SVF_SYSTEM: SystemVisibilityFlags = SystemVisibilityFlags(0i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
+pub const SVF_USER: SystemVisibilityFlags = SystemVisibilityFlags(1i32);
+#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 pub const WNET_CONSTRAINTVALUE_PROPERTIES_ALL: ::windows_core::PCWSTR = ::windows_core::w!("All");
 #[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
 pub const WNET_CONSTRAINTVALUE_PROPERTIES_LIMITED: ::windows_core::PCWSTR = ::windows_core::w!("Limited");
@@ -2211,26 +2245,6 @@ pub const WSD_CONSTRAINTVALUE_REQUIRE_SECURECHANNEL_AND_COMPACTSIGNATURE: ::wind
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PropertyConstraint(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QC_EQUALS: PropertyConstraint = PropertyConstraint(0i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QC_NOTEQUAL: PropertyConstraint = PropertyConstraint(1i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QC_LESSTHAN: PropertyConstraint = PropertyConstraint(2i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QC_LESSTHANOREQUAL: PropertyConstraint = PropertyConstraint(3i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QC_GREATERTHAN: PropertyConstraint = PropertyConstraint(4i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QC_GREATERTHANOREQUAL: PropertyConstraint = PropertyConstraint(5i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QC_STARTSWITH: PropertyConstraint = PropertyConstraint(6i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QC_EXISTS: PropertyConstraint = PropertyConstraint(7i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QC_DOESNOTEXIST: PropertyConstraint = PropertyConstraint(8i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QC_CONTAINS: PropertyConstraint = PropertyConstraint(9i32);
 impl ::core::marker::Copy for PropertyConstraint {}
 impl ::core::clone::Clone for PropertyConstraint {
     fn clone(&self) -> Self {
@@ -2254,10 +2268,6 @@ impl ::core::fmt::Debug for PropertyConstraint {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QueryCategoryType(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QCT_PROVIDER: QueryCategoryType = QueryCategoryType(0i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QCT_LAYERED: QueryCategoryType = QueryCategoryType(1i32);
 impl ::core::marker::Copy for QueryCategoryType {}
 impl ::core::clone::Clone for QueryCategoryType {
     fn clone(&self) -> Self {
@@ -2281,12 +2291,6 @@ impl ::core::fmt::Debug for QueryCategoryType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QueryUpdateAction(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QUA_ADD: QueryUpdateAction = QueryUpdateAction(0i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QUA_REMOVE: QueryUpdateAction = QueryUpdateAction(1i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const QUA_CHANGE: QueryUpdateAction = QueryUpdateAction(2i32);
 impl ::core::marker::Copy for QueryUpdateAction {}
 impl ::core::clone::Clone for QueryUpdateAction {
     fn clone(&self) -> Self {
@@ -2310,10 +2314,6 @@ impl ::core::fmt::Debug for QueryUpdateAction {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemVisibilityFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const SVF_SYSTEM: SystemVisibilityFlags = SystemVisibilityFlags(0i32);
-#[doc = "*Required features: `\"Win32_Devices_FunctionDiscovery\"`*"]
-pub const SVF_USER: SystemVisibilityFlags = SystemVisibilityFlags(1i32);
 impl ::core::marker::Copy for SystemVisibilityFlags {}
 impl ::core::clone::Clone for SystemVisibilityFlags {
     fn clone(&self) -> Self {

@@ -612,7 +612,11 @@ pub const SNMPAPI_NOT_INITIALIZED: u32 = 18u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMPAPI_NO_SUPPORT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMPAPI_OFF: SNMP_STATUS = SNMP_STATUS(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMPAPI_OID_INVALID: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMPAPI_ON: SNMP_STATUS = SNMP_STATUS(1u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMPAPI_OPERATION_INVALID: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
@@ -652,6 +656,12 @@ pub const SNMPAPI_TL_TIMEOUT: u32 = 108u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMPAPI_TL_UNDELIVERABLE: u32 = 104u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMPAPI_TRANSLATED: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMPAPI_UNTRANSLATED_V1: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMPAPI_UNTRANSLATED_V2: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMPAPI_V1_SUPPORT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMPAPI_V2_SUPPORT: u32 = 2u32;
@@ -688,6 +698,120 @@ pub const SNMP_BERAPI_OVERFLOW: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_BERAPI_SHORT_BUFFER: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_AUTHORIZATIONERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(16u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_BADVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(3u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_COMMITFAILED: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(14u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_GENERR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(5u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_INCONSISTENTNAME: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(18u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_INCONSISTENTVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(12u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_NOACCESS: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(6u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_NOCREATION: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(11u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_NOERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_NOSUCHNAME: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_NOTWRITABLE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(17u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_READONLY: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_RESOURCEUNAVAILABLE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(13u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_TOOBIG: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_UNDOFAILED: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(15u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_WRONGENCODING: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(9u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_WRONGLENGTH: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_WRONGTYPE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(7u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERRORSTATUS_WRONGVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(10u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_AUTHORIZATIONERROR: SNMP_ERROR = SNMP_ERROR(16u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_BADVALUE: SNMP_ERROR = SNMP_ERROR(3u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_COMMITFAILED: SNMP_ERROR = SNMP_ERROR(14u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_GENERR: SNMP_ERROR = SNMP_ERROR(5u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_INCONSISTENTNAME: SNMP_ERROR = SNMP_ERROR(18u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_INCONSISTENTVALUE: SNMP_ERROR = SNMP_ERROR(12u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_NOACCESS: SNMP_ERROR = SNMP_ERROR(6u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_NOCREATION: SNMP_ERROR = SNMP_ERROR(11u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_NOERROR: SNMP_ERROR = SNMP_ERROR(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_NOSUCHNAME: SNMP_ERROR = SNMP_ERROR(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_NOTWRITABLE: SNMP_ERROR = SNMP_ERROR(17u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_READONLY: SNMP_ERROR = SNMP_ERROR(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_RESOURCEUNAVAILABLE: SNMP_ERROR = SNMP_ERROR(13u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_TOOBIG: SNMP_ERROR = SNMP_ERROR(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_UNDOFAILED: SNMP_ERROR = SNMP_ERROR(15u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_WRONGENCODING: SNMP_ERROR = SNMP_ERROR(9u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_WRONGLENGTH: SNMP_ERROR = SNMP_ERROR(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_WRONGTYPE: SNMP_ERROR = SNMP_ERROR(7u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_ERROR_WRONGVALUE: SNMP_ERROR = SNMP_ERROR(10u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_EXTENSION_GET: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(160u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_EXTENSION_GET_NEXT: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(161u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_EXTENSION_SET_CLEANUP: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(226u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_EXTENSION_SET_COMMIT: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(163u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_EXTENSION_SET_TEST: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(224u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_EXTENSION_SET_UNDO: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(225u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_GENERICTRAP_AUTHFAILURE: SNMP_GENERICTRAP = SNMP_GENERICTRAP(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_GENERICTRAP_COLDSTART: SNMP_GENERICTRAP = SNMP_GENERICTRAP(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_GENERICTRAP_EGPNEIGHLOSS: SNMP_GENERICTRAP = SNMP_GENERICTRAP(5u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_GENERICTRAP_ENTERSPECIFIC: SNMP_GENERICTRAP = SNMP_GENERICTRAP(6u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_GENERICTRAP_LINKDOWN: SNMP_GENERICTRAP = SNMP_GENERICTRAP(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_GENERICTRAP_LINKUP: SNMP_GENERICTRAP = SNMP_GENERICTRAP(3u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_GENERICTRAP_WARMSTART: SNMP_GENERICTRAP = SNMP_GENERICTRAP(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_LOG_ERROR: SNMP_LOG = SNMP_LOG(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_LOG_FATAL: SNMP_LOG = SNMP_LOG(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_LOG_SILENT: SNMP_LOG = SNMP_LOG(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_LOG_TRACE: SNMP_LOG = SNMP_LOG(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_LOG_VERBOSE: SNMP_LOG = SNMP_LOG(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_LOG_WARNING: SNMP_LOG = SNMP_LOG(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_MAX_OID_LEN: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_MEM_ALLOC_ERROR: u32 = 1u32;
@@ -710,13 +834,31 @@ pub const SNMP_MGMTAPI_TRAP_DUPINIT: u32 = 43u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_MGMTAPI_TRAP_ERRORS: u32 = 42u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_OUTPUT_TO_CONSOLE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_OUTPUT_TO_DEBUGGER: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_OUTPUT_TO_EVENTLOG: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_OUTPUT_TO_LOGFILE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(2u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_PDUAPI_INVALID_ES: u32 = 21u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_PDUAPI_INVALID_GT: u32 = 22u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_PDUAPI_UNRECOGNIZED_PDU: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_PDU_GET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(160u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_PDU_GETBULK: SNMP_PDU_TYPE = SNMP_PDU_TYPE(165u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_PDU_GETNEXT: SNMP_PDU_TYPE = SNMP_PDU_TYPE(161u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_PDU_RESPONSE: SNMP_PDU_TYPE = SNMP_PDU_TYPE(162u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_PDU_SET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(163u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
+pub const SNMP_PDU_TRAP: SNMP_PDU_TYPE = SNMP_PDU_TYPE(167u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
 pub const SNMP_TRAP_AUTHFAIL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
@@ -735,12 +877,6 @@ pub const SNMP_TRAP_WARMSTART: u32 = 1u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_API_TRANSLATE_MODE(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMPAPI_TRANSLATED: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMPAPI_UNTRANSLATED_V1: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMPAPI_UNTRANSLATED_V2: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(2u32);
 impl ::core::marker::Copy for SNMP_API_TRANSLATE_MODE {}
 impl ::core::clone::Clone for SNMP_API_TRANSLATE_MODE {
     fn clone(&self) -> Self {
@@ -764,44 +900,6 @@ impl ::core::fmt::Debug for SNMP_API_TRANSLATE_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_ERROR(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_NOERROR: SNMP_ERROR = SNMP_ERROR(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_TOOBIG: SNMP_ERROR = SNMP_ERROR(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_NOSUCHNAME: SNMP_ERROR = SNMP_ERROR(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_BADVALUE: SNMP_ERROR = SNMP_ERROR(3u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_READONLY: SNMP_ERROR = SNMP_ERROR(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_GENERR: SNMP_ERROR = SNMP_ERROR(5u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_NOACCESS: SNMP_ERROR = SNMP_ERROR(6u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_WRONGTYPE: SNMP_ERROR = SNMP_ERROR(7u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_WRONGLENGTH: SNMP_ERROR = SNMP_ERROR(8u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_WRONGENCODING: SNMP_ERROR = SNMP_ERROR(9u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_WRONGVALUE: SNMP_ERROR = SNMP_ERROR(10u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_NOCREATION: SNMP_ERROR = SNMP_ERROR(11u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_INCONSISTENTVALUE: SNMP_ERROR = SNMP_ERROR(12u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_RESOURCEUNAVAILABLE: SNMP_ERROR = SNMP_ERROR(13u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_COMMITFAILED: SNMP_ERROR = SNMP_ERROR(14u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_UNDOFAILED: SNMP_ERROR = SNMP_ERROR(15u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_AUTHORIZATIONERROR: SNMP_ERROR = SNMP_ERROR(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_NOTWRITABLE: SNMP_ERROR = SNMP_ERROR(17u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERROR_INCONSISTENTNAME: SNMP_ERROR = SNMP_ERROR(18u32);
 impl ::core::marker::Copy for SNMP_ERROR {}
 impl ::core::clone::Clone for SNMP_ERROR {
     fn clone(&self) -> Self {
@@ -825,44 +923,6 @@ impl ::core::fmt::Debug for SNMP_ERROR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_ERROR_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_NOERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_TOOBIG: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_NOSUCHNAME: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_BADVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(3u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_READONLY: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_GENERR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(5u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_NOACCESS: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(6u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_WRONGTYPE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(7u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_WRONGLENGTH: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(8u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_WRONGENCODING: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(9u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_WRONGVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(10u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_NOCREATION: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(11u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_INCONSISTENTVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(12u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_RESOURCEUNAVAILABLE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(13u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_COMMITFAILED: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(14u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_UNDOFAILED: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(15u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_AUTHORIZATIONERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_NOTWRITABLE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(17u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_ERRORSTATUS_INCONSISTENTNAME: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(18u32);
 impl ::core::marker::Copy for SNMP_ERROR_STATUS {}
 impl ::core::clone::Clone for SNMP_ERROR_STATUS {
     fn clone(&self) -> Self {
@@ -886,18 +946,6 @@ impl ::core::fmt::Debug for SNMP_ERROR_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_EXTENSION_REQUEST_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_EXTENSION_GET: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(160u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_EXTENSION_GET_NEXT: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(161u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_EXTENSION_SET_TEST: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(224u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_EXTENSION_SET_COMMIT: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(163u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_EXTENSION_SET_UNDO: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(225u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_EXTENSION_SET_CLEANUP: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(226u32);
 impl ::core::marker::Copy for SNMP_EXTENSION_REQUEST_TYPE {}
 impl ::core::clone::Clone for SNMP_EXTENSION_REQUEST_TYPE {
     fn clone(&self) -> Self {
@@ -921,20 +969,6 @@ impl ::core::fmt::Debug for SNMP_EXTENSION_REQUEST_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_GENERICTRAP(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_GENERICTRAP_COLDSTART: SNMP_GENERICTRAP = SNMP_GENERICTRAP(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_GENERICTRAP_WARMSTART: SNMP_GENERICTRAP = SNMP_GENERICTRAP(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_GENERICTRAP_LINKDOWN: SNMP_GENERICTRAP = SNMP_GENERICTRAP(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_GENERICTRAP_LINKUP: SNMP_GENERICTRAP = SNMP_GENERICTRAP(3u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_GENERICTRAP_AUTHFAILURE: SNMP_GENERICTRAP = SNMP_GENERICTRAP(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_GENERICTRAP_EGPNEIGHLOSS: SNMP_GENERICTRAP = SNMP_GENERICTRAP(5u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_GENERICTRAP_ENTERSPECIFIC: SNMP_GENERICTRAP = SNMP_GENERICTRAP(6u32);
 impl ::core::marker::Copy for SNMP_GENERICTRAP {}
 impl ::core::clone::Clone for SNMP_GENERICTRAP {
     fn clone(&self) -> Self {
@@ -958,18 +992,6 @@ impl ::core::fmt::Debug for SNMP_GENERICTRAP {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_LOG(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_LOG_SILENT: SNMP_LOG = SNMP_LOG(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_LOG_FATAL: SNMP_LOG = SNMP_LOG(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_LOG_ERROR: SNMP_LOG = SNMP_LOG(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_LOG_WARNING: SNMP_LOG = SNMP_LOG(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_LOG_TRACE: SNMP_LOG = SNMP_LOG(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_LOG_VERBOSE: SNMP_LOG = SNMP_LOG(5i32);
 impl ::core::marker::Copy for SNMP_LOG {}
 impl ::core::clone::Clone for SNMP_LOG {
     fn clone(&self) -> Self {
@@ -993,12 +1015,6 @@ impl ::core::fmt::Debug for SNMP_LOG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_OUTPUT_LOG_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_OUTPUT_TO_CONSOLE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_OUTPUT_TO_LOGFILE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_OUTPUT_TO_DEBUGGER: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(8u32);
 impl ::core::marker::Copy for SNMP_OUTPUT_LOG_TYPE {}
 impl ::core::clone::Clone for SNMP_OUTPUT_LOG_TYPE {
     fn clone(&self) -> Self {
@@ -1022,18 +1038,6 @@ impl ::core::fmt::Debug for SNMP_OUTPUT_LOG_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_PDU_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_PDU_GET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(160u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_PDU_GETNEXT: SNMP_PDU_TYPE = SNMP_PDU_TYPE(161u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_PDU_RESPONSE: SNMP_PDU_TYPE = SNMP_PDU_TYPE(162u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_PDU_SET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(163u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_PDU_GETBULK: SNMP_PDU_TYPE = SNMP_PDU_TYPE(165u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMP_PDU_TRAP: SNMP_PDU_TYPE = SNMP_PDU_TYPE(167u32);
 impl ::core::marker::Copy for SNMP_PDU_TYPE {}
 impl ::core::clone::Clone for SNMP_PDU_TYPE {
     fn clone(&self) -> Self {
@@ -1057,10 +1061,6 @@ impl ::core::fmt::Debug for SNMP_PDU_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNMP_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMPAPI_ON: SNMP_STATUS = SNMP_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Snmp\"`*"]
-pub const SNMPAPI_OFF: SNMP_STATUS = SNMP_STATUS(0u32);
 impl ::core::marker::Copy for SNMP_STATUS {}
 impl ::core::clone::Clone for SNMP_STATUS {
     fn clone(&self) -> Self {

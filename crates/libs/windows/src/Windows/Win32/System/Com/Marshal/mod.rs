@@ -992,13 +992,13 @@ pub struct IMarshalingStream_Vtbl {
     pub GetMarshalingContextAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct STDMSHLFLAGS(pub i32);
+pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
-pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STDMSHLFLAGS(pub i32);
 impl ::core::marker::Copy for STDMSHLFLAGS {}
 impl ::core::clone::Clone for STDMSHLFLAGS {
     fn clone(&self) -> Self {

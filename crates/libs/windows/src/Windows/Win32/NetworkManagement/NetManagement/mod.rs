@@ -3282,6 +3282,14 @@ pub const AE_USER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_USERLIMIT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AF_OP_ACCOUNTS: AF_OP = AF_OP(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AF_OP_COMM: AF_OP = AF_OP(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AF_OP_PRINT: AF_OP = AF_OP(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AF_OP_SERVER: AF_OP = AF_OP(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const ALERTER_MAILSLOT: ::windows_core::PCWSTR = ::windows_core::w!("\\\\.\\MAILSLOT\\Alerter");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const ALERTSZ: u32 = 128u32;
@@ -3449,6 +3457,18 @@ pub const DFS_WARN_METADATA_LINK_INFO_INVALID: i32 = -2147469106i32;
 pub const DFS_WARN_METADATA_LINK_TYPE_INCORRECT: i32 = -2147469107i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const DNLEN: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DPP_ADVANCED: DEFAULT_PAGES = DEFAULT_PAGES(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const DSREG_WORKPLACE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EBP_ABOVE: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const EBP_BELOW: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const ENCRYPTED_PWLEN: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -4442,6 +4462,16 @@ pub const EXTRA_VOLUME_DELETED: i32 = -1073727514i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const EXTRA_VOLUME_NOT_DELETED: i32 = -1073727513i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const FILTER_INTERDOMAIN_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const FILTER_NORMAL_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const FILTER_SERVER_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const FILTER_TEMP_DUPLICATE_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const FILTER_WORKSTATION_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const GNLEN: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const GROUPIDMASK: u32 = 32768u32;
@@ -4649,6 +4679,84 @@ pub const MSGNAME_FORWARDED_TO: u32 = 4u32;
 pub const MSGNAME_NOT_FORWARDED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const MS_ROUTER_VERSION: u32 = 1536u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoCanInstall: MSA_INFO_STATE = MSA_INFO_STATE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoCannotInstall: MSA_INFO_STATE = MSA_INFO_STATE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoInstalled: MSA_INFO_STATE = MSA_INFO_STATE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoLevel0: MSA_INFO_LEVEL = MSA_INFO_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoLevelMax: MSA_INFO_LEVEL = MSA_INFO_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoNotExist: MSA_INFO_STATE = MSA_INFO_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const MsaInfoNotService: MSA_INFO_STATE = MSA_INFO_STATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_DONTEXPOSELOWER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(4096i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_FILTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(1024i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_FIXED_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(131072i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_HAS_UI: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(128i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_HIDDEN: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_HIDE_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(8192i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_LOWER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_LW_FILTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(262144i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_MULTIPORT_INSTANCED_ADAPTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(64i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_NDIS_PROTOCOL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(16384i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_NOT_USER_REMOVABLE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(32i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_NO_SERVICE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_PHYSICAL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_SINGLE_INSTANCE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(256i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_SOFTWARE_ENUMERATED: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_UPPER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCF_VIRTUAL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_ADD: BIND_FLAGS1 = BIND_FLAGS1(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_BINDING_PATH: BIND_FLAGS1 = BIND_FLAGS1(256i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_DISABLE: BIND_FLAGS1 = BIND_FLAGS1(32i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_ENABLE: BIND_FLAGS1 = BIND_FLAGS1(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_NET: BIND_FLAGS1 = BIND_FLAGS1(65536i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_NETCLIENT: BIND_FLAGS1 = BIND_FLAGS1(262144i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_NETSERVICE: BIND_FLAGS1 = BIND_FLAGS1(524288i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_NETTRANS: BIND_FLAGS1 = BIND_FLAGS1(131072i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_PROPERTYCHANGE: BIND_FLAGS1 = BIND_FLAGS1(512i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_REMOVE: BIND_FLAGS1 = BIND_FLAGS1(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCN_UPDATE: BIND_FLAGS1 = BIND_FLAGS1(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCRL_NDIS: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCRL_TDI: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCRP_QUERY_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NCRP_SHOW_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NELOG_AT_Exec_Err: u32 = 3178u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -5936,13 +6044,43 @@ pub const NETMAN_VARTYPE_STRING: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NETMAN_VARTYPE_ULONG: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_ACCT_CREATE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NETSETUP_ACCT_DELETE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NETSETUP_ALT_SAMACCOUNTNAME: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_AMBIGUOUS_DC: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(4096u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_DEFER_SPN_SET: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(256u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NETSETUP_DNS_NAME_CHANGES_ONLY: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_DOMAIN_JOIN_IF_JOINED: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(32u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_DONT_CONTROL_SERVICES: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(16384u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_FORCE_SPN_SET: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(65536u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_IGNORE_UNSUPPORTED_FLAGS: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(268435456u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NETSETUP_INSTALL_INVOCATION: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_JOIN_DC_ACCOUNT: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(512u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_JOIN_DOMAIN: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_JOIN_READONLY: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(2048u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_JOIN_UNSECURE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(64u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_JOIN_WITH_NEW_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(1024u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_MACHINE_PWD_PASSED: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(128u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_NO_ACCT_REUSE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(131072u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_NO_NETLOGON_CACHE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(8192u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NETSETUP_PROVISIONING_PARAMS_CURRENT_VERSION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -5950,7 +6088,23 @@ pub const NETSETUP_PROVISIONING_PARAMS_WIN8_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NETSETUP_PROVISION_CHECK_PWD_ONLY: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_PROVISION_DOWNLEVEL_PRIV_SUPPORT: NETSETUP_PROVISION = NETSETUP_PROVISION(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_PROVISION_ONLINE_CALLER: NET_REQUEST_PROVISION_OPTIONS = NET_REQUEST_PROVISION_OPTIONS(1073741824u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NETSETUP_PROVISION_PERSISTENTSITE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_PROVISION_REUSE_ACCOUNT: NETSETUP_PROVISION = NETSETUP_PROVISION(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_PROVISION_ROOT_CA_CERTS: NETSETUP_PROVISION = NETSETUP_PROVISION(16u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_PROVISION_SKIP_ACCOUNT_SEARCH: NETSETUP_PROVISION = NETSETUP_PROVISION(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_PROVISION_USE_DEFAULT_PASSWORD: NETSETUP_PROVISION = NETSETUP_PROVISION(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_SET_MACHINE_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(32768u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NETSETUP_WIN9X_UPGRADE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(16u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NET_DFS_ENUM: i32 = 1073756324i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -5975,6 +6129,22 @@ pub const NON_VALIDATED_LOGON: u32 = 3u32;
 pub const NOT_A_DFS_PATH: i32 = 1073756224i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NO_PERMISSION_REQUIRED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NSF_COMPONENT_UPDATE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(512i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NSF_POSTSYSINSTALL: NETWORK_INSTALL_TIME = NETWORK_INSTALL_TIME(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NSF_PRIMARYINSTALL: NETWORK_INSTALL_TIME = NETWORK_INSTALL_TIME(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NSF_WIN16_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NSF_WIN95_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NSF_WINNT_SBS_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(256i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NSF_WINNT_SVR_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(128i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NSF_WINNT_WKS_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(64i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NTFRSPRF_COLLECT_RPC_BINDING_ERROR_CONN: i32 = -1073728292i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -6072,7 +6242,47 @@ pub const NWSAP_EVENT_WANSOCKET_FAILED: i32 = -1073733297i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NWSAP_EVENT_WSASTARTUP_FAILED: i32 = -1073733323i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetAllComputerNames: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetAlternateComputerNames: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetComputerNameTypeMax: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetPrimaryComputerName: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const NetProvisioning: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2aa2b5fe_b846_4d07_810c_b21ee45320e3);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetSetupDnsMachine: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetSetupDomain: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetSetupDomainName: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetSetupMachine: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetSetupNonExistentDomain: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetSetupUnjoined: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetSetupUnknown: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetSetupUnknownStatus: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetSetupWorkgroup: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetSetupWorkgroupName: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetValidateAuthentication: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetValidatePasswordChange: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const NetValidatePasswordReset: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const OBO_COMPONENT: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const OBO_SOFTWARE: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const OBO_USER: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const OS2MSG_FILENAME: ::windows_core::PCWSTR = ::windows_core::w!("BASE");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -6179,6 +6389,38 @@ pub const PROTO_VENDOR_MS2: u32 = 16383u32;
 pub const PWLEN: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const QNLEN: u32 = 80u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_DEMAND_DIAL: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(32768i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_ENABLE_NBT: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(1024i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_NOT_ADMIN: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_DISABLE_REGISTER_DNS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_HEADER_COMPRESSION: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_NAME_SERVERS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv4_STATICADDRESS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(16384i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_NAME_SERVERS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(8192i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_IPv6_STATICADDRESS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(2048i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const RCUIF_VPN: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const REGISTER_PROTOCOL_ENTRY_POINT_STRING: ::windows_core::PCSTR = ::windows_core::s!("RegisterProtocol");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -6586,6 +6828,16 @@ pub const STXTLEN: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SUPPORTS_ANY: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SUPPORTS_LOCAL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(32u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SUPPORTS_REMOTE_ADMIN_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SUPPORTS_RPC: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SUPPORTS_SAM_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SUPPORTS_UNICODE: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(16u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SVAUD_BADNETLOGON: u32 = 384u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SVAUD_BADSESSLOGON: u32 = 24u32;
@@ -6717,6 +6969,8 @@ pub const SV_ERRORTHRESHOLD_PARMNUM: u32 = 548u32;
 pub const SV_GLIST_MTIME_PARMNUM: u32 = 402u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_GUESTACC_PARMNUM: u32 = 408u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_HIDDEN: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(1i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_HIDDEN_PARMNUM: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -6884,6 +7138,8 @@ pub const SV_SESSUSERS_PARMNUM: u32 = 510u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_SESSVCS_PARMNUM: u32 = 502u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_SHARESECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_SHARES_PARMNUM: u32 = 413u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_SHARINGVIOLATIONDELAY_PARMNUM: u32 = 564u32;
@@ -6900,11 +7156,79 @@ pub const SV_THREADPRIORITY_PARMNUM: u32 = 532u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_TIMESOURCE_PARMNUM: u32 = 516u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_AFP: NET_SERVER_TYPE = NET_SERVER_TYPE(64u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_ALL: NET_SERVER_TYPE = NET_SERVER_TYPE(4294967295u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_ALTERNATE_XPORT: NET_SERVER_TYPE = NET_SERVER_TYPE(536870912u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_BACKUP_BROWSER: NET_SERVER_TYPE = NET_SERVER_TYPE(131072u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_CLUSTER_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(16777216u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_CLUSTER_VS_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(67108864u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_DCE: NET_SERVER_TYPE = NET_SERVER_TYPE(268435456u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_DFS: NET_SERVER_TYPE = NET_SERVER_TYPE(8388608u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_DIALIN_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(1024u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_DOMAIN_BAKCTRL: NET_SERVER_TYPE = NET_SERVER_TYPE(16u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_DOMAIN_CTRL: NET_SERVER_TYPE = NET_SERVER_TYPE(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_DOMAIN_ENUM: NET_SERVER_TYPE = NET_SERVER_TYPE(2147483648u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_DOMAIN_MASTER: NET_SERVER_TYPE = NET_SERVER_TYPE(524288u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_DOMAIN_MEMBER: NET_SERVER_TYPE = NET_SERVER_TYPE(256u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_LOCAL_LIST_ONLY: NET_SERVER_TYPE = NET_SERVER_TYPE(1073741824u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_MASTER_BROWSER: NET_SERVER_TYPE = NET_SERVER_TYPE(262144u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_NOVELL: NET_SERVER_TYPE = NET_SERVER_TYPE(128u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(4096u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_TYPE_PARMNUM: u32 = 105u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_POTENTIAL_BROWSER: NET_SERVER_TYPE = NET_SERVER_TYPE(65536u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_PRINTQ_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(512u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_SERVER_MFPN: NET_SERVER_TYPE = NET_SERVER_TYPE(16384u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_SERVER_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(32768u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_SERVER_OSF: NET_SERVER_TYPE = NET_SERVER_TYPE(1048576u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_SERVER_UNIX: NET_SERVER_TYPE = NET_SERVER_TYPE(2048u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_SERVER_VMS: NET_SERVER_TYPE = NET_SERVER_TYPE(2097152u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_SQLSERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_TERMINALSERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(33554432u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_TIME_SOURCE: NET_SERVER_TYPE = NET_SERVER_TYPE(32u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_WFW: NET_SERVER_TYPE = NET_SERVER_TYPE(8192u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_WINDOWS: NET_SERVER_TYPE = NET_SERVER_TYPE(4194304u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_WORKSTATION: NET_SERVER_TYPE = NET_SERVER_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_TYPE_XENIX_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(2048u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_ULIST_MTIME_PARMNUM: u32 = 401u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_USERPATH_PARMNUM: u32 = 112u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_USERSECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(1u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_USERS_PARMNUM: u32 = 107u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -6913,6 +7237,8 @@ pub const SV_USERS_PER_LICENSE: u32 = 5u32;
 pub const SV_VERSION_MAJOR_PARMNUM: u32 = 103u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_VERSION_MINOR_PARMNUM: u32 = 104u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const SV_VISIBLE: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(0i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const SV_XACTMEMSIZE_PARMNUM: u32 = 531u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -6942,21 +7268,59 @@ pub const TRANSPORT_NAME_PARMNUM: u32 = 202u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const TRANSPORT_QUALITYOFSERVICE_PARMNUM: u32 = 201u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UAS_ROLE_BACKUP: USER_MODALS_ROLES = USER_MODALS_ROLES(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UAS_ROLE_MEMBER: USER_MODALS_ROLES = USER_MODALS_ROLES(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UAS_ROLE_PRIMARY: USER_MODALS_ROLES = USER_MODALS_ROLES(3u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UAS_ROLE_STANDALONE: USER_MODALS_ROLES = USER_MODALS_ROLES(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_ACCOUNTDISABLE: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_DONT_EXPIRE_PASSWD: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_DONT_REQUIRE_PREAUTH: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(4194304u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_HOMEDIR_REQUIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const UF_INTERDOMAIN_TRUST_ACCOUNT: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_LOCKOUT: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(16u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const UF_MNS_LOGON_ACCOUNT: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const UF_NORMAL_ACCOUNT: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_NOT_DELEGATED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const UF_NO_AUTH_DATA_REQUIRED: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const UF_PARTIAL_SECRETS_ACCOUNT: u32 = 67108864u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_PASSWD_CANT_CHANGE: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_PASSWD_NOTREQD: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_PASSWORD_EXPIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(8388608u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_SCRIPT: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const UF_SERVER_TRUST_ACCOUNT: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_SMARTCARD_REQUIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(262144u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const UF_TEMP_DUPLICATE_ACCOUNT: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_TRUSTED_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(16777216u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const UF_USE_AES_KEYS: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UF_USE_DES_KEY_ONLY: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(2097152u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const UF_WORKSTATION_TRUST_ACCOUNT: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -7012,9 +7376,15 @@ pub const USER_PASSWORD_PARMNUM: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USER_PRIMARY_GROUP_PARMNUM: u32 = 51u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PRIV_ADMIN: USER_PRIV = USER_PRIV(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PRIV_GUEST: USER_PRIV = USER_PRIV(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USER_PRIV_MASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USER_PRIV_PARMNUM: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USER_PRIV_USER: USER_PRIV = USER_PRIV(1u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USER_PROFILE: u32 = 52u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -7040,15 +7410,25 @@ pub const USE_DEFAULT_CREDENTIALS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USE_DISCONN: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_DISKDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USE_DOMAINNAME_PARMNUM: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USE_FLAGS_PARMNUM: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USE_FLAG_GLOBAL_MAPPING: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_IPC: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USE_LOCAL_PARMNUM: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_LOTS_OF_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USE_NETERR: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_NOFORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(0u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USE_OK: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -7068,7 +7448,17 @@ pub const USE_SESSLOST: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USE_SPECIFIC_TRANSPORT: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_SPOOLDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const USE_USERNAME_PARMNUM: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const USE_WILDCARD: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(4294967295u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UseTransportType_None: TRANSPORT_TYPE = TRANSPORT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UseTransportType_Quic: TRANSPORT_TYPE = TRANSPORT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const UseTransportType_Wsk: TRANSPORT_TYPE = TRANSPORT_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const VALIDATED_LOGON: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -7259,14 +7649,6 @@ pub const WZC_PROFILE_XML_ERROR_UNSUPPORTED_VERSION: u32 = 3u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AF_OP(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AF_OP_PRINT: AF_OP = AF_OP(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AF_OP_COMM: AF_OP = AF_OP(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AF_OP_SERVER: AF_OP = AF_OP(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AF_OP_ACCOUNTS: AF_OP = AF_OP(8u32);
 impl ::core::marker::Copy for AF_OP {}
 impl ::core::clone::Clone for AF_OP {
     fn clone(&self) -> Self {
@@ -7323,28 +7705,6 @@ impl ::core::ops::Not for AF_OP {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BIND_FLAGS1(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_ADD: BIND_FLAGS1 = BIND_FLAGS1(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_REMOVE: BIND_FLAGS1 = BIND_FLAGS1(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_UPDATE: BIND_FLAGS1 = BIND_FLAGS1(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_ENABLE: BIND_FLAGS1 = BIND_FLAGS1(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_DISABLE: BIND_FLAGS1 = BIND_FLAGS1(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_BINDING_PATH: BIND_FLAGS1 = BIND_FLAGS1(256i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_PROPERTYCHANGE: BIND_FLAGS1 = BIND_FLAGS1(512i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_NET: BIND_FLAGS1 = BIND_FLAGS1(65536i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_NETTRANS: BIND_FLAGS1 = BIND_FLAGS1(131072i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_NETCLIENT: BIND_FLAGS1 = BIND_FLAGS1(262144i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCN_NETSERVICE: BIND_FLAGS1 = BIND_FLAGS1(524288i32);
 impl ::core::marker::Copy for BIND_FLAGS1 {}
 impl ::core::clone::Clone for BIND_FLAGS1 {
     fn clone(&self) -> Self {
@@ -7368,36 +7728,6 @@ impl ::core::fmt::Debug for BIND_FLAGS1 {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPONENT_CHARACTERISTICS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_VIRTUAL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_SOFTWARE_ENUMERATED: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_PHYSICAL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_HIDDEN: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_NO_SERVICE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_NOT_USER_REMOVABLE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_MULTIPORT_INSTANCED_ADAPTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(64i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_HAS_UI: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(128i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_SINGLE_INSTANCE: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(256i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_FILTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(1024i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_DONTEXPOSELOWER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(4096i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_HIDE_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(8192i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_NDIS_PROTOCOL: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(16384i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_FIXED_BINDING: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(131072i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_LW_FILTER: COMPONENT_CHARACTERISTICS = COMPONENT_CHARACTERISTICS(262144i32);
 impl ::core::marker::Copy for COMPONENT_CHARACTERISTICS {}
 impl ::core::clone::Clone for COMPONENT_CHARACTERISTICS {
     fn clone(&self) -> Self {
@@ -7421,8 +7751,6 @@ impl ::core::fmt::Debug for COMPONENT_CHARACTERISTICS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEFAULT_PAGES(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DPP_ADVANCED: DEFAULT_PAGES = DEFAULT_PAGES(1i32);
 impl ::core::marker::Copy for DEFAULT_PAGES {}
 impl ::core::clone::Clone for DEFAULT_PAGES {
     fn clone(&self) -> Self {
@@ -7446,12 +7774,6 @@ impl ::core::fmt::Debug for DEFAULT_PAGES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DSREG_JOIN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const DSREG_WORKPLACE_JOIN: DSREG_JOIN_TYPE = DSREG_JOIN_TYPE(2i32);
 impl ::core::marker::Copy for DSREG_JOIN_TYPE {}
 impl ::core::clone::Clone for DSREG_JOIN_TYPE {
     fn clone(&self) -> Self {
@@ -7475,10 +7797,6 @@ impl ::core::fmt::Debug for DSREG_JOIN_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_BINDING_PATHS_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EBP_ABOVE: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const EBP_BELOW: ENUM_BINDING_PATHS_FLAGS = ENUM_BINDING_PATHS_FLAGS(2i32);
 impl ::core::marker::Copy for ENUM_BINDING_PATHS_FLAGS {}
 impl ::core::clone::Clone for ENUM_BINDING_PATHS_FLAGS {
     fn clone(&self) -> Self {
@@ -7502,12 +7820,6 @@ impl ::core::fmt::Debug for ENUM_BINDING_PATHS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FORCE_LEVEL_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_NOFORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_LOTS_OF_FORCE: FORCE_LEVEL_FLAGS = FORCE_LEVEL_FLAGS(2u32);
 impl ::core::marker::Copy for FORCE_LEVEL_FLAGS {}
 impl ::core::clone::Clone for FORCE_LEVEL_FLAGS {
     fn clone(&self) -> Self {
@@ -7531,10 +7843,6 @@ impl ::core::fmt::Debug for FORCE_LEVEL_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSA_INFO_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoLevel0: MSA_INFO_LEVEL = MSA_INFO_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoLevelMax: MSA_INFO_LEVEL = MSA_INFO_LEVEL(1i32);
 impl ::core::marker::Copy for MSA_INFO_LEVEL {}
 impl ::core::clone::Clone for MSA_INFO_LEVEL {
     fn clone(&self) -> Self {
@@ -7558,16 +7866,6 @@ impl ::core::fmt::Debug for MSA_INFO_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSA_INFO_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoNotExist: MSA_INFO_STATE = MSA_INFO_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoNotService: MSA_INFO_STATE = MSA_INFO_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoCannotInstall: MSA_INFO_STATE = MSA_INFO_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoCanInstall: MSA_INFO_STATE = MSA_INFO_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const MsaInfoInstalled: MSA_INFO_STATE = MSA_INFO_STATE(5i32);
 impl ::core::marker::Copy for MSA_INFO_STATE {}
 impl ::core::clone::Clone for MSA_INFO_STATE {
     fn clone(&self) -> Self {
@@ -7591,10 +7889,6 @@ impl ::core::fmt::Debug for MSA_INFO_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCPNP_RECONFIG_LAYER(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCRL_NDIS: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCRL_TDI: NCPNP_RECONFIG_LAYER = NCPNP_RECONFIG_LAYER(2i32);
 impl ::core::marker::Copy for NCPNP_RECONFIG_LAYER {}
 impl ::core::clone::Clone for NCPNP_RECONFIG_LAYER {
     fn clone(&self) -> Self {
@@ -7618,10 +7912,6 @@ impl ::core::fmt::Debug for NCPNP_RECONFIG_LAYER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NCRP_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCRP_QUERY_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCRP_SHOW_PROPERTY_UI: NCRP_FLAGS = NCRP_FLAGS(2i32);
 impl ::core::marker::Copy for NCRP_FLAGS {}
 impl ::core::clone::Clone for NCRP_FLAGS {
     fn clone(&self) -> Self {
@@ -7645,14 +7935,6 @@ impl ::core::fmt::Debug for NCRP_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETSETUP_JOIN_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetSetupUnknownStatus: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetSetupUnjoined: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetSetupWorkgroupName: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetSetupDomainName: NETSETUP_JOIN_STATUS = NETSETUP_JOIN_STATUS(3i32);
 impl ::core::marker::Copy for NETSETUP_JOIN_STATUS {}
 impl ::core::clone::Clone for NETSETUP_JOIN_STATUS {
     fn clone(&self) -> Self {
@@ -7676,18 +7958,6 @@ impl ::core::fmt::Debug for NETSETUP_JOIN_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETSETUP_NAME_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetSetupUnknown: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetSetupMachine: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetSetupWorkgroup: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetSetupDomain: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetSetupNonExistentDomain: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetSetupDnsMachine: NETSETUP_NAME_TYPE = NETSETUP_NAME_TYPE(5i32);
 impl ::core::marker::Copy for NETSETUP_NAME_TYPE {}
 impl ::core::clone::Clone for NETSETUP_NAME_TYPE {
     fn clone(&self) -> Self {
@@ -7711,16 +7981,6 @@ impl ::core::fmt::Debug for NETSETUP_NAME_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETSETUP_PROVISION(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_PROVISION_DOWNLEVEL_PRIV_SUPPORT: NETSETUP_PROVISION = NETSETUP_PROVISION(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_PROVISION_REUSE_ACCOUNT: NETSETUP_PROVISION = NETSETUP_PROVISION(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_PROVISION_USE_DEFAULT_PASSWORD: NETSETUP_PROVISION = NETSETUP_PROVISION(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_PROVISION_SKIP_ACCOUNT_SEARCH: NETSETUP_PROVISION = NETSETUP_PROVISION(8u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_PROVISION_ROOT_CA_CERTS: NETSETUP_PROVISION = NETSETUP_PROVISION(16u32);
 impl ::core::marker::Copy for NETSETUP_PROVISION {}
 impl ::core::clone::Clone for NETSETUP_PROVISION {
     fn clone(&self) -> Self {
@@ -7777,10 +8037,6 @@ impl ::core::ops::Not for NETSETUP_PROVISION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETWORK_INSTALL_TIME(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NSF_PRIMARYINSTALL: NETWORK_INSTALL_TIME = NETWORK_INSTALL_TIME(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NSF_POSTSYSINSTALL: NETWORK_INSTALL_TIME = NETWORK_INSTALL_TIME(2i32);
 impl ::core::marker::Copy for NETWORK_INSTALL_TIME {}
 impl ::core::clone::Clone for NETWORK_INSTALL_TIME {
     fn clone(&self) -> Self {
@@ -7804,18 +8060,6 @@ impl ::core::fmt::Debug for NETWORK_INSTALL_TIME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETWORK_UPGRADE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NSF_WIN16_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NSF_WIN95_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NSF_WINNT_WKS_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(64i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NSF_WINNT_SVR_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(128i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NSF_WINNT_SBS_UPGRADE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(256i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NSF_COMPONENT_UPDATE: NETWORK_UPGRADE_TYPE = NETWORK_UPGRADE_TYPE(512i32);
 impl ::core::marker::Copy for NETWORK_UPGRADE_TYPE {}
 impl ::core::clone::Clone for NETWORK_UPGRADE_TYPE {
     fn clone(&self) -> Self {
@@ -7839,14 +8083,6 @@ impl ::core::fmt::Debug for NETWORK_UPGRADE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_COMPUTER_NAME_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetPrimaryComputerName: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetAlternateComputerNames: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetAllComputerNames: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetComputerNameTypeMax: NET_COMPUTER_NAME_TYPE = NET_COMPUTER_NAME_TYPE(3i32);
 impl ::core::marker::Copy for NET_COMPUTER_NAME_TYPE {}
 impl ::core::clone::Clone for NET_COMPUTER_NAME_TYPE {
     fn clone(&self) -> Self {
@@ -7870,40 +8106,6 @@ impl ::core::fmt::Debug for NET_COMPUTER_NAME_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_JOIN_DOMAIN_JOIN_OPTIONS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_JOIN_DOMAIN: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_ACCT_CREATE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_WIN9X_UPGRADE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_DOMAIN_JOIN_IF_JOINED: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(32u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_JOIN_UNSECURE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(64u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_MACHINE_PWD_PASSED: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(128u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_DEFER_SPN_SET: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(256u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_JOIN_DC_ACCOUNT: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(512u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_JOIN_WITH_NEW_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(1024u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_JOIN_READONLY: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(2048u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_AMBIGUOUS_DC: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(4096u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_NO_NETLOGON_CACHE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(8192u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_DONT_CONTROL_SERVICES: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(16384u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_SET_MACHINE_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(32768u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_FORCE_SPN_SET: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(65536u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_NO_ACCT_REUSE: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(131072u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_IGNORE_UNSUPPORTED_FLAGS: NET_JOIN_DOMAIN_JOIN_OPTIONS = NET_JOIN_DOMAIN_JOIN_OPTIONS(268435456u32);
 impl ::core::marker::Copy for NET_JOIN_DOMAIN_JOIN_OPTIONS {}
 impl ::core::clone::Clone for NET_JOIN_DOMAIN_JOIN_OPTIONS {
     fn clone(&self) -> Self {
@@ -7960,16 +8162,6 @@ impl ::core::ops::Not for NET_JOIN_DOMAIN_JOIN_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SUPPORTS_REMOTE_ADMIN_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SUPPORTS_RPC: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SUPPORTS_SAM_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(8u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SUPPORTS_UNICODE: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SUPPORTS_LOCAL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS(32u32);
 impl ::core::marker::Copy for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {}
 impl ::core::clone::Clone for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
     fn clone(&self) -> Self {
@@ -7993,8 +8185,6 @@ impl ::core::fmt::Debug for NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_REQUEST_PROVISION_OPTIONS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NETSETUP_PROVISION_ONLINE_CALLER: NET_REQUEST_PROVISION_OPTIONS = NET_REQUEST_PROVISION_OPTIONS(1073741824u32);
 impl ::core::marker::Copy for NET_REQUEST_PROVISION_OPTIONS {}
 impl ::core::clone::Clone for NET_REQUEST_PROVISION_OPTIONS {
     fn clone(&self) -> Self {
@@ -8051,72 +8241,6 @@ impl ::core::ops::Not for NET_REQUEST_PROVISION_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_SERVER_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_WORKSTATION: NET_SERVER_TYPE = NET_SERVER_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_SQLSERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_DOMAIN_CTRL: NET_SERVER_TYPE = NET_SERVER_TYPE(8u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_DOMAIN_BAKCTRL: NET_SERVER_TYPE = NET_SERVER_TYPE(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_TIME_SOURCE: NET_SERVER_TYPE = NET_SERVER_TYPE(32u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_AFP: NET_SERVER_TYPE = NET_SERVER_TYPE(64u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_NOVELL: NET_SERVER_TYPE = NET_SERVER_TYPE(128u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_DOMAIN_MEMBER: NET_SERVER_TYPE = NET_SERVER_TYPE(256u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_PRINTQ_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(512u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_DIALIN_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(1024u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_XENIX_SERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(2048u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_SERVER_UNIX: NET_SERVER_TYPE = NET_SERVER_TYPE(2048u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(4096u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_WFW: NET_SERVER_TYPE = NET_SERVER_TYPE(8192u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_SERVER_MFPN: NET_SERVER_TYPE = NET_SERVER_TYPE(16384u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_SERVER_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(32768u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_POTENTIAL_BROWSER: NET_SERVER_TYPE = NET_SERVER_TYPE(65536u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_BACKUP_BROWSER: NET_SERVER_TYPE = NET_SERVER_TYPE(131072u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_MASTER_BROWSER: NET_SERVER_TYPE = NET_SERVER_TYPE(262144u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_DOMAIN_MASTER: NET_SERVER_TYPE = NET_SERVER_TYPE(524288u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_SERVER_OSF: NET_SERVER_TYPE = NET_SERVER_TYPE(1048576u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_SERVER_VMS: NET_SERVER_TYPE = NET_SERVER_TYPE(2097152u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_WINDOWS: NET_SERVER_TYPE = NET_SERVER_TYPE(4194304u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_DFS: NET_SERVER_TYPE = NET_SERVER_TYPE(8388608u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_CLUSTER_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(16777216u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_TERMINALSERVER: NET_SERVER_TYPE = NET_SERVER_TYPE(33554432u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_CLUSTER_VS_NT: NET_SERVER_TYPE = NET_SERVER_TYPE(67108864u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_DCE: NET_SERVER_TYPE = NET_SERVER_TYPE(268435456u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_ALTERNATE_XPORT: NET_SERVER_TYPE = NET_SERVER_TYPE(536870912u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_LOCAL_LIST_ONLY: NET_SERVER_TYPE = NET_SERVER_TYPE(1073741824u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_DOMAIN_ENUM: NET_SERVER_TYPE = NET_SERVER_TYPE(2147483648u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_TYPE_ALL: NET_SERVER_TYPE = NET_SERVER_TYPE(4294967295u32);
 impl ::core::marker::Copy for NET_SERVER_TYPE {}
 impl ::core::clone::Clone for NET_SERVER_TYPE {
     fn clone(&self) -> Self {
@@ -8173,16 +8297,6 @@ impl ::core::ops::Not for NET_SERVER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_USER_ENUM_FILTER_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const FILTER_TEMP_DUPLICATE_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const FILTER_NORMAL_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const FILTER_INTERDOMAIN_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const FILTER_WORKSTATION_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const FILTER_SERVER_TRUST_ACCOUNT: NET_USER_ENUM_FILTER_FLAGS = NET_USER_ENUM_FILTER_FLAGS(32u32);
 impl ::core::marker::Copy for NET_USER_ENUM_FILTER_FLAGS {}
 impl ::core::clone::Clone for NET_USER_ENUM_FILTER_FLAGS {
     fn clone(&self) -> Self {
@@ -8239,12 +8353,6 @@ impl ::core::ops::Not for NET_USER_ENUM_FILTER_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_VALIDATE_PASSWORD_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetValidateAuthentication: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetValidatePasswordChange: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NetValidatePasswordReset: NET_VALIDATE_PASSWORD_TYPE = NET_VALIDATE_PASSWORD_TYPE(3i32);
 impl ::core::marker::Copy for NET_VALIDATE_PASSWORD_TYPE {}
 impl ::core::clone::Clone for NET_VALIDATE_PASSWORD_TYPE {
     fn clone(&self) -> Self {
@@ -8268,12 +8376,6 @@ impl ::core::fmt::Debug for NET_VALIDATE_PASSWORD_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBO_TOKEN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const OBO_USER: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const OBO_COMPONENT: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const OBO_SOFTWARE: OBO_TOKEN_TYPE = OBO_TOKEN_TYPE(3i32);
 impl ::core::marker::Copy for OBO_TOKEN_TYPE {}
 impl ::core::clone::Clone for OBO_TOKEN_TYPE {
     fn clone(&self) -> Self {
@@ -8297,38 +8399,6 @@ impl ::core::fmt::Debug for OBO_TOKEN_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RASCON_UIINFO_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_VPN: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_DEMAND_DIAL: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_NOT_ADMIN: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_STATICADDRESS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_NAME_SERVERS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv4_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_HEADER_COMPRESSION: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_DISABLE_REGISTER_DNS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_PRIVATE_DNS_SUFFIX: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_ENABLE_NBT: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(1024i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_STATICADDRESS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(2048i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_NAME_SERVERS: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_USE_IPv6_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(16384i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const RCUIF_DISABLE_CLASS_BASED_ROUTE: RASCON_UIINFO_FLAGS = RASCON_UIINFO_FLAGS(32768i32);
 impl ::core::marker::Copy for RASCON_UIINFO_FLAGS {}
 impl ::core::clone::Clone for RASCON_UIINFO_FLAGS {
     fn clone(&self) -> Self {
@@ -8352,10 +8422,6 @@ impl ::core::fmt::Debug for RASCON_UIINFO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVER_INFO_HIDDEN(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_VISIBLE: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_HIDDEN: SERVER_INFO_HIDDEN = SERVER_INFO_HIDDEN(1i32);
 impl ::core::marker::Copy for SERVER_INFO_HIDDEN {}
 impl ::core::clone::Clone for SERVER_INFO_HIDDEN {
     fn clone(&self) -> Self {
@@ -8379,10 +8445,6 @@ impl ::core::fmt::Debug for SERVER_INFO_HIDDEN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVER_INFO_SECURITY(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_SHARESECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const SV_USERSECURITY: SERVER_INFO_SECURITY = SERVER_INFO_SECURITY(1u32);
 impl ::core::marker::Copy for SERVER_INFO_SECURITY {}
 impl ::core::clone::Clone for SERVER_INFO_SECURITY {
     fn clone(&self) -> Self {
@@ -8406,10 +8468,6 @@ impl ::core::fmt::Debug for SERVER_INFO_SECURITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SUPPORTS_BINDING_INTERFACE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_LOWER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const NCF_UPPER: SUPPORTS_BINDING_INTERFACE_FLAGS = SUPPORTS_BINDING_INTERFACE_FLAGS(2i32);
 impl ::core::marker::Copy for SUPPORTS_BINDING_INTERFACE_FLAGS {}
 impl ::core::clone::Clone for SUPPORTS_BINDING_INTERFACE_FLAGS {
     fn clone(&self) -> Self {
@@ -8433,12 +8491,6 @@ impl ::core::fmt::Debug for SUPPORTS_BINDING_INTERFACE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSPORT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UseTransportType_None: TRANSPORT_TYPE = TRANSPORT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UseTransportType_Wsk: TRANSPORT_TYPE = TRANSPORT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UseTransportType_Quic: TRANSPORT_TYPE = TRANSPORT_TYPE(2i32);
 impl ::core::marker::Copy for TRANSPORT_TYPE {}
 impl ::core::clone::Clone for TRANSPORT_TYPE {
     fn clone(&self) -> Self {
@@ -8462,36 +8514,6 @@ impl ::core::fmt::Debug for TRANSPORT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_ACCOUNT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_SCRIPT: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_ACCOUNTDISABLE: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_HOMEDIR_REQUIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_PASSWD_NOTREQD: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_PASSWD_CANT_CHANGE: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_LOCKOUT: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_DONT_EXPIRE_PASSWD: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_NOT_DELEGATED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_SMARTCARD_REQUIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_USE_DES_KEY_ONLY: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(2097152u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_DONT_REQUIRE_PREAUTH: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_TRUSTED_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_PASSWORD_EXPIRED: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(8388608u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: USER_ACCOUNT_FLAGS = USER_ACCOUNT_FLAGS(16777216u32);
 impl ::core::marker::Copy for USER_ACCOUNT_FLAGS {}
 impl ::core::clone::Clone for USER_ACCOUNT_FLAGS {
     fn clone(&self) -> Self {
@@ -8548,14 +8570,6 @@ impl ::core::ops::Not for USER_ACCOUNT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_MODALS_ROLES(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UAS_ROLE_STANDALONE: USER_MODALS_ROLES = USER_MODALS_ROLES(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UAS_ROLE_MEMBER: USER_MODALS_ROLES = USER_MODALS_ROLES(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UAS_ROLE_BACKUP: USER_MODALS_ROLES = USER_MODALS_ROLES(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const UAS_ROLE_PRIMARY: USER_MODALS_ROLES = USER_MODALS_ROLES(3u32);
 impl ::core::marker::Copy for USER_MODALS_ROLES {}
 impl ::core::clone::Clone for USER_MODALS_ROLES {
     fn clone(&self) -> Self {
@@ -8579,12 +8593,6 @@ impl ::core::fmt::Debug for USER_MODALS_ROLES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_PRIV(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PRIV_GUEST: USER_PRIV = USER_PRIV(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PRIV_USER: USER_PRIV = USER_PRIV(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USER_PRIV_ADMIN: USER_PRIV = USER_PRIV(2u32);
 impl ::core::marker::Copy for USER_PRIV {}
 impl ::core::clone::Clone for USER_PRIV {
     fn clone(&self) -> Self {
@@ -8608,14 +8616,6 @@ impl ::core::fmt::Debug for USER_PRIV {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USE_INFO_ASG_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_WILDCARD: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(4294967295u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_DISKDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_SPOOLDEV: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const USE_IPC: USE_INFO_ASG_TYPE = USE_INFO_ASG_TYPE(3u32);
 impl ::core::marker::Copy for USE_INFO_ASG_TYPE {}
 impl ::core::clone::Clone for USE_INFO_ASG_TYPE {
     fn clone(&self) -> Self {

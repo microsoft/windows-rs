@@ -4358,6 +4358,14 @@ pub struct ITypeNameFactory_Vtbl {
     pub GetTypeNameBuilder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptypebuilder: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const APPDOMAIN_FORCE_TRIVIAL_WAIT_OPERATIONS: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const APPDOMAIN_SECURITY_DEFAULT: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const APPDOMAIN_SECURITY_FORBID_CROSSAD_REVERSE_PINVOKE: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const APPDOMAIN_SECURITY_SANDBOXED: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const BucketParamLength: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const BucketParamsCount: u32 = 10u32;
@@ -4366,11 +4374,17 @@ pub const CLRRuntimeHost: ::windows_core::GUID = ::windows_core::GUID::from_u128
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_ASSEMBLY_BUILD_VERSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const CLR_ASSEMBLY_IDENTITY_FLAGS_DEFAULT: ECLRAssemblyIdentityFlags = ECLRAssemblyIdentityFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_ASSEMBLY_MAJOR_VERSION: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_ASSEMBLY_MINOR_VERSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_BUILD_VERSION: u32 = 22220u32;
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const CLR_DEBUGGING_MANAGED_EVENT_DEBUGGER_LAUNCH: CLR_DEBUGGING_PROCESS_FLAGS = CLR_DEBUGGING_PROCESS_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const CLR_DEBUGGING_MANAGED_EVENT_PENDING: CLR_DEBUGGING_PROCESS_FLAGS = CLR_DEBUGGING_PROCESS_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLR_MAJOR_VERSION: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
@@ -4388,6 +4402,16 @@ pub const CLSID_CLRProfiling: ::windows_core::GUID = ::windows_core::GUID::from_
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const CLSID_CLRStrongName: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb79b0acd_f5cd_409b_b5a5_a16244610b92);
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const CLSID_RESOLUTION_DEFAULT: CLSID_RESOLUTION_FLAGS = CLSID_RESOLUTION_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const CLSID_RESOLUTION_REGISTERED: CLSID_RESOLUTION_FLAGS = CLSID_RESOLUTION_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const COR_GC_COUNTS: COR_GC_STAT_TYPES = COR_GC_STAT_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const COR_GC_MEMORYUSAGE: COR_GC_STAT_TYPES = COR_GC_STAT_TYPES(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const COR_GC_THREAD_HAS_PROMOTED_BYTES: COR_GC_THREAD_STATS_TYPES = COR_GC_THREAD_STATS_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ComCallUnmarshal: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f281000_e95a_11d2_886b_00c04f869f04);
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const ComCallUnmarshalV4: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45fb4600_e6e8_4928_b25e_50476ff79425);
@@ -4396,21 +4420,301 @@ pub const CorRuntimeHost: ::windows_core::GUID = ::windows_core::GUID::from_u128
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const DEPRECATED_CLR_API_MESG: ::windows_core::PCSTR = ::windows_core::s!("This API has been deprecated. Refer to https://go.microsoft.com/fwlink/?LinkId=143720 for more details.");
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const DUMP_FLAVOR_CriticalCLRState: ECustomDumpFlavor = ECustomDumpFlavor(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const DUMP_FLAVOR_Default: ECustomDumpFlavor = ECustomDumpFlavor(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const DUMP_FLAVOR_Mini: ECustomDumpFlavor = ECustomDumpFlavor(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const DUMP_FLAVOR_NonHeapCLRState: ECustomDumpFlavor = ECustomDumpFlavor(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const DUMP_ITEM_None: ECustomDumpItemKind = ECustomDumpItemKind(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Event_ClrDisabled: EClrEvent = EClrEvent(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Event_DomainUnload: EClrEvent = EClrEvent(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Event_MDAFired: EClrEvent = EClrEvent(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Event_StackOverflow: EClrEvent = EClrEvent(3i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const FAIL_AccessViolation: EClrFailure = EClrFailure(5i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const FAIL_CodeContract: EClrFailure = EClrFailure(6i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const FAIL_CriticalResource: EClrFailure = EClrFailure(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const FAIL_FatalRuntime: EClrFailure = EClrFailure(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const FAIL_NonCriticalResource: EClrFailure = EClrFailure(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const FAIL_OrphanedLock: EClrFailure = EClrFailure(3i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const FAIL_StackOverflow: EClrFailure = EClrFailure(4i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const HOST_APPLICATION_BINDING_POLICY: EHostApplicationPolicy = EHostApplicationPolicy(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const HOST_BINDING_POLICY_MODIFY_CHAIN: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const HOST_BINDING_POLICY_MODIFY_DEFAULT: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const HOST_BINDING_POLICY_MODIFY_MAX: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(3i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const HOST_BINDING_POLICY_MODIFY_REMOVE: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const HOST_TYPE_APPLAUNCH: HOST_TYPE = HOST_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const HOST_TYPE_CORFLAG: HOST_TYPE = HOST_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const HOST_TYPE_DEFAULT: HOST_TYPE = HOST_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const InvalidBucketParamIndex: BucketParameterIndex = BucketParameterIndex(9i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const LIBID_mscoree: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5477469e_83b1_11d2_8b49_00a0c9b7c9c4);
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const MALLOC_EXECUTABLE: MALLOC_TYPE = MALLOC_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const MALLOC_THREADSAFE: MALLOC_TYPE = MALLOC_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_FALSE: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_MASK: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_TRUE: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_UNSET: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const METAHOST_POLICY_APPLY_UPGRADE_POLICY: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const METAHOST_POLICY_EMULATE_EXE_LAUNCH: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const METAHOST_POLICY_ENSURE_SKU_SUPPORTED: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const METAHOST_POLICY_HIGHCOMPAT: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const METAHOST_POLICY_IGNORE_ERROR_MODE: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const METAHOST_POLICY_SHOW_ERROR_DIALOG: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const METAHOST_POLICY_USE_PROCESS_IMAGE_PATH: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const MaxClrEvent: EClrEvent = EClrEvent(4i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const MaxClrFailure: EClrFailure = EClrFailure(7i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const MaxClrOperation: EClrOperation = EClrOperation(7i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const MaxPolicyAction: EPolicyAction = EPolicyAction(10i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const OPR_AppDomainRudeUnload: EClrOperation = EClrOperation(4i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const OPR_AppDomainUnload: EClrOperation = EClrOperation(3i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const OPR_FinalizerRun: EClrOperation = EClrOperation(6i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const OPR_ProcessExit: EClrOperation = EClrOperation(5i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const OPR_ThreadAbort: EClrOperation = EClrOperation(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const OPR_ThreadRudeAbortInCriticalRegion: EClrOperation = EClrOperation(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const OPR_ThreadRudeAbortInNonCriticalRegion: EClrOperation = EClrOperation(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Parameter1: BucketParameterIndex = BucketParameterIndex(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Parameter2: BucketParameterIndex = BucketParameterIndex(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Parameter3: BucketParameterIndex = BucketParameterIndex(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Parameter4: BucketParameterIndex = BucketParameterIndex(3i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Parameter5: BucketParameterIndex = BucketParameterIndex(4i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Parameter6: BucketParameterIndex = BucketParameterIndex(5i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Parameter7: BucketParameterIndex = BucketParameterIndex(6i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Parameter8: BucketParameterIndex = BucketParameterIndex(7i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const Parameter9: BucketParameterIndex = BucketParameterIndex(8i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const RUNTIME_INFO_DONT_RETURN_DIRECTORY: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const RUNTIME_INFO_DONT_RETURN_VERSION: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const RUNTIME_INFO_DONT_SHOW_ERROR_DIALOG: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const RUNTIME_INFO_IGNORE_ERROR_MODE: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const RUNTIME_INFO_REQUEST_AMD64: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const RUNTIME_INFO_REQUEST_ARM64: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(8192i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const RUNTIME_INFO_REQUEST_IA64: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const RUNTIME_INFO_REQUEST_X86: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const RUNTIME_INFO_UPGRADE_VERSION: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const SO_ClrEngine: StackOverflowType = StackOverflowType(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const SO_Managed: StackOverflowType = StackOverflowType(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const SO_Other: StackOverflowType = StackOverflowType(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_ALWAYSFLOW_IMPERSONATION: STARTUP_FLAGS = STARTUP_FLAGS(262144i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_ARM: STARTUP_FLAGS = STARTUP_FLAGS(4194304i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_CONCURRENT_GC: STARTUP_FLAGS = STARTUP_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_DISABLE_COMMITTHREADSTACK: STARTUP_FLAGS = STARTUP_FLAGS(131072i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_ETW: STARTUP_FLAGS = STARTUP_FLAGS(1048576i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_HOARD_GC_VM: STARTUP_FLAGS = STARTUP_FLAGS(8192i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_LEGACY_IMPERSONATION: STARTUP_FLAGS = STARTUP_FLAGS(65536i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_LOADER_OPTIMIZATION_MASK: STARTUP_FLAGS = STARTUP_FLAGS(6i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN: STARTUP_FLAGS = STARTUP_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN_HOST: STARTUP_FLAGS = STARTUP_FLAGS(6i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_LOADER_OPTIMIZATION_SINGLE_DOMAIN: STARTUP_FLAGS = STARTUP_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_LOADER_SAFEMODE: STARTUP_FLAGS = STARTUP_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_LOADER_SETPREFERENCE: STARTUP_FLAGS = STARTUP_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_SERVER_GC: STARTUP_FLAGS = STARTUP_FLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_SINGLE_VERSION_HOSTING_INTERFACE: STARTUP_FLAGS = STARTUP_FLAGS(16384i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const STARTUP_TRIM_GC_COMMIT: STARTUP_FLAGS = STARTUP_FLAGS(524288i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const TT_ADUNLOAD: ETaskType = ETaskType(128i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const TT_DEBUGGERHELPER: ETaskType = ETaskType(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const TT_FINALIZER: ETaskType = ETaskType(4i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const TT_GC: ETaskType = ETaskType(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const TT_THREADPOOL_GATE: ETaskType = ETaskType(16i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const TT_THREADPOOL_IOCOMPLETION: ETaskType = ETaskType(64i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const TT_THREADPOOL_TIMER: ETaskType = ETaskType(8i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const TT_THREADPOOL_WAIT: ETaskType = ETaskType(512i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const TT_THREADPOOL_WORKER: ETaskType = ETaskType(32i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const TT_UNKNOWN: ETaskType = ETaskType(-2147483648i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const TT_USER: ETaskType = ETaskType(256i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 pub const TypeNameFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb81ff171_20f3_11d2_8dcc_00a0c9b00525);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const WAIT_ALERTABLE: WAIT_OPTION = WAIT_OPTION(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const WAIT_MSGPUMP: WAIT_OPTION = WAIT_OPTION(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const WAIT_NOTINDEADLOCK: WAIT_OPTION = WAIT_OPTION(4i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eAbortThread: EPolicyAction = EPolicyAction(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eAll: EApiCategories = EApiCategories(511i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eAppDomainCritical: EMemoryCriticalLevel = EMemoryCriticalLevel(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eCurrentContext: EContextType = EContextType(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eDisableRuntime: EPolicyAction = EPolicyAction(9i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eExitProcess: EPolicyAction = EPolicyAction(6i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eExternalProcessMgmt: EApiCategories = EApiCategories(4i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eExternalThreading: EApiCategories = EApiCategories(16i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eFastExitProcess: EPolicyAction = EPolicyAction(7i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eHostDeterminedPolicy: EClrUnhandledException = EClrUnhandledException(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eInitializeNewDomainFlags_NoSecurityChanges: EInitializeNewDomainFlags = EInitializeNewDomainFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eInitializeNewDomainFlags_None: EInitializeNewDomainFlags = EInitializeNewDomainFlags(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eMayLeakOnAbort: EApiCategories = EApiCategories(256i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eMemoryAvailableHigh: EMemoryAvailable = EMemoryAvailable(3i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eMemoryAvailableLow: EMemoryAvailable = EMemoryAvailable(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eMemoryAvailableNeutral: EMemoryAvailable = EMemoryAvailable(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eNoAction: EPolicyAction = EPolicyAction(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eNoChecks: EApiCategories = EApiCategories(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const ePolicyLevelAdmin: EBindPolicyLevels = EBindPolicyLevels(32i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const ePolicyLevelApp: EBindPolicyLevels = EBindPolicyLevels(4i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const ePolicyLevelHost: EBindPolicyLevels = EBindPolicyLevels(16i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const ePolicyLevelNone: EBindPolicyLevels = EBindPolicyLevels(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const ePolicyLevelPublisher: EBindPolicyLevels = EBindPolicyLevels(8i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const ePolicyLevelRetargetable: EBindPolicyLevels = EBindPolicyLevels(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const ePolicyPortability: EBindPolicyLevels = EBindPolicyLevels(64i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const ePolicyUnifiedToCLR: EBindPolicyLevels = EBindPolicyLevels(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eProcessCritical: EMemoryCriticalLevel = EMemoryCriticalLevel(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eRestrictedContext: EContextType = EContextType(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eRudeAbortThread: EPolicyAction = EPolicyAction(3i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eRudeExitProcess: EPolicyAction = EPolicyAction(8i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eRudeUnloadAppDomain: EPolicyAction = EPolicyAction(5i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eRuntimeDeterminedPolicy: EClrUnhandledException = EClrUnhandledException(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eSecurityInfrastructure: EApiCategories = EApiCategories(64i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eSelfAffectingProcessMgmt: EApiCategories = EApiCategories(8i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eSelfAffectingThreading: EApiCategories = EApiCategories(32i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eSharedState: EApiCategories = EApiCategories(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eSymbolReadingAlways: ESymbolReadingPolicy = ESymbolReadingPolicy(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eSymbolReadingFullTrustOnly: ESymbolReadingPolicy = ESymbolReadingPolicy(2i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eSymbolReadingNever: ESymbolReadingPolicy = ESymbolReadingPolicy(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eSynchronization: EApiCategories = EApiCategories(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eTaskCritical: EMemoryCriticalLevel = EMemoryCriticalLevel(0i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eThrowException: EPolicyAction = EPolicyAction(1i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eUI: EApiCategories = EApiCategories(128i32);
+#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
+pub const eUnloadAppDomain: EPolicyAction = EPolicyAction(4i32);
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPDOMAIN_SECURITY_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const APPDOMAIN_SECURITY_DEFAULT: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const APPDOMAIN_SECURITY_SANDBOXED: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const APPDOMAIN_SECURITY_FORBID_CROSSAD_REVERSE_PINVOKE: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const APPDOMAIN_FORCE_TRIVIAL_WAIT_OPERATIONS: APPDOMAIN_SECURITY_FLAGS = APPDOMAIN_SECURITY_FLAGS(8i32);
 impl ::core::marker::Copy for APPDOMAIN_SECURITY_FLAGS {}
 impl ::core::clone::Clone for APPDOMAIN_SECURITY_FLAGS {
     fn clone(&self) -> Self {
@@ -4434,26 +4738,6 @@ impl ::core::fmt::Debug for APPDOMAIN_SECURITY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BucketParameterIndex(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Parameter1: BucketParameterIndex = BucketParameterIndex(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Parameter2: BucketParameterIndex = BucketParameterIndex(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Parameter3: BucketParameterIndex = BucketParameterIndex(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Parameter4: BucketParameterIndex = BucketParameterIndex(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Parameter5: BucketParameterIndex = BucketParameterIndex(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Parameter6: BucketParameterIndex = BucketParameterIndex(5i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Parameter7: BucketParameterIndex = BucketParameterIndex(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Parameter8: BucketParameterIndex = BucketParameterIndex(7i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Parameter9: BucketParameterIndex = BucketParameterIndex(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const InvalidBucketParamIndex: BucketParameterIndex = BucketParameterIndex(9i32);
 impl ::core::marker::Copy for BucketParameterIndex {}
 impl ::core::clone::Clone for BucketParameterIndex {
     fn clone(&self) -> Self {
@@ -4477,10 +4761,6 @@ impl ::core::fmt::Debug for BucketParameterIndex {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLR_DEBUGGING_PROCESS_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const CLR_DEBUGGING_MANAGED_EVENT_PENDING: CLR_DEBUGGING_PROCESS_FLAGS = CLR_DEBUGGING_PROCESS_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const CLR_DEBUGGING_MANAGED_EVENT_DEBUGGER_LAUNCH: CLR_DEBUGGING_PROCESS_FLAGS = CLR_DEBUGGING_PROCESS_FLAGS(2i32);
 impl ::core::marker::Copy for CLR_DEBUGGING_PROCESS_FLAGS {}
 impl ::core::clone::Clone for CLR_DEBUGGING_PROCESS_FLAGS {
     fn clone(&self) -> Self {
@@ -4504,10 +4784,6 @@ impl ::core::fmt::Debug for CLR_DEBUGGING_PROCESS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLSID_RESOLUTION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const CLSID_RESOLUTION_DEFAULT: CLSID_RESOLUTION_FLAGS = CLSID_RESOLUTION_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const CLSID_RESOLUTION_REGISTERED: CLSID_RESOLUTION_FLAGS = CLSID_RESOLUTION_FLAGS(1i32);
 impl ::core::marker::Copy for CLSID_RESOLUTION_FLAGS {}
 impl ::core::clone::Clone for CLSID_RESOLUTION_FLAGS {
     fn clone(&self) -> Self {
@@ -4531,10 +4807,6 @@ impl ::core::fmt::Debug for CLSID_RESOLUTION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_GC_STAT_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const COR_GC_COUNTS: COR_GC_STAT_TYPES = COR_GC_STAT_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const COR_GC_MEMORYUSAGE: COR_GC_STAT_TYPES = COR_GC_STAT_TYPES(2i32);
 impl ::core::marker::Copy for COR_GC_STAT_TYPES {}
 impl ::core::clone::Clone for COR_GC_STAT_TYPES {
     fn clone(&self) -> Self {
@@ -4558,8 +4830,6 @@ impl ::core::fmt::Debug for COR_GC_STAT_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_GC_THREAD_STATS_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const COR_GC_THREAD_HAS_PROMOTED_BYTES: COR_GC_THREAD_STATS_TYPES = COR_GC_THREAD_STATS_TYPES(1i32);
 impl ::core::marker::Copy for COR_GC_THREAD_STATS_TYPES {}
 impl ::core::clone::Clone for COR_GC_THREAD_STATS_TYPES {
     fn clone(&self) -> Self {
@@ -4583,28 +4853,6 @@ impl ::core::fmt::Debug for COR_GC_THREAD_STATS_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EApiCategories(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eNoChecks: EApiCategories = EApiCategories(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eSynchronization: EApiCategories = EApiCategories(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eSharedState: EApiCategories = EApiCategories(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eExternalProcessMgmt: EApiCategories = EApiCategories(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eSelfAffectingProcessMgmt: EApiCategories = EApiCategories(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eExternalThreading: EApiCategories = EApiCategories(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eSelfAffectingThreading: EApiCategories = EApiCategories(32i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eSecurityInfrastructure: EApiCategories = EApiCategories(64i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eUI: EApiCategories = EApiCategories(128i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eMayLeakOnAbort: EApiCategories = EApiCategories(256i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eAll: EApiCategories = EApiCategories(511i32);
 impl ::core::marker::Copy for EApiCategories {}
 impl ::core::clone::Clone for EApiCategories {
     fn clone(&self) -> Self {
@@ -4628,22 +4876,6 @@ impl ::core::fmt::Debug for EApiCategories {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EBindPolicyLevels(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const ePolicyLevelNone: EBindPolicyLevels = EBindPolicyLevels(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const ePolicyLevelRetargetable: EBindPolicyLevels = EBindPolicyLevels(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const ePolicyUnifiedToCLR: EBindPolicyLevels = EBindPolicyLevels(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const ePolicyLevelApp: EBindPolicyLevels = EBindPolicyLevels(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const ePolicyLevelPublisher: EBindPolicyLevels = EBindPolicyLevels(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const ePolicyLevelHost: EBindPolicyLevels = EBindPolicyLevels(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const ePolicyLevelAdmin: EBindPolicyLevels = EBindPolicyLevels(32i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const ePolicyPortability: EBindPolicyLevels = EBindPolicyLevels(64i32);
 impl ::core::marker::Copy for EBindPolicyLevels {}
 impl ::core::clone::Clone for EBindPolicyLevels {
     fn clone(&self) -> Self {
@@ -4667,8 +4899,6 @@ impl ::core::fmt::Debug for EBindPolicyLevels {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ECLRAssemblyIdentityFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const CLR_ASSEMBLY_IDENTITY_FLAGS_DEFAULT: ECLRAssemblyIdentityFlags = ECLRAssemblyIdentityFlags(0i32);
 impl ::core::marker::Copy for ECLRAssemblyIdentityFlags {}
 impl ::core::clone::Clone for ECLRAssemblyIdentityFlags {
     fn clone(&self) -> Self {
@@ -4692,16 +4922,6 @@ impl ::core::fmt::Debug for ECLRAssemblyIdentityFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EClrEvent(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Event_DomainUnload: EClrEvent = EClrEvent(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Event_ClrDisabled: EClrEvent = EClrEvent(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Event_MDAFired: EClrEvent = EClrEvent(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const Event_StackOverflow: EClrEvent = EClrEvent(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const MaxClrEvent: EClrEvent = EClrEvent(4i32);
 impl ::core::marker::Copy for EClrEvent {}
 impl ::core::clone::Clone for EClrEvent {
     fn clone(&self) -> Self {
@@ -4725,22 +4945,6 @@ impl ::core::fmt::Debug for EClrEvent {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EClrFailure(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const FAIL_NonCriticalResource: EClrFailure = EClrFailure(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const FAIL_CriticalResource: EClrFailure = EClrFailure(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const FAIL_FatalRuntime: EClrFailure = EClrFailure(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const FAIL_OrphanedLock: EClrFailure = EClrFailure(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const FAIL_StackOverflow: EClrFailure = EClrFailure(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const FAIL_AccessViolation: EClrFailure = EClrFailure(5i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const FAIL_CodeContract: EClrFailure = EClrFailure(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const MaxClrFailure: EClrFailure = EClrFailure(7i32);
 impl ::core::marker::Copy for EClrFailure {}
 impl ::core::clone::Clone for EClrFailure {
     fn clone(&self) -> Self {
@@ -4764,22 +4968,6 @@ impl ::core::fmt::Debug for EClrFailure {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EClrOperation(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const OPR_ThreadAbort: EClrOperation = EClrOperation(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const OPR_ThreadRudeAbortInNonCriticalRegion: EClrOperation = EClrOperation(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const OPR_ThreadRudeAbortInCriticalRegion: EClrOperation = EClrOperation(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const OPR_AppDomainUnload: EClrOperation = EClrOperation(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const OPR_AppDomainRudeUnload: EClrOperation = EClrOperation(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const OPR_ProcessExit: EClrOperation = EClrOperation(5i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const OPR_FinalizerRun: EClrOperation = EClrOperation(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const MaxClrOperation: EClrOperation = EClrOperation(7i32);
 impl ::core::marker::Copy for EClrOperation {}
 impl ::core::clone::Clone for EClrOperation {
     fn clone(&self) -> Self {
@@ -4803,10 +4991,6 @@ impl ::core::fmt::Debug for EClrOperation {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EClrUnhandledException(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eRuntimeDeterminedPolicy: EClrUnhandledException = EClrUnhandledException(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eHostDeterminedPolicy: EClrUnhandledException = EClrUnhandledException(1i32);
 impl ::core::marker::Copy for EClrUnhandledException {}
 impl ::core::clone::Clone for EClrUnhandledException {
     fn clone(&self) -> Self {
@@ -4830,10 +5014,6 @@ impl ::core::fmt::Debug for EClrUnhandledException {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EContextType(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eCurrentContext: EContextType = EContextType(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eRestrictedContext: EContextType = EContextType(1i32);
 impl ::core::marker::Copy for EContextType {}
 impl ::core::clone::Clone for EContextType {
     fn clone(&self) -> Self {
@@ -4857,14 +5037,6 @@ impl ::core::fmt::Debug for EContextType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ECustomDumpFlavor(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const DUMP_FLAVOR_Mini: ECustomDumpFlavor = ECustomDumpFlavor(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const DUMP_FLAVOR_CriticalCLRState: ECustomDumpFlavor = ECustomDumpFlavor(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const DUMP_FLAVOR_NonHeapCLRState: ECustomDumpFlavor = ECustomDumpFlavor(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const DUMP_FLAVOR_Default: ECustomDumpFlavor = ECustomDumpFlavor(0i32);
 impl ::core::marker::Copy for ECustomDumpFlavor {}
 impl ::core::clone::Clone for ECustomDumpFlavor {
     fn clone(&self) -> Self {
@@ -4888,8 +5060,6 @@ impl ::core::fmt::Debug for ECustomDumpFlavor {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ECustomDumpItemKind(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const DUMP_ITEM_None: ECustomDumpItemKind = ECustomDumpItemKind(0i32);
 impl ::core::marker::Copy for ECustomDumpItemKind {}
 impl ::core::clone::Clone for ECustomDumpItemKind {
     fn clone(&self) -> Self {
@@ -4913,8 +5083,6 @@ impl ::core::fmt::Debug for ECustomDumpItemKind {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EHostApplicationPolicy(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const HOST_APPLICATION_BINDING_POLICY: EHostApplicationPolicy = EHostApplicationPolicy(1i32);
 impl ::core::marker::Copy for EHostApplicationPolicy {}
 impl ::core::clone::Clone for EHostApplicationPolicy {
     fn clone(&self) -> Self {
@@ -4938,14 +5106,6 @@ impl ::core::fmt::Debug for EHostApplicationPolicy {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EHostBindingPolicyModifyFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const HOST_BINDING_POLICY_MODIFY_DEFAULT: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const HOST_BINDING_POLICY_MODIFY_CHAIN: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const HOST_BINDING_POLICY_MODIFY_REMOVE: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const HOST_BINDING_POLICY_MODIFY_MAX: EHostBindingPolicyModifyFlags = EHostBindingPolicyModifyFlags(3i32);
 impl ::core::marker::Copy for EHostBindingPolicyModifyFlags {}
 impl ::core::clone::Clone for EHostBindingPolicyModifyFlags {
     fn clone(&self) -> Self {
@@ -4969,10 +5129,6 @@ impl ::core::fmt::Debug for EHostBindingPolicyModifyFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EInitializeNewDomainFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eInitializeNewDomainFlags_None: EInitializeNewDomainFlags = EInitializeNewDomainFlags(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eInitializeNewDomainFlags_NoSecurityChanges: EInitializeNewDomainFlags = EInitializeNewDomainFlags(2i32);
 impl ::core::marker::Copy for EInitializeNewDomainFlags {}
 impl ::core::clone::Clone for EInitializeNewDomainFlags {
     fn clone(&self) -> Self {
@@ -4996,12 +5152,6 @@ impl ::core::fmt::Debug for EInitializeNewDomainFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMemoryAvailable(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eMemoryAvailableLow: EMemoryAvailable = EMemoryAvailable(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eMemoryAvailableNeutral: EMemoryAvailable = EMemoryAvailable(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eMemoryAvailableHigh: EMemoryAvailable = EMemoryAvailable(3i32);
 impl ::core::marker::Copy for EMemoryAvailable {}
 impl ::core::clone::Clone for EMemoryAvailable {
     fn clone(&self) -> Self {
@@ -5025,12 +5175,6 @@ impl ::core::fmt::Debug for EMemoryAvailable {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMemoryCriticalLevel(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eTaskCritical: EMemoryCriticalLevel = EMemoryCriticalLevel(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eAppDomainCritical: EMemoryCriticalLevel = EMemoryCriticalLevel(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eProcessCritical: EMemoryCriticalLevel = EMemoryCriticalLevel(2i32);
 impl ::core::marker::Copy for EMemoryCriticalLevel {}
 impl ::core::clone::Clone for EMemoryCriticalLevel {
     fn clone(&self) -> Self {
@@ -5054,28 +5198,6 @@ impl ::core::fmt::Debug for EMemoryCriticalLevel {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EPolicyAction(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eNoAction: EPolicyAction = EPolicyAction(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eThrowException: EPolicyAction = EPolicyAction(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eAbortThread: EPolicyAction = EPolicyAction(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eRudeAbortThread: EPolicyAction = EPolicyAction(3i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eUnloadAppDomain: EPolicyAction = EPolicyAction(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eRudeUnloadAppDomain: EPolicyAction = EPolicyAction(5i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eExitProcess: EPolicyAction = EPolicyAction(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eFastExitProcess: EPolicyAction = EPolicyAction(7i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eRudeExitProcess: EPolicyAction = EPolicyAction(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eDisableRuntime: EPolicyAction = EPolicyAction(9i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const MaxPolicyAction: EPolicyAction = EPolicyAction(10i32);
 impl ::core::marker::Copy for EPolicyAction {}
 impl ::core::clone::Clone for EPolicyAction {
     fn clone(&self) -> Self {
@@ -5099,12 +5221,6 @@ impl ::core::fmt::Debug for EPolicyAction {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ESymbolReadingPolicy(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eSymbolReadingNever: ESymbolReadingPolicy = ESymbolReadingPolicy(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eSymbolReadingAlways: ESymbolReadingPolicy = ESymbolReadingPolicy(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const eSymbolReadingFullTrustOnly: ESymbolReadingPolicy = ESymbolReadingPolicy(2i32);
 impl ::core::marker::Copy for ESymbolReadingPolicy {}
 impl ::core::clone::Clone for ESymbolReadingPolicy {
     fn clone(&self) -> Self {
@@ -5128,28 +5244,6 @@ impl ::core::fmt::Debug for ESymbolReadingPolicy {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ETaskType(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const TT_DEBUGGERHELPER: ETaskType = ETaskType(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const TT_GC: ETaskType = ETaskType(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const TT_FINALIZER: ETaskType = ETaskType(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const TT_THREADPOOL_TIMER: ETaskType = ETaskType(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const TT_THREADPOOL_GATE: ETaskType = ETaskType(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const TT_THREADPOOL_WORKER: ETaskType = ETaskType(32i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const TT_THREADPOOL_IOCOMPLETION: ETaskType = ETaskType(64i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const TT_ADUNLOAD: ETaskType = ETaskType(128i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const TT_USER: ETaskType = ETaskType(256i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const TT_THREADPOOL_WAIT: ETaskType = ETaskType(512i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const TT_UNKNOWN: ETaskType = ETaskType(-2147483648i32);
 impl ::core::marker::Copy for ETaskType {}
 impl ::core::clone::Clone for ETaskType {
     fn clone(&self) -> Self {
@@ -5173,12 +5267,6 @@ impl ::core::fmt::Debug for ETaskType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HOST_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const HOST_TYPE_DEFAULT: HOST_TYPE = HOST_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const HOST_TYPE_APPLAUNCH: HOST_TYPE = HOST_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const HOST_TYPE_CORFLAG: HOST_TYPE = HOST_TYPE(2i32);
 impl ::core::marker::Copy for HOST_TYPE {}
 impl ::core::clone::Clone for HOST_TYPE {
     fn clone(&self) -> Self {
@@ -5202,10 +5290,6 @@ impl ::core::fmt::Debug for HOST_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MALLOC_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const MALLOC_THREADSAFE: MALLOC_TYPE = MALLOC_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const MALLOC_EXECUTABLE: MALLOC_TYPE = MALLOC_TYPE(2i32);
 impl ::core::marker::Copy for MALLOC_TYPE {}
 impl ::core::clone::Clone for MALLOC_TYPE {
     fn clone(&self) -> Self {
@@ -5229,14 +5313,6 @@ impl ::core::fmt::Debug for MALLOC_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct METAHOST_CONFIG_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_UNSET: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_TRUE: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_FALSE: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const METAHOST_CONFIG_FLAGS_LEGACY_V2_ACTIVATION_POLICY_MASK: METAHOST_CONFIG_FLAGS = METAHOST_CONFIG_FLAGS(3i32);
 impl ::core::marker::Copy for METAHOST_CONFIG_FLAGS {}
 impl ::core::clone::Clone for METAHOST_CONFIG_FLAGS {
     fn clone(&self) -> Self {
@@ -5260,20 +5336,6 @@ impl ::core::fmt::Debug for METAHOST_CONFIG_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct METAHOST_POLICY_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const METAHOST_POLICY_HIGHCOMPAT: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const METAHOST_POLICY_APPLY_UPGRADE_POLICY: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const METAHOST_POLICY_EMULATE_EXE_LAUNCH: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const METAHOST_POLICY_SHOW_ERROR_DIALOG: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const METAHOST_POLICY_USE_PROCESS_IMAGE_PATH: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const METAHOST_POLICY_ENSURE_SKU_SUPPORTED: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const METAHOST_POLICY_IGNORE_ERROR_MODE: METAHOST_POLICY_FLAGS = METAHOST_POLICY_FLAGS(4096i32);
 impl ::core::marker::Copy for METAHOST_POLICY_FLAGS {}
 impl ::core::clone::Clone for METAHOST_POLICY_FLAGS {
     fn clone(&self) -> Self {
@@ -5297,24 +5359,6 @@ impl ::core::fmt::Debug for METAHOST_POLICY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RUNTIME_INFO_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const RUNTIME_INFO_UPGRADE_VERSION: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const RUNTIME_INFO_REQUEST_IA64: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const RUNTIME_INFO_REQUEST_AMD64: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const RUNTIME_INFO_REQUEST_X86: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const RUNTIME_INFO_DONT_RETURN_DIRECTORY: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const RUNTIME_INFO_DONT_RETURN_VERSION: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const RUNTIME_INFO_DONT_SHOW_ERROR_DIALOG: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const RUNTIME_INFO_IGNORE_ERROR_MODE: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const RUNTIME_INFO_REQUEST_ARM64: RUNTIME_INFO_FLAGS = RUNTIME_INFO_FLAGS(8192i32);
 impl ::core::marker::Copy for RUNTIME_INFO_FLAGS {}
 impl ::core::clone::Clone for RUNTIME_INFO_FLAGS {
     fn clone(&self) -> Self {
@@ -5338,38 +5382,6 @@ impl ::core::fmt::Debug for RUNTIME_INFO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STARTUP_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_CONCURRENT_GC: STARTUP_FLAGS = STARTUP_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_LOADER_OPTIMIZATION_MASK: STARTUP_FLAGS = STARTUP_FLAGS(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_LOADER_OPTIMIZATION_SINGLE_DOMAIN: STARTUP_FLAGS = STARTUP_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN: STARTUP_FLAGS = STARTUP_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_LOADER_OPTIMIZATION_MULTI_DOMAIN_HOST: STARTUP_FLAGS = STARTUP_FLAGS(6i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_LOADER_SAFEMODE: STARTUP_FLAGS = STARTUP_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_LOADER_SETPREFERENCE: STARTUP_FLAGS = STARTUP_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_SERVER_GC: STARTUP_FLAGS = STARTUP_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_HOARD_GC_VM: STARTUP_FLAGS = STARTUP_FLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_SINGLE_VERSION_HOSTING_INTERFACE: STARTUP_FLAGS = STARTUP_FLAGS(16384i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_LEGACY_IMPERSONATION: STARTUP_FLAGS = STARTUP_FLAGS(65536i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_DISABLE_COMMITTHREADSTACK: STARTUP_FLAGS = STARTUP_FLAGS(131072i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_ALWAYSFLOW_IMPERSONATION: STARTUP_FLAGS = STARTUP_FLAGS(262144i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_TRIM_GC_COMMIT: STARTUP_FLAGS = STARTUP_FLAGS(524288i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_ETW: STARTUP_FLAGS = STARTUP_FLAGS(1048576i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const STARTUP_ARM: STARTUP_FLAGS = STARTUP_FLAGS(4194304i32);
 impl ::core::marker::Copy for STARTUP_FLAGS {}
 impl ::core::clone::Clone for STARTUP_FLAGS {
     fn clone(&self) -> Self {
@@ -5393,12 +5405,6 @@ impl ::core::fmt::Debug for STARTUP_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StackOverflowType(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const SO_Managed: StackOverflowType = StackOverflowType(0i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const SO_ClrEngine: StackOverflowType = StackOverflowType(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const SO_Other: StackOverflowType = StackOverflowType(2i32);
 impl ::core::marker::Copy for StackOverflowType {}
 impl ::core::clone::Clone for StackOverflowType {
     fn clone(&self) -> Self {
@@ -5422,12 +5428,6 @@ impl ::core::fmt::Debug for StackOverflowType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WAIT_OPTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const WAIT_MSGPUMP: WAIT_OPTION = WAIT_OPTION(1i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const WAIT_ALERTABLE: WAIT_OPTION = WAIT_OPTION(2i32);
-#[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
-pub const WAIT_NOTINDEADLOCK: WAIT_OPTION = WAIT_OPTION(4i32);
 impl ::core::marker::Copy for WAIT_OPTION {}
 impl ::core::clone::Clone for WAIT_OPTION {
     fn clone(&self) -> Self {

@@ -217,6 +217,10 @@ pub const DRIVER_FINALPOLPROV_FUNCTION: ::windows_core::PCWSTR = ::windows_core:
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const DRIVER_INITPROV_FUNCTION: ::windows_core::PCWSTR = ::windows_core::w!("DriverInitializePolicy");
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(1u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(2u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const GENERIC_CHAIN_CERTTRUST_FUNCTION: ::windows_core::PCWSTR = ::windows_core::w!("GenericChainCertificateTrust");
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const GENERIC_CHAIN_FINALPOLICY_FUNCTION: ::windows_core::PCWSTR = ::windows_core::w!("GenericChainFinalProv");
@@ -453,6 +457,8 @@ pub const WIN_TRUST_SUBJTYPE_RAW_FILEEX: ::windows_core::GUID = ::windows_core::
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WSS_CERTTRUST_SUPPORT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WSS_GET_SECONDARY_SIG_COUNT: WINTRUST_SIGNATURE_SETTINGS_FLAGS = WINTRUST_SIGNATURE_SETTINGS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WSS_INPUT_FLAG_MASK: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WSS_OBJTRUST_SUPPORT: u32 = 1u32;
@@ -469,15 +475,103 @@ pub const WSS_SIGTRUST_SUPPORT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WSS_VERIFY_SEALING: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WSS_VERIFY_SPECIFIC: WINTRUST_SIGNATURE_SETTINGS_FLAGS = WINTRUST_SIGNATURE_SETTINGS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTCI_DONT_OPEN_STORES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTCI_OPEN_ONLY_ROOT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTCI_USE_LOCAL_MACHINE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_CACHE_ONLY_URL_RETRIEVAL: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_CHOICE_BLOB: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(3u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_CHOICE_CATALOG: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(2u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_CHOICE_CERT: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(5u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_CHOICE_FILE: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(1u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_CHOICE_SIGNER: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(4u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTD_CODE_INTEGRITY_DRIVER_MODE: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_DISABLE_MD2_MD4: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_HASH_ONLY_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_LIFETIME_SIGNING_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_MOTW: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_NO_IE4_CHAIN_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_NO_POLICY_USAGE_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WTD_PROV_FLAGS_MASK: u32 = 65535u32;
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_REVOCATION_CHECK_CHAIN: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_REVOCATION_CHECK_END_CERT: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_REVOCATION_CHECK_NONE: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_REVOKE_NONE: WINTRUST_DATA_REVOCATION_CHECKS = WINTRUST_DATA_REVOCATION_CHECKS(0u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_REVOKE_WHOLECHAIN: WINTRUST_DATA_REVOCATION_CHECKS = WINTRUST_DATA_REVOCATION_CHECKS(1u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_SAFER_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_STATEACTION_AUTO_CACHE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(3u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_STATEACTION_AUTO_CACHE_FLUSH: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(4u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_STATEACTION_CLOSE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(2u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_STATEACTION_IGNORE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(0u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_STATEACTION_VERIFY: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(1u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_UICONTEXT_EXECUTE: WINTRUST_DATA_UICONTEXT = WINTRUST_DATA_UICONTEXT(0u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_UICONTEXT_INSTALL: WINTRUST_DATA_UICONTEXT = WINTRUST_DATA_UICONTEXT(1u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_UI_ALL: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(1u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_UI_NOBAD: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(3u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_UI_NOGOOD: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(4u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_UI_NONE: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(2u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_USE_DEFAULT_OSVER_CHECK: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTD_USE_IE4_TRUST_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTPF_ALLOWONLYPERTRUST: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTPF_IGNOREEXPIRATION: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTPF_IGNOREREVOCATIONONTS: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTPF_IGNOREREVOKATION: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTPF_OFFLINEOKNBU_COM: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTPF_OFFLINEOKNBU_IND: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTPF_OFFLINEOK_COM: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTPF_OFFLINEOK_IND: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTPF_TESTCANBEVALID: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTPF_TRUSTTEST: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
+pub const WTPF_VERIFY_V1_OFF: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(65536u32);
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
 pub const WT_ADD_ACTION_ID_RET_RESULT_FLAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
@@ -516,34 +610,6 @@ pub const szOID_TRUSTED_SERVER_AUTH_CA_LIST: ::windows_core::PCSTR = ::windows_c
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_PROVIDER_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_USE_IE4_TRUST_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_NO_IE4_CHAIN_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_NO_POLICY_USAGE_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_REVOCATION_CHECK_NONE: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_REVOCATION_CHECK_END_CERT: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_REVOCATION_CHECK_CHAIN: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_SAFER_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_HASH_ONLY_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_USE_DEFAULT_OSVER_CHECK: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_LIFETIME_SIGNING_FLAG: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_CACHE_ONLY_URL_RETRIEVAL: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_DISABLE_MD2_MD4: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_MOTW: WINTRUST_DATA_PROVIDER_FLAGS = WINTRUST_DATA_PROVIDER_FLAGS(16384u32);
 impl ::core::marker::Copy for WINTRUST_DATA_PROVIDER_FLAGS {}
 impl ::core::clone::Clone for WINTRUST_DATA_PROVIDER_FLAGS {
     fn clone(&self) -> Self {
@@ -600,10 +666,6 @@ impl ::core::ops::Not for WINTRUST_DATA_PROVIDER_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_REVOCATION_CHECKS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_REVOKE_NONE: WINTRUST_DATA_REVOCATION_CHECKS = WINTRUST_DATA_REVOCATION_CHECKS(0u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_REVOKE_WHOLECHAIN: WINTRUST_DATA_REVOCATION_CHECKS = WINTRUST_DATA_REVOCATION_CHECKS(1u32);
 impl ::core::marker::Copy for WINTRUST_DATA_REVOCATION_CHECKS {}
 impl ::core::clone::Clone for WINTRUST_DATA_REVOCATION_CHECKS {
     fn clone(&self) -> Self {
@@ -627,16 +689,6 @@ impl ::core::fmt::Debug for WINTRUST_DATA_REVOCATION_CHECKS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_STATE_ACTION(pub u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_STATEACTION_IGNORE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(0u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_STATEACTION_VERIFY: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(1u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_STATEACTION_CLOSE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(2u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_STATEACTION_AUTO_CACHE: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(3u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_STATEACTION_AUTO_CACHE_FLUSH: WINTRUST_DATA_STATE_ACTION = WINTRUST_DATA_STATE_ACTION(4u32);
 impl ::core::marker::Copy for WINTRUST_DATA_STATE_ACTION {}
 impl ::core::clone::Clone for WINTRUST_DATA_STATE_ACTION {
     fn clone(&self) -> Self {
@@ -660,14 +712,6 @@ impl ::core::fmt::Debug for WINTRUST_DATA_STATE_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_UICHOICE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_UI_ALL: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(1u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_UI_NONE: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(2u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_UI_NOBAD: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(3u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_UI_NOGOOD: WINTRUST_DATA_UICHOICE = WINTRUST_DATA_UICHOICE(4u32);
 impl ::core::marker::Copy for WINTRUST_DATA_UICHOICE {}
 impl ::core::clone::Clone for WINTRUST_DATA_UICHOICE {
     fn clone(&self) -> Self {
@@ -691,10 +735,6 @@ impl ::core::fmt::Debug for WINTRUST_DATA_UICHOICE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_UICONTEXT(pub u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_UICONTEXT_EXECUTE: WINTRUST_DATA_UICONTEXT = WINTRUST_DATA_UICONTEXT(0u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_UICONTEXT_INSTALL: WINTRUST_DATA_UICONTEXT = WINTRUST_DATA_UICONTEXT(1u32);
 impl ::core::marker::Copy for WINTRUST_DATA_UICONTEXT {}
 impl ::core::clone::Clone for WINTRUST_DATA_UICONTEXT {
     fn clone(&self) -> Self {
@@ -718,16 +758,6 @@ impl ::core::fmt::Debug for WINTRUST_DATA_UICONTEXT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_DATA_UNION_CHOICE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_CHOICE_FILE: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(1u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_CHOICE_CATALOG: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(2u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_CHOICE_BLOB: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(3u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_CHOICE_SIGNER: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(4u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTD_CHOICE_CERT: WINTRUST_DATA_UNION_CHOICE = WINTRUST_DATA_UNION_CHOICE(5u32);
 impl ::core::marker::Copy for WINTRUST_DATA_UNION_CHOICE {}
 impl ::core::clone::Clone for WINTRUST_DATA_UNION_CHOICE {
     fn clone(&self) -> Self {
@@ -751,10 +781,6 @@ impl ::core::fmt::Debug for WINTRUST_DATA_UNION_CHOICE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(pub u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(1u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION(2u32);
 impl ::core::marker::Copy for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {}
 impl ::core::clone::Clone for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
     fn clone(&self) -> Self {
@@ -778,28 +804,6 @@ impl ::core::fmt::Debug for WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_POLICY_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTPF_TRUSTTEST: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTPF_TESTCANBEVALID: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTPF_IGNOREEXPIRATION: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTPF_IGNOREREVOKATION: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTPF_OFFLINEOK_IND: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTPF_OFFLINEOK_COM: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTPF_OFFLINEOKNBU_IND: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTPF_OFFLINEOKNBU_COM: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTPF_VERIFY_V1_OFF: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTPF_IGNOREREVOCATIONONTS: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WTPF_ALLOWONLYPERTRUST: WINTRUST_POLICY_FLAGS = WINTRUST_POLICY_FLAGS(262144u32);
 impl ::core::marker::Copy for WINTRUST_POLICY_FLAGS {}
 impl ::core::clone::Clone for WINTRUST_POLICY_FLAGS {
     fn clone(&self) -> Self {
@@ -856,10 +860,6 @@ impl ::core::ops::Not for WINTRUST_POLICY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINTRUST_SIGNATURE_SETTINGS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WSS_VERIFY_SPECIFIC: WINTRUST_SIGNATURE_SETTINGS_FLAGS = WINTRUST_SIGNATURE_SETTINGS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_WinTrust\"`*"]
-pub const WSS_GET_SECONDARY_SIG_COUNT: WINTRUST_SIGNATURE_SETTINGS_FLAGS = WINTRUST_SIGNATURE_SETTINGS_FLAGS(2u32);
 impl ::core::marker::Copy for WINTRUST_SIGNATURE_SETTINGS_FLAGS {}
 impl ::core::clone::Clone for WINTRUST_SIGNATURE_SETTINGS_FLAGS {
     fn clone(&self) -> Self {

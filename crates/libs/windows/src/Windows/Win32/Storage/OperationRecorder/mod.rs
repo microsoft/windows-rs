@@ -15,11 +15,13 @@ pub unsafe fn OperationStart(operationstartparams: *const OPERATION_START_PARAME
     OperationStart(operationstartparams)
 }
 #[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
+pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS = OPERATION_END_PARAMETERS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
+pub const OPERATION_START_TRACE_CURRENT_THREAD: OPERATION_START_FLAGS = OPERATION_START_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPERATION_END_PARAMETERS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
-pub const OPERATION_END_DISCARD: OPERATION_END_PARAMETERS_FLAGS = OPERATION_END_PARAMETERS_FLAGS(1u32);
 impl ::core::marker::Copy for OPERATION_END_PARAMETERS_FLAGS {}
 impl ::core::clone::Clone for OPERATION_END_PARAMETERS_FLAGS {
     fn clone(&self) -> Self {
@@ -76,8 +78,6 @@ impl ::core::ops::Not for OPERATION_END_PARAMETERS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPERATION_START_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_OperationRecorder\"`*"]
-pub const OPERATION_START_TRACE_CURRENT_THREAD: OPERATION_START_FLAGS = OPERATION_START_FLAGS(1u32);
 impl ::core::marker::Copy for OPERATION_START_FLAGS {}
 impl ::core::clone::Clone for OPERATION_START_FLAGS {
     fn clone(&self) -> Self {

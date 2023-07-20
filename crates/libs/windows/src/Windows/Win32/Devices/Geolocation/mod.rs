@@ -948,6 +948,16 @@ pub const GNSS_AGNSSFORMAT_XTRA3_2: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_AGNSSFORMAT_XTRA_INT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_AGNSS_BlobInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_AGNSS_PositionInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_AGNSS_TimeInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_ClearAgnssData: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_CustomCommand: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(256i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_DRIVER_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_DRIVER_VERSION_2: u32 = 2u32;
@@ -960,21 +970,89 @@ pub const GNSS_DRIVER_VERSION_5: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_DRIVER_VERSION_6: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Event_BreadcrumbAlertEvent: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Event_Custom: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(32768i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Event_DriverRequest: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Event_Error: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Event_FixAvailable: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Event_FixAvailable_2: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Event_GeofenceAlertData: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Event_GeofencesTrackingStatus: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Event_NiRequest: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Event_NmeaData: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Event_RequireAgnss: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_FIXDETAIL_ACCURACY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_FIXDETAIL_BASIC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_FIXDETAIL_SATELLITE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_FixSession_ContinuousTracking: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_FixSession_DistanceTracking: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_FixSession_LKG: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_FixSession_SingleShot: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_ForceOperationMode: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_ForceSatelliteSystem: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_GEOFENCESUPPORT_CIRCLE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_GEOFENCESUPPORT_SUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_GeoRegion_Circle: GNSS_GEOREGIONTYPE = GNSS_GEOREGIONTYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_GeofenceState_Entered: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_GeofenceState_Exited: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_GeofenceState_Unknown: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_MAXSATELLITE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_NI_CP: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_NI_NoNotifyNoVerify: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_NI_NotifyOnly: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_NI_NotifyVerifyDefaultAllow: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_NI_NotifyVerifyDefaultNotAllow: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_NI_PrivacyOverride: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_NI_Request_AreaTrigger: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_NI_Request_SingleShot: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_NI_SUPL: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_NI_V2UPL: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(3i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_NMEALOGGING_ALL: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_NMEALOGGING_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Ni_UserResponseAccept: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Ni_UserResponseDeny: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Ni_UserResponseTimeout: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(3i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_OPERMODE_AFLT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
@@ -990,6 +1068,10 @@ pub const GNSS_OPERMODE_MSS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_OPERMODE_OTDOA: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_ResetEngine: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_ResetGeofencesTracking: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_SATELLITE_ANY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_SATELLITE_BEIDOU: u32 = 4u32;
@@ -999,6 +1081,26 @@ pub const GNSS_SATELLITE_GALILEO: u32 = 8u32;
 pub const GNSS_SATELLITE_GLONASS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GNSS_SATELLITE_GPS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_SetLocationNIRequestAllowed: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_SetLocationServiceEnabled: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_SetNMEALogging: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_SetNiTimeoutInterval: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_SetSuplVersion: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_SetSuplVersion2: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_SetUplServerAccessInterval: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Supl_Cert_Delete: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Supl_Cert_Inject: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const GNSS_Supl_Cert_Purge: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(3i32);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const GUID_DEVINTERFACE_GNSS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3336e5e4_018a_4669_84c5_bd05f3bd368b);
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
@@ -1072,15 +1174,21 @@ pub const MIN_BREADCRUMBS_SUPPORTED: u32 = 120u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 pub const MIN_GEOFENCES_REQUIRED: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const REPORT_ACCESS_DENIED: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const REPORT_ERROR: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const REPORT_INITIALIZING: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const REPORT_NOT_SUPPORTED: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const REPORT_RUNNING: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
+pub const SUPL_CONFIG_DATA: GNSS_DRIVER_REQUEST = GNSS_DRIVER_REQUEST(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_AGNSS_REQUEST_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_AGNSS_TimeInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_AGNSS_PositionInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_AGNSS_BlobInjection: GNSS_AGNSS_REQUEST_TYPE = GNSS_AGNSS_REQUEST_TYPE(3i32);
 impl ::core::marker::Copy for GNSS_AGNSS_REQUEST_TYPE {}
 impl ::core::clone::Clone for GNSS_AGNSS_REQUEST_TYPE {
     fn clone(&self) -> Self {
@@ -1104,32 +1212,6 @@ impl ::core::fmt::Debug for GNSS_AGNSS_REQUEST_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_DRIVERCOMMAND_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_SetLocationServiceEnabled: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_SetLocationNIRequestAllowed: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_ForceSatelliteSystem: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_ForceOperationMode: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_ResetEngine: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_ClearAgnssData: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_SetSuplVersion: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_SetNMEALogging: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_SetUplServerAccessInterval: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_SetNiTimeoutInterval: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_ResetGeofencesTracking: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_SetSuplVersion2: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_CustomCommand: GNSS_DRIVERCOMMAND_TYPE = GNSS_DRIVERCOMMAND_TYPE(256i32);
 impl ::core::marker::Copy for GNSS_DRIVERCOMMAND_TYPE {}
 impl ::core::clone::Clone for GNSS_DRIVERCOMMAND_TYPE {
     fn clone(&self) -> Self {
@@ -1153,8 +1235,6 @@ impl ::core::fmt::Debug for GNSS_DRIVERCOMMAND_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_DRIVER_REQUEST(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const SUPL_CONFIG_DATA: GNSS_DRIVER_REQUEST = GNSS_DRIVER_REQUEST(1i32);
 impl ::core::marker::Copy for GNSS_DRIVER_REQUEST {}
 impl ::core::clone::Clone for GNSS_DRIVER_REQUEST {
     fn clone(&self) -> Self {
@@ -1178,28 +1258,6 @@ impl ::core::fmt::Debug for GNSS_DRIVER_REQUEST {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_EVENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Event_FixAvailable: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Event_RequireAgnss: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Event_Error: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Event_NiRequest: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Event_NmeaData: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Event_GeofenceAlertData: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Event_GeofencesTrackingStatus: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Event_DriverRequest: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Event_BreadcrumbAlertEvent: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Event_FixAvailable_2: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Event_Custom: GNSS_EVENT_TYPE = GNSS_EVENT_TYPE(32768i32);
 impl ::core::marker::Copy for GNSS_EVENT_TYPE {}
 impl ::core::clone::Clone for GNSS_EVENT_TYPE {
     fn clone(&self) -> Self {
@@ -1223,14 +1281,6 @@ impl ::core::fmt::Debug for GNSS_EVENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_FIXSESSIONTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_FixSession_SingleShot: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_FixSession_DistanceTracking: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_FixSession_ContinuousTracking: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_FixSession_LKG: GNSS_FIXSESSIONTYPE = GNSS_FIXSESSIONTYPE(4i32);
 impl ::core::marker::Copy for GNSS_FIXSESSIONTYPE {}
 impl ::core::clone::Clone for GNSS_FIXSESSIONTYPE {
     fn clone(&self) -> Self {
@@ -1254,12 +1304,6 @@ impl ::core::fmt::Debug for GNSS_FIXSESSIONTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_GEOFENCE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_GeofenceState_Unknown: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_GeofenceState_Entered: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_GeofenceState_Exited: GNSS_GEOFENCE_STATE = GNSS_GEOFENCE_STATE(2i32);
 impl ::core::marker::Copy for GNSS_GEOFENCE_STATE {}
 impl ::core::clone::Clone for GNSS_GEOFENCE_STATE {
     fn clone(&self) -> Self {
@@ -1283,8 +1327,6 @@ impl ::core::fmt::Debug for GNSS_GEOFENCE_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_GEOREGIONTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_GeoRegion_Circle: GNSS_GEOREGIONTYPE = GNSS_GEOREGIONTYPE(1i32);
 impl ::core::marker::Copy for GNSS_GEOREGIONTYPE {}
 impl ::core::clone::Clone for GNSS_GEOREGIONTYPE {
     fn clone(&self) -> Self {
@@ -1308,16 +1350,6 @@ impl ::core::fmt::Debug for GNSS_GEOREGIONTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_NI_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_NI_NoNotifyNoVerify: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_NI_NotifyOnly: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_NI_NotifyVerifyDefaultAllow: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_NI_NotifyVerifyDefaultNotAllow: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_NI_PrivacyOverride: GNSS_NI_NOTIFICATION_TYPE = GNSS_NI_NOTIFICATION_TYPE(5i32);
 impl ::core::marker::Copy for GNSS_NI_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for GNSS_NI_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
@@ -1341,12 +1373,6 @@ impl ::core::fmt::Debug for GNSS_NI_NOTIFICATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_NI_PLANE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_NI_SUPL: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_NI_CP: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_NI_V2UPL: GNSS_NI_PLANE_TYPE = GNSS_NI_PLANE_TYPE(3i32);
 impl ::core::marker::Copy for GNSS_NI_PLANE_TYPE {}
 impl ::core::clone::Clone for GNSS_NI_PLANE_TYPE {
     fn clone(&self) -> Self {
@@ -1370,10 +1396,6 @@ impl ::core::fmt::Debug for GNSS_NI_PLANE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_NI_REQUEST_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_NI_Request_SingleShot: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_NI_Request_AreaTrigger: GNSS_NI_REQUEST_TYPE = GNSS_NI_REQUEST_TYPE(2i32);
 impl ::core::marker::Copy for GNSS_NI_REQUEST_TYPE {}
 impl ::core::clone::Clone for GNSS_NI_REQUEST_TYPE {
     fn clone(&self) -> Self {
@@ -1397,12 +1419,6 @@ impl ::core::fmt::Debug for GNSS_NI_REQUEST_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_NI_USER_RESPONSE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Ni_UserResponseAccept: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Ni_UserResponseDeny: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Ni_UserResponseTimeout: GNSS_NI_USER_RESPONSE = GNSS_NI_USER_RESPONSE(3i32);
 impl ::core::marker::Copy for GNSS_NI_USER_RESPONSE {}
 impl ::core::clone::Clone for GNSS_NI_USER_RESPONSE {
     fn clone(&self) -> Self {
@@ -1426,12 +1442,6 @@ impl ::core::fmt::Debug for GNSS_NI_USER_RESPONSE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GNSS_SUPL_CERT_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Supl_Cert_Inject: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Supl_Cert_Delete: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const GNSS_Supl_Cert_Purge: GNSS_SUPL_CERT_ACTION = GNSS_SUPL_CERT_ACTION(3i32);
 impl ::core::marker::Copy for GNSS_SUPL_CERT_ACTION {}
 impl ::core::clone::Clone for GNSS_SUPL_CERT_ACTION {
     fn clone(&self) -> Self {
@@ -1455,16 +1465,6 @@ impl ::core::fmt::Debug for GNSS_SUPL_CERT_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCATION_REPORT_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const REPORT_NOT_SUPPORTED: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const REPORT_ERROR: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const REPORT_ACCESS_DENIED: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const REPORT_INITIALIZING: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Geolocation\"`*"]
-pub const REPORT_RUNNING: LOCATION_REPORT_STATUS = LOCATION_REPORT_STATUS(4i32);
 impl ::core::marker::Copy for LOCATION_REPORT_STATUS {}
 impl ::core::clone::Clone for LOCATION_REPORT_STATUS {
     fn clone(&self) -> Self {

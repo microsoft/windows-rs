@@ -1971,6 +1971,8 @@ pub const ADDRESS_TYPE_IANA: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const ADDRESS_TYPE_IATA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const Allow: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const CHANGESTATE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const CLIENT_TYPE_BOOTP: u32 = 2u32;
@@ -1982,6 +1984,12 @@ pub const CLIENT_TYPE_NONE: u32 = 100u32;
 pub const CLIENT_TYPE_RESERVATION_FLAG: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const CLIENT_TYPE_UNSPECIFIED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const COMMUNICATION_INT: FSM_STATE = FSM_STATE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const CONFLICT_DONE: FSM_STATE = FSM_STATE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DEFAULTQUARSETTING: QuarantineStatus = QuarantineStatus(5i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DHCPCAPI_DEREGISTER_HANDLE_EVENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
@@ -2148,6 +2156,162 @@ pub const DNS_FLAG_UPDATE_BOTH_ALWAYS: u32 = 16u32;
 pub const DNS_FLAG_UPDATE_DHCID: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const DNS_FLAG_UPDATE_DOWNLEVEL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DROPPACKET: QuarantineStatus = QuarantineStatus(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const Deny: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpArrayTypeOption: DHCP_OPTION_TYPE = DHCP_OPTION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpAttrFqdn: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpAttrFqdnSingleLabel: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpAttrHWAddr: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpAttrOption: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpAttrSubOption: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpBinaryDataOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpByteOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpClientHardwareAddress: DHCP_SEARCH_INFO_TYPE = DHCP_SEARCH_INFO_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpClientIpAddress: DHCP_SEARCH_INFO_TYPE = DHCP_SEARCH_INFO_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpClientName: DHCP_SEARCH_INFO_TYPE = DHCP_SEARCH_INFO_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpCompBeginsWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpCompEndsWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpCompEqual: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpCompNotBeginWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpCompNotEndWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpCompNotEqual: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpDWordDWordOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpDWordOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpDatabaseFix: DHCP_SCAN_FLAG = DHCP_SCAN_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpDefaultOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpDefaultOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpEncapsulatedDataOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpFailoverForce: DHCP_FORCE_FLAG = DHCP_FORCE_FLAG(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpFullForce: DHCP_FORCE_FLAG = DHCP_FORCE_FLAG(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpGlobalOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpGlobalOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpIpAddressOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpIpRanges: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpIpRangesBootpOnly: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpIpRangesDhcpBootp: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpIpRangesDhcpOnly: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpIpUsedClusters: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpIpv6AddressOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpLogicalAnd: DHCP_POL_LOGIC_OPER = DHCP_POL_LOGIC_OPER(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpLogicalOr: DHCP_POL_LOGIC_OPER = DHCP_POL_LOGIC_OPER(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpMScopeOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpNoForce: DHCP_FORCE_FLAG = DHCP_FORCE_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpPropIdClientAddressStateEx: DHCP_PROPERTY_ID = DHCP_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpPropIdPolicyDnsSuffix: DHCP_PROPERTY_ID = DHCP_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpPropTypeBinary: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpPropTypeByte: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpPropTypeDword: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpPropTypeString: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpPropTypeWord: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpRegistryFix: DHCP_SCAN_FLAG = DHCP_SCAN_FLAG(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpReservedIps: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpReservedOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpReservedOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpScopeOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpSecondaryHosts: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpStatelessPurgeInterval: DHCPV6_STATELESS_PARAM_TYPE = DHCPV6_STATELESS_PARAM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpStatelessStatus: DHCPV6_STATELESS_PARAM_TYPE = DHCPV6_STATELESS_PARAM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpStringDataOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpSubnetDisabled: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpSubnetDisabledSwitched: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpSubnetEnabled: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpSubnetEnabledSwitched: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpSubnetInvalidState: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpSubnetOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpUnaryElementTypeOption: DHCP_OPTION_TYPE = DHCP_OPTION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpUpdatePolicyDescr: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpUpdatePolicyDnsSuffix: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(64i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpUpdatePolicyExpr: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpUpdatePolicyName: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpUpdatePolicyOrder: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpUpdatePolicyRanges: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpUpdatePolicyStatus: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(32i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const DhcpWordOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const Dhcpv6ClientDUID: DHCP_SEARCH_INFO_TYPE_V6 = DHCP_SEARCH_INFO_TYPE_V6(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const Dhcpv6ClientIpAddress: DHCP_SEARCH_INFO_TYPE_V6 = DHCP_SEARCH_INFO_TYPE_V6(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const Dhcpv6ClientName: DHCP_SEARCH_INFO_TYPE_V6 = DHCP_SEARCH_INFO_TYPE_V6(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const Dhcpv6ExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const Dhcpv6IpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const Dhcpv6ReservedIps: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(1i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const ERROR_DDS_CLASS_DOES_NOT_EXIST: u32 = 20078u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
@@ -2385,6 +2549,8 @@ pub const ERROR_SERVER_INVALID_BOOT_FILE_TABLE: u32 = 20028u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const ERROR_SERVER_UNKNOWN_BOOT_FILE_NAME: u32 = 20029u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const EXEMPT: QuarantineStatus = QuarantineStatus(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const FILTER_STATUS_FULL_MATCH_IN_ALLOW_LIST: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const FILTER_STATUS_FULL_MATCH_IN_DENY_LIST: u32 = 4u32;
@@ -2397,6 +2563,12 @@ pub const FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const HotStandby: DHCP_FAILOVER_MODE = DHCP_FAILOVER_MODE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const INIT: FSM_STATE = FSM_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const LoadBalance: DHCP_FAILOVER_MODE = DHCP_FAILOVER_MODE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const MAC_ADDRESS_LENGTH: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const MAX_PATTERN_LENGTH: u32 = 255u32;
@@ -2404,6 +2576,14 @@ pub const MAX_PATTERN_LENGTH: u32 = 255u32;
 pub const MCLT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const MODE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const NOQUARANTINE: QuarantineStatus = QuarantineStatus(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const NOQUARINFO: QuarantineStatus = QuarantineStatus(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const NORMAL: FSM_STATE = FSM_STATE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const NO_STATE: FSM_STATE = FSM_STATE(0i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const OPTION_ALL_SUBNETS_MTU: u32 = 27u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
@@ -2537,9 +2717,19 @@ pub const OPTION_XWINDOW_DISPLAY_MANAGER: u32 = 49u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const OPTION_XWINDOW_FONT_SERVER: u32 = 48u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const PARTNER_DOWN: FSM_STATE = FSM_STATE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const PAUSED: FSM_STATE = FSM_STATE(12i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const PERCENTAGE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const POTENTIAL_CONFLICT: FSM_STATE = FSM_STATE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const PREVSTATE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const PROBATION: QuarantineStatus = QuarantineStatus(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const PrimaryServer: DHCP_FAILOVER_SERVER = DHCP_FAILOVER_SERVER(0i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const QUARANTINE_CONFIG_OPTION: u32 = 43222u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
@@ -2547,9 +2737,33 @@ pub const QUARANTINE_SCOPE_QUARPROFILE_OPTION: u32 = 43221u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const QUARANTIN_OPTION_BASE: u32 = 43220u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const RECOVER: FSM_STATE = FSM_STATE(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const RECOVER_DONE: FSM_STATE = FSM_STATE(11i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const RECOVER_WAIT: FSM_STATE = FSM_STATE(10i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const RESOLUTION_INT: FSM_STATE = FSM_STATE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const RESTRICTEDACCESS: QuarantineStatus = QuarantineStatus(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const SAFEPERIOD: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const SHAREDSECRET: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const SHUTDOWN: FSM_STATE = FSM_STATE(13i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const STARTUP: FSM_STATE = FSM_STATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const STATUS_NOPREFIX_AVAIL: StatusCode = StatusCode(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const STATUS_NO_BINDING: StatusCode = StatusCode(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const STATUS_NO_ERROR: StatusCode = StatusCode(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const STATUS_UNSPECIFIED_FAILURE: StatusCode = StatusCode(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
+pub const SecondaryServer: DHCP_FAILOVER_SERVER = DHCP_FAILOVER_SERVER(1i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
 pub const Set_APIProtocolSupport: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
@@ -2616,10 +2830,6 @@ pub const WARNING_EXTENDED_LESS: i32 = 20026i32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCPV6_STATELESS_PARAM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpStatelessPurgeInterval: DHCPV6_STATELESS_PARAM_TYPE = DHCPV6_STATELESS_PARAM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpStatelessStatus: DHCPV6_STATELESS_PARAM_TYPE = DHCPV6_STATELESS_PARAM_TYPE(2i32);
 impl ::core::marker::Copy for DHCPV6_STATELESS_PARAM_TYPE {}
 impl ::core::clone::Clone for DHCPV6_STATELESS_PARAM_TYPE {
     fn clone(&self) -> Self {
@@ -2643,10 +2853,6 @@ impl ::core::fmt::Debug for DHCPV6_STATELESS_PARAM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_FAILOVER_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const LoadBalance: DHCP_FAILOVER_MODE = DHCP_FAILOVER_MODE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const HotStandby: DHCP_FAILOVER_MODE = DHCP_FAILOVER_MODE(1i32);
 impl ::core::marker::Copy for DHCP_FAILOVER_MODE {}
 impl ::core::clone::Clone for DHCP_FAILOVER_MODE {
     fn clone(&self) -> Self {
@@ -2670,10 +2876,6 @@ impl ::core::fmt::Debug for DHCP_FAILOVER_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_FAILOVER_SERVER(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const PrimaryServer: DHCP_FAILOVER_SERVER = DHCP_FAILOVER_SERVER(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const SecondaryServer: DHCP_FAILOVER_SERVER = DHCP_FAILOVER_SERVER(1i32);
 impl ::core::marker::Copy for DHCP_FAILOVER_SERVER {}
 impl ::core::clone::Clone for DHCP_FAILOVER_SERVER {
     fn clone(&self) -> Self {
@@ -2697,10 +2899,6 @@ impl ::core::fmt::Debug for DHCP_FAILOVER_SERVER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_FILTER_LIST_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const Deny: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const Allow: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(1i32);
 impl ::core::marker::Copy for DHCP_FILTER_LIST_TYPE {}
 impl ::core::clone::Clone for DHCP_FILTER_LIST_TYPE {
     fn clone(&self) -> Self {
@@ -2724,12 +2922,6 @@ impl ::core::fmt::Debug for DHCP_FILTER_LIST_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_FORCE_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpFullForce: DHCP_FORCE_FLAG = DHCP_FORCE_FLAG(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpNoForce: DHCP_FORCE_FLAG = DHCP_FORCE_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpFailoverForce: DHCP_FORCE_FLAG = DHCP_FORCE_FLAG(2i32);
 impl ::core::marker::Copy for DHCP_FORCE_FLAG {}
 impl ::core::clone::Clone for DHCP_FORCE_FLAG {
     fn clone(&self) -> Self {
@@ -2753,24 +2945,6 @@ impl ::core::fmt::Debug for DHCP_FORCE_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_OPTION_DATA_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpByteOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpWordOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpDWordOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpDWordDWordOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpIpAddressOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpStringDataOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpBinaryDataOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpEncapsulatedDataOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpIpv6AddressOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(8i32);
 impl ::core::marker::Copy for DHCP_OPTION_DATA_TYPE {}
 impl ::core::clone::Clone for DHCP_OPTION_DATA_TYPE {
     fn clone(&self) -> Self {
@@ -2794,16 +2968,6 @@ impl ::core::fmt::Debug for DHCP_OPTION_DATA_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_OPTION_SCOPE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpDefaultOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpGlobalOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpSubnetOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpReservedOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpMScopeOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(4i32);
 impl ::core::marker::Copy for DHCP_OPTION_SCOPE_TYPE {}
 impl ::core::clone::Clone for DHCP_OPTION_SCOPE_TYPE {
     fn clone(&self) -> Self {
@@ -2827,14 +2991,6 @@ impl ::core::fmt::Debug for DHCP_OPTION_SCOPE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_OPTION_SCOPE_TYPE6(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpDefaultOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpScopeOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpReservedOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpGlobalOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(3i32);
 impl ::core::marker::Copy for DHCP_OPTION_SCOPE_TYPE6 {}
 impl ::core::clone::Clone for DHCP_OPTION_SCOPE_TYPE6 {
     fn clone(&self) -> Self {
@@ -2858,10 +3014,6 @@ impl ::core::fmt::Debug for DHCP_OPTION_SCOPE_TYPE6 {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_OPTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpUnaryElementTypeOption: DHCP_OPTION_TYPE = DHCP_OPTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpArrayTypeOption: DHCP_OPTION_TYPE = DHCP_OPTION_TYPE(1i32);
 impl ::core::marker::Copy for DHCP_OPTION_TYPE {}
 impl ::core::clone::Clone for DHCP_OPTION_TYPE {
     fn clone(&self) -> Self {
@@ -2885,20 +3037,6 @@ impl ::core::fmt::Debug for DHCP_OPTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_POLICY_FIELDS_TO_UPDATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpUpdatePolicyName: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpUpdatePolicyOrder: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpUpdatePolicyExpr: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpUpdatePolicyRanges: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpUpdatePolicyDescr: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpUpdatePolicyStatus: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpUpdatePolicyDnsSuffix: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(64i32);
 impl ::core::marker::Copy for DHCP_POLICY_FIELDS_TO_UPDATE {}
 impl ::core::clone::Clone for DHCP_POLICY_FIELDS_TO_UPDATE {
     fn clone(&self) -> Self {
@@ -2922,16 +3060,6 @@ impl ::core::fmt::Debug for DHCP_POLICY_FIELDS_TO_UPDATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_POL_ATTR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpAttrHWAddr: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpAttrOption: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpAttrSubOption: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpAttrFqdn: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpAttrFqdnSingleLabel: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(4i32);
 impl ::core::marker::Copy for DHCP_POL_ATTR_TYPE {}
 impl ::core::clone::Clone for DHCP_POL_ATTR_TYPE {
     fn clone(&self) -> Self {
@@ -2955,18 +3083,6 @@ impl ::core::fmt::Debug for DHCP_POL_ATTR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_POL_COMPARATOR(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpCompEqual: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpCompNotEqual: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpCompBeginsWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpCompNotBeginWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpCompEndsWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpCompNotEndWith: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(5i32);
 impl ::core::marker::Copy for DHCP_POL_COMPARATOR {}
 impl ::core::clone::Clone for DHCP_POL_COMPARATOR {
     fn clone(&self) -> Self {
@@ -2990,10 +3106,6 @@ impl ::core::fmt::Debug for DHCP_POL_COMPARATOR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_POL_LOGIC_OPER(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpLogicalOr: DHCP_POL_LOGIC_OPER = DHCP_POL_LOGIC_OPER(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpLogicalAnd: DHCP_POL_LOGIC_OPER = DHCP_POL_LOGIC_OPER(1i32);
 impl ::core::marker::Copy for DHCP_POL_LOGIC_OPER {}
 impl ::core::clone::Clone for DHCP_POL_LOGIC_OPER {
     fn clone(&self) -> Self {
@@ -3017,10 +3129,6 @@ impl ::core::fmt::Debug for DHCP_POL_LOGIC_OPER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpPropIdPolicyDnsSuffix: DHCP_PROPERTY_ID = DHCP_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpPropIdClientAddressStateEx: DHCP_PROPERTY_ID = DHCP_PROPERTY_ID(1i32);
 impl ::core::marker::Copy for DHCP_PROPERTY_ID {}
 impl ::core::clone::Clone for DHCP_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -3044,16 +3152,6 @@ impl ::core::fmt::Debug for DHCP_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_PROPERTY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpPropTypeByte: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpPropTypeWord: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpPropTypeDword: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpPropTypeString: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpPropTypeBinary: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(4i32);
 impl ::core::marker::Copy for DHCP_PROPERTY_TYPE {}
 impl ::core::clone::Clone for DHCP_PROPERTY_TYPE {
     fn clone(&self) -> Self {
@@ -3077,10 +3175,6 @@ impl ::core::fmt::Debug for DHCP_PROPERTY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SCAN_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpRegistryFix: DHCP_SCAN_FLAG = DHCP_SCAN_FLAG(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpDatabaseFix: DHCP_SCAN_FLAG = DHCP_SCAN_FLAG(1i32);
 impl ::core::marker::Copy for DHCP_SCAN_FLAG {}
 impl ::core::clone::Clone for DHCP_SCAN_FLAG {
     fn clone(&self) -> Self {
@@ -3104,12 +3198,6 @@ impl ::core::fmt::Debug for DHCP_SCAN_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SEARCH_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpClientIpAddress: DHCP_SEARCH_INFO_TYPE = DHCP_SEARCH_INFO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpClientHardwareAddress: DHCP_SEARCH_INFO_TYPE = DHCP_SEARCH_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpClientName: DHCP_SEARCH_INFO_TYPE = DHCP_SEARCH_INFO_TYPE(2i32);
 impl ::core::marker::Copy for DHCP_SEARCH_INFO_TYPE {}
 impl ::core::clone::Clone for DHCP_SEARCH_INFO_TYPE {
     fn clone(&self) -> Self {
@@ -3133,12 +3221,6 @@ impl ::core::fmt::Debug for DHCP_SEARCH_INFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SEARCH_INFO_TYPE_V6(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const Dhcpv6ClientIpAddress: DHCP_SEARCH_INFO_TYPE_V6 = DHCP_SEARCH_INFO_TYPE_V6(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const Dhcpv6ClientDUID: DHCP_SEARCH_INFO_TYPE_V6 = DHCP_SEARCH_INFO_TYPE_V6(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const Dhcpv6ClientName: DHCP_SEARCH_INFO_TYPE_V6 = DHCP_SEARCH_INFO_TYPE_V6(2i32);
 impl ::core::marker::Copy for DHCP_SEARCH_INFO_TYPE_V6 {}
 impl ::core::clone::Clone for DHCP_SEARCH_INFO_TYPE_V6 {
     fn clone(&self) -> Self {
@@ -3162,22 +3244,6 @@ impl ::core::fmt::Debug for DHCP_SEARCH_INFO_TYPE_V6 {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpIpRanges: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpSecondaryHosts: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpReservedIps: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpIpUsedClusters: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpIpRangesDhcpOnly: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpIpRangesDhcpBootp: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpIpRangesBootpOnly: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(7i32);
 impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_TYPE {}
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_TYPE {
     fn clone(&self) -> Self {
@@ -3201,12 +3267,6 @@ impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE_V6(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const Dhcpv6IpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const Dhcpv6ReservedIps: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const Dhcpv6ExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(2i32);
 impl ::core::marker::Copy for DHCP_SUBNET_ELEMENT_TYPE_V6 {}
 impl ::core::clone::Clone for DHCP_SUBNET_ELEMENT_TYPE_V6 {
     fn clone(&self) -> Self {
@@ -3230,16 +3290,6 @@ impl ::core::fmt::Debug for DHCP_SUBNET_ELEMENT_TYPE_V6 {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DHCP_SUBNET_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpSubnetEnabled: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpSubnetDisabled: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpSubnetEnabledSwitched: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpSubnetDisabledSwitched: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DhcpSubnetInvalidState: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(4i32);
 impl ::core::marker::Copy for DHCP_SUBNET_STATE {}
 impl ::core::clone::Clone for DHCP_SUBNET_STATE {
     fn clone(&self) -> Self {
@@ -3263,34 +3313,6 @@ impl ::core::fmt::Debug for DHCP_SUBNET_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FSM_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const NO_STATE: FSM_STATE = FSM_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const INIT: FSM_STATE = FSM_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const STARTUP: FSM_STATE = FSM_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const NORMAL: FSM_STATE = FSM_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const COMMUNICATION_INT: FSM_STATE = FSM_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const PARTNER_DOWN: FSM_STATE = FSM_STATE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const POTENTIAL_CONFLICT: FSM_STATE = FSM_STATE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const CONFLICT_DONE: FSM_STATE = FSM_STATE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const RESOLUTION_INT: FSM_STATE = FSM_STATE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const RECOVER: FSM_STATE = FSM_STATE(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const RECOVER_WAIT: FSM_STATE = FSM_STATE(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const RECOVER_DONE: FSM_STATE = FSM_STATE(11i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const PAUSED: FSM_STATE = FSM_STATE(12i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const SHUTDOWN: FSM_STATE = FSM_STATE(13i32);
 impl ::core::marker::Copy for FSM_STATE {}
 impl ::core::clone::Clone for FSM_STATE {
     fn clone(&self) -> Self {
@@ -3314,20 +3336,6 @@ impl ::core::fmt::Debug for FSM_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QuarantineStatus(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const NOQUARANTINE: QuarantineStatus = QuarantineStatus(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const RESTRICTEDACCESS: QuarantineStatus = QuarantineStatus(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DROPPACKET: QuarantineStatus = QuarantineStatus(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const PROBATION: QuarantineStatus = QuarantineStatus(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const EXEMPT: QuarantineStatus = QuarantineStatus(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const DEFAULTQUARSETTING: QuarantineStatus = QuarantineStatus(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const NOQUARINFO: QuarantineStatus = QuarantineStatus(6i32);
 impl ::core::marker::Copy for QuarantineStatus {}
 impl ::core::clone::Clone for QuarantineStatus {
     fn clone(&self) -> Self {
@@ -3351,14 +3359,6 @@ impl ::core::fmt::Debug for QuarantineStatus {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StatusCode(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const STATUS_NO_ERROR: StatusCode = StatusCode(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const STATUS_UNSPECIFIED_FAILURE: StatusCode = StatusCode(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const STATUS_NO_BINDING: StatusCode = StatusCode(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dhcp\"`*"]
-pub const STATUS_NOPREFIX_AVAIL: StatusCode = StatusCode(6i32);
 impl ::core::marker::Copy for StatusCode {}
 impl ::core::clone::Clone for StatusCode {
     fn clone(&self) -> Self {

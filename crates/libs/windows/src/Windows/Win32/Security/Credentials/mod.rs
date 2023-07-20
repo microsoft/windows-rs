@@ -1064,6 +1064,10 @@ where
     SCardWriteCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.into_param().abi(), ::core::mem::transmute(data.as_ptr()), data.len() as _)
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CERT_HASH_LENGTH: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CREDSSP_CRED_EX_VERSION: u32 = 0u32;
@@ -1078,9 +1082,61 @@ pub const CREDSSP_SERVER_AUTH_LOOPBACK: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CREDSSP_SERVER_AUTH_NEGOTIATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUIWIN_AUTHPACKAGE_ONLY: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUIWIN_CHECKBOX: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUIWIN_ENUMERATE_ADMINS: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUIWIN_ENUMERATE_CURRENT_USER: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUIWIN_GENERIC: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUIWIN_IN_CRED_ONLY: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_ALWAYS_SHOW_UI: CREDUI_FLAGS = CREDUI_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_COMPLETE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_DO_NOT_PERSIST: CREDUI_FLAGS = CREDUI_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_EXCLUDE_CERTIFICATES: CREDUI_FLAGS = CREDUI_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_EXPECT_CONFIRMATION: CREDUI_FLAGS = CREDUI_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_GENERIC_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_INCORRECT_PASSWORD: CREDUI_FLAGS = CREDUI_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_KEEP_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_PASSWORD_ONLY_OK: CREDUI_FLAGS = CREDUI_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_PERSIST: CREDUI_FLAGS = CREDUI_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_REQUEST_ADMINISTRATOR: CREDUI_FLAGS = CREDUI_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_REQUIRE_CERTIFICATE: CREDUI_FLAGS = CREDUI_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_REQUIRE_SMARTCARD: CREDUI_FLAGS = CREDUI_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = CREDUI_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = CREDUI_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1024u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -1095,6 +1151,28 @@ pub const CREDUI_MAX_USERNAME_LENGTH: u32 = 513u32;
 pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = CRED_ENUMERATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_FLAGS_NGC_CERT: CRED_FLAGS = CRED_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_FLAGS_OWF_CRED_BLOB: CRED_FLAGS = CRED_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_FLAGS_PASSWORD_FOR_CERT: CRED_FLAGS = CRED_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_FLAGS_PROMPT_NOW: CRED_FLAGS = CRED_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_FLAGS_REQUIRE_CONFIRMATION: CRED_FLAGS = CRED_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_FLAGS_USERNAME_TARGET: CRED_FLAGS = CRED_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_FLAGS_VALID_FLAGS: CRED_FLAGS = CRED_FLAGS(61695u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_FLAGS_VALID_INPUT_FLAGS: CRED_FLAGS = CRED_FLAGS(61599u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_FLAGS_VSM_PROTECTED: CRED_FLAGS = CRED_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_FLAGS_WILDCARD_MATCH: CRED_FLAGS = CRED_FLAGS(32u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_LOGON_TYPES_MASK: u32 = 61440u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -1115,6 +1193,22 @@ pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256u32;
 pub const CRED_MAX_USERNAME_LENGTH: u32 = 513u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_MAX_VALUE_SIZE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_PACK_GENERIC_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_PACK_ID_PROVIDER_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_PACK_PROTECTED_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_PACK_WOW_BUFFER: CRED_PACK_FLAGS = CRED_PACK_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_PERSIST_ENTERPRISE: CRED_PERSIST = CRED_PERSIST(3u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_PERSIST_LOCAL_MACHINE: CRED_PERSIST = CRED_PERSIST(2u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_PERSIST_NONE: CRED_PERSIST = CRED_PERSIST(0u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_PERSIST_SESSION: CRED_PERSIST = CRED_PERSIST(1u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -1208,17 +1302,83 @@ pub const CRED_TI_VALID_FLAGS: u32 = 61567u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_TI_WORKGROUP_MEMBER: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_TYPE_DOMAIN_CERTIFICATE: CRED_TYPE = CRED_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_TYPE_DOMAIN_EXTENDED: CRED_TYPE = CRED_TYPE(6u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_TYPE_DOMAIN_PASSWORD: CRED_TYPE = CRED_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_TYPE_DOMAIN_VISIBLE_PASSWORD: CRED_TYPE = CRED_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_TYPE_GENERIC: CRED_TYPE = CRED_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_TYPE_GENERIC_CERTIFICATE: CRED_TYPE = CRED_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_TYPE_MAXIMUM: CRED_TYPE = CRED_TYPE(7u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_TYPE_MAXIMUM_EX: CRED_TYPE = CRED_TYPE(1007u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CertCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CredForSystemProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CredTrustedProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CredUnprotected: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CredUserProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CredsspCertificateCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CredsspCredEx: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(100i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CredsspPasswordCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CredsspSchannelCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CredsspSubmitBufferBoth: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(50i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(51i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(4i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(1i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(32i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(0i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(64i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(16i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(8i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const KeyCredentialManagerOperationErrorStateTokenFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(2i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(1i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(2i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(0i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const SCARD_ABSENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -1324,7 +1484,11 @@ pub const SCARD_READER_TYPE_VENDOR: u32 = 240u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const SCARD_RESET_CARD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_SCOPE_SYSTEM: SCARD_SCOPE = SCARD_SCOPE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const SCARD_SCOPE_TERMINAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_SCOPE_USER: SCARD_SCOPE = SCARD_SCOPE(0u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const SCARD_SHARE_DIRECT: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -1333,6 +1497,28 @@ pub const SCARD_SHARE_EXCLUSIVE: u32 = 1u32;
 pub const SCARD_SHARE_SHARED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const SCARD_SPECIFIC: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_STATE_ATRMATCH: SCARD_STATE = SCARD_STATE(64u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_STATE_CHANGED: SCARD_STATE = SCARD_STATE(2u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_STATE_EMPTY: SCARD_STATE = SCARD_STATE(16u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_STATE_EXCLUSIVE: SCARD_STATE = SCARD_STATE(128u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_STATE_IGNORE: SCARD_STATE = SCARD_STATE(1u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_STATE_INUSE: SCARD_STATE = SCARD_STATE(256u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_STATE_MUTE: SCARD_STATE = SCARD_STATE(512u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_STATE_PRESENT: SCARD_STATE = SCARD_STATE(32u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_STATE_UNAVAILABLE: SCARD_STATE = SCARD_STATE(8u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_STATE_UNAWARE: SCARD_STATE = SCARD_STATE(0u32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const SCARD_STATE_UNKNOWN: SCARD_STATE = SCARD_STATE(4u32);
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const SCARD_STATE_UNPOWERED: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -1415,23 +1601,15 @@ pub const TS_SSP_NAME: ::windows_core::PCWSTR = ::windows_core::w!("TSSSP");
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const TS_SSP_NAME_A: ::windows_core::PCSTR = ::windows_core::s!("TSSSP");
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const szOID_TS_KP_TS_SERVER_AUTH: ::windows_core::PCSTR = ::windows_core::s!("1.3.6.1.4.1.311.54.1.2");
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREDSPP_SUBMIT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CredsspPasswordCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CredsspSchannelCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CredsspCertificateCreds: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CredsspSubmitBufferBoth: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(50i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CredsspSubmitBufferBothOld: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(51i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CredsspCredEx: CREDSPP_SUBMIT_TYPE = CREDSPP_SUBMIT_TYPE(100i32);
 impl ::core::marker::Copy for CREDSPP_SUBMIT_TYPE {}
 impl ::core::clone::Clone for CREDSPP_SUBMIT_TYPE {
     fn clone(&self) -> Self {
@@ -1455,24 +1633,6 @@ impl ::core::fmt::Debug for CREDSPP_SUBMIT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREDUIWIN_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUIWIN_GENERIC: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUIWIN_CHECKBOX: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUIWIN_AUTHPACKAGE_ONLY: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUIWIN_IN_CRED_ONLY: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUIWIN_ENUMERATE_ADMINS: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUIWIN_ENUMERATE_CURRENT_USER: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = CREDUIWIN_FLAGS(268435456u32);
 impl ::core::marker::Copy for CREDUIWIN_FLAGS {}
 impl ::core::clone::Clone for CREDUIWIN_FLAGS {
     fn clone(&self) -> Self {
@@ -1529,40 +1689,6 @@ impl ::core::ops::Not for CREDUIWIN_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREDUI_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_ALWAYS_SHOW_UI: CREDUI_FLAGS = CREDUI_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_COMPLETE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_DO_NOT_PERSIST: CREDUI_FLAGS = CREDUI_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_EXCLUDE_CERTIFICATES: CREDUI_FLAGS = CREDUI_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_EXPECT_CONFIRMATION: CREDUI_FLAGS = CREDUI_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_GENERIC_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_INCORRECT_PASSWORD: CREDUI_FLAGS = CREDUI_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_KEEP_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_PASSWORD_ONLY_OK: CREDUI_FLAGS = CREDUI_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_PERSIST: CREDUI_FLAGS = CREDUI_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_REQUEST_ADMINISTRATOR: CREDUI_FLAGS = CREDUI_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_REQUIRE_CERTIFICATE: CREDUI_FLAGS = CREDUI_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_REQUIRE_SMARTCARD: CREDUI_FLAGS = CREDUI_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_SERVER_CREDENTIAL: CREDUI_FLAGS = CREDUI_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_SHOW_SAVE_CHECK_BOX: CREDUI_FLAGS = CREDUI_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_USERNAME_TARGET_CREDENTIALS: CREDUI_FLAGS = CREDUI_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CREDUI_FLAGS_VALIDATE_USERNAME: CREDUI_FLAGS = CREDUI_FLAGS(1024u32);
 impl ::core::marker::Copy for CREDUI_FLAGS {}
 impl ::core::clone::Clone for CREDUI_FLAGS {
     fn clone(&self) -> Self {
@@ -1619,8 +1745,6 @@ impl ::core::ops::Not for CREDUI_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_ENUMERATE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_ENUMERATE_ALL_CREDENTIALS: CRED_ENUMERATE_FLAGS = CRED_ENUMERATE_FLAGS(1u32);
 impl ::core::marker::Copy for CRED_ENUMERATE_FLAGS {}
 impl ::core::clone::Clone for CRED_ENUMERATE_FLAGS {
     fn clone(&self) -> Self {
@@ -1677,26 +1801,6 @@ impl ::core::ops::Not for CRED_ENUMERATE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_FLAGS_PASSWORD_FOR_CERT: CRED_FLAGS = CRED_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_FLAGS_PROMPT_NOW: CRED_FLAGS = CRED_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_FLAGS_USERNAME_TARGET: CRED_FLAGS = CRED_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_FLAGS_OWF_CRED_BLOB: CRED_FLAGS = CRED_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_FLAGS_REQUIRE_CONFIRMATION: CRED_FLAGS = CRED_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_FLAGS_WILDCARD_MATCH: CRED_FLAGS = CRED_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_FLAGS_VSM_PROTECTED: CRED_FLAGS = CRED_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_FLAGS_NGC_CERT: CRED_FLAGS = CRED_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_FLAGS_VALID_FLAGS: CRED_FLAGS = CRED_FLAGS(61695u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_FLAGS_VALID_INPUT_FLAGS: CRED_FLAGS = CRED_FLAGS(61599u32);
 impl ::core::marker::Copy for CRED_FLAGS {}
 impl ::core::clone::Clone for CRED_FLAGS {
     fn clone(&self) -> Self {
@@ -1753,16 +1857,6 @@ impl ::core::ops::Not for CRED_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_MARSHAL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CertCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const UsernameTargetCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = CRED_MARSHAL_TYPE(5i32);
 impl ::core::marker::Copy for CRED_MARSHAL_TYPE {}
 impl ::core::clone::Clone for CRED_MARSHAL_TYPE {
     fn clone(&self) -> Self {
@@ -1786,14 +1880,6 @@ impl ::core::fmt::Debug for CRED_MARSHAL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_PACK_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_PACK_PROTECTED_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_PACK_WOW_BUFFER: CRED_PACK_FLAGS = CRED_PACK_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_PACK_GENERIC_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_PACK_ID_PROVIDER_CREDENTIALS: CRED_PACK_FLAGS = CRED_PACK_FLAGS(8u32);
 impl ::core::marker::Copy for CRED_PACK_FLAGS {}
 impl ::core::clone::Clone for CRED_PACK_FLAGS {
     fn clone(&self) -> Self {
@@ -1850,14 +1936,6 @@ impl ::core::ops::Not for CRED_PACK_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_PERSIST(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_PERSIST_NONE: CRED_PERSIST = CRED_PERSIST(0u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_PERSIST_SESSION: CRED_PERSIST = CRED_PERSIST(1u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_PERSIST_LOCAL_MACHINE: CRED_PERSIST = CRED_PERSIST(2u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_PERSIST_ENTERPRISE: CRED_PERSIST = CRED_PERSIST(3u32);
 impl ::core::marker::Copy for CRED_PERSIST {}
 impl ::core::clone::Clone for CRED_PERSIST {
     fn clone(&self) -> Self {
@@ -1881,14 +1959,6 @@ impl ::core::fmt::Debug for CRED_PERSIST {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_PROTECTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CredUnprotected: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CredUserProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CredTrustedProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CredForSystemProtection: CRED_PROTECTION_TYPE = CRED_PROTECTION_TYPE(3i32);
 impl ::core::marker::Copy for CRED_PROTECTION_TYPE {}
 impl ::core::clone::Clone for CRED_PROTECTION_TYPE {
     fn clone(&self) -> Self {
@@ -1912,22 +1982,6 @@ impl ::core::fmt::Debug for CRED_PROTECTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRED_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_TYPE_GENERIC: CRED_TYPE = CRED_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_TYPE_DOMAIN_PASSWORD: CRED_TYPE = CRED_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_TYPE_DOMAIN_CERTIFICATE: CRED_TYPE = CRED_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_TYPE_DOMAIN_VISIBLE_PASSWORD: CRED_TYPE = CRED_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_TYPE_GENERIC_CERTIFICATE: CRED_TYPE = CRED_TYPE(5u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_TYPE_DOMAIN_EXTENDED: CRED_TYPE = CRED_TYPE(6u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_TYPE_MAXIMUM: CRED_TYPE = CRED_TYPE(7u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const CRED_TYPE_MAXIMUM_EX: CRED_TYPE = CRED_TYPE(1007u32);
 impl ::core::marker::Copy for CRED_TYPE {}
 impl ::core::clone::Clone for CRED_TYPE {
     fn clone(&self) -> Self {
@@ -1951,22 +2005,6 @@ impl ::core::fmt::Debug for CRED_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyCredentialManagerOperationErrorStates(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateNone: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(0i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateDeviceJoinFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(1i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateTokenFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(2i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateCertificateFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(4i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateRemoteSessionFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(8i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStatePolicyFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(16i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStateHardwareFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(32i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerOperationErrorStatePinExistsFailure: KeyCredentialManagerOperationErrorStates = KeyCredentialManagerOperationErrorStates(64i32);
 impl ::core::marker::Copy for KeyCredentialManagerOperationErrorStates {}
 impl ::core::clone::Clone for KeyCredentialManagerOperationErrorStates {
     fn clone(&self) -> Self {
@@ -2023,12 +2061,6 @@ impl ::core::ops::Not for KeyCredentialManagerOperationErrorStates {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyCredentialManagerOperationType(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerProvisioning: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(0i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerPinChange: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(1i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const KeyCredentialManagerPinReset: KeyCredentialManagerOperationType = KeyCredentialManagerOperationType(2i32);
 impl ::core::marker::Copy for KeyCredentialManagerOperationType {}
 impl ::core::clone::Clone for KeyCredentialManagerOperationType {
     fn clone(&self) -> Self {
@@ -2052,12 +2084,6 @@ impl ::core::fmt::Debug for KeyCredentialManagerOperationType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct READER_SEL_REQUEST_MATCH_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const RSR_MATCH_TYPE_READER_AND_CONTAINER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const RSR_MATCH_TYPE_SERIAL_NUMBER: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const RSR_MATCH_TYPE_ALL_CARDS: READER_SEL_REQUEST_MATCH_TYPE = READER_SEL_REQUEST_MATCH_TYPE(3i32);
 impl ::core::marker::Copy for READER_SEL_REQUEST_MATCH_TYPE {}
 impl ::core::clone::Clone for READER_SEL_REQUEST_MATCH_TYPE {
     fn clone(&self) -> Self {
@@ -2081,10 +2107,6 @@ impl ::core::fmt::Debug for READER_SEL_REQUEST_MATCH_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCARD_SCOPE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_SCOPE_USER: SCARD_SCOPE = SCARD_SCOPE(0u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_SCOPE_SYSTEM: SCARD_SCOPE = SCARD_SCOPE(2u32);
 impl ::core::marker::Copy for SCARD_SCOPE {}
 impl ::core::clone::Clone for SCARD_SCOPE {
     fn clone(&self) -> Self {
@@ -2108,28 +2130,6 @@ impl ::core::fmt::Debug for SCARD_SCOPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCARD_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_STATE_UNAWARE: SCARD_STATE = SCARD_STATE(0u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_STATE_IGNORE: SCARD_STATE = SCARD_STATE(1u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_STATE_UNAVAILABLE: SCARD_STATE = SCARD_STATE(8u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_STATE_EMPTY: SCARD_STATE = SCARD_STATE(16u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_STATE_PRESENT: SCARD_STATE = SCARD_STATE(32u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_STATE_ATRMATCH: SCARD_STATE = SCARD_STATE(64u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_STATE_EXCLUSIVE: SCARD_STATE = SCARD_STATE(128u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_STATE_INUSE: SCARD_STATE = SCARD_STATE(256u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_STATE_MUTE: SCARD_STATE = SCARD_STATE(512u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_STATE_CHANGED: SCARD_STATE = SCARD_STATE(2u32);
-#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
-pub const SCARD_STATE_UNKNOWN: SCARD_STATE = SCARD_STATE(4u32);
 impl ::core::marker::Copy for SCARD_STATE {}
 impl ::core::clone::Clone for SCARD_STATE {
     fn clone(&self) -> Self {

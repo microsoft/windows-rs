@@ -242,6 +242,12 @@ pub const DFS_FORCE_REMOVE: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(0i32);
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(2i32);
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(1i32);
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub const DFS_PROPERTY_FLAG_ABDE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub const DFS_PROPERTY_FLAG_CLUSTER_ENABLED: u32 = 16u32;
@@ -292,6 +298,18 @@ pub const DFS_VOLUME_STATE_RESYNCHRONIZE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub const DFS_VOLUME_STATE_STANDBY: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+pub const DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+pub const DfsGlobalLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(-1i32);
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+pub const DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+pub const DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
+pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub const FSCTL_DFS_BASE: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
 pub const FSCTL_DFS_GET_PKT_ENTRY_STATE: u32 = 401340u32;
@@ -305,12 +323,6 @@ pub const NET_DFS_SETDC_TIMEOUT: u32 = 1u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DFS_NAMESPACE_VERSION_ORIGIN(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(0i32);
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(1i32);
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(2i32);
 impl ::core::marker::Copy for DFS_NAMESPACE_VERSION_ORIGIN {}
 impl ::core::clone::Clone for DFS_NAMESPACE_VERSION_ORIGIN {
     fn clone(&self) -> Self {
@@ -334,18 +346,6 @@ impl ::core::fmt::Debug for DFS_NAMESPACE_VERSION_ORIGIN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DFS_TARGET_PRIORITY_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(-1i32);
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-pub const DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-pub const DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-pub const DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Storage_DistributedFileSystem\"`*"]
-pub const DfsGlobalLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(4i32);
 impl ::core::marker::Copy for DFS_TARGET_PRIORITY_CLASS {}
 impl ::core::clone::Clone for DFS_TARGET_PRIORITY_CLASS {
     fn clone(&self) -> Self {

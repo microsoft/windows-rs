@@ -237,6 +237,12 @@ pub struct IReferenceClockTimerControl_Vtbl {
     pub GetDefaultTimerResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimerresolution: *mut i64) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
+pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
+#[doc = "*Required features: `\"Win32_Media\"`*"]
+pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
+#[doc = "*Required features: `\"Win32_Media\"`*"]
+pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(4121u32);
+#[doc = "*Required features: `\"Win32_Media\"`*"]
 pub const JOYERR_BASE: u32 = 160u32;
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 pub const MAXERRORLENGTH: u32 = 256u32;
@@ -442,12 +448,6 @@ pub const WAVERR_BASE: u32 = 32u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Media\"`*"]
-pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(4121u32);
-#[doc = "*Required features: `\"Win32_Media\"`*"]
-pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
-#[doc = "*Required features: `\"Win32_Media\"`*"]
-pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
 impl ::core::marker::Copy for TIMECODE_SAMPLE_FLAGS {}
 impl ::core::clone::Clone for TIMECODE_SAMPLE_FLAGS {
     fn clone(&self) -> Self {

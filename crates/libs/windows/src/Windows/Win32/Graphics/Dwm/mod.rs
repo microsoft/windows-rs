@@ -280,9 +280,133 @@ pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *
     DwmUpdateThumbnailProperties(hthumbnailid, ptnproperties).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMFLIP3D_DEFAULT: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMFLIP3D_EXCLUDEABOVE: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMFLIP3D_EXCLUDEBELOW: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMFLIP3D_LAST: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMNCRP_DISABLED: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMNCRP_ENABLED: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMNCRP_LAST: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMNCRP_USEWINDOWSTYLE: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSBT_AUTO: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSBT_MAINWINDOW: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSBT_NONE: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSBT_TABBEDWINDOW: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSBT_TRANSIENTWINDOW: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSC_ALL: DWM_SHOWCONTACT = DWM_SHOWCONTACT(4294967295u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSC_DOWN: DWM_SHOWCONTACT = DWM_SHOWCONTACT(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSC_DRAG: DWM_SHOWCONTACT = DWM_SHOWCONTACT(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSC_HOLD: DWM_SHOWCONTACT = DWM_SHOWCONTACT(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSC_NONE: DWM_SHOWCONTACT = DWM_SHOWCONTACT(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSC_PENBARREL: DWM_SHOWCONTACT = DWM_SHOWCONTACT(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMSC_UP: DWM_SHOWCONTACT = DWM_SHOWCONTACT(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTRANSITION_OWNEDWINDOW_NULL: DWMTRANSITION_OWNEDWINDOW_TARGET = DWMTRANSITION_OWNEDWINDOW_TARGET(-1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTRANSITION_OWNEDWINDOW_REPOSITION: DWMTRANSITION_OWNEDWINDOW_TARGET = DWMTRANSITION_OWNEDWINDOW_TARGET(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTWR_APP_COMPAT: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(512i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTWR_GROUP_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(256i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTWR_IMPLEMENTED_BY_SYSTEM: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTWR_NONE: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTWR_TABBING_ENABLED: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(64i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTWR_USER_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(128i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTWR_WINDOW_DWM_ATTRIBUTES: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTWR_WINDOW_MARGINS: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(32i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTWR_WINDOW_REGION: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTWR_WINDOW_RELATIONSHIP: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMTWR_WINDOW_STYLES: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_ALLOW_NCPAINT: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_BORDER_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(34i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_CAPTION_BUTTON_BOUNDS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_CAPTION_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(35i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_CLOAK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(13i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_CLOAKED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(14i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_COLOR_DEFAULT: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWMWA_COLOR_NONE: u32 = 4294967294u32;
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_DISALLOW_PEEK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(11i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_EXCLUDED_FROM_PEEK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(12i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_EXTENDED_FRAME_BOUNDS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_FLIP3D_POLICY: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_FORCE_ICONIC_REPRESENTATION: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_FREEZE_REPRESENTATION: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(15i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_HAS_ICONIC_BITMAP: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_LAST: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(39i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_NCRENDERING_ENABLED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_NCRENDERING_POLICY: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_NONCLIENT_RTL_LAYOUT: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_PASSIVE_UPDATE_MODE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_SYSTEMBACKDROP_TYPE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(38i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_TEXT_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(36i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_TRANSITIONS_FORCEDISABLED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_USE_HOSTBACKDROPBRUSH: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(17i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_USE_IMMERSIVE_DARK_MODE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(20i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_VISIBLE_FRAME_BORDER_THICKNESS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(37i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWA_WINDOW_CORNER_PREFERENCE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(33i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWCP_DEFAULT: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWCP_DONOTROUND: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWCP_ROUND: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWMWCP_ROUNDSMALL: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_BB_BLURREGION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
@@ -304,6 +428,12 @@ pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_SIT_DISPLAYFRAME: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWM_SOURCE_FRAME_SAMPLING_COVERAGE: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWM_SOURCE_FRAME_SAMPLING_LAST: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_TNP_OPACITY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_TNP_RECTDESTINATION: u32 = 1u32;
@@ -314,6 +444,28 @@ pub const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const DWM_TNP_VISIBLE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const GT_PEN_DOUBLETAP: GESTURE_TYPE = GESTURE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const GT_PEN_PRESSANDHOLD: GESTURE_TYPE = GESTURE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const GT_PEN_PRESSANDHOLDABORT: GESTURE_TYPE = GESTURE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const GT_PEN_RIGHTTAP: GESTURE_TYPE = GESTURE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const GT_PEN_TAP: GESTURE_TYPE = GESTURE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const GT_TOUCH_DOUBLETAP: GESTURE_TYPE = GESTURE_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const GT_TOUCH_PRESSANDHOLD: GESTURE_TYPE = GESTURE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = GESTURE_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = GESTURE_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = GESTURE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
+pub const GT_TOUCH_TAP: GESTURE_TYPE = GESTURE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const c_DwmMaxAdapters: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
 pub const c_DwmMaxMonitors: u32 = 16u32;
@@ -323,14 +475,6 @@ pub const c_DwmMaxQueuedBuffers: u32 = 8u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWMFLIP3DWINDOWPOLICY(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMFLIP3D_DEFAULT: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMFLIP3D_EXCLUDEBELOW: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMFLIP3D_EXCLUDEABOVE: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMFLIP3D_LAST: DWMFLIP3DWINDOWPOLICY = DWMFLIP3DWINDOWPOLICY(3i32);
 impl ::core::marker::Copy for DWMFLIP3DWINDOWPOLICY {}
 impl ::core::clone::Clone for DWMFLIP3DWINDOWPOLICY {
     fn clone(&self) -> Self {
@@ -354,14 +498,6 @@ impl ::core::fmt::Debug for DWMFLIP3DWINDOWPOLICY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWMNCRENDERINGPOLICY(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMNCRP_USEWINDOWSTYLE: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMNCRP_DISABLED: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMNCRP_ENABLED: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMNCRP_LAST: DWMNCRENDERINGPOLICY = DWMNCRENDERINGPOLICY(3i32);
 impl ::core::marker::Copy for DWMNCRENDERINGPOLICY {}
 impl ::core::clone::Clone for DWMNCRENDERINGPOLICY {
     fn clone(&self) -> Self {
@@ -385,10 +521,6 @@ impl ::core::fmt::Debug for DWMNCRENDERINGPOLICY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWMTRANSITION_OWNEDWINDOW_TARGET(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTRANSITION_OWNEDWINDOW_NULL: DWMTRANSITION_OWNEDWINDOW_TARGET = DWMTRANSITION_OWNEDWINDOW_TARGET(-1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTRANSITION_OWNEDWINDOW_REPOSITION: DWMTRANSITION_OWNEDWINDOW_TARGET = DWMTRANSITION_OWNEDWINDOW_TARGET(0i32);
 impl ::core::marker::Copy for DWMTRANSITION_OWNEDWINDOW_TARGET {}
 impl ::core::clone::Clone for DWMTRANSITION_OWNEDWINDOW_TARGET {
     fn clone(&self) -> Self {
@@ -412,56 +544,6 @@ impl ::core::fmt::Debug for DWMTRANSITION_OWNEDWINDOW_TARGET {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWMWINDOWATTRIBUTE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_NCRENDERING_ENABLED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_NCRENDERING_POLICY: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_TRANSITIONS_FORCEDISABLED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_ALLOW_NCPAINT: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_CAPTION_BUTTON_BOUNDS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_NONCLIENT_RTL_LAYOUT: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_FORCE_ICONIC_REPRESENTATION: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_FLIP3D_POLICY: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_EXTENDED_FRAME_BOUNDS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_HAS_ICONIC_BITMAP: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_DISALLOW_PEEK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_EXCLUDED_FROM_PEEK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_CLOAK: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_CLOAKED: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_FREEZE_REPRESENTATION: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_PASSIVE_UPDATE_MODE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_USE_HOSTBACKDROPBRUSH: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_USE_IMMERSIVE_DARK_MODE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_WINDOW_CORNER_PREFERENCE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(33i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_BORDER_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(34i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_CAPTION_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(35i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_TEXT_COLOR: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(36i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_VISIBLE_FRAME_BORDER_THICKNESS: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(37i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_SYSTEMBACKDROP_TYPE: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(38i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWA_LAST: DWMWINDOWATTRIBUTE = DWMWINDOWATTRIBUTE(39i32);
 impl ::core::marker::Copy for DWMWINDOWATTRIBUTE {}
 impl ::core::clone::Clone for DWMWINDOWATTRIBUTE {
     fn clone(&self) -> Self {
@@ -485,20 +567,6 @@ impl ::core::fmt::Debug for DWMWINDOWATTRIBUTE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWM_SHOWCONTACT(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSC_DOWN: DWM_SHOWCONTACT = DWM_SHOWCONTACT(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSC_UP: DWM_SHOWCONTACT = DWM_SHOWCONTACT(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSC_DRAG: DWM_SHOWCONTACT = DWM_SHOWCONTACT(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSC_HOLD: DWM_SHOWCONTACT = DWM_SHOWCONTACT(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSC_PENBARREL: DWM_SHOWCONTACT = DWM_SHOWCONTACT(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSC_NONE: DWM_SHOWCONTACT = DWM_SHOWCONTACT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSC_ALL: DWM_SHOWCONTACT = DWM_SHOWCONTACT(4294967295u32);
 impl ::core::marker::Copy for DWM_SHOWCONTACT {}
 impl ::core::clone::Clone for DWM_SHOWCONTACT {
     fn clone(&self) -> Self {
@@ -555,12 +623,6 @@ impl ::core::ops::Not for DWM_SHOWCONTACT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWM_SOURCE_FRAME_SAMPLING(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWM_SOURCE_FRAME_SAMPLING_POINT: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWM_SOURCE_FRAME_SAMPLING_COVERAGE: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWM_SOURCE_FRAME_SAMPLING_LAST: DWM_SOURCE_FRAME_SAMPLING = DWM_SOURCE_FRAME_SAMPLING(2i32);
 impl ::core::marker::Copy for DWM_SOURCE_FRAME_SAMPLING {}
 impl ::core::clone::Clone for DWM_SOURCE_FRAME_SAMPLING {
     fn clone(&self) -> Self {
@@ -584,16 +646,6 @@ impl ::core::fmt::Debug for DWM_SOURCE_FRAME_SAMPLING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWM_SYSTEMBACKDROP_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSBT_AUTO: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSBT_NONE: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSBT_MAINWINDOW: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSBT_TRANSIENTWINDOW: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMSBT_TABBEDWINDOW: DWM_SYSTEMBACKDROP_TYPE = DWM_SYSTEMBACKDROP_TYPE(4i32);
 impl ::core::marker::Copy for DWM_SYSTEMBACKDROP_TYPE {}
 impl ::core::clone::Clone for DWM_SYSTEMBACKDROP_TYPE {
     fn clone(&self) -> Self {
@@ -617,28 +669,6 @@ impl ::core::fmt::Debug for DWM_SYSTEMBACKDROP_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWM_TAB_WINDOW_REQUIREMENTS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTWR_NONE: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTWR_IMPLEMENTED_BY_SYSTEM: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTWR_WINDOW_RELATIONSHIP: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTWR_WINDOW_STYLES: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTWR_WINDOW_REGION: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTWR_WINDOW_DWM_ATTRIBUTES: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTWR_WINDOW_MARGINS: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(32i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTWR_TABBING_ENABLED: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(64i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTWR_USER_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(128i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTWR_GROUP_POLICY: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(256i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMTWR_APP_COMPAT: DWM_TAB_WINDOW_REQUIREMENTS = DWM_TAB_WINDOW_REQUIREMENTS(512i32);
 impl ::core::marker::Copy for DWM_TAB_WINDOW_REQUIREMENTS {}
 impl ::core::clone::Clone for DWM_TAB_WINDOW_REQUIREMENTS {
     fn clone(&self) -> Self {
@@ -695,14 +725,6 @@ impl ::core::ops::Not for DWM_TAB_WINDOW_REQUIREMENTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DWM_WINDOW_CORNER_PREFERENCE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWCP_DEFAULT: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWCP_DONOTROUND: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWCP_ROUND: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const DWMWCP_ROUNDSMALL: DWM_WINDOW_CORNER_PREFERENCE = DWM_WINDOW_CORNER_PREFERENCE(3i32);
 impl ::core::marker::Copy for DWM_WINDOW_CORNER_PREFERENCE {}
 impl ::core::clone::Clone for DWM_WINDOW_CORNER_PREFERENCE {
     fn clone(&self) -> Self {
@@ -726,28 +748,6 @@ impl ::core::fmt::Debug for DWM_WINDOW_CORNER_PREFERENCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GESTURE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const GT_PEN_TAP: GESTURE_TYPE = GESTURE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const GT_PEN_DOUBLETAP: GESTURE_TYPE = GESTURE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const GT_PEN_RIGHTTAP: GESTURE_TYPE = GESTURE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const GT_PEN_PRESSANDHOLD: GESTURE_TYPE = GESTURE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const GT_PEN_PRESSANDHOLDABORT: GESTURE_TYPE = GESTURE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const GT_TOUCH_TAP: GESTURE_TYPE = GESTURE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const GT_TOUCH_DOUBLETAP: GESTURE_TYPE = GESTURE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const GT_TOUCH_RIGHTTAP: GESTURE_TYPE = GESTURE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const GT_TOUCH_PRESSANDHOLD: GESTURE_TYPE = GESTURE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const GT_TOUCH_PRESSANDHOLDABORT: GESTURE_TYPE = GESTURE_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Dwm\"`*"]
-pub const GT_TOUCH_PRESSANDTAP: GESTURE_TYPE = GESTURE_TYPE(10i32);
 impl ::core::marker::Copy for GESTURE_TYPE {}
 impl ::core::clone::Clone for GESTURE_TYPE {
     fn clone(&self) -> Self {

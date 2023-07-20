@@ -398,6 +398,30 @@ where
     HttpWaitForDisconnectEx(requestqueuehandle.into_param().abi(), connectionid, reserved, ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null())))
 }
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const CacheRangeChunkSize: HTTP_SERVICE_CONFIG_CACHE_KEY = HTTP_SERVICE_CONFIG_CACHE_KEY(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const CreateRequestQueueMax: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const DelegateRequestDelegateUrlProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = HTTP_DELEGATE_REQUEST_PROPERTY_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const DelegateRequestReservedProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = HTTP_DELEGATE_REQUEST_PROPERTY_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const ExParamTypeErrorHeaders: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const ExParamTypeHttp2SettingsLimits: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const ExParamTypeHttp2Window: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const ExParamTypeHttpPerformance: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const ExParamTypeMax: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const ExParamTypeTlsRestrictions: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const ExParamTypeTlsSessionTicketKeys: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_AUTH_ENABLE_BASIC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_AUTH_ENABLE_DIGEST: u32 = 2u32;
@@ -433,6 +457,10 @@ pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: u32 = 1u32;
 pub const HTTP_DEMAND_CBT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HTTP_INITIALIZE_CONFIG: HTTP_INITIALIZE = HTTP_INITIALIZE(2u32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HTTP_INITIALIZE_SERVER: HTTP_INITIALIZE = HTTP_INITIALIZE(1u32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
@@ -514,6 +542,10 @@ pub const HTTP_RECEIVE_FULL_CHAIN: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = HTTP_RECEIVE_HTTP_REQUEST_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = HTTP_RECEIVE_HTTP_REQUEST_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_RECEIVE_SECURE_CHANNEL_TOKEN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: u32 = 1u32;
@@ -594,15 +626,473 @@ pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const HTTP_VERSION: ::windows_core::PCWSTR = ::windows_core::w!("HTTP/1.0");
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HTTP_503_RESPONSE_VERBOSITY(pub i32);
+pub const HeaderWaitTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = HTTP_SERVICE_CONFIG_TIMEOUT_KEY(1i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const Http503ResponseVerbosityBasic: HTTP_503_RESPONSE_VERBOSITY = HTTP_503_RESPONSE_VERBOSITY(0i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const Http503ResponseVerbosityFull: HTTP_503_RESPONSE_VERBOSITY = HTTP_503_RESPONSE_VERBOSITY(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
 pub const Http503ResponseVerbosityLimited: HTTP_503_RESPONSE_VERBOSITY = HTTP_503_RESPONSE_VERBOSITY(1i32);
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const Http503ResponseVerbosityFull: HTTP_503_RESPONSE_VERBOSITY = HTTP_503_RESPONSE_VERBOSITY(2i32);
+pub const HttpAuthStatusFailure: HTTP_AUTH_STATUS = HTTP_AUTH_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpAuthStatusNotAuthenticated: HTTP_AUTH_STATUS = HTTP_AUTH_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpAuthStatusSuccess: HTTP_AUTH_STATUS = HTTP_AUTH_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpAuthenticationHardeningLegacy: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpAuthenticationHardeningMedium: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpAuthenticationHardeningStrict: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpCachePolicyMaximum: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpCachePolicyNocache: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpCachePolicyTimeToLive: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpCachePolicyUserInvalidates: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpDataChunkFromFileHandle: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpDataChunkFromFragmentCache: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpDataChunkFromFragmentCacheEx: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpDataChunkFromMemory: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpDataChunkMaximum: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpDataChunkTrailers: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpEnabledStateActive: HTTP_ENABLED_STATE = HTTP_ENABLED_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpEnabledStateInactive: HTTP_ENABLED_STATE = HTTP_ENABLED_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpFeatureApiTimings: HTTP_FEATURE_ID = HTTP_FEATURE_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpFeatureDelegateEx: HTTP_FEATURE_ID = HTTP_FEATURE_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpFeatureHttp3: HTTP_FEATURE_ID = HTTP_FEATURE_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpFeatureLast: HTTP_FEATURE_ID = HTTP_FEATURE_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpFeatureResponseTrailers: HTTP_FEATURE_ID = HTTP_FEATURE_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpFeatureUnknown: HTTP_FEATURE_ID = HTTP_FEATURE_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpFeaturemax: HTTP_FEATURE_ID = HTTP_FEATURE_ID(-1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderAccept: HTTP_HEADER_ID = HTTP_HEADER_ID(20i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderAcceptCharset: HTTP_HEADER_ID = HTTP_HEADER_ID(21i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderAcceptEncoding: HTTP_HEADER_ID = HTTP_HEADER_ID(22i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderAcceptLanguage: HTTP_HEADER_ID = HTTP_HEADER_ID(23i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderAcceptRanges: HTTP_HEADER_ID = HTTP_HEADER_ID(20i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderAge: HTTP_HEADER_ID = HTTP_HEADER_ID(21i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderAllow: HTTP_HEADER_ID = HTTP_HEADER_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderAuthorization: HTTP_HEADER_ID = HTTP_HEADER_ID(24i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderCacheControl: HTTP_HEADER_ID = HTTP_HEADER_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderConnection: HTTP_HEADER_ID = HTTP_HEADER_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderContentEncoding: HTTP_HEADER_ID = HTTP_HEADER_ID(13i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderContentLanguage: HTTP_HEADER_ID = HTTP_HEADER_ID(14i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderContentLength: HTTP_HEADER_ID = HTTP_HEADER_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderContentLocation: HTTP_HEADER_ID = HTTP_HEADER_ID(15i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderContentMd5: HTTP_HEADER_ID = HTTP_HEADER_ID(16i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderContentRange: HTTP_HEADER_ID = HTTP_HEADER_ID(17i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderContentType: HTTP_HEADER_ID = HTTP_HEADER_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderCookie: HTTP_HEADER_ID = HTTP_HEADER_ID(25i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderDate: HTTP_HEADER_ID = HTTP_HEADER_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderEtag: HTTP_HEADER_ID = HTTP_HEADER_ID(22i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderExpect: HTTP_HEADER_ID = HTTP_HEADER_ID(26i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderExpires: HTTP_HEADER_ID = HTTP_HEADER_ID(18i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderFrom: HTTP_HEADER_ID = HTTP_HEADER_ID(27i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderHost: HTTP_HEADER_ID = HTTP_HEADER_ID(28i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderIfMatch: HTTP_HEADER_ID = HTTP_HEADER_ID(29i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderIfModifiedSince: HTTP_HEADER_ID = HTTP_HEADER_ID(30i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderIfNoneMatch: HTTP_HEADER_ID = HTTP_HEADER_ID(31i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderIfRange: HTTP_HEADER_ID = HTTP_HEADER_ID(32i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderIfUnmodifiedSince: HTTP_HEADER_ID = HTTP_HEADER_ID(33i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderKeepAlive: HTTP_HEADER_ID = HTTP_HEADER_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderLastModified: HTTP_HEADER_ID = HTTP_HEADER_ID(19i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderLocation: HTTP_HEADER_ID = HTTP_HEADER_ID(23i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderMaxForwards: HTTP_HEADER_ID = HTTP_HEADER_ID(34i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderMaximum: HTTP_HEADER_ID = HTTP_HEADER_ID(41i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderPragma: HTTP_HEADER_ID = HTTP_HEADER_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderProxyAuthenticate: HTTP_HEADER_ID = HTTP_HEADER_ID(24i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderProxyAuthorization: HTTP_HEADER_ID = HTTP_HEADER_ID(35i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderRange: HTTP_HEADER_ID = HTTP_HEADER_ID(37i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderReferer: HTTP_HEADER_ID = HTTP_HEADER_ID(36i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderRequestMaximum: HTTP_HEADER_ID = HTTP_HEADER_ID(41i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderResponseMaximum: HTTP_HEADER_ID = HTTP_HEADER_ID(30i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderRetryAfter: HTTP_HEADER_ID = HTTP_HEADER_ID(25i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderServer: HTTP_HEADER_ID = HTTP_HEADER_ID(26i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderSetCookie: HTTP_HEADER_ID = HTTP_HEADER_ID(27i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderTe: HTTP_HEADER_ID = HTTP_HEADER_ID(38i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderTrailer: HTTP_HEADER_ID = HTTP_HEADER_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderTransferEncoding: HTTP_HEADER_ID = HTTP_HEADER_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderTranslate: HTTP_HEADER_ID = HTTP_HEADER_ID(39i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderUpgrade: HTTP_HEADER_ID = HTTP_HEADER_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderUserAgent: HTTP_HEADER_ID = HTTP_HEADER_ID(40i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderVary: HTTP_HEADER_ID = HTTP_HEADER_ID(28i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderVia: HTTP_HEADER_ID = HTTP_HEADER_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderWarning: HTTP_HEADER_ID = HTTP_HEADER_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpHeaderWwwAuthenticate: HTTP_HEADER_ID = HTTP_HEADER_ID(29i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpLogDataTypeFields: HTTP_LOG_DATA_TYPE = HTTP_LOG_DATA_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpLoggingRolloverDaily: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpLoggingRolloverHourly: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpLoggingRolloverMonthly: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpLoggingRolloverSize: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpLoggingRolloverWeekly: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpLoggingTypeIIS: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpLoggingTypeNCSA: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpLoggingTypeRaw: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpLoggingTypeW3C: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpNone: HTTP_SERVICE_CONFIG_SETTING_KEY = HTTP_SERVICE_CONFIG_SETTING_KEY(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpProtectionLevelEdgeRestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpProtectionLevelRestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpProtectionLevelUnrestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpQosSettingTypeBandwidth: HTTP_QOS_SETTING_TYPE = HTTP_QOS_SETTING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpQosSettingTypeConnectionLimit: HTTP_QOS_SETTING_TYPE = HTTP_QOS_SETTING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpQosSettingTypeFlowRate: HTTP_QOS_SETTING_TYPE = HTTP_QOS_SETTING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestAuthTypeBasic: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestAuthTypeDigest: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestAuthTypeKerberos: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestAuthTypeNTLM: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestAuthTypeNegotiate: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestAuthTypeNone: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestInfoTypeAuth: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestInfoTypeChannelBind: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestInfoTypeQuicStats: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestInfoTypeRequestSizing: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestInfoTypeRequestTiming: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestInfoTypeSslProtocol: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestInfoTypeSslTokenBinding: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestInfoTypeSslTokenBindingDraft: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestInfoTypeTcpInfoV0: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestInfoTypeTcpInfoV1: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestPropertyIsb: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestPropertyQuicApiTimings: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(7i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestPropertyQuicStats: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestPropertySni: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestPropertyStreamError: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestPropertyTcpInfoV0: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestPropertyTcpInfoV1: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestPropertyWskApiTimings: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(6i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestSizingTypeHeaders: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestSizingTypeMax: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestSizingTypeTlsHandshakeLeg1ClientData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestSizingTypeTlsHandshakeLeg1ServerData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestSizingTypeTlsHandshakeLeg2ClientData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestSizingTypeTlsHandshakeLeg2ServerData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeConnectionStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeDataStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeHttp2HeaderDecodeEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeHttp2HeaderDecodeStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeHttp2StreamStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeHttp3HeaderDecodeEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(29i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeHttp3HeaderDecodeStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(28i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeHttp3StreamStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(27i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeMax: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(30i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestDeliveredForDelegation: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(23i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestDeliveredForIO: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(26i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestDeliveredForInspection: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(20i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestHeaderParseEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestHeaderParseStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestQueuedForDelegation: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(22i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestQueuedForIO: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(25i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestQueuedForInspection: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(19i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestReturnedAfterDelegation: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(24i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestReturnedAfterInspection: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(21i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestRoutingEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeRequestRoutingStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeTlsAttributesQueryEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeTlsAttributesQueryStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeTlsCertificateLoadEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeTlsCertificateLoadStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeTlsClientCertQueryEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeTlsClientCertQueryStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeTlsHandshakeLeg1End: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeTlsHandshakeLeg1Start: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeTlsHandshakeLeg2End: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpRequestTimingTypeTlsHandshakeLeg2Start: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpResponseInfoTypeAuthenticationProperty: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpResponseInfoTypeChannelBind: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpResponseInfoTypeMultipleKnownHeaders: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpResponseInfoTypeQoSProperty: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpSchemeHttp: HTTP_SCHEME = HTTP_SCHEME(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpSchemeHttps: HTTP_SCHEME = HTTP_SCHEME(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpSchemeMaximum: HTTP_SCHEME = HTTP_SCHEME(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServer503VerbosityProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(6i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerAuthenticationProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerBindingProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(7i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerChannelBindProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(10i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerDelegationProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(16i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerExtendedAuthenticationProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(8i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerListenEndpointProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(9i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerLoggingProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerProtectionLevelProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(11i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerQosProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerQueueLengthProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerStateProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServerTimeoutsProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceBindingTypeA: HTTP_SERVICE_BINDING_TYPE = HTTP_SERVICE_BINDING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceBindingTypeNone: HTTP_SERVICE_BINDING_TYPE = HTTP_SERVICE_BINDING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceBindingTypeW: HTTP_SERVICE_BINDING_TYPE = HTTP_SERVICE_BINDING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigCache: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigIPListenList: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigMax: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(13i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigQueryExact: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigQueryMax: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigQueryNext: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigSSLCertInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigSetting: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(7i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigSslCcsCertInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(6i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigSslCcsCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(10i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigSslCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(8i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigSslScopedCcsCertInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(11i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigSslScopedCcsCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(12i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigSslSniCertInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigSslSniCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(9i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigTimeout: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpServiceConfigUrlAclInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpTlsThrottle: HTTP_SERVICE_CONFIG_SETTING_KEY = HTTP_SERVICE_CONFIG_SETTING_KEY(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbCONNECT: HTTP_VERB = HTTP_VERB(10i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbCOPY: HTTP_VERB = HTTP_VERB(13i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbDELETE: HTTP_VERB = HTTP_VERB(8i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbGET: HTTP_VERB = HTTP_VERB(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbHEAD: HTTP_VERB = HTTP_VERB(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbInvalid: HTTP_VERB = HTTP_VERB(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbLOCK: HTTP_VERB = HTTP_VERB(17i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbMKCOL: HTTP_VERB = HTTP_VERB(16i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbMOVE: HTTP_VERB = HTTP_VERB(12i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbMaximum: HTTP_VERB = HTTP_VERB(20i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbOPTIONS: HTTP_VERB = HTTP_VERB(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbPOST: HTTP_VERB = HTTP_VERB(6i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbPROPFIND: HTTP_VERB = HTTP_VERB(14i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbPROPPATCH: HTTP_VERB = HTTP_VERB(15i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbPUT: HTTP_VERB = HTTP_VERB(7i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbSEARCH: HTTP_VERB = HTTP_VERB(19i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbTRACE: HTTP_VERB = HTTP_VERB(9i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbTRACK: HTTP_VERB = HTTP_VERB(11i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbUNLOCK: HTTP_VERB = HTTP_VERB(18i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbUnknown: HTTP_VERB = HTTP_VERB(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const HttpVerbUnparsed: HTTP_VERB = HTTP_VERB(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const IdleConnectionTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = HTTP_SERVICE_CONFIG_TIMEOUT_KEY(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const MaxCacheResponseSize: HTTP_SERVICE_CONFIG_CACHE_KEY = HTTP_SERVICE_CONFIG_CACHE_KEY(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const PerformanceParamAggressiveICW: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const PerformanceParamDecryptOnSspiThread: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const PerformanceParamMax: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const PerformanceParamMaxConcurrentClientStreams: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const PerformanceParamMaxReceiveBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const PerformanceParamMaxSendBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+pub const PerformanceParamSendBufferingFlags: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HTTP_503_RESPONSE_VERBOSITY(pub i32);
 impl ::core::marker::Copy for HTTP_503_RESPONSE_VERBOSITY {}
 impl ::core::clone::Clone for HTTP_503_RESPONSE_VERBOSITY {
     fn clone(&self) -> Self {
@@ -626,12 +1116,6 @@ impl ::core::fmt::Debug for HTTP_503_RESPONSE_VERBOSITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_AUTHENTICATION_HARDENING_LEVELS(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpAuthenticationHardeningLegacy: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpAuthenticationHardeningMedium: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpAuthenticationHardeningStrict: HTTP_AUTHENTICATION_HARDENING_LEVELS = HTTP_AUTHENTICATION_HARDENING_LEVELS(2i32);
 impl ::core::marker::Copy for HTTP_AUTHENTICATION_HARDENING_LEVELS {}
 impl ::core::clone::Clone for HTTP_AUTHENTICATION_HARDENING_LEVELS {
     fn clone(&self) -> Self {
@@ -655,12 +1139,6 @@ impl ::core::fmt::Debug for HTTP_AUTHENTICATION_HARDENING_LEVELS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_AUTH_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpAuthStatusSuccess: HTTP_AUTH_STATUS = HTTP_AUTH_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpAuthStatusNotAuthenticated: HTTP_AUTH_STATUS = HTTP_AUTH_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpAuthStatusFailure: HTTP_AUTH_STATUS = HTTP_AUTH_STATUS(2i32);
 impl ::core::marker::Copy for HTTP_AUTH_STATUS {}
 impl ::core::clone::Clone for HTTP_AUTH_STATUS {
     fn clone(&self) -> Self {
@@ -684,14 +1162,6 @@ impl ::core::fmt::Debug for HTTP_AUTH_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_CACHE_POLICY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpCachePolicyNocache: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpCachePolicyUserInvalidates: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpCachePolicyTimeToLive: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpCachePolicyMaximum: HTTP_CACHE_POLICY_TYPE = HTTP_CACHE_POLICY_TYPE(3i32);
 impl ::core::marker::Copy for HTTP_CACHE_POLICY_TYPE {}
 impl ::core::clone::Clone for HTTP_CACHE_POLICY_TYPE {
     fn clone(&self) -> Self {
@@ -715,10 +1185,6 @@ impl ::core::fmt::Debug for HTTP_CACHE_POLICY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const CreateRequestQueueExternalIdProperty: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const CreateRequestQueueMax: HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID(2i32);
 impl ::core::marker::Copy for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {}
 impl ::core::clone::Clone for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -742,18 +1208,6 @@ impl ::core::fmt::Debug for HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_DATA_CHUNK_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpDataChunkFromMemory: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpDataChunkFromFileHandle: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpDataChunkFromFragmentCache: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpDataChunkFromFragmentCacheEx: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpDataChunkTrailers: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpDataChunkMaximum: HTTP_DATA_CHUNK_TYPE = HTTP_DATA_CHUNK_TYPE(5i32);
 impl ::core::marker::Copy for HTTP_DATA_CHUNK_TYPE {}
 impl ::core::clone::Clone for HTTP_DATA_CHUNK_TYPE {
     fn clone(&self) -> Self {
@@ -777,10 +1231,6 @@ impl ::core::fmt::Debug for HTTP_DATA_CHUNK_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_DELEGATE_REQUEST_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const DelegateRequestReservedProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = HTTP_DELEGATE_REQUEST_PROPERTY_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const DelegateRequestDelegateUrlProperty: HTTP_DELEGATE_REQUEST_PROPERTY_ID = HTTP_DELEGATE_REQUEST_PROPERTY_ID(1i32);
 impl ::core::marker::Copy for HTTP_DELEGATE_REQUEST_PROPERTY_ID {}
 impl ::core::clone::Clone for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
     fn clone(&self) -> Self {
@@ -804,10 +1254,6 @@ impl ::core::fmt::Debug for HTTP_DELEGATE_REQUEST_PROPERTY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_ENABLED_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpEnabledStateActive: HTTP_ENABLED_STATE = HTTP_ENABLED_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpEnabledStateInactive: HTTP_ENABLED_STATE = HTTP_ENABLED_STATE(1i32);
 impl ::core::marker::Copy for HTTP_ENABLED_STATE {}
 impl ::core::clone::Clone for HTTP_ENABLED_STATE {
     fn clone(&self) -> Self {
@@ -831,20 +1277,6 @@ impl ::core::fmt::Debug for HTTP_ENABLED_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_FEATURE_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpFeatureUnknown: HTTP_FEATURE_ID = HTTP_FEATURE_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpFeatureResponseTrailers: HTTP_FEATURE_ID = HTTP_FEATURE_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpFeatureApiTimings: HTTP_FEATURE_ID = HTTP_FEATURE_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpFeatureDelegateEx: HTTP_FEATURE_ID = HTTP_FEATURE_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpFeatureHttp3: HTTP_FEATURE_ID = HTTP_FEATURE_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpFeatureLast: HTTP_FEATURE_ID = HTTP_FEATURE_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpFeaturemax: HTTP_FEATURE_ID = HTTP_FEATURE_ID(-1i32);
 impl ::core::marker::Copy for HTTP_FEATURE_ID {}
 impl ::core::clone::Clone for HTTP_FEATURE_ID {
     fn clone(&self) -> Self {
@@ -868,114 +1300,6 @@ impl ::core::fmt::Debug for HTTP_FEATURE_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_HEADER_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderCacheControl: HTTP_HEADER_ID = HTTP_HEADER_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderConnection: HTTP_HEADER_ID = HTTP_HEADER_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderDate: HTTP_HEADER_ID = HTTP_HEADER_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderKeepAlive: HTTP_HEADER_ID = HTTP_HEADER_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderPragma: HTTP_HEADER_ID = HTTP_HEADER_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderTrailer: HTTP_HEADER_ID = HTTP_HEADER_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderTransferEncoding: HTTP_HEADER_ID = HTTP_HEADER_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderUpgrade: HTTP_HEADER_ID = HTTP_HEADER_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderVia: HTTP_HEADER_ID = HTTP_HEADER_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderWarning: HTTP_HEADER_ID = HTTP_HEADER_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderAllow: HTTP_HEADER_ID = HTTP_HEADER_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderContentLength: HTTP_HEADER_ID = HTTP_HEADER_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderContentType: HTTP_HEADER_ID = HTTP_HEADER_ID(12i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderContentEncoding: HTTP_HEADER_ID = HTTP_HEADER_ID(13i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderContentLanguage: HTTP_HEADER_ID = HTTP_HEADER_ID(14i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderContentLocation: HTTP_HEADER_ID = HTTP_HEADER_ID(15i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderContentMd5: HTTP_HEADER_ID = HTTP_HEADER_ID(16i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderContentRange: HTTP_HEADER_ID = HTTP_HEADER_ID(17i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderExpires: HTTP_HEADER_ID = HTTP_HEADER_ID(18i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderLastModified: HTTP_HEADER_ID = HTTP_HEADER_ID(19i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderAccept: HTTP_HEADER_ID = HTTP_HEADER_ID(20i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderAcceptCharset: HTTP_HEADER_ID = HTTP_HEADER_ID(21i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderAcceptEncoding: HTTP_HEADER_ID = HTTP_HEADER_ID(22i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderAcceptLanguage: HTTP_HEADER_ID = HTTP_HEADER_ID(23i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderAuthorization: HTTP_HEADER_ID = HTTP_HEADER_ID(24i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderCookie: HTTP_HEADER_ID = HTTP_HEADER_ID(25i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderExpect: HTTP_HEADER_ID = HTTP_HEADER_ID(26i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderFrom: HTTP_HEADER_ID = HTTP_HEADER_ID(27i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderHost: HTTP_HEADER_ID = HTTP_HEADER_ID(28i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderIfMatch: HTTP_HEADER_ID = HTTP_HEADER_ID(29i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderIfModifiedSince: HTTP_HEADER_ID = HTTP_HEADER_ID(30i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderIfNoneMatch: HTTP_HEADER_ID = HTTP_HEADER_ID(31i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderIfRange: HTTP_HEADER_ID = HTTP_HEADER_ID(32i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderIfUnmodifiedSince: HTTP_HEADER_ID = HTTP_HEADER_ID(33i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderMaxForwards: HTTP_HEADER_ID = HTTP_HEADER_ID(34i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderProxyAuthorization: HTTP_HEADER_ID = HTTP_HEADER_ID(35i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderReferer: HTTP_HEADER_ID = HTTP_HEADER_ID(36i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderRange: HTTP_HEADER_ID = HTTP_HEADER_ID(37i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderTe: HTTP_HEADER_ID = HTTP_HEADER_ID(38i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderTranslate: HTTP_HEADER_ID = HTTP_HEADER_ID(39i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderUserAgent: HTTP_HEADER_ID = HTTP_HEADER_ID(40i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderRequestMaximum: HTTP_HEADER_ID = HTTP_HEADER_ID(41i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderAcceptRanges: HTTP_HEADER_ID = HTTP_HEADER_ID(20i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderAge: HTTP_HEADER_ID = HTTP_HEADER_ID(21i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderEtag: HTTP_HEADER_ID = HTTP_HEADER_ID(22i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderLocation: HTTP_HEADER_ID = HTTP_HEADER_ID(23i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderProxyAuthenticate: HTTP_HEADER_ID = HTTP_HEADER_ID(24i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderRetryAfter: HTTP_HEADER_ID = HTTP_HEADER_ID(25i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderServer: HTTP_HEADER_ID = HTTP_HEADER_ID(26i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderSetCookie: HTTP_HEADER_ID = HTTP_HEADER_ID(27i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderVary: HTTP_HEADER_ID = HTTP_HEADER_ID(28i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderWwwAuthenticate: HTTP_HEADER_ID = HTTP_HEADER_ID(29i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderResponseMaximum: HTTP_HEADER_ID = HTTP_HEADER_ID(30i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpHeaderMaximum: HTTP_HEADER_ID = HTTP_HEADER_ID(41i32);
 impl ::core::marker::Copy for HTTP_HEADER_ID {}
 impl ::core::clone::Clone for HTTP_HEADER_ID {
     fn clone(&self) -> Self {
@@ -999,10 +1323,6 @@ impl ::core::fmt::Debug for HTTP_HEADER_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_INITIALIZE(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HTTP_INITIALIZE_CONFIG: HTTP_INITIALIZE = HTTP_INITIALIZE(2u32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HTTP_INITIALIZE_SERVER: HTTP_INITIALIZE = HTTP_INITIALIZE(1u32);
 impl ::core::marker::Copy for HTTP_INITIALIZE {}
 impl ::core::clone::Clone for HTTP_INITIALIZE {
     fn clone(&self) -> Self {
@@ -1059,16 +1379,6 @@ impl ::core::ops::Not for HTTP_INITIALIZE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_LOGGING_ROLLOVER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpLoggingRolloverSize: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpLoggingRolloverDaily: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpLoggingRolloverWeekly: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpLoggingRolloverMonthly: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpLoggingRolloverHourly: HTTP_LOGGING_ROLLOVER_TYPE = HTTP_LOGGING_ROLLOVER_TYPE(4i32);
 impl ::core::marker::Copy for HTTP_LOGGING_ROLLOVER_TYPE {}
 impl ::core::clone::Clone for HTTP_LOGGING_ROLLOVER_TYPE {
     fn clone(&self) -> Self {
@@ -1092,14 +1402,6 @@ impl ::core::fmt::Debug for HTTP_LOGGING_ROLLOVER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_LOGGING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpLoggingTypeW3C: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpLoggingTypeIIS: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpLoggingTypeNCSA: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpLoggingTypeRaw: HTTP_LOGGING_TYPE = HTTP_LOGGING_TYPE(3i32);
 impl ::core::marker::Copy for HTTP_LOGGING_TYPE {}
 impl ::core::clone::Clone for HTTP_LOGGING_TYPE {
     fn clone(&self) -> Self {
@@ -1123,8 +1425,6 @@ impl ::core::fmt::Debug for HTTP_LOGGING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_LOG_DATA_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpLogDataTypeFields: HTTP_LOG_DATA_TYPE = HTTP_LOG_DATA_TYPE(0i32);
 impl ::core::marker::Copy for HTTP_LOG_DATA_TYPE {}
 impl ::core::clone::Clone for HTTP_LOG_DATA_TYPE {
     fn clone(&self) -> Self {
@@ -1148,20 +1448,6 @@ impl ::core::fmt::Debug for HTTP_LOG_DATA_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_PERFORMANCE_PARAM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const PerformanceParamSendBufferingFlags: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const PerformanceParamAggressiveICW: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const PerformanceParamMaxSendBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const PerformanceParamMaxConcurrentClientStreams: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const PerformanceParamMaxReceiveBufferSize: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const PerformanceParamDecryptOnSspiThread: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const PerformanceParamMax: HTTP_PERFORMANCE_PARAM_TYPE = HTTP_PERFORMANCE_PARAM_TYPE(6i32);
 impl ::core::marker::Copy for HTTP_PERFORMANCE_PARAM_TYPE {}
 impl ::core::clone::Clone for HTTP_PERFORMANCE_PARAM_TYPE {
     fn clone(&self) -> Self {
@@ -1185,12 +1471,6 @@ impl ::core::fmt::Debug for HTTP_PERFORMANCE_PARAM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_PROTECTION_LEVEL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpProtectionLevelUnrestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpProtectionLevelEdgeRestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpProtectionLevelRestricted: HTTP_PROTECTION_LEVEL_TYPE = HTTP_PROTECTION_LEVEL_TYPE(2i32);
 impl ::core::marker::Copy for HTTP_PROTECTION_LEVEL_TYPE {}
 impl ::core::clone::Clone for HTTP_PROTECTION_LEVEL_TYPE {
     fn clone(&self) -> Self {
@@ -1214,12 +1494,6 @@ impl ::core::fmt::Debug for HTTP_PROTECTION_LEVEL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_QOS_SETTING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpQosSettingTypeBandwidth: HTTP_QOS_SETTING_TYPE = HTTP_QOS_SETTING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpQosSettingTypeConnectionLimit: HTTP_QOS_SETTING_TYPE = HTTP_QOS_SETTING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpQosSettingTypeFlowRate: HTTP_QOS_SETTING_TYPE = HTTP_QOS_SETTING_TYPE(2i32);
 impl ::core::marker::Copy for HTTP_QOS_SETTING_TYPE {}
 impl ::core::clone::Clone for HTTP_QOS_SETTING_TYPE {
     fn clone(&self) -> Self {
@@ -1243,10 +1517,6 @@ impl ::core::fmt::Debug for HTTP_QOS_SETTING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_RECEIVE_HTTP_REQUEST_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = HTTP_RECEIVE_HTTP_REQUEST_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = HTTP_RECEIVE_HTTP_REQUEST_FLAGS(2u32);
 impl ::core::marker::Copy for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {}
 impl ::core::clone::Clone for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
     fn clone(&self) -> Self {
@@ -1270,18 +1540,6 @@ impl ::core::fmt::Debug for HTTP_RECEIVE_HTTP_REQUEST_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_REQUEST_AUTH_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestAuthTypeNone: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestAuthTypeBasic: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestAuthTypeDigest: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestAuthTypeNTLM: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestAuthTypeNegotiate: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestAuthTypeKerberos: HTTP_REQUEST_AUTH_TYPE = HTTP_REQUEST_AUTH_TYPE(5i32);
 impl ::core::marker::Copy for HTTP_REQUEST_AUTH_TYPE {}
 impl ::core::clone::Clone for HTTP_REQUEST_AUTH_TYPE {
     fn clone(&self) -> Self {
@@ -1305,26 +1563,6 @@ impl ::core::fmt::Debug for HTTP_REQUEST_AUTH_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_REQUEST_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestInfoTypeAuth: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestInfoTypeChannelBind: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestInfoTypeSslProtocol: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestInfoTypeSslTokenBindingDraft: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestInfoTypeSslTokenBinding: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestInfoTypeRequestTiming: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestInfoTypeTcpInfoV0: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestInfoTypeRequestSizing: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestInfoTypeQuicStats: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestInfoTypeTcpInfoV1: HTTP_REQUEST_INFO_TYPE = HTTP_REQUEST_INFO_TYPE(9i32);
 impl ::core::marker::Copy for HTTP_REQUEST_INFO_TYPE {}
 impl ::core::clone::Clone for HTTP_REQUEST_INFO_TYPE {
     fn clone(&self) -> Self {
@@ -1348,22 +1586,6 @@ impl ::core::fmt::Debug for HTTP_REQUEST_INFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_REQUEST_PROPERTY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestPropertyIsb: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestPropertyTcpInfoV0: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestPropertyQuicStats: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestPropertyTcpInfoV1: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestPropertySni: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestPropertyStreamError: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(5i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestPropertyWskApiTimings: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(6i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestPropertyQuicApiTimings: HTTP_REQUEST_PROPERTY = HTTP_REQUEST_PROPERTY(7i32);
 impl ::core::marker::Copy for HTTP_REQUEST_PROPERTY {}
 impl ::core::clone::Clone for HTTP_REQUEST_PROPERTY {
     fn clone(&self) -> Self {
@@ -1387,18 +1609,6 @@ impl ::core::fmt::Debug for HTTP_REQUEST_PROPERTY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_REQUEST_SIZING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestSizingTypeTlsHandshakeLeg1ClientData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestSizingTypeTlsHandshakeLeg1ServerData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestSizingTypeTlsHandshakeLeg2ClientData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestSizingTypeTlsHandshakeLeg2ServerData: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestSizingTypeHeaders: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestSizingTypeMax: HTTP_REQUEST_SIZING_TYPE = HTTP_REQUEST_SIZING_TYPE(5i32);
 impl ::core::marker::Copy for HTTP_REQUEST_SIZING_TYPE {}
 impl ::core::clone::Clone for HTTP_REQUEST_SIZING_TYPE {
     fn clone(&self) -> Self {
@@ -1422,68 +1632,6 @@ impl ::core::fmt::Debug for HTTP_REQUEST_SIZING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_REQUEST_TIMING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeConnectionStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeDataStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeTlsCertificateLoadStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeTlsCertificateLoadEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeTlsHandshakeLeg1Start: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeTlsHandshakeLeg1End: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeTlsHandshakeLeg2Start: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeTlsHandshakeLeg2End: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeTlsAttributesQueryStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeTlsAttributesQueryEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeTlsClientCertQueryStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeTlsClientCertQueryEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeHttp2StreamStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeHttp2HeaderDecodeStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeHttp2HeaderDecodeEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestHeaderParseStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestHeaderParseEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestRoutingStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestRoutingEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestQueuedForInspection: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestDeliveredForInspection: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(20i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestReturnedAfterInspection: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(21i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestQueuedForDelegation: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(22i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestDeliveredForDelegation: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(23i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestReturnedAfterDelegation: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(24i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestQueuedForIO: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(25i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeRequestDeliveredForIO: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(26i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeHttp3StreamStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(27i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeHttp3HeaderDecodeStart: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(28i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeHttp3HeaderDecodeEnd: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(29i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpRequestTimingTypeMax: HTTP_REQUEST_TIMING_TYPE = HTTP_REQUEST_TIMING_TYPE(30i32);
 impl ::core::marker::Copy for HTTP_REQUEST_TIMING_TYPE {}
 impl ::core::clone::Clone for HTTP_REQUEST_TIMING_TYPE {
     fn clone(&self) -> Self {
@@ -1507,14 +1655,6 @@ impl ::core::fmt::Debug for HTTP_REQUEST_TIMING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_RESPONSE_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpResponseInfoTypeMultipleKnownHeaders: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpResponseInfoTypeAuthenticationProperty: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpResponseInfoTypeQoSProperty: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpResponseInfoTypeChannelBind: HTTP_RESPONSE_INFO_TYPE = HTTP_RESPONSE_INFO_TYPE(3i32);
 impl ::core::marker::Copy for HTTP_RESPONSE_INFO_TYPE {}
 impl ::core::clone::Clone for HTTP_RESPONSE_INFO_TYPE {
     fn clone(&self) -> Self {
@@ -1538,12 +1678,6 @@ impl ::core::fmt::Debug for HTTP_RESPONSE_INFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SCHEME(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpSchemeHttp: HTTP_SCHEME = HTTP_SCHEME(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpSchemeHttps: HTTP_SCHEME = HTTP_SCHEME(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpSchemeMaximum: HTTP_SCHEME = HTTP_SCHEME(2i32);
 impl ::core::marker::Copy for HTTP_SCHEME {}
 impl ::core::clone::Clone for HTTP_SCHEME {
     fn clone(&self) -> Self {
@@ -1567,32 +1701,6 @@ impl ::core::fmt::Debug for HTTP_SCHEME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVER_PROPERTY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerAuthenticationProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerLoggingProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerQosProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerTimeoutsProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerQueueLengthProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerStateProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(5i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServer503VerbosityProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(6i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerBindingProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(7i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerExtendedAuthenticationProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(8i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerListenEndpointProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(9i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerChannelBindProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(10i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerProtectionLevelProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(11i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServerDelegationProperty: HTTP_SERVER_PROPERTY = HTTP_SERVER_PROPERTY(16i32);
 impl ::core::marker::Copy for HTTP_SERVER_PROPERTY {}
 impl ::core::clone::Clone for HTTP_SERVER_PROPERTY {
     fn clone(&self) -> Self {
@@ -1616,12 +1724,6 @@ impl ::core::fmt::Debug for HTTP_SERVER_PROPERTY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_BINDING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceBindingTypeNone: HTTP_SERVICE_BINDING_TYPE = HTTP_SERVICE_BINDING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceBindingTypeW: HTTP_SERVICE_BINDING_TYPE = HTTP_SERVICE_BINDING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceBindingTypeA: HTTP_SERVICE_BINDING_TYPE = HTTP_SERVICE_BINDING_TYPE(2i32);
 impl ::core::marker::Copy for HTTP_SERVICE_BINDING_TYPE {}
 impl ::core::clone::Clone for HTTP_SERVICE_BINDING_TYPE {
     fn clone(&self) -> Self {
@@ -1645,10 +1747,6 @@ impl ::core::fmt::Debug for HTTP_SERVICE_BINDING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_CONFIG_CACHE_KEY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const MaxCacheResponseSize: HTTP_SERVICE_CONFIG_CACHE_KEY = HTTP_SERVICE_CONFIG_CACHE_KEY(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const CacheRangeChunkSize: HTTP_SERVICE_CONFIG_CACHE_KEY = HTTP_SERVICE_CONFIG_CACHE_KEY(1i32);
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_CACHE_KEY {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_CACHE_KEY {
     fn clone(&self) -> Self {
@@ -1672,34 +1770,6 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_CACHE_KEY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_CONFIG_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigIPListenList: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigSSLCertInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigUrlAclInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigTimeout: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigCache: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigSslSniCertInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigSslCcsCertInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(6i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigSetting: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigSslCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(8i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigSslSniCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigSslCcsCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(10i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigSslScopedCcsCertInfo: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(11i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigSslScopedCcsCertInfoEx: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(12i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigMax: HTTP_SERVICE_CONFIG_ID = HTTP_SERVICE_CONFIG_ID(13i32);
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_ID {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_ID {
     fn clone(&self) -> Self {
@@ -1723,12 +1793,6 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_CONFIG_QUERY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigQueryExact: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigQueryNext: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpServiceConfigQueryMax: HTTP_SERVICE_CONFIG_QUERY_TYPE = HTTP_SERVICE_CONFIG_QUERY_TYPE(2i32);
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_QUERY_TYPE {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_QUERY_TYPE {
     fn clone(&self) -> Self {
@@ -1752,10 +1816,6 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_QUERY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_CONFIG_SETTING_KEY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpNone: HTTP_SERVICE_CONFIG_SETTING_KEY = HTTP_SERVICE_CONFIG_SETTING_KEY(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpTlsThrottle: HTTP_SERVICE_CONFIG_SETTING_KEY = HTTP_SERVICE_CONFIG_SETTING_KEY(1i32);
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_SETTING_KEY {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_SETTING_KEY {
     fn clone(&self) -> Self {
@@ -1779,10 +1839,6 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_SETTING_KEY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SERVICE_CONFIG_TIMEOUT_KEY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const IdleConnectionTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = HTTP_SERVICE_CONFIG_TIMEOUT_KEY(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HeaderWaitTimeout: HTTP_SERVICE_CONFIG_TIMEOUT_KEY = HTTP_SERVICE_CONFIG_TIMEOUT_KEY(1i32);
 impl ::core::marker::Copy for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {}
 impl ::core::clone::Clone for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
     fn clone(&self) -> Self {
@@ -1806,20 +1862,6 @@ impl ::core::fmt::Debug for HTTP_SERVICE_CONFIG_TIMEOUT_KEY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const ExParamTypeHttp2Window: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const ExParamTypeHttp2SettingsLimits: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const ExParamTypeHttpPerformance: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const ExParamTypeTlsRestrictions: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const ExParamTypeErrorHeaders: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const ExParamTypeTlsSessionTicketKeys: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const ExParamTypeMax: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE(6i32);
 impl ::core::marker::Copy for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {}
 impl ::core::clone::Clone for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
     fn clone(&self) -> Self {
@@ -1843,48 +1885,6 @@ impl ::core::fmt::Debug for HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_VERB(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbUnparsed: HTTP_VERB = HTTP_VERB(0i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbUnknown: HTTP_VERB = HTTP_VERB(1i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbInvalid: HTTP_VERB = HTTP_VERB(2i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbOPTIONS: HTTP_VERB = HTTP_VERB(3i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbGET: HTTP_VERB = HTTP_VERB(4i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbHEAD: HTTP_VERB = HTTP_VERB(5i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbPOST: HTTP_VERB = HTTP_VERB(6i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbPUT: HTTP_VERB = HTTP_VERB(7i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbDELETE: HTTP_VERB = HTTP_VERB(8i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbTRACE: HTTP_VERB = HTTP_VERB(9i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbCONNECT: HTTP_VERB = HTTP_VERB(10i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbTRACK: HTTP_VERB = HTTP_VERB(11i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbMOVE: HTTP_VERB = HTTP_VERB(12i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbCOPY: HTTP_VERB = HTTP_VERB(13i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbPROPFIND: HTTP_VERB = HTTP_VERB(14i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbPROPPATCH: HTTP_VERB = HTTP_VERB(15i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbMKCOL: HTTP_VERB = HTTP_VERB(16i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbLOCK: HTTP_VERB = HTTP_VERB(17i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbUNLOCK: HTTP_VERB = HTTP_VERB(18i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbSEARCH: HTTP_VERB = HTTP_VERB(19i32);
-#[doc = "*Required features: `\"Win32_Networking_HttpServer\"`*"]
-pub const HttpVerbMaximum: HTTP_VERB = HTTP_VERB(20i32);
 impl ::core::marker::Copy for HTTP_VERB {}
 impl ::core::clone::Clone for HTTP_VERB {
     fn clone(&self) -> Self {

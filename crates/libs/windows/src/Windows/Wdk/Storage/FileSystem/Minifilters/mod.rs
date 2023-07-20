@@ -2462,6 +2462,26 @@ pub const FLT_MAX_DEVICE_REPARSE_ATTEMPTS: u32 = 64u32;
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
 pub const FLT_PORT_CONNECT: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_POSTOP_DISALLOW_FSFILTER_IO: FLT_POSTOP_CALLBACK_STATUS = FLT_POSTOP_CALLBACK_STATUS(2i32);
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_POSTOP_FINISHED_PROCESSING: FLT_POSTOP_CALLBACK_STATUS = FLT_POSTOP_CALLBACK_STATUS(0i32);
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_POSTOP_MORE_PROCESSING_REQUIRED: FLT_POSTOP_CALLBACK_STATUS = FLT_POSTOP_CALLBACK_STATUS(1i32);
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_PREOP_COMPLETE: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(4i32);
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_PREOP_DISALLOW_FASTIO: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(3i32);
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_PREOP_DISALLOW_FSFILTER_IO: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(6i32);
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_PREOP_PENDING: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(2i32);
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_PREOP_SUCCESS_NO_CALLBACK: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(1i32);
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_PREOP_SUCCESS_WITH_CALLBACK: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(0i32);
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_PREOP_SYNCHRONIZE: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(5i32);
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
 pub const FLT_PUSH_LOCK_DISABLE_AUTO_BOOST: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
 pub const FLT_PUSH_LOCK_ENABLE_AUTO_BOOST: u32 = 1u32;
@@ -2479,6 +2499,10 @@ pub const FLT_REGISTRATION_VERSION_0202: u32 = 514u32;
 pub const FLT_REGISTRATION_VERSION_0203: u32 = 515u32;
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
 pub const FLT_SECTION_CONTEXT: u32 = 64u32;
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_SET_CONTEXT_KEEP_IF_EXISTS: FLT_SET_CONTEXT_OPERATION = FLT_SET_CONTEXT_OPERATION(1i32);
+#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
+pub const FLT_SET_CONTEXT_REPLACE_IF_EXISTS: FLT_SET_CONTEXT_OPERATION = FLT_SET_CONTEXT_OPERATION(0i32);
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
 pub const FLT_STREAMHANDLE_CONTEXT: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
@@ -2524,12 +2548,6 @@ impl ::core::fmt::Debug for FLT_CALLBACK_DATA_QUEUE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FLT_POSTOP_CALLBACK_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_POSTOP_FINISHED_PROCESSING: FLT_POSTOP_CALLBACK_STATUS = FLT_POSTOP_CALLBACK_STATUS(0i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_POSTOP_MORE_PROCESSING_REQUIRED: FLT_POSTOP_CALLBACK_STATUS = FLT_POSTOP_CALLBACK_STATUS(1i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_POSTOP_DISALLOW_FSFILTER_IO: FLT_POSTOP_CALLBACK_STATUS = FLT_POSTOP_CALLBACK_STATUS(2i32);
 impl ::core::marker::Copy for FLT_POSTOP_CALLBACK_STATUS {}
 impl ::core::clone::Clone for FLT_POSTOP_CALLBACK_STATUS {
     fn clone(&self) -> Self {
@@ -2553,20 +2571,6 @@ impl ::core::fmt::Debug for FLT_POSTOP_CALLBACK_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FLT_PREOP_CALLBACK_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_PREOP_SUCCESS_WITH_CALLBACK: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(0i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_PREOP_SUCCESS_NO_CALLBACK: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(1i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_PREOP_PENDING: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(2i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_PREOP_DISALLOW_FASTIO: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(3i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_PREOP_COMPLETE: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(4i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_PREOP_SYNCHRONIZE: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(5i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_PREOP_DISALLOW_FSFILTER_IO: FLT_PREOP_CALLBACK_STATUS = FLT_PREOP_CALLBACK_STATUS(6i32);
 impl ::core::marker::Copy for FLT_PREOP_CALLBACK_STATUS {}
 impl ::core::clone::Clone for FLT_PREOP_CALLBACK_STATUS {
     fn clone(&self) -> Self {
@@ -2590,10 +2594,6 @@ impl ::core::fmt::Debug for FLT_PREOP_CALLBACK_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FLT_SET_CONTEXT_OPERATION(pub i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_SET_CONTEXT_REPLACE_IF_EXISTS: FLT_SET_CONTEXT_OPERATION = FLT_SET_CONTEXT_OPERATION(0i32);
-#[doc = "*Required features: `\"Wdk_Storage_FileSystem_Minifilters\"`*"]
-pub const FLT_SET_CONTEXT_KEEP_IF_EXISTS: FLT_SET_CONTEXT_OPERATION = FLT_SET_CONTEXT_OPERATION(1i32);
 impl ::core::marker::Copy for FLT_SET_CONTEXT_OPERATION {}
 impl ::core::clone::Clone for FLT_SET_CONTEXT_OPERATION {
     fn clone(&self) -> Self {

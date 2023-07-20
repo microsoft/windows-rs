@@ -1673,6 +1673,8 @@ pub struct IMSImpExpHelpW_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const ADMINDATA_MAX_NAME_LEN: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const ALL_METADATA: METADATATYPES = METADATATYPES(0i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const APPCTR_MD_ID_BEGIN_RESERVED: u32 = 57344u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const APPCTR_MD_ID_END_RESERVED: u32 = 61439u32;
@@ -1690,6 +1692,8 @@ pub const ASP_MD_ID_END_RESERVED: u32 = 29951u32;
 pub const ASP_MD_SERVER_BASE: u32 = 7000u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const ASP_MD_UT_APP: u32 = 101u32;
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const BINARY_METADATA: METADATATYPES = METADATATYPES(3i32);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const CLSID_IImgCtx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3050f3d6_98b5_11cf_bb82_00aa00bdce0b);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -1757,9 +1761,29 @@ pub const DWN_MIRRORIMAGE: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const DWN_RAWIMAGE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const DWORD_METADATA: METADATATYPES = METADATATYPES(1i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const EXPANDSZ_METADATA: METADATATYPES = METADATATYPES(4i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const FP_MD_ID_END_RESERVED: u32 = 36863u32;
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const FTP_ACCESS_NONE: FTP_ACCESS = FTP_ACCESS(0i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const FTP_ACCESS_READ: FTP_ACCESS = FTP_ACCESS(1i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const FTP_ACCESS_READ_WRITE: FTP_ACCESS = FTP_ACCESS(3i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const FTP_ACCESS_WRITE: FTP_ACCESS = FTP_ACCESS(2i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(2i32);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const FtpProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -1949,6 +1973,30 @@ pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_CHAR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_LONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_LONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(20i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(72i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(30i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(31i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(19i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(21i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const IISADMIN_EXTENSIONS_CLSID_MD_KEY: ::windows_core::PCWSTR = ::windows_core::w!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const IISADMIN_EXTENSIONS_CLSID_MD_KEYA: ::windows_core::PCSTR = ::windows_core::s!("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS");
@@ -2134,6 +2182,8 @@ pub const IMGLOAD_STOPPED: u32 = 4194304u32;
 pub const IMGTRANS_MASK: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const IMGTRANS_OPAQUE: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const INVALID_END_METADATA: METADATATYPES = METADATATYPES(6i32);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const LIBID_ASPTypeLibrary: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd97a6da0_a85c_11cf_83ae_00a0c90c2bd8);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -3451,6 +3501,8 @@ pub const MSCS_MD_ID_BEGIN_RESERVED: u32 = 53248u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const MSCS_MD_ID_END_RESERVED: u32 = 57343u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const MULTISZ_METADATA: METADATATYPES = METADATATYPES(5i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const NNTP_MD_ID_BEGIN_RESERVED: u32 = 45056u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const NNTP_MD_ID_END_RESERVED: u32 = 49151u32;
@@ -3511,9 +3563,45 @@ pub const SF_NOTIFY_SEND_RESPONSE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const SF_NOTIFY_URL_MAP: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_PROPERTY_INSTANCE_NUM_ID: SF_PROPERTY_IIS = SF_PROPERTY_IIS(1i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = SF_PROPERTY_IIS(0i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_REQ_ADD_HEADERS_ON_DENIAL: SF_REQ_TYPE = SF_REQ_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_REQ_DISABLE_NOTIFICATIONS: SF_REQ_TYPE = SF_REQ_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_REQ_GET_CONNID: SF_REQ_TYPE = SF_REQ_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_REQ_GET_PROPERTY: SF_REQ_TYPE = SF_REQ_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_REQ_NORMALIZE_URL: SF_REQ_TYPE = SF_REQ_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = SF_REQ_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_REQ_SET_CERTIFICATE_INFO: SF_REQ_TYPE = SF_REQ_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_REQ_SET_NEXT_READ_SIZE: SF_REQ_TYPE = SF_REQ_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_REQ_SET_PROXY_INFO: SF_REQ_TYPE = SF_REQ_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_STATUS_REQ_ERROR: SF_STATUS_TYPE = SF_STATUS_TYPE(134217732i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = SF_STATUS_TYPE(134217728i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_STATUS_REQ_FINISHED_KEEP_CONN: SF_STATUS_TYPE = SF_STATUS_TYPE(134217729i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_STATUS_REQ_HANDLED_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217731i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_STATUS_REQ_NEXT_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217730i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const SF_STATUS_REQ_READ_NEXT: SF_STATUS_TYPE = SF_STATUS_TYPE(134217733i32);
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const SMTP_MD_ID_BEGIN_RESERVED: u32 = 36864u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const SMTP_MD_ID_END_RESERVED: u32 = 40959u32;
+#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
+pub const STRING_METADATA: METADATATYPES = METADATATYPES(2i32);
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 pub const USER_MD_ID_BASE_RESERVED: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
@@ -3536,14 +3624,6 @@ pub const WEB_CORE_SHUTDOWN_DLL_ENTRY: ::windows_core::PCSTR = ::windows_core::s
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FTP_ACCESS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const FTP_ACCESS_NONE: FTP_ACCESS = FTP_ACCESS(0i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const FTP_ACCESS_READ: FTP_ACCESS = FTP_ACCESS(1i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const FTP_ACCESS_WRITE: FTP_ACCESS = FTP_ACCESS(2i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const FTP_ACCESS_READ_WRITE: FTP_ACCESS = FTP_ACCESS(3i32);
 impl ::core::marker::Copy for FTP_ACCESS {}
 impl ::core::clone::Clone for FTP_ACCESS {
     fn clone(&self) -> Self {
@@ -3567,14 +3647,6 @@ impl ::core::fmt::Debug for FTP_ACCESS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FTP_PROCESS_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(3i32);
 impl ::core::marker::Copy for FTP_PROCESS_STATUS {}
 impl ::core::clone::Clone for FTP_PROCESS_STATUS {
     fn clone(&self) -> Self {
@@ -3598,30 +3670,6 @@ impl ::core::fmt::Debug for FTP_PROCESS_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_TRACE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(21i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_CHAR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_LONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_LONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(20i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(31i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(30i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(72i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(11i32);
 impl ::core::marker::Copy for HTTP_TRACE_TYPE {}
 impl ::core::clone::Clone for HTTP_TRACE_TYPE {
     fn clone(&self) -> Self {
@@ -3645,20 +3693,6 @@ impl ::core::fmt::Debug for HTTP_TRACE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct METADATATYPES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const ALL_METADATA: METADATATYPES = METADATATYPES(0i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const DWORD_METADATA: METADATATYPES = METADATATYPES(1i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const STRING_METADATA: METADATATYPES = METADATATYPES(2i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const BINARY_METADATA: METADATATYPES = METADATATYPES(3i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const EXPANDSZ_METADATA: METADATATYPES = METADATATYPES(4i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const MULTISZ_METADATA: METADATATYPES = METADATATYPES(5i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const INVALID_END_METADATA: METADATATYPES = METADATATYPES(6i32);
 impl ::core::marker::Copy for METADATATYPES {}
 impl ::core::clone::Clone for METADATATYPES {
     fn clone(&self) -> Self {
@@ -3682,10 +3716,6 @@ impl ::core::fmt::Debug for METADATATYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SF_PROPERTY_IIS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = SF_PROPERTY_IIS(0i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_PROPERTY_INSTANCE_NUM_ID: SF_PROPERTY_IIS = SF_PROPERTY_IIS(1i32);
 impl ::core::marker::Copy for SF_PROPERTY_IIS {}
 impl ::core::clone::Clone for SF_PROPERTY_IIS {
     fn clone(&self) -> Self {
@@ -3709,24 +3739,6 @@ impl ::core::fmt::Debug for SF_PROPERTY_IIS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SF_REQ_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = SF_REQ_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_REQ_ADD_HEADERS_ON_DENIAL: SF_REQ_TYPE = SF_REQ_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_REQ_SET_NEXT_READ_SIZE: SF_REQ_TYPE = SF_REQ_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_REQ_SET_PROXY_INFO: SF_REQ_TYPE = SF_REQ_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_REQ_GET_CONNID: SF_REQ_TYPE = SF_REQ_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_REQ_SET_CERTIFICATE_INFO: SF_REQ_TYPE = SF_REQ_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_REQ_GET_PROPERTY: SF_REQ_TYPE = SF_REQ_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_REQ_NORMALIZE_URL: SF_REQ_TYPE = SF_REQ_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_REQ_DISABLE_NOTIFICATIONS: SF_REQ_TYPE = SF_REQ_TYPE(8i32);
 impl ::core::marker::Copy for SF_REQ_TYPE {}
 impl ::core::clone::Clone for SF_REQ_TYPE {
     fn clone(&self) -> Self {
@@ -3750,18 +3762,6 @@ impl ::core::fmt::Debug for SF_REQ_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SF_STATUS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = SF_STATUS_TYPE(134217728i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_STATUS_REQ_FINISHED_KEEP_CONN: SF_STATUS_TYPE = SF_STATUS_TYPE(134217729i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_STATUS_REQ_NEXT_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217730i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_STATUS_REQ_HANDLED_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217731i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_STATUS_REQ_ERROR: SF_STATUS_TYPE = SF_STATUS_TYPE(134217732i32);
-#[doc = "*Required features: `\"Win32_System_Iis\"`*"]
-pub const SF_STATUS_REQ_READ_NEXT: SF_STATUS_TYPE = SF_STATUS_TYPE(134217733i32);
 impl ::core::marker::Copy for SF_STATUS_TYPE {}
 impl ::core::clone::Clone for SF_STATUS_TYPE {
     fn clone(&self) -> Self {

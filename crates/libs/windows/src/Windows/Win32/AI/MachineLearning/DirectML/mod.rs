@@ -879,25 +879,481 @@ pub struct IDMLPageable_Vtbl {
     pub base__: IDMLDeviceChild_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_AXIS_DIRECTION_DECREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_AXIS_DIRECTION_INCREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_BINDING_TYPE_BUFFER: DML_BINDING_TYPE = DML_BINDING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_BINDING_TYPE_BUFFER_ARRAY: DML_BINDING_TYPE = DML_BINDING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = DML_BINDING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_CONVOLUTION_DIRECTION_BACKWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_CONVOLUTION_MODE_CONVOLUTION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_CONVOLUTION_MODE_CROSS_CORRELATION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_CREATE_DEVICE_FLAG_DEBUG: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_FEATURE_LEVELS: DML_FEATURE = DML_FEATURE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_1_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(4096i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_2_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(8192i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_2_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(8448i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_3_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12288i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_3_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12544i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_4_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16384i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_4_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16640i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_LEVEL_5_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(20480i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT: DML_FEATURE = DML_FEATURE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_GRAPH_EDGE_TYPE_INPUT: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_GRAPH_EDGE_TYPE_INTERMEDIATE: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_GRAPH_EDGE_TYPE_INVALID: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_GRAPH_EDGE_TYPE_OUTPUT: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_GRAPH_NODE_TYPE_INVALID: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_GRAPH_NODE_TYPE_OPERATOR: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_INTERPOLATION_MODE_LINEAR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_IS_INFINITY_MODE_EITHER: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_IS_INFINITY_MODE_NEGATIVE: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_IS_INFINITY_MODE_POSITIVE: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_MATRIX_TRANSFORM_NONE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_MATRIX_TRANSFORM_TRANSPOSE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_CELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(128i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_ELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(35i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_HARDMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(36i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_HARD_SIGMOID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(37i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_IDENTITY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(38i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_LEAKY_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(39i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(40i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_LOG_SOFTMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(41i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_PARAMETERIZED_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(42i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_PARAMETRIC_SOFTPLUS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(43i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(44i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_RELU_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(129i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_SCALED_ELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(45i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_SCALED_TANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(46i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_SHRINK: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(90i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_SIGMOID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(47i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_SOFTMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(48i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_SOFTPLUS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(49i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_SOFTSIGN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(50i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_TANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(51i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ACTIVATION_THRESHOLDED_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(52i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ADAM_OPTIMIZER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(136i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ARGMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(138i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ARGMIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(137i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_AVERAGE_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(56i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_AVERAGE_POOLING_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(130i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_BATCH_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(72i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_BATCH_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(146i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_CAST: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(61i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_CONVOLUTION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(53i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_CONVOLUTION_INTEGER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(119i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_CUMULATIVE_PRODUCT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(145i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_CUMULATIVE_SUMMATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(105i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_DEPTH_TO_SPACE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(69i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_DEPTH_TO_SPACE1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(113i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_DIAGONAL_MATRIX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(93i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_DYNAMIC_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(148i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ABS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ACOS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ACOSH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(86i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ADD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ADD1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(89i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ASIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ASINH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(85i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ATAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ATANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(87i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ATAN_YX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(141i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_AND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(121i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_COUNT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(125i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_NOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(124i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_OR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(122i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_LEFT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(97i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_RIGHT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(98i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_BIT_XOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(123i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_CEIL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_CLIP: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(142i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_CONSTANT_POW: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(26i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_COS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_COSH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(83i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_DEQUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(34i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_DIFFERENCE_SQUARE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(143i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_DIVIDE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ERF: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(81i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_EXP: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_FLOOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_IDENTITY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_IF: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(88i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_IS_INFINITY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(100i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_IS_NAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(80i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_LOG: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_AND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_EQUALS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(126i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(127i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_NOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_OR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(19i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_XOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(20i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_MAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(21i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_MEAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(22i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_MIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(23i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_FLOOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(102i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_TRUNCATE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(101i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_MULTIPLY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(24i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_POW: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(25i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZED_LINEAR_ADD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(147i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(33i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_RECIP: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(27i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_ROUND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(99i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_SIGN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(79i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_SIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(28i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_SINH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(82i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_SQRT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(29i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_SUBTRACT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(30i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_TAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(31i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_TANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(84i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ELEMENT_WISE_THRESHOLD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_FILL_VALUE_CONSTANT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(103i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_FILL_VALUE_SEQUENCE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(104i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_GATHER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(67i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_GATHER_ELEMENTS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(107i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_GATHER_ND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(108i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_GATHER_ND1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(140i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_GEMM: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(54i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_GRU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(78i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_INVALID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_JOIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(63i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(74i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(144i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_LP_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(75i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_LP_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(57i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_LSTM: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(77i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_MATRIX_MULTIPLY_INTEGER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(117i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_MAX_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(58i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_MAX_POOLING1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(91i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_MAX_POOLING2: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(110i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_MAX_POOLING_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(131i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_MAX_UNPOOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(92i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(73i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(115i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_NONZERO_COORDINATES: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(133i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ONE_HOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(95i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_PADDING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(64i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_QUANTIZED_LINEAR_CONVOLUTION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(120i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_QUANTIZED_LINEAR_MATRIX_MULTIPLY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(118i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_RANDOM_GENERATOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(132i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_REDUCE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(55i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_RESAMPLE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(96i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_RESAMPLE1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(116i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_RESAMPLE_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(134i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_REVERSE_SUBSEQUENCES: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(106i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_RNN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(76i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ROI_ALIGN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(139i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ROI_ALIGN1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(149i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_ROI_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(59i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_SCATTER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(94i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_SCATTER_ELEMENTS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(94i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_SCATTER_ND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(109i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_SLICE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(60i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_SLICE1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(111i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_SLICE_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(135i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_SPACE_TO_DEPTH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(68i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_SPACE_TO_DEPTH1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(114i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_SPLIT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(62i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_TILE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(70i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_TOP_K: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(71i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_TOP_K1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(112i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_UPSAMPLE_2D: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(66i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_OPERATOR_VALUE_SCALE_2D: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(65i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_PADDING_MODE_CONSTANT: DML_PADDING_MODE = DML_PADDING_MODE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_PADDING_MODE_EDGE: DML_PADDING_MODE = DML_PADDING_MODE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_PADDING_MODE_REFLECTION: DML_PADDING_MODE = DML_PADDING_MODE(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_PADDING_MODE_SYMMETRIC: DML_PADDING_MODE = DML_PADDING_MODE(3i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_PERSISTENT_BUFFER_ALIGNMENT: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10: DML_RANDOM_GENERATOR_TYPE = DML_RANDOM_GENERATOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_RECURRENT_NETWORK_DIRECTION_BACKWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_RECURRENT_NETWORK_DIRECTION_BIDIRECTIONAL: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_RECURRENT_NETWORK_DIRECTION_FORWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_ARGMAX: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_ARGMIN: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_AVERAGE: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_L1: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(3i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_L2: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(4i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_LOG_SUM: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(5i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_LOG_SUM_EXP: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(6i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_MAX: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(7i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_MIN: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(8i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_MULTIPLY: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(9i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_SUM: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(10i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_REDUCE_FUNCTION_SUM_SQUARE: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(11i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN: DML_ROUNDING_MODE = DML_ROUNDING_MODE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_ROUNDING_MODE_TOWARD_INFINITY: DML_ROUNDING_MODE = DML_ROUNDING_MODE(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_ROUNDING_MODE_TOWARD_ZERO: DML_ROUNDING_MODE = DML_ROUNDING_MODE(1i32);
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_TARGET_VERSION: u32 = 20480u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_TEMPORARY_BUFFER_ALIGNMENT: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_FLOAT16: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_FLOAT32: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_FLOAT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_INT16: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_INT32: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_INT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_INT8: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_UINT16: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_UINT32: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_UINT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_UINT8: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_DATA_TYPE_UNKNOWN: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_TENSOR_DIMENSION_COUNT_MAX: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 pub const DML_TENSOR_DIMENSION_COUNT_MAX1: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_FLAG_OWNED_BY_DML: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_TYPE_BUFFER: DML_TENSOR_TYPE = DML_TENSOR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
+pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = DML_TENSOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_AXIS_DIRECTION(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_AXIS_DIRECTION_INCREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_AXIS_DIRECTION_DECREASING: DML_AXIS_DIRECTION = DML_AXIS_DIRECTION(1i32);
 impl ::core::marker::Copy for DML_AXIS_DIRECTION {}
 impl ::core::clone::Clone for DML_AXIS_DIRECTION {
     fn clone(&self) -> Self {
@@ -921,12 +1377,6 @@ impl ::core::fmt::Debug for DML_AXIS_DIRECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_BINDING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_BINDING_TYPE_NONE: DML_BINDING_TYPE = DML_BINDING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_BINDING_TYPE_BUFFER: DML_BINDING_TYPE = DML_BINDING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_BINDING_TYPE_BUFFER_ARRAY: DML_BINDING_TYPE = DML_BINDING_TYPE(2i32);
 impl ::core::marker::Copy for DML_BINDING_TYPE {}
 impl ::core::clone::Clone for DML_BINDING_TYPE {
     fn clone(&self) -> Self {
@@ -950,10 +1400,6 @@ impl ::core::fmt::Debug for DML_BINDING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_CONVOLUTION_DIRECTION(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_CONVOLUTION_DIRECTION_FORWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_CONVOLUTION_DIRECTION_BACKWARD: DML_CONVOLUTION_DIRECTION = DML_CONVOLUTION_DIRECTION(1i32);
 impl ::core::marker::Copy for DML_CONVOLUTION_DIRECTION {}
 impl ::core::clone::Clone for DML_CONVOLUTION_DIRECTION {
     fn clone(&self) -> Self {
@@ -977,10 +1423,6 @@ impl ::core::fmt::Debug for DML_CONVOLUTION_DIRECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_CONVOLUTION_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_CONVOLUTION_MODE_CONVOLUTION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_CONVOLUTION_MODE_CROSS_CORRELATION: DML_CONVOLUTION_MODE = DML_CONVOLUTION_MODE(1i32);
 impl ::core::marker::Copy for DML_CONVOLUTION_MODE {}
 impl ::core::clone::Clone for DML_CONVOLUTION_MODE {
     fn clone(&self) -> Self {
@@ -1004,10 +1446,6 @@ impl ::core::fmt::Debug for DML_CONVOLUTION_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_CREATE_DEVICE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_CREATE_DEVICE_FLAG_NONE: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_CREATE_DEVICE_FLAG_DEBUG: DML_CREATE_DEVICE_FLAGS = DML_CREATE_DEVICE_FLAGS(1i32);
 impl ::core::marker::Copy for DML_CREATE_DEVICE_FLAGS {}
 impl ::core::clone::Clone for DML_CREATE_DEVICE_FLAGS {
     fn clone(&self) -> Self {
@@ -1064,10 +1502,6 @@ impl ::core::ops::Not for DML_CREATE_DEVICE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_DEPTH_SPACE_ORDER(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_DEPTH_SPACE_ORDER_DEPTH_COLUMN_ROW: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_DEPTH_SPACE_ORDER_COLUMN_ROW_DEPTH: DML_DEPTH_SPACE_ORDER = DML_DEPTH_SPACE_ORDER(1i32);
 impl ::core::marker::Copy for DML_DEPTH_SPACE_ORDER {}
 impl ::core::clone::Clone for DML_DEPTH_SPACE_ORDER {
     fn clone(&self) -> Self {
@@ -1091,14 +1525,6 @@ impl ::core::fmt::Debug for DML_DEPTH_SPACE_ORDER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_EXECUTION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_EXECUTION_FLAG_NONE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_EXECUTION_FLAG_ALLOW_HALF_PRECISION_COMPUTATION: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_EXECUTION_FLAG_DISABLE_META_COMMANDS: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_EXECUTION_FLAG_DESCRIPTORS_VOLATILE: DML_EXECUTION_FLAGS = DML_EXECUTION_FLAGS(4i32);
 impl ::core::marker::Copy for DML_EXECUTION_FLAGS {}
 impl ::core::clone::Clone for DML_EXECUTION_FLAGS {
     fn clone(&self) -> Self {
@@ -1155,10 +1581,6 @@ impl ::core::ops::Not for DML_EXECUTION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_FEATURE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_FEATURE_TENSOR_DATA_TYPE_SUPPORT: DML_FEATURE = DML_FEATURE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_FEATURE_FEATURE_LEVELS: DML_FEATURE = DML_FEATURE(1i32);
 impl ::core::marker::Copy for DML_FEATURE {}
 impl ::core::clone::Clone for DML_FEATURE {
     fn clone(&self) -> Self {
@@ -1182,22 +1604,6 @@ impl ::core::fmt::Debug for DML_FEATURE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_FEATURE_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_FEATURE_LEVEL_1_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(4096i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_FEATURE_LEVEL_2_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(8192i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_FEATURE_LEVEL_2_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(8448i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_FEATURE_LEVEL_3_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12288i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_FEATURE_LEVEL_3_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(12544i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_FEATURE_LEVEL_4_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16384i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_FEATURE_LEVEL_4_1: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(16640i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_FEATURE_LEVEL_5_0: DML_FEATURE_LEVEL = DML_FEATURE_LEVEL(20480i32);
 impl ::core::marker::Copy for DML_FEATURE_LEVEL {}
 impl ::core::clone::Clone for DML_FEATURE_LEVEL {
     fn clone(&self) -> Self {
@@ -1221,14 +1627,6 @@ impl ::core::fmt::Debug for DML_FEATURE_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_GRAPH_EDGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_GRAPH_EDGE_TYPE_INVALID: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_GRAPH_EDGE_TYPE_INPUT: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_GRAPH_EDGE_TYPE_OUTPUT: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_GRAPH_EDGE_TYPE_INTERMEDIATE: DML_GRAPH_EDGE_TYPE = DML_GRAPH_EDGE_TYPE(3i32);
 impl ::core::marker::Copy for DML_GRAPH_EDGE_TYPE {}
 impl ::core::clone::Clone for DML_GRAPH_EDGE_TYPE {
     fn clone(&self) -> Self {
@@ -1252,10 +1650,6 @@ impl ::core::fmt::Debug for DML_GRAPH_EDGE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_GRAPH_NODE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_GRAPH_NODE_TYPE_INVALID: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_GRAPH_NODE_TYPE_OPERATOR: DML_GRAPH_NODE_TYPE = DML_GRAPH_NODE_TYPE(1i32);
 impl ::core::marker::Copy for DML_GRAPH_NODE_TYPE {}
 impl ::core::clone::Clone for DML_GRAPH_NODE_TYPE {
     fn clone(&self) -> Self {
@@ -1279,10 +1673,6 @@ impl ::core::fmt::Debug for DML_GRAPH_NODE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_INTERPOLATION_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_INTERPOLATION_MODE_LINEAR: DML_INTERPOLATION_MODE = DML_INTERPOLATION_MODE(1i32);
 impl ::core::marker::Copy for DML_INTERPOLATION_MODE {}
 impl ::core::clone::Clone for DML_INTERPOLATION_MODE {
     fn clone(&self) -> Self {
@@ -1306,12 +1696,6 @@ impl ::core::fmt::Debug for DML_INTERPOLATION_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_IS_INFINITY_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_IS_INFINITY_MODE_EITHER: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_IS_INFINITY_MODE_POSITIVE: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_IS_INFINITY_MODE_NEGATIVE: DML_IS_INFINITY_MODE = DML_IS_INFINITY_MODE(2i32);
 impl ::core::marker::Copy for DML_IS_INFINITY_MODE {}
 impl ::core::clone::Clone for DML_IS_INFINITY_MODE {
     fn clone(&self) -> Self {
@@ -1335,10 +1719,6 @@ impl ::core::fmt::Debug for DML_IS_INFINITY_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_MATRIX_TRANSFORM(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_MATRIX_TRANSFORM_NONE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_MATRIX_TRANSFORM_TRANSPOSE: DML_MATRIX_TRANSFORM = DML_MATRIX_TRANSFORM(1i32);
 impl ::core::marker::Copy for DML_MATRIX_TRANSFORM {}
 impl ::core::clone::Clone for DML_MATRIX_TRANSFORM {
     fn clone(&self) -> Self {
@@ -1362,308 +1742,6 @@ impl ::core::fmt::Debug for DML_MATRIX_TRANSFORM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_OPERATOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_INVALID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_IDENTITY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ABS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ACOS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ADD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ASIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ATAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_CEIL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_CLIP: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_COS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_DIVIDE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_EXP: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_FLOOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOG: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_AND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_EQUALS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_NOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_OR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_XOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(20i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(21i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MEAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(22i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(23i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MULTIPLY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(24i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_POW: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(25i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_CONSTANT_POW: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(26i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_RECIP: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(27i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_SIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(28i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_SQRT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(29i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_SUBTRACT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(30i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_TAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(31i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_THRESHOLD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(33i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_DEQUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(34i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_ELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(35i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_HARDMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(36i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_HARD_SIGMOID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(37i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_IDENTITY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(38i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_LEAKY_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(39i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(40i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_LOG_SOFTMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(41i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_PARAMETERIZED_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(42i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_PARAMETRIC_SOFTPLUS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(43i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(44i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_SCALED_ELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(45i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_SCALED_TANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(46i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_SIGMOID: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(47i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_SOFTMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(48i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_SOFTPLUS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(49i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_SOFTSIGN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(50i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_TANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(51i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_THRESHOLDED_RELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(52i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_CONVOLUTION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(53i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_GEMM: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(54i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_REDUCE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(55i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_AVERAGE_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(56i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_LP_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(57i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_MAX_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(58i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ROI_POOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(59i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_SLICE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(60i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_CAST: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(61i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_SPLIT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(62i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_JOIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(63i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_PADDING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(64i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_VALUE_SCALE_2D: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(65i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_UPSAMPLE_2D: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(66i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_GATHER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(67i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_SPACE_TO_DEPTH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(68i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_DEPTH_TO_SPACE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(69i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_TILE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(70i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_TOP_K: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(71i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_BATCH_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(72i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(73i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(74i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_LP_NORMALIZATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(75i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_RNN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(76i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_LSTM: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(77i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_GRU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(78i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_SIGN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(79i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_IS_NAN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(80i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ERF: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(81i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_SINH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(82i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_COSH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(83i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_TANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(84i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ASINH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(85i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ACOSH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(86i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ATANH: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(87i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_IF: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(88i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ADD1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(89i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_SHRINK: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(90i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_MAX_POOLING1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(91i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_MAX_UNPOOLING: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(92i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_DIAGONAL_MATRIX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(93i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_SCATTER_ELEMENTS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(94i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_SCATTER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(94i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ONE_HOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(95i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_RESAMPLE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(96i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_LEFT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(97i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_SHIFT_RIGHT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(98i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ROUND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(99i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_IS_INFINITY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(100i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_TRUNCATE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(101i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_MODULUS_FLOOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(102i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_FILL_VALUE_CONSTANT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(103i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_FILL_VALUE_SEQUENCE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(104i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_CUMULATIVE_SUMMATION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(105i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_REVERSE_SUBSEQUENCES: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(106i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_GATHER_ELEMENTS: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(107i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_GATHER_ND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(108i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_SCATTER_ND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(109i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_MAX_POOLING2: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(110i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_SLICE1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(111i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_TOP_K1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(112i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_DEPTH_TO_SPACE1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(113i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_SPACE_TO_DEPTH1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(114i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_MEAN_VARIANCE_NORMALIZATION1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(115i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_RESAMPLE1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(116i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_MATRIX_MULTIPLY_INTEGER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(117i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_QUANTIZED_LINEAR_MATRIX_MULTIPLY: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(118i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_CONVOLUTION_INTEGER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(119i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_QUANTIZED_LINEAR_CONVOLUTION: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(120i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_AND: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(121i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_OR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(122i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_XOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(123i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_NOT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(124i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_BIT_COUNT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(125i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_GREATER_THAN_OR_EQUAL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(126i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_LOGICAL_LESS_THAN_OR_EQUAL: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(127i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_CELU: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(128i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ACTIVATION_RELU_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(129i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_AVERAGE_POOLING_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(130i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_MAX_POOLING_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(131i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_RANDOM_GENERATOR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(132i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_NONZERO_COORDINATES: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(133i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_RESAMPLE_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(134i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_SLICE_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(135i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ADAM_OPTIMIZER: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(136i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ARGMIN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(137i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ARGMAX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(138i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ROI_ALIGN: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(139i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_GATHER_ND1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(140i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_ATAN_YX: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(141i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_CLIP_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(142i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_DIFFERENCE_SQUARE: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(143i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_LOCAL_RESPONSE_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(144i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_CUMULATIVE_PRODUCT: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(145i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_BATCH_NORMALIZATION_GRAD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(146i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ELEMENT_WISE_QUANTIZED_LINEAR_ADD: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(147i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_DYNAMIC_QUANTIZE_LINEAR: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(148i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_OPERATOR_ROI_ALIGN1: DML_OPERATOR_TYPE = DML_OPERATOR_TYPE(149i32);
 impl ::core::marker::Copy for DML_OPERATOR_TYPE {}
 impl ::core::clone::Clone for DML_OPERATOR_TYPE {
     fn clone(&self) -> Self {
@@ -1687,14 +1765,6 @@ impl ::core::fmt::Debug for DML_OPERATOR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_PADDING_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_PADDING_MODE_CONSTANT: DML_PADDING_MODE = DML_PADDING_MODE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_PADDING_MODE_EDGE: DML_PADDING_MODE = DML_PADDING_MODE(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_PADDING_MODE_REFLECTION: DML_PADDING_MODE = DML_PADDING_MODE(2i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_PADDING_MODE_SYMMETRIC: DML_PADDING_MODE = DML_PADDING_MODE(3i32);
 impl ::core::marker::Copy for DML_PADDING_MODE {}
 impl ::core::clone::Clone for DML_PADDING_MODE {
     fn clone(&self) -> Self {
@@ -1718,8 +1788,6 @@ impl ::core::fmt::Debug for DML_PADDING_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_RANDOM_GENERATOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_RANDOM_GENERATOR_TYPE_PHILOX_4X32_10: DML_RANDOM_GENERATOR_TYPE = DML_RANDOM_GENERATOR_TYPE(0i32);
 impl ::core::marker::Copy for DML_RANDOM_GENERATOR_TYPE {}
 impl ::core::clone::Clone for DML_RANDOM_GENERATOR_TYPE {
     fn clone(&self) -> Self {
@@ -1743,12 +1811,6 @@ impl ::core::fmt::Debug for DML_RANDOM_GENERATOR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_RECURRENT_NETWORK_DIRECTION(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_RECURRENT_NETWORK_DIRECTION_FORWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_RECURRENT_NETWORK_DIRECTION_BACKWARD: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_RECURRENT_NETWORK_DIRECTION_BIDIRECTIONAL: DML_RECURRENT_NETWORK_DIRECTION = DML_RECURRENT_NETWORK_DIRECTION(2i32);
 impl ::core::marker::Copy for DML_RECURRENT_NETWORK_DIRECTION {}
 impl ::core::clone::Clone for DML_RECURRENT_NETWORK_DIRECTION {
     fn clone(&self) -> Self {
@@ -1772,30 +1834,6 @@ impl ::core::fmt::Debug for DML_RECURRENT_NETWORK_DIRECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_REDUCE_FUNCTION(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_ARGMAX: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_ARGMIN: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_AVERAGE: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(2i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_L1: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(3i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_L2: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(4i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_LOG_SUM: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(5i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_LOG_SUM_EXP: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(6i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_MAX: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(7i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_MIN: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(8i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_MULTIPLY: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(9i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_SUM: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(10i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_REDUCE_FUNCTION_SUM_SQUARE: DML_REDUCE_FUNCTION = DML_REDUCE_FUNCTION(11i32);
 impl ::core::marker::Copy for DML_REDUCE_FUNCTION {}
 impl ::core::clone::Clone for DML_REDUCE_FUNCTION {
     fn clone(&self) -> Self {
@@ -1819,12 +1857,6 @@ impl ::core::fmt::Debug for DML_REDUCE_FUNCTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_ROUNDING_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_ROUNDING_MODE_HALVES_TO_NEAREST_EVEN: DML_ROUNDING_MODE = DML_ROUNDING_MODE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_ROUNDING_MODE_TOWARD_ZERO: DML_ROUNDING_MODE = DML_ROUNDING_MODE(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_ROUNDING_MODE_TOWARD_INFINITY: DML_ROUNDING_MODE = DML_ROUNDING_MODE(2i32);
 impl ::core::marker::Copy for DML_ROUNDING_MODE {}
 impl ::core::clone::Clone for DML_ROUNDING_MODE {
     fn clone(&self) -> Self {
@@ -1848,30 +1880,6 @@ impl ::core::fmt::Debug for DML_ROUNDING_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_TENSOR_DATA_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_UNKNOWN: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_FLOAT32: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_FLOAT16: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_UINT32: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_UINT16: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_UINT8: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_INT32: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_INT16: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_INT8: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_FLOAT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_UINT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_DATA_TYPE_INT64: DML_TENSOR_DATA_TYPE = DML_TENSOR_DATA_TYPE(11i32);
 impl ::core::marker::Copy for DML_TENSOR_DATA_TYPE {}
 impl ::core::clone::Clone for DML_TENSOR_DATA_TYPE {
     fn clone(&self) -> Self {
@@ -1895,10 +1903,6 @@ impl ::core::fmt::Debug for DML_TENSOR_DATA_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_TENSOR_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_FLAG_NONE: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_FLAG_OWNED_BY_DML: DML_TENSOR_FLAGS = DML_TENSOR_FLAGS(1i32);
 impl ::core::marker::Copy for DML_TENSOR_FLAGS {}
 impl ::core::clone::Clone for DML_TENSOR_FLAGS {
     fn clone(&self) -> Self {
@@ -1955,10 +1959,6 @@ impl ::core::ops::Not for DML_TENSOR_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DML_TENSOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_TYPE_INVALID: DML_TENSOR_TYPE = DML_TENSOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
-pub const DML_TENSOR_TYPE_BUFFER: DML_TENSOR_TYPE = DML_TENSOR_TYPE(1i32);
 impl ::core::marker::Copy for DML_TENSOR_TYPE {}
 impl ::core::clone::Clone for DML_TENSOR_TYPE {
     fn clone(&self) -> Self {

@@ -4873,6 +4873,408 @@ pub const GUID_WICPixelFormatBlackWhite: ::windows_core::GUID = ::windows_core::
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const GUID_WICPixelFormatDontCare: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc900);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WIC8BIMIptcEmbeddedIPTC: WIC8BIMIptcProperties = WIC8BIMIptcProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = WIC8BIMIptcProperties(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WIC8BIMResolutionInfoHResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WIC8BIMResolutionInfoHResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WIC8BIMResolutionInfoHeightUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WIC8BIMResolutionInfoPString: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WIC8BIMResolutionInfoVResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WIC8BIMResolutionInfoVResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WIC8BIMResolutionInfoWidthUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICAllComponents: WICComponentType = WICComponentType(63i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICAsShotParameterSet: WICRawParameterSet = WICRawParameterSet(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICAutoAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapCacheOnDemand: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapCacheOnLoad: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDecoderCapabilityCanDecodeAllImages: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDecoderCapabilityCanDecodeSomeImages: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDecoderCapabilityCanDecodeThumbnail: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDecoderCapabilityCanEnumerateMetadata: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDecoderCapabilitySameEncoder: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDitherTypeDualSpiral4x4: WICBitmapDitherType = WICBitmapDitherType(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDitherTypeDualSpiral8x8: WICBitmapDitherType = WICBitmapDitherType(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDitherTypeErrorDiffusion: WICBitmapDitherType = WICBitmapDitherType(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDitherTypeNone: WICBitmapDitherType = WICBitmapDitherType(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDitherTypeOrdered16x16: WICBitmapDitherType = WICBitmapDitherType(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDitherTypeOrdered4x4: WICBitmapDitherType = WICBitmapDitherType(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDitherTypeOrdered8x8: WICBitmapDitherType = WICBitmapDitherType(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDitherTypeSolid: WICBitmapDitherType = WICBitmapDitherType(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDitherTypeSpiral4x4: WICBitmapDitherType = WICBitmapDitherType(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapDitherTypeSpiral8x8: WICBitmapDitherType = WICBitmapDitherType(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapEncoderCacheInMemory: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapEncoderCacheTempFile: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapEncoderNoCache: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapIgnoreAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapInterpolationModeCubic: WICBitmapInterpolationMode = WICBitmapInterpolationMode(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapInterpolationModeFant: WICBitmapInterpolationMode = WICBitmapInterpolationMode(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapInterpolationModeHighQualityCubic: WICBitmapInterpolationMode = WICBitmapInterpolationMode(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapInterpolationModeLinear: WICBitmapInterpolationMode = WICBitmapInterpolationMode(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapInterpolationModeNearestNeighbor: WICBitmapInterpolationMode = WICBitmapInterpolationMode(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapLockRead: WICBitmapLockFlags = WICBitmapLockFlags(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapLockWrite: WICBitmapLockFlags = WICBitmapLockFlags(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapNoCache: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeCustom: WICBitmapPaletteType = WICBitmapPaletteType(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedBW: WICBitmapPaletteType = WICBitmapPaletteType(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedGray16: WICBitmapPaletteType = WICBitmapPaletteType(11i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedGray256: WICBitmapPaletteType = WICBitmapPaletteType(12i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedGray4: WICBitmapPaletteType = WICBitmapPaletteType(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedHalftone125: WICBitmapPaletteType = WICBitmapPaletteType(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedHalftone216: WICBitmapPaletteType = WICBitmapPaletteType(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedHalftone252: WICBitmapPaletteType = WICBitmapPaletteType(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedHalftone256: WICBitmapPaletteType = WICBitmapPaletteType(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedHalftone27: WICBitmapPaletteType = WICBitmapPaletteType(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedHalftone64: WICBitmapPaletteType = WICBitmapPaletteType(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = WICBitmapPaletteType(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = WICBitmapPaletteType(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = WICBitmapPaletteType(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapTransformFlipHorizontal: WICBitmapTransformOptions = WICBitmapTransformOptions(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapTransformFlipVertical: WICBitmapTransformOptions = WICBitmapTransformOptions(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapTransformRotate0: WICBitmapTransformOptions = WICBitmapTransformOptions(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapTransformRotate180: WICBitmapTransformOptions = WICBitmapTransformOptions(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapTransformRotate270: WICBitmapTransformOptions = WICBitmapTransformOptions(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapTransformRotate90: WICBitmapTransformOptions = WICBitmapTransformOptions(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapUseAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICBitmapUsePremultipliedAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICColorContextExifColorSpace: WICColorContextType = WICColorContextType(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICColorContextProfile: WICColorContextType = WICColorContextType(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICColorContextUninitialized: WICColorContextType = WICColorContextType(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICComponentDisabled: WICComponentSigning = WICComponentSigning(-2147483648i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICComponentEnumerateBuiltInOnly: WICComponentEnumerateOptions = WICComponentEnumerateOptions(536870912i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICComponentEnumerateDefault: WICComponentEnumerateOptions = WICComponentEnumerateOptions(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICComponentEnumerateDisabled: WICComponentEnumerateOptions = WICComponentEnumerateOptions(-2147483648i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICComponentEnumerateRefresh: WICComponentEnumerateOptions = WICComponentEnumerateOptions(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICComponentEnumerateUnsigned: WICComponentEnumerateOptions = WICComponentEnumerateOptions(1073741824i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICComponentSafe: WICComponentSigning = WICComponentSigning(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICComponentSigned: WICComponentSigning = WICComponentSigning(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICComponentUnsigned: WICComponentSigning = WICComponentSigning(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDdsAlphaModeCustom: WICDdsAlphaMode = WICDdsAlphaMode(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDdsAlphaModeOpaque: WICDdsAlphaMode = WICDdsAlphaMode(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDdsAlphaModePremultiplied: WICDdsAlphaMode = WICDdsAlphaMode(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = WICDdsAlphaMode(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = WICDdsAlphaMode(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDdsTexture1D: WICDdsDimension = WICDdsDimension(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDdsTexture2D: WICDdsDimension = WICDdsDimension(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDdsTexture3D: WICDdsDimension = WICDdsDimension(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDdsTextureCube: WICDdsDimension = WICDdsDimension(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDecodeMetadataCacheOnDemand: WICDecodeOptions = WICDecodeOptions(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDecodeMetadataCacheOnLoad: WICDecodeOptions = WICDecodeOptions(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICDecoder: WICComponentType = WICComponentType(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICEncoder: WICComponentType = WICComponentType(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifApplicationExtensionData: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifGraphicControlExtensionDelay: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifGraphicControlExtensionDisposal: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifGraphicControlExtensionTransparencyFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifGraphicControlExtensionTransparentColorIndex: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifGraphicControlExtensionUserInputFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifImageDescriptorHeight: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifImageDescriptorInterlaceFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifImageDescriptorLeft: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifImageDescriptorLocalColorTableFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifImageDescriptorLocalColorTableSize: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifImageDescriptorSortFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifImageDescriptorTop: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifImageDescriptorWidth: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifLogicalScreenDescriptorBackgroundColorIndex: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifLogicalScreenDescriptorColorResolution: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifLogicalScreenDescriptorGlobalColorTableFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifLogicalScreenDescriptorGlobalColorTableSize: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifLogicalScreenDescriptorHeight: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifLogicalScreenDescriptorPixelAspectRatio: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifLogicalScreenDescriptorSortFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifLogicalScreenDescriptorWidth: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICGifLogicalScreenSignature: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICHeifHdrCustomVideoPrimaries: WICHeifHdrProperties = WICHeifHdrProperties(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICHeifHdrMaximumFrameAverageLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICHeifHdrMaximumLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICHeifHdrMaximumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICHeifHdrMinimumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICHeifOrientation: WICHeifProperties = WICHeifProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = WICJpegChrominanceProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegCommentText: WICJpegCommentProperties = WICJpegCommentProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = WICJpegIndexingOptions(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegIndexingOptionsGenerateOnLoad: WICJpegIndexingOptions = WICJpegIndexingOptions(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = WICJpegLuminanceProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegScanTypeInterleaved: WICJpegScanType = WICJpegScanType(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegScanTypePlanarComponents: WICJpegScanType = WICJpegScanType(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegScanTypeProgressive: WICJpegScanType = WICJpegScanType(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegTransferMatrixBT601: WICJpegTransferMatrix = WICJpegTransferMatrix(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = WICJpegTransferMatrix(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegYCrCbSubsampling420: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegYCrCbSubsampling422: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegYCrCbSubsampling440: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegYCrCbSubsampling444: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICJpegYCrCbSubsamplingDefault: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICMetadataCreationAllowUnknown: WICMetadataCreationOptions = WICMetadataCreationOptions(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICMetadataCreationDefault: WICMetadataCreationOptions = WICMetadataCreationOptions(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = WICMetadataCreationOptions(65536i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICMetadataCreationMask: WICMetadataCreationOptions = WICMetadataCreationOptions(-65536i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICMetadataReader: WICComponentType = WICComponentType(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICMetadataWriter: WICComponentType = WICComponentType(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPersistOptionBigEndian: WICPersistOptions = WICPersistOptions(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPersistOptionDefault: WICPersistOptions = WICPersistOptions(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPersistOptionLittleEndian: WICPersistOptions = WICPersistOptions(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPersistOptionMask: WICPersistOptions = WICPersistOptions(65535i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPersistOptionNoCacheStream: WICPersistOptions = WICPersistOptions(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPersistOptionPreferUTF8: WICPersistOptions = WICPersistOptions(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPersistOptionStrictFormat: WICPersistOptions = WICPersistOptions(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPixelFormat: WICComponentType = WICComponentType(32i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPixelFormatConverter: WICComponentType = WICComponentType(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPixelFormatNumericRepresentationFixed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPixelFormatNumericRepresentationFloat: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPixelFormatNumericRepresentationIndexed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPixelFormatNumericRepresentationSignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPixelFormatNumericRepresentationUnsignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPixelFormatNumericRepresentationUnspecified: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPlanarOptionsDefault: WICPlanarOptions = WICPlanarOptions(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPlanarOptionsPreserveSubsampling: WICPlanarOptions = WICPlanarOptions(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = WICPngBkgdProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngChrmBlueX: WICPngChrmProperties = WICPngChrmProperties(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngChrmBlueY: WICPngChrmProperties = WICPngChrmProperties(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngChrmGreenX: WICPngChrmProperties = WICPngChrmProperties(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngChrmGreenY: WICPngChrmProperties = WICPngChrmProperties(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngChrmRedX: WICPngChrmProperties = WICPngChrmProperties(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngChrmRedY: WICPngChrmProperties = WICPngChrmProperties(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngChrmWhitePointX: WICPngChrmProperties = WICPngChrmProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngChrmWhitePointY: WICPngChrmProperties = WICPngChrmProperties(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngFilterAdaptive: WICPngFilterOption = WICPngFilterOption(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngFilterAverage: WICPngFilterOption = WICPngFilterOption(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngFilterNone: WICPngFilterOption = WICPngFilterOption(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngFilterPaeth: WICPngFilterOption = WICPngFilterOption(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngFilterSub: WICPngFilterOption = WICPngFilterOption(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngFilterUnspecified: WICPngFilterOption = WICPngFilterOption(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngFilterUp: WICPngFilterOption = WICPngFilterOption(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngGamaGamma: WICPngGamaProperties = WICPngGamaProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngHistFrequencies: WICPngHistProperties = WICPngHistProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngIccpProfileData: WICPngIccpProperties = WICPngIccpProperties(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngIccpProfileName: WICPngIccpProperties = WICPngIccpProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngItxtCompressionFlag: WICPngItxtProperties = WICPngItxtProperties(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngItxtKeyword: WICPngItxtProperties = WICPngItxtProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngItxtLanguageTag: WICPngItxtProperties = WICPngItxtProperties(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngItxtText: WICPngItxtProperties = WICPngItxtProperties(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngItxtTranslatedKeyword: WICPngItxtProperties = WICPngItxtProperties(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = WICPngSrgbProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngTimeDay: WICPngTimeProperties = WICPngTimeProperties(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngTimeHour: WICPngTimeProperties = WICPngTimeProperties(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngTimeMinute: WICPngTimeProperties = WICPngTimeProperties(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngTimeMonth: WICPngTimeProperties = WICPngTimeProperties(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngTimeSecond: WICPngTimeProperties = WICPngTimeProperties(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICPngTimeYear: WICPngTimeProperties = WICPngTimeProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICProgressNotificationAll: WICProgressNotification = WICProgressNotification(-65536i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICProgressNotificationBegin: WICProgressNotification = WICProgressNotification(65536i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICProgressNotificationEnd: WICProgressNotification = WICProgressNotification(131072i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICProgressNotificationFrequent: WICProgressNotification = WICProgressNotification(262144i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICProgressOperationAll: WICProgressOperation = WICProgressOperation(65535i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICProgressOperationCopyPixels: WICProgressOperation = WICProgressOperation(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICProgressOperationWritePixels: WICProgressOperation = WICProgressOperation(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICRawCapabilityFullySupported: WICRawCapabilities = WICRawCapabilities(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICRawCapabilityGetSupported: WICRawCapabilities = WICRawCapabilities(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICRawCapabilityNotSupported: WICRawCapabilities = WICRawCapabilities(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICRawChangeNotification_Contrast: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICRawChangeNotification_DestinationColorContext: u32 = 1024u32;
@@ -4900,6 +5302,68 @@ pub const WICRawChangeNotification_Sharpness: u32 = 64u32;
 pub const WICRawChangeNotification_Tint: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WICRawChangeNotification_ToneCurve: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICRawRenderModeBestQuality: WICRawRenderMode = WICRawRenderMode(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICRawRenderModeDraft: WICRawRenderMode = WICRawRenderMode(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICRawRenderModeNormal: WICRawRenderMode = WICRawRenderMode(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICRawRotationCapabilityFullySupported: WICRawRotationCapabilities = WICRawRotationCapabilities(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICRawRotationCapabilityGetSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICRawRotationCapabilityNinetyDegreesSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICRawRotationCapabilityNotSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICSectionAccessLevelRead: WICSectionAccessLevel = WICSectionAccessLevel(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICSectionAccessLevelReadWrite: WICSectionAccessLevel = WICSectionAccessLevel(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICTiffCompressionCCITT3: WICTiffCompressionOption = WICTiffCompressionOption(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICTiffCompressionCCITT4: WICTiffCompressionOption = WICTiffCompressionOption(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICTiffCompressionDontCare: WICTiffCompressionOption = WICTiffCompressionOption(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICTiffCompressionLZW: WICTiffCompressionOption = WICTiffCompressionOption(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICTiffCompressionLZWHDifferencing: WICTiffCompressionOption = WICTiffCompressionOption(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICTiffCompressionNone: WICTiffCompressionOption = WICTiffCompressionOption(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICTiffCompressionRLE: WICTiffCompressionOption = WICTiffCompressionOption(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICTiffCompressionZIP: WICTiffCompressionOption = WICTiffCompressionOption(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICUserAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWebpAnimLoopCount: WICWebpAnimProperties = WICWebpAnimProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = WICWebpAnmfProperties(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWhitePointAsShot: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWhitePointAutoWhiteBalance: WICNamedWhitePoint = WICNamedWhitePoint(512i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWhitePointCloudy: WICNamedWhitePoint = WICNamedWhitePoint(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWhitePointCustom: WICNamedWhitePoint = WICNamedWhitePoint(256i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWhitePointDaylight: WICNamedWhitePoint = WICNamedWhitePoint(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWhitePointDefault: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWhitePointFlash: WICNamedWhitePoint = WICNamedWhitePoint(64i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWhitePointFluorescent: WICNamedWhitePoint = WICNamedWhitePoint(32i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWhitePointShade: WICNamedWhitePoint = WICNamedWhitePoint(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWhitePointTungsten: WICNamedWhitePoint = WICNamedWhitePoint(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
+pub const WICWhitePointUnderwater: WICNamedWhitePoint = WICNamedWhitePoint(128i32);
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 pub const WIC_JPEG_HUFFMAN_BASELINE_ONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -4946,10 +5410,6 @@ pub const WINCODEC_SDK_VERSION2: u32 = 567u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIC8BIMIptcDigestProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2u32);
 impl ::core::marker::Copy for WIC8BIMIptcDigestProperties {}
 impl ::core::clone::Clone for WIC8BIMIptcDigestProperties {
     fn clone(&self) -> Self {
@@ -4973,10 +5433,6 @@ impl ::core::fmt::Debug for WIC8BIMIptcDigestProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIC8BIMIptcProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = WIC8BIMIptcProperties(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMIptcEmbeddedIPTC: WIC8BIMIptcProperties = WIC8BIMIptcProperties(1u32);
 impl ::core::marker::Copy for WIC8BIMIptcProperties {}
 impl ::core::clone::Clone for WIC8BIMIptcProperties {
     fn clone(&self) -> Self {
@@ -5000,20 +5456,6 @@ impl ::core::fmt::Debug for WIC8BIMIptcProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIC8BIMResolutionInfoProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMResolutionInfoPString: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMResolutionInfoHResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMResolutionInfoHResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMResolutionInfoWidthUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMResolutionInfoVResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMResolutionInfoVResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WIC8BIMResolutionInfoHeightUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(7u32);
 impl ::core::marker::Copy for WIC8BIMResolutionInfoProperties {}
 impl ::core::clone::Clone for WIC8BIMResolutionInfoProperties {
     fn clone(&self) -> Self {
@@ -5037,12 +5479,6 @@ impl ::core::fmt::Debug for WIC8BIMResolutionInfoProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapAlphaChannelOption(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapUseAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapUsePremultipliedAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapIgnoreAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(2i32);
 impl ::core::marker::Copy for WICBitmapAlphaChannelOption {}
 impl ::core::clone::Clone for WICBitmapAlphaChannelOption {
     fn clone(&self) -> Self {
@@ -5066,12 +5502,6 @@ impl ::core::fmt::Debug for WICBitmapAlphaChannelOption {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapCreateCacheOption(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapNoCache: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapCacheOnDemand: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapCacheOnLoad: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(2i32);
 impl ::core::marker::Copy for WICBitmapCreateCacheOption {}
 impl ::core::clone::Clone for WICBitmapCreateCacheOption {
     fn clone(&self) -> Self {
@@ -5095,16 +5525,6 @@ impl ::core::fmt::Debug for WICBitmapCreateCacheOption {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapDecoderCapabilities(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDecoderCapabilitySameEncoder: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDecoderCapabilityCanDecodeAllImages: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDecoderCapabilityCanDecodeSomeImages: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDecoderCapabilityCanEnumerateMetadata: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDecoderCapabilityCanDecodeThumbnail: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(16i32);
 impl ::core::marker::Copy for WICBitmapDecoderCapabilities {}
 impl ::core::clone::Clone for WICBitmapDecoderCapabilities {
     fn clone(&self) -> Self {
@@ -5128,26 +5548,6 @@ impl ::core::fmt::Debug for WICBitmapDecoderCapabilities {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapDitherType(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDitherTypeNone: WICBitmapDitherType = WICBitmapDitherType(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDitherTypeSolid: WICBitmapDitherType = WICBitmapDitherType(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDitherTypeOrdered4x4: WICBitmapDitherType = WICBitmapDitherType(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDitherTypeOrdered8x8: WICBitmapDitherType = WICBitmapDitherType(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDitherTypeOrdered16x16: WICBitmapDitherType = WICBitmapDitherType(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDitherTypeSpiral4x4: WICBitmapDitherType = WICBitmapDitherType(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDitherTypeSpiral8x8: WICBitmapDitherType = WICBitmapDitherType(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDitherTypeDualSpiral4x4: WICBitmapDitherType = WICBitmapDitherType(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDitherTypeDualSpiral8x8: WICBitmapDitherType = WICBitmapDitherType(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapDitherTypeErrorDiffusion: WICBitmapDitherType = WICBitmapDitherType(8i32);
 impl ::core::marker::Copy for WICBitmapDitherType {}
 impl ::core::clone::Clone for WICBitmapDitherType {
     fn clone(&self) -> Self {
@@ -5171,12 +5571,6 @@ impl ::core::fmt::Debug for WICBitmapDitherType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapEncoderCacheOption(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapEncoderCacheInMemory: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapEncoderCacheTempFile: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapEncoderNoCache: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(2i32);
 impl ::core::marker::Copy for WICBitmapEncoderCacheOption {}
 impl ::core::clone::Clone for WICBitmapEncoderCacheOption {
     fn clone(&self) -> Self {
@@ -5200,16 +5594,6 @@ impl ::core::fmt::Debug for WICBitmapEncoderCacheOption {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapInterpolationMode(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapInterpolationModeNearestNeighbor: WICBitmapInterpolationMode = WICBitmapInterpolationMode(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapInterpolationModeLinear: WICBitmapInterpolationMode = WICBitmapInterpolationMode(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapInterpolationModeCubic: WICBitmapInterpolationMode = WICBitmapInterpolationMode(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapInterpolationModeFant: WICBitmapInterpolationMode = WICBitmapInterpolationMode(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapInterpolationModeHighQualityCubic: WICBitmapInterpolationMode = WICBitmapInterpolationMode(4i32);
 impl ::core::marker::Copy for WICBitmapInterpolationMode {}
 impl ::core::clone::Clone for WICBitmapInterpolationMode {
     fn clone(&self) -> Self {
@@ -5233,10 +5617,6 @@ impl ::core::fmt::Debug for WICBitmapInterpolationMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapLockFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapLockRead: WICBitmapLockFlags = WICBitmapLockFlags(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapLockWrite: WICBitmapLockFlags = WICBitmapLockFlags(2i32);
 impl ::core::marker::Copy for WICBitmapLockFlags {}
 impl ::core::clone::Clone for WICBitmapLockFlags {
     fn clone(&self) -> Self {
@@ -5260,34 +5640,6 @@ impl ::core::fmt::Debug for WICBitmapLockFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapPaletteType(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeCustom: WICBitmapPaletteType = WICBitmapPaletteType(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = WICBitmapPaletteType(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedBW: WICBitmapPaletteType = WICBitmapPaletteType(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = WICBitmapPaletteType(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedHalftone27: WICBitmapPaletteType = WICBitmapPaletteType(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedHalftone64: WICBitmapPaletteType = WICBitmapPaletteType(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedHalftone125: WICBitmapPaletteType = WICBitmapPaletteType(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedHalftone216: WICBitmapPaletteType = WICBitmapPaletteType(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = WICBitmapPaletteType(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedHalftone252: WICBitmapPaletteType = WICBitmapPaletteType(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedHalftone256: WICBitmapPaletteType = WICBitmapPaletteType(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedGray4: WICBitmapPaletteType = WICBitmapPaletteType(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedGray16: WICBitmapPaletteType = WICBitmapPaletteType(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapPaletteTypeFixedGray256: WICBitmapPaletteType = WICBitmapPaletteType(12i32);
 impl ::core::marker::Copy for WICBitmapPaletteType {}
 impl ::core::clone::Clone for WICBitmapPaletteType {
     fn clone(&self) -> Self {
@@ -5311,18 +5663,6 @@ impl ::core::fmt::Debug for WICBitmapPaletteType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICBitmapTransformOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapTransformRotate0: WICBitmapTransformOptions = WICBitmapTransformOptions(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapTransformRotate90: WICBitmapTransformOptions = WICBitmapTransformOptions(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapTransformRotate180: WICBitmapTransformOptions = WICBitmapTransformOptions(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapTransformRotate270: WICBitmapTransformOptions = WICBitmapTransformOptions(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapTransformFlipHorizontal: WICBitmapTransformOptions = WICBitmapTransformOptions(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICBitmapTransformFlipVertical: WICBitmapTransformOptions = WICBitmapTransformOptions(16i32);
 impl ::core::marker::Copy for WICBitmapTransformOptions {}
 impl ::core::clone::Clone for WICBitmapTransformOptions {
     fn clone(&self) -> Self {
@@ -5346,12 +5686,6 @@ impl ::core::fmt::Debug for WICBitmapTransformOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICColorContextType(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICColorContextUninitialized: WICColorContextType = WICColorContextType(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICColorContextProfile: WICColorContextType = WICColorContextType(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICColorContextExifColorSpace: WICColorContextType = WICColorContextType(2i32);
 impl ::core::marker::Copy for WICColorContextType {}
 impl ::core::clone::Clone for WICColorContextType {
     fn clone(&self) -> Self {
@@ -5375,16 +5709,6 @@ impl ::core::fmt::Debug for WICColorContextType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICComponentEnumerateOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICComponentEnumerateDefault: WICComponentEnumerateOptions = WICComponentEnumerateOptions(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICComponentEnumerateRefresh: WICComponentEnumerateOptions = WICComponentEnumerateOptions(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICComponentEnumerateDisabled: WICComponentEnumerateOptions = WICComponentEnumerateOptions(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICComponentEnumerateUnsigned: WICComponentEnumerateOptions = WICComponentEnumerateOptions(1073741824i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICComponentEnumerateBuiltInOnly: WICComponentEnumerateOptions = WICComponentEnumerateOptions(536870912i32);
 impl ::core::marker::Copy for WICComponentEnumerateOptions {}
 impl ::core::clone::Clone for WICComponentEnumerateOptions {
     fn clone(&self) -> Self {
@@ -5408,14 +5732,6 @@ impl ::core::fmt::Debug for WICComponentEnumerateOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICComponentSigning(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICComponentSigned: WICComponentSigning = WICComponentSigning(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICComponentUnsigned: WICComponentSigning = WICComponentSigning(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICComponentSafe: WICComponentSigning = WICComponentSigning(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICComponentDisabled: WICComponentSigning = WICComponentSigning(-2147483648i32);
 impl ::core::marker::Copy for WICComponentSigning {}
 impl ::core::clone::Clone for WICComponentSigning {
     fn clone(&self) -> Self {
@@ -5439,20 +5755,6 @@ impl ::core::fmt::Debug for WICComponentSigning {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICComponentType(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDecoder: WICComponentType = WICComponentType(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICEncoder: WICComponentType = WICComponentType(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPixelFormatConverter: WICComponentType = WICComponentType(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICMetadataReader: WICComponentType = WICComponentType(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICMetadataWriter: WICComponentType = WICComponentType(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPixelFormat: WICComponentType = WICComponentType(32i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICAllComponents: WICComponentType = WICComponentType(63i32);
 impl ::core::marker::Copy for WICComponentType {}
 impl ::core::clone::Clone for WICComponentType {
     fn clone(&self) -> Self {
@@ -5476,16 +5778,6 @@ impl ::core::fmt::Debug for WICComponentType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICDdsAlphaMode(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = WICDdsAlphaMode(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = WICDdsAlphaMode(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDdsAlphaModePremultiplied: WICDdsAlphaMode = WICDdsAlphaMode(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDdsAlphaModeOpaque: WICDdsAlphaMode = WICDdsAlphaMode(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDdsAlphaModeCustom: WICDdsAlphaMode = WICDdsAlphaMode(4i32);
 impl ::core::marker::Copy for WICDdsAlphaMode {}
 impl ::core::clone::Clone for WICDdsAlphaMode {
     fn clone(&self) -> Self {
@@ -5509,14 +5801,6 @@ impl ::core::fmt::Debug for WICDdsAlphaMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICDdsDimension(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDdsTexture1D: WICDdsDimension = WICDdsDimension(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDdsTexture2D: WICDdsDimension = WICDdsDimension(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDdsTexture3D: WICDdsDimension = WICDdsDimension(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDdsTextureCube: WICDdsDimension = WICDdsDimension(3i32);
 impl ::core::marker::Copy for WICDdsDimension {}
 impl ::core::clone::Clone for WICDdsDimension {
     fn clone(&self) -> Self {
@@ -5540,10 +5824,6 @@ impl ::core::fmt::Debug for WICDdsDimension {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICDecodeOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDecodeMetadataCacheOnDemand: WICDecodeOptions = WICDecodeOptions(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICDecodeMetadataCacheOnLoad: WICDecodeOptions = WICDecodeOptions(1i32);
 impl ::core::marker::Copy for WICDecodeOptions {}
 impl ::core::clone::Clone for WICDecodeOptions {
     fn clone(&self) -> Self {
@@ -5567,10 +5847,6 @@ impl ::core::fmt::Debug for WICDecodeOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICGifApplicationExtensionProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifApplicationExtensionData: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2u32);
 impl ::core::marker::Copy for WICGifApplicationExtensionProperties {}
 impl ::core::clone::Clone for WICGifApplicationExtensionProperties {
     fn clone(&self) -> Self {
@@ -5594,8 +5870,6 @@ impl ::core::fmt::Debug for WICGifApplicationExtensionProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICGifCommentExtensionProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(1u32);
 impl ::core::marker::Copy for WICGifCommentExtensionProperties {}
 impl ::core::clone::Clone for WICGifCommentExtensionProperties {
     fn clone(&self) -> Self {
@@ -5619,16 +5893,6 @@ impl ::core::fmt::Debug for WICGifCommentExtensionProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICGifGraphicControlExtensionProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifGraphicControlExtensionDisposal: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifGraphicControlExtensionUserInputFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifGraphicControlExtensionTransparencyFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifGraphicControlExtensionDelay: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifGraphicControlExtensionTransparentColorIndex: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(5u32);
 impl ::core::marker::Copy for WICGifGraphicControlExtensionProperties {}
 impl ::core::clone::Clone for WICGifGraphicControlExtensionProperties {
     fn clone(&self) -> Self {
@@ -5652,22 +5916,6 @@ impl ::core::fmt::Debug for WICGifGraphicControlExtensionProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICGifImageDescriptorProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifImageDescriptorLeft: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifImageDescriptorTop: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifImageDescriptorWidth: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifImageDescriptorHeight: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifImageDescriptorLocalColorTableFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifImageDescriptorInterlaceFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifImageDescriptorSortFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(7u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifImageDescriptorLocalColorTableSize: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(8u32);
 impl ::core::marker::Copy for WICGifImageDescriptorProperties {}
 impl ::core::clone::Clone for WICGifImageDescriptorProperties {
     fn clone(&self) -> Self {
@@ -5691,24 +5939,6 @@ impl ::core::fmt::Debug for WICGifImageDescriptorProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICGifLogicalScreenDescriptorProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifLogicalScreenSignature: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifLogicalScreenDescriptorWidth: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifLogicalScreenDescriptorHeight: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifLogicalScreenDescriptorGlobalColorTableFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifLogicalScreenDescriptorColorResolution: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifLogicalScreenDescriptorSortFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifLogicalScreenDescriptorGlobalColorTableSize: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(7u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifLogicalScreenDescriptorBackgroundColorIndex: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICGifLogicalScreenDescriptorPixelAspectRatio: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(9u32);
 impl ::core::marker::Copy for WICGifLogicalScreenDescriptorProperties {}
 impl ::core::clone::Clone for WICGifLogicalScreenDescriptorProperties {
     fn clone(&self) -> Self {
@@ -5732,16 +5962,6 @@ impl ::core::fmt::Debug for WICGifLogicalScreenDescriptorProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICHeifHdrProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICHeifHdrMaximumLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICHeifHdrMaximumFrameAverageLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICHeifHdrMinimumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICHeifHdrMaximumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICHeifHdrCustomVideoPrimaries: WICHeifHdrProperties = WICHeifHdrProperties(5u32);
 impl ::core::marker::Copy for WICHeifHdrProperties {}
 impl ::core::clone::Clone for WICHeifHdrProperties {
     fn clone(&self) -> Self {
@@ -5765,8 +5985,6 @@ impl ::core::fmt::Debug for WICHeifHdrProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICHeifProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICHeifOrientation: WICHeifProperties = WICHeifProperties(1u32);
 impl ::core::marker::Copy for WICHeifProperties {}
 impl ::core::clone::Clone for WICHeifProperties {
     fn clone(&self) -> Self {
@@ -5790,8 +6008,6 @@ impl ::core::fmt::Debug for WICHeifProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegChrominanceProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = WICJpegChrominanceProperties(1u32);
 impl ::core::marker::Copy for WICJpegChrominanceProperties {}
 impl ::core::clone::Clone for WICJpegChrominanceProperties {
     fn clone(&self) -> Self {
@@ -5815,8 +6031,6 @@ impl ::core::fmt::Debug for WICJpegChrominanceProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegCommentProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegCommentText: WICJpegCommentProperties = WICJpegCommentProperties(1u32);
 impl ::core::marker::Copy for WICJpegCommentProperties {}
 impl ::core::clone::Clone for WICJpegCommentProperties {
     fn clone(&self) -> Self {
@@ -5840,10 +6054,6 @@ impl ::core::fmt::Debug for WICJpegCommentProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegIndexingOptions(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = WICJpegIndexingOptions(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegIndexingOptionsGenerateOnLoad: WICJpegIndexingOptions = WICJpegIndexingOptions(1u32);
 impl ::core::marker::Copy for WICJpegIndexingOptions {}
 impl ::core::clone::Clone for WICJpegIndexingOptions {
     fn clone(&self) -> Self {
@@ -5867,8 +6077,6 @@ impl ::core::fmt::Debug for WICJpegIndexingOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegLuminanceProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = WICJpegLuminanceProperties(1u32);
 impl ::core::marker::Copy for WICJpegLuminanceProperties {}
 impl ::core::clone::Clone for WICJpegLuminanceProperties {
     fn clone(&self) -> Self {
@@ -5892,12 +6100,6 @@ impl ::core::fmt::Debug for WICJpegLuminanceProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegScanType(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegScanTypeInterleaved: WICJpegScanType = WICJpegScanType(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegScanTypePlanarComponents: WICJpegScanType = WICJpegScanType(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegScanTypeProgressive: WICJpegScanType = WICJpegScanType(2u32);
 impl ::core::marker::Copy for WICJpegScanType {}
 impl ::core::clone::Clone for WICJpegScanType {
     fn clone(&self) -> Self {
@@ -5921,10 +6123,6 @@ impl ::core::fmt::Debug for WICJpegScanType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegTransferMatrix(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = WICJpegTransferMatrix(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegTransferMatrixBT601: WICJpegTransferMatrix = WICJpegTransferMatrix(1u32);
 impl ::core::marker::Copy for WICJpegTransferMatrix {}
 impl ::core::clone::Clone for WICJpegTransferMatrix {
     fn clone(&self) -> Self {
@@ -5948,16 +6146,6 @@ impl ::core::fmt::Debug for WICJpegTransferMatrix {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICJpegYCrCbSubsamplingOption(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegYCrCbSubsamplingDefault: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegYCrCbSubsampling420: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegYCrCbSubsampling422: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegYCrCbSubsampling444: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICJpegYCrCbSubsampling440: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(4i32);
 impl ::core::marker::Copy for WICJpegYCrCbSubsamplingOption {}
 impl ::core::clone::Clone for WICJpegYCrCbSubsamplingOption {
     fn clone(&self) -> Self {
@@ -5981,14 +6169,6 @@ impl ::core::fmt::Debug for WICJpegYCrCbSubsamplingOption {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICMetadataCreationOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICMetadataCreationDefault: WICMetadataCreationOptions = WICMetadataCreationOptions(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICMetadataCreationAllowUnknown: WICMetadataCreationOptions = WICMetadataCreationOptions(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = WICMetadataCreationOptions(65536i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICMetadataCreationMask: WICMetadataCreationOptions = WICMetadataCreationOptions(-65536i32);
 impl ::core::marker::Copy for WICMetadataCreationOptions {}
 impl ::core::clone::Clone for WICMetadataCreationOptions {
     fn clone(&self) -> Self {
@@ -6012,28 +6192,6 @@ impl ::core::fmt::Debug for WICMetadataCreationOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICNamedWhitePoint(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWhitePointDefault: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWhitePointDaylight: WICNamedWhitePoint = WICNamedWhitePoint(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWhitePointCloudy: WICNamedWhitePoint = WICNamedWhitePoint(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWhitePointShade: WICNamedWhitePoint = WICNamedWhitePoint(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWhitePointTungsten: WICNamedWhitePoint = WICNamedWhitePoint(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWhitePointFluorescent: WICNamedWhitePoint = WICNamedWhitePoint(32i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWhitePointFlash: WICNamedWhitePoint = WICNamedWhitePoint(64i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWhitePointUnderwater: WICNamedWhitePoint = WICNamedWhitePoint(128i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWhitePointCustom: WICNamedWhitePoint = WICNamedWhitePoint(256i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWhitePointAutoWhiteBalance: WICNamedWhitePoint = WICNamedWhitePoint(512i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWhitePointAsShot: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
 impl ::core::marker::Copy for WICNamedWhitePoint {}
 impl ::core::clone::Clone for WICNamedWhitePoint {
     fn clone(&self) -> Self {
@@ -6057,20 +6215,6 @@ impl ::core::fmt::Debug for WICNamedWhitePoint {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPersistOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPersistOptionDefault: WICPersistOptions = WICPersistOptions(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPersistOptionLittleEndian: WICPersistOptions = WICPersistOptions(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPersistOptionBigEndian: WICPersistOptions = WICPersistOptions(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPersistOptionStrictFormat: WICPersistOptions = WICPersistOptions(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPersistOptionNoCacheStream: WICPersistOptions = WICPersistOptions(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPersistOptionPreferUTF8: WICPersistOptions = WICPersistOptions(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPersistOptionMask: WICPersistOptions = WICPersistOptions(65535i32);
 impl ::core::marker::Copy for WICPersistOptions {}
 impl ::core::clone::Clone for WICPersistOptions {
     fn clone(&self) -> Self {
@@ -6094,18 +6238,6 @@ impl ::core::fmt::Debug for WICPersistOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPixelFormatNumericRepresentation(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPixelFormatNumericRepresentationUnspecified: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPixelFormatNumericRepresentationIndexed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPixelFormatNumericRepresentationUnsignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPixelFormatNumericRepresentationSignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPixelFormatNumericRepresentationFixed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPixelFormatNumericRepresentationFloat: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(5u32);
 impl ::core::marker::Copy for WICPixelFormatNumericRepresentation {}
 impl ::core::clone::Clone for WICPixelFormatNumericRepresentation {
     fn clone(&self) -> Self {
@@ -6129,10 +6261,6 @@ impl ::core::fmt::Debug for WICPixelFormatNumericRepresentation {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPlanarOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPlanarOptionsDefault: WICPlanarOptions = WICPlanarOptions(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPlanarOptionsPreserveSubsampling: WICPlanarOptions = WICPlanarOptions(1i32);
 impl ::core::marker::Copy for WICPlanarOptions {}
 impl ::core::clone::Clone for WICPlanarOptions {
     fn clone(&self) -> Self {
@@ -6156,8 +6284,6 @@ impl ::core::fmt::Debug for WICPlanarOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngBkgdProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = WICPngBkgdProperties(1u32);
 impl ::core::marker::Copy for WICPngBkgdProperties {}
 impl ::core::clone::Clone for WICPngBkgdProperties {
     fn clone(&self) -> Self {
@@ -6181,22 +6307,6 @@ impl ::core::fmt::Debug for WICPngBkgdProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngChrmProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngChrmWhitePointX: WICPngChrmProperties = WICPngChrmProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngChrmWhitePointY: WICPngChrmProperties = WICPngChrmProperties(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngChrmRedX: WICPngChrmProperties = WICPngChrmProperties(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngChrmRedY: WICPngChrmProperties = WICPngChrmProperties(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngChrmGreenX: WICPngChrmProperties = WICPngChrmProperties(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngChrmGreenY: WICPngChrmProperties = WICPngChrmProperties(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngChrmBlueX: WICPngChrmProperties = WICPngChrmProperties(7u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngChrmBlueY: WICPngChrmProperties = WICPngChrmProperties(8u32);
 impl ::core::marker::Copy for WICPngChrmProperties {}
 impl ::core::clone::Clone for WICPngChrmProperties {
     fn clone(&self) -> Self {
@@ -6220,20 +6330,6 @@ impl ::core::fmt::Debug for WICPngChrmProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngFilterOption(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngFilterUnspecified: WICPngFilterOption = WICPngFilterOption(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngFilterNone: WICPngFilterOption = WICPngFilterOption(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngFilterSub: WICPngFilterOption = WICPngFilterOption(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngFilterUp: WICPngFilterOption = WICPngFilterOption(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngFilterAverage: WICPngFilterOption = WICPngFilterOption(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngFilterPaeth: WICPngFilterOption = WICPngFilterOption(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngFilterAdaptive: WICPngFilterOption = WICPngFilterOption(6i32);
 impl ::core::marker::Copy for WICPngFilterOption {}
 impl ::core::clone::Clone for WICPngFilterOption {
     fn clone(&self) -> Self {
@@ -6257,8 +6353,6 @@ impl ::core::fmt::Debug for WICPngFilterOption {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngGamaProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngGamaGamma: WICPngGamaProperties = WICPngGamaProperties(1u32);
 impl ::core::marker::Copy for WICPngGamaProperties {}
 impl ::core::clone::Clone for WICPngGamaProperties {
     fn clone(&self) -> Self {
@@ -6282,8 +6376,6 @@ impl ::core::fmt::Debug for WICPngGamaProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngHistProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngHistFrequencies: WICPngHistProperties = WICPngHistProperties(1u32);
 impl ::core::marker::Copy for WICPngHistProperties {}
 impl ::core::clone::Clone for WICPngHistProperties {
     fn clone(&self) -> Self {
@@ -6307,10 +6399,6 @@ impl ::core::fmt::Debug for WICPngHistProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngIccpProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngIccpProfileName: WICPngIccpProperties = WICPngIccpProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngIccpProfileData: WICPngIccpProperties = WICPngIccpProperties(2u32);
 impl ::core::marker::Copy for WICPngIccpProperties {}
 impl ::core::clone::Clone for WICPngIccpProperties {
     fn clone(&self) -> Self {
@@ -6334,16 +6422,6 @@ impl ::core::fmt::Debug for WICPngIccpProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngItxtProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngItxtKeyword: WICPngItxtProperties = WICPngItxtProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngItxtCompressionFlag: WICPngItxtProperties = WICPngItxtProperties(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngItxtLanguageTag: WICPngItxtProperties = WICPngItxtProperties(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngItxtTranslatedKeyword: WICPngItxtProperties = WICPngItxtProperties(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngItxtText: WICPngItxtProperties = WICPngItxtProperties(5u32);
 impl ::core::marker::Copy for WICPngItxtProperties {}
 impl ::core::clone::Clone for WICPngItxtProperties {
     fn clone(&self) -> Self {
@@ -6367,8 +6445,6 @@ impl ::core::fmt::Debug for WICPngItxtProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngSrgbProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = WICPngSrgbProperties(1u32);
 impl ::core::marker::Copy for WICPngSrgbProperties {}
 impl ::core::clone::Clone for WICPngSrgbProperties {
     fn clone(&self) -> Self {
@@ -6392,18 +6468,6 @@ impl ::core::fmt::Debug for WICPngSrgbProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICPngTimeProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngTimeYear: WICPngTimeProperties = WICPngTimeProperties(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngTimeMonth: WICPngTimeProperties = WICPngTimeProperties(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngTimeDay: WICPngTimeProperties = WICPngTimeProperties(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngTimeHour: WICPngTimeProperties = WICPngTimeProperties(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngTimeMinute: WICPngTimeProperties = WICPngTimeProperties(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICPngTimeSecond: WICPngTimeProperties = WICPngTimeProperties(6u32);
 impl ::core::marker::Copy for WICPngTimeProperties {}
 impl ::core::clone::Clone for WICPngTimeProperties {
     fn clone(&self) -> Self {
@@ -6427,14 +6491,6 @@ impl ::core::fmt::Debug for WICPngTimeProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICProgressNotification(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICProgressNotificationBegin: WICProgressNotification = WICProgressNotification(65536i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICProgressNotificationEnd: WICProgressNotification = WICProgressNotification(131072i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICProgressNotificationFrequent: WICProgressNotification = WICProgressNotification(262144i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICProgressNotificationAll: WICProgressNotification = WICProgressNotification(-65536i32);
 impl ::core::marker::Copy for WICProgressNotification {}
 impl ::core::clone::Clone for WICProgressNotification {
     fn clone(&self) -> Self {
@@ -6458,12 +6514,6 @@ impl ::core::fmt::Debug for WICProgressNotification {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICProgressOperation(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICProgressOperationCopyPixels: WICProgressOperation = WICProgressOperation(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICProgressOperationWritePixels: WICProgressOperation = WICProgressOperation(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICProgressOperationAll: WICProgressOperation = WICProgressOperation(65535i32);
 impl ::core::marker::Copy for WICProgressOperation {}
 impl ::core::clone::Clone for WICProgressOperation {
     fn clone(&self) -> Self {
@@ -6487,12 +6537,6 @@ impl ::core::fmt::Debug for WICProgressOperation {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICRawCapabilities(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRawCapabilityNotSupported: WICRawCapabilities = WICRawCapabilities(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRawCapabilityGetSupported: WICRawCapabilities = WICRawCapabilities(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRawCapabilityFullySupported: WICRawCapabilities = WICRawCapabilities(2i32);
 impl ::core::marker::Copy for WICRawCapabilities {}
 impl ::core::clone::Clone for WICRawCapabilities {
     fn clone(&self) -> Self {
@@ -6516,12 +6560,6 @@ impl ::core::fmt::Debug for WICRawCapabilities {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICRawParameterSet(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICAsShotParameterSet: WICRawParameterSet = WICRawParameterSet(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICUserAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICAutoAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(3i32);
 impl ::core::marker::Copy for WICRawParameterSet {}
 impl ::core::clone::Clone for WICRawParameterSet {
     fn clone(&self) -> Self {
@@ -6545,12 +6583,6 @@ impl ::core::fmt::Debug for WICRawParameterSet {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICRawRenderMode(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRawRenderModeDraft: WICRawRenderMode = WICRawRenderMode(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRawRenderModeNormal: WICRawRenderMode = WICRawRenderMode(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRawRenderModeBestQuality: WICRawRenderMode = WICRawRenderMode(3i32);
 impl ::core::marker::Copy for WICRawRenderMode {}
 impl ::core::clone::Clone for WICRawRenderMode {
     fn clone(&self) -> Self {
@@ -6574,14 +6606,6 @@ impl ::core::fmt::Debug for WICRawRenderMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICRawRotationCapabilities(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRawRotationCapabilityNotSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRawRotationCapabilityGetSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRawRotationCapabilityNinetyDegreesSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICRawRotationCapabilityFullySupported: WICRawRotationCapabilities = WICRawRotationCapabilities(3i32);
 impl ::core::marker::Copy for WICRawRotationCapabilities {}
 impl ::core::clone::Clone for WICRawRotationCapabilities {
     fn clone(&self) -> Self {
@@ -6605,10 +6629,6 @@ impl ::core::fmt::Debug for WICRawRotationCapabilities {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICSectionAccessLevel(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICSectionAccessLevelRead: WICSectionAccessLevel = WICSectionAccessLevel(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICSectionAccessLevelReadWrite: WICSectionAccessLevel = WICSectionAccessLevel(3u32);
 impl ::core::marker::Copy for WICSectionAccessLevel {}
 impl ::core::clone::Clone for WICSectionAccessLevel {
     fn clone(&self) -> Self {
@@ -6632,22 +6652,6 @@ impl ::core::fmt::Debug for WICSectionAccessLevel {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICTiffCompressionOption(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICTiffCompressionDontCare: WICTiffCompressionOption = WICTiffCompressionOption(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICTiffCompressionNone: WICTiffCompressionOption = WICTiffCompressionOption(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICTiffCompressionCCITT3: WICTiffCompressionOption = WICTiffCompressionOption(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICTiffCompressionCCITT4: WICTiffCompressionOption = WICTiffCompressionOption(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICTiffCompressionLZW: WICTiffCompressionOption = WICTiffCompressionOption(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICTiffCompressionRLE: WICTiffCompressionOption = WICTiffCompressionOption(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICTiffCompressionZIP: WICTiffCompressionOption = WICTiffCompressionOption(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICTiffCompressionLZWHDifferencing: WICTiffCompressionOption = WICTiffCompressionOption(7i32);
 impl ::core::marker::Copy for WICTiffCompressionOption {}
 impl ::core::clone::Clone for WICTiffCompressionOption {
     fn clone(&self) -> Self {
@@ -6671,8 +6675,6 @@ impl ::core::fmt::Debug for WICTiffCompressionOption {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICWebpAnimProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWebpAnimLoopCount: WICWebpAnimProperties = WICWebpAnimProperties(1u32);
 impl ::core::marker::Copy for WICWebpAnimProperties {}
 impl ::core::clone::Clone for WICWebpAnimProperties {
     fn clone(&self) -> Self {
@@ -6696,8 +6698,6 @@ impl ::core::fmt::Debug for WICWebpAnimProperties {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WICWebpAnmfProperties(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = WICWebpAnmfProperties(1u32);
 impl ::core::marker::Copy for WICWebpAnmfProperties {}
 impl ::core::clone::Clone for WICWebpAnmfProperties {
     fn clone(&self) -> Self {

@@ -1420,6 +1420,16 @@ pub struct IContactPropertyCollection_Vtbl {
     pub GetPropertyArrayElementID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszarrayelementid: ::windows_core::PWSTR, ccharrayelementid: u32, pdwccharrayelementidrequired: *mut u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
+pub const CACO_DEFAULT: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
+pub const CACO_EXTERNAL_ONLY: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(2i32);
+#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
+pub const CACO_INCLUDE_EXTERNAL: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
+pub const CA_CREATE_EXTERNAL: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
+pub const CA_CREATE_LOCAL: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 pub const CGD_ARRAY_NODE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
 pub const CGD_BINARY_PROPERTY: u32 = 4u32;
@@ -1637,12 +1647,6 @@ pub const ContactManager: ::windows_core::GUID = ::windows_core::GUID::from_u128
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONTACT_AGGREGATION_COLLECTION_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-pub const CACO_DEFAULT: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-pub const CACO_INCLUDE_EXTERNAL: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(1i32);
-#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-pub const CACO_EXTERNAL_ONLY: CONTACT_AGGREGATION_COLLECTION_OPTIONS = CONTACT_AGGREGATION_COLLECTION_OPTIONS(2i32);
 impl ::core::marker::Copy for CONTACT_AGGREGATION_COLLECTION_OPTIONS {}
 impl ::core::clone::Clone for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
     fn clone(&self) -> Self {
@@ -1666,10 +1670,6 @@ impl ::core::fmt::Debug for CONTACT_AGGREGATION_COLLECTION_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-pub const CA_CREATE_LOCAL: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_Contacts\"`*"]
-pub const CA_CREATE_EXTERNAL: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS(1i32);
 impl ::core::marker::Copy for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {}
 impl ::core::clone::Clone for CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS {
     fn clone(&self) -> Self {

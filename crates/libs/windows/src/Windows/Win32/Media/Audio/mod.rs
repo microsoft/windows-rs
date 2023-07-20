@@ -5949,7 +5949,21 @@ pub const ACM_STREAMSIZEF_QUERYMASK: i32 = 15i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const ACM_STREAMSIZEF_SOURCE: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AMBISONICS_CHANNEL_ORDERING_ACN: AMBISONICS_CHANNEL_ORDERING = AMBISONICS_CHANNEL_ORDERING(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AMBISONICS_PARAM_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AMBISONICS_TYPE_FULL3D: AMBISONICS_TYPE = AMBISONICS_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDCLNT_BUFFERFLAGS_SILENT: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(4i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_E_ALREADY_INITIALIZED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2004287486i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6033,6 +6047,10 @@ pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDEWHENEXPIRED: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_SESSIONFLAGS_EXPIREWHENUNOWNED: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDCLNT_SHAREMODE_EXCLUSIVE: AUDCLNT_SHAREMODE = AUDCLNT_SHAREMODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDCLNT_SHAREMODE_SHARED: AUDCLNT_SHAREMODE = AUDCLNT_SHAREMODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_STREAMFLAGS_CROSSPROCESS: u32 = 65536u32;
@@ -6047,13 +6065,41 @@ pub const AUDCLNT_STREAMFLAGS_RATEADJUST: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY: u32 = 134217728u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDCLNT_STREAMOPTIONS_AMBISONICS: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(4i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDCLNT_STREAMOPTIONS_RAW: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_S_BUFFER_EMPTY: ::windows_core::HRESULT = ::windows_core::HRESULT(143196161i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_S_POSITION_STALLED: ::windows_core::HRESULT = ::windows_core::HRESULT(143196163i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDCLNT_S_THREAD_ALREADY_REGISTERED: ::windows_core::HRESULT = ::windows_core::HRESULT(143196162i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_EFFECT_STATE_OFF: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_EFFECT_STATE_ON: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUXCAPS_AUXIN: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6062,6 +6108,94 @@ pub const AUXCAPS_CDAUDIO: u32 = 1u32;
 pub const AUXCAPS_LRVOLUME: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const AUXCAPS_VOLUME: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_Alerts: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(4i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_Communications: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_FarFieldSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(12i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_ForegroundOnlyMedia: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_GameChat: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(8i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_GameEffects: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(6i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_GameMedia: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(7i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_Media: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(11i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_Movie: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(10i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_Other: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_SoundEffects: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(5i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_Speech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(9i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_UniformSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(13i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioCategory_VoiceTyping: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(14i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_BackCenter: AudioObjectType = AudioObjectType(131072i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_BackLeft: AudioObjectType = AudioObjectType(128i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_BackRight: AudioObjectType = AudioObjectType(256i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_BottomBackLeft: AudioObjectType = AudioObjectType(32768i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_BottomBackRight: AudioObjectType = AudioObjectType(65536i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_BottomFrontLeft: AudioObjectType = AudioObjectType(8192i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_BottomFrontRight: AudioObjectType = AudioObjectType(16384i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_Dynamic: AudioObjectType = AudioObjectType(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_FrontCenter: AudioObjectType = AudioObjectType(8i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_FrontLeft: AudioObjectType = AudioObjectType(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_FrontRight: AudioObjectType = AudioObjectType(4i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_LowFrequency: AudioObjectType = AudioObjectType(16i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_None: AudioObjectType = AudioObjectType(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_SideLeft: AudioObjectType = AudioObjectType(32i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_SideRight: AudioObjectType = AudioObjectType(64i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_TopBackLeft: AudioObjectType = AudioObjectType(2048i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_TopBackRight: AudioObjectType = AudioObjectType(4096i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_TopFrontLeft: AudioObjectType = AudioObjectType(512i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioObjectType_TopFrontRight: AudioObjectType = AudioObjectType(1024i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioSessionStateActive: AudioSessionState = AudioSessionState(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioSessionStateExpired: AudioSessionState = AudioSessionState(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const AudioSessionStateInactive: AudioSessionState = AudioSessionState(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const CALLBACK_EVENT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(327680u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const CALLBACK_FUNCTION: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(196608u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const CALLBACK_NULL: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const CALLBACK_TASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const CALLBACK_THREAD: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(458752u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const CALLBACK_WINDOW: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(65536u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const Connector: PartType = PartType(0i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const DEVICE_STATEMASK_ALL: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6091,6 +6225,22 @@ pub const DRV_MAPPER_PREFERRED_OUTPUT_GET: u32 = 16386u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const DeviceTopology: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const DigitalAudioDisplayDevice: EndpointFormFactor = EndpointFormFactor(9i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const DisconnectReasonDeviceRemoval: AudioSessionDisconnectReason = AudioSessionDisconnectReason(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const DisconnectReasonExclusiveModeOverride: AudioSessionDisconnectReason = AudioSessionDisconnectReason(5i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const DisconnectReasonFormatChanged: AudioSessionDisconnectReason = AudioSessionDisconnectReason(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const DisconnectReasonServerShutdown: AudioSessionDisconnectReason = AudioSessionDisconnectReason(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const DisconnectReasonSessionDisconnected: AudioSessionDisconnectReason = AudioSessionDisconnectReason(4i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const DisconnectReasonSessionLogoff: AudioSessionDisconnectReason = AudioSessionDisconnectReason(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const EDataFlow_enum_count: EDataFlow = EDataFlow(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const ENDPOINT_FORMAT_RESET_MIX_ONLY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const ENDPOINT_HARDWARE_SUPPORT_METER: u32 = 4u32;
@@ -6103,7 +6253,11 @@ pub const ENDPOINT_SYSFX_DISABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const ENDPOINT_SYSFX_ENABLED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const ERole_enum_count: ERole = ERole(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const EVENTCONTEXT_VOLUMESLIDER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const EndpointFormFactor_enum_count: EndpointFormFactor = EndpointFormFactor(11i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const FILTERCHOOSE_CUSTOM_VERIFY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6120,6 +6274,20 @@ pub const FORMATCHOOSE_FORMATTAG_VERIFY: u32 = 0u32;
 pub const FORMATCHOOSE_FORMAT_VERIFY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const FORMATCHOOSE_MESSAGE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const Full: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const Handset: EndpointFormFactor = EndpointFormFactor(6i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const Headphones: EndpointFormFactor = EndpointFormFactor(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const Headset: EndpointFormFactor = EndpointFormFactor(5i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const In: DataFlow = DataFlow(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const LineLevel: EndpointFormFactor = EndpointFormFactor(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const Low: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(1i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const MEVT_F_CALLBACK: i32 = 1073741824i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6178,6 +6346,8 @@ pub const MIDI_CACHE_ALL: u32 = 1u32;
 pub const MIDI_CACHE_BESTFIT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const MIDI_CACHE_QUERY: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(32u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const MIDI_UNCACHE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6297,13 +6467,53 @@ pub const MIXERCONTROL_CT_UNITS_SIGNED: i32 = 131072i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const MIXERCONTROL_CT_UNITS_UNSIGNED: i32 = 196608i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(1u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const MIXERLINE_COMPONENTTYPE_DST_FIRST: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_DST_HEADPHONES: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(5u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const MIXERLINE_COMPONENTTYPE_DST_LAST: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_DST_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(2u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_DST_MONITOR: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(3u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_DST_SPEAKERS: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_DST_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(6u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_DST_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(0u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_DST_VOICEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(8u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_DST_WAVEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(7u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_SRC_ANALOG: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4106u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4105u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4101u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_SRC_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4097u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const MIXERLINE_COMPONENTTYPE_SRC_FIRST: i32 = 4096i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const MIXERLINE_COMPONENTTYPE_SRC_LAST: u32 = 4106u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_SRC_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4098u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4099u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4103u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4100u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4102u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4096u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4104u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const MIXERLINE_LINEF_ACTIVE: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6400,6 +6610,12 @@ pub const MOD_SWSYNTH: u32 = 7u32;
 pub const MOD_SYNTH: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const MOD_WAVETABLE: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const Microphone: EndpointFormFactor = EndpointFormFactor(4i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const Muted: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const Out: DataFlow = DataFlow(1i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEndpointLogo_IconEffects: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xf1ab780d_2010_4ed3_a3a6_8b87f0f0c476), pid: 0 };
@@ -6449,13 +6665,55 @@ pub const PKEY_AudioEngine_DeviceFormat: super::super::UI::Shell::PropertiesSyst
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xe4870e26_3cc5_4cd2_ba46_ca0a9a70ed04), pid: 3 };
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = PROCESS_LOOPBACK_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = PROCESS_LOOPBACK_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const RemoteNetworkDevice: EndpointFormFactor = EndpointFormFactor(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_ALIAS: SND_FLAGS = SND_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_ALIAS_ID: SND_FLAGS = SND_FLAGS(1114112u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SND_ALIAS_START: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_APPLICATION: SND_FLAGS = SND_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_ASYNC: SND_FLAGS = SND_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_FILENAME: SND_FLAGS = SND_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_LOOP: SND_FLAGS = SND_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_MEMORY: SND_FLAGS = SND_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_NODEFAULT: SND_FLAGS = SND_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_NOSTOP: SND_FLAGS = SND_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_NOWAIT: SND_FLAGS = SND_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_PURGE: SND_FLAGS = SND_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_RESOURCE: SND_FLAGS = SND_FLAGS(262148u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SND_RING: i32 = 1048576i32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_SENTRY: SND_FLAGS = SND_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_SYNC: SND_FLAGS = SND_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_SYSTEM: SND_FLAGS = SND_FLAGS(2097152u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SPATIAL_AUDIO_POSITION: u32 = 200u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SPATIAL_AUDIO_STANDARD_COMMANDS_START: u32 = 200u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SPATIAL_AUDIO_STREAM_OPTIONS_NONE: SPATIAL_AUDIO_STREAM_OPTIONS = SPATIAL_AUDIO_STREAM_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD: SPATIAL_AUDIO_STREAM_OPTIONS = SPATIAL_AUDIO_STREAM_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SPDIF: EndpointFormFactor = EndpointFormFactor(8i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SPTLAUDCLNT_E_DESTROYED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2004287232i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6535,6 +6793,48 @@ pub const SPTLAUD_MD_CLNT_E_OBJECT_NOT_INITIALIZED: ::windows_core::HRESULT = ::
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SPTLAUD_MD_CLNT_E_VALUE_BUFFER_INCORRECT_SIZE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2004286972i32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioHrtfDirectivity_Cardioid: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioHrtfDirectivity_Cone: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioHrtfDistanceDecay_CustomDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioHrtfDistanceDecay_NaturalDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioHrtfEnvironment_Average: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(4i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioHrtfEnvironment_Large: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioHrtfEnvironment_Medium: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioHrtfEnvironment_Outdoors: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioHrtfEnvironment_Small: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioMetadataCopy_Append: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const Speakers: EndpointFormFactor = EndpointFormFactor(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const Subunit: PartType = PartType(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const UnknownDigitalPassthrough: EndpointFormFactor = EndpointFormFactor(7i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const UnknownFormFactor: EndpointFormFactor = EndpointFormFactor(10i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const VIRTUAL_AUDIO_DEVICE_PROCESS_LOOPBACK: ::windows_core::PCWSTR = ::windows_core::w!("VAD\\Process_Loopback");
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const WAVECAPS_LRVOLUME: u32 = 8u32;
@@ -6570,6 +6870,8 @@ pub const WAVERR_STILLPLAYING: u32 = 33u32;
 pub const WAVERR_SYNC: u32 = 35u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const WAVERR_UNPREPARED: u32 = 34u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const WAVE_ALLOWSYNC: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(2u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const WAVE_FORMAT_1M08: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6619,9 +6921,19 @@ pub const WAVE_FORMAT_96S08: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const WAVE_FORMAT_96S16: u32 = 524288u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const WAVE_FORMAT_DIRECT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(8u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const WAVE_FORMAT_DIRECT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(9u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const WAVE_FORMAT_PCM: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const WAVE_FORMAT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const WAVE_INVALIDFORMAT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const WAVE_MAPPED: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(16u32);
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const WAVE_MAPPER: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -6639,11 +6951,21 @@ pub const WIDM_MAPPER_STATUS: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const WODM_MAPPER_STATUS: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const eAll: EDataFlow = EDataFlow(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const eCapture: EDataFlow = EDataFlow(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const eCommunications: ERole = ERole(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const eConsole: ERole = ERole(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const eMultimedia: ERole = ERole(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const eRender: EDataFlow = EDataFlow(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMBISONICS_CHANNEL_ORDERING(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AMBISONICS_CHANNEL_ORDERING_ACN: AMBISONICS_CHANNEL_ORDERING = AMBISONICS_CHANNEL_ORDERING(0i32);
 impl ::core::marker::Copy for AMBISONICS_CHANNEL_ORDERING {}
 impl ::core::clone::Clone for AMBISONICS_CHANNEL_ORDERING {
     fn clone(&self) -> Self {
@@ -6667,10 +6989,6 @@ impl ::core::fmt::Debug for AMBISONICS_CHANNEL_ORDERING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMBISONICS_NORMALIZATION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(1i32);
 impl ::core::marker::Copy for AMBISONICS_NORMALIZATION {}
 impl ::core::clone::Clone for AMBISONICS_NORMALIZATION {
     fn clone(&self) -> Self {
@@ -6694,8 +7012,6 @@ impl ::core::fmt::Debug for AMBISONICS_NORMALIZATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMBISONICS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AMBISONICS_TYPE_FULL3D: AMBISONICS_TYPE = AMBISONICS_TYPE(0i32);
 impl ::core::marker::Copy for AMBISONICS_TYPE {}
 impl ::core::clone::Clone for AMBISONICS_TYPE {
     fn clone(&self) -> Self {
@@ -6719,10 +7035,6 @@ impl ::core::fmt::Debug for AMBISONICS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDCLNT_SHAREMODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDCLNT_SHAREMODE_SHARED: AUDCLNT_SHAREMODE = AUDCLNT_SHAREMODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDCLNT_SHAREMODE_EXCLUSIVE: AUDCLNT_SHAREMODE = AUDCLNT_SHAREMODE(1i32);
 impl ::core::marker::Copy for AUDCLNT_SHAREMODE {}
 impl ::core::clone::Clone for AUDCLNT_SHAREMODE {
     fn clone(&self) -> Self {
@@ -6746,14 +7058,6 @@ impl ::core::fmt::Debug for AUDCLNT_SHAREMODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDCLNT_STREAMOPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDCLNT_STREAMOPTIONS_RAW: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDCLNT_STREAMOPTIONS_AMBISONICS: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(4i32);
 impl ::core::marker::Copy for AUDCLNT_STREAMOPTIONS {}
 impl ::core::clone::Clone for AUDCLNT_STREAMOPTIONS {
     fn clone(&self) -> Self {
@@ -6810,10 +7114,6 @@ impl ::core::ops::Not for AUDCLNT_STREAMOPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIOCLIENT_ACTIVATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(1i32);
 impl ::core::marker::Copy for AUDIOCLIENT_ACTIVATION_TYPE {}
 impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_TYPE {
     fn clone(&self) -> Self {
@@ -6837,10 +7137,6 @@ impl ::core::fmt::Debug for AUDIOCLIENT_ACTIVATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIO_DUCKING_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(1i32);
 impl ::core::marker::Copy for AUDIO_DUCKING_OPTIONS {}
 impl ::core::clone::Clone for AUDIO_DUCKING_OPTIONS {
     fn clone(&self) -> Self {
@@ -6897,10 +7193,6 @@ impl ::core::ops::Not for AUDIO_DUCKING_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIO_EFFECT_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_EFFECT_STATE_OFF: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_EFFECT_STATE_ON: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(1i32);
 impl ::core::marker::Copy for AUDIO_EFFECT_STATE {}
 impl ::core::clone::Clone for AUDIO_EFFECT_STATE {
     fn clone(&self) -> Self {
@@ -6924,34 +7216,6 @@ impl ::core::fmt::Debug for AUDIO_EFFECT_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIO_STREAM_CATEGORY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_Other: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_ForegroundOnlyMedia: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_Communications: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(3i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_Alerts: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(4i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_SoundEffects: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(5i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_GameEffects: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(6i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_GameMedia: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(7i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_GameChat: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(8i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_Speech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(9i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_Movie: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(10i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_Media: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(11i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_FarFieldSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(12i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_UniformSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(13i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioCategory_VoiceTyping: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(14i32);
 impl ::core::marker::Copy for AUDIO_STREAM_CATEGORY {}
 impl ::core::clone::Clone for AUDIO_STREAM_CATEGORY {
     fn clone(&self) -> Self {
@@ -6975,14 +7239,6 @@ impl ::core::fmt::Debug for AUDIO_STREAM_CATEGORY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE = AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE(3i32);
 impl ::core::marker::Copy for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {}
 impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
     fn clone(&self) -> Self {
@@ -7006,44 +7262,6 @@ impl ::core::fmt::Debug for AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioObjectType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_None: AudioObjectType = AudioObjectType(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_Dynamic: AudioObjectType = AudioObjectType(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_FrontLeft: AudioObjectType = AudioObjectType(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_FrontRight: AudioObjectType = AudioObjectType(4i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_FrontCenter: AudioObjectType = AudioObjectType(8i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_LowFrequency: AudioObjectType = AudioObjectType(16i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_SideLeft: AudioObjectType = AudioObjectType(32i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_SideRight: AudioObjectType = AudioObjectType(64i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_BackLeft: AudioObjectType = AudioObjectType(128i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_BackRight: AudioObjectType = AudioObjectType(256i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_TopFrontLeft: AudioObjectType = AudioObjectType(512i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_TopFrontRight: AudioObjectType = AudioObjectType(1024i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_TopBackLeft: AudioObjectType = AudioObjectType(2048i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_TopBackRight: AudioObjectType = AudioObjectType(4096i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_BottomFrontLeft: AudioObjectType = AudioObjectType(8192i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_BottomFrontRight: AudioObjectType = AudioObjectType(16384i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_BottomBackLeft: AudioObjectType = AudioObjectType(32768i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_BottomBackRight: AudioObjectType = AudioObjectType(65536i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioObjectType_BackCenter: AudioObjectType = AudioObjectType(131072i32);
 impl ::core::marker::Copy for AudioObjectType {}
 impl ::core::clone::Clone for AudioObjectType {
     fn clone(&self) -> Self {
@@ -7100,18 +7318,6 @@ impl ::core::ops::Not for AudioObjectType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioSessionDisconnectReason(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const DisconnectReasonDeviceRemoval: AudioSessionDisconnectReason = AudioSessionDisconnectReason(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const DisconnectReasonServerShutdown: AudioSessionDisconnectReason = AudioSessionDisconnectReason(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const DisconnectReasonFormatChanged: AudioSessionDisconnectReason = AudioSessionDisconnectReason(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const DisconnectReasonSessionLogoff: AudioSessionDisconnectReason = AudioSessionDisconnectReason(3i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const DisconnectReasonSessionDisconnected: AudioSessionDisconnectReason = AudioSessionDisconnectReason(4i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const DisconnectReasonExclusiveModeOverride: AudioSessionDisconnectReason = AudioSessionDisconnectReason(5i32);
 impl ::core::marker::Copy for AudioSessionDisconnectReason {}
 impl ::core::clone::Clone for AudioSessionDisconnectReason {
     fn clone(&self) -> Self {
@@ -7135,12 +7341,6 @@ impl ::core::fmt::Debug for AudioSessionDisconnectReason {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioSessionState(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioSessionStateInactive: AudioSessionState = AudioSessionState(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioSessionStateActive: AudioSessionState = AudioSessionState(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AudioSessionStateExpired: AudioSessionState = AudioSessionState(2i32);
 impl ::core::marker::Copy for AudioSessionState {}
 impl ::core::clone::Clone for AudioSessionState {
     fn clone(&self) -> Self {
@@ -7164,12 +7364,6 @@ impl ::core::fmt::Debug for AudioSessionState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioStateMonitorSoundLevel(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const Muted: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const Low: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const Full: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(2i32);
 impl ::core::marker::Copy for AudioStateMonitorSoundLevel {}
 impl ::core::clone::Clone for AudioStateMonitorSoundLevel {
     fn clone(&self) -> Self {
@@ -7224,10 +7418,6 @@ impl ::core::fmt::Debug for ConnectorType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataFlow(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const In: DataFlow = DataFlow(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const Out: DataFlow = DataFlow(1i32);
 impl ::core::marker::Copy for DataFlow {}
 impl ::core::clone::Clone for DataFlow {
     fn clone(&self) -> Self {
@@ -7251,14 +7441,6 @@ impl ::core::fmt::Debug for DataFlow {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDataFlow(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const eRender: EDataFlow = EDataFlow(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const eCapture: EDataFlow = EDataFlow(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const eAll: EDataFlow = EDataFlow(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const EDataFlow_enum_count: EDataFlow = EDataFlow(3i32);
 impl ::core::marker::Copy for EDataFlow {}
 impl ::core::clone::Clone for EDataFlow {
     fn clone(&self) -> Self {
@@ -7282,14 +7464,6 @@ impl ::core::fmt::Debug for EDataFlow {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ERole(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const eConsole: ERole = ERole(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const eMultimedia: ERole = ERole(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const eCommunications: ERole = ERole(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const ERole_enum_count: ERole = ERole(3i32);
 impl ::core::marker::Copy for ERole {}
 impl ::core::clone::Clone for ERole {
     fn clone(&self) -> Self {
@@ -7313,30 +7487,6 @@ impl ::core::fmt::Debug for ERole {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EndpointFormFactor(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const RemoteNetworkDevice: EndpointFormFactor = EndpointFormFactor(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const Speakers: EndpointFormFactor = EndpointFormFactor(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const LineLevel: EndpointFormFactor = EndpointFormFactor(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const Headphones: EndpointFormFactor = EndpointFormFactor(3i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const Microphone: EndpointFormFactor = EndpointFormFactor(4i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const Headset: EndpointFormFactor = EndpointFormFactor(5i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const Handset: EndpointFormFactor = EndpointFormFactor(6i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const UnknownDigitalPassthrough: EndpointFormFactor = EndpointFormFactor(7i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SPDIF: EndpointFormFactor = EndpointFormFactor(8i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const DigitalAudioDisplayDevice: EndpointFormFactor = EndpointFormFactor(9i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const UnknownFormFactor: EndpointFormFactor = EndpointFormFactor(10i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const EndpointFormFactor_enum_count: EndpointFormFactor = EndpointFormFactor(11i32);
 impl ::core::marker::Copy for EndpointFormFactor {}
 impl ::core::clone::Clone for EndpointFormFactor {
     fn clone(&self) -> Self {
@@ -7360,34 +7510,6 @@ impl ::core::fmt::Debug for EndpointFormFactor {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIDI_WAVE_OPEN_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(458752u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const CALLBACK_NULL: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const CALLBACK_WINDOW: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(65536u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const CALLBACK_TASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const CALLBACK_FUNCTION: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(196608u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const CALLBACK_THREAD: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const CALLBACK_EVENT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(327680u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const WAVE_FORMAT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const WAVE_ALLOWSYNC: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const WAVE_MAPPED: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const WAVE_FORMAT_DIRECT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(8u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const WAVE_FORMAT_DIRECT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(9u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(16u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(32u32);
 impl ::core::marker::Copy for MIDI_WAVE_OPEN_TYPE {}
 impl ::core::clone::Clone for MIDI_WAVE_OPEN_TYPE {
     fn clone(&self) -> Self {
@@ -7444,46 +7566,6 @@ impl ::core::ops::Not for MIDI_WAVE_OPEN_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIXERLINE_COMPONENTTYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(1u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_HEADPHONES: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(5u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(2u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_MONITOR: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(3u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_SPEAKERS: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(6u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(0u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_VOICEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(8u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_WAVEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(7u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_ANALOG: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4106u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4105u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4101u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4097u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4098u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4099u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4103u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4100u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4102u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4096u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4104u32);
 impl ::core::marker::Copy for MIXERLINE_COMPONENTTYPE {}
 impl ::core::clone::Clone for MIXERLINE_COMPONENTTYPE {
     fn clone(&self) -> Self {
@@ -7507,10 +7589,6 @@ impl ::core::fmt::Debug for MIXERLINE_COMPONENTTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_LOOPBACK_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = PROCESS_LOOPBACK_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = PROCESS_LOOPBACK_MODE(1i32);
 impl ::core::marker::Copy for PROCESS_LOOPBACK_MODE {}
 impl ::core::clone::Clone for PROCESS_LOOPBACK_MODE {
     fn clone(&self) -> Self {
@@ -7534,10 +7612,6 @@ impl ::core::fmt::Debug for PROCESS_LOOPBACK_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PartType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const Connector: PartType = PartType(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const Subunit: PartType = PartType(1i32);
 impl ::core::marker::Copy for PartType {}
 impl ::core::clone::Clone for PartType {
     fn clone(&self) -> Self {
@@ -7561,36 +7635,6 @@ impl ::core::fmt::Debug for PartType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SND_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_APPLICATION: SND_FLAGS = SND_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_ALIAS: SND_FLAGS = SND_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_ALIAS_ID: SND_FLAGS = SND_FLAGS(1114112u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_FILENAME: SND_FLAGS = SND_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_RESOURCE: SND_FLAGS = SND_FLAGS(262148u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_ASYNC: SND_FLAGS = SND_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_NODEFAULT: SND_FLAGS = SND_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_LOOP: SND_FLAGS = SND_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_MEMORY: SND_FLAGS = SND_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_NOSTOP: SND_FLAGS = SND_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_NOWAIT: SND_FLAGS = SND_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_PURGE: SND_FLAGS = SND_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_SENTRY: SND_FLAGS = SND_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_SYNC: SND_FLAGS = SND_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SND_SYSTEM: SND_FLAGS = SND_FLAGS(2097152u32);
 impl ::core::marker::Copy for SND_FLAGS {}
 impl ::core::clone::Clone for SND_FLAGS {
     fn clone(&self) -> Self {
@@ -7647,10 +7691,6 @@ impl ::core::ops::Not for SND_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPATIAL_AUDIO_STREAM_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SPATIAL_AUDIO_STREAM_OPTIONS_NONE: SPATIAL_AUDIO_STREAM_OPTIONS = SPATIAL_AUDIO_STREAM_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD: SPATIAL_AUDIO_STREAM_OPTIONS = SPATIAL_AUDIO_STREAM_OPTIONS(1i32);
 impl ::core::marker::Copy for SPATIAL_AUDIO_STREAM_OPTIONS {}
 impl ::core::clone::Clone for SPATIAL_AUDIO_STREAM_OPTIONS {
     fn clone(&self) -> Self {
@@ -7707,12 +7747,6 @@ impl ::core::ops::Not for SPATIAL_AUDIO_STREAM_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAudioHrtfDirectivityType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioHrtfDirectivity_Cardioid: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioHrtfDirectivity_Cone: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(2i32);
 impl ::core::marker::Copy for SpatialAudioHrtfDirectivityType {}
 impl ::core::clone::Clone for SpatialAudioHrtfDirectivityType {
     fn clone(&self) -> Self {
@@ -7736,10 +7770,6 @@ impl ::core::fmt::Debug for SpatialAudioHrtfDirectivityType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAudioHrtfDistanceDecayType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioHrtfDistanceDecay_NaturalDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioHrtfDistanceDecay_CustomDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(1i32);
 impl ::core::marker::Copy for SpatialAudioHrtfDistanceDecayType {}
 impl ::core::clone::Clone for SpatialAudioHrtfDistanceDecayType {
     fn clone(&self) -> Self {
@@ -7763,16 +7793,6 @@ impl ::core::fmt::Debug for SpatialAudioHrtfDistanceDecayType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAudioHrtfEnvironmentType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioHrtfEnvironment_Small: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioHrtfEnvironment_Medium: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioHrtfEnvironment_Large: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioHrtfEnvironment_Outdoors: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(3i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioHrtfEnvironment_Average: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(4i32);
 impl ::core::marker::Copy for SpatialAudioHrtfEnvironmentType {}
 impl ::core::clone::Clone for SpatialAudioHrtfEnvironmentType {
     fn clone(&self) -> Self {
@@ -7796,14 +7816,6 @@ impl ::core::fmt::Debug for SpatialAudioHrtfEnvironmentType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAudioMetadataCopyMode(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioMetadataCopy_Append: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(3i32);
 impl ::core::marker::Copy for SpatialAudioMetadataCopyMode {}
 impl ::core::clone::Clone for SpatialAudioMetadataCopyMode {
     fn clone(&self) -> Self {
@@ -7827,12 +7839,6 @@ impl ::core::fmt::Debug for SpatialAudioMetadataCopyMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpatialAudioMetadataWriterOverflowMode(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(2i32);
 impl ::core::marker::Copy for SpatialAudioMetadataWriterOverflowMode {}
 impl ::core::clone::Clone for SpatialAudioMetadataWriterOverflowMode {
     fn clone(&self) -> Self {
@@ -7856,12 +7862,6 @@ impl ::core::fmt::Debug for SpatialAudioMetadataWriterOverflowMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AUDCLNT_BUFFERFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDCLNT_BUFFERFLAGS_SILENT: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-pub const AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(4i32);
 impl ::core::marker::Copy for _AUDCLNT_BUFFERFLAGS {}
 impl ::core::clone::Clone for _AUDCLNT_BUFFERFLAGS {
     fn clone(&self) -> Self {

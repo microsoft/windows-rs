@@ -2948,6 +2948,20 @@ pub const AUTO_PROXY_FLAG_MIGRATED: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const AUTO_PROXY_FLAG_USER_SET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const AppCacheFinalizeStateComplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const AppCacheFinalizeStateIncomplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const AppCacheFinalizeStateManifestChange: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const AppCacheStateNoUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const AppCacheStateUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const AppCacheStateUpdateNeededMasterOnly: APP_CACHE_STATE = APP_CACHE_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const AppCacheStateUpdateNeededNew: APP_CACHE_STATE = APP_CACHE_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const CACHEGROUP_ATTRIBUTE_BASIC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const CACHEGROUP_ATTRIBUTE_FLAG: u32 = 2u32;
@@ -2982,9 +2996,29 @@ pub const CACHE_CONFIG_APPCONTAINER_CONTENT_QUOTA_FC: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const CACHE_CONFIG_APPCONTAINER_TOTAL_CONTENT_QUOTA_FC: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const CACHE_CONFIG_CONTENT_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(256u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const CACHE_CONFIG_CONTENT_QUOTA_FC: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const CACHE_CONFIG_CONTENT_USAGE_FC: CACHE_CONFIG = CACHE_CONFIG(8192u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const CACHE_CONFIG_COOKIES_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(512u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const CACHE_CONFIG_DISK_CACHE_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(64u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const CACHE_CONFIG_FORCE_CLEANUP_FC: CACHE_CONFIG = CACHE_CONFIG(32u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const CACHE_CONFIG_HISTORY_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(1024u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const CACHE_CONFIG_QUOTA_FC: CACHE_CONFIG = CACHE_CONFIG(2048u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const CACHE_CONFIG_STICKY_CONTENT_USAGE_FC: CACHE_CONFIG = CACHE_CONFIG(16384u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const CACHE_CONFIG_SYNC_MODE_FC: CACHE_CONFIG = CACHE_CONFIG(128u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const CACHE_CONFIG_TOTAL_CONTENT_QUOTA_FC: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const CACHE_CONFIG_USER_MODE_FC: CACHE_CONFIG = CACHE_CONFIG(4096u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const CACHE_ENTRY_ACCTIME_FC: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -3124,9 +3158,27 @@ pub const COOKIE_OP_SET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const COOKIE_REJECTED_CACHE_ENTRY: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const COOKIE_STATE_ACCEPT: InternetCookieState = InternetCookieState(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const COOKIE_STATE_DOWNGRADE: InternetCookieState = InternetCookieState(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const COOKIE_STATE_LB: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const COOKIE_STATE_LEASH: InternetCookieState = InternetCookieState(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const COOKIE_STATE_MAX: InternetCookieState = InternetCookieState(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const COOKIE_STATE_PROMPT: InternetCookieState = InternetCookieState(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const COOKIE_STATE_REJECT: InternetCookieState = InternetCookieState(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const COOKIE_STATE_UB: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const COOKIE_STATE_UNKNOWN: InternetCookieState = InternetCookieState(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const ConnectionEstablishmentEnd: REQUEST_TIMES = REQUEST_TIMES(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const ConnectionEstablishmentStart: REQUEST_TIMES = REQUEST_TIMES(2i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const DIALENG_OperationComplete: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -3420,6 +3472,22 @@ pub const FLAGS_ERROR_UI_SHOW_IDN_HOSTNAME: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const FLAG_ICC_FORCE_CONNECTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const FORTCMD_CHG_PERSONALITY: FORTCMD = FORTCMD(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const FORTCMD_LOGOFF: FORTCMD = FORTCMD(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const FORTCMD_LOGON: FORTCMD = FORTCMD(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const FORTSTAT_INSTALLED: FORTSTAT = FORTSTAT(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const FORTSTAT_LOGGEDON: FORTSTAT = FORTSTAT(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const FTP_TRANSFER_TYPE_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const FTP_TRANSFER_TYPE_BINARY: FTP_FLAGS = FTP_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const FTP_TRANSFER_TYPE_UNKNOWN: FTP_FLAGS = FTP_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const GOPHER_ABSTRACT_ATTRIBUTE: ::windows_core::PCWSTR = ::windows_core::w!("Abstract");
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const GOPHER_ABSTRACT_CATEGORY: ::windows_core::PCWSTR = ::windows_core::w!("+ABSTRACT");
@@ -3504,6 +3572,54 @@ pub const GOPHER_TREEWALK_ATTRIBUTE: ::windows_core::PCWSTR = ::windows_core::w!
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const GOPHER_TTL_ATTRIBUTE: ::windows_core::PCWSTR = ::windows_core::w!("TTL");
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_ASK: GOPHER_TYPE = GOPHER_TYPE(1073741824u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_BINARY: GOPHER_TYPE = GOPHER_TYPE(512u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_BITMAP: GOPHER_TYPE = GOPHER_TYPE(16384u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_CALENDAR: GOPHER_TYPE = GOPHER_TYPE(524288u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_CSO: GOPHER_TYPE = GOPHER_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_DIRECTORY: GOPHER_TYPE = GOPHER_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_DOS_ARCHIVE: GOPHER_TYPE = GOPHER_TYPE(32u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_ERROR: GOPHER_TYPE = GOPHER_TYPE(8u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_GIF: GOPHER_TYPE = GOPHER_TYPE(4096u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_GOPHER_PLUS: GOPHER_TYPE = GOPHER_TYPE(2147483648u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_HTML: GOPHER_TYPE = GOPHER_TYPE(131072u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_IMAGE: GOPHER_TYPE = GOPHER_TYPE(8192u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_INDEX_SERVER: GOPHER_TYPE = GOPHER_TYPE(128u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_INLINE: GOPHER_TYPE = GOPHER_TYPE(1048576u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_MAC_BINHEX: GOPHER_TYPE = GOPHER_TYPE(16u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_MOVIE: GOPHER_TYPE = GOPHER_TYPE(32768u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_PDF: GOPHER_TYPE = GOPHER_TYPE(262144u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_REDUNDANT: GOPHER_TYPE = GOPHER_TYPE(1024u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_SOUND: GOPHER_TYPE = GOPHER_TYPE(65536u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_TELNET: GOPHER_TYPE = GOPHER_TYPE(256u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_TEXT_FILE: GOPHER_TYPE = GOPHER_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_TN3270: GOPHER_TYPE = GOPHER_TYPE(2048u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_UNIX_UUENCODED: GOPHER_TYPE = GOPHER_TYPE(64u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const GOPHER_TYPE_UNKNOWN: GOPHER_TYPE = GOPHER_TYPE(536870912u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const GOPHER_VERONICA_CATEGORY: ::windows_core::PCWSTR = ::windows_core::w!("+VERONICA");
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const GOPHER_VERSION_ATTRIBUTE: ::windows_core::PCWSTR = ::windows_core::w!("Version");
@@ -3532,7 +3648,19 @@ pub const HTTP_1_1_CACHE_ENTRY: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const HTTP_ADDREQ_FLAGS_MASK: u32 = 4294901760u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_ADDREQ_FLAG_ADD: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(536870912u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_ADDREQ_FLAG_ADD_IF_NEW: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(268435456u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const HTTP_ADDREQ_FLAG_ALLOW_EMPTY_VALUES: u32 = 67108864u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_ADDREQ_FLAG_COALESCE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741824u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741824u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(16777216u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_ADDREQ_FLAG_REPLACE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(2147483648u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const HTTP_ADDREQ_FLAG_RESPONSE_HEADERS: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -3772,9 +3900,61 @@ pub const HTTP_VERSIONA: ::windows_core::PCSTR = ::windows_core::s!("HTTP/1.0");
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const HTTP_VERSIONW: ::windows_core::PCWSTR = ::windows_core::w!("HTTP/1.0");
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1006i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_BINARY_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_BINARY_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_CLOSE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_CLOSE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1005i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1001i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1003i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1007i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const HTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1009i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const HTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 10000u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_PING_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1008i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1002i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_RECEIVE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1015i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_SEND_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1011i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_SHUTDOWN_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1010i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_UTF8_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HTTP_WEB_SOCKET_UTF8_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HttpPushWaitEnableComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HttpPushWaitReceiveComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HttpPushWaitSendComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const HttpRequestTimeMax: REQUEST_TIMES = REQUEST_TIMES(32i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const ICU_USERNAME: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -3811,6 +3991,14 @@ pub const INTERNET_AUTH_SCHEME_NTLM: u32 = 2u32;
 pub const INTERNET_AUTH_SCHEME_PASSPORT: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_AUTH_SCHEME_UNKNOWN: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_AUTODIAL_FAILIFSECURITYCHECK: INTERNET_AUTODIAL = INTERNET_AUTODIAL(4u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_AUTODIAL_FORCE_ONLINE: INTERNET_AUTODIAL = INTERNET_AUTODIAL(1u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_AUTODIAL_FORCE_UNATTENDED: INTERNET_AUTODIAL = INTERNET_AUTODIAL(2u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: INTERNET_AUTODIAL = INTERNET_AUTODIAL(8u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_AUTOPROXY_INIT_DEFAULT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -3850,6 +4038,18 @@ pub const INTERNET_CACHE_GROUP_ADD: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_CACHE_GROUP_REMOVE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_CONNECTION_CONFIGURED: INTERNET_CONNECTION = INTERNET_CONNECTION(64u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_CONNECTION_LAN: INTERNET_CONNECTION = INTERNET_CONNECTION(2u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_CONNECTION_MODEM: INTERNET_CONNECTION = INTERNET_CONNECTION(1u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_CONNECTION_MODEM_BUSY: INTERNET_CONNECTION = INTERNET_CONNECTION(8u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_CONNECTION_OFFLINE: INTERNET_CONNECTION = INTERNET_CONNECTION(32u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_CONNECTION_PROXY: INTERNET_CONNECTION = INTERNET_CONNECTION(4u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_COOKIE_ALL_COOKIES: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_COOKIE_APPLY_HOST_ONLY: u32 = 32768u32;
@@ -3865,6 +4065,8 @@ pub const INTERNET_COOKIE_EVALUATE_P3P: u32 = 64u32;
 pub const INTERNET_COOKIE_HOST_ONLY: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_COOKIE_HOST_ONLY_APPLIED: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_COOKIE_HTTPONLY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(8192u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_COOKIE_IE6: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -3893,6 +4095,8 @@ pub const INTERNET_COOKIE_SAME_SITE_LAX: u32 = 2097152u32;
 pub const INTERNET_COOKIE_SAME_SITE_LEVEL_CROSS_SITE: u32 = 4194304u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_COOKIE_SAME_SITE_STRICT: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_COOKIE_THIRD_PARTY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(16u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_CUSTOMDIAL_CAN_HANGUP: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -4000,9 +4204,15 @@ pub const INTERNET_FLAG_READ_PREFETCH: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_FLAG_RELOAD: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_FLAG_RESTRICTED_ZONE: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_FLAG_RESYNCHRONIZE: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_FLAG_SECURE: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_FLAG_TRANSFER_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_FLAG_TRANSFER_BINARY: FTP_FLAGS = FTP_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_GLOBAL_CALLBACK_DETECTING_PROXY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -4074,7 +4284,13 @@ pub const INTERNET_MAX_USER_NAME_LENGTH: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_NO_CALLBACK: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_OPEN_TYPE_DIRECT: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_OPEN_TYPE_PRECONFIG: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_OPEN_TYPE_PRECONFIG_WITH_NO_AUTOPROXY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_OPEN_TYPE_PROXY: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(3u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_OPTION_ACTIVATE_WORKER_THREADS: u32 = 92u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -4460,7 +4676,25 @@ pub const INTERNET_OPTION_WRITE_BUFFER_SIZE: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_OPTION_WWA_MODE: u32 = 125u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_TIME: INTERNET_PER_CONN = INTERNET_PER_CONN(8u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(9u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_PER_CONN_AUTOCONFIG_RELOAD_DELAY_MINS: INTERNET_PER_CONN = INTERNET_PER_CONN(7u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_PER_CONN_AUTOCONFIG_SECONDARY_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(6u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_PER_CONN_AUTOCONFIG_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(4u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_PER_CONN_AUTODISCOVERY_FLAGS: INTERNET_PER_CONN = INTERNET_PER_CONN(5u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_PER_CONN_FLAGS: INTERNET_PER_CONN = INTERNET_PER_CONN(1u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_PER_CONN_FLAGS_UI: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_PER_CONN_PROXY_BYPASS: INTERNET_PER_CONN = INTERNET_PER_CONN(3u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_PER_CONN_PROXY_SERVER: INTERNET_PER_CONN = INTERNET_PER_CONN(2u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_PREFETCH_ABORTED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -4469,6 +4703,8 @@ pub const INTERNET_PREFETCH_COMPLETE: u32 = 1u32;
 pub const INTERNET_PREFETCH_PROGRESS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_PRIORITY_FOREGROUND: u32 = 1000u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_RAS_INSTALLED: INTERNET_CONNECTION = INTERNET_CONNECTION(16u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_REQFLAG_ASYNC: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -4490,6 +4726,38 @@ pub const INTERNET_RFC1123_BUFSIZE: u32 = 30u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_RFC1123_FORMAT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_DEFAULT: INTERNET_SCHEME = INTERNET_SCHEME(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_FILE: INTERNET_SCHEME = INTERNET_SCHEME(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_FIRST: INTERNET_SCHEME = INTERNET_SCHEME(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_FTP: INTERNET_SCHEME = INTERNET_SCHEME(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_GOPHER: INTERNET_SCHEME = INTERNET_SCHEME(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_HTTP: INTERNET_SCHEME = INTERNET_SCHEME(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_HTTPS: INTERNET_SCHEME = INTERNET_SCHEME(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_JAVASCRIPT: INTERNET_SCHEME = INTERNET_SCHEME(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_LAST: INTERNET_SCHEME = INTERNET_SCHEME(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_MAILTO: INTERNET_SCHEME = INTERNET_SCHEME(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_NEWS: INTERNET_SCHEME = INTERNET_SCHEME(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_PARTIAL: INTERNET_SCHEME = INTERNET_SCHEME(-2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_RES: INTERNET_SCHEME = INTERNET_SCHEME(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_SOCKS: INTERNET_SCHEME = INTERNET_SCHEME(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_UNKNOWN: INTERNET_SCHEME = INTERNET_SCHEME(-1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_SCHEME_VBSCRIPT: INTERNET_SCHEME = INTERNET_SCHEME(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_SERVICE_FTP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_SERVICE_GOPHER: u32 = 2u32;
@@ -4497,6 +4765,16 @@ pub const INTERNET_SERVICE_GOPHER: u32 = 2u32;
 pub const INTERNET_SERVICE_HTTP: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_SERVICE_URL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_STATE_BUSY: INTERNET_STATE = INTERNET_STATE(512u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_STATE_CONNECTED: INTERNET_STATE = INTERNET_STATE(1u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_STATE_DISCONNECTED: INTERNET_STATE = INTERNET_STATE(2u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_STATE_DISCONNECTED_BY_USER: INTERNET_STATE = INTERNET_STATE(16u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const INTERNET_STATE_IDLE: INTERNET_STATE = INTERNET_STATE(256u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const INTERNET_STATUS_CLOSING_CONNECTION: u32 = 50u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -4646,9 +4924,21 @@ pub const MaxPrivacySettings: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const NORMAL_CACHE_ENTRY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const NameResolutionEnd: REQUEST_TIMES = REQUEST_TIMES(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const NameResolutionStart: REQUEST_TIMES = REQUEST_TIMES(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const OTHER_USER_CACHE_ENTRY: u32 = 8388608u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const PENDING_DELETE_CACHE_ENTRY: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const POLICY_EXTENSION_TYPE_NONE: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const POLICY_EXTENSION_TYPE_WINHTTP: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const POLICY_EXTENSION_TYPE_WININET: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const POLICY_EXTENSION_VERSION1: HTTP_POLICY_EXTENSION_VERSION = HTTP_POLICY_EXTENSION_VERSION(1i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const POST_CHECK_CACHE_ENTRY: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -4679,6 +4969,10 @@ pub const PRIVACY_TEMPLATE_NO_COOKIES: u32 = 0u32;
 pub const PRIVACY_TYPE_FIRST_PARTY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const PRIVACY_TYPE_THIRD_PARTY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const PROXY_AUTO_DETECT_TYPE_DHCP: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const PROXY_AUTO_DETECT_TYPE_DNS_A: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(2u32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const PROXY_TYPE_AUTO_DETECT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -4738,11 +5032,25 @@ pub const STATIC_CACHE_ENTRY: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const STICKY_CACHE_ENTRY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const TLSHandshakeEnd: REQUEST_TIMES = REQUEST_TIMES(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const TLSHandshakeStart: REQUEST_TIMES = REQUEST_TIMES(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const TRACK_OFFLINE_CACHE_ENTRY: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const TRACK_ONLINE_CACHE_ENTRY: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const URLHISTORY_CACHE_ENTRY: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const UrlCacheLimitTypeAppContainer: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const UrlCacheLimitTypeAppContainerTotal: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const UrlCacheLimitTypeIE: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const UrlCacheLimitTypeIETotal: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const UrlCacheLimitTypeNum: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(4i32);
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const WININET_API_FLAG_ASYNC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
@@ -4750,17 +5058,27 @@ pub const WININET_API_FLAG_SYNC: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const WININET_API_FLAG_USE_CONTEXT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const WININET_SYNC_MODE_ALWAYS: WININET_SYNC_MODE = WININET_SYNC_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const WININET_SYNC_MODE_AUTOMATIC: WININET_SYNC_MODE = WININET_SYNC_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const WININET_SYNC_MODE_DEFAULT: WININET_SYNC_MODE = WININET_SYNC_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const WININET_SYNC_MODE_NEVER: WININET_SYNC_MODE = WININET_SYNC_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const WININET_SYNC_MODE_ONCE_PER_SESSION: WININET_SYNC_MODE = WININET_SYNC_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const WININET_SYNC_MODE_ON_EXPIRY: WININET_SYNC_MODE = WININET_SYNC_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
+pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 pub const XDR_CACHE_ENTRY: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APP_CACHE_FINALIZE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const AppCacheFinalizeStateIncomplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const AppCacheFinalizeStateManifestChange: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const AppCacheFinalizeStateComplete: APP_CACHE_FINALIZE_STATE = APP_CACHE_FINALIZE_STATE(2i32);
 impl ::core::marker::Copy for APP_CACHE_FINALIZE_STATE {}
 impl ::core::clone::Clone for APP_CACHE_FINALIZE_STATE {
     fn clone(&self) -> Self {
@@ -4784,14 +5102,6 @@ impl ::core::fmt::Debug for APP_CACHE_FINALIZE_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APP_CACHE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const AppCacheStateNoUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const AppCacheStateUpdateNeeded: APP_CACHE_STATE = APP_CACHE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const AppCacheStateUpdateNeededNew: APP_CACHE_STATE = APP_CACHE_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const AppCacheStateUpdateNeededMasterOnly: APP_CACHE_STATE = APP_CACHE_STATE(3i32);
 impl ::core::marker::Copy for APP_CACHE_STATE {}
 impl ::core::clone::Clone for APP_CACHE_STATE {
     fn clone(&self) -> Self {
@@ -4815,26 +5125,6 @@ impl ::core::fmt::Debug for APP_CACHE_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CACHE_CONFIG(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const CACHE_CONFIG_FORCE_CLEANUP_FC: CACHE_CONFIG = CACHE_CONFIG(32u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const CACHE_CONFIG_DISK_CACHE_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(64u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const CACHE_CONFIG_SYNC_MODE_FC: CACHE_CONFIG = CACHE_CONFIG(128u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const CACHE_CONFIG_CONTENT_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(256u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const CACHE_CONFIG_HISTORY_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(1024u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const CACHE_CONFIG_COOKIES_PATHS_FC: CACHE_CONFIG = CACHE_CONFIG(512u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const CACHE_CONFIG_QUOTA_FC: CACHE_CONFIG = CACHE_CONFIG(2048u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const CACHE_CONFIG_USER_MODE_FC: CACHE_CONFIG = CACHE_CONFIG(4096u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const CACHE_CONFIG_CONTENT_USAGE_FC: CACHE_CONFIG = CACHE_CONFIG(8192u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const CACHE_CONFIG_STICKY_CONTENT_USAGE_FC: CACHE_CONFIG = CACHE_CONFIG(16384u32);
 impl ::core::marker::Copy for CACHE_CONFIG {}
 impl ::core::clone::Clone for CACHE_CONFIG {
     fn clone(&self) -> Self {
@@ -4858,12 +5148,6 @@ impl ::core::fmt::Debug for CACHE_CONFIG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FORTCMD(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const FORTCMD_LOGON: FORTCMD = FORTCMD(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const FORTCMD_LOGOFF: FORTCMD = FORTCMD(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const FORTCMD_CHG_PERSONALITY: FORTCMD = FORTCMD(3i32);
 impl ::core::marker::Copy for FORTCMD {}
 impl ::core::clone::Clone for FORTCMD {
     fn clone(&self) -> Self {
@@ -4887,10 +5171,6 @@ impl ::core::fmt::Debug for FORTCMD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FORTSTAT(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const FORTSTAT_INSTALLED: FORTSTAT = FORTSTAT(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const FORTSTAT_LOGGEDON: FORTSTAT = FORTSTAT(2i32);
 impl ::core::marker::Copy for FORTSTAT {}
 impl ::core::clone::Clone for FORTSTAT {
     fn clone(&self) -> Self {
@@ -4914,16 +5194,6 @@ impl ::core::fmt::Debug for FORTSTAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FTP_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const FTP_TRANSFER_TYPE_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const FTP_TRANSFER_TYPE_BINARY: FTP_FLAGS = FTP_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const FTP_TRANSFER_TYPE_UNKNOWN: FTP_FLAGS = FTP_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_FLAG_TRANSFER_ASCII: FTP_FLAGS = FTP_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_FLAG_TRANSFER_BINARY: FTP_FLAGS = FTP_FLAGS(2u32);
 impl ::core::marker::Copy for FTP_FLAGS {}
 impl ::core::clone::Clone for FTP_FLAGS {
     fn clone(&self) -> Self {
@@ -4947,54 +5217,6 @@ impl ::core::fmt::Debug for FTP_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GOPHER_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_ASK: GOPHER_TYPE = GOPHER_TYPE(1073741824u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_BINARY: GOPHER_TYPE = GOPHER_TYPE(512u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_BITMAP: GOPHER_TYPE = GOPHER_TYPE(16384u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_CALENDAR: GOPHER_TYPE = GOPHER_TYPE(524288u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_CSO: GOPHER_TYPE = GOPHER_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_DIRECTORY: GOPHER_TYPE = GOPHER_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_DOS_ARCHIVE: GOPHER_TYPE = GOPHER_TYPE(32u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_ERROR: GOPHER_TYPE = GOPHER_TYPE(8u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_GIF: GOPHER_TYPE = GOPHER_TYPE(4096u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_GOPHER_PLUS: GOPHER_TYPE = GOPHER_TYPE(2147483648u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_HTML: GOPHER_TYPE = GOPHER_TYPE(131072u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_IMAGE: GOPHER_TYPE = GOPHER_TYPE(8192u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_INDEX_SERVER: GOPHER_TYPE = GOPHER_TYPE(128u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_INLINE: GOPHER_TYPE = GOPHER_TYPE(1048576u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_MAC_BINHEX: GOPHER_TYPE = GOPHER_TYPE(16u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_MOVIE: GOPHER_TYPE = GOPHER_TYPE(32768u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_PDF: GOPHER_TYPE = GOPHER_TYPE(262144u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_REDUNDANT: GOPHER_TYPE = GOPHER_TYPE(1024u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_SOUND: GOPHER_TYPE = GOPHER_TYPE(65536u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_TELNET: GOPHER_TYPE = GOPHER_TYPE(256u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_TEXT_FILE: GOPHER_TYPE = GOPHER_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_TN3270: GOPHER_TYPE = GOPHER_TYPE(2048u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_UNIX_UUENCODED: GOPHER_TYPE = GOPHER_TYPE(64u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const GOPHER_TYPE_UNKNOWN: GOPHER_TYPE = GOPHER_TYPE(536870912u32);
 impl ::core::marker::Copy for GOPHER_TYPE {}
 impl ::core::clone::Clone for GOPHER_TYPE {
     fn clone(&self) -> Self {
@@ -5018,18 +5240,6 @@ impl ::core::fmt::Debug for GOPHER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_ADDREQ_FLAG(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_ADDREQ_FLAG_ADD: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(536870912u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_ADDREQ_FLAG_ADD_IF_NEW: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(268435456u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_ADDREQ_FLAG_COALESCE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741824u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_COMMA: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(1073741824u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(16777216u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_ADDREQ_FLAG_REPLACE: HTTP_ADDREQ_FLAG = HTTP_ADDREQ_FLAG(2147483648u32);
 impl ::core::marker::Copy for HTTP_ADDREQ_FLAG {}
 impl ::core::clone::Clone for HTTP_ADDREQ_FLAG {
     fn clone(&self) -> Self {
@@ -5086,12 +5296,6 @@ impl ::core::ops::Not for HTTP_ADDREQ_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_POLICY_EXTENSION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const POLICY_EXTENSION_TYPE_NONE: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const POLICY_EXTENSION_TYPE_WINHTTP: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const POLICY_EXTENSION_TYPE_WININET: HTTP_POLICY_EXTENSION_TYPE = HTTP_POLICY_EXTENSION_TYPE(2i32);
 impl ::core::marker::Copy for HTTP_POLICY_EXTENSION_TYPE {}
 impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_TYPE {
     fn clone(&self) -> Self {
@@ -5115,8 +5319,6 @@ impl ::core::fmt::Debug for HTTP_POLICY_EXTENSION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_POLICY_EXTENSION_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const POLICY_EXTENSION_VERSION1: HTTP_POLICY_EXTENSION_VERSION = HTTP_POLICY_EXTENSION_VERSION(1i32);
 impl ::core::marker::Copy for HTTP_POLICY_EXTENSION_VERSION {}
 impl ::core::clone::Clone for HTTP_POLICY_EXTENSION_VERSION {
     fn clone(&self) -> Self {
@@ -5140,12 +5342,6 @@ impl ::core::fmt::Debug for HTTP_POLICY_EXTENSION_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_PUSH_WAIT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HttpPushWaitEnableComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HttpPushWaitReceiveComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HttpPushWaitSendComplete: HTTP_PUSH_WAIT_TYPE = HTTP_PUSH_WAIT_TYPE(2i32);
 impl ::core::marker::Copy for HTTP_PUSH_WAIT_TYPE {}
 impl ::core::clone::Clone for HTTP_PUSH_WAIT_TYPE {
     fn clone(&self) -> Self {
@@ -5169,18 +5365,6 @@ impl ::core::fmt::Debug for HTTP_PUSH_WAIT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_BINARY_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_BINARY_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_UTF8_MESSAGE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_UTF8_FRAGMENT_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_CLOSE_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_PING_TYPE: HTTP_WEB_SOCKET_BUFFER_TYPE = HTTP_WEB_SOCKET_BUFFER_TYPE(5i32);
 impl ::core::marker::Copy for HTTP_WEB_SOCKET_BUFFER_TYPE {}
 impl ::core::clone::Clone for HTTP_WEB_SOCKET_BUFFER_TYPE {
     fn clone(&self) -> Self {
@@ -5204,30 +5388,6 @@ impl ::core::fmt::Debug for HTTP_WEB_SOCKET_BUFFER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1001i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1002i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1003i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1005i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1006i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1007i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1008i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1009i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1010i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1011i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: HTTP_WEB_SOCKET_CLOSE_STATUS = HTTP_WEB_SOCKET_CLOSE_STATUS(1015i32);
 impl ::core::marker::Copy for HTTP_WEB_SOCKET_CLOSE_STATUS {}
 impl ::core::clone::Clone for HTTP_WEB_SOCKET_CLOSE_STATUS {
     fn clone(&self) -> Self {
@@ -5251,14 +5411,6 @@ impl ::core::fmt::Debug for HTTP_WEB_SOCKET_CLOSE_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HTTP_WEB_SOCKET_OPERATION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_SEND_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_RECEIVE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_CLOSE_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HTTP_WEB_SOCKET_SHUTDOWN_OPERATION: HTTP_WEB_SOCKET_OPERATION = HTTP_WEB_SOCKET_OPERATION(3i32);
 impl ::core::marker::Copy for HTTP_WEB_SOCKET_OPERATION {}
 impl ::core::clone::Clone for HTTP_WEB_SOCKET_OPERATION {
     fn clone(&self) -> Self {
@@ -5282,12 +5434,6 @@ impl ::core::fmt::Debug for HTTP_WEB_SOCKET_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_ACCESS_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_OPEN_TYPE_DIRECT: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_OPEN_TYPE_PRECONFIG: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_OPEN_TYPE_PROXY: INTERNET_ACCESS_TYPE = INTERNET_ACCESS_TYPE(3u32);
 impl ::core::marker::Copy for INTERNET_ACCESS_TYPE {}
 impl ::core::clone::Clone for INTERNET_ACCESS_TYPE {
     fn clone(&self) -> Self {
@@ -5311,14 +5457,6 @@ impl ::core::fmt::Debug for INTERNET_ACCESS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_AUTODIAL(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_AUTODIAL_FAILIFSECURITYCHECK: INTERNET_AUTODIAL = INTERNET_AUTODIAL(4u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_AUTODIAL_FORCE_ONLINE: INTERNET_AUTODIAL = INTERNET_AUTODIAL(1u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_AUTODIAL_FORCE_UNATTENDED: INTERNET_AUTODIAL = INTERNET_AUTODIAL(2u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: INTERNET_AUTODIAL = INTERNET_AUTODIAL(8u32);
 impl ::core::marker::Copy for INTERNET_AUTODIAL {}
 impl ::core::clone::Clone for INTERNET_AUTODIAL {
     fn clone(&self) -> Self {
@@ -5342,20 +5480,6 @@ impl ::core::fmt::Debug for INTERNET_AUTODIAL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_CONNECTION(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_CONNECTION_CONFIGURED: INTERNET_CONNECTION = INTERNET_CONNECTION(64u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_CONNECTION_LAN: INTERNET_CONNECTION = INTERNET_CONNECTION(2u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_CONNECTION_MODEM: INTERNET_CONNECTION = INTERNET_CONNECTION(1u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_CONNECTION_MODEM_BUSY: INTERNET_CONNECTION = INTERNET_CONNECTION(8u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_CONNECTION_OFFLINE: INTERNET_CONNECTION = INTERNET_CONNECTION(32u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_CONNECTION_PROXY: INTERNET_CONNECTION = INTERNET_CONNECTION(4u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_RAS_INSTALLED: INTERNET_CONNECTION = INTERNET_CONNECTION(16u32);
 impl ::core::marker::Copy for INTERNET_CONNECTION {}
 impl ::core::clone::Clone for INTERNET_CONNECTION {
     fn clone(&self) -> Self {
@@ -5412,12 +5536,6 @@ impl ::core::ops::Not for INTERNET_CONNECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_COOKIE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_COOKIE_HTTPONLY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_COOKIE_THIRD_PARTY: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_FLAG_RESTRICTED_ZONE: INTERNET_COOKIE_FLAGS = INTERNET_COOKIE_FLAGS(131072u32);
 impl ::core::marker::Copy for INTERNET_COOKIE_FLAGS {}
 impl ::core::clone::Clone for INTERNET_COOKIE_FLAGS {
     fn clone(&self) -> Self {
@@ -5441,24 +5559,6 @@ impl ::core::fmt::Debug for INTERNET_COOKIE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_PER_CONN(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_PER_CONN_AUTOCONFIG_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(4u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_PER_CONN_AUTODISCOVERY_FLAGS: INTERNET_PER_CONN = INTERNET_PER_CONN(5u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_PER_CONN_FLAGS: INTERNET_PER_CONN = INTERNET_PER_CONN(1u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_PER_CONN_PROXY_BYPASS: INTERNET_PER_CONN = INTERNET_PER_CONN(3u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_PER_CONN_PROXY_SERVER: INTERNET_PER_CONN = INTERNET_PER_CONN(2u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_PER_CONN_AUTOCONFIG_SECONDARY_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(6u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_PER_CONN_AUTOCONFIG_RELOAD_DELAY_MINS: INTERNET_PER_CONN = INTERNET_PER_CONN(7u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_TIME: INTERNET_PER_CONN = INTERNET_PER_CONN(8u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_PER_CONN_AUTOCONFIG_LAST_DETECT_URL: INTERNET_PER_CONN = INTERNET_PER_CONN(9u32);
 impl ::core::marker::Copy for INTERNET_PER_CONN {}
 impl ::core::clone::Clone for INTERNET_PER_CONN {
     fn clone(&self) -> Self {
@@ -5482,38 +5582,6 @@ impl ::core::fmt::Debug for INTERNET_PER_CONN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_SCHEME(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_PARTIAL: INTERNET_SCHEME = INTERNET_SCHEME(-2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_UNKNOWN: INTERNET_SCHEME = INTERNET_SCHEME(-1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_DEFAULT: INTERNET_SCHEME = INTERNET_SCHEME(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_FTP: INTERNET_SCHEME = INTERNET_SCHEME(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_GOPHER: INTERNET_SCHEME = INTERNET_SCHEME(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_HTTP: INTERNET_SCHEME = INTERNET_SCHEME(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_HTTPS: INTERNET_SCHEME = INTERNET_SCHEME(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_FILE: INTERNET_SCHEME = INTERNET_SCHEME(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_NEWS: INTERNET_SCHEME = INTERNET_SCHEME(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_MAILTO: INTERNET_SCHEME = INTERNET_SCHEME(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_SOCKS: INTERNET_SCHEME = INTERNET_SCHEME(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_JAVASCRIPT: INTERNET_SCHEME = INTERNET_SCHEME(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_VBSCRIPT: INTERNET_SCHEME = INTERNET_SCHEME(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_RES: INTERNET_SCHEME = INTERNET_SCHEME(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_FIRST: INTERNET_SCHEME = INTERNET_SCHEME(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_SCHEME_LAST: INTERNET_SCHEME = INTERNET_SCHEME(11i32);
 impl ::core::marker::Copy for INTERNET_SCHEME {}
 impl ::core::clone::Clone for INTERNET_SCHEME {
     fn clone(&self) -> Self {
@@ -5537,16 +5605,6 @@ impl ::core::fmt::Debug for INTERNET_SCHEME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNET_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_STATE_CONNECTED: INTERNET_STATE = INTERNET_STATE(1u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_STATE_DISCONNECTED: INTERNET_STATE = INTERNET_STATE(2u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_STATE_DISCONNECTED_BY_USER: INTERNET_STATE = INTERNET_STATE(16u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_STATE_IDLE: INTERNET_STATE = INTERNET_STATE(256u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const INTERNET_STATE_BUSY: INTERNET_STATE = INTERNET_STATE(512u32);
 impl ::core::marker::Copy for INTERNET_STATE {}
 impl ::core::clone::Clone for INTERNET_STATE {
     fn clone(&self) -> Self {
@@ -5570,20 +5628,6 @@ impl ::core::fmt::Debug for INTERNET_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InternetCookieState(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const COOKIE_STATE_UNKNOWN: InternetCookieState = InternetCookieState(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const COOKIE_STATE_ACCEPT: InternetCookieState = InternetCookieState(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const COOKIE_STATE_PROMPT: InternetCookieState = InternetCookieState(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const COOKIE_STATE_LEASH: InternetCookieState = InternetCookieState(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const COOKIE_STATE_DOWNGRADE: InternetCookieState = InternetCookieState(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const COOKIE_STATE_REJECT: InternetCookieState = InternetCookieState(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const COOKIE_STATE_MAX: InternetCookieState = InternetCookieState(5i32);
 impl ::core::marker::Copy for InternetCookieState {}
 impl ::core::clone::Clone for InternetCookieState {
     fn clone(&self) -> Self {
@@ -5607,10 +5651,6 @@ impl ::core::fmt::Debug for InternetCookieState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROXY_AUTO_DETECT_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const PROXY_AUTO_DETECT_TYPE_DHCP: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const PROXY_AUTO_DETECT_TYPE_DNS_A: PROXY_AUTO_DETECT_TYPE = PROXY_AUTO_DETECT_TYPE(2u32);
 impl ::core::marker::Copy for PROXY_AUTO_DETECT_TYPE {}
 impl ::core::clone::Clone for PROXY_AUTO_DETECT_TYPE {
     fn clone(&self) -> Self {
@@ -5667,20 +5707,6 @@ impl ::core::ops::Not for PROXY_AUTO_DETECT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REQUEST_TIMES(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const NameResolutionStart: REQUEST_TIMES = REQUEST_TIMES(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const NameResolutionEnd: REQUEST_TIMES = REQUEST_TIMES(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const ConnectionEstablishmentStart: REQUEST_TIMES = REQUEST_TIMES(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const ConnectionEstablishmentEnd: REQUEST_TIMES = REQUEST_TIMES(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const TLSHandshakeStart: REQUEST_TIMES = REQUEST_TIMES(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const TLSHandshakeEnd: REQUEST_TIMES = REQUEST_TIMES(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const HttpRequestTimeMax: REQUEST_TIMES = REQUEST_TIMES(32i32);
 impl ::core::marker::Copy for REQUEST_TIMES {}
 impl ::core::clone::Clone for REQUEST_TIMES {
     fn clone(&self) -> Self {
@@ -5704,16 +5730,6 @@ impl ::core::fmt::Debug for REQUEST_TIMES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URL_CACHE_LIMIT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const UrlCacheLimitTypeIE: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const UrlCacheLimitTypeIETotal: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const UrlCacheLimitTypeAppContainer: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const UrlCacheLimitTypeAppContainerTotal: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const UrlCacheLimitTypeNum: URL_CACHE_LIMIT_TYPE = URL_CACHE_LIMIT_TYPE(4i32);
 impl ::core::marker::Copy for URL_CACHE_LIMIT_TYPE {}
 impl ::core::clone::Clone for URL_CACHE_LIMIT_TYPE {
     fn clone(&self) -> Self {
@@ -5737,18 +5753,6 @@ impl ::core::fmt::Debug for URL_CACHE_LIMIT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WININET_SYNC_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const WININET_SYNC_MODE_NEVER: WININET_SYNC_MODE = WININET_SYNC_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const WININET_SYNC_MODE_ON_EXPIRY: WININET_SYNC_MODE = WININET_SYNC_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const WININET_SYNC_MODE_ONCE_PER_SESSION: WININET_SYNC_MODE = WININET_SYNC_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const WININET_SYNC_MODE_ALWAYS: WININET_SYNC_MODE = WININET_SYNC_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const WININET_SYNC_MODE_AUTOMATIC: WININET_SYNC_MODE = WININET_SYNC_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const WININET_SYNC_MODE_DEFAULT: WININET_SYNC_MODE = WININET_SYNC_MODE(4i32);
 impl ::core::marker::Copy for WININET_SYNC_MODE {}
 impl ::core::clone::Clone for WININET_SYNC_MODE {
     fn clone(&self) -> Self {
@@ -5772,10 +5776,6 @@ impl ::core::fmt::Debug for WININET_SYNC_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPAD_CACHE_DELETE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const WPAD_CACHE_DELETE_CURRENT: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
-pub const WPAD_CACHE_DELETE_ALL: WPAD_CACHE_DELETE = WPAD_CACHE_DELETE(1i32);
 impl ::core::marker::Copy for WPAD_CACHE_DELETE {}
 impl ::core::clone::Clone for WPAD_CACHE_DELETE {
     fn clone(&self) -> Self {

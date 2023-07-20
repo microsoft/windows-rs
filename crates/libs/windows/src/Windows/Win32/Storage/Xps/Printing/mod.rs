@@ -329,21 +329,29 @@ pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: ::windows_core::GUID = ::windows_cor
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63dbd720_8b14_4577_b074_7bb11b596d28);
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
+pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
+pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
+pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(3i32);
+#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
+pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
 pub const PrintDocumentPackageTarget: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4842669e_9947_46ea_8ba2_d8cce432c2ca);
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
 pub const PrintDocumentPackageTargetFactory: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x348ef17d_6c81_4982_92b4_ee188a43867a);
 #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
+pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
+pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
+pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(3i32);
+#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
+pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintDocumentPackageCompletion(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
-pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
-pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
-pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
-pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(3i32);
 impl ::core::marker::Copy for PrintDocumentPackageCompletion {}
 impl ::core::clone::Clone for PrintDocumentPackageCompletion {
     fn clone(&self) -> Self {
@@ -367,14 +375,6 @@ impl ::core::fmt::Debug for PrintDocumentPackageCompletion {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_JOB_COMPLETION(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
-pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
-pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
-pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
-pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(3i32);
 impl ::core::marker::Copy for XPS_JOB_COMPLETION {}
 impl ::core::clone::Clone for XPS_JOB_COMPLETION {
     fn clone(&self) -> Self {

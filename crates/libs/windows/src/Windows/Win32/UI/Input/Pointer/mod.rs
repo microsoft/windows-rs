@@ -214,15 +214,19 @@ pub unsafe fn SkipPointerFrameMessages(pointerid: u32) -> ::windows_core::Result
     SkipPointerFrameMessages(pointerid).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct POINTER_BUTTON_CHANGE_TYPE(pub i32);
+pub const POINTER_CHANGE_FIFTHBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(9i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_CHANGE_NONE: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(0i32);
+pub const POINTER_CHANGE_FIFTHBUTTON_UP: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(10i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 pub const POINTER_CHANGE_FIRSTBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 pub const POINTER_CHANGE_FIRSTBUTTON_UP: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_CHANGE_FOURTHBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_CHANGE_FOURTHBUTTON_UP: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_CHANGE_NONE: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 pub const POINTER_CHANGE_SECONDBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(3i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
@@ -232,13 +236,53 @@ pub const POINTER_CHANGE_THIRDBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = POINTER_
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
 pub const POINTER_CHANGE_THIRDBUTTON_UP: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(6i32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_CHANGE_FOURTHBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(7i32);
+pub const POINTER_FLAG_CANCELED: POINTER_FLAGS = POINTER_FLAGS(32768u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_CHANGE_FOURTHBUTTON_UP: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(8i32);
+pub const POINTER_FLAG_CAPTURECHANGED: POINTER_FLAGS = POINTER_FLAGS(2097152u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_CHANGE_FIFTHBUTTON_DOWN: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(9i32);
+pub const POINTER_FLAG_CONFIDENCE: POINTER_FLAGS = POINTER_FLAGS(16384u32);
 #[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_CHANGE_FIFTHBUTTON_UP: POINTER_BUTTON_CHANGE_TYPE = POINTER_BUTTON_CHANGE_TYPE(10i32);
+pub const POINTER_FLAG_DOWN: POINTER_FLAGS = POINTER_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_FIFTHBUTTON: POINTER_FLAGS = POINTER_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_FIRSTBUTTON: POINTER_FLAGS = POINTER_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_FOURTHBUTTON: POINTER_FLAGS = POINTER_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_HASTRANSFORM: POINTER_FLAGS = POINTER_FLAGS(4194304u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_HWHEEL: POINTER_FLAGS = POINTER_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_INCONTACT: POINTER_FLAGS = POINTER_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_INRANGE: POINTER_FLAGS = POINTER_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_NEW: POINTER_FLAGS = POINTER_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_NONE: POINTER_FLAGS = POINTER_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_PRIMARY: POINTER_FLAGS = POINTER_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_SECONDBUTTON: POINTER_FLAGS = POINTER_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_THIRDBUTTON: POINTER_FLAGS = POINTER_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_UP: POINTER_FLAGS = POINTER_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_UPDATE: POINTER_FLAGS = POINTER_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const POINTER_FLAG_WHEEL: POINTER_FLAGS = POINTER_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const TOUCH_FEEDBACK_DEFAULT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const TOUCH_FEEDBACK_INDIRECT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+pub const TOUCH_FEEDBACK_NONE: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(3u32);
+#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POINTER_BUTTON_CHANGE_TYPE(pub i32);
 impl ::core::marker::Copy for POINTER_BUTTON_CHANGE_TYPE {}
 impl ::core::clone::Clone for POINTER_BUTTON_CHANGE_TYPE {
     fn clone(&self) -> Self {
@@ -262,44 +306,6 @@ impl ::core::fmt::Debug for POINTER_BUTTON_CHANGE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTER_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_NONE: POINTER_FLAGS = POINTER_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_NEW: POINTER_FLAGS = POINTER_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_INRANGE: POINTER_FLAGS = POINTER_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_INCONTACT: POINTER_FLAGS = POINTER_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_FIRSTBUTTON: POINTER_FLAGS = POINTER_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_SECONDBUTTON: POINTER_FLAGS = POINTER_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_THIRDBUTTON: POINTER_FLAGS = POINTER_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_FOURTHBUTTON: POINTER_FLAGS = POINTER_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_FIFTHBUTTON: POINTER_FLAGS = POINTER_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_PRIMARY: POINTER_FLAGS = POINTER_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_CONFIDENCE: POINTER_FLAGS = POINTER_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_CANCELED: POINTER_FLAGS = POINTER_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_DOWN: POINTER_FLAGS = POINTER_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_UPDATE: POINTER_FLAGS = POINTER_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_UP: POINTER_FLAGS = POINTER_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_WHEEL: POINTER_FLAGS = POINTER_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_HWHEEL: POINTER_FLAGS = POINTER_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_CAPTURECHANGED: POINTER_FLAGS = POINTER_FLAGS(2097152u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const POINTER_FLAG_HASTRANSFORM: POINTER_FLAGS = POINTER_FLAGS(4194304u32);
 impl ::core::marker::Copy for POINTER_FLAGS {}
 impl ::core::clone::Clone for POINTER_FLAGS {
     fn clone(&self) -> Self {
@@ -356,12 +362,6 @@ impl ::core::ops::Not for POINTER_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOUCH_FEEDBACK_MODE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const TOUCH_FEEDBACK_DEFAULT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const TOUCH_FEEDBACK_INDIRECT: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(2u32);
-#[doc = "*Required features: `\"Win32_UI_Input_Pointer\"`*"]
-pub const TOUCH_FEEDBACK_NONE: TOUCH_FEEDBACK_MODE = TOUCH_FEEDBACK_MODE(3u32);
 impl ::core::marker::Copy for TOUCH_FEEDBACK_MODE {}
 impl ::core::clone::Clone for TOUCH_FEEDBACK_MODE {
     fn clone(&self) -> Self {

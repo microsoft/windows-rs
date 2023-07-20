@@ -371,9 +371,13 @@ pub struct IEnumEnhancedStorageACT_Vtbl {
     pub GetMatchingACT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szvolume: ::windows_core::PCWSTR, ppienhancedstorageact: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 pub const ACT_AUTHORIZE_ON_SESSION_UNLOCK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
+pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
 pub const ACT_UNAUTHORIZE_ON_SESSION_LOCK: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
@@ -4252,10 +4256,6 @@ pub const WPD_CATEGORY_ENHANCED_STORAGE: ::windows_core::GUID = ::windows_core::
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_EnhancedStorage\"`*"]
-pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(1i32);
 impl ::core::marker::Copy for ACT_AUTHORIZATION_STATE_VALUE {}
 impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE_VALUE {
     fn clone(&self) -> Self {

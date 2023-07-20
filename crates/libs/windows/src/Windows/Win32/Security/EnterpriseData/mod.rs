@@ -410,17 +410,25 @@ pub struct IProtectionPolicyManagerInterop3_Vtbl {
     RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync: usize,
 }
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ENTERPRISE_DATA_POLICIES(pub i32);
-#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(0i32);
-#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(1i32);
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(2i32);
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(4i32);
+#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
+pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(0i32);
+#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
+pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = SRPHOSTING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
+pub const SRPHOSTING_TYPE_WINHTTP: SRPHOSTING_TYPE = SRPHOSTING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
+pub const SRPHOSTING_TYPE_WININET: SRPHOSTING_TYPE = SRPHOSTING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
+pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = SRPHOSTING_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ENTERPRISE_DATA_POLICIES(pub i32);
 impl ::core::marker::Copy for ENTERPRISE_DATA_POLICIES {}
 impl ::core::clone::Clone for ENTERPRISE_DATA_POLICIES {
     fn clone(&self) -> Self {
@@ -477,12 +485,6 @@ impl ::core::ops::Not for ENTERPRISE_DATA_POLICIES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SRPHOSTING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = SRPHOSTING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-pub const SRPHOSTING_TYPE_WINHTTP: SRPHOSTING_TYPE = SRPHOSTING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-pub const SRPHOSTING_TYPE_WININET: SRPHOSTING_TYPE = SRPHOSTING_TYPE(2i32);
 impl ::core::marker::Copy for SRPHOSTING_TYPE {}
 impl ::core::clone::Clone for SRPHOSTING_TYPE {
     fn clone(&self) -> Self {
@@ -506,8 +508,6 @@ impl ::core::fmt::Debug for SRPHOSTING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SRPHOSTING_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
-pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = SRPHOSTING_VERSION(1i32);
 impl ::core::marker::Copy for SRPHOSTING_VERSION {}
 impl ::core::clone::Clone for SRPHOSTING_VERSION {
     fn clone(&self) -> Self {

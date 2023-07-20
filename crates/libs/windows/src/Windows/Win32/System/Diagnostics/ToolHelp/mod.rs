@@ -154,11 +154,13 @@ pub const HF32_DEFAULT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const HF32_SHARED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
-pub const MAX_MODULE_NAME32: u32 = 255u32;
+pub const LF32_FIXED: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CREATE_TOOLHELP_SNAPSHOT_FLAGS(pub u32);
+pub const LF32_FREE: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
+pub const LF32_MOVEABLE: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
+pub const MAX_MODULE_NAME32: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const TH32CS_INHERIT: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2147483648u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
@@ -173,6 +175,10 @@ pub const TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_
 pub const TH32CS_SNAPPROCESS: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CREATE_TOOLHELP_SNAPSHOT_FLAGS(pub u32);
 impl ::core::marker::Copy for CREATE_TOOLHELP_SNAPSHOT_FLAGS {}
 impl ::core::clone::Clone for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
     fn clone(&self) -> Self {
@@ -229,12 +235,6 @@ impl ::core::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEAPENTRY32_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
-pub const LF32_FIXED: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
-pub const LF32_FREE: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
-pub const LF32_MOVEABLE: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(4u32);
 impl ::core::marker::Copy for HEAPENTRY32_FLAGS {}
 impl ::core::clone::Clone for HEAPENTRY32_FLAGS {
     fn clone(&self) -> Self {

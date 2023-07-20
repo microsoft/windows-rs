@@ -3807,13 +3807,139 @@ pub const AC_SRC_ALPHA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const AC_SRC_OVER: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const AD_CLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ANSI_CHARSET: FONT_CHARSET = FONT_CHARSET(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ANSI_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(11i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ANSI_VAR_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(12i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ARABIC_CHARSET: FONT_CHARSET = FONT_CHARSET(178u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ASPECTX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(40u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ASPECTXY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(44u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ASPECTY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(42u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ASPECT_FILTERING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BALTIC_CHARSET: FONT_CHARSET = FONT_CHARSET(186u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BANDINFO: u32 = 24u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BDR_INNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(12u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BDR_OUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BDR_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BDR_RAISEDINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BDR_RAISEDOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BDR_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BDR_SUNKENINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BDR_SUNKENOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BEGIN_PATH: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_ADJUST: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_BOTTOM: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_BOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_BOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(12u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_DIAGONAL: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_DIAGONAL_ENDBOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(25u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_DIAGONAL_ENDBOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(28u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_DIAGONAL_ENDTOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(19u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_DIAGONAL_ENDTOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(22u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_FLAT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_LEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_MIDDLE: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_MONO: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_RECT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(15u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_RIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_SOFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_TOP: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_TOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BF_TOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BITSPIXEL: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(12u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BI_BITFIELDS: BI_COMPRESSION = BI_COMPRESSION(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BI_JPEG: BI_COMPRESSION = BI_COMPRESSION(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BI_PNG: BI_COMPRESSION = BI_COMPRESSION(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BI_RGB: BI_COMPRESSION = BI_COMPRESSION(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BI_RLE4: BI_COMPRESSION = BI_COMPRESSION(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BI_RLE8: BI_COMPRESSION = BI_COMPRESSION(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BKMODE_LAST: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BLACKNESS: ROP_CODE = ROP_CODE(66u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BLACKONWHITE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BLACK_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BLTALIGNMENT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(119u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_DIBPATTERN: BRUSH_STYLE = BRUSH_STYLE(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_DIBPATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_DIBPATTERNPT: BRUSH_STYLE = BRUSH_STYLE(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_HATCHED: BRUSH_STYLE = BRUSH_STYLE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_HOLLOW: BRUSH_STYLE = BRUSH_STYLE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_INDEXED: BRUSH_STYLE = BRUSH_STYLE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_MONOPATTERN: BRUSH_STYLE = BRUSH_STYLE(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_NULL: BRUSH_STYLE = BRUSH_STYLE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_PATTERN: BRUSH_STYLE = BRUSH_STYLE(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_PATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_SOLID: BRUSH_STYLE = BRUSH_STYLE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CAPTUREBLT: ROP_CODE = ROP_CODE(1073741824u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CA_LOG_FILTER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -3843,17 +3969,67 @@ pub const CC_WIDE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CC_WIDESTYLED: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(512u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(256u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CDS_FULLSCREEN: CDS_TYPE = CDS_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CDS_GLOBAL: CDS_TYPE = CDS_TYPE(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CDS_NORESET: CDS_TYPE = CDS_TYPE(268435456u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CDS_RESET: CDS_TYPE = CDS_TYPE(1073741824u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CDS_RESET_EX: CDS_TYPE = CDS_TYPE(536870912u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CDS_SET_PRIMARY: CDS_TYPE = CDS_TYPE(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CDS_TEST: CDS_TYPE = CDS_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CDS_UPDATEREGISTRY: CDS_TYPE = CDS_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CDS_VIDEOPARAMETERS: CDS_TYPE = CDS_TYPE(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHARSET_DEFAULT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHARSET_GLYPHIDX: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CHARSET_SYMBOL: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CHARSET_UNICODE: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHECKJPEGFORMAT: u32 = 4119u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHECKPNGFORMAT: u32 = 4120u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CHINESEBIG5_CHARSET: FONT_CHARSET = FONT_CHARSET(136u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLEARTYPE_NATURAL_QUALITY: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLEARTYPE_QUALITY: FONT_QUALITY = FONT_QUALITY(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLIPCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(36u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLIP_DEFAULT_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLIP_DFA_DISABLE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLIP_DFA_OVERRIDE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLIP_EMBEDDED: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(128u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLIP_LH_ANGLES: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(16u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLIP_MASK: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(15u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLIP_TO_PATH: u32 = 4097u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(32u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CLOSECHANNEL: u32 = 4112u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -3873,6 +4049,86 @@ pub const CM_OUT_OF_GAMUT: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLORMATCHTOTARGET_EMBEDED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLORMGMTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(121u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLORONCOLOR: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLORRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(108u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(22i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(12i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BTNFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(18i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_DESKTOP: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(27i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(28i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(17i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(13i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(14i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(26i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(11i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(19i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_INFOBK: SYS_COLOR_INDEX = SYS_COLOR_INDEX(24i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(23i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_MENU: SYS_COLOR_INDEX = SYS_COLOR_INDEX(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_MENUBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(30i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(29i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COMPLEXREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CP_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CP_RECTANGLE: u32 = 1u32;
@@ -3880,6 +4136,8 @@ pub const CP_RECTANGLE: u32 = 1u32;
 pub const CP_REGION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CREATECOLORSPACE_EMBEDED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CURVECAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(28u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCBA_FACEDOWNCENTER: u32 = 257u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -3897,6 +4155,14 @@ pub const DCBA_FACEUPNONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCBA_FACEUPRIGHT: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCB_ACCUMULATE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCB_DISABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCB_ENABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCB_RESET: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCTT_BITMAP: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCTT_DOWNLOAD: i32 = 2i32;
@@ -3905,19 +4171,159 @@ pub const DCTT_DOWNLOAD_OUTLINE: i32 = 8i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DCTT_SUBDEV: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCX_CACHE: GET_DCX_FLAGS = GET_DCX_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCX_CLIPCHILDREN: GET_DCX_FLAGS = GET_DCX_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCX_CLIPSIBLINGS: GET_DCX_FLAGS = GET_DCX_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCX_EXCLUDERGN: GET_DCX_FLAGS = GET_DCX_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCX_INTERSECTRGN: GET_DCX_FLAGS = GET_DCX_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCX_INTERSECTUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCX_LOCKWINDOWUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCX_NORESETATTRS: GET_DCX_FLAGS = GET_DCX_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCX_PARENTCLIP: GET_DCX_FLAGS = GET_DCX_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCX_VALIDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(2097152u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DCX_WINDOW: GET_DCX_FLAGS = GET_DCX_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DC_ACTIVE: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_BINADJUST: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DC_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(18i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DC_BUTTONS: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4096u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_DATATYPE_PRODUCED: u32 = 21u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_EMF_COMPLIANT: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DC_GRADIENT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DC_ICON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DC_INBUTTON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_MANUFACTURER: u32 = 23u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_MODEL: u32 = 24u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DC_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(19i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DC_SMALLCAP: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DC_TEXT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DEFAULT_CHARSET: FONT_CHARSET = FONT_CHARSET(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DEFAULT_GUI_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(17i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(15i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DEFAULT_PITCH: FONT_PITCH = FONT_PITCH(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DEFAULT_QUALITY: FONT_QUALITY = FONT_QUALITY(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DESKTOPHORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(118u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DESKTOPVERTRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(117u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEVICEDATA: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DEVICE_DEFAULT_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(14i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEVICE_FONTTYPE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_ADJUSTRECT: DFCS_STATE = DFCS_STATE(8192u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_BUTTON3STATE: DFCS_STATE = DFCS_STATE(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_BUTTONCHECK: DFCS_STATE = DFCS_STATE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_BUTTONPUSH: DFCS_STATE = DFCS_STATE(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_BUTTONRADIO: DFCS_STATE = DFCS_STATE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_BUTTONRADIOIMAGE: DFCS_STATE = DFCS_STATE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_BUTTONRADIOMASK: DFCS_STATE = DFCS_STATE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_CAPTIONCLOSE: DFCS_STATE = DFCS_STATE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_CAPTIONHELP: DFCS_STATE = DFCS_STATE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_CAPTIONMAX: DFCS_STATE = DFCS_STATE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_CAPTIONMIN: DFCS_STATE = DFCS_STATE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_CAPTIONRESTORE: DFCS_STATE = DFCS_STATE(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_CHECKED: DFCS_STATE = DFCS_STATE(1024u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_FLAT: DFCS_STATE = DFCS_STATE(16384u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_HOT: DFCS_STATE = DFCS_STATE(4096u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_INACTIVE: DFCS_STATE = DFCS_STATE(256u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_MENUARROW: DFCS_STATE = DFCS_STATE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_MENUARROWRIGHT: DFCS_STATE = DFCS_STATE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_MENUBULLET: DFCS_STATE = DFCS_STATE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_MENUCHECK: DFCS_STATE = DFCS_STATE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_MONO: DFCS_STATE = DFCS_STATE(32768u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_PUSHED: DFCS_STATE = DFCS_STATE(512u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_SCROLLCOMBOBOX: DFCS_STATE = DFCS_STATE(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_SCROLLDOWN: DFCS_STATE = DFCS_STATE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_SCROLLLEFT: DFCS_STATE = DFCS_STATE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_SCROLLRIGHT: DFCS_STATE = DFCS_STATE(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_SCROLLSIZEGRIP: DFCS_STATE = DFCS_STATE(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_SCROLLSIZEGRIPRIGHT: DFCS_STATE = DFCS_STATE(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_SCROLLUP: DFCS_STATE = DFCS_STATE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFCS_TRANSPARENT: DFCS_STATE = DFCS_STATE(2048u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFC_BUTTON: DFC_TYPE = DFC_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFC_CAPTION: DFC_TYPE = DFC_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFC_MENU: DFC_TYPE = DFC_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFC_POPUPMENU: DFC_TYPE = DFC_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DFC_SCROLL: DFC_TYPE = DFC_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DIB_PAL_COLORS: DIB_USAGE = DIB_USAGE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DIB_RGB_COLORS: DIB_USAGE = DIB_USAGE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAYCONFIG_MAXPATH: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -3983,9 +4389,27 @@ pub const DISPLAY_DEVICE_UNSAFE_MODES_ON: u32 = 524288u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DISPLAY_DEVICE_VGA_COMPATIBLE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISP_CHANGE_BADDUALVIEW: DISP_CHANGE = DISP_CHANGE(-6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISP_CHANGE_BADFLAGS: DISP_CHANGE = DISP_CHANGE(-4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISP_CHANGE_BADMODE: DISP_CHANGE = DISP_CHANGE(-2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISP_CHANGE_BADPARAM: DISP_CHANGE = DISP_CHANGE(-5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISP_CHANGE_FAILED: DISP_CHANGE = DISP_CHANGE(-1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISP_CHANGE_NOTUPDATED: DISP_CHANGE = DISP_CHANGE(-3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISP_CHANGE_RESTART: DISP_CHANGE = DISP_CHANGE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DISP_CHANGE_SUCCESSFUL: DISP_CHANGE = DISP_CHANGE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DI_APPBANDING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DI_ROPS_READ_DESTINATION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DKGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_AUTO: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4019,6 +4443,20 @@ pub const DMBIN_UPPER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMBIN_USER: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = DEVMODE_COLLATE(0i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = DEVMODE_COLLATE(1i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMCOLOR_COLOR: DEVMODE_COLOR = DEVMODE_COLOR(2i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = DEVMODE_COLOR(1i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDFO_CENTER: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDFO_DEFAULT: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDFO_STRETCH: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDISPLAYFLAGS_TEXTMODE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_COARSE: u32 = 2u32;
@@ -4042,6 +4480,20 @@ pub const DMDITHER_RESERVED8: u32 = 8u32;
 pub const DMDITHER_RESERVED9: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMDITHER_USER: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDO_180: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDO_270: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDO_90: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDO_DEFAULT: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDUP_HORIZONTAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(3i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDUP_SIMPLEX: DEVMODE_DUPLEX = DEVMODE_DUPLEX(1i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMDUP_VERTICAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(2i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMICMMETHOD_DEVICE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4327,21 +4779,171 @@ pub const DMRES_LOW: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DMRES_MEDIUM: i32 = -3i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(1i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(2i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(4i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(3i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_BITSPERPEL: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_COLLATE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_COLOR: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_COPIES: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_COPY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DEFAULTSOURCE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DISPLAYFIXEDOUTPUT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(536870912u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DISPLAYFLAGS: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2097152u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DISPLAYFREQUENCY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4194304u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DISPLAYORIENTATION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DITHERTYPE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(67108864u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_DUPLEX: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_FORMNAME: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_ICMINTENT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16777216u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_ICMMETHOD: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8388608u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_INTERLACED: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_IN_BUFFER: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_IN_PROMPT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_LOGPIXELS: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_MEDIATYPE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(33554432u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_MODIFY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_NUP: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_ORIENTATION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_OUT_BUFFER: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_OUT_DEFAULT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PANNINGHEIGHT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PANNINGWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(134217728u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PAPERLENGTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PAPERSIZE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PAPERWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PELSHEIGHT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PELSWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_POSITION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PRINTQUALITY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_PROMPT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_SCALE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_SPECVERSION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1025u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_TTOPTION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_UPDATE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DM_YRESOLUTION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DOWNLOADFACE: u32 = 514u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DOWNLOADHEADER: u32 = 4111u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DRAFTMODE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DRAFT_QUALITY: FONT_QUALITY = FONT_QUALITY(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DRAWPATTERNRECT: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DRIVERVERSION: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DSS_DISABLED: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DSS_HIDEPREFIX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DSS_MONO: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DSS_NORMAL: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DSS_PREFIXONLY: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DSS_RIGHT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DSS_UNION: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DSTINVERT: ROP_CODE = ROP_CODE(5570569u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DST_BITMAP: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DST_COMPLEX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DST_ICON: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DST_PREFIXTEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DST_TEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_BOTTOM: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_CALCRECT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1024u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_CENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_CHARSTREAM: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_DISPFILE: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_EDITCONTROL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8192u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_END_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32768u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_EXPANDTABS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(64u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_EXTERNALLEADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(512u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_HIDEPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1048576u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_INTERNAL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4096u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_LEFT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_METAFILE: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_MODIFYSTRING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(65536u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_NOCLIP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(256u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_NOFULLWIDTHCHARBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(524288u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_NOPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2048u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_PATH_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16384u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_PLOTTER: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_PREFIXONLY: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2097152u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_RASCAMERA: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4349,11 +4951,295 @@ pub const DT_RASDISPLAY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DT_RASPRINTER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_RIGHT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_RTLREADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(131072u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_SINGLELINE: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_TABSTOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(128u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_TOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_VCENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_WORDBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DT_WORD_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(262144u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EASTEUROPE_CHARSET: FONT_CHARSET = FONT_CHARSET(238u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EDGE_BUMP: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EDGE_ETCHED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EDGE_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EDGE_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EDS_RAWMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EDS_ROTATEDMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ELF_CULTURE_LATIN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ELF_VENDOR_SIZE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ELF_VERSION: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMBED_EDITABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMBED_INSTALLABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMBED_NOEMBEDDING: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ABORTPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(68u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ALPHABLEND: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(114u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ANGLEARC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(41u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ARC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(45u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ARCTO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(55u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_BEGINPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(59u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_BITBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(76u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CHORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(46u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CLOSEFIGURE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(61u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_COLORCORRECTPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(111u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_COLORMATCHTOTARGETW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(121u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATEBRUSHINDIRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(39u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATECOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(99u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATECOLORSPACEW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(122u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATEDIBPATTERNBRUSHPT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(94u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATEMONOBRUSH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(93u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(49u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_CREATEPEN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(38u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_DELETECOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(101u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_DELETEOBJECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(40u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ELLIPSE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(42u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ENDPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(60u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EOF: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(14u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXCLUDECLIPRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(29u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTCREATEFONTINDIRECTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(82u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTCREATEPEN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(95u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTFLOODFILL: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(53u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTSELECTCLIPRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(75u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTTEXTOUTA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(83u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_EXTTEXTOUTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(84u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_FILLPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(62u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_FILLRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(71u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_FLATTENPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(65u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_FRAMERGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(72u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_GDICOMMENT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(70u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_GLSBOUNDEDRECORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(103u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_GLSRECORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(102u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_GRADIENTFILL: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(118u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_HEADER: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_INTERSECTCLIPRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(30u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_INVERTRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(73u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_LINETO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(54u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_MASKBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(78u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_MAX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(122u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_MIN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_MODIFYWORLDTRANSFORM: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(36u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_MOVETOEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(27u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_OFFSETCLIPRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(26u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_PAINTRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(74u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_PIE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(47u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_PIXELFORMAT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(104u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_PLGBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(79u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYBEZIER: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYBEZIER16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(85u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYBEZIERTO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYBEZIERTO16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(88u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYDRAW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(56u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYDRAW16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(92u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYGON: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYGON16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(86u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYLINE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYLINE16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(87u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYLINETO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYLINETO16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(89u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYPOLYGON: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYPOLYGON16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(91u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYPOLYLINE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(7u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYPOLYLINE16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(90u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYTEXTOUTA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(96u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_POLYTEXTOUTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(97u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_REALIZEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(52u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RECTANGLE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(43u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_105: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(105u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_106: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(106u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_107: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(107u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_108: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(108u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_109: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(109u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_110: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(110u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_117: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(117u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_119: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(119u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESERVED_120: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(120u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESIZEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(51u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_RESTOREDC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(34u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_ROUNDRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(44u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SAVEDC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(33u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SCALEVIEWPORTEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(31u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SCALEWINDOWEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SELECTCLIPPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(67u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SELECTOBJECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(37u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SELECTPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(48u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETARCDIRECTION: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(57u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETBKCOLOR: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(25u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETBKMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(18u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETBRUSHORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(13u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETCOLORADJUSTMENT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(23u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETCOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(100u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETDIBITSTODEVICE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(80u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETICMMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(98u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETICMPROFILEA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(112u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETICMPROFILEW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(113u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETLAYOUT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(115u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETMAPMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(17u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETMAPPERFLAGS: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETMETARGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(28u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETMITERLIMIT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(58u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETPALETTEENTRIES: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(50u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETPIXELV: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(15u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETPOLYFILLMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(19u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETROP2: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(20u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETSTRETCHBLTMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(21u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETTEXTALIGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(22u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETTEXTCOLOR: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(24u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETVIEWPORTEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(11u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETVIEWPORTORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(12u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETWINDOWEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(9u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETWINDOWORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(10u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_SETWORLDTRANSFORM: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(35u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_STRETCHBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(77u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_STRETCHDIBITS: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(81u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_STROKEANDFILLPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(63u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_STROKEPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(64u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_TRANSPARENTBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(116u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EMR_WIDENPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(66u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENABLEDUPLEX: u32 = 28u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4374,6 +5260,10 @@ pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648u32;
 pub const ENUMPAPERBINS: u32 = 31u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ENUMPAPERMETRICS: u32 = 34u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ENUM_CURRENT_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967295u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ENUM_REGISTRY_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967294u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EPSPRINTING: u32 = 33u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4525,6 +5415,24 @@ pub const ERR_WRITECONTROL: u32 = 1004u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_WRITEOUTOFBOUNDS: u32 = 1002u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ETO_CLIPPED: ETO_OPTIONS = ETO_OPTIONS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ETO_GLYPH_INDEX: ETO_OPTIONS = ETO_OPTIONS(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ETO_IGNORELANGUAGE: ETO_OPTIONS = ETO_OPTIONS(4096u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ETO_NUMERICSLATIN: ETO_OPTIONS = ETO_OPTIONS(2048u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ETO_NUMERICSLOCAL: ETO_OPTIONS = ETO_OPTIONS(1024u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ETO_OPAQUE: ETO_OPTIONS = ETO_OPTIONS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ETO_PDY: ETO_OPTIONS = ETO_OPTIONS(8192u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ETO_REVERSE_INDEX_MAP: ETO_OPTIONS = ETO_OPTIONS(65536u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ETO_RTLREADING: ETO_OPTIONS = ETO_OPTIONS(128u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EXTTEXTOUT: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EXT_DEVICE_CAPS: u32 = 4099u32;
@@ -4661,13 +5569,35 @@ pub const FEATURESETTING_PROTOCOL: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FEATURESETTING_PSLEVEL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_DECORATIVE: FONT_FAMILY = FONT_FAMILY(80u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_DONTCARE: FONT_FAMILY = FONT_FAMILY(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_MODERN: FONT_FAMILY = FONT_FAMILY(48u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_ROMAN: FONT_FAMILY = FONT_FAMILY(16u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_SCRIPT: FONT_FAMILY = FONT_FAMILY(64u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FF_SWISS: FONT_FAMILY = FONT_FAMILY(32u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FIXED_PITCH: FONT_PITCH = FONT_PITCH(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FLI_GLYPHS: i32 = 262144i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FLI_MASK: u32 = 4155u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FLOODFILLBORDER: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FLOODFILLSURFACE: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FLUSHOUTPUT: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FONTMAPPER_MAX: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FR_NOT_ENUM: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FR_PRIVATE: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(16u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_ARABIC: i32 = 64i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4701,6 +5631,38 @@ pub const FS_VIETNAMESE: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_WANSUNG: i32 = 524288i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_BLACK: FONT_WEIGHT = FONT_WEIGHT(900u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_BOLD: FONT_WEIGHT = FONT_WEIGHT(700u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_DEMIBOLD: FONT_WEIGHT = FONT_WEIGHT(600u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_DONTCARE: FONT_WEIGHT = FONT_WEIGHT(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_EXTRABOLD: FONT_WEIGHT = FONT_WEIGHT(800u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_EXTRALIGHT: FONT_WEIGHT = FONT_WEIGHT(200u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_HEAVY: FONT_WEIGHT = FONT_WEIGHT(900u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_LIGHT: FONT_WEIGHT = FONT_WEIGHT(300u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_MEDIUM: FONT_WEIGHT = FONT_WEIGHT(500u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_NORMAL: FONT_WEIGHT = FONT_WEIGHT(400u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_REGULAR: FONT_WEIGHT = FONT_WEIGHT(400u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_SEMIBOLD: FONT_WEIGHT = FONT_WEIGHT(600u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_THIN: FONT_WEIGHT = FONT_WEIGHT(100u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_ULTRABOLD: FONT_WEIGHT = FONT_WEIGHT(800u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_ULTRALIGHT: FONT_WEIGHT = FONT_WEIGHT(200u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GB2312_CHARSET: FONT_CHARSET = FONT_CHARSET(134u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_ARABIC: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_HEBREW: u32 = 2u32;
@@ -4731,11 +5693,41 @@ pub const GCPGLYPH_LINKAFTER: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPGLYPH_LINKBEFORE: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_CLASSIN: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_DBCS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_DIACRITIC: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_DISPLAYZWG: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(4194304u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_ERROR: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_GLYPHSHAPE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_JUSTIFY: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCP_JUSTIFYIN: i32 = 2097152i32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_KASHIDA: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_LIGATE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_MAXEXTENT: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_NEUTRALOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(33554432u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_NUMERICOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(16777216u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_NUMERICSLATIN: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(67108864u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_NUMERICSLOCAL: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(134217728u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_REORDER: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_SYMSWAPOFF: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8388608u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GCP_USEKERNING: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDICOMMENT_BEGINGROUP: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4801,13 +5793,71 @@ pub const GET_PS_FEATURESETTING: u32 = 4121u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GGI_MARK_NONEXISTING_GLYPHS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GGO_BEZIER: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GGO_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GGO_GLYPH_INDEX: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(128u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GGO_GRAY2_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GGO_GRAY4_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(5u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GGO_GRAY8_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GGO_METRICS: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GGO_NATIVE: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GGO_UNHINTED: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(256u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GM_ADVANCED: GRAPHICS_MODE = GRAPHICS_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GM_COMPATIBLE: GRAPHICS_MODE = GRAPHICS_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GM_LAST: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GRADIENT_FILL_OP_FLAG: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = GRADIENT_FILL(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GRADIENT_FILL_RECT_V: GRADIENT_FILL = GRADIENT_FILL(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GRADIENT_FILL_TRIANGLE: GRADIENT_FILL = GRADIENT_FILL(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GREEK_CHARSET: FONT_CHARSET = FONT_CHARSET(161u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GS_8BIT_INDICES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HANGEUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HANGUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HEBREW_CHARSET: FONT_CHARSET = FONT_CHARSET(177u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HOLLOW_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HORZSIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const HS_API_MAX: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HS_BDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HS_CROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HS_DIAGCROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HS_FDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HS_HORIZONTAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HS_VERTICAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_A: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4837,7 +5887,13 @@ pub const ILLUMINANT_NTSC: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ILLUMINANT_TUNGSTEN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const JOHAB_CHARSET: FONT_CHARSET = FONT_CHARSET(130u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = DC_LAYOUT(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LAYOUT_BTT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const LAYOUT_RTL: DC_LAYOUT = DC_LAYOUT(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LAYOUT_VBH: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4871,6 +5927,22 @@ pub const LF_FACESIZE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LF_FULLFACESIZE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const LICENSE_DEFAULT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const LICENSE_EDITABLE: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const LICENSE_INSTALLABLE: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const LICENSE_NOEMBEDDING: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const LINECAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(30u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const LOGPIXELSX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(88u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const LOGPIXELSY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(90u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_DOUBLEBUFFER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_SHARE_ACCUM: u32 = 256u32;
@@ -4895,7 +5967,15 @@ pub const LPD_TYPE_COLORINDEX: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const LPD_TYPE_RGBA: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const LTGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MAC_CHARSET: FONT_CHARSET = FONT_CHARSET(77u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MAXSTRETCHBLTMODE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MERGECOPY: ROP_CODE = ROP_CODE(12583114u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MERGEPAINT: ROP_CODE = ROP_CODE(12255782u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const METAFILE_DRIVER: u32 = 2049u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5043,19 +6123,55 @@ pub const MILCORE_TS_QUERYVER_RESULT_FALSE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MILCORE_TS_QUERYVER_RESULT_TRUE: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MM_ANISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MM_HIENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MM_HIMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MM_ISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MM_LOENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MM_LOMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_MAX_AXES_NAMELEN: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MM_MAX_NUMAXES: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MM_TEXT: HDC_MAP_MODE = HDC_MAP_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MM_TWIPS: HDC_MAP_MODE = HDC_MAP_MODE(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MONITOR_DEFAULTTONULL: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MONITOR_DEFAULTTOPRIMARY: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MONO_FONT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const MOUSETRAILS: u32 = 39u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(3u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NEWFRAME: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NEWTRANSPARENT: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NEXTBAND: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NOMIRRORBITMAP: ROP_CODE = ROP_CODE(2147483648u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NONANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(3u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NOTSRCCOPY: ROP_CODE = ROP_CODE(3342344u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NOTSRCERASE: ROP_CODE = ROP_CODE(1114278u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_BOLD: i32 = 32i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5075,7 +6191,81 @@ pub const NTM_TT_OPENTYPE: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_TYPE1: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NULLREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NULL_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NULL_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NUMBRUSHES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NUMCOLORS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(24u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NUMFONTS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(22u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NUMMARKERS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(20u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NUMPENS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(18u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NUMRESERVED: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(106u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_BITMAP: OBJ_TYPE = OBJ_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_BRUSH: OBJ_TYPE = OBJ_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_COLORSPACE: OBJ_TYPE = OBJ_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_DC: OBJ_TYPE = OBJ_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_ENHMETADC: OBJ_TYPE = OBJ_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_ENHMETAFILE: OBJ_TYPE = OBJ_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_EXTPEN: OBJ_TYPE = OBJ_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_FONT: OBJ_TYPE = OBJ_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_MEMDC: OBJ_TYPE = OBJ_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_METADC: OBJ_TYPE = OBJ_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_METAFILE: OBJ_TYPE = OBJ_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_PAL: OBJ_TYPE = OBJ_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_PEN: OBJ_TYPE = OBJ_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OBJ_REGION: OBJ_TYPE = OBJ_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OEM_CHARSET: FONT_CHARSET = FONT_CHARSET(255u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OPAQUE: BACKGROUND_MODE = BACKGROUND_MODE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OPENCHANNEL: u32 = 4110u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_DEFAULT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_DEVICE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(8u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_PS_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(10u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_RASTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(6u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_SCREEN_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(9u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_STRING_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_STROKE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(3u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_TT_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(7u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OUT_TT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(4u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PANOSE_COUNT: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5083,21 +6273,261 @@ pub const PAN_ANY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_ARMSTYLE_INDEX: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_ARM_ANY: PAN_ARM_STYLE = PAN_ARM_STYLE(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_ARM_NO_FIT: PAN_ARM_STYLE = PAN_ARM_STYLE(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_BENT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(11u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_BENT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(7u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_BENT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(10u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_BENT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(9u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_BENT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(8u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_ANY: PAN_CONTRAST = PAN_CONTRAST(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_HIGH: PAN_CONTRAST = PAN_CONTRAST(8u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_INDEX: PAN_CONTRAST = PAN_CONTRAST(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_LOW: PAN_CONTRAST = PAN_CONTRAST(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_MEDIUM: PAN_CONTRAST = PAN_CONTRAST(6u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_MEDIUM_HIGH: PAN_CONTRAST = PAN_CONTRAST(7u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_MEDIUM_LOW: PAN_CONTRAST = PAN_CONTRAST(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_NONE: PAN_CONTRAST = PAN_CONTRAST(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_NO_FIT: PAN_CONTRAST = PAN_CONTRAST(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_VERY_HIGH: PAN_CONTRAST = PAN_CONTRAST(9u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_CONTRAST_VERY_LOW: PAN_CONTRAST = PAN_CONTRAST(3u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_CULTURE_LATIN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_FAMILYTYPE_INDEX: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_ANY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_DECORATIVE: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_NO_FIT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_PICTORIAL: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_SCRIPT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(3u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_FAMILY_TEXT_DISPLAY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_LETTERFORM_INDEX: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_FORM_ANY: PAN_LETT_FORM = PAN_LETT_FORM(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_FORM_NO_FIT: PAN_LETT_FORM = PAN_LETT_FORM(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(7u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(6u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(8u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_NORMAL_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(3u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(11u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(9u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(12u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(14u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(13u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(15u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_LETT_OBLIQUE_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(10u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_ANY: PAN_MIDLINE = PAN_MIDLINE(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_CONSTANT_POINTED: PAN_MIDLINE = PAN_MIDLINE(9u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_CONSTANT_SERIFED: PAN_MIDLINE = PAN_MIDLINE(10u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_CONSTANT_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(8u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_HIGH_POINTED: PAN_MIDLINE = PAN_MIDLINE(6u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_HIGH_SERIFED: PAN_MIDLINE = PAN_MIDLINE(7u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_HIGH_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_INDEX: PAN_MIDLINE = PAN_MIDLINE(8u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_LOW_POINTED: PAN_MIDLINE = PAN_MIDLINE(12u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_LOW_SERIFED: PAN_MIDLINE = PAN_MIDLINE(13u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_LOW_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(11u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_NO_FIT: PAN_MIDLINE = PAN_MIDLINE(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_STANDARD_POINTED: PAN_MIDLINE = PAN_MIDLINE(3u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_STANDARD_SERIFED: PAN_MIDLINE = PAN_MIDLINE(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_MIDLINE_STANDARD_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_NO_FIT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_PROPORTION_INDEX: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_ANY: PAN_PROPORTION = PAN_PROPORTION(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(6u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_EVEN_WIDTH: PAN_PROPORTION = PAN_PROPORTION(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_MODERN: PAN_PROPORTION = PAN_PROPORTION(3u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_MONOSPACED: PAN_PROPORTION = PAN_PROPORTION(9u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_NO_FIT: PAN_PROPORTION = PAN_PROPORTION(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_OLD_STYLE: PAN_PROPORTION = PAN_PROPORTION(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_VERY_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(8u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_PROP_VERY_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(7u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_SERIFSTYLE_INDEX: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_ANY: PAN_SERIF_STYLE = PAN_SERIF_STYLE(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_BONE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(8u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_EXAGGERATED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(9u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_FLARED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(14u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_NORMAL_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(11u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_NO_FIT: PAN_SERIF_STYLE = PAN_SERIF_STYLE(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_OBTUSE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(3u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_OBTUSE_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(12u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_OBTUSE_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_PERP_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(13u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_ROUNDED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(15u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_SQUARE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(6u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_THIN: PAN_SERIF_STYLE = PAN_SERIF_STYLE(7u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_SERIF_TRIANGLE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(10u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STRAIGHT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(6u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STRAIGHT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STRAIGHT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STRAIGHT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STRAIGHT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(3u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PAN_STROKEVARIATION_INDEX: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_ANY: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_GRADUAL_DIAG: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_GRADUAL_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_GRADUAL_TRAN: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(3u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_GRADUAL_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_INSTANT_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(8u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_NO_FIT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_RAPID_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(7u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_STROKE_RAPID_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(6u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_ANY: PAN_WEIGHT = PAN_WEIGHT(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_BLACK: PAN_WEIGHT = PAN_WEIGHT(10u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_BOLD: PAN_WEIGHT = PAN_WEIGHT(8u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_BOOK: PAN_WEIGHT = PAN_WEIGHT(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_DEMI: PAN_WEIGHT = PAN_WEIGHT(7u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_HEAVY: PAN_WEIGHT = PAN_WEIGHT(9u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_INDEX: PAN_WEIGHT = PAN_WEIGHT(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_LIGHT: PAN_WEIGHT = PAN_WEIGHT(3u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_MEDIUM: PAN_WEIGHT = PAN_WEIGHT(6u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_NORD: PAN_WEIGHT = PAN_WEIGHT(11u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_NO_FIT: PAN_WEIGHT = PAN_WEIGHT(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_THIN: PAN_WEIGHT = PAN_WEIGHT(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_WEIGHT_VERY_LIGHT: PAN_WEIGHT = PAN_WEIGHT(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_ANY: PAN_XHEIGHT = PAN_XHEIGHT(0u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_CONSTANT_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_CONSTANT_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_CONSTANT_STD: PAN_XHEIGHT = PAN_XHEIGHT(3u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_DUCKING_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(7u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_DUCKING_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(5u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_DUCKING_STD: PAN_XHEIGHT = PAN_XHEIGHT(6u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_INDEX: PAN_XHEIGHT = PAN_XHEIGHT(9u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PAN_XHEIGHT_NO_FIT: PAN_XHEIGHT = PAN_XHEIGHT(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PASSTHROUGH: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PATCOPY: ROP_CODE = ROP_CODE(15728673u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PATINVERT: ROP_CODE = ROP_CODE(5898313u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PATPAINT: ROP_CODE = ROP_CODE(16452105u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_EXPLICIT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5129,7 +6559,21 @@ pub const PC_WIDESTYLED: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PC_WINDPOLYGON: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PDEVICESIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(26u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PHYSICALHEIGHT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(111u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PHYSICALOFFSETX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(112u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PHYSICALOFFSETY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(113u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PHYSICALWIDTH: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(110u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PLANES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(14u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const POLYFILL_LAST: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const POLYGONALCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(32u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const POSTSCRIPT_DATA: u32 = 37u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5149,6 +6593,8 @@ pub const PRINTRATEUNIT_LPM: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PRINTRATEUNIT_PPM: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PROOF_QUALITY: FONT_QUALITY = FONT_QUALITY(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PR_JOBSTATUS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PSIDENT_GDICENTRIC: u32 = 0u32;
@@ -5164,6 +6610,48 @@ pub const PSPROTOCOL_BCP: u32 = 1u32;
 pub const PSPROTOCOL_BINARY: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PSPROTOCOL_TBCP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_ALTERNATE: PEN_STYLE = PEN_STYLE(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_COSMETIC: PEN_STYLE = PEN_STYLE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_DASH: PEN_STYLE = PEN_STYLE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_DASHDOT: PEN_STYLE = PEN_STYLE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_DASHDOTDOT: PEN_STYLE = PEN_STYLE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_DOT: PEN_STYLE = PEN_STYLE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_ENDCAP_FLAT: PEN_STYLE = PEN_STYLE(512i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_ENDCAP_MASK: PEN_STYLE = PEN_STYLE(3840i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_ENDCAP_ROUND: PEN_STYLE = PEN_STYLE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_ENDCAP_SQUARE: PEN_STYLE = PEN_STYLE(256i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_GEOMETRIC: PEN_STYLE = PEN_STYLE(65536i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_INSIDEFRAME: PEN_STYLE = PEN_STYLE(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_JOIN_BEVEL: PEN_STYLE = PEN_STYLE(4096i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_JOIN_MASK: PEN_STYLE = PEN_STYLE(61440i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_JOIN_MITER: PEN_STYLE = PEN_STYLE(8192i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_JOIN_ROUND: PEN_STYLE = PEN_STYLE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_NULL: PEN_STYLE = PEN_STYLE(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_SOLID: PEN_STYLE = PEN_STYLE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_STYLE_MASK: PEN_STYLE = PEN_STYLE(15i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_TYPE_MASK: PEN_STYLE = PEN_STYLE(983040i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const PS_USERSTYLE: PEN_STYLE = PEN_STYLE(7i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const PT_BEZIERTO: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5186,6 +6674,42 @@ pub const QUERYDIBSUPPORT: u32 = 3073u32;
 pub const QUERYESCSUPPORT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const QUERYROPSUPPORT: u32 = 40u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_BLACK: R2_MODE = R2_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_COPYPEN: R2_MODE = R2_MODE(13i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_LAST: R2_MODE = R2_MODE(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_MASKNOTPEN: R2_MODE = R2_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_MASKPEN: R2_MODE = R2_MODE(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_MASKPENNOT: R2_MODE = R2_MODE(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_MERGENOTPEN: R2_MODE = R2_MODE(12i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_MERGEPEN: R2_MODE = R2_MODE(15i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_MERGEPENNOT: R2_MODE = R2_MODE(14i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_NOP: R2_MODE = R2_MODE(11i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_NOT: R2_MODE = R2_MODE(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_NOTCOPYPEN: R2_MODE = R2_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_NOTMASKPEN: R2_MODE = R2_MODE(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_NOTMERGEPEN: R2_MODE = R2_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_NOTXORPEN: R2_MODE = R2_MODE(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_WHITE: R2_MODE = R2_MODE(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const R2_XORPEN: R2_MODE = R2_MODE(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RASTERCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(38u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RASTER_FONTTYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5223,9 +6747,51 @@ pub const RC_STRETCHDIB: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RDH_RECTANGLES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_ALLCHILDREN: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_ERASE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_ERASENOW: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_FRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_INTERNALPAINT: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_INVALIDATE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_NOCHILDREN: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_NOERASE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_NOFRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_NOINTERNALPAINT: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_UPDATENOW: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RDW_VALIDATE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RELATIVE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const RESTORE_CTM: u32 = 4100u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RGN_AND: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RGN_COPY: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RGN_DIFF: RGN_COMBINE_MODE = RGN_COMBINE_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RGN_ERROR: GDI_REGION_TYPE = GDI_REGION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RGN_MAX: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RGN_MIN: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RGN_OR: RGN_COMBINE_MODE = RGN_COMBINE_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RGN_XOR: RGN_COMBINE_MODE = RGN_COMBINE_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RUSSIAN_CHARSET: FONT_CHARSET = FONT_CHARSET(204u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SAVE_CTM: u32 = 4101u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5240,6 +6806,10 @@ pub const SB_NONE: u32 = 0u32;
 pub const SB_PIXEL_ALPHA: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SB_PREMULT_ALPHA: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SCALINGFACTORX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(114u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SCALINGFACTORY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(115u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SC_SCREENSAVE: u32 = 61760u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5285,6 +6855,14 @@ pub const SET_SCREEN_ANGLE: u32 = 4105u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SET_SPREAD: u32 = 4106u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SHADEBLENDCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(120u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SHIFTJIS_CHARSET: FONT_CHARSET = FONT_CHARSET(128u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SIMPLEREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SIZEPALETTE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(104u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SPCLPASSTHROUGH2: u32 = 4568u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SP_APPABORT: i32 = -2i32;
@@ -5299,15 +6877,65 @@ pub const SP_OUTOFMEMORY: i32 = -5i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SP_USERABORT: i32 = -3i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SRCAND: ROP_CODE = ROP_CODE(8913094u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SRCCOPY: ROP_CODE = ROP_CODE(13369376u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SRCERASE: ROP_CODE = ROP_CODE(4457256u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SRCINVERT: ROP_CODE = ROP_CODE(6684742u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SRCPAINT: ROP_CODE = ROP_CODE(15597702u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const STARTDOC: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const STOCK_LAST: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const STRETCHBLT: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const STRETCH_ANDSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const STRETCH_DELETESCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const STRETCH_HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const STRETCH_ORSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SYMBOL_CHARSET: FONT_CHARSET = FONT_CHARSET(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYSPAL_ERROR: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SYSPAL_NOSTATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SYSPAL_NOSTATIC256: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(3u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SYSPAL_STATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYSRGN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(13i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TA_BASELINE: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(24u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TA_BOTTOM: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TA_CENTER: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TA_LEFT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TA_MASK: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(287u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TA_NOUPDATECP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TA_RIGHT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TA_RTLREADING: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(256u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TA_TOP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TA_UPDATECP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_CP_STROKE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5343,17 +6971,41 @@ pub const TC_UA_ABLE: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TC_VA_ABLE: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TECHNOLOGY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TEXTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(34u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const THAI_CHARSET: FONT_CHARSET = FONT_CHARSET(222u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TMPF_DEVICE: TMPF_FLAGS = TMPF_FLAGS(8u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TMPF_FIXED_PITCH: TMPF_FLAGS = TMPF_FLAGS(1u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TMPF_TRUETYPE: TMPF_FLAGS = TMPF_FLAGS(4u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TMPF_VECTOR: TMPF_FLAGS = TMPF_FLAGS(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TRANSFORM_CTM: u32 = 4107u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TRANSPARENT: BACKGROUND_MODE = BACKGROUND_MODE(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TRUETYPE_FONTTYPE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTDELETE_DONTREMOVEFONT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TTEMBED_EMBEDEUDC: TTEMBED_FLAGS = TTEMBED_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_EUDCEMBEDDED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_FAILIFVARIATIONSIMULATED: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TTEMBED_RAW: TTEMBED_FLAGS = TTEMBED_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TTEMBED_SUBSET: TTEMBED_FLAGS = TTEMBED_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_SUBSETCANCEL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TTEMBED_TTCOMPRESSED: TTEMBED_FLAGS = TTEMBED_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTEMBED_VARIATIONSIMULATED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5375,13 +7027,23 @@ pub const TTFCFP_FLAGS_SUBSET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_FLAGS_TTC: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(2i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_LANG_KEEP_ALL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_MS_PLATFORMID: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_SUBSET: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFCFP_SUBSET1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(1i16);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(0i16);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTFMFP_DELTA: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5392,6 +7054,10 @@ pub const TTFMFP_SUBSET1: u32 = 1u32;
 pub const TTLOAD_EUDC_OVERWRITE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTLOAD_EUDC_SET: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TTLOAD_FONT_IN_SYSSTARTUP: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TTLOAD_FONT_SUBSETTED: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TTLOAD_PRIVATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5406,6 +7072,30 @@ pub const TT_PRIM_CSPLINE: u32 = 3u32;
 pub const TT_PRIM_LINE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TT_PRIM_QSPLINE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TURKISH_CHARSET: FONT_CHARSET = FONT_CHARSET(162u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VARIABLE_PITCH: FONT_PITCH = FONT_PITCH(2u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VERTRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(10u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VERTSIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VIETNAMESE_CHARSET: FONT_CHARSET = FONT_CHARSET(163u8);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VREFRESH: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(116u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VTA_BASELINE: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(24u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VTA_BOTTOM: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VTA_CENTER: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(6u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VTA_LEFT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VTA_RIGHT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VTA_TOP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_FONT_LINES: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5475,13 +7165,19 @@ pub const WGL_SWAP_UNDERLAY8: u32 = 8388608u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const WGL_SWAP_UNDERLAY9: u32 = 16777216u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const WHITENESS: ROP_CODE = ROP_CODE(16711778u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const WHITEONBLACK: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const WHITE_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const WHITE_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const WINDING: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARC_DIRECTION(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const AD_CLOCKWISE: ARC_DIRECTION = ARC_DIRECTION(2i32);
 impl ::core::marker::Copy for ARC_DIRECTION {}
 impl ::core::clone::Clone for ARC_DIRECTION {
     fn clone(&self) -> Self {
@@ -5505,10 +7201,6 @@ impl ::core::fmt::Debug for ARC_DIRECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BACKGROUND_MODE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OPAQUE: BACKGROUND_MODE = BACKGROUND_MODE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TRANSPARENT: BACKGROUND_MODE = BACKGROUND_MODE(1u32);
 impl ::core::marker::Copy for BACKGROUND_MODE {}
 impl ::core::clone::Clone for BACKGROUND_MODE {
     fn clone(&self) -> Self {
@@ -5532,18 +7224,6 @@ impl ::core::fmt::Debug for BACKGROUND_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BI_COMPRESSION(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_RGB: BI_COMPRESSION = BI_COMPRESSION(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_RLE8: BI_COMPRESSION = BI_COMPRESSION(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_RLE4: BI_COMPRESSION = BI_COMPRESSION(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_BITFIELDS: BI_COMPRESSION = BI_COMPRESSION(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_JPEG: BI_COMPRESSION = BI_COMPRESSION(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_PNG: BI_COMPRESSION = BI_COMPRESSION(5u32);
 impl ::core::marker::Copy for BI_COMPRESSION {}
 impl ::core::clone::Clone for BI_COMPRESSION {
     fn clone(&self) -> Self {
@@ -5567,28 +7247,6 @@ impl ::core::fmt::Debug for BI_COMPRESSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BRUSH_STYLE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_SOLID: BRUSH_STYLE = BRUSH_STYLE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_NULL: BRUSH_STYLE = BRUSH_STYLE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_HOLLOW: BRUSH_STYLE = BRUSH_STYLE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_HATCHED: BRUSH_STYLE = BRUSH_STYLE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_PATTERN: BRUSH_STYLE = BRUSH_STYLE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_INDEXED: BRUSH_STYLE = BRUSH_STYLE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_DIBPATTERN: BRUSH_STYLE = BRUSH_STYLE(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_DIBPATTERNPT: BRUSH_STYLE = BRUSH_STYLE(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_PATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(7u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_DIBPATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_MONOPATTERN: BRUSH_STYLE = BRUSH_STYLE(9u32);
 impl ::core::marker::Copy for BRUSH_STYLE {}
 impl ::core::clone::Clone for BRUSH_STYLE {
     fn clone(&self) -> Self {
@@ -5612,28 +7270,6 @@ impl ::core::fmt::Debug for BRUSH_STYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CDS_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CDS_FULLSCREEN: CDS_TYPE = CDS_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CDS_GLOBAL: CDS_TYPE = CDS_TYPE(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CDS_NORESET: CDS_TYPE = CDS_TYPE(268435456u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CDS_RESET: CDS_TYPE = CDS_TYPE(1073741824u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CDS_SET_PRIMARY: CDS_TYPE = CDS_TYPE(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CDS_TEST: CDS_TYPE = CDS_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CDS_UPDATEREGISTRY: CDS_TYPE = CDS_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CDS_VIDEOPARAMETERS: CDS_TYPE = CDS_TYPE(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = CDS_TYPE(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CDS_RESET_EX: CDS_TYPE = CDS_TYPE(536870912u32);
 impl ::core::marker::Copy for CDS_TYPE {}
 impl ::core::clone::Clone for CDS_TYPE {
     fn clone(&self) -> Self {
@@ -5690,12 +7326,6 @@ impl ::core::ops::Not for CDS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_FONT_PACKAGE_SUBSET_ENCODING(pub i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(0i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = CREATE_FONT_PACKAGE_SUBSET_ENCODING(1i16);
 impl ::core::marker::Copy for CREATE_FONT_PACKAGE_SUBSET_ENCODING {}
 impl ::core::clone::Clone for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
     fn clone(&self) -> Self {
@@ -5719,10 +7349,6 @@ impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_ENCODING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_FONT_PACKAGE_SUBSET_PLATFORM(pub i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(0i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = CREATE_FONT_PACKAGE_SUBSET_PLATFORM(2i16);
 impl ::core::marker::Copy for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {}
 impl ::core::clone::Clone for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
     fn clone(&self) -> Self {
@@ -5746,10 +7372,6 @@ impl ::core::fmt::Debug for CREATE_FONT_PACKAGE_SUBSET_PLATFORM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_POLYGON_RGN_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const WINDING: CREATE_POLYGON_RGN_MODE = CREATE_POLYGON_RGN_MODE(2i32);
 impl ::core::marker::Copy for CREATE_POLYGON_RGN_MODE {}
 impl ::core::clone::Clone for CREATE_POLYGON_RGN_MODE {
     fn clone(&self) -> Self {
@@ -5773,10 +7395,6 @@ impl ::core::fmt::Debug for CREATE_POLYGON_RGN_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DC_LAYOUT(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = DC_LAYOUT(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LAYOUT_RTL: DC_LAYOUT = DC_LAYOUT(1u32);
 impl ::core::marker::Copy for DC_LAYOUT {}
 impl ::core::clone::Clone for DC_LAYOUT {
     fn clone(&self) -> Self {
@@ -5833,10 +7451,6 @@ impl ::core::ops::Not for DC_LAYOUT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_COLLATE(pub i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLLATE_FALSE: DEVMODE_COLLATE = DEVMODE_COLLATE(0i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLLATE_TRUE: DEVMODE_COLLATE = DEVMODE_COLLATE(1i16);
 impl ::core::marker::Copy for DEVMODE_COLLATE {}
 impl ::core::clone::Clone for DEVMODE_COLLATE {
     fn clone(&self) -> Self {
@@ -5860,10 +7474,6 @@ impl ::core::fmt::Debug for DEVMODE_COLLATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_COLOR(pub i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLOR_MONOCHROME: DEVMODE_COLOR = DEVMODE_COLOR(1i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMCOLOR_COLOR: DEVMODE_COLOR = DEVMODE_COLOR(2i16);
 impl ::core::marker::Copy for DEVMODE_COLOR {}
 impl ::core::clone::Clone for DEVMODE_COLOR {
     fn clone(&self) -> Self {
@@ -5887,12 +7497,6 @@ impl ::core::fmt::Debug for DEVMODE_COLOR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_DISPLAY_FIXED_OUTPUT(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDFO_DEFAULT: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDFO_STRETCH: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDFO_CENTER: DEVMODE_DISPLAY_FIXED_OUTPUT = DEVMODE_DISPLAY_FIXED_OUTPUT(2u32);
 impl ::core::marker::Copy for DEVMODE_DISPLAY_FIXED_OUTPUT {}
 impl ::core::clone::Clone for DEVMODE_DISPLAY_FIXED_OUTPUT {
     fn clone(&self) -> Self {
@@ -5916,14 +7520,6 @@ impl ::core::fmt::Debug for DEVMODE_DISPLAY_FIXED_OUTPUT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_DISPLAY_ORIENTATION(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDO_DEFAULT: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDO_90: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDO_180: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDO_270: DEVMODE_DISPLAY_ORIENTATION = DEVMODE_DISPLAY_ORIENTATION(3u32);
 impl ::core::marker::Copy for DEVMODE_DISPLAY_ORIENTATION {}
 impl ::core::clone::Clone for DEVMODE_DISPLAY_ORIENTATION {
     fn clone(&self) -> Self {
@@ -5947,12 +7543,6 @@ impl ::core::fmt::Debug for DEVMODE_DISPLAY_ORIENTATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_DUPLEX(pub i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_SIMPLEX: DEVMODE_DUPLEX = DEVMODE_DUPLEX(1i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_VERTICAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(2i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMDUP_HORIZONTAL: DEVMODE_DUPLEX = DEVMODE_DUPLEX(3i16);
 impl ::core::marker::Copy for DEVMODE_DUPLEX {}
 impl ::core::clone::Clone for DEVMODE_DUPLEX {
     fn clone(&self) -> Self {
@@ -5976,86 +7566,6 @@ impl ::core::fmt::Debug for DEVMODE_DUPLEX {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_FIELD_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_SPECVERSION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1025u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_ORIENTATION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PAPERSIZE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PAPERLENGTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PAPERWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_SCALE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_POSITION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_NUP: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DISPLAYORIENTATION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_COPIES: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DEFAULTSOURCE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PRINTQUALITY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_COLOR: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DUPLEX: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_YRESOLUTION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_TTOPTION: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_COLLATE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_FORMNAME: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_LOGPIXELS: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_BITSPERPEL: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PELSWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PELSHEIGHT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DISPLAYFLAGS: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2097152u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DISPLAYFREQUENCY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_ICMMETHOD: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8388608u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_ICMINTENT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(16777216u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_MEDIATYPE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(33554432u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DITHERTYPE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(67108864u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PANNINGWIDTH: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(134217728u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PANNINGHEIGHT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_DISPLAYFIXEDOUTPUT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(536870912u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_INTERLACED: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_UPDATE: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_COPY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_PROMPT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_MODIFY: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_IN_BUFFER: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_IN_PROMPT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_OUT_BUFFER: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DM_OUT_DEFAULT: DEVMODE_FIELD_FLAGS = DEVMODE_FIELD_FLAGS(1u32);
 impl ::core::marker::Copy for DEVMODE_FIELD_FLAGS {}
 impl ::core::clone::Clone for DEVMODE_FIELD_FLAGS {
     fn clone(&self) -> Self {
@@ -6112,14 +7622,6 @@ impl ::core::ops::Not for DEVMODE_FIELD_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVMODE_TRUETYPE_OPTION(pub i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_BITMAP: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(1i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_DOWNLOAD: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(2i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_SUBDEV: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(3i16);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DMTT_DOWNLOAD_OUTLINE: DEVMODE_TRUETYPE_OPTION = DEVMODE_TRUETYPE_OPTION(4i16);
 impl ::core::marker::Copy for DEVMODE_TRUETYPE_OPTION {}
 impl ::core::clone::Clone for DEVMODE_TRUETYPE_OPTION {
     fn clone(&self) -> Self {
@@ -6143,66 +7645,6 @@ impl ::core::fmt::Debug for DEVMODE_TRUETYPE_OPTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DFCS_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_CAPTIONCLOSE: DFCS_STATE = DFCS_STATE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_CAPTIONMIN: DFCS_STATE = DFCS_STATE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_CAPTIONMAX: DFCS_STATE = DFCS_STATE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_CAPTIONRESTORE: DFCS_STATE = DFCS_STATE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_CAPTIONHELP: DFCS_STATE = DFCS_STATE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_MENUARROW: DFCS_STATE = DFCS_STATE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_MENUCHECK: DFCS_STATE = DFCS_STATE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_MENUBULLET: DFCS_STATE = DFCS_STATE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_MENUARROWRIGHT: DFCS_STATE = DFCS_STATE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_SCROLLUP: DFCS_STATE = DFCS_STATE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_SCROLLDOWN: DFCS_STATE = DFCS_STATE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_SCROLLLEFT: DFCS_STATE = DFCS_STATE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_SCROLLRIGHT: DFCS_STATE = DFCS_STATE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_SCROLLCOMBOBOX: DFCS_STATE = DFCS_STATE(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_SCROLLSIZEGRIP: DFCS_STATE = DFCS_STATE(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_SCROLLSIZEGRIPRIGHT: DFCS_STATE = DFCS_STATE(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_BUTTONCHECK: DFCS_STATE = DFCS_STATE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_BUTTONRADIOIMAGE: DFCS_STATE = DFCS_STATE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_BUTTONRADIOMASK: DFCS_STATE = DFCS_STATE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_BUTTONRADIO: DFCS_STATE = DFCS_STATE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_BUTTON3STATE: DFCS_STATE = DFCS_STATE(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_BUTTONPUSH: DFCS_STATE = DFCS_STATE(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_INACTIVE: DFCS_STATE = DFCS_STATE(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_PUSHED: DFCS_STATE = DFCS_STATE(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_CHECKED: DFCS_STATE = DFCS_STATE(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_TRANSPARENT: DFCS_STATE = DFCS_STATE(2048u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_HOT: DFCS_STATE = DFCS_STATE(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_ADJUSTRECT: DFCS_STATE = DFCS_STATE(8192u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_FLAT: DFCS_STATE = DFCS_STATE(16384u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFCS_MONO: DFCS_STATE = DFCS_STATE(32768u32);
 impl ::core::marker::Copy for DFCS_STATE {}
 impl ::core::clone::Clone for DFCS_STATE {
     fn clone(&self) -> Self {
@@ -6259,16 +7701,6 @@ impl ::core::ops::Not for DFCS_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DFC_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFC_CAPTION: DFC_TYPE = DFC_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFC_MENU: DFC_TYPE = DFC_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFC_SCROLL: DFC_TYPE = DFC_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFC_BUTTON: DFC_TYPE = DFC_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DFC_POPUPMENU: DFC_TYPE = DFC_TYPE(5u32);
 impl ::core::marker::Copy for DFC_TYPE {}
 impl ::core::clone::Clone for DFC_TYPE {
     fn clone(&self) -> Self {
@@ -6292,10 +7724,6 @@ impl ::core::fmt::Debug for DFC_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIB_USAGE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DIB_RGB_COLORS: DIB_USAGE = DIB_USAGE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DIB_PAL_COLORS: DIB_USAGE = DIB_USAGE(1u32);
 impl ::core::marker::Copy for DIB_USAGE {}
 impl ::core::clone::Clone for DIB_USAGE {
     fn clone(&self) -> Self {
@@ -6319,16 +7747,6 @@ impl ::core::fmt::Debug for DIB_USAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_COLOR_ENCODING(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = DISPLAYCONFIG_COLOR_ENCODING(4i32);
 impl ::core::marker::Copy for DISPLAYCONFIG_COLOR_ENCODING {}
 impl ::core::clone::Clone for DISPLAYCONFIG_COLOR_ENCODING {
     fn clone(&self) -> Self {
@@ -6352,22 +7770,6 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_COLOR_ENCODING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISP_CHANGE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISP_CHANGE_SUCCESSFUL: DISP_CHANGE = DISP_CHANGE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISP_CHANGE_RESTART: DISP_CHANGE = DISP_CHANGE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISP_CHANGE_FAILED: DISP_CHANGE = DISP_CHANGE(-1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISP_CHANGE_BADMODE: DISP_CHANGE = DISP_CHANGE(-2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISP_CHANGE_NOTUPDATED: DISP_CHANGE = DISP_CHANGE(-3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISP_CHANGE_BADFLAGS: DISP_CHANGE = DISP_CHANGE(-4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISP_CHANGE_BADPARAM: DISP_CHANGE = DISP_CHANGE(-5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DISP_CHANGE_BADDUALVIEW: DISP_CHANGE = DISP_CHANGE(-6i32);
 impl ::core::marker::Copy for DISP_CHANGE {}
 impl ::core::clone::Clone for DISP_CHANGE {
     fn clone(&self) -> Self {
@@ -6391,30 +7793,6 @@ impl ::core::fmt::Debug for DISP_CHANGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAWEDGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BDR_RAISEDOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BDR_SUNKENOUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BDR_RAISEDINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BDR_SUNKENINNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BDR_OUTER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BDR_INNER: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(12u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BDR_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BDR_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EDGE_RAISED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EDGE_SUNKEN: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(10u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EDGE_ETCHED: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EDGE_BUMP: DRAWEDGE_FLAGS = DRAWEDGE_FLAGS(9u32);
 impl ::core::marker::Copy for DRAWEDGE_FLAGS {}
 impl ::core::clone::Clone for DRAWEDGE_FLAGS {
     fn clone(&self) -> Self {
@@ -6471,30 +7849,6 @@ impl ::core::ops::Not for DRAWEDGE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAWSTATE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DST_COMPLEX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DST_TEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DST_PREFIXTEXT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DST_ICON: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DST_BITMAP: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DSS_NORMAL: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DSS_UNION: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DSS_DISABLED: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DSS_MONO: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DSS_HIDEPREFIX: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DSS_PREFIXONLY: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DSS_RIGHT: DRAWSTATE_FLAGS = DRAWSTATE_FLAGS(32768u32);
 impl ::core::marker::Copy for DRAWSTATE_FLAGS {}
 impl ::core::clone::Clone for DRAWSTATE_FLAGS {
     fn clone(&self) -> Self {
@@ -6551,20 +7905,6 @@ impl ::core::ops::Not for DRAWSTATE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAW_CAPTION_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DC_ACTIVE: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DC_BUTTONS: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DC_GRADIENT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DC_ICON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DC_INBUTTON: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DC_SMALLCAP: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DC_TEXT: DRAW_CAPTION_FLAGS = DRAW_CAPTION_FLAGS(8u32);
 impl ::core::marker::Copy for DRAW_CAPTION_FLAGS {}
 impl ::core::clone::Clone for DRAW_CAPTION_FLAGS {
     fn clone(&self) -> Self {
@@ -6621,44 +7961,6 @@ impl ::core::ops::Not for DRAW_CAPTION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAW_EDGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_ADJUST: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_BOTTOM: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_BOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(9u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_BOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(12u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_DIAGONAL: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_DIAGONAL_ENDBOTTOMLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(25u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_DIAGONAL_ENDBOTTOMRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(28u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_DIAGONAL_ENDTOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(19u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_DIAGONAL_ENDTOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(22u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_FLAT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_LEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_MIDDLE: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_MONO: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_RECT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(15u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_RIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_SOFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_TOP: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_TOPLEFT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BF_TOPRIGHT: DRAW_EDGE_FLAGS = DRAW_EDGE_FLAGS(6u32);
 impl ::core::marker::Copy for DRAW_EDGE_FLAGS {}
 impl ::core::clone::Clone for DRAW_EDGE_FLAGS {
     fn clone(&self) -> Self {
@@ -6715,54 +8017,6 @@ impl ::core::ops::Not for DRAW_EDGE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAW_TEXT_FORMAT(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_BOTTOM: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_CALCRECT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_CENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_EDITCONTROL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(8192u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_END_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32768u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_EXPANDTABS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_EXTERNALLEADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_HIDEPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(1048576u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_INTERNAL: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_LEFT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_MODIFYSTRING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(65536u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_NOCLIP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_NOFULLWIDTHCHARBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(524288u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_NOPREFIX: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2048u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_PATH_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16384u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_PREFIXONLY: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2097152u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_RIGHT: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_RTLREADING: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(131072u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_SINGLELINE: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_TABSTOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_TOP: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_VCENTER: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_WORDBREAK: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DT_WORD_ELLIPSIS: DRAW_TEXT_FORMAT = DRAW_TEXT_FORMAT(262144u32);
 impl ::core::marker::Copy for DRAW_TEXT_FORMAT {}
 impl ::core::clone::Clone for DRAW_TEXT_FORMAT {
     fn clone(&self) -> Self {
@@ -6819,14 +8073,6 @@ impl ::core::ops::Not for DRAW_TEXT_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMBEDDED_FONT_PRIV_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMBED_EDITABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMBED_INSTALLABLE: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMBED_NOEMBEDDING: EMBEDDED_FONT_PRIV_STATUS = EMBEDDED_FONT_PRIV_STATUS(4u32);
 impl ::core::marker::Copy for EMBEDDED_FONT_PRIV_STATUS {}
 impl ::core::clone::Clone for EMBEDDED_FONT_PRIV_STATUS {
     fn clone(&self) -> Self {
@@ -6850,10 +8096,6 @@ impl ::core::fmt::Debug for EMBEDDED_FONT_PRIV_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMBED_FONT_CHARSET(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CHARSET_UNICODE: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CHARSET_SYMBOL: EMBED_FONT_CHARSET = EMBED_FONT_CHARSET(2u32);
 impl ::core::marker::Copy for EMBED_FONT_CHARSET {}
 impl ::core::clone::Clone for EMBED_FONT_CHARSET {
     fn clone(&self) -> Self {
@@ -6877,252 +8119,6 @@ impl ::core::fmt::Debug for EMBED_FONT_CHARSET {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENHANCED_METAFILE_RECORD_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_HEADER: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYBEZIER: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYGON: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYLINE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYBEZIERTO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYLINETO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYPOLYLINE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(7u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYPOLYGON: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETWINDOWEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(9u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETWINDOWORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(10u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETVIEWPORTEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(11u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETVIEWPORTORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(12u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETBRUSHORGEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(13u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EOF: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(14u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETPIXELV: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(15u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETMAPPERFLAGS: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETMAPMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(17u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETBKMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(18u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETPOLYFILLMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(19u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETROP2: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(20u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETSTRETCHBLTMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(21u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETTEXTALIGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(22u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETCOLORADJUSTMENT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(23u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETTEXTCOLOR: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(24u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETBKCOLOR: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(25u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_OFFSETCLIPRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(26u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_MOVETOEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(27u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETMETARGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(28u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXCLUDECLIPRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(29u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_INTERSECTCLIPRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(30u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SCALEVIEWPORTEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(31u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SCALEWINDOWEXTEX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SAVEDC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(33u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESTOREDC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(34u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETWORLDTRANSFORM: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(35u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_MODIFYWORLDTRANSFORM: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(36u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SELECTOBJECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(37u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATEPEN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(38u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATEBRUSHINDIRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(39u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_DELETEOBJECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(40u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ANGLEARC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(41u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ELLIPSE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(42u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RECTANGLE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(43u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ROUNDRECT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(44u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ARC: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(45u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CHORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(46u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_PIE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(47u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SELECTPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(48u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(49u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETPALETTEENTRIES: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(50u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESIZEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(51u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_REALIZEPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(52u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTFLOODFILL: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(53u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_LINETO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(54u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ARCTO: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(55u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYDRAW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(56u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETARCDIRECTION: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(57u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETMITERLIMIT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(58u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_BEGINPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(59u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ENDPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(60u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CLOSEFIGURE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(61u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_FILLPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(62u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_STROKEANDFILLPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(63u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_STROKEPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_FLATTENPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(65u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_WIDENPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(66u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SELECTCLIPPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(67u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ABORTPATH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(68u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_GDICOMMENT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(70u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_FILLRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(71u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_FRAMERGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(72u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_INVERTRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(73u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_PAINTRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(74u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTSELECTCLIPRGN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(75u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_BITBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(76u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_STRETCHBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(77u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_MASKBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(78u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_PLGBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(79u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETDIBITSTODEVICE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(80u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_STRETCHDIBITS: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(81u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTCREATEFONTINDIRECTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(82u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTTEXTOUTA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(83u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTTEXTOUTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(84u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYBEZIER16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(85u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYGON16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(86u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYLINE16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(87u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYBEZIERTO16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(88u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYLINETO16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(89u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYPOLYLINE16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(90u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYPOLYGON16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(91u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYDRAW16: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(92u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATEMONOBRUSH: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(93u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATEDIBPATTERNBRUSHPT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(94u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_EXTCREATEPEN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(95u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYTEXTOUTA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(96u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_POLYTEXTOUTW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(97u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETICMMODE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(98u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATECOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(99u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETCOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(100u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_DELETECOLORSPACE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(101u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_GLSRECORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(102u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_GLSBOUNDEDRECORD: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(103u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_PIXELFORMAT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(104u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_105: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(105u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_106: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(106u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_107: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(107u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_108: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(108u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_109: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(109u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_110: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(110u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_COLORCORRECTPALETTE: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(111u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETICMPROFILEA: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(112u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETICMPROFILEW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(113u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_ALPHABLEND: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(114u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_SETLAYOUT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(115u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_TRANSPARENTBLT: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(116u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_117: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(117u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_GRADIENTFILL: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(118u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_119: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(119u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_RESERVED_120: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(120u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_COLORMATCHTOTARGETW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(121u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_CREATECOLORSPACEW: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(122u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_MIN: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EMR_MAX: ENHANCED_METAFILE_RECORD_TYPE = ENHANCED_METAFILE_RECORD_TYPE(122u32);
 impl ::core::marker::Copy for ENHANCED_METAFILE_RECORD_TYPE {}
 impl ::core::clone::Clone for ENHANCED_METAFILE_RECORD_TYPE {
     fn clone(&self) -> Self {
@@ -7146,10 +8142,6 @@ impl ::core::fmt::Debug for ENHANCED_METAFILE_RECORD_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_DISPLAY_SETTINGS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EDS_RAWMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EDS_ROTATEDMODE: ENUM_DISPLAY_SETTINGS_FLAGS = ENUM_DISPLAY_SETTINGS_FLAGS(4u32);
 impl ::core::marker::Copy for ENUM_DISPLAY_SETTINGS_FLAGS {}
 impl ::core::clone::Clone for ENUM_DISPLAY_SETTINGS_FLAGS {
     fn clone(&self) -> Self {
@@ -7206,10 +8198,6 @@ impl ::core::ops::Not for ENUM_DISPLAY_SETTINGS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_DISPLAY_SETTINGS_MODE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ENUM_CURRENT_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967295u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ENUM_REGISTRY_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = ENUM_DISPLAY_SETTINGS_MODE(4294967294u32);
 impl ::core::marker::Copy for ENUM_DISPLAY_SETTINGS_MODE {}
 impl ::core::clone::Clone for ENUM_DISPLAY_SETTINGS_MODE {
     fn clone(&self) -> Self {
@@ -7233,24 +8221,6 @@ impl ::core::fmt::Debug for ENUM_DISPLAY_SETTINGS_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ETO_OPTIONS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ETO_OPAQUE: ETO_OPTIONS = ETO_OPTIONS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ETO_CLIPPED: ETO_OPTIONS = ETO_OPTIONS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ETO_GLYPH_INDEX: ETO_OPTIONS = ETO_OPTIONS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ETO_RTLREADING: ETO_OPTIONS = ETO_OPTIONS(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ETO_NUMERICSLOCAL: ETO_OPTIONS = ETO_OPTIONS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ETO_NUMERICSLATIN: ETO_OPTIONS = ETO_OPTIONS(2048u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ETO_IGNORELANGUAGE: ETO_OPTIONS = ETO_OPTIONS(4096u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ETO_PDY: ETO_OPTIONS = ETO_OPTIONS(8192u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ETO_REVERSE_INDEX_MAP: ETO_OPTIONS = ETO_OPTIONS(65536u32);
 impl ::core::marker::Copy for ETO_OPTIONS {}
 impl ::core::clone::Clone for ETO_OPTIONS {
     fn clone(&self) -> Self {
@@ -7307,10 +8277,6 @@ impl ::core::ops::Not for ETO_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXT_FLOOD_FILL_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FLOODFILLBORDER: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FLOODFILLSURFACE: EXT_FLOOD_FILL_TYPE = EXT_FLOOD_FILL_TYPE(1u32);
 impl ::core::marker::Copy for EXT_FLOOD_FILL_TYPE {}
 impl ::core::clone::Clone for EXT_FLOOD_FILL_TYPE {
     fn clone(&self) -> Self {
@@ -7334,46 +8300,6 @@ impl ::core::fmt::Debug for EXT_FLOOD_FILL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_CHARSET(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ANSI_CHARSET: FONT_CHARSET = FONT_CHARSET(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEFAULT_CHARSET: FONT_CHARSET = FONT_CHARSET(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SYMBOL_CHARSET: FONT_CHARSET = FONT_CHARSET(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SHIFTJIS_CHARSET: FONT_CHARSET = FONT_CHARSET(128u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HANGEUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HANGUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GB2312_CHARSET: FONT_CHARSET = FONT_CHARSET(134u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CHINESEBIG5_CHARSET: FONT_CHARSET = FONT_CHARSET(136u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OEM_CHARSET: FONT_CHARSET = FONT_CHARSET(255u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const JOHAB_CHARSET: FONT_CHARSET = FONT_CHARSET(130u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HEBREW_CHARSET: FONT_CHARSET = FONT_CHARSET(177u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ARABIC_CHARSET: FONT_CHARSET = FONT_CHARSET(178u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GREEK_CHARSET: FONT_CHARSET = FONT_CHARSET(161u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TURKISH_CHARSET: FONT_CHARSET = FONT_CHARSET(162u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VIETNAMESE_CHARSET: FONT_CHARSET = FONT_CHARSET(163u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const THAI_CHARSET: FONT_CHARSET = FONT_CHARSET(222u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EASTEUROPE_CHARSET: FONT_CHARSET = FONT_CHARSET(238u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RUSSIAN_CHARSET: FONT_CHARSET = FONT_CHARSET(204u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MAC_CHARSET: FONT_CHARSET = FONT_CHARSET(77u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BALTIC_CHARSET: FONT_CHARSET = FONT_CHARSET(186u8);
 impl ::core::marker::Copy for FONT_CHARSET {}
 impl ::core::clone::Clone for FONT_CHARSET {
     fn clone(&self) -> Self {
@@ -7397,24 +8323,6 @@ impl ::core::fmt::Debug for FONT_CHARSET {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_CLIP_PRECISION(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_DEFAULT_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_MASK: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(15u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_LH_ANGLES: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(16u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(32u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_DFA_DISABLE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_EMBEDDED: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(128u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIP_DFA_OVERRIDE: FONT_CLIP_PRECISION = FONT_CLIP_PRECISION(64u8);
 impl ::core::marker::Copy for FONT_CLIP_PRECISION {}
 impl ::core::clone::Clone for FONT_CLIP_PRECISION {
     fn clone(&self) -> Self {
@@ -7471,18 +8379,6 @@ impl ::core::ops::Not for FONT_CLIP_PRECISION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_FAMILY(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_DECORATIVE: FONT_FAMILY = FONT_FAMILY(80u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_DONTCARE: FONT_FAMILY = FONT_FAMILY(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_MODERN: FONT_FAMILY = FONT_FAMILY(48u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_ROMAN: FONT_FAMILY = FONT_FAMILY(16u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_SCRIPT: FONT_FAMILY = FONT_FAMILY(64u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FF_SWISS: FONT_FAMILY = FONT_FAMILY(32u8);
 impl ::core::marker::Copy for FONT_FAMILY {}
 impl ::core::clone::Clone for FONT_FAMILY {
     fn clone(&self) -> Self {
@@ -7506,16 +8402,6 @@ impl ::core::fmt::Debug for FONT_FAMILY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_LICENSE_PRIVS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LICENSE_EDITABLE: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LICENSE_INSTALLABLE: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LICENSE_NOEMBEDDING: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LICENSE_DEFAULT: FONT_LICENSE_PRIVS = FONT_LICENSE_PRIVS(0u32);
 impl ::core::marker::Copy for FONT_LICENSE_PRIVS {}
 impl ::core::clone::Clone for FONT_LICENSE_PRIVS {
     fn clone(&self) -> Self {
@@ -7539,28 +8425,6 @@ impl ::core::fmt::Debug for FONT_LICENSE_PRIVS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_OUTPUT_PRECISION(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_DEFAULT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_STRING_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_STROKE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_TT_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_DEVICE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_RASTER_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_TT_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_SCREEN_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OUT_PS_ONLY_PRECIS: FONT_OUTPUT_PRECISION = FONT_OUTPUT_PRECISION(10u8);
 impl ::core::marker::Copy for FONT_OUTPUT_PRECISION {}
 impl ::core::clone::Clone for FONT_OUTPUT_PRECISION {
     fn clone(&self) -> Self {
@@ -7584,12 +8448,6 @@ impl ::core::fmt::Debug for FONT_OUTPUT_PRECISION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_PITCH(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEFAULT_PITCH: FONT_PITCH = FONT_PITCH(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FIXED_PITCH: FONT_PITCH = FONT_PITCH(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VARIABLE_PITCH: FONT_PITCH = FONT_PITCH(2u8);
 impl ::core::marker::Copy for FONT_PITCH {}
 impl ::core::clone::Clone for FONT_PITCH {
     fn clone(&self) -> Self {
@@ -7613,18 +8471,6 @@ impl ::core::fmt::Debug for FONT_PITCH {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_QUALITY(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEFAULT_QUALITY: FONT_QUALITY = FONT_QUALITY(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DRAFT_QUALITY: FONT_QUALITY = FONT_QUALITY(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PROOF_QUALITY: FONT_QUALITY = FONT_QUALITY(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NONANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ANTIALIASED_QUALITY: FONT_QUALITY = FONT_QUALITY(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLEARTYPE_QUALITY: FONT_QUALITY = FONT_QUALITY(5u8);
 impl ::core::marker::Copy for FONT_QUALITY {}
 impl ::core::clone::Clone for FONT_QUALITY {
     fn clone(&self) -> Self {
@@ -7648,10 +8494,6 @@ impl ::core::fmt::Debug for FONT_QUALITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_RESOURCE_CHARACTERISTICS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FR_PRIVATE: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FR_NOT_ENUM: FONT_RESOURCE_CHARACTERISTICS = FONT_RESOURCE_CHARACTERISTICS(32u32);
 impl ::core::marker::Copy for FONT_RESOURCE_CHARACTERISTICS {}
 impl ::core::clone::Clone for FONT_RESOURCE_CHARACTERISTICS {
     fn clone(&self) -> Self {
@@ -7675,36 +8517,6 @@ impl ::core::fmt::Debug for FONT_RESOURCE_CHARACTERISTICS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FONT_WEIGHT(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_DONTCARE: FONT_WEIGHT = FONT_WEIGHT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_THIN: FONT_WEIGHT = FONT_WEIGHT(100u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_EXTRALIGHT: FONT_WEIGHT = FONT_WEIGHT(200u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_LIGHT: FONT_WEIGHT = FONT_WEIGHT(300u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_NORMAL: FONT_WEIGHT = FONT_WEIGHT(400u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_MEDIUM: FONT_WEIGHT = FONT_WEIGHT(500u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_SEMIBOLD: FONT_WEIGHT = FONT_WEIGHT(600u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_BOLD: FONT_WEIGHT = FONT_WEIGHT(700u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_EXTRABOLD: FONT_WEIGHT = FONT_WEIGHT(800u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_HEAVY: FONT_WEIGHT = FONT_WEIGHT(900u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_ULTRALIGHT: FONT_WEIGHT = FONT_WEIGHT(200u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_REGULAR: FONT_WEIGHT = FONT_WEIGHT(400u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_DEMIBOLD: FONT_WEIGHT = FONT_WEIGHT(600u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_ULTRABOLD: FONT_WEIGHT = FONT_WEIGHT(800u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_BLACK: FONT_WEIGHT = FONT_WEIGHT(900u32);
 impl ::core::marker::Copy for FONT_WEIGHT {}
 impl ::core::clone::Clone for FONT_WEIGHT {
     fn clone(&self) -> Self {
@@ -7728,14 +8540,6 @@ impl ::core::fmt::Debug for FONT_WEIGHT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GDI_REGION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RGN_ERROR: GDI_REGION_TYPE = GDI_REGION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NULLREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SIMPLEREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COMPLEXREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(3i32);
 impl ::core::marker::Copy for GDI_REGION_TYPE {}
 impl ::core::clone::Clone for GDI_REGION_TYPE {
     fn clone(&self) -> Self {
@@ -7759,36 +8563,6 @@ impl ::core::fmt::Debug for GDI_REGION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_CHARACTER_PLACEMENT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_CLASSIN: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_DIACRITIC: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_DISPLAYZWG: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_GLYPHSHAPE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_JUSTIFY: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_KASHIDA: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_LIGATE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_MAXEXTENT: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_NEUTRALOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(33554432u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_NUMERICOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(16777216u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_NUMERICSLATIN: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(67108864u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_NUMERICSLOCAL: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(134217728u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_REORDER: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_SYMSWAPOFF: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8388608u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GCP_USEKERNING: GET_CHARACTER_PLACEMENT_FLAGS = GET_CHARACTER_PLACEMENT_FLAGS(8u32);
 impl ::core::marker::Copy for GET_CHARACTER_PLACEMENT_FLAGS {}
 impl ::core::clone::Clone for GET_CHARACTER_PLACEMENT_FLAGS {
     fn clone(&self) -> Self {
@@ -7845,28 +8619,6 @@ impl ::core::ops::Not for GET_CHARACTER_PLACEMENT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_DCX_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCX_WINDOW: GET_DCX_FLAGS = GET_DCX_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCX_CACHE: GET_DCX_FLAGS = GET_DCX_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCX_PARENTCLIP: GET_DCX_FLAGS = GET_DCX_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCX_CLIPSIBLINGS: GET_DCX_FLAGS = GET_DCX_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCX_CLIPCHILDREN: GET_DCX_FLAGS = GET_DCX_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCX_NORESETATTRS: GET_DCX_FLAGS = GET_DCX_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCX_LOCKWINDOWUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCX_EXCLUDERGN: GET_DCX_FLAGS = GET_DCX_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCX_INTERSECTRGN: GET_DCX_FLAGS = GET_DCX_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCX_INTERSECTUPDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCX_VALIDATE: GET_DCX_FLAGS = GET_DCX_FLAGS(2097152u32);
 impl ::core::marker::Copy for GET_DCX_FLAGS {}
 impl ::core::clone::Clone for GET_DCX_FLAGS {
     fn clone(&self) -> Self {
@@ -7923,86 +8675,6 @@ impl ::core::ops::Not for GET_DCX_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_DEVICE_CAPS_INDEX(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DRIVERVERSION: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TECHNOLOGY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HORZSIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VERTSIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VERTRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(10u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BITSPIXEL: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(12u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PLANES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(14u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NUMBRUSHES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NUMPENS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(18u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NUMMARKERS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(20u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NUMFONTS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(22u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NUMCOLORS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(24u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PDEVICESIZE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(26u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CURVECAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(28u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LINECAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(30u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const POLYGONALCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TEXTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(34u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CLIPCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(36u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RASTERCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(38u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ASPECTX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(40u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ASPECTY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(42u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ASPECTXY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(44u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LOGPIXELSX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(88u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LOGPIXELSY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(90u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SIZEPALETTE: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(104u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NUMRESERVED: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(106u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLORRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(108u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PHYSICALWIDTH: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(110u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PHYSICALHEIGHT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(111u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PHYSICALOFFSETX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(112u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PHYSICALOFFSETY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(113u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SCALINGFACTORX: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(114u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SCALINGFACTORY: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(115u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VREFRESH: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(116u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DESKTOPVERTRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(117u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DESKTOPHORZRES: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(118u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BLTALIGNMENT: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(119u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SHADEBLENDCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(120u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLORMGMTCAPS: GET_DEVICE_CAPS_INDEX = GET_DEVICE_CAPS_INDEX(121u32);
 impl ::core::marker::Copy for GET_DEVICE_CAPS_INDEX {}
 impl ::core::clone::Clone for GET_DEVICE_CAPS_INDEX {
     fn clone(&self) -> Self {
@@ -8026,24 +8698,6 @@ impl ::core::fmt::Debug for GET_DEVICE_CAPS_INDEX {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_GLYPH_OUTLINE_FORMAT(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GGO_BEZIER: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GGO_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GGO_GLYPH_INDEX: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GGO_GRAY2_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GGO_GRAY4_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(5u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GGO_GRAY8_BITMAP: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GGO_METRICS: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GGO_NATIVE: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GGO_UNHINTED: GET_GLYPH_OUTLINE_FORMAT = GET_GLYPH_OUTLINE_FORMAT(256u32);
 impl ::core::marker::Copy for GET_GLYPH_OUTLINE_FORMAT {}
 impl ::core::clone::Clone for GET_GLYPH_OUTLINE_FORMAT {
     fn clone(&self) -> Self {
@@ -8067,46 +8721,6 @@ impl ::core::fmt::Debug for GET_GLYPH_OUTLINE_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_STOCK_OBJECT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DKGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DC_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(18i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HOLLOW_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const LTGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NULL_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const WHITE_BRUSH: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BLACK_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DC_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(19i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NULL_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const WHITE_PEN: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ANSI_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ANSI_VAR_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEVICE_DEFAULT_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEFAULT_GUI_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = GET_STOCK_OBJECT_FLAGS(15i32);
 impl ::core::marker::Copy for GET_STOCK_OBJECT_FLAGS {}
 impl ::core::clone::Clone for GET_STOCK_OBJECT_FLAGS {
     fn clone(&self) -> Self {
@@ -8130,12 +8744,6 @@ impl ::core::fmt::Debug for GET_STOCK_OBJECT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRADIENT_FILL(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = GRADIENT_FILL(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GRADIENT_FILL_RECT_V: GRADIENT_FILL = GRADIENT_FILL(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GRADIENT_FILL_TRIANGLE: GRADIENT_FILL = GRADIENT_FILL(2u32);
 impl ::core::marker::Copy for GRADIENT_FILL {}
 impl ::core::clone::Clone for GRADIENT_FILL {
     fn clone(&self) -> Self {
@@ -8159,10 +8767,6 @@ impl ::core::fmt::Debug for GRADIENT_FILL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRAPHICS_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GM_COMPATIBLE: GRAPHICS_MODE = GRAPHICS_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GM_ADVANCED: GRAPHICS_MODE = GRAPHICS_MODE(2i32);
 impl ::core::marker::Copy for GRAPHICS_MODE {}
 impl ::core::clone::Clone for GRAPHICS_MODE {
     fn clone(&self) -> Self {
@@ -8186,18 +8790,6 @@ impl ::core::fmt::Debug for GRAPHICS_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HATCH_BRUSH_STYLE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_BDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_CROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_DIAGCROSS: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_FDIAGONAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_HORIZONTAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HS_VERTICAL: HATCH_BRUSH_STYLE = HATCH_BRUSH_STYLE(1i32);
 impl ::core::marker::Copy for HATCH_BRUSH_STYLE {}
 impl ::core::clone::Clone for HATCH_BRUSH_STYLE {
     fn clone(&self) -> Self {
@@ -8221,22 +8813,6 @@ impl ::core::fmt::Debug for HATCH_BRUSH_STYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDC_MAP_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_ANISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_HIENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_HIMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_ISOTROPIC: HDC_MAP_MODE = HDC_MAP_MODE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_LOENGLISH: HDC_MAP_MODE = HDC_MAP_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_LOMETRIC: HDC_MAP_MODE = HDC_MAP_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_TEXT: HDC_MAP_MODE = HDC_MAP_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MM_TWIPS: HDC_MAP_MODE = HDC_MAP_MODE(6i32);
 impl ::core::marker::Copy for HDC_MAP_MODE {}
 impl ::core::clone::Clone for HDC_MAP_MODE {
     fn clone(&self) -> Self {
@@ -8260,12 +8836,6 @@ impl ::core::fmt::Debug for HDC_MAP_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODIFY_WORLD_TRANSFORM_MODE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = MODIFY_WORLD_TRANSFORM_MODE(3u32);
 impl ::core::marker::Copy for MODIFY_WORLD_TRANSFORM_MODE {}
 impl ::core::clone::Clone for MODIFY_WORLD_TRANSFORM_MODE {
     fn clone(&self) -> Self {
@@ -8289,12 +8859,6 @@ impl ::core::fmt::Debug for MODIFY_WORLD_TRANSFORM_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MONITOR_FROM_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MONITOR_DEFAULTTONULL: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MONITOR_DEFAULTTOPRIMARY: MONITOR_FROM_FLAGS = MONITOR_FROM_FLAGS(1u32);
 impl ::core::marker::Copy for MONITOR_FROM_FLAGS {}
 impl ::core::clone::Clone for MONITOR_FROM_FLAGS {
     fn clone(&self) -> Self {
@@ -8318,34 +8882,6 @@ impl ::core::fmt::Debug for MONITOR_FROM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBJ_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_PEN: OBJ_TYPE = OBJ_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_BRUSH: OBJ_TYPE = OBJ_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_DC: OBJ_TYPE = OBJ_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_METADC: OBJ_TYPE = OBJ_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_PAL: OBJ_TYPE = OBJ_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_FONT: OBJ_TYPE = OBJ_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_BITMAP: OBJ_TYPE = OBJ_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_REGION: OBJ_TYPE = OBJ_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_METAFILE: OBJ_TYPE = OBJ_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_MEMDC: OBJ_TYPE = OBJ_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_EXTPEN: OBJ_TYPE = OBJ_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_ENHMETADC: OBJ_TYPE = OBJ_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_ENHMETAFILE: OBJ_TYPE = OBJ_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OBJ_COLORSPACE: OBJ_TYPE = OBJ_TYPE(14i32);
 impl ::core::marker::Copy for OBJ_TYPE {}
 impl ::core::clone::Clone for OBJ_TYPE {
     fn clone(&self) -> Self {
@@ -8369,30 +8905,6 @@ impl ::core::fmt::Debug for OBJ_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_ARM_STYLE(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_ARM_ANY: PAN_ARM_STYLE = PAN_ARM_STYLE(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_ARM_NO_FIT: PAN_ARM_STYLE = PAN_ARM_STYLE(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STRAIGHT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_HORZ: PAN_ARM_STYLE = PAN_ARM_STYLE(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_WEDGE: PAN_ARM_STYLE = PAN_ARM_STYLE(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_VERT: PAN_ARM_STYLE = PAN_ARM_STYLE(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_SINGLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(10u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_BENT_ARMS_DOUBLE_SERIF: PAN_ARM_STYLE = PAN_ARM_STYLE(11u8);
 impl ::core::marker::Copy for PAN_ARM_STYLE {}
 impl ::core::clone::Clone for PAN_ARM_STYLE {
     fn clone(&self) -> Self {
@@ -8416,28 +8928,6 @@ impl ::core::fmt::Debug for PAN_ARM_STYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_CONTRAST(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_ANY: PAN_CONTRAST = PAN_CONTRAST(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_NO_FIT: PAN_CONTRAST = PAN_CONTRAST(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_INDEX: PAN_CONTRAST = PAN_CONTRAST(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_NONE: PAN_CONTRAST = PAN_CONTRAST(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_VERY_LOW: PAN_CONTRAST = PAN_CONTRAST(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_LOW: PAN_CONTRAST = PAN_CONTRAST(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_MEDIUM_LOW: PAN_CONTRAST = PAN_CONTRAST(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_MEDIUM: PAN_CONTRAST = PAN_CONTRAST(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_MEDIUM_HIGH: PAN_CONTRAST = PAN_CONTRAST(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_HIGH: PAN_CONTRAST = PAN_CONTRAST(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_CONTRAST_VERY_HIGH: PAN_CONTRAST = PAN_CONTRAST(9u8);
 impl ::core::marker::Copy for PAN_CONTRAST {}
 impl ::core::clone::Clone for PAN_CONTRAST {
     fn clone(&self) -> Self {
@@ -8461,18 +8951,6 @@ impl ::core::fmt::Debug for PAN_CONTRAST {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_FAMILY_TYPE(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_ANY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_NO_FIT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_TEXT_DISPLAY: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_SCRIPT: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_DECORATIVE: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_FAMILY_PICTORIAL: PAN_FAMILY_TYPE = PAN_FAMILY_TYPE(5u8);
 impl ::core::marker::Copy for PAN_FAMILY_TYPE {}
 impl ::core::clone::Clone for PAN_FAMILY_TYPE {
     fn clone(&self) -> Self {
@@ -8496,38 +8974,6 @@ impl ::core::fmt::Debug for PAN_FAMILY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_LETT_FORM(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_FORM_ANY: PAN_LETT_FORM = PAN_LETT_FORM(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_FORM_NO_FIT: PAN_LETT_FORM = PAN_LETT_FORM(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_NORMAL_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_CONTACT: PAN_LETT_FORM = PAN_LETT_FORM(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_WEIGHTED: PAN_LETT_FORM = PAN_LETT_FORM(10u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_BOXED: PAN_LETT_FORM = PAN_LETT_FORM(11u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_FLATTENED: PAN_LETT_FORM = PAN_LETT_FORM(12u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_ROUNDED: PAN_LETT_FORM = PAN_LETT_FORM(13u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_OFF_CENTER: PAN_LETT_FORM = PAN_LETT_FORM(14u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_LETT_OBLIQUE_SQUARE: PAN_LETT_FORM = PAN_LETT_FORM(15u8);
 impl ::core::marker::Copy for PAN_LETT_FORM {}
 impl ::core::clone::Clone for PAN_LETT_FORM {
     fn clone(&self) -> Self {
@@ -8551,36 +8997,6 @@ impl ::core::fmt::Debug for PAN_LETT_FORM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_MIDLINE(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_ANY: PAN_MIDLINE = PAN_MIDLINE(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_NO_FIT: PAN_MIDLINE = PAN_MIDLINE(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_INDEX: PAN_MIDLINE = PAN_MIDLINE(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_STANDARD_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_STANDARD_POINTED: PAN_MIDLINE = PAN_MIDLINE(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_STANDARD_SERIFED: PAN_MIDLINE = PAN_MIDLINE(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_HIGH_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_HIGH_POINTED: PAN_MIDLINE = PAN_MIDLINE(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_HIGH_SERIFED: PAN_MIDLINE = PAN_MIDLINE(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_CONSTANT_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_CONSTANT_POINTED: PAN_MIDLINE = PAN_MIDLINE(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_CONSTANT_SERIFED: PAN_MIDLINE = PAN_MIDLINE(10u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_LOW_TRIMMED: PAN_MIDLINE = PAN_MIDLINE(11u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_LOW_POINTED: PAN_MIDLINE = PAN_MIDLINE(12u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_MIDLINE_LOW_SERIFED: PAN_MIDLINE = PAN_MIDLINE(13u8);
 impl ::core::marker::Copy for PAN_MIDLINE {}
 impl ::core::clone::Clone for PAN_MIDLINE {
     fn clone(&self) -> Self {
@@ -8604,26 +9020,6 @@ impl ::core::fmt::Debug for PAN_MIDLINE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_PROPORTION(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_ANY: PAN_PROPORTION = PAN_PROPORTION(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_NO_FIT: PAN_PROPORTION = PAN_PROPORTION(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_OLD_STYLE: PAN_PROPORTION = PAN_PROPORTION(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_MODERN: PAN_PROPORTION = PAN_PROPORTION(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_EVEN_WIDTH: PAN_PROPORTION = PAN_PROPORTION(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_VERY_EXPANDED: PAN_PROPORTION = PAN_PROPORTION(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_VERY_CONDENSED: PAN_PROPORTION = PAN_PROPORTION(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_PROP_MONOSPACED: PAN_PROPORTION = PAN_PROPORTION(9u8);
 impl ::core::marker::Copy for PAN_PROPORTION {}
 impl ::core::clone::Clone for PAN_PROPORTION {
     fn clone(&self) -> Self {
@@ -8647,38 +9043,6 @@ impl ::core::fmt::Debug for PAN_PROPORTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_SERIF_STYLE(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_ANY: PAN_SERIF_STYLE = PAN_SERIF_STYLE(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_NO_FIT: PAN_SERIF_STYLE = PAN_SERIF_STYLE(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_OBTUSE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_OBTUSE_SQUARE_COVE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_SQUARE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_THIN: PAN_SERIF_STYLE = PAN_SERIF_STYLE(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_BONE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_EXAGGERATED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_TRIANGLE: PAN_SERIF_STYLE = PAN_SERIF_STYLE(10u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_NORMAL_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(11u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_OBTUSE_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(12u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_PERP_SANS: PAN_SERIF_STYLE = PAN_SERIF_STYLE(13u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_FLARED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(14u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_SERIF_ROUNDED: PAN_SERIF_STYLE = PAN_SERIF_STYLE(15u8);
 impl ::core::marker::Copy for PAN_SERIF_STYLE {}
 impl ::core::clone::Clone for PAN_SERIF_STYLE {
     fn clone(&self) -> Self {
@@ -8702,24 +9066,6 @@ impl ::core::fmt::Debug for PAN_SERIF_STYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_STROKE_VARIATION(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_ANY: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_NO_FIT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_DIAG: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_TRAN: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_GRADUAL_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_RAPID_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_RAPID_HORZ: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_STROKE_INSTANT_VERT: PAN_STROKE_VARIATION = PAN_STROKE_VARIATION(8u8);
 impl ::core::marker::Copy for PAN_STROKE_VARIATION {}
 impl ::core::clone::Clone for PAN_STROKE_VARIATION {
     fn clone(&self) -> Self {
@@ -8743,32 +9089,6 @@ impl ::core::fmt::Debug for PAN_STROKE_VARIATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_WEIGHT(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_ANY: PAN_WEIGHT = PAN_WEIGHT(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_NO_FIT: PAN_WEIGHT = PAN_WEIGHT(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_INDEX: PAN_WEIGHT = PAN_WEIGHT(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_VERY_LIGHT: PAN_WEIGHT = PAN_WEIGHT(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_LIGHT: PAN_WEIGHT = PAN_WEIGHT(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_THIN: PAN_WEIGHT = PAN_WEIGHT(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_BOOK: PAN_WEIGHT = PAN_WEIGHT(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_MEDIUM: PAN_WEIGHT = PAN_WEIGHT(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_DEMI: PAN_WEIGHT = PAN_WEIGHT(7u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_BOLD: PAN_WEIGHT = PAN_WEIGHT(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_HEAVY: PAN_WEIGHT = PAN_WEIGHT(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_BLACK: PAN_WEIGHT = PAN_WEIGHT(10u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_WEIGHT_NORD: PAN_WEIGHT = PAN_WEIGHT(11u8);
 impl ::core::marker::Copy for PAN_WEIGHT {}
 impl ::core::clone::Clone for PAN_WEIGHT {
     fn clone(&self) -> Self {
@@ -8792,24 +9112,6 @@ impl ::core::fmt::Debug for PAN_WEIGHT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAN_XHEIGHT(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_ANY: PAN_XHEIGHT = PAN_XHEIGHT(0u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_NO_FIT: PAN_XHEIGHT = PAN_XHEIGHT(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_INDEX: PAN_XHEIGHT = PAN_XHEIGHT(9u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_CONSTANT_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_CONSTANT_STD: PAN_XHEIGHT = PAN_XHEIGHT(3u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_CONSTANT_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(4u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_DUCKING_SMALL: PAN_XHEIGHT = PAN_XHEIGHT(5u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_DUCKING_STD: PAN_XHEIGHT = PAN_XHEIGHT(6u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PAN_XHEIGHT_DUCKING_LARGE: PAN_XHEIGHT = PAN_XHEIGHT(7u8);
 impl ::core::marker::Copy for PAN_XHEIGHT {}
 impl ::core::clone::Clone for PAN_XHEIGHT {
     fn clone(&self) -> Self {
@@ -8833,48 +9135,6 @@ impl ::core::fmt::Debug for PAN_XHEIGHT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PEN_STYLE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_GEOMETRIC: PEN_STYLE = PEN_STYLE(65536i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_COSMETIC: PEN_STYLE = PEN_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_SOLID: PEN_STYLE = PEN_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_DASH: PEN_STYLE = PEN_STYLE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_DOT: PEN_STYLE = PEN_STYLE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_DASHDOT: PEN_STYLE = PEN_STYLE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_DASHDOTDOT: PEN_STYLE = PEN_STYLE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_NULL: PEN_STYLE = PEN_STYLE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_INSIDEFRAME: PEN_STYLE = PEN_STYLE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_USERSTYLE: PEN_STYLE = PEN_STYLE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_ALTERNATE: PEN_STYLE = PEN_STYLE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_STYLE_MASK: PEN_STYLE = PEN_STYLE(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_ENDCAP_ROUND: PEN_STYLE = PEN_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_ENDCAP_SQUARE: PEN_STYLE = PEN_STYLE(256i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_ENDCAP_FLAT: PEN_STYLE = PEN_STYLE(512i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_ENDCAP_MASK: PEN_STYLE = PEN_STYLE(3840i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_JOIN_ROUND: PEN_STYLE = PEN_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_JOIN_BEVEL: PEN_STYLE = PEN_STYLE(4096i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_JOIN_MITER: PEN_STYLE = PEN_STYLE(8192i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_JOIN_MASK: PEN_STYLE = PEN_STYLE(61440i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PS_TYPE_MASK: PEN_STYLE = PEN_STYLE(983040i32);
 impl ::core::marker::Copy for PEN_STYLE {}
 impl ::core::clone::Clone for PEN_STYLE {
     fn clone(&self) -> Self {
@@ -8931,40 +9191,6 @@ impl ::core::ops::Not for PEN_STYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct R2_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_BLACK: R2_MODE = R2_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_NOTMERGEPEN: R2_MODE = R2_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_MASKNOTPEN: R2_MODE = R2_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_NOTCOPYPEN: R2_MODE = R2_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_MASKPENNOT: R2_MODE = R2_MODE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_NOT: R2_MODE = R2_MODE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_XORPEN: R2_MODE = R2_MODE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_NOTMASKPEN: R2_MODE = R2_MODE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_MASKPEN: R2_MODE = R2_MODE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_NOTXORPEN: R2_MODE = R2_MODE(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_NOP: R2_MODE = R2_MODE(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_MERGENOTPEN: R2_MODE = R2_MODE(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_COPYPEN: R2_MODE = R2_MODE(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_MERGEPENNOT: R2_MODE = R2_MODE(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_MERGEPEN: R2_MODE = R2_MODE(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_WHITE: R2_MODE = R2_MODE(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const R2_LAST: R2_MODE = R2_MODE(16i32);
 impl ::core::marker::Copy for R2_MODE {}
 impl ::core::clone::Clone for R2_MODE {
     fn clone(&self) -> Self {
@@ -8988,30 +9214,6 @@ impl ::core::fmt::Debug for R2_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REDRAW_WINDOW_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_INVALIDATE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_INTERNALPAINT: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_ERASE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_VALIDATE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_NOINTERNALPAINT: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_NOERASE: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_NOCHILDREN: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_ALLCHILDREN: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_UPDATENOW: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_ERASENOW: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_FRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RDW_NOFRAME: REDRAW_WINDOW_FLAGS = REDRAW_WINDOW_FLAGS(2048u32);
 impl ::core::marker::Copy for REDRAW_WINDOW_FLAGS {}
 impl ::core::clone::Clone for REDRAW_WINDOW_FLAGS {
     fn clone(&self) -> Self {
@@ -9068,20 +9270,6 @@ impl ::core::ops::Not for REDRAW_WINDOW_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RGN_COMBINE_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RGN_AND: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RGN_OR: RGN_COMBINE_MODE = RGN_COMBINE_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RGN_XOR: RGN_COMBINE_MODE = RGN_COMBINE_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RGN_DIFF: RGN_COMBINE_MODE = RGN_COMBINE_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RGN_COPY: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RGN_MIN: RGN_COMBINE_MODE = RGN_COMBINE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RGN_MAX: RGN_COMBINE_MODE = RGN_COMBINE_MODE(5i32);
 impl ::core::marker::Copy for RGN_COMBINE_MODE {}
 impl ::core::clone::Clone for RGN_COMBINE_MODE {
     fn clone(&self) -> Self {
@@ -9105,40 +9293,6 @@ impl ::core::fmt::Debug for RGN_COMBINE_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ROP_CODE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BLACKNESS: ROP_CODE = ROP_CODE(66u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NOTSRCERASE: ROP_CODE = ROP_CODE(1114278u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NOTSRCCOPY: ROP_CODE = ROP_CODE(3342344u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SRCERASE: ROP_CODE = ROP_CODE(4457256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DSTINVERT: ROP_CODE = ROP_CODE(5570569u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PATINVERT: ROP_CODE = ROP_CODE(5898313u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SRCINVERT: ROP_CODE = ROP_CODE(6684742u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SRCAND: ROP_CODE = ROP_CODE(8913094u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MERGEPAINT: ROP_CODE = ROP_CODE(12255782u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MERGECOPY: ROP_CODE = ROP_CODE(12583114u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SRCCOPY: ROP_CODE = ROP_CODE(13369376u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SRCPAINT: ROP_CODE = ROP_CODE(15597702u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PATCOPY: ROP_CODE = ROP_CODE(15728673u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const PATPAINT: ROP_CODE = ROP_CODE(16452105u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const WHITENESS: ROP_CODE = ROP_CODE(16711778u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CAPTUREBLT: ROP_CODE = ROP_CODE(1073741824u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NOMIRRORBITMAP: ROP_CODE = ROP_CODE(2147483648u32);
 impl ::core::marker::Copy for ROP_CODE {}
 impl ::core::clone::Clone for ROP_CODE {
     fn clone(&self) -> Self {
@@ -9195,14 +9349,6 @@ impl ::core::ops::Not for ROP_CODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SET_BOUNDS_RECT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCB_ACCUMULATE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCB_DISABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCB_ENABLE: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DCB_RESET: SET_BOUNDS_RECT_FLAGS = SET_BOUNDS_RECT_FLAGS(1u32);
 impl ::core::marker::Copy for SET_BOUNDS_RECT_FLAGS {}
 impl ::core::clone::Clone for SET_BOUNDS_RECT_FLAGS {
     fn clone(&self) -> Self {
@@ -9226,22 +9372,6 @@ impl ::core::fmt::Debug for SET_BOUNDS_RECT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STRETCH_BLT_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BLACKONWHITE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLORONCOLOR: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const STRETCH_ANDSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const STRETCH_DELETESCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const STRETCH_HALFTONE: STRETCH_BLT_MODE = STRETCH_BLT_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const STRETCH_ORSCANS: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const WHITEONBLACK: STRETCH_BLT_MODE = STRETCH_BLT_MODE(2i32);
 impl ::core::marker::Copy for STRETCH_BLT_MODE {}
 impl ::core::clone::Clone for STRETCH_BLT_MODE {
     fn clone(&self) -> Self {
@@ -9265,12 +9395,6 @@ impl ::core::fmt::Debug for STRETCH_BLT_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_PALETTE_USE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SYSPAL_NOSTATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SYSPAL_NOSTATIC256: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(3u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SYSPAL_STATIC: SYSTEM_PALETTE_USE = SYSTEM_PALETTE_USE(1u32);
 impl ::core::marker::Copy for SYSTEM_PALETTE_USE {}
 impl ::core::clone::Clone for SYSTEM_PALETTE_USE {
     fn clone(&self) -> Self {
@@ -9294,78 +9418,6 @@ impl ::core::fmt::Debug for SYSTEM_PALETTE_USE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYS_COLOR_INDEX(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_MENU: SYS_COLOR_INDEX = SYS_COLOR_INDEX(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_BTNFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(18i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(19i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(22i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(23i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_INFOBK: SYS_COLOR_INDEX = SYS_COLOR_INDEX(24i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(26i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(27i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(28i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(29i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_MENUBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(30i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_DESKTOP: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_3DFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20i32);
 impl ::core::marker::Copy for SYS_COLOR_INDEX {}
 impl ::core::clone::Clone for SYS_COLOR_INDEX {
     fn clone(&self) -> Self {
@@ -9389,38 +9441,6 @@ impl ::core::fmt::Debug for SYS_COLOR_INDEX {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_ALIGN_OPTIONS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TA_NOUPDATECP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TA_UPDATECP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TA_LEFT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TA_RIGHT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TA_CENTER: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TA_TOP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TA_BOTTOM: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TA_BASELINE: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(24u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TA_RTLREADING: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(256u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TA_MASK: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(287u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VTA_BASELINE: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(24u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VTA_LEFT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VTA_RIGHT: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VTA_CENTER: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(6u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VTA_BOTTOM: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VTA_TOP: TEXT_ALIGN_OPTIONS = TEXT_ALIGN_OPTIONS(0u32);
 impl ::core::marker::Copy for TEXT_ALIGN_OPTIONS {}
 impl ::core::clone::Clone for TEXT_ALIGN_OPTIONS {
     fn clone(&self) -> Self {
@@ -9477,14 +9497,6 @@ impl ::core::ops::Not for TEXT_ALIGN_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TMPF_FLAGS(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TMPF_FIXED_PITCH: TMPF_FLAGS = TMPF_FLAGS(1u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TMPF_VECTOR: TMPF_FLAGS = TMPF_FLAGS(2u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TMPF_DEVICE: TMPF_FLAGS = TMPF_FLAGS(8u8);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TMPF_TRUETYPE: TMPF_FLAGS = TMPF_FLAGS(4u8);
 impl ::core::marker::Copy for TMPF_FLAGS {}
 impl ::core::clone::Clone for TMPF_FLAGS {
     fn clone(&self) -> Self {
@@ -9541,14 +9553,6 @@ impl ::core::ops::Not for TMPF_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TTEMBED_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTEMBED_EMBEDEUDC: TTEMBED_FLAGS = TTEMBED_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTEMBED_RAW: TTEMBED_FLAGS = TTEMBED_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTEMBED_SUBSET: TTEMBED_FLAGS = TTEMBED_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTEMBED_TTCOMPRESSED: TTEMBED_FLAGS = TTEMBED_FLAGS(4u32);
 impl ::core::marker::Copy for TTEMBED_FLAGS {}
 impl ::core::clone::Clone for TTEMBED_FLAGS {
     fn clone(&self) -> Self {
@@ -9605,10 +9609,6 @@ impl ::core::ops::Not for TTEMBED_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TTLOAD_EMBEDDED_FONT_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTLOAD_FONT_SUBSETTED: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TTLOAD_FONT_IN_SYSSTARTUP: TTLOAD_EMBEDDED_FONT_STATUS = TTLOAD_EMBEDDED_FONT_STATUS(2u32);
 impl ::core::marker::Copy for TTLOAD_EMBEDDED_FONT_STATUS {}
 impl ::core::clone::Clone for TTLOAD_EMBEDDED_FONT_STATUS {
     fn clone(&self) -> Self {
