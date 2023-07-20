@@ -1,4 +1,5 @@
 use crate::winmd::{self, writer};
+use metadata::RowReader;
 
 pub fn from_reader(
     reader: &metadata::Reader,
@@ -18,7 +19,12 @@ pub fn from_reader(
         )));
     }
 
-    for def in reader.types(filter) {
+    for item in reader.items(filter) {
+        // TODO: cover all variants
+        let metadata::Item::Type(def) = item else {
+            continue;
+        };
+
         let generics = &reader.type_def_generics(def);
 
         let extends = if let Some(extends) = reader.type_def_extends(def) {

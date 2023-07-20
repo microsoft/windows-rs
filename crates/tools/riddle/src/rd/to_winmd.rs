@@ -1,4 +1,4 @@
-use crate::{idl, winmd, Result};
+use crate::{rd, winmd, Result};
 
 // TODO: store span in winmd so that errors resolving type references can be traced back to file/line/column
 use std::collections::HashMap;
@@ -7,7 +7,7 @@ use std::collections::HashMap;
 // TODO: this creates a temporary in-memory winmd used to treat the IDL content uniformly as metadata.
 // The winmd_to_winmd does the harder job of validating and producing canonical winmd for public consumption.
 
-pub fn idl_to_winmd(file: &idl::File) -> Result<Vec<u8>> {
+pub fn idl_to_winmd(file: &rd::File) -> Result<Vec<u8>> {
     // Local-to-qualified type names found in use declaration - e.g. "IStringable" -> "Windows.Foundation.IStringable"
     // This is just a convenience for the developer to shorten common references like this but would not support globs or renames.
     // Note that none of these are verified to be real until much later when the winmd is validated since we don't
@@ -18,11 +18,11 @@ pub fn idl_to_winmd(file: &idl::File) -> Result<Vec<u8>> {
 
     // Types are collected here in two passes - this allows us to figure out whether a local name points to a relative type
     // or a type from a use declaration...?
-    let mut collector = HashMap::<String, HashMap<&str, idl::ModuleMember>>::new();
+    let mut collector = HashMap::<String, HashMap<&str, rd::ModuleMember>>::new();
 
     file.modules
         .iter()
-        .for_each(|module| collect_module(&mut collector, module, &module.name));
+        .for_each(|module| collect_module(&mut collector, module));
 
     // TODO: collect type names into hashmap (phase 1) and just drop clones of the IDL members into the collector
 
@@ -41,28 +41,25 @@ pub fn idl_to_winmd(file: &idl::File) -> Result<Vec<u8>> {
 }
 
 fn collect_module<'a>(
-    collector: &mut HashMap<String, HashMap<&'a str, idl::ModuleMember>>,
-    module: &'a idl::Module,
-    namespace: &str,
+    collector: &mut HashMap<String, HashMap<&'a str, rd::ModuleMember>>,
+    module: &'a rd::Module,
 ) {
     module
         .members
         .iter()
-        .for_each(|member| collect_member(collector, member, namespace));
+        .for_each(|member| collect_member(collector, module, member));
 }
 
 fn collect_member<'a>(
-    collector: &mut HashMap<String, HashMap<&'a str, idl::ModuleMember>>,
-    member: &'a idl::ModuleMember,
-    namespace: &str,
+    collector: &mut HashMap<String, HashMap<&'a str, rd::ModuleMember>>,
+    module: &'a rd::Module,
+    member: &'a rd::ModuleMember,
 ) {
     match member {
-        idl::ModuleMember::Module(module) => {
-            collect_module(collector, module, &format!("{namespace}.{}", module.name))
-        }
+        rd::ModuleMember::Module(module) => collect_module(collector, module),
         _ => {
             _ = collector
-                .entry(namespace.to_string())
+                .entry(module.namespace.to_string())
                 .or_default()
                 .entry(member.name())
                 .or_insert(member.clone())
@@ -74,14 +71,14 @@ fn write_member(
     writer: &mut winmd::Writer,
     namespace: &str,
     name: &str,
-    member: &idl::ModuleMember,
+    member: &rd::ModuleMember,
 ) {
     match member {
-        idl::ModuleMember::Interface(member) => write_interface(writer, namespace, name, member),
-        idl::ModuleMember::Struct(member) => write_struct(writer, namespace, name, member),
-        idl::ModuleMember::Enum(member) => write_enum(writer, namespace, name, member),
-        idl::ModuleMember::Class(member) => write_class(writer, namespace, name, member),
-        idl::ModuleMember::Module(_) => {} // modules have already been flattened but rustc doesn't know this
+        rd::ModuleMember::Interface(member) => write_interface(writer, namespace, name, member),
+        rd::ModuleMember::Struct(member) => write_struct(writer, namespace, name, member),
+        rd::ModuleMember::Enum(member) => write_enum(writer, namespace, name, member),
+        rd::ModuleMember::Class(member) => write_class(writer, namespace, name, member),
+        rd::ModuleMember::Module(_) => {} // modules have already been flattened but rustc doesn't know this
     }
 }
 
@@ -89,7 +86,7 @@ fn write_interface(
     writer: &mut winmd::Writer,
     namespace: &str,
     name: &str,
-    member: &idl::Interface,
+    member: &rd::Interface,
 ) {
     let flags = metadata::TypeAttributes::Public
         | metadata::TypeAttributes::Interface
@@ -128,7 +125,7 @@ fn write_interface(
     }
 }
 
-fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member: &idl::Struct) {
+fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member: &rd::Struct) {
     let flags = metadata::TypeAttributes::Public
         | metadata::TypeAttributes::WindowsRuntime
         | metadata::TypeAttributes::Sealed
@@ -158,11 +155,11 @@ fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member:
     }
 }
 
-fn write_enum(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _member: &idl::Enum) {}
+fn write_enum(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _member: &rd::Enum) {}
 
-fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _member: &idl::Class) {}
+fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _member: &rd::Class) {}
 
-// fn idl_interface(writer:  &mut winmd::Writer, _file: &idl::File, ty: &idl::Interface, namespace: &str, phase: ReadPhase) -> Result<()> {
+// fn idl_interface(writer:  &mut winmd::Writer, _file: &rd::File, ty: &rd::Interface, namespace: &str, phase: ReadPhase) -> Result<()> {
 //     let ident = ty.ident.to_string();
 
 //         match phase {
@@ -205,7 +202,7 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 //     Ok(())
 // }
 
-// fn idl_struct(writer:  &mut winmd::Writer, _file: &idl::File, ty: &idl::Struct, namespace: &str, phase: ReadPhase) -> Result<()> {
+// fn idl_struct(writer:  &mut winmd::Writer, _file: &rd::File, ty: &rd::Struct, namespace: &str, phase: ReadPhase) -> Result<()> {
 //     let ident = ty.item.ident.to_string();
 
 //         match phase {
@@ -238,7 +235,7 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 //     Ok(())
 // }
 
-// fn idl_enum(writer:  &mut winmd::Writer, _file: &idl::File, ty: &idl::Enum, namespace: &str, phase: ReadPhase) -> Result<()> {
+// fn idl_enum(writer:  &mut winmd::Writer, _file: &rd::File, ty: &rd::Enum, namespace: &str, phase: ReadPhase) -> Result<()> {
 //     let ident = ty.item.ident.to_string();
 
 //         match phase {
@@ -266,7 +263,7 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 //     Ok(())
 // }
 
-// fn idl_class(writer:  &mut winmd::Writer, _file: &idl::File, ty: &idl::Class, namespace: &str, _phase: ReadPhase) -> Result<()> {
+// fn idl_class(writer:  &mut winmd::Writer, _file: &rd::File, ty: &rd::Class, namespace: &str, _phase: ReadPhase) -> Result<()> {
 //     let ident = ty.ident.to_string();
 //     self.insert(namespace, 0).types.entry(ident).or_default();
 //     Ok(())

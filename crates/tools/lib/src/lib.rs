@@ -1,4 +1,5 @@
 use std::collections::BTreeMap;
+use metadata::RowReader;
 
 pub enum CallingConvention {
     Stdcall(usize),
@@ -50,28 +51,36 @@ fn combine_libraries(
     reader: &metadata::Reader,
     libraries: &mut BTreeMap<String, BTreeMap<String, CallingConvention>>,
 ) {
-    for namespace in reader.namespaces() {
-        for method in reader.namespace_functions(namespace) {
-            let library = reader.method_def_module_name(method);
-            let impl_map = reader
-                .method_def_impl_map(method)
-                .expect("ImplMap not found");
-            let flags = reader.impl_map_flags(impl_map);
-            let name = reader.impl_map_import_name(impl_map).to_string();
-            if flags.contains(metadata::PInvokeAttributes::CallConvPlatformapi) {
-                let params = reader.method_def_size(namespace, method);
-                libraries
-                    .entry(library)
-                    .or_default()
-                    .insert(name, CallingConvention::Stdcall(params));
-            } else if flags.contains(metadata::PInvokeAttributes::CallConvCdecl) {
-                libraries
-                    .entry(library)
-                    .or_default()
-                    .insert(name, CallingConvention::Cdecl);
-            } else {
-                unimplemented!();
-            }
+    for item in reader.items(&Default::default()) {
+        let metadata::Item::Fn(method, namespace) = item else {
+            continue;
+        };
+
+        let library = reader.method_def_module_name(method);
+        let impl_map = reader
+            .method_def_impl_map(method)
+            .expect("ImplMap not found");
+        let flags = reader.impl_map_flags(impl_map);
+        let name = reader.impl_map_import_name(impl_map).to_string();
+
+        // TODO: don't include these in metadata to begin with
+        if name.starts_with('#') || library == "forceinline" {
+            continue;
+        }
+
+        if flags.contains(metadata::PInvokeAttributes::CallConvPlatformapi) {
+            let params = reader.method_def_size(&namespace, method);
+            libraries
+                .entry(library)
+                .or_default()
+                .insert(name, CallingConvention::Stdcall(params));
+        } else if flags.contains(metadata::PInvokeAttributes::CallConvCdecl) {
+            libraries
+                .entry(library)
+                .or_default()
+                .insert(name, CallingConvention::Cdecl);
+        } else {
+            unimplemented!();
         }
     }
 }

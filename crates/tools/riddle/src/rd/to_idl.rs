@@ -1,5 +1,6 @@
 use crate::tokens::{quote, to_ident, TokenStream};
-use crate::{idl, Error, Result, Tree};
+use crate::{rd, Error, Result, Tree};
+use metadata::RowReader;
 
 pub fn from_reader(
     reader: &metadata::Reader,
@@ -19,7 +20,7 @@ pub fn from_reader(
 
     let tree = Tree::new(writer.reader, writer.filter);
     let tokens = writer.tree(&tree);
-    let file = idl::File::parse_str(&tokens.into_string())?;
+    let file = rd::File::parse_str(&tokens.into_string())?;
     crate::write_to_file(output, file.fmt())
 }
 
@@ -62,8 +63,8 @@ impl<'a> Writer<'a> {
             );
             let types = self
                 .reader
-                .namespace_types(tree.namespace, self.filter)
-                .map(|def| self.type_def(def));
+                .namespace_items(tree.namespace, self.filter)
+                .map(|item| self.item(item));
 
             quote! {
                 mod #name {
@@ -71,6 +72,13 @@ impl<'a> Writer<'a> {
                     #(#types)*
                 }
             }
+        }
+    }
+
+    fn item(&self, item: metadata::Item) -> TokenStream {
+        match item {
+            metadata::Item::Type(def) => self.type_def(def),
+            rest => unimplemented!("{rest:?}"),
         }
     }
 

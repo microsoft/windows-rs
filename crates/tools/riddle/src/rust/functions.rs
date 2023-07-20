@@ -1,6 +1,22 @@
 use super::*;
 
 pub fn writer(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
+    // TODO: remove inline functions from metadata
+    if writer.reader.method_def_module_name(def) == "forceinline" {
+        return quote! {};
+    }
+
+    // TODO: remove ordinal functions from metadata
+    if let Some(impl_map) = writer.reader.method_def_impl_map(def) {
+        if writer
+            .reader
+            .impl_map_import_name(impl_map)
+            .starts_with('#')
+        {
+            return quote! {};
+        }
+    }
+
     if writer.sys {
         gen_sys_function(writer, namespace, def)
     } else {
@@ -12,7 +28,7 @@ fn gen_sys_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
     let signature = writer.reader.method_def_signature(namespace, def, &[]);
     let cfg = writer.reader.signature_cfg(&signature);
     let mut tokens = writer.cfg_features(&cfg);
-    tokens.combine(&gen_link(writer, &signature, &cfg));
+    tokens.combine(&gen_link(writer, namespace, &signature, &cfg));
     tokens
 }
 
@@ -25,7 +41,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
     let cfg = writer.reader.signature_cfg(&signature);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
-    let link = gen_link(writer, &signature, &cfg);
+    let link = gen_link(writer, namespace, &signature, &cfg);
 
     let kind = writer.reader.signature_kind(&signature);
     match kind {
@@ -177,7 +193,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
     }
 }
 
-fn gen_link(writer: &Writer, signature: &Signature, cfg: &Cfg) -> TokenStream {
+fn gen_link(writer: &Writer, namespace: &str, signature: &Signature, cfg: &Cfg) -> TokenStream {
     let name = writer.reader.method_def_name(signature.def);
     let ident = to_ident(name);
     let library = writer.reader.method_def_module_name(signature.def);
@@ -213,7 +229,7 @@ fn gen_link(writer: &Writer, signature: &Signature, cfg: &Cfg) -> TokenStream {
         quote! {}
     };
 
-    if writer.std || !writer.namespace.starts_with("Windows.") {
+    if writer.std || !namespace.starts_with("Windows.") {
         let library = library.trim_end_matches(".dll");
 
         quote! {

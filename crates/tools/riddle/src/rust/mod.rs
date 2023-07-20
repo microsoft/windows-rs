@@ -32,11 +32,6 @@ pub fn from_reader(
     writer.implement = config.remove("IMPLEMENT").is_some();
     writer.minimal = config.remove("MINIMAL").is_some();
 
-    // TODO: get rid of this hack so it can work with any metadata
-    if writer.flatten {
-        writer.namespace = "Windows.";
-    }
-
     if writer.package && writer.flatten {
         return Err(Error::new(
             "cannot combine PACKAGE and FLATTEN configuration values",
@@ -65,7 +60,7 @@ fn gen_file(writer: &Writer) -> Result<()> {
     // there should be a simple way to generate the with or without namespaces.
 
     if writer.flatten {
-        let tokens = standalone::standalone_imp(writer, writer.filter.includes());
+        let tokens = standalone::standalone_imp(writer);
         crate::write_to_file(writer.output, try_format(writer, &tokens))
     } else {
         let mut tokens = String::new();
@@ -176,96 +171,98 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
     let mut functions = BTreeMap::<&str, TokenStream>::new();
     let mut types = BTreeMap::<TypeKind, BTreeMap<&str, TokenStream>>::new();
 
-    for method in writer.reader.namespace_functions(tree.namespace) {
-        let name = writer.reader.method_def_name(method);
-        functions
-            .entry(name)
-            .or_default()
-            .combine(&functions::writer(writer, tree.namespace, method));
-    }
-
-    for field in writer.reader.namespace_constants(tree.namespace) {
-        let name = writer.reader.field_name(field);
-        types
-            .entry(TypeKind::Class)
-            .or_default()
-            .entry(name)
-            .or_default()
-            .combine(&constants::writer(writer, field));
-    }
-
-    for def in writer
+    for item in writer
         .reader
-        .namespace_types(tree.namespace, &Default::default())
+        .namespace_items(writer.namespace, writer.filter)
     {
-        let type_name = writer.reader.type_def_type_name(def);
-        if REMAP_TYPES.iter().any(|(x, _)| x == &type_name) {
-            continue;
-        }
-        if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
-            continue;
-        }
-        let name = type_name.name;
-        let kind = writer.reader.type_def_kind(def);
-        match kind {
-            TypeKind::Class => {
-                if writer
-                    .reader
-                    .type_def_flags(def)
-                    .contains(TypeAttributes::WindowsRuntime)
-                {
-                    types
+        match item {
+            Item::Type(def) => {
+                let type_name = writer.reader.type_def_type_name(def);
+                if REMAP_TYPES.iter().any(|(x, _)| x == &type_name) {
+                    continue;
+                }
+                if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
+                    continue;
+                }
+                let name = type_name.name;
+                let kind = writer.reader.type_def_kind(def);
+                match kind {
+                    TypeKind::Class => {
+                        if writer
+                            .reader
+                            .type_def_flags(def)
+                            .contains(TypeAttributes::WindowsRuntime)
+                        {
+                            types
+                                .entry(kind)
+                                .or_default()
+                                .insert(name, classes::writer(writer, def));
+                        }
+                    }
+                    TypeKind::Interface => types
                         .entry(kind)
                         .or_default()
-                        .insert(name, classes::writer(writer, def));
-                }
-            }
-            TypeKind::Interface => types
-                .entry(kind)
-                .or_default()
-                .entry(name)
-                .or_default()
-                .combine(&interfaces::writer(writer, def)),
-            TypeKind::Enum => types
-                .entry(kind)
-                .or_default()
-                .entry(name)
-                .or_default()
-                .combine(&enums::writer(writer, def)),
-            TypeKind::Struct => {
-                if writer.reader.type_def_fields(def).next().is_none() {
-                    if let Some(guid) = writer.reader.type_def_guid(def) {
-                        let ident = to_ident(name);
-                        let value = writer.guid(&guid);
-                        let guid = writer.type_name(&Type::GUID);
-                        let cfg = writer.reader.type_def_cfg(def, &[]);
-                        let doc = writer.cfg_doc(&cfg);
-                        let constant = quote! {
-                            #doc
-                            pub const #ident: #guid = #value;
-                        };
+                        .entry(name)
+                        .or_default()
+                        .combine(&interfaces::writer(writer, def)),
+                    TypeKind::Enum => types
+                        .entry(kind)
+                        .or_default()
+                        .entry(name)
+                        .or_default()
+                        .combine(&enums::writer(writer, def)),
+                    TypeKind::Struct => {
+                        if writer.reader.type_def_fields(def).next().is_none() {
+                            if let Some(guid) = writer.reader.type_def_guid(def) {
+                                let ident = to_ident(name);
+                                let value = writer.guid(&guid);
+                                let guid = writer.type_name(&Type::GUID);
+                                let cfg = writer.reader.type_def_cfg(def, &[]);
+                                let doc = writer.cfg_doc(&cfg);
+                                let constant = quote! {
+                                    #doc
+                                    pub const #ident: #guid = #value;
+                                };
+                                types
+                                    .entry(TypeKind::Class)
+                                    .or_default()
+                                    .entry(name)
+                                    .or_default()
+                                    .combine(&constant);
+                                continue;
+                            }
+                        }
                         types
-                            .entry(TypeKind::Class)
+                            .entry(kind)
                             .or_default()
                             .entry(name)
                             .or_default()
-                            .combine(&constant);
-                        continue;
+                            .combine(&structs::writer(writer, def));
                     }
+                    TypeKind::Delegate => types
+                        .entry(kind)
+                        .or_default()
+                        .entry(name)
+                        .or_default()
+                        .combine(&delegates::writer(writer, def)),
                 }
+            }
+            Item::Fn(def, namespace) => {
+                let name = writer.reader.method_def_name(def);
+                functions
+                    .entry(name)
+                    .or_default()
+                    .combine(&functions::writer(writer, &namespace, def));
+            }
+            Item::Const(def) => {
+                let name = writer.reader.field_name(def);
                 types
-                    .entry(kind)
+                    .entry(TypeKind::Class)
                     .or_default()
                     .entry(name)
                     .or_default()
-                    .combine(&structs::writer(writer, def));
+                    .combine(&constants::writer(writer, def));
             }
-            TypeKind::Delegate => types
-                .entry(kind)
-                .or_default()
-                .entry(name)
-                .or_default()
-                .combine(&delegates::writer(writer, def)),
         }
     }
 
@@ -291,21 +288,23 @@ fn namespace_impl(writer: &Writer, tree: &Tree) -> String {
     writer.namespace = tree.namespace;
     let mut types = BTreeMap::<&str, TokenStream>::new();
 
-    for def in writer
+    for item in writer
         .reader
-        .namespace_types(tree.namespace, &Default::default())
+        .namespace_items(writer.namespace, writer.filter)
     {
-        let type_name = writer.reader.type_def_type_name(def);
-        if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
-            continue;
-        }
-        if writer.reader.type_def_kind(def) != TypeKind::Interface {
-            continue;
-        }
-        let tokens = implements::writer(writer, def);
+        if let Item::Type(def) = item {
+            let type_name = writer.reader.type_def_type_name(def);
+            if CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
+                continue;
+            }
+            if writer.reader.type_def_kind(def) != TypeKind::Interface {
+                continue;
+            }
+            let tokens = implements::writer(writer, def);
 
-        if !tokens.is_empty() {
-            types.insert(type_name.name, tokens);
+            if !tokens.is_empty() {
+                types.insert(type_name.name, tokens);
+            }
         }
     }
 
