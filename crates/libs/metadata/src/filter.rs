@@ -49,10 +49,6 @@ impl<'a> Filter<'a> {
         false
     }
 
-    pub fn includes_type(&self, reader: &Reader, ty: TypeDef) -> bool {
-        self.includes_type_name(reader.type_def_type_name(ty))
-    }
-
     pub fn includes_type_name(&self, type_name: TypeName) -> bool {
         if self.is_empty() {
             return true;
@@ -89,7 +85,7 @@ fn match_type_name(rule: &str, namespace: &str, name: &str) -> bool {
         return false;
     }
 
-    name.starts_with(&rule[namespace.len() + 1..])
+    name == &rule[namespace.len() + 1..]
 }
 
 #[cfg(test)]

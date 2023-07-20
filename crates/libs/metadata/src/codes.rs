@@ -1,6 +1,6 @@
 use super::*;
 
-pub(crate) trait Decode {
+pub trait Decode {
     fn decode(file: usize, code: usize) -> Self;
 }
 
@@ -12,7 +12,7 @@ impl Decode for AttributeType {
     fn decode(file: usize, code: usize) -> Self {
         let (kind, row) = (code & ((1 << 3) - 1), (code >> 3) - 1);
         match kind {
-            3 => Self::MemberRef(MemberRef(Row::new(row, TABLE_MEMBERREF, file))),
+            3 => Self::MemberRef(MemberRef(Row::new(row, file))),
             rest => unimplemented!("{rest:?}"),
         }
     }
@@ -80,7 +80,7 @@ impl Decode for MemberRefParent {
     fn decode(file: usize, code: usize) -> Self {
         let (kind, row) = (code & ((1 << 3) - 1), (code >> 3) - 1);
         match kind {
-            1 => Self::TypeRef(TypeRef(Row::new(row, TABLE_TYPEREF, file))),
+            1 => Self::TypeRef(TypeRef(Row::new(row, file))),
             rest => unimplemented!("{rest:?}"),
         }
     }
@@ -97,9 +97,9 @@ impl Decode for TypeDefOrRef {
     fn decode(file: usize, code: usize) -> Self {
         let (kind, row) = (code & ((1 << 2) - 1), (code >> 2) - 1);
         match kind {
-            0 => Self::TypeDef(TypeDef(Row::new(row, TABLE_TYPEDEF, file))),
-            1 => Self::TypeRef(TypeRef(Row::new(row, TABLE_TYPEREF, file))),
-            2 => Self::TypeSpec(TypeSpec(Row::new(row, TABLE_TYPESPEC, file))),
+            0 => Self::TypeDef(TypeDef(Row::new(row, file))),
+            1 => Self::TypeRef(TypeRef(Row::new(row, file))),
+            2 => Self::TypeSpec(TypeSpec(Row::new(row, file))),
             rest => unimplemented!("{rest:?}"),
         }
     }
@@ -128,10 +128,10 @@ impl Decode for ResolutionScope {
     fn decode(file: usize, code: usize) -> Self {
         let (kind, row) = (code & ((1 << 2) - 1), (code >> 2) - 1);
         match kind {
-            0 => Self::Module(Module(Row::new(row, TABLE_MODULE, file))),
-            1 => Self::ModuleRef(ModuleRef(Row::new(row, TABLE_MODULEREF, file))),
-            2 => Self::AssemblyRef(AssemblyRef(Row::new(row, TABLE_ASSEMBLYREF, file))),
-            3 => Self::TypeRef(TypeRef(Row::new(row, TABLE_TYPEREF, file))),
+            0 => Self::Module(Module(Row::new(row, file))),
+            1 => Self::ModuleRef(ModuleRef(Row::new(row, file))),
+            2 => Self::AssemblyRef(AssemblyRef(Row::new(row, file))),
+            3 => Self::TypeRef(TypeRef(Row::new(row, file))),
             rest => unimplemented!("{rest:?}"),
         }
     }
