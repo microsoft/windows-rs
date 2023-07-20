@@ -1,3 +1,5 @@
+mod module_attributes;
+mod nested_module;
 mod nested_struct;
 mod params;
 mod r#struct;
@@ -5,34 +7,34 @@ mod r#struct;
 use std::process::Command;
 
 pub fn run_riddle(name: &str) -> Vec<windows_metadata::File> {
-    let idl = format!("tests/{name}.idl");
+    let rd = format!("tests/{name}.rd");
     let winmd = format!("tests/{name}.winmd");
     let rs = format!("src/{name}.rs");
 
-    let before = std::fs::read_to_string(&idl).expect("Failed to read input");
+    let before = std::fs::read_to_string(&rd).expect("Failed to read input");
 
-    // Convert .idl to .winmd
+    // Convert .rd to .winmd
     let mut command = Command::new("cargo");
     command.args([
-        "run", "-p", "riddle", "--", "--in", &idl, "--out", &winmd, "--filter", "Test",
+        "run", "-p", "riddle", "--", "--in", &rd, "--out", &winmd, "--filter", "Test",
     ]);
     assert!(command.status().unwrap().success());
 
-    // Convert .winmd back to .idl
+    // Convert .winmd back to .rd
     let mut command = Command::new("cargo");
     command.args([
-        "run", "-p", "riddle", "--", "--in", &winmd, "--out", &idl, "--filter", "Test",
+        "run", "-p", "riddle", "--", "--in", &winmd, "--out", &rd, "--filter", "Test",
     ]);
     assert!(command.status().unwrap().success());
 
-    // Check that .idl is unchanged
-    let after = std::fs::read_to_string(&idl).expect("Failed to read output");
+    // Check that .rd is unchanged
+    let after = std::fs::read_to_string(&rd).expect("Failed to read output");
     assert_eq!(before, after);
 
-    // Convert .idl to .rs
+    // Convert .rd to .rs
     let mut command = Command::new("cargo");
     command.args([
-        "run", "-p", "riddle", "--", "--in", &idl, "--out", &rs, "--filter", "Test",
+        "run", "-p", "riddle", "--", "--in", &rd, "--out", &rs, "--filter", "Test",
     ]); // TODO: --config FLATTEN doesn't work for namespaces
     assert!(command.status().unwrap().success());
 

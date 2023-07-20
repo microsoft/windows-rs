@@ -2,12 +2,12 @@ use test_riddle::run_riddle;
 use windows_metadata::*;
 
 #[test]
-fn primitives() {
+fn test() {
     let files = run_riddle("params");
     let reader = &Reader::new(&files);
 
     let def = reader
-        .get(TypeName::new("Test", "IParams"))
+        .get_type_def(TypeName::new("Test", "IParams"))
         .next()
         .expect("Type missing");
 

@@ -2,12 +2,12 @@ use test_riddle::run_riddle;
 use windows_metadata::*;
 
 #[test]
-fn primitives() {
+fn test() {
     let files = run_riddle("nested_struct");
     let reader = &Reader::new(&files);
 
     let def = reader
-        .get(TypeName::new("Test", "Inner"))
+        .get_type_def(TypeName::new("Test", "Inner"))
         .next()
         .expect("Type missing");
 
@@ -18,7 +18,7 @@ fn primitives() {
     assert!(matches!(reader.field_type(fields[0], None), Type::I32));
 
     let def = reader
-        .get(TypeName::new("Test", "Outer"))
+        .get_type_def(TypeName::new("Test", "Outer"))
         .next()
         .expect("Type missing");
 
